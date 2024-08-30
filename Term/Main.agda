@@ -1,5 +1,7 @@
 module Term.Main where
 
+open import String.Main
+
 -- Represents a Higher-Order Abstract Syntax Term
 -- - Lam: lambda abstraction
 -- - App: function application

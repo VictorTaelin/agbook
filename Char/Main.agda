@@ -18,6 +18,6 @@ primitive
   primIsHexDigit : Char -> Bool
   primToUpper    : Char -> Char
   primToLower    : Char -> Char
-  -- primCharToNat  : Char -> Nat
-  -- primNatToChar  : Nat -> Char
-  -- primShowChar   : Char -> String
+  primCharToNat  : Char -> Nat
+  primNatToChar  : Nat -> Char
+  --primShowChar   : Char -> String

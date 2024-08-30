@@ -1,37 +1,81 @@
 module Main where
 
 open import IO.Main
-open import String.Main
 open import Unit.Main
+open import String.Main
 open import String.concat
+open import Int.Main
+open import Float.Main
+open import Nat.Main
+open import Nat.add
+open import Word.Main
+open import Word.add
+open import Bool.Main
 
-data N : Set where
-  s : N -> N
-  z : N
+intValue : Int
+intValue = pos 42
 
-add : N → N → N
-add z     m = m
-add (s n) m = add n (s m)
+intStr : String
+intStr = primShowInteger intValue
 
-mod3 : N → N
-mod3 z             = z
-mod3 (s z)         = s z
-mod3 (s (s z))     = s (s z)
-mod3 (s (s (s n))) = mod3 n
+floatVal : Float
+floatVal = primIntToFloat intValue
 
-fib3 : N → N
-fib3 z         = z
-fib3 (s z)     = s z
-fib3 (s (s n)) = mod3 (add (fib3 n) (fib3 (s n)))
+floatStr : String
+floatStr = primShowFloat floatVal
 
-show : N → String
-show z     = "z"
-show (s n) = "(s " ++ show n ++ ")"
+natVal : Nat
+natVal = 10
 
+natSum : Nat
+natSum = natVal + 5
+
+natStr : String
+natStr = primShowInteger (pos natSum)
+
+word1 : Word64
+word1 = primWord64FromNat 100
+
+word2 : Word64
+word2 = primWord64FromNat 200
+
+wordSum : Word64
+wordSum = addWord word1 word2
+
+wordStr : String
+wordStr = primShowInteger (pos (primWord64ToNat wordSum))
+
+-- Main function that demonstrates usage of various primitives
 main : IO Unit
-main = putStrLn ("result = " ++ show (fib3
-  (s (s (s (s
-  (s (s (s (s (s (s (s (s
-  (s (s (s (s (s (s (s (s
-  (s (s (s (s (s (s (s (s
-  (s (s (s (s (s (s (s (s z))))))))))))))))))))))))))))))))))))))
+main =  putStrLn wordStr
+
+--data N : Set where
+  --s : N -> N
+  --z : N
+
+--add : N → N → N
+--add z     m = m
+--add (s n) m = add n (s m)
+
+--mod3 : N → N
+--mod3 z             = z
+--mod3 (s z)         = s z
+--mod3 (s (s z))     = s (s z)
+--mod3 (s (s (s n))) = mod3 n
+
+--fib3 : N → N
+--fib3 z         = z
+--fib3 (s z)     = s z
+--fib3 (s (s n)) = mod3 (add (fib3 n) (fib3 (s n)))
+
+--show : N → String
+--show z     = "z"
+--show (s n) = "(s " ++ show n ++ ")"
+
+--main : IO Unit
+--main = putStrLn ("result = " ++ show (fib3
+  --(s (s (s (s
+  --(s (s (s (s (s (s (s (s
+  --(s (s (s (s (s (s (s (s
+  --(s (s (s (s (s (s (s (s
+  --(s (s (s (s (s (s (s (s z))))))))))))))))))))))))))))))))))))))
