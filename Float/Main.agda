@@ -55,3 +55,6 @@ primitive
   primFloatFloor             : Float → Maybe Int
   primFloatCeiling           : Float → Maybe Int
 
+  primFloatLess             : Float → Float → Bool
+  primFloatEquality         : Float → Float → Bool
+
