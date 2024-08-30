@@ -2,10 +2,10 @@ module Bool.or where
 
 open import Bool.Main
 
--- Performs logical OR operation on two boolean values
--- - a: the first boolean value
--- - b: the second boolean value
--- = true if either a or b is true, false otherwise
+-- Performs logical OR operation on two bools.
+-- - a: the 1st bool.
+-- - b: the 2ns bool.
+-- = True if either a or b is true.
 or : Bool → Bool → Bool
 or true  _ = true
 or false b = b

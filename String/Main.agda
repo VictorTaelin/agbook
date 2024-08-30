@@ -7,7 +7,7 @@ open import Bool.Main
 postulate String : Set
 {-# BUILTIN STRING String #-}
 
--- Primitive functions for String
+-- Primitive functions for String.
 primitive
   primStringAppend : String → String → String
   primStringToList : String → List Char

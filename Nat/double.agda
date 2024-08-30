@@ -2,9 +2,9 @@ module Nat.double where
 
 open import Nat.Main
 
--- Doubles a natural number
--- - n: the number to double
--- = the result of n + n
+-- Doubles a nat.
+-- - n: the number to double.
+-- = The double of n.
 double : Nat → Nat
 double zero     = zero
 double (succ n) = succ (succ (double n))
