@@ -1,0 +1,12 @@
+module Data.Tree.sum where
+
+open import Data.Tree.Main
+open import Data.Nat.Main
+open import Data.Nat.add
+
+-- Calculates the sum of all values in a tree of natural numbers.
+-- - t: The tree to sum.
+-- = The sum of all values in the tree.
+sum : Tree Nat → Nat
+sum leaf                = zero
+sum (node x left right) = x + (sum left + sum right)

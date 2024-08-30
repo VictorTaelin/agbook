@@ -1,0 +1,10 @@
+module Data.V2.neg where
+
+open import Data.V2.Main
+open import Data.Float.Main
+
+-- Negates a V2 vector.
+-- - v: The V2 vector to negate.
+-- = A new V2 vector with negated coordinates.
+neg_v2 : V2 → V2
+neg_v2 (MkV2 x y) = MkV2 (primFloatNegate x) (primFloatNegate y)
