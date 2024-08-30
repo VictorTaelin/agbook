@@ -1,4 +1,4 @@
-module Nat.equal where
+module Nat.equals where
 
 open import Nat.Main
 open import Bool.Main
@@ -7,8 +7,9 @@ open import Bool.Main
 -- - m: the first natural number
 -- - n: the second natural number
 -- = true if m and n are equal, false otherwise
-equal : Nat → Nat → Bool
-equal zero zero = true
-equal zero (succ _) = false
-equal (succ _) zero = false
-equal (succ m) (succ n) = equal m n
+_==_ : Nat → Nat → Bool
+zero  == zero  = true
+succ m == succ n = m == n
+_     == _     = false
+
+{-# BUILTIN NATEQUALS _==_ #-}
