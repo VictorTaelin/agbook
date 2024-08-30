@@ -7,5 +7,5 @@ open import List.Main
 -- - xs: the elements to apply f to
 -- = a new list with f applied to all elements
 map : ∀ {A B : Set} → (A → B) → List A → List B
-map f []        = []
-map f (x ++ xs) = (f x) ++ (map f xs)
+map f []       = []
+map f (x , xs) = f x , map f xs
