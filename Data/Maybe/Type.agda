@@ -1,4 +1,4 @@
-module Data.Maybe.Main where
+module Data.Maybe.Type where
 
 data Maybe {a} (A : Set a) : Set a where
   none : Maybe A

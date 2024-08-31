@@ -1,9 +1,9 @@
 module Data.Vector.at where
 
-open import Data.Vector.Main
-open import Data.Nat.Main
+open import Data.Vector.Type
+open import Data.Nat.Type
 open import Data.Nat.less
-open import Data.Maybe.Main
+open import Data.Maybe.Type
 
 -- Retrieves the element at the specified index in the vector.
 -- - A: The type of elements in the vector.

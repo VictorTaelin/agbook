@@ -1,6 +1,6 @@
 module Data.Bool.and where
 
-open import Data.Bool.Main
+open import Data.Bool.Type
 
 -- Performs logical AND operation on two boolean values.
 -- - a: The first boolean value.

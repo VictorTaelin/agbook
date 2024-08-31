@@ -1,7 +1,7 @@
 module Data.V2.linear_interpolation where
 
-open import Data.V2.Main
-open import Data.Float.Main
+open import Data.V2.Type
+open import Data.Float.Type
 open import Data.Float.Operations
 open import Data.V2.add
 open import Data.V2.sub

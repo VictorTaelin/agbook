@@ -1,4 +1,4 @@
-module Data.Nat.Main where
+module Data.Nat.Type where
 
 data Nat : Set where
   zero : Nat

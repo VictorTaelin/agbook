@@ -1,6 +1,6 @@
 module Data.Tree.fold where
 
-open import Data.Tree.Main
+open import Data.Tree.Type
 
 -- Fold operation for Tree.
 -- - f: Function to apply to each node.

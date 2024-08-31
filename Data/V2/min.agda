@@ -1,9 +1,9 @@
 module Data.V2.min where
 
-open import Data.V2.Main
+open import Data.V2.Type
 open import Data.Bool.if
 open import Data.Float.Comparison
-open import Data.Float.Main
+open import Data.Float.Type
 
 -- Returns the minimum of the x and y coordinates of a V2 vector.
 -- - v: The V2 vector.

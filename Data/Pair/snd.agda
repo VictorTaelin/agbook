@@ -1,6 +1,6 @@
 module Data.Pair.snd where
 
-open import Data.Pair.Main
+open import Data.Pair.Type
 
 -- Extracts the 2nd element from a Pair.
 -- - pair: The input Pair.

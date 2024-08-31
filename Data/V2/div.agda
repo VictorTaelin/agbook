@@ -1,6 +1,6 @@
 module Data.V2.div where
 
-open import Data.V2.Main
+open import Data.V2.Type
 open import Data.Float.Operations
 
 -- Divides one V2 vector by another.

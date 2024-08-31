@@ -1,4 +1,4 @@
-module Data.Equal.Main where
+module Data.Equal.Type where
 
 infix 4 _==_
 

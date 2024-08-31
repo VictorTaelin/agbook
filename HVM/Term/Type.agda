@@ -1,4 +1,4 @@
-module HVM.Term where
+module HVM.Term.Type where
 
 open import Data.Nat.Type
 

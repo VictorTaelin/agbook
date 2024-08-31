@@ -1,7 +1,7 @@
 module Data.V2.sqr_dist where
 
-open import Data.V2.Main
-open import Data.Float.Main
+open import Data.V2.Type
+open import Data.Float.Type
 open import Data.Float.Operations
 
 -- Calculates the squared distance between two V2 vectors.

@@ -1,7 +1,7 @@
 module Data.Vector.append where
 
-open import Data.Vector.Main
-open import Data.Nat.Main
+open import Data.Vector.Type
+open import Data.Nat.Type
 open import Data.Nat.add
 
 -- Concatenates two vectors.

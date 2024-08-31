@@ -1,6 +1,6 @@
 module Data.Nat.mul where
 
-open import Data.Nat.Main
+open import Data.Nat.Type
 open import Data.Nat.add
 
 -- Multiplication of nats.

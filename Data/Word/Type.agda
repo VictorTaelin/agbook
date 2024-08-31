@@ -1,7 +1,7 @@
-module Data.Word.Main where
+module Data.Word.Type where
 
-open import Data.Nat.Main
-open import Data.Bool.Main
+open import Data.Nat.Type
+open import Data.Bool.Type
 
 -- Represents a 64-bit machine word.
 postulate Word64 : Set

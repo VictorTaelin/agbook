@@ -1,6 +1,9 @@
 module Data.String.append where
 
-open import Data.String.Main
+open import Data.String.Type
+
+primitive
+  primStringAppend : String → String → String
 
 -- Concatenates two strings.
 -- - s1: The 1st string.

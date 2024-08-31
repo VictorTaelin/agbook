@@ -1,6 +1,6 @@
-module Data.Vector.Main where
+module Data.Vector.Type where
 
-open import Data.Nat.Main
+open import Data.Nat.Type
 
 -- Defines a vector (length-indexed list) datatype.
 -- - A: The type of elements in the vector.

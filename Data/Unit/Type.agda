@@ -1,4 +1,4 @@
-module Data.Unit.Main where
+module Data.Unit.Type where
 
 record Unit : Set where
   constructor unit

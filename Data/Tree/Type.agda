@@ -1,4 +1,4 @@
-module Data.Tree.Main where
+module Data.Tree.Type where
 
 -- Defines a binary tree datatype.
 -- - A: The type of values stored in the tree.

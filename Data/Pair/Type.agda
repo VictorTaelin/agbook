@@ -1,4 +1,4 @@
-module Data.Pair.Main where
+module Data.Pair.Type where
 
 -- Represents a pair of values.
 -- - _,_ : Constructs a pair from two values of possibly different types.

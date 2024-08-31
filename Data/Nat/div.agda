@@ -1,6 +1,6 @@
 module Data.Nat.div where
 
-open import Data.Nat.Main
+open import Data.Nat.Type
 open import Data.Nat.sub
 
 -- Helper function for division

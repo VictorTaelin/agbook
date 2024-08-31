@@ -1,6 +1,6 @@
 module Data.Bool.or where
 
-open import Data.Bool.Main
+open import Data.Bool.Type
 
 -- Performs logical OR operation on two bools.
 -- - a: The 1st bool.

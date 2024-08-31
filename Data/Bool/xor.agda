@@ -1,6 +1,6 @@
 module Data.Bool.xor where
 
-open import Data.Bool.Main
+open import Data.Bool.Type
 
 -- Performs logical XOR operation on two bools.
 -- - a: The 1st bool.

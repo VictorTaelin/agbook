@@ -1,13 +1,13 @@
-module Data.Float.Main where
+module Data.Float.Type where
 
 -- The primitive binary relations implement their IEEE 754 equivalents
 
-open import Data.Bool.Main
-open import Data.Nat.Main
-open import Data.String.Main
-open import Data.Int.Main
-open import Data.Maybe.Main
-open import Data.Word.Main
+open import Data.Bool.Type
+open import Data.Nat.Type
+open import Data.String.Type
+open import Data.Int.Type
+open import Data.Maybe.Type
+open import Data.Word.Type
 
 postulate Float : Set
 {-# BUILTIN FLOAT Float #-}

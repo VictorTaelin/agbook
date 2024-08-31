@@ -1,10 +1,10 @@
 module Data.Map.set where
 
-open import Data.Map.Main
-open import Data.Bits.Main
-open import Data.Maybe.Main
-open import Data.Tree.Main
-open import Data.Bool.Main
+open import Data.Map.Type
+open import Data.Bits.Type
+open import Data.Maybe.Type
+open import Data.Tree.Type
+open import Data.Bool.Type
 open import Data.Bool.if
 
 -- Inserts a key-value pair into the Map.

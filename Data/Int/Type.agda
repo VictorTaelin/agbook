@@ -1,7 +1,7 @@
-module Data.Int.Main where
+module Data.Int.Type where
 
-open import Data.Nat.Main
-open import Data.String.Main
+open import Data.Nat.Type
+open import Data.String.Type
 
 data Int : Set where
   pos    : Nat → Int

@@ -1,6 +1,6 @@
 module Data.Pair.fst where
 
-open import Data.Pair.Main
+open import Data.Pair.Type
 
 -- Extracts the 1st element from a Pair.
 -- - pair: The input Pair.

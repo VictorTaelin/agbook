@@ -1,6 +1,6 @@
-module Data.Term.Main where
+module Data.Term.Type where
 
-open import Data.String.Main
+open import Data.String.Type
 
 -- Represents a Higher-Order Abstract Syntax Term.
 -- - Lam: An abstraction.

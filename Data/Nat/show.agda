@@ -1,10 +1,10 @@
 module Data.Nat.show where
 
-open import Data.Nat.Main
+open import Data.Nat.Type
 open import Data.Nat.div
 open import Data.Nat.eq
 open import Data.Nat.mod
-open import Data.String.Main
+open import Data.String.Type
 open import Data.String.append
 
 -- Converts a single digit to its string representation.

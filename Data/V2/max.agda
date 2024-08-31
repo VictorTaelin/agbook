@@ -1,8 +1,8 @@
 module Data.V2.max where
 
-open import Data.V2.Main
+open import Data.V2.Type
 open import Data.Bool.if
-open import Data.Float.Main
+open import Data.Float.Type
 open import Data.Float.Comparison
 
 -- Returns the maximum of the x and y coordinates of a V2 vector.

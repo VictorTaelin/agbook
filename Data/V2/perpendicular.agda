@@ -1,7 +1,7 @@
 module Data.V2.perpendicular where
 
-open import Data.V2.Main
-open import Data.Float.Main
+open import Data.V2.Type
+open import Data.Float.Type
 
 -- Calculates a vector perpendicular to the given V2 vector.
 -- - v: The V2 vector.

@@ -1,6 +1,6 @@
 module Data.Bool.if where
 
-open import Data.Bool.Main
+open import Data.Bool.Type
 
 -- Conditional expression.
 -- - x: The boolean condition to evaluate.

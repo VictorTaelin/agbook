@@ -1,7 +1,7 @@
-module Data.IO.Main where
+module Data.IO.Type where
 
-open import Data.Unit.Main
-open import Data.String.Main
+open import Data.Unit.Type
+open import Data.String.Type
 
 postulate IO : Set → Set
 {-# BUILTIN IO IO #-}

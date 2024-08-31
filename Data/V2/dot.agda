@@ -1,8 +1,8 @@
 module Data.V2.dot where
 
-open import Data.V2.Main
+open import Data.V2.Type
 open import Data.Float.Operations
-open import Data.Float.Main
+open import Data.Float.Type
 
 -- Calculates the dot product of two V2 vectors.
 -- - v1: The first V2 vector.

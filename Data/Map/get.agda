@@ -1,9 +1,9 @@
 module Data.Map.get where
 
-open import Data.Map.Main
-open import Data.Maybe.Main
-open import Data.Tree.Main
-open import Data.Bits.Main
+open import Data.Map.Type
+open import Data.Maybe.Type
+open import Data.Tree.Type
+open import Data.Bits.Type
 
 -- Retrieves a value from the Map given a key.
 -- - m: The Map to search in.

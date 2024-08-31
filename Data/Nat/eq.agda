@@ -1,7 +1,7 @@
 module Data.Nat.eq where
 
-open import Data.Nat.Main
-open import Data.Bool.Main
+open import Data.Nat.Type
+open import Data.Bool.Type
 
 -- Checks if two nats are equal.
 -- - m: The 1st nat.

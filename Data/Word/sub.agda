@@ -1,6 +1,6 @@
 module Data.Word.sub where
 
-open import Data.Word.Main
+open import Data.Word.Type
 open import Data.Nat.sub
 open import Data.Nat.add
 

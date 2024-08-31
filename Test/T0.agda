@@ -1,16 +1,16 @@
 module Test.T0 where
 
-open import Data.Bits.Main
-open import Data.Map.Main
+open import Data.Bits.Type
+open import Data.Map.Type
 open import Data.Map.get
 open import Data.Map.new
 open import Data.Map.set
 open import Data.Map.show
-open import Data.Maybe.Main
-open import Data.Nat.Main
+open import Data.Maybe.Type
+open import Data.Nat.Type
 open import Data.Nat.add
 open import Data.Nat.show
-open import Data.String.Main
+open import Data.String.Type
 
 main : Maybe Nat
 main =

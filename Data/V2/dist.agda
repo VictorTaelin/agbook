@@ -1,8 +1,8 @@
 module Data.V2.dist where
 
-open import Data.V2.Main
+open import Data.V2.Type
 open import Data.V2.sqr_dist
-open import Data.Float.Main
+open import Data.Float.Type
 open import Data.Float.Operations
 
 -- Calculates the Euclidean distance between two V2 vectors.

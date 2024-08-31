@@ -1,6 +1,6 @@
 module Data.Bool.not where
 
-open import Data.Bool.Main
+open import Data.Bool.Type
 
 -- Negates a Boolean value.
 -- - b: The input Boolean value.

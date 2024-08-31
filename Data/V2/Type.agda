@@ -1,6 +1,6 @@
-module Data.V2.Main where
+module Data.V2.Type where
 
-open import Data.Float.Main
+open import Data.Float.Type
 
 -- Represents a 2D vector with float coordinates.
 -- - x: The x-coordinate.

@@ -1,8 +1,8 @@
 module Data.Vector.to_list where
 
-open import Data.Vector.Main
-open import Data.List.Main
-open import Data.Nat.Main
+open import Data.Vector.Type
+open import Data.List.Type
+open import Data.Nat.Type
 
 -- Converts a Vector to a List.
 -- - A: The type of elements in the vector and resulting list.

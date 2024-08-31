@@ -1,11 +1,11 @@
 module Data.List.quicksort where
 
-open import Data.Bool.Main
+open import Data.Bool.Type
 open import Data.Bool.not
-open import Data.List.Main
+open import Data.List.Type
 open import Data.List.append
 open import Data.List.filter
-open import Data.Nat.Main
+open import Data.Nat.Type
 open import Data.Nat.gt
 open import Data.Nat.lt
 

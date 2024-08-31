@@ -1,7 +1,7 @@
 module Data.Float.Operations where
 
-open import Data.Float.Main
-open import Data.Bool.Main
+open import Data.Float.Type
+open import Data.Bool.Type
 
 infixl 6 _f+_ _f-_
 infixl 7 _f*_ _f/_

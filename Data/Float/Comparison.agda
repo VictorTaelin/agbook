@@ -1,7 +1,7 @@
 module Data.Float.Comparison where
 
-open import Data.Float.Main
-open import Data.Bool.Main
+open import Data.Float.Type
+open import Data.Bool.Type
 open import Data.Bool.not
 
 infix 4 _f<_ _f>_ _f<=_ _f>=_ _f==_ _f!=_

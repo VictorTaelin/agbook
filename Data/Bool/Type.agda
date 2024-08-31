@@ -1,4 +1,4 @@
-module Data.Bool.Main where
+module Data.Bool.Type where
 
 -- Represents a Boolean value.
 -- - true: Represents logical truth.

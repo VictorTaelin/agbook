@@ -1,7 +1,7 @@
 module Data.List.filter where
 
-open import Data.List.Main
-open import Data.Bool.Main
+open import Data.List.Type
+open import Data.Bool.Type
 
 -- Filters a list based on a predicate function.
 -- - fn: The function used to test each element.

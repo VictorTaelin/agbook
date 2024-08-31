@@ -1,8 +1,8 @@
-module Data.Char.Main where
+module Data.Char.Type where
 
-open import Data.Bool.Main
-open import Data.Nat.Main
--- open import Data.String.Main
+open import Data.Bool.Type
+open import Data.Nat.Type
+-- open import Data.String.Type
 
 postulate Char : Set
 {-# BUILTIN CHAR Char #-}

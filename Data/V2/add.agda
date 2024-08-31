@@ -1,8 +1,8 @@
 module Data.V2.add where
 
-open import Data.V2.Main
+open import Data.V2.Type
 open import Data.Float.Operations
-open import Data.Float.Main
+open import Data.Float.Type
 
 -- Adds two V2 vectors.
 -- - v1: The 1st V2 vector.

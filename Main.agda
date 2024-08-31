@@ -1,16 +1,16 @@
 module Main where
 
-open import Data.IO.Main
-open import Data.Unit.Main
-open import Data.String.Main
+open import Data.IO.Type
+open import Data.Unit.Type
+open import Data.String.Type
 open import Data.String.append
-open import Data.Int.Main
-open import Data.Float.Main
-open import Data.Nat.Main
+open import Data.Int.Type
+open import Data.Float.Type
+open import Data.Nat.Type
 open import Data.Nat.add
-open import Data.Word.Main
+open import Data.Word.Type
 open import Data.Word.add
-open import Data.Bool.Main
+open import Data.Bool.Type
 
 intValue : Int
 intValue = pos 42

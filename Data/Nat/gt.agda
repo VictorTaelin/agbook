@@ -1,7 +1,7 @@
 module Data.Nat.gt where
 
-open import Data.Nat.Main
-open import Data.Bool.Main
+open import Data.Nat.Type
+open import Data.Bool.Type
 
 -- Greater-than comparison for nats.
 -- - x: The 1st nat.

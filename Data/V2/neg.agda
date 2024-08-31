@@ -1,7 +1,7 @@
 module Data.V2.neg where
 
-open import Data.V2.Main
-open import Data.Float.Main
+open import Data.V2.Type
+open import Data.Float.Type
 
 -- Negates a V2 vector.
 -- - v: The V2 vector to negate.

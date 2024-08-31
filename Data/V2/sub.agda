@@ -1,6 +1,6 @@
 module Data.V2.sub where
 
-open import Data.V2.Main
+open import Data.V2.Type
 open import Data.Float.Operations
 
 -- Subtracts one V2 vector from another.

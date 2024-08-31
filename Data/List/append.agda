@@ -1,6 +1,6 @@
 module Data.List.append where
 
-open import Data.List.Main
+open import Data.List.Type
 
 -- Concatenates two lists.
 -- - xs: The 1st list.
