@@ -1,16 +1,16 @@
 module Main where
 
-open import IO.Main
-open import Unit.Main
-open import String.Main
-open import String.concat
-open import Int.Main
-open import Float.Main
-open import Nat.Main
-open import Nat.add
-open import Word.Main
-open import Word.add
-open import Bool.Main
+open import Data.IO.Main
+open import Data.Unit.Main
+open import Data.String.Main
+open import Data.String.append
+open import Data.Int.Main
+open import Data.Float.Main
+open import Data.Nat.Main
+open import Data.Nat.add
+open import Data.Word.Main
+open import Data.Word.add
+open import Data.Bool.Main
 
 intValue : Int
 intValue = pos 42
@@ -47,7 +47,7 @@ wordStr = primShowInteger (pos (primWord64ToNat wordSum))
 
 -- Main function that demonstrates usage of various primitives
 main : IO Unit
-main =  putStrLn wordStr
+main = putStrLn wordStr
 
 --data N : Set where
   --s : N -> N
