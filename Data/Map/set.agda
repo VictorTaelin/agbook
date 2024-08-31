@@ -13,9 +13,9 @@ open import Data.Bool.if
 -- - v: The value to associate with the key.
 -- = A new Map with the key-value pair inserted.
 set : ∀ {A : Set} → Map A → Bits → A → Map A
-set (node val lft rgt) e     v = node (some v) lft rgt
-set (node val lft rgt) (o k) v = node val (set lft k v) rgt
-set (node val lft rgt) (i k) v = node val lft (set rgt k v)
-set leaf               e     v = node (some v) leaf leaf
-set leaf               (o k) v = node none (set leaf k v) leaf
-set leaf               (i k) v = node none leaf (set leaf k v)
+set (Node val lft rgt) E     v = Node (Some v) lft rgt
+set (Node val lft rgt) (O k) v = Node val (set lft k v) rgt
+set (Node val lft rgt) (I k) v = Node val lft (set rgt k v)
+set Leaf               E     v = Node (Some v) Leaf Leaf
+set Leaf               (O k) v = Node None (set Leaf k v) Leaf
+set Leaf               (I k) v = Node None Leaf (set Leaf k v)

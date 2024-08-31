@@ -13,7 +13,7 @@ open import Data.Word.add
 open import Data.Bool.Type
 
 intValue : Int
-intValue = pos 42
+intValue = Pos 42
 
 intStr : String
 intStr = primShowInteger intValue
@@ -25,13 +25,13 @@ floatStr : String
 floatStr = primShowFloat floatVal
 
 natVal : Nat
-natVal = 10
+natVal = Succ (Succ (Succ (Succ (Succ (Succ (Succ (Succ (Succ (Succ Zero)))))))))
 
 natSum : Nat
-natSum = natVal + 5
+natSum = natVal + Succ (Succ (Succ (Succ (Succ Zero))))
 
 natStr : String
-natStr = primShowInteger (pos natSum)
+natStr = primShowInteger (Pos natSum)
 
 word1 : Word64
 word1 = primWord64FromNat 100
@@ -43,7 +43,7 @@ wordSum : Word64
 wordSum = addWord word1 word2
 
 wordStr : String
-wordStr = primShowInteger (pos (primWord64ToNat wordSum))
+wordStr = primShowInteger (Pos (primWord64ToNat wordSum))
 
 -- Main function that demonstrates usage of various primitives
 main : IO Unit

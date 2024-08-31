@@ -8,5 +8,5 @@ open import Data.Nat.add
 -- - t: The tree to sum.
 -- = The sum of all values in the tree.
 sum : Tree Nat → Nat
-sum leaf                = zero
-sum (node x left right) = x + (sum left + sum right)
+sum Leaf                = Zero
+sum (Node x left right) = x + (sum left + sum right)

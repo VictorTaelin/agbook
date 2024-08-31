@@ -6,5 +6,5 @@ open import Data.Nat.Type
 -- - n: The number to double.
 -- = The double of n.
 double : Nat → Nat
-double zero     = zero
-double (succ n) = succ (succ (double n))
+double Zero     = Zero
+double (Succ n) = Succ (Succ (double n))

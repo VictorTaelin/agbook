@@ -2,10 +2,10 @@ module HVM.Env.Type where
 
 open import Data.Bits.Type
 open import Data.Map.Type
-open import HVM.Term
+open import HVM.Term.Type
 
 record Env : Set where
-  constructor New
+  constructor Env
   field
-    fresh : Bits
-    subst : Map Term
+    var : Bits
+    sub : Map Term

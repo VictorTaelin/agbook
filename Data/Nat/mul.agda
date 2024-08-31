@@ -8,7 +8,7 @@ open import Data.Nat.add
 -- - n: The 2nd nat.
 -- = The product of m and n.
 _*_ : Nat → Nat → Nat
-zero   * n = zero
-succ m * n = n + (m * n)
+Zero   * n = Zero
+Succ m * n = n + (m * n)
 
 {-# BUILTIN NATTIMES _*_ #-}

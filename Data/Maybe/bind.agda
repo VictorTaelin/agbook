@@ -7,8 +7,8 @@ open import Data.Maybe.Type
 -- - fn: The function to apply to the value inside the Maybe.
 -- = A new Maybe value resulting from applying f to the contents of ma.
 bind : ∀ {A B : Set} → Maybe A → (A → Maybe B) → Maybe B
-bind none     fn = none
-bind (some x) fn = fn x
+bind None     fn = None
+bind (Some x) fn = fn x
 
 -- Infix operator for bind
 _>>=_ : ∀ {A B : Set} → Maybe A → (A → Maybe B) → Maybe B

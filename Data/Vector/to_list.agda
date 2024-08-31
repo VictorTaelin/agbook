@@ -11,4 +11,4 @@ open import Data.Nat.Type
 -- = A list containing all elements from the vector.
 to_list : ∀ {A : Set} {n : Nat} → Vector A n → List A
 to_list []        = []
-to_list (x :: xs) = x , to_list xs
+to_list (x :: xs) = x :: to_list xs

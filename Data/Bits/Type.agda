@@ -1,17 +1,17 @@
 module Data.Bits.Type where
 
 -- Represents a binary string.
--- - o: Represents a zero bit.
--- - i: Represents a one bit.
--- - e: Represents the end of the binary string.
+-- - O: Represents a zero bit.
+-- - I: Represents a one bit.
+-- - E: Represents the end of the binary string.
 data Bits : Set where
-  o : Bits → Bits
-  i : Bits → Bits
-  e : Bits
+  O : Bits → Bits
+  I : Bits → Bits
+  E : Bits
 
 -- Examples:
--- e           represents an empty string
--- o e         represents "0"
--- i e         represents "1"
--- o (i e)     represents "01"
--- i (o (i e)) represents "101"
+-- E           represents an empty string
+-- O E         represents "0"
+-- I E         represents "1"
+-- O (I E)     represents "01"
+-- I (O (I E)) represents "101"

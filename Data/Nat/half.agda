@@ -6,6 +6,6 @@ open import Data.Nat.Type
 -- - n: The number to halve.
 -- = The largest natural number not exceeding n/2.
 half : Nat → Nat
-half zero            = zero
-half (succ zero)     = zero
-half (succ (succ n)) = succ (half n)
+half Zero            = Zero
+half (Succ Zero)     = Zero
+half (Succ (Succ n)) = Succ (half n)

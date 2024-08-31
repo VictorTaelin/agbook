@@ -6,5 +6,5 @@ open import Data.Bool.Type
 -- - b: The input Boolean value.
 -- = The negation of the input.
 not : Bool → Bool
-not true  = false
-not false = true
+not True  = False
+not False = True

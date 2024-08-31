@@ -8,5 +8,5 @@ open import Data.Tree.Type
 -- - t: The tree to fold over.
 -- = The result of folding the tree.
 fold : ∀ {A B : Set} → (A → B → B → B) → B → Tree A → B
-fold f z leaf                = z
-fold f z (node x left right) = f x (fold f z left) (fold f z right)
+fold f z Leaf                = z
+fold f z (Node x left right) = f x (fold f z left) (fold f z right)

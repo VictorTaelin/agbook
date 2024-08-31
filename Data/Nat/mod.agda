@@ -10,9 +10,9 @@ open import Data.Nat.sub
 -- - j: Counter for the divisor
 -- = The remainder of the division
 mod-aux : Nat → Nat → Nat → Nat → Nat
-mod-aux k m  zero    j        = k
-mod-aux k m (succ n) zero     = mod-aux zero m n m
-mod-aux k m (succ n) (succ j) = mod-aux (succ k) m n j
+mod-aux k m  Zero    j        = k
+mod-aux k m (Succ n) Zero     = mod-aux Zero m n m
+mod-aux k m (Succ n) (Succ j) = mod-aux (Succ k) m n j
 
 {-# BUILTIN NATMODSUCAUX mod-aux #-}
 
@@ -21,5 +21,5 @@ mod-aux k m (succ n) (succ j) = mod-aux (succ k) m n j
 -- - m: The divisor
 -- = The remainder of n divided by m
 mod : Nat → Nat → Nat
-mod n zero     = zero  -- Modulo by zero returns zero
-mod n (succ m) = mod-aux zero m n m
+mod n Zero     = Zero  -- Modulo by zero returns zero
+mod n (Succ m) = mod-aux Zero m n m

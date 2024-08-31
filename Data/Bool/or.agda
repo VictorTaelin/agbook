@@ -7,5 +7,5 @@ open import Data.Bool.Type
 -- - b: The 2nd bool.
 -- = True if either a or b is true.
 or : Bool → Bool → Bool
-or true  _ = true
-or false b = b
+or True  _ = True
+or False b = b

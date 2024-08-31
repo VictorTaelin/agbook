@@ -8,5 +8,5 @@ open import Data.Bool.Type
 -- - f: The value to return if the condition is false.
 -- = Either t or f, depending on the condition.
 if_then_else : ∀ {a} {A : Set a} → Bool → A → A → A
-if true  then t else _ = t
-if false then _ else f = f
+if True  then t else _ = t
+if False then _ else f = f

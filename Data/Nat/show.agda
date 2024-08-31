@@ -22,7 +22,7 @@ show_decimal 9 = "9"
 show_decimal _ = "_" -- This case should never happen if used correctly
 
 show_helper : Nat → String → String
-show_helper zero k = k
+show_helper Zero k = k
 show_helper n    k =
   let q = div n 10 in
   let r = mod n 10 in
@@ -32,5 +32,5 @@ show_helper n    k =
 -- - n: The natural number to convert.
 -- = A string representation of the number.
 show : Nat → String
-show zero = "0"
+show Zero = "0"
 show n    = show_helper n ""

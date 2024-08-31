@@ -7,7 +7,7 @@ open import Data.Nat.Type
 -- - n: The 2nd nat.
 -- = The sum of m and n.
 _+_ : Nat → Nat → Nat
-zero     + n = n
-(succ m) + n = succ (m + n)
+Zero     + n = n
+(Succ m) + n = Succ (m + n)
 
 {-# BUILTIN NATPLUS _+_ #-}

@@ -7,6 +7,6 @@ open import Data.Bool.Type
 -- - bs: The input binary string.
 -- = The incremented binary string.
 inc : Bits → Bits
-inc e      = i e
-inc (o bs) = i bs
-inc (i bs) = o (inc bs)
+inc E      = I E
+inc (O bs) = I bs
+inc (I bs) = O (inc bs)

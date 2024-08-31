@@ -7,7 +7,7 @@ open import Data.Bool.Type
 -- - b: The 2nd bool.
 -- = True if a and b are different.
 xor : Bool → Bool → Bool
-xor true  true  = false
-xor true  false = true
-xor false true  = true
-xor false false = false
+xor True  True  = False
+xor True  False = True
+xor False True  = True
+xor False False = False

@@ -8,8 +8,8 @@ open import Data.Bool.Type
 -- - n: The 2nd nat.
 -- = True if m and n are equal.
 _==_ : Nat → Nat → Bool
-zero   == zero   = true
-succ m == succ n = m == n
-_      == _      = false
+Zero   == Zero   = True
+Succ m == Succ n = m == n
+_      == _      = False
 
 {-# BUILTIN NATEQUALS _==_ #-}

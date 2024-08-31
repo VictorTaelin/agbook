@@ -7,5 +7,5 @@ open import Data.Bool.Type
 -- - b: The second boolean value.
 -- = True if both a and b are true.
 and : Bool → Bool → Bool
-and true  b = b
-and false b = false
+and True  b = b
+and False b = False

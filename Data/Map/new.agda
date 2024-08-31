@@ -6,4 +6,4 @@ open import Data.Tree.Type
 -- Creates an empty Map.
 -- = An empty Map.
 new : ∀ {A : Set} → Map A
-new = leaf
+new = Leaf

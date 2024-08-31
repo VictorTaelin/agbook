@@ -1,6 +1,6 @@
 module Data.Nat.Type where
 
 data Nat : Set where
-  zero : Nat
-  succ : Nat → Nat
+  Zero : Nat
+  Succ : Nat → Nat
 {-# BUILTIN NATURAL Nat #-}

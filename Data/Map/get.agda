@@ -10,7 +10,7 @@ open import Data.Bits.Type
 -- - k: The Bits key to look up.
 -- = The value associated with the key, wrapped in Maybe.
 get : ∀ {A : Set} → Map A → Bits → Maybe A
-get (node val _   _  ) e     = val
-get (node _   lft _  ) (o k) = get lft k
-get (node _   _   rgt) (i k) = get rgt k
-get leaf               _     = none
+get (Node val _   _  ) E     = val
+get (Node _   lft _  ) (O k) = get lft k
+get (Node _   _   rgt) (I k) = get rgt k
+get Leaf               _     = None

@@ -15,8 +15,8 @@ open import Data.String.Type
 main : Maybe Nat
 main =
   let m = new
-      m = set m (o (o e)) 10
-      m = set m (i (i e)) 20
-      m = set m (o (i e)) 30
-      x = get m (o (o e))
+      m = set m (O (O E)) 10
+      m = set m (I (I E)) 20
+      m = set m (O (I E)) 30
+      x = get m (O (O E))
   in x

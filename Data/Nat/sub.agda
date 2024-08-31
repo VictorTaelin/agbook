@@ -7,8 +7,8 @@ open import Data.Nat.Type
 -- - n: The number to subtract.
 -- = The result of m - n, or zero if n > m.
 _-_ : Nat → Nat → Nat
-m      - zero   = m
-zero   - _      = zero
-succ m - succ n = m - n
+m      - Zero   = m
+Zero   - _      = Zero
+Succ m - Succ n = m - n
 
 {-# BUILTIN NATMINUS _-_ #-}

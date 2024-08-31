@@ -1,11 +1,11 @@
 module Data.Bool.Type where
 
 -- Represents a Boolean value.
--- - true: Represents logical truth.
--- - false: Represents logical falsehood.
+-- - True: Represents logical truth.
+-- - False: Represents logical falsehood.
 data Bool : Set where
-  true  : Bool
-  false : Bool
+  True  : Bool
+  False : Bool
 {-# BUILTIN BOOL  Bool  #-}
-{-# BUILTIN TRUE  true  #-}
-{-# BUILTIN FALSE false #-}
+{-# BUILTIN TRUE  True  #-}
+{-# BUILTIN FALSE False #-}
