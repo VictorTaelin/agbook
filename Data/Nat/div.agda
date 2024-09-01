@@ -10,5 +10,5 @@ open import Data.Bool.if
 -- - n: The divisor (must be non-zero).
 -- = The quotient of m divided by n.
 div : Nat → Nat → Nat
-div m Zero = Zero  -- Division by zero returns zero.
-div m n    = if (m < n) then Zero else (Succ (div (sub m n) n))
+div m 0 = 0  -- Division by zero returns zero.
+div m n = if (m < n) then Zero else (Succ (div (sub m n) n))
