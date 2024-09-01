@@ -7,7 +7,7 @@ open import Data.Nat.Type
 open import Data.String.Type
 open import Data.Int.Type
 open import Data.Maybe.Type
-open import Data.Word.Type
+open import Data.U64.Type
 
 postulate Float : Set
 {-# BUILTIN FLOAT Float #-}
@@ -21,7 +21,7 @@ primitive
   -- Conversions
   primNatToFloat             : Nat → Float
   primIntToFloat             : Int → Float
-  primFloatToWord64          : Float → Maybe Word64
+  primFloatToU64             : Float → Maybe U64
   --primFloatToRatio           : Float → (Σ Int λ _ → Int)
   primRatioToFloat           : Int → Int → Float
   primShowFloat              : Float → String

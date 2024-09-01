@@ -6,7 +6,7 @@ open import Data.Nat.Type
 -- - A: The type of elements in the vector.
 -- - n: The length of the vector.
 data Vector (A : Set) : Nat → Set where
-  []   : Vector A zero
-  _::_ : ∀ {n} → A → Vector A n → Vector A (succ n)
+  []   : Vector A Zero
+  _::_ : ∀ {n} → A → Vector A n → Vector A (Succ n)
 
 infixr 5 _::_
