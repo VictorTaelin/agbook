@@ -21,8 +21,7 @@ primitive
   -- Conversions
   primNatToFloat             : Nat → Float
   primIntToFloat             : Int → Float
-  primFloatToU64             : Float → Maybe U64
-  --primFloatToRatio           : Float → (Σ Int λ _ → Int)
+  primFloatToWord64          : Float → Maybe U64
   primRatioToFloat           : Int → Int → Float
   primShowFloat              : Float → String
 
@@ -55,5 +54,5 @@ primitive
   primFloatFloor             : Float → Maybe Int
   primFloatCeiling           : Float → Maybe Int
 
-  primFloatLess             : Float → Float → Bool
-  primFloatEquality         : Float → Float → Bool
+  primFloatLess              : Float → Float → Bool
+  primFloatEquality          : Float → Float → Bool

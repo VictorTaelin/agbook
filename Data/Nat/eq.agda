@@ -7,9 +7,12 @@ open import Data.Bool.Type
 -- - m: The 1st nat.
 -- - n: The 2nd nat.
 -- = True if m and n are equal.
+eq : Nat → Nat → Bool
+eq Zero     Zero     = True
+eq (Succ m) (Succ n) = eq m n
+eq _        _        = False
+
 _==_ : Nat → Nat → Bool
-Zero   == Zero   = True
-Succ m == Succ n = m == n
-_      == _      = False
+_==_ = eq
 
 {-# BUILTIN NATEQUALS _==_ #-}

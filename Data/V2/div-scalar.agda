@@ -1,4 +1,4 @@
-module Data.V2.div_scalar where
+module Data.V2.div-scalar where
 
 open import Data.V2.Type
 open import Data.Float.Type
@@ -8,5 +8,5 @@ open import Data.Float.Operations
 -- - v: The V2 vector to be divided.
 -- - s: The scalar (Float) to divide by.
 -- = A new V2 vector with both components divided by the scalar.
-div_scalar : V2 → Float → V2
-div_scalar (MkV2 x y) s = MkV2 (x f/ s) (y f/ s)
+div-scalar : V2 → Float → V2
+div-scalar (MkV2 x y) s = MkV2 (x f/ s) (y f/ s)

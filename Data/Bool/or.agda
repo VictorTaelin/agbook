@@ -9,3 +9,8 @@ open import Data.Bool.Type
 or : Bool → Bool → Bool
 or True  _ = True
 or False b = b
+
+_||_ : Bool → Bool → Bool
+_||_ = or
+
+infixr 5 _||_

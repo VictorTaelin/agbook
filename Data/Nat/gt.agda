@@ -7,7 +7,10 @@ open import Data.Bool.Type
 -- - x: The 1st nat.
 -- - y: The 2nd nat.
 -- = True if x is greater than y.
+gt : Nat → Nat → Bool
+gt Zero     _        = False
+gt (Succ _) Zero     = True
+gt (Succ x) (Succ y) = gt x y
+
 _>_ : Nat → Nat → Bool
-Zero   > _      = False
-Succ _ > Zero   = True
-Succ x > Succ y = x > y
+_>_ = gt

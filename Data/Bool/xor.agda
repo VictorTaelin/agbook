@@ -11,3 +11,8 @@ xor True  True  = False
 xor True  False = True
 xor False True  = True
 xor False False = False
+
+_^_ : Bool → Bool → Bool
+_^_ = xor
+
+infixr 7 _^_

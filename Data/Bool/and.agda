@@ -9,3 +9,8 @@ open import Data.Bool.Type
 and : Bool → Bool → Bool
 and True  b = b
 and False b = False
+
+_&&_ : Bool → Bool → Bool
+_&&_ = and
+
+infixr 6 _&&_

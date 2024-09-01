@@ -6,12 +6,13 @@ primitive
   primStringAppend : String → String → String
 
 -- Concatenates two strings.
--- - s1: The 1st string.
--- - s2: The 2nd string.
--- = A new string containing all characters from s1 followed by all characters from s2.
-_++_ : String → String → String
-s1 ++ s2 = primStringAppend s1 s2
+-- - s1: The first string.
+-- - s2: The second string.
+-- = The concatenation of s1 and s2.
+append : String → String → String
+append = primStringAppend
 
-{-# COMPILE JS _++_ = function(s1) { return function(s2) { return s1 + s2; }; } #-}
+_++_ : String → String → String
+_++_ = append
 
 infixr 5 _++_

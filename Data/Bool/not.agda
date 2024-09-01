@@ -8,3 +8,8 @@ open import Data.Bool.Type
 not : Bool → Bool
 not True  = False
 not False = True
+
+!_ : Bool → Bool
+!_ = not
+
+infix 8 !_

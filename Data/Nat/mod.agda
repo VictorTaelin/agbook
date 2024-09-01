@@ -10,7 +10,7 @@ open import Data.Nat.sub
 -- - j: Counter for the divisor
 -- = The remainder of the division
 mod-aux : Nat → Nat → Nat → Nat → Nat
-mod-aux k m  Zero    j        = k
+mod-aux k m Zero     j        = k
 mod-aux k m (Succ n) Zero     = mod-aux Zero m n m
 mod-aux k m (Succ n) (Succ j) = mod-aux (Succ k) m n j
 

@@ -7,8 +7,11 @@ open import Data.Bool.Type
 -- - x: The 1st nat.
 -- - y: The 2nd nat.
 -- = True if x is less than y.
+lt : Nat → Nat → Bool
+lt Zero     Zero     = False
+lt Zero     (Succ _) = True
+lt (Succ x) (Succ y) = lt x y
+lt (Succ _) Zero     = False
+
 _<_ : Nat → Nat → Bool
-Zero   < Zero   = False
-Zero   < Succ _ = True
-Succ x < Succ y = x < y
-Succ _ < Zero   = False
+_<_ = lt
