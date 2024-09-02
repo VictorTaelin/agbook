@@ -2,7 +2,7 @@ module UG.SM.TimedAction.Type where
 
 open import UG.SM.Time.Type
 
--- Represents an action with a time
+-- Used to bind an action to a timestamp
 record TimedAction (A : Set) : Set where
   field
     action : A
