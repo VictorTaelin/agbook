@@ -8,6 +8,8 @@ open import UG.SM.ActionLogs.Type
 open import UG.SM.ActionLogs.get-actions
 open import UG.SM.Time.Type
 open import UG.SM.Time.time-to-tick
+open import UG.SM.update-mach
+open import UG.SM.get-initial-state
 
 open import Data.Bool.if
 open import Data.Nat.Type
@@ -24,22 +26,12 @@ open import Data.Nat.to-bits
 open import Data.Nat.sub
 open import Data.Nat.gt
 
--- Helper function to get initial state
-get-initial-state : ∀ {S A : Set} → Mach S A → Game S A → Tick → S
-get-initial-state mach game ini-t =
-  case get (Mach.state-logs mach) (to-bits ini-t) of
-    λ { (Some state) → state
-      ; Nothing      → Game.init game
-      }
-
-update-mach : ∀ {S A : Set} → Mach S A → Tick → S → Mach S A
-update-mach mach t s =
-  record mach
-    { cached-tick = max (Mach.cached-tick mach) t
-    ; state-logs = set (Mach.state-logs mach) (to-bits t) s
-    }
-
--- Helper function to recursively compute the state
+-- mach: The state machine
+-- game: The game rules
+-- state: The current state
+-- current-tick: The current tick
+-- end-tick: The target tick
+-- = The computed state at the end tick
 compute-helper : ∀ {S A : Set} → Mach S A → Game S A → S → Tick → Tick → S
 compute-helper mach game state current-tick end-tick =
   if current-tick == end-tick
@@ -53,9 +45,9 @@ compute-helper mach game state current-tick end-tick =
     in compute-helper updated-mach game next-state next-tick end-tick
 
 -- Computes the state of the game at a given time
--- - mach: The state machine
--- - game: The game rules
--- - time: The target time
+-- mach: The state machine
+-- game: The game rules
+-- time: The target time
 -- = The computed state at the given time
 compute : ∀ {S A : Set} → Mach S A → Game S A → Time → S
 compute mach game time =
@@ -66,4 +58,3 @@ compute mach game time =
   if (end-t - ini-t) > 1000
   then initial-state
   else compute-helper mach game initial-state ini-t end-t
-
