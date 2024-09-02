@@ -7,5 +7,7 @@ open import Data.String.Type
 postulate
   put-str-ln : String → IO Unit
 
-{-# COMPILE GHC put-str-ln = putStrLn #-}
+{-# FOREIGN GHC import qualified Data.Text.IO as Text #-}
+
+{-# COMPILE GHC put-str-ln = Text.putStrLn #-}
 {-# COMPILE JS put-str-ln = function(x) { return function() { console.log(x); }; } #-}

@@ -6,5 +6,7 @@ open import Data.String.Type
 postulate
   get-line : IO String
 
-{-# COMPILE GHC get-line = getLine #-}
+{-# FOREIGN GHC import qualified Data.Text.IO as Text #-}
+
+{-# COMPILE GHC get-line = Text.getLine #-}
 {-# COMPILE JS get-line = function() { return prompt(); } #-}
