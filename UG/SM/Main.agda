@@ -1,4 +1,4 @@
-module UG.Main where
+module UG.SM.Main where
 
 open import UG.SM.Type
 open import UG.SM.Game.Type
