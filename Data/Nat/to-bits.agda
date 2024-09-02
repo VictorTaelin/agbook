@@ -1,4 +1,3 @@
-{-# OPTIONS --no-termination-check #-}
 module Data.Nat.to-bits where
 
 open import Data.Nat.Type
