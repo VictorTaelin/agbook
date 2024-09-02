@@ -28,6 +28,9 @@ open import Data.Bool.Type
 open import Data.Bool.if
 open import Data.Bool.or
 
+-- mach: The current state machine
+-- timedAction: The action to be registered, containing the action and its associated time
+-- = Returns an updated state machine with the new action registered
 register-action : ∀ {S A : Set} → Mach S A → TimedAction A → Mach S A
 register-action mach (record { action = action ; time = time }) =
   let tick = time-to-tick mach time
@@ -35,4 +38,3 @@ register-action mach (record { action = action ; time = time }) =
       mach2 = update-cached-tick mach1 tick
       mach3 = remove-future-states mach2 tick
   in add-action-to-logs mach3 tick action
-
