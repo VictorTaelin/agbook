@@ -1,8 +1,8 @@
 module HVM.Term.Type where
 
-open import Data.Nat.Type
+open import Data.Bits.Type
 
 data Term : Set where
-  Var : Nat → Term
-  App : Term → Term → Term
-  Lam : Term → Term
+  Var : (nam : Bits) → Term
+  App : (fun : Term) → (arg : Term) → Term
+  Lam : (nam : Bits) → (bod : Term) → Term

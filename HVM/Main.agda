@@ -1,6 +1,10 @@
 module HVM.Main where
 
-open import Data.Nat.Type
+open import Data.Bits.Type
+open import HVM.Fun.run
+open import HVM.Term.Type
+open import HVM.Term.reduce
+open import HVM.Term.show
 
-main : Nat
-main = 4
+main : Term
+main = show (run (reduce (App (Lam E (Var E)) (Var (O E)))))
