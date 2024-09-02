@@ -13,10 +13,10 @@ open import Data.Bool.Type
 -- - ticks_per_second: The number of ticks per second for this machine.
 -- - action_eq: A function to compare two actions for equality.
 -- = A new Mach instance with default values and the provided action equality function.
-new_mach : ∀ {S A : Set} → Nat → (A → A → Bool) → Mach S A
-new_mach ticks-per-second action_eq = record
+new-mach : ∀ {S A : Set} → Nat → (A → A → Bool) → Mach S A
+new-mach ticks-per-second action_eq = record
   { ticks-per-second = ticks-per-second
-  ; genesis-tick = 0  -- Representing the earliest possible tick
+  ; genesis-tick = 100000  -- Representing the earliest possible tick
   ; cached-tick = 0   -- Representing no cached tick
   ; state-logs = new
   ; action-logs = new

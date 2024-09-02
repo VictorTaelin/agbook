@@ -31,14 +31,8 @@ open import Data.Bool.or
 register-action : ∀ {S A : Set} → Mach S A → TimedAction A → Mach S A
 register-action mach (record { action = action ; time = time }) =
   let tick = time-to-tick mach time
-      actions = get-actions (Mach.action-logs mach) tick
-  in if action-in-list mach action actions
-     then mach
-     else (add-action-to-logs 
-            (remove-future-states 
-              (update-cached-tick 
-                (update-genesis-tick mach tick) 
-              tick) 
-            tick) 
-          tick 
-          action)
+      mach1 = update-genesis-tick mach tick
+      mach2 = update-cached-tick mach1 tick
+      mach3 = remove-future-states mach2 tick
+  in add-action-to-logs mach3 tick action
+
