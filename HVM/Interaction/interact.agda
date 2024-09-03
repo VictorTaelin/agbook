@@ -7,7 +7,6 @@ open import HVM.Interaction.link
 open import HVM.Interaction.void
 open import Data.Function.case
 open import Data.Maybe.Type
-open import Data.Pair.Type
 open import Data.Unit.Type
 open import HVM.Redex.Type
 open import HVM.Runtime.Type
@@ -24,8 +23,12 @@ interact = do
     (Some r) → case r of λ where
       (MkRedex (Var x)     b)           → link x b
       (MkRedex a           (Var x))     → link x a
-      (MkRedex Era         b)           → eras Era b
-      (MkRedex a           Era)         → eras a Era
+      (MkRedex Era         Era)         → void
+      (MkRedex Era         (Con a1 a2)) → eras a1 a2
+      (MkRedex Era         (Dup a1 a2)) → eras a1 a2
+      (MkRedex (Con a1 a2) Era)         → eras a1 a2
+      (MkRedex (Dup a1 a2) Era)         → eras a1 a2
       (MkRedex (Con a1 a2) (Con b1 b2)) → anni a1 a2 b1 b2
-      (MkRedex (Dup a1 a2) (Dup b1 b2)) → comm a1 a2 b1 b2
-      (MkRedex a           b)           → void a b
+      (MkRedex (Con a1 a2) (Dup b1 b2)) → comm a1 a2 b1 b2
+      (MkRedex (Dup a1 a2) (Con b1 b2)) → comm b1 b2 a1 a2
+      (MkRedex (Dup a1 a2) (Dup b1 b2)) → anni a1 a2 b1 b2

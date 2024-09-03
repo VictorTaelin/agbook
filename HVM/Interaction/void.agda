@@ -2,7 +2,8 @@ module HVM.Interaction.void where
 
 open import Data.Unit.Type
 open import HVM.Runtime.Type
-open import HVM.Term.Type
+open import HVM.Runtime.pure
 
-void : Term → Term → Runtime Unit
-void a b = {!!}
+-- Void interaction
+void : Runtime Unit
+void = pure unit
