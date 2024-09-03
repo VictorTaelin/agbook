@@ -9,5 +9,5 @@ open import Data.String.append
 -- = A string representation of the Bits value.
 show : Bits → String
 show E        = "e"
-show (O bits) = "o" ++ show bits
-show (I bits) = "i" ++ show bits
+show (O bits) = "0" ++ show bits
+show (I bits) = "1" ++ show bits
