@@ -20,6 +20,8 @@ open import Data.IO.put-str-ln
 open import Data.String.Type
 open import Data.String.append
 open import Data.Nat.show
+open import Data.Bits.from-nat
+open import Data.Bits.and
 open import Data.Bits.to-nat
 open import Data.Maybe.Type
 open import Data.Bool.Type
@@ -61,12 +63,19 @@ test = do
   let c = O (I (I E))  -- 110 in binary (6 in decimal)
   put-str-ln ("c = " ++ showB c ++ " (decimal: " ++ show (to-nat c) ++ ")")
 
-  -- DIV is the only problem
+  let d = from-nat 0
+  put-str-ln ("d = " ++ showB d ++ " (decimal: " ++ show (to-nat d) ++ ")")
 
   let c_div_b = c / b
   put-str-ln ("c / b = " ++ (showB c_div_b))
 
+  let c_div_zero = c / d
+  put-str-ln ("c / d = " ++ (showB c_div_zero))
+
   -- New tests for logical gates
+  let a_and_b = a && b
+  put-str-ln ("a && b = " ++ showB a_and_b ++ " (decimal: " ++ show (to-nat a_and_b) ++ ")")
+
   let a_or_b = a || b
   put-str-ln ("a || b = " ++ showB a_or_b ++ " (decimal: " ++ show (to-nat a_or_b) ++ ")")
 
