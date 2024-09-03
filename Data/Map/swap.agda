@@ -13,10 +13,8 @@ open import Data.Pair.Type
 -- = A pair containing the new Map and the old value associated with the key (wrapped in Maybe).
 swap : ∀ {A : Set} → Map A → Bits → A → Pair (Map A) (Maybe A)
 swap (Node val lft rgt) E     v = (Node (Some v) lft rgt) , val
-swap (Node val lft rgt) (O k) v = 
-  let (new-lft , old-val) = swap lft k v
-  in (Node val new-lft rgt) , old-val
-swap (Node val lft rgt) (I k) v = 
-  let (new-rgt , old-val) = swap rgt k v
-  in (Node val lft new-rgt) , old-val
-swap Leaf               k     v = (Node (Some v) Leaf Leaf) , None
+swap (Node val lft rgt) (O k) v = let (new-lft , old-val) = swap lft k v in (Node val new-lft rgt) , old-val
+swap (Node val lft rgt) (I k) v = let (new-rgt , old-val) = swap rgt k v in (Node val lft new-rgt) , old-val
+swap Leaf               E     v = (Node (Some v) Leaf Leaf) , None
+swap Leaf               (O k) v = let (new-lft , old-val) = swap Leaf k v in (Node None new-lft Leaf) , old-val
+swap Leaf               (I k) v = let (new-rgt , old-val) = swap Leaf k v in (Node None Leaf new-rgt) , old-val
