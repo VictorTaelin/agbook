@@ -1,5 +1,8 @@
 module Data.Function.case where
 
+infix 0 case_of_
+infix 0 case_returning_of_
+
 -- Case expressions (to be used with pattern-matching lambdas).
 -- - x: The value to match against.
 -- - f: The function to apply to x.
