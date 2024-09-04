@@ -10,6 +10,6 @@ open import Data.Pair.Type
 -- Returns a pair containing the fresh Bits and updates the State.
 fresh : Runtime Bits
 fresh = λ state →
-  let new-vars = inc (State.vars state)
+  let new-vars  = inc (State.vars state)
       new-state = record state { vars = new-vars }
   in new-state , State.vars state
