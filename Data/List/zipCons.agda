@@ -9,5 +9,5 @@ open import Data.List.map
 -- = A new list of lists where each element of xs is prepended to the corresponding list in yss.
 zipCons : ∀ {A : Set} → List A → List (List A) → List (List A)
 zipCons [] ys = ys
-zipCons (x :: xs) [] = (x :: []) :: map (λ y → y :: []) xs
+zipCons xs [] = map (λ y → y :: []) xs
 zipCons (x :: xs) (y :: ys) = (x :: y) :: zipCons xs ys
