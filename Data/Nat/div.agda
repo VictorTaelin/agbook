@@ -9,6 +9,7 @@ open import Data.Bool.if
 -- - m: The dividend.
 -- - n: The divisor (must be non-zero).
 -- = The quotient of m divided by n.
+{-# TERMINATING #-}
 div : Nat → Nat → Nat
 div m 0 = 0  -- Division by zero returns zero.
 div m n = if (m < n) then Zero else (Succ (div (sub m n) n))
