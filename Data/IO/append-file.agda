@@ -11,5 +11,3 @@ postulate
 {-# FOREIGN GHC import qualified Data.Text.IO as TIO #-}
 
 {-# COMPILE GHC append-file = TIO.appendFile . T.unpack #-}
-
-{-# COMPILE JS append-file = function(x) { return function(y) { return function() { require('fs').appendFileSync(x, y); }; }; } #-}

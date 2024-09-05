@@ -10,5 +10,3 @@ postulate
 {-# FOREIGN GHC import qualified Control.Exception   #-}
 
 {-# COMPILE GHC get-line = Text.getLine #-}
-{-# COMPILE JS get-line = function() { return prompt(); } #-}
-

@@ -23,4 +23,3 @@ postulate
     TIO.hGetContents h
 #-}
 {-# COMPILE GHC read-file   = readFiniteFile            #-}
-{-# COMPILE JS read-file = function(str) { return function(cb) { require('fs').readFile(str, 'utf8', function(err, data) { if (err) { cb(err); } else { cb(data); } }); }; } #-}
