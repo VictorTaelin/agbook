@@ -4,9 +4,13 @@ open import Data.IO.Type
 open import Data.String.Type
 
 postulate
-  get-line : IO String
+  get-line     : IO String
 
 {-# FOREIGN GHC import qualified Data.Text.IO as Text #-}
+{-# FOREIGN GHC import qualified Control.Exception   #-}
 
 {-# COMPILE GHC get-line = Text.getLine #-}
 {-# COMPILE JS get-line = function() { return prompt(); } #-}
+
+
+-- {-# COMPILE GHC get-line    = TIO.getLine               #-}
