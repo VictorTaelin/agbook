@@ -6,7 +6,6 @@ open import Data.IO.Type
 postulate
   read-file    : String → IO String
 
-{-# COMPILE UHC read-file = UHC.Agda.Builtins.primReadFiniteFile  #-}
 {-# FOREIGN GHC import qualified Data.Text    as T   #-}
 {-# FOREIGN GHC import qualified Data.Text.IO as TIO #-}
 {-# FOREIGN GHC import qualified System.IO           #-}
