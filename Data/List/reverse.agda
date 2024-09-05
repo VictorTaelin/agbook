@@ -1,7 +1,7 @@
 module Data.List.reverse where
 
 open import Data.List.Type
-open import Data.List.fold
+open import Data.List.foldl
 
 -- Reverses a list.
 reverse : ∀ {A : Set} → List A → List A
