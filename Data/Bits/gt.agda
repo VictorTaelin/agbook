@@ -9,13 +9,13 @@ open import Data.Bool.Type
 -- = True if a is greater than b, False otherwise.
 gt : Bits → Bits → Bool
 gt E        E        = False
-gt E        (O _)    = False
-gt E        (I _)    = False
-gt (O _)    E        = True
-gt (I _)    E        = True
+gt E        (O _)    = True
+gt E        (I _)    = True
+gt (O _)    E        = False
+gt (I _)    E        = False
 gt (O a)    (O b)    = gt a b
-gt (O a)    (I _)    = False
-gt (I a)    (O b)    = True
+gt (O a)    (I _)    = True
+gt (I a)    (O b)    = False
 gt (I a)    (I b)    = gt a b
 
 -- Infix operator for bitwise greater than comparison

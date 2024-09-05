@@ -13,7 +13,7 @@ open import Data.Bits.reverse
 -- - n: The natural number to convert.
 -- = The Bits representation of the natural number.
 from-nat : Nat → Bits
-from-nat Zero = E
+from-nat Zero = O E
 from-nat n = reverse (go n E)
   where
     go : Nat → Bits → Bits

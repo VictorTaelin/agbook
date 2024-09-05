@@ -9,13 +9,13 @@ open import Data.Bool.Type
 -- = True if a is less than b, False otherwise.
 lt : Bits → Bits → Bool
 lt E        E        = False
-lt E        (O _)    = True
-lt E        (I _)    = True
-lt (O _)    E        = False
-lt (I _)    E        = False
+lt E        (O _)    = False
+lt E        (I _)    = False
+lt (O _)    E        = True
+lt (I _)    E        = True
 lt (O a)    (O b)    = lt a b
-lt (O a)    (I _)    = True
-lt (I a)    (O b)    = False
+lt (O a)    (I _)    = False
+lt (I a)    (O b)    = True
 lt (I a)    (I b)    = lt a b
 
 -- Infix operator for bitwise less than comparison
