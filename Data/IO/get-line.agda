@@ -12,5 +12,3 @@ postulate
 {-# COMPILE GHC get-line = Text.getLine #-}
 {-# COMPILE JS get-line = function() { return prompt(); } #-}
 
-
--- {-# COMPILE GHC get-line    = TIO.getLine               #-}

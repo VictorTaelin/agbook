@@ -14,3 +14,18 @@ postulate
 
 {-# COMPILE GHC getLine     = TIO.getLine               #-}
 {-# COMPILE GHC write-file  = TIO.writeFile . T.unpack  #-}
+
+{-# FOREIGN JS
+import * as fs from "fs";
+import * as path from "path";
+#-}
+
+{-# COMPILE JS write-file = function(filename) { return function(content) { return function(cb) {
+  fs.writeFile(path.normalize(filename), content, function(err) {
+    if (err) {
+      throw err;
+    }
+    cb();
+  });
+}; }; }
+#-}
