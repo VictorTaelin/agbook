@@ -14,7 +14,7 @@ rshift (O bits) (Succ n) = rshift bits n
 rshift (I bits) (Succ n) = rshift bits n
 
 -- Infix operator for right shift
-_>>>_ : Bits → Nat → Bits
-_>>>_ = rshift
+_>>_ : Bits → Nat → Bits
+_>>_ = rshift
 
-infixl 8 _>>>_
+infixl 8 _>>_
