@@ -4,7 +4,9 @@ open import Data.Maybe.Type
 open import Data.List.Type
 open import Data.List.foldr
 
--- Concatenate all of the `Some` values in a list of Maybe.
+-- Concatenates all of the `Some` values in a list of Maybe.
+-- - xs: The input list of Maybe values.
+-- = A new list containing all the values from `Some` constructors.
 concat-maybes : ∀ {A : Set} → List (Maybe A) → List A
 concat-maybes xs = foldr go [] xs
   where

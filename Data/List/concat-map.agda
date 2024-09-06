@@ -4,6 +4,9 @@ open import Data.List.Type
 open import Data.List.concat
 open import Data.List.map
 
--- Maps elements of a list to another list and concatenates them.
+-- Maps elements of a list to lists and concatenates the results.
+-- - f: The function that maps elements to lists.
+-- - xs: The input list.
+-- = A new list containing all elements from the lists produced by f.
 concat-map : ∀ {A B : Set} → (A → List B) → List A → List B
 concat-map f xs = concat (map f xs)
