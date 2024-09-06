@@ -11,3 +11,5 @@ postulate
 {-# FOREIGN GHC import qualified Data.Text as T #-}
 
 {-# COMPILE GHC mkdir = System.Directory.createDirectory . T.unpack #-}
+{-# COMPILE JS mkdir = function(path) { return function() { require('fs').mkdirSync(path); return {}; }; } #-}
+

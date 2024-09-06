@@ -17,3 +17,13 @@ exists path = is-file path >>= λ file-exists →
               if file-exists
               then pure True
               else is-directory path
+
+{-# COMPILE JS exists = function(path) {
+  return function() {
+    try {
+      return require('fs').existsSync(path);
+    } catch (e) {
+      return false;
+    }
+  };
+} #-}

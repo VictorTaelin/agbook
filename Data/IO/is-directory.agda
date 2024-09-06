@@ -11,3 +11,14 @@ postulate
 {-# FOREIGN GHC import qualified Data.Text as T #-}
 
 {-# COMPILE GHC is-directory = System.Directory.doesDirectoryExist . T.unpack #-}
+-- {-# COMPILE JS is-directory = function(path) { return function() { return require('fs').statSync(path).isDirectory(); }; } #-}
+
+{-# COMPILE JS is-directory = function(path) {
+  return function() {
+    try {
+      return require('fs').statSync(path).isDirectory();
+    } catch (e) {
+      return false;
+    }
+  };
+} #-}

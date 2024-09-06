@@ -15,3 +15,4 @@ postulate
 {-# COMPILE GHC getLine     = TIO.getLine               #-}
 {-# COMPILE GHC write-file  = TIO.writeFile . T.unpack  #-}
 
+{-# COMPILE JS write-file = function(path) { return function(content) { return function() { require('fs').writeFileSync(path, content); return {}; }; }; } #-}
