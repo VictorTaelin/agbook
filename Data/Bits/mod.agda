@@ -1,19 +1,23 @@
 module Data.Bits.mod where
 
 open import Data.Bits.Type
-open import Data.Bits.div
 open import Data.Bits.sub
-open import Data.Bits.mul
+open import Data.Bits.lt
+open import Data.Bits.eq
+open import Data.Bits.strip
+open import Data.Bool.if
 
--- Performs modulo operation on two Bits values.
--- - dividend: The Bits value to be divided.
--- - divisor: The Bits value to divide by.
--- = The remainder of the division as a Bits value.
+-- Helper function for modulo operation
+mod_helper : Bits → Bits → Bits
+mod_helper a b = if (a < b)
+                 then a
+                 else mod_helper (strip (a - b)) b
+
+-- Modulo operation for Bits
 mod : Bits → Bits → Bits
-mod dividend divisor =
-  let quotient = div dividend divisor
-      product = mul quotient divisor
-  in sub dividend product
+mod a E = E
+mod a (O E) = E
+mod a b = mod_helper a b
 
 -- Infix operator for Bits modulo
 _%_ : Bits → Bits → Bits

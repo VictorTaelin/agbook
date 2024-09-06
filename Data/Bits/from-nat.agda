@@ -7,14 +7,15 @@ open import Data.Nat.mod
 open import Data.Nat.eq
 open import Data.Bool.if
 open import Data.Bits.reverse
+open import Data.Bits.strip
 
 -- Converts a natural number to its corresponding Bits representation.
 -- The rightmost bit is the least significant.
 -- - n: The natural number to convert.
--- = The Bits representation of the natural number.
+-- = The Bits representation of the natural number, stripped of leading zeros.
 from-nat : Nat → Bits
-from-nat Zero = O E
-from-nat n = reverse (go n E)
+from-nat Zero = E
+from-nat n = strip (reverse (go n E))
   where
     go : Nat → Bits → Bits
     go Zero acc = acc
@@ -24,5 +25,3 @@ from-nat n = reverse (go n E)
       in if remainder == Zero
          then go quotient (O acc)
          else go quotient (I acc)
-
-

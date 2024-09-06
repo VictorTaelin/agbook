@@ -8,7 +8,7 @@ open import Data.Bits.strip
 -- = The decremented binary string.
 dec : Bits → Bits
 dec E = O E
-dec (O E) = O E
-dec (I E) = O E 
+dec (O E) = E
+dec (I E) = E 
 dec (O bs) = strip (I (dec bs))
 dec (I bs) = strip (O bs)
