@@ -23,3 +23,9 @@ mod-aux k m (Succ n) (Succ j) = mod-aux (Succ k) m n j
 mod : Nat → Nat → Nat
 mod n Zero     = Zero  -- Modulo by zero returns zero
 mod n (Succ m) = mod-aux Zero m n m
+
+-- Infix operator for modulo operation
+_%_ : Nat → Nat → Nat
+_%_ = mod
+
+infix 7 _mod_

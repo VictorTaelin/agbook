@@ -11,3 +11,4 @@ reverse = go E where
   go acc E        = acc
   go acc (O bits) = go (O acc) bits
   go acc (I bits) = go (I acc) bits
+
