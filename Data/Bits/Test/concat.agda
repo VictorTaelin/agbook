@@ -9,15 +9,11 @@ open import Data.Empty.Type
 open import Data.List.Type
 open import Data.List.append
 
--- Test case for bit concatenation
--- If the test passes, it returns Unit. If it fails, it returns Empty.
 test-case : List Bits → Bits → Set
 test-case input expected =
   let result = concat input
   in if result == expected then Unit else Empty
 
--- Run multiple test cases
--- This will only type check if all tests pass
 run-tests : Unit
 run-tests = 
   let
@@ -38,7 +34,5 @@ run-tests =
 
   in unit
 
--- Main function to run tests
--- This will only type check if all tests pass
 main : Unit
 main = run-tests

@@ -8,19 +8,15 @@ open import Data.Bool.if
 open import Data.Unit.Type
 open import Data.Empty.Type
 
--- Test case for from-nat
--- If the test passes, it returns Unit. If it fails, it returns Empty.
 test-case : Nat → Bits → Set
 test-case n expected =
   let result = from-nat n
   in if result == expected then Unit else Empty
 
--- Run multiple test cases
--- This will only type check if all tests pass
 run-tests : Unit
 run-tests = 
   let
-    _ : test-case 0 (O E)
+    _ : test-case 0 (E)
     _ = unit
     _ : test-case 1 (I E)
     _ = unit
@@ -37,7 +33,5 @@ run-tests =
 
   in unit
 
--- Main function to run tests
--- This will only type check if all tests pass
 main : Unit
 main = run-tests

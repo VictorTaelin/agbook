@@ -15,8 +15,6 @@ open import Data.Pair.Type
 open import Data.Pair.fst
 open import Data.Pair.snd
 
--- Test case for pad-length
--- If the test passes, it returns Unit. If it fails, it returns Empty.
 test-case : Nat → Nat → Set
 test-case n1 n2 =
   let bits1 = from-nat n1
@@ -33,8 +31,6 @@ test-case n1 n2 =
      then Unit
      else Empty
 
--- Run multiple test cases
--- This will only type check if all tests pass
 run-tests : Unit
 run-tests = 
   let
@@ -55,7 +51,5 @@ run-tests =
 
   in unit
 
--- Main function to run tests
--- This will only type check if all tests pass
 main : Unit
 main = run-tests

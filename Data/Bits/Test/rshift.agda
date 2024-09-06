@@ -9,15 +9,11 @@ open import Data.Bool.if
 open import Data.Unit.Type
 open import Data.Empty.Type
 
--- Test case for rshift
--- If the test passes, it returns Unit. If it fails, it returns Empty.
 test-case : Bits → Nat → Bits → Set
 test-case input shift expected =
   let result = input >> shift
   in if result == expected then Unit else Empty
 
--- Run multiple test cases
--- This will only type check if all tests pass
 run-tests : Unit
 run-tests = 
   let
@@ -26,16 +22,12 @@ run-tests =
     _ = unit
     _ : test-case E 1 E
     _ = unit
-
-    -- Test with single bit
     _ : test-case (I E) 0 (I E)
     _ = unit
     _ : test-case (I E) 1 E
     _ = unit
     _ : test-case (O (I E)) 1 (I E)
     _ = unit
-
-    -- Test with multi-bit
     _ : test-case (I (O (I E))) 0 (I (O (I E)))
     _ = unit
     _ : test-case (I (O (I E))) 1 (O (I E))
@@ -44,16 +36,12 @@ run-tests =
     _ = unit
     _ : test-case (I (O (I E))) 3 E
     _ = unit
-
-    -- Test with from-nat
     _ : test-case (from-nat 8) 1 (from-nat 4)
     _ = unit
     _ : test-case (from-nat 12) 2 (from-nat 3)
     _ = unit
     _ : test-case (from-nat 56) 3 (from-nat 7)
     _ = unit
-
-    -- Test larger shifts
     _ : test-case (from-nat 16) 4 (from-nat 1)
     _ = unit
     _ : test-case (from-nat 96) 5 (from-nat 3)
@@ -61,7 +49,5 @@ run-tests =
 
   in unit
 
--- Main function to run tests
--- This will only type check if all tests pass
 main : Unit
 main = run-tests

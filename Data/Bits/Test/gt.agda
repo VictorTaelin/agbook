@@ -11,15 +11,11 @@ open import Data.Nat.Type
 open import Data.Unit.Type
 open import Data.Empty.Type
 
--- Test case for bit greater than comparison
--- If the test passes, it returns Unit. If it fails, it returns Empty.
 test-case : Nat → Nat → Bool → Set
 test-case a b expected =
   let result = (from-nat a) > (from-nat b)
   in if result b== expected then Unit else Empty
 
--- Run multiple test cases
--- This will only type check if all tests pass
 run-tests : Unit
 run-tests = 
   let
@@ -48,7 +44,5 @@ run-tests =
 
   in unit
 
--- Main function to run tests
--- This will only type check if all tests pass
 main : Unit
 main = run-tests

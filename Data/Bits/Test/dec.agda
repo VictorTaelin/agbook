@@ -11,16 +11,12 @@ open import Data.Nat.sub renaming (sub to sub-nat; _-_ to _-n_)
 open import Data.Unit.Type
 open import Data.Empty.Type
 
--- Test case for bit decrement
--- If the test passes, it returns Unit. If it fails, it returns Empty.
 test-case : Nat → Set
 test-case n =
   let result = dec (from-nat n)
       expected = from-nat (n -n 1)
   in if result == expected then Unit else Empty
 
--- Run multiple test cases
--- This will only type check if all tests pass
 run-tests : Unit
 run-tests = 
   let
@@ -41,7 +37,5 @@ run-tests =
 
   in unit
 
--- Main function to run tests
--- This will only type check if all tests pass
 main : Unit
 main = run-tests

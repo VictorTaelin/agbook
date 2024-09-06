@@ -9,16 +9,12 @@ open import Data.Nat.Type
 open import Data.Unit.Type
 open import Data.Empty.Type
 
--- Test case for pad-zeros
--- If the test passes, it returns Unit. If it fails, it returns Empty.
 test-case : Nat → Nat → Set
 test-case n len =
   let result = pad-zeros len (from-nat n)
       expected = pad-zeros len (pad-zeros len (from-nat n))
   in if result == expected then Unit else Empty
 
--- Run multiple test cases
--- This will only type check if all tests pass
 run-tests : Unit
 run-tests = 
   let
@@ -39,7 +35,5 @@ run-tests =
 
   in unit
 
--- Main function to run tests
--- This will only type check if all tests pass
 main : Unit
 main = run-tests
