@@ -63,7 +63,9 @@ mutual
   parseJSON : Parser JSON
   parseJSON = do
     skip-spaces
-    parseNull <|> parseBool <|> parseNumber <|> parseString <|> parseArray <|> parseObject
+-- TODO: use parser parse-float instead of our own
+    parseNull <|> parseObject <|> parseBool <|>  parseString <|> parseArray 
+    --parseNull <|> parseObject <|> parseBool <|>  parseString <|> parseArray <|> parseNumber
 
   parseArray : Parser JSON
   parseArray = do
