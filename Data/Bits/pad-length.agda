@@ -17,4 +17,4 @@ pad-length a b =
   let len-a = length a
       len-b = length b
       target-len = max len-a len-b
-  in pad-zeros (target-len - len-a) a , pad-zeros (target-len - len-b) b
+  in pad-zeros target-len a , pad-zeros target-len b
