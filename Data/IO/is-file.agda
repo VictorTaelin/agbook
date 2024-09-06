@@ -11,7 +11,6 @@ postulate
 {-# FOREIGN GHC import qualified Data.Text as T #-}
 
 {-# COMPILE GHC is-file = System.Directory.doesFileExist . T.unpack #-}
--- {-# COMPILE JS is-file = function(path) { return function() { return require('fs').statSync(path).isFile(); }; } #-}
 
 {-# COMPILE JS is-file = function(path) {
   return function() {
