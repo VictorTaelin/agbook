@@ -22,7 +22,8 @@ mutual
   parse-JSON : Parser JSON
   parse-JSON = do
     skip-spaces
-    parse-null <|> parse-object parse-JSON <|> parse-bool <|> parse-jstring <|> parse-array parse-JSON <|> parse-number
+    parse-null  <|> parse-bool <|> parse-jstring <|> parse-array parse-JSON <|> parse-object parse-JSON <|> parse-number
+    --parse-null <|> parse-object parse-JSON <|> parse-bool <|> parse-jstring <|> parse-array parse-JSON <|> parse-number
 
 parse-json-string : String → Result (Reply JSON) Error
 parse-json-string input = 
