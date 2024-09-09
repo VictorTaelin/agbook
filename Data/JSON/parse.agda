@@ -22,10 +22,19 @@ mutual
   parse-JSON : Parser JSON
   parse-JSON = do
     skip-spaces
-    parse-null  <|> parse-bool <|> parse-jstring <|> parse-array parse-JSON <|> parse-object parse-JSON <|> parse-number
-    --parse-null <|> parse-object parse-JSON <|> parse-bool <|> parse-jstring <|> parse-array parse-JSON <|> parse-number
+    parse-null  <|> parse-bool <|> parse-number <|> parse-jstring <|> parse-array parse-JSON <|> parse-object parse-JSON 
+
+{-# COMPILE JS parse-JSON = undefined #-}
 
 parse-json-string : String → Result (Reply JSON) Error
 parse-json-string input = 
   parse-JSON (record { input = input ; index = 0 })
 
+{-# COMPILE JS parse-json-string = function(input) {
+  try {
+    const parsed = JSON.parse(input);
+    return { tag: 'Done', contents: { state: { input: input, index: input.length }, value: parsed } };
+  } catch (error) {
+    return { tag: 'Fail', contents: { index: 0, error: error.message } };
+  }
+} #-}
