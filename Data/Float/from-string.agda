@@ -11,6 +11,7 @@ open import Data.List.Type
 open import Data.List.map
 open import Data.List.length
 open import Data.List.split-at
+open import Data.String.drop
 open import Data.Maybe.Type
 open import Data.Nat.Type
 open import Data.Nat.mul
@@ -19,6 +20,8 @@ open import Data.Nat.exp
 open import Data.Pair.Type
 open import Data.String.Type
 open import Data.String.to-list
+open import Data.Bool.Type
+open import Data.Bool.if
 
 digits-to-nat : List Char → List (Maybe Nat)
 digits-to-nat = map digit-to-nat
@@ -36,10 +39,19 @@ nat-digits-to-number xs = nat-digits-to-number-helper Zero (xs)
 split-float-string : List Char → Pair (List Char) (List Char)
 split-float-string char-list = split-at eq '.' char-list
 
+
+extract-sign : String → Pair Bool String
+extract-sign s = case to-list s of λ where
+  [] → False , s
+  (x :: _) → if (x == '-')
+              then True , drop 1 s
+              else False , s
+
 -- Modified function to convert a string to Maybe Float
 from-string : String → Maybe Float
 from-string s =
-  let char-list = to-list s
+  let (is-neg , str) = extract-sign s 
+      char-list = to-list str
       (int-part , frac-part) = split-float-string char-list
       len-frac = length frac-part
       frac-divisor = 10 ^ len-frac
@@ -50,4 +62,9 @@ from-string s =
        None → None
        (Some i) → case frac-value of λ where
          None → None
-         (Some f) → Some (primIntToFloat (Pos i) f+ (primRatioToFloat (Pos f) (Pos frac-divisor)))
+         (Some f) → 
+            let abs-value = primIntToFloat (Pos i) f+ (primRatioToFloat (Pos f) (Pos frac-divisor))
+            in Some (if is-neg then (fnegate abs-value) else abs-value)
+
+
+
