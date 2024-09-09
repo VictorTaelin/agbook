@@ -13,14 +13,19 @@ open import Data.Char.is-digit
 open import Data.Float.from-string
 open import Data.Function.case
 open import Data.String.append
+open import Data.String.Type
+open import Data.String.eq
+open import Data.Bool.Type
 open import Data.Maybe.Type
+
+is-empty : String → Bool
+is-empty s = s == ""
 
 -- Parses a JSON number value.
 -- - Skips leading whitespace.
 -- - Parses an optional minus sign.
 -- - Parses the integer part.
 -- - Optionally parses the fractional part.
--- - Optionally parses the exponent part.
 -- = Returns a JNumber JSON value if successful, or fails with an error message.
 parse-number : Parser JSON
 parse-number = do
@@ -31,13 +36,10 @@ parse-number = do
     consume "."
     frac <- take-while is-digit
     pure ("." ++ frac)) <|> pure ""
-  exp-part <- (do
-    _ <- consume "e" <|> consume "E"
-    exp-sign <- (consume "+" >> pure "+") <|> (consume "-" >> pure "-") <|> pure ""
-    exp <- take-while is-digit
-    pure ("e" ++ exp-sign ++ exp)) <|> pure ""
 
-  let num-str = sign ++ int-part ++ frac-part ++ exp-part
-  case from-string num-str of λ where
-    (Some n) → pure (JNumber n)
-    None → fail ("Invalid number: " ++ num-str)
+  let num-str = sign ++ int-part ++ frac-part
+  case is-empty int-part of λ where
+    True → fail "Invalid number: no digits in integer part"
+    False → case from-string num-str of λ where
+      (Some n) → pure (JNumber n)
+      None → fail ("Invalid number: " ++ num-str)
