@@ -10,7 +10,7 @@ open import Data.Int.Type
 open import Data.List.Type
 open import Data.List.map
 open import Data.List.length
-open import Data.List.split-at
+open import Data.List.split-at-element
 open import Data.String.drop
 open import Data.Maybe.Type
 open import Data.Nat.Type
@@ -37,8 +37,7 @@ nat-digits-to-number : List (Maybe Nat) → Maybe Nat
 nat-digits-to-number xs = nat-digits-to-number-helper Zero (xs)
 
 split-float-string : List Char → Pair (List Char) (List Char)
-split-float-string char-list = split-at eq '.' char-list
-
+split-float-string char-list = split-at-element eq '.' char-list
 
 extract-sign : String → Pair Bool String
 extract-sign s = case to-list s of λ where
@@ -47,7 +46,6 @@ extract-sign s = case to-list s of λ where
               then True , drop 1 s
               else False , s
 
--- Modified function to convert a string to Maybe Float
 from-string : String → Maybe Float
 from-string s =
   let (is-neg , str) = extract-sign s 
