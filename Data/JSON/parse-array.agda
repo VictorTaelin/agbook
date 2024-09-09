@@ -9,27 +9,30 @@ open import Data.Parser.pure
 open import Data.Parser.skip-spaces
 open import Data.Parser.alternative
 
--- Parses a JSON array.
--- - Skips leading whitespace.
--- - Consumes opening bracket "[".
--- - Parses elements (which can be any JSON value).
--- - Consumes closing bracket "]".
--- - Returns a JArray JSON value.
+parse-elements : Parser JSON → Parser (List JSON)
+parse-elements parseJSON = 
+  (parse-non-empty parseJSON) <|> (pure [])
+  where
+    parse-non-empty : Parser JSON → Parser (List JSON)
+    parse-non-empty pJSON = do
+      skip-spaces
+      first ← pJSON
+      skip-spaces
+      (parse-rest first) <|> (pure (first :: []))
+      where
+        parse-rest : JSON → Parser (List JSON)
+        parse-rest f = do
+          consume ","
+          rest ← parse-elements pJSON
+          pure (f :: rest)
+
 parse-array : Parser JSON → Parser JSON
 parse-array parseJSON = do
   skip-spaces
   consume "["
-  elements ← parse-elements
+  elements ← parse-elements parseJSON
   skip-spaces
   consume "]"
   pure (JArray elements)
-  where
-    parse-elements : Parser (List JSON)
-    parse-elements = parseJSON >>= λ first →
-      (do
-        skip-spaces
-        consume ","
-        rest ← parse-elements
-        pure (first :: rest))
-      <|> pure (first :: [])
-      <|> pure []
+
+
