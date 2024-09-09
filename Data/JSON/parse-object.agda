@@ -43,8 +43,14 @@ parse-object : Parser JSON → Parser JSON
 parse-object parseJSON = do
   skip-spaces
   consume "{"
-  pairs ← parse-pairs parseJSON
-  skip-spaces
-  consume "}"
+  pairs ← (do
+    skip-spaces
+    consume "}"
+    pure [])
+    <|> (do
+      pairs ← parse-pairs parseJSON
+      skip-spaces
+      consume "}"
+      pure pairs)
   pure (JObject pairs)
 
