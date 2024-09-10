@@ -7,7 +7,7 @@ open import Data.Bool.Type
 open import Data.Equal.Type
 open import Data.Bool.and
 open import Data.Bool.not
-open import Data.Class.Eq
+open import Data.Trait.Eq
 
 instance
   EqV2 : Eq V2

@@ -4,7 +4,7 @@ open import Data.Vector.Type
 open import Data.Nat.Type
 open import Data.Bool.Type
 open import Data.Bool.and
-open import Data.Class.Eq
+open import Data.Trait.Eq
 
 
 all-equal : ∀ {A : Set} {n : Nat} {{EqA : Eq A}} → Vector A n → Bool

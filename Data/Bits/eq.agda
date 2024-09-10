@@ -3,7 +3,7 @@ module Data.Bits.eq where
 open import Data.Bits.Type
 open import Data.Bool.Type
 open import Data.Bool.not
-open import Data.Class.Eq
+open import Data.Trait.Eq
 open import Data.Equal.Type
 
 instance

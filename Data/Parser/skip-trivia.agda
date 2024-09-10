@@ -5,7 +5,7 @@ open import Data.Bool.if
 open import Data.Bool.not
 open import Data.Char.Type
 open import Data.Char.eq
-open import Data.Class.Eq
+open import Data.Trait.Eq
 open import Data.Char.is-space
 open import Data.List.Type
 open import Data.List.drop

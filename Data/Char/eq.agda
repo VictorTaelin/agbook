@@ -4,7 +4,7 @@ open import Data.Char.Type
 open import Data.Bool.Type
 open import Data.Bool.not
 open import Data.Equal.Type
-open import Data.Class.Eq
+open import Data.Trait.Eq
 
 primitive
   primCharEquality : Char → Char → Bool

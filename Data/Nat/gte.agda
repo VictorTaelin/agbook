@@ -3,7 +3,7 @@ module Data.Nat.gte where
 open import Data.Nat.Type
 open import Data.Bool.Type
 open import Data.Bool.or
-open import Data.Class.Eq
+open import Data.Trait.Eq
 open import Data.Nat.gt
 open import Data.Nat.eq
 

@@ -3,7 +3,7 @@ module Data.Bits.Test.or where
 open import Data.Bits.Type
 open import Data.Bits.or
 open import Data.Bits.eq
-open import Data.Class.Eq
+open import Data.Trait.Eq
 open import Data.Bool.if
 open import Data.Unit.Type
 open import Data.Empty.Type

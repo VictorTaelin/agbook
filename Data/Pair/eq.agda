@@ -9,7 +9,7 @@ open import Data.Bool.Type
 open import Data.Bool.and
 open import Data.Bool.not
 open import Data.Equal.Type
-open import Data.Class.Eq
+open import Data.Trait.Eq
 
 instance
   EqPair : ∀ {A B : Set} {{EqA : Eq A}} {{EqB : Eq B}} → Eq (Pair A B)

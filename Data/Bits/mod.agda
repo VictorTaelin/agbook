@@ -4,7 +4,7 @@ open import Data.Bits.Type
 open import Data.Bits.sub
 open import Data.Bits.lt
 open import Data.Bits.eq
-open import Data.Class.Eq
+open import Data.Trait.Eq
 open import Data.Bits.strip
 open import Data.Bool.if
 

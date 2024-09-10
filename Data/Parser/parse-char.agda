@@ -4,7 +4,7 @@ open import Data.Bool.Type
 open import Data.Bool.if
 open import Data.Char.Type
 open import Data.Char.eq
-open import Data.Class.Eq
+open import Data.Trait.Eq
 open import Data.Char.from-nat
 open import Data.Char.is-hex-digit
 open import Data.Function.case

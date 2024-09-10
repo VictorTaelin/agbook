@@ -6,7 +6,7 @@ open import Data.Nat.eq
 open import Data.Bool.Type
 open import Data.Bool.not
 open import Data.Equal.Type
-open import Data.Class.Eq
+open import Data.Trait.Eq
 
 instance
   EqMaybe : ∀ {A : Set} {{EqA : Eq A}} → Eq (Maybe A)

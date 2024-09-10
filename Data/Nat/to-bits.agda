@@ -5,7 +5,7 @@ open import Data.Bits.Type
 open import Data.Nat.div
 open import Data.Nat.mod
 open import Data.Nat.eq
-open import Data.Class.Eq
+open import Data.Trait.Eq
 open import Data.Bool.if
 
 -- Helper function for to_bits that handles the recursive case.

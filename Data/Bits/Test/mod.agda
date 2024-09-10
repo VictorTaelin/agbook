@@ -8,7 +8,7 @@ open import Data.Bits.eq
 open import Data.Bool.if
 open import Data.Nat.Type
 open import Data.Nat.eq
-open import Data.Class.Eq renaming (_==_ to _n==_)
+open import Data.Trait.Eq renaming (_==_ to _n==_)
 open import Data.Nat.mod renaming (mod to mod-nat; _%_ to _%n_)
 open import Data.Unit.Type
 open import Data.Empty.Type

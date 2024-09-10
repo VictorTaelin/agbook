@@ -1,7 +1,7 @@
 module Data.Bool.eq where
 
 open import Data.Bool.Type
-open import Data.Class.Eq
+open import Data.Trait.Eq
 open import Data.Equal.Type
 
 instance

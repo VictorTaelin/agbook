@@ -6,7 +6,7 @@ open import Data.Bits.from-nat
 open import Data.Bits.eq
 open import Data.Bool.Type
 open import Data.Bool.if
-open import Data.Class.Eq
+open import Data.Trait.Eq
 open import Data.Bool.eq 
 open import Data.Nat.Type
 open import Data.Unit.Type

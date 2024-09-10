@@ -5,7 +5,7 @@ open import Data.Bits.pad-length
 open import Data.Bits.length
 open import Data.Bits.from-nat
 open import Data.Nat.eq
-open import Data.Class.Eq
+open import Data.Trait.Eq
 open import Data.Bool.if
 open import Data.Bool.and
 open import Data.Nat.Type
