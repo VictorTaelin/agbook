@@ -21,4 +21,8 @@ test-parse-string-3 : parse-json-string "\"\"" == Done (MkReply (MkState "" 2) (
 test-parse-string-3 = refl
 
 test-parse-string-4 : parse-json-string "\"unclosed" == Fail (MkError 0 "Expected {")
+test-parse-string-4 = refl
+
+test-parse-string-5 : parse-json-string "\"\\u263A\"" == Done (MkReply (MkState "" 8) (JString "☺"))
 test-parse-string-5 = refl
+
