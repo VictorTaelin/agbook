@@ -9,14 +9,14 @@ open import Data.Parser.consume
 open import Data.Parser.pure
 open import Data.Parser.skip-spaces
 open import Data.Parser.alternative
-open import Data.Parser.parse-string renaming (parse-string to parse-pstring)
 open import Data.String.Type
+open import Data.JSON.parse-string
 
 -- Parses a single key-value pair in a JSON object.
 parse-pair : Parser JSON → Parser (Pair String JSON)
 parse-pair parseJSON = do
   skip-spaces
-  key ← parse-pstring
+  key ← parse-string-value
   skip-spaces
   consume ":"
   value ← parseJSON
