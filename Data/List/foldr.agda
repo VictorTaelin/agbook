@@ -1,4 +1,4 @@
-module Data.List.fold where
+module Data.List.foldr where
 
 open import Data.List.Type
 
@@ -7,6 +7,6 @@ open import Data.List.Type
 -- - z: The initial value (for the empty list case).
 -- - xs: The list to fold over.
 -- = The result of folding the list.
-fold : ∀ {a b} {A : Set a} {B : Set b} → (A → B → B) → B → List A → B
-fold f z []        = z
-fold f z (x :: xs) = f x (fold f z xs)
+foldr : ∀ {a b} {A : Set a} {B : Set b} → (A → B → B) → B → List A → B
+foldr f z []        = z
+foldr f z (x :: xs) = f x (foldr f z xs)

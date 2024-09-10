@@ -18,7 +18,7 @@ open import Data.Nat.max
 open import Data.Nat.lt
 open import Data.Function.case using (case_of_)
 open import Data.List.Type
-open import Data.List.fold
+open import Data.List.foldr
 open import Data.Maybe.Type
 open import Data.Map.get
 open import Data.Map.set
@@ -39,7 +39,7 @@ compute-helper mach game state current-tick end-tick =
   else 
     let next-tick = Succ current-tick
         actions = get-actions (Mach.action-logs mach) current-tick
-        state-with-actions = fold (Game.when game) state actions
+        state-with-actions = foldr (Game.when game) state actions
         next-state = Game.tick game state-with-actions
         updated-mach = update-mach mach current-tick state
     in compute-helper updated-mach game next-state next-tick end-tick
