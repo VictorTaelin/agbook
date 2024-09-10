@@ -1,70 +1,36 @@
 module Data.WebSocket.Client where
 
-open import Data.String.Type 
-open import Data.Maybe.Type
 open import Data.IO.Type
+open import Data.Maybe.Type
+open import Data.String.Type
 open import Data.Bool.Type
 open import Data.Pair.Type
-open import Data.Function.case
-open import Data.Maybe.bind
-open import Data.IO.bind
-open import Data.IO.pure
 
-postulate
-  WSConnection : Set
-  wsConnect : String → IO (Maybe WSConnection)
-  wsSend : WSConnection → String → IO Bool
-  wsReceive : WSConnection → IO (Maybe String)
-  wsClose : WSConnection → IO Bool
+-- Opaque type to represent the WSConnection
+postulate WSConnection : Set
 
--- Define the WebSocket connection state
-data ConnectionState : Set where
-  Disconnected : ConnectionState
-  Connected : WSConnection → ConnectionState
+-- FFI declarations
+{-# FOREIGN GHC
+import qualified Network.WebSockets as WS
+import qualified Data.Text as T
+import Control.Concurrent.MVar (MVar)
+import Data.WebSocket.FFI.Client (WSConnection(..), wsConnect, wsSend, wsReceive, wsClose)
+#-}
 
--- Define the WebSocket client record
-record WebSocketClient : Set where
-  field
-    url : String
-    state : ConnectionState
+{-# COMPILE GHC WSConnection = type WSConnection #-}
 
--- Create a new WebSocket client
-newClient : String → WebSocketClient
-newClient url = record { url = url; state = Disconnected }
+-- Function to connect to a WebSocket server
+postulate ws_connect : String → IO (Maybe WSConnection)
+{-# COMPILE GHC ws_connect = wsConnect #-}
 
--- Connect to the WebSocket server
-connect : WebSocketClient → IO (Maybe WebSocketClient)
-connect client = do
-  maybeConn ← wsConnect (WebSocketClient.url client)
-  pure (case maybeConn of λ where
-    Nothing → Nothing
-    (Some conn) → Some (record { url = WebSocketClient.url client; state = Connected conn }))
+-- Function to send a message through the WebSocket connection
+postulate ws_send : WSConnection → String → IO Bool
+{-# COMPILE GHC ws_send = wsSend #-}
 
--- Send a message through the WebSocket
-send : WebSocketClient → String → IO (Maybe WebSocketClient)
-send client message = case WebSocketClient.state client of λ where
-  Disconnected → pure Nothing
-  (Connected conn) → do
-    success ← wsSend conn message
-    pure (if success
-          then Some client
-          else Nothing)
+-- Function to receive a message from the WebSocket connection
+postulate ws_receive : WSConnection → IO (Maybe String)
+{-# COMPILE GHC ws_receive =  wsReceive #-}
 
--- Receive a message from the WebSocket
-receive : WebSocketClient → IO (Maybe (Pair String WebSocketClient))
-receive client = case WebSocketClient.state client of λ where
-  Disconnected → pure Nothing
-  (Connected conn) → do
-    maybeMsg ← wsReceive conn
-    pure (case maybeMsg of λ where
-      Nothing → Nothing
-      (Some msg) → Some (msg , client))
-
--- Close the WebSocket connection
-close : WebSocketClient → IO WebSocketClient
-close client = case WebSocketClient.state client of λ where
-  Disconnected → pure client
-  (Connected conn) → do
-    _ ← wsClose conn
-    pure (record { url = WebSocketClient.url client; state = Disconnected })
-
+-- Function to close the WebSocket connection
+postulate ws_close : WSConnection → IO Bool
+{-# COMPILE GHC ws_close = wsClose #-}

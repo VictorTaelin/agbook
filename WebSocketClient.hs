@@ -24,3 +24,4 @@ ws connection = do
     loop
 
     sendClose connection (pack "Bye!")
+
