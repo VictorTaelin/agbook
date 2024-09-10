@@ -11,12 +11,15 @@ open import Data.Parser.skip-spaces
 open import Data.Parser.take-while
 open import Data.Char.is-digit
 open import Data.Float.from-string
+open import Data.Float.Operations
 open import Data.Function.case
 open import Data.String.append
 open import Data.String.Type
 open import Data.String.eq
 open import Data.Bool.Type
 open import Data.Maybe.Type
+open import Data.Nat.Type
+open import Data.Nat.exp
 
 is-empty : String → Bool
 is-empty s = s == ""
@@ -26,6 +29,7 @@ is-empty s = s == ""
 -- - Parses an optional minus sign.
 -- - Parses the integer part.
 -- - Optionally parses the fractional part.
+-- - Optionally parses the exponential part.
 -- = Returns a JNumber JSON value if successful, or fails with an error message.
 parse-number : Parser JSON
 parse-number = do
@@ -37,9 +41,22 @@ parse-number = do
     frac <- take-while is-digit
     pure ("." ++ frac)) <|> pure ""
 
-  let num-str = sign ++ int-part ++ frac-part
+  exp-part <- (do
+    _ <- consume "e" <|> consume "E"
+    exp-sign <- (consume "+" >> pure "+") <|> (consume "-" >> pure "-") <|> pure "+"
+    exp-digits <- take-while is-digit
+    pure (exp-sign ++ exp-digits)) <|> pure ""
+
+  let base-num-str = sign ++ int-part ++ frac-part
   case is-empty int-part of λ where
     True → fail "Invalid number: no digits in integer part"
-    False → case from-string num-str of λ where
-      (Some n) → pure (JNumber n)
-      None → fail ("Invalid number: " ++ num-str)
+    False → case from-string base-num-str of λ where
+      (Some base-num) → 
+        case exp-part of λ where
+          "" → pure (JNumber base-num)
+          _ → case from-string exp-part of λ where
+            (Some exp-num) → pure (JNumber (base-num f* (10.0 f^ exp-num)))
+            None → fail ("Invalid exponent: " ++ exp-part)
+      None → fail ("Invalid number: " ++ base-num-str)
+
+
