@@ -2,19 +2,23 @@ module Data.Char.eq where
 
 open import Data.Char.Type
 open import Data.Bool.Type
+open import Data.Bool.not
+open import Data.Equal.Type
+open import Data.Class.Eq
 
 primitive
   primCharEquality : Char → Char → Bool
 
--- Checks if two characters are equal.
--- - c1: The first character.
--- - c2: The second character.
--- = True if c1 and c2 are the same character, False otherwise.
-eq : Char → Char → Bool
-eq = primCharEquality
+instance
+  EqChar : Eq Char
+  EqChar = record
+    { _≡_ = primCharEquality
+    ; _≠_ = λ x y → not (primCharEquality x y)
+    }
 
--- Infix operator for character equality
-_==_ : Char → Char → Bool
-_==_ = eq
+-- Testes
+_ : ('a' == 'a') === True
+_ = refl
 
-infix 4 _==_
+_ : ('a' == 'b') === False
+_ = refl
