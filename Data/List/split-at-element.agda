@@ -4,6 +4,7 @@ open import Data.List.Type
 open import Data.Pair.Type
 open import Data.Bool.Type
 open import Data.Function.case
+open import Data.List.split
 
 -- Splits a list at the first occurrence of the given element, removing that element.
 -- - eq: An equality function for the element type.
@@ -11,8 +12,4 @@ open import Data.Function.case
 -- - xs: The input list.
 -- = A pair of lists: the part before the split element and the part after (excluding the split element).
 split-at-element : ∀ {A : Set} → (A → A → Bool) → A → List A → Pair (List A) (List A)
-split-at-element eq x [] = [] , []
-split-at-element eq x (y :: ys) = case eq x y of λ where
-  True  → [] , ys
-  False → case split-at-element eq x ys of λ where
-    (before , after) → (y :: before) , after
+split-at-element eq x = split (eq x)
