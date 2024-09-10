@@ -4,6 +4,7 @@ open import Data.Nat.Type
 open import Data.Bool.Type
 open import Data.Bool.or
 open import Data.Nat.eq
+open import Data.Class.Eq
 open import Data.Nat.lt
 
 -- Less-than-or-equal-to comparison for nats.

@@ -5,6 +5,7 @@ open import Data.Bits.mul
 open import Data.Bits.from-nat
 open import Data.Bits.to-nat
 open import Data.Bits.eq
+open import Data.Class.Eq
 open import Data.Bool.if
 open import Data.Nat.Type
 open import Data.Nat.mul renaming (mul to mul-nat; _*_ to _*n_)

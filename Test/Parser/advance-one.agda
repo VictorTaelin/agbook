@@ -10,11 +10,11 @@ open import Data.Char.Type
 open import Data.Maybe.Type
 open import Data.Equal.Type
 
-test-advance-one-non-empty : advance-one (MkState "abc" 0) == Done (MkReply (MkState "bc" 1) (Some 'a'))
+test-advance-one-non-empty : advance-one (MkState "abc" 0) === Done (MkReply (MkState "bc" 1) (Some 'a'))
 test-advance-one-non-empty = refl
 
-test-advance-one-empty : advance-one (MkState "" 0) == Done (MkReply (MkState "" 0) None)
+test-advance-one-empty : advance-one (MkState "" 0) === Done (MkReply (MkState "" 0) None)
 test-advance-one-empty = refl
 
-test-advance-one-special : advance-one (MkState "!@#" 0) == Done (MkReply (MkState "@#" 1) (Some '!'))
+test-advance-one-special : advance-one (MkState "!@#" 0) === Done (MkReply (MkState "@#" 1) (Some '!'))
 test-advance-one-special = refl

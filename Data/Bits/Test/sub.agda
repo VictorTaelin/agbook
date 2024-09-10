@@ -7,7 +7,8 @@ open import Data.Bits.to-nat
 open import Data.Bits.eq
 open import Data.Bool.if
 open import Data.Nat.Type
-open import Data.Nat.eq renaming (_==_ to _n==_)
+open import Data.Nat.eq
+open import Data.Class.Eq renaming (_==_ to _n==_)
 open import Data.Nat.sub renaming (sub to sub-nat; _-_ to _-n_)
 open import Data.Nat.lt
 open import Data.Unit.Type

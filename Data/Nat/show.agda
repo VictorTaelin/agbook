@@ -3,6 +3,7 @@ module Data.Nat.show where
 open import Data.Nat.Type
 open import Data.Nat.div
 open import Data.Nat.eq
+open import Data.Class.Eq
 open import Data.Nat.mod
 open import Data.String.Type
 open import Data.String.append

@@ -10,6 +10,7 @@ open import Data.Char.hex-to-nat
 open import Data.Bool.Type
 open import Data.Bool.if
 open import Data.Nat.eq
+open import Data.Class.Eq
 open import Data.Bool.and
 
 -- Converts a single character to its numeric value in the given base

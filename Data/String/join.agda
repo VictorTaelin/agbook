@@ -6,6 +6,7 @@ open import Data.List.foldr
 open import Data.String.Type
 open import Data.String.append
 open import Data.String.eq
+open import Data.Class.Eq
 
 -- Joins a list of strings with a separator.
 -- - sep: The separator string.

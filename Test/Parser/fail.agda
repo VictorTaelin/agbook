@@ -8,5 +8,5 @@ open import Data.Result.Type
 open import Data.String.Type
 open import Data.Equal.Type
 
-test-fail : (fail "Test error") (MkState "abcdef" 0) == Fail (MkError 0 "Test error")
+test-fail : (fail "Test error") (MkState "abcdef" 0) === Fail (MkError 0 "Test error")
 test-fail = refl

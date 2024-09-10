@@ -18,6 +18,7 @@ open import UG.SM.add-action-to-logs
 open import Data.Nat.Type
 open import Data.Nat.lt
 open import Data.Nat.eq
+open import Data.Class.Eq
 open import Data.Nat.sub
 open import Data.List.Type
 open import Data.List.filter

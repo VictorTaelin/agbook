@@ -4,6 +4,7 @@ open import Data.Bits.Type
 open import Data.Bits.to-nat
 open import Data.Nat.Type
 open import Data.Nat.eq
+open import Data.Class.Eq
 open import Data.Bool.if
 open import Data.Unit.Type
 open import Data.Empty.Type

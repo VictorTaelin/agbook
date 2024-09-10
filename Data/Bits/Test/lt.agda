@@ -6,7 +6,8 @@ open import Data.Bits.from-nat
 open import Data.Bits.eq
 open import Data.Bool.Type
 open import Data.Bool.if
-open import Data.Bool.eq renaming (_==_ to _b==_)
+open import Data.Bool.eq
+open import Data.Class.Eq
 open import Data.Nat.Type
 open import Data.Unit.Type
 open import Data.Empty.Type
@@ -14,7 +15,7 @@ open import Data.Empty.Type
 test-case : Nat → Nat → Bool → Set
 test-case a b expected =
   let result = (from-nat a) < (from-nat b)
-  in if result b== expected then Unit else Empty
+  in if result == expected then Unit else Empty
 
 run-tests : Unit
 run-tests = 

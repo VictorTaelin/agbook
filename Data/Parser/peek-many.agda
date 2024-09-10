@@ -8,6 +8,7 @@ open import Data.List.take
 open import Data.Maybe.Type
 open import Data.Nat.Type
 open import Data.Nat.eq
+open import Data.Class.Eq
 open import Data.Parser.Reply
 open import Data.Parser.State
 open import Data.Parser.Type

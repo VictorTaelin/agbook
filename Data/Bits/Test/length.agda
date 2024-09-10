@@ -4,7 +4,8 @@ open import Data.Bits.Type
 open import Data.Bits.length
 open import Data.Bits.from-nat
 open import Data.Nat.Type
-open import Data.Nat.eq renaming (_==_ to _n==_)
+open import Data.Nat.eq
+open import Data.Class.Eq renaming (_==_ to _n==_)
 open import Data.Bool.if
 open import Data.Unit.Type
 open import Data.Empty.Type
