@@ -13,3 +13,6 @@ data Int : Set where
 
 primitive
   primShowInteger : Int → String
+
+
+main = (NegSuc 0)
