@@ -11,6 +11,9 @@ open import Data.Parser.parse-char
 open import Data.Parser.alternative
 open import Data.Char.Type
 open import Data.Char.eq
+open import Data.Char.from-nat
+open import Data.Char.hex-to-nat
+open import Data.String.from-char
 open import Data.String.Type
 open import Data.String.from-list
 open import Data.List.Type
@@ -18,6 +21,27 @@ open import Data.Bool.Type
 open import Data.Bool.if
 open import Data.Bool.or
 open import Data.Function.case
+open import Data.Nat.Type
+open import Data.Nat.mul
+open import Data.Nat.add
+open import Data.Maybe.Type
+
+-- Parse a single hexadecimal digit
+parse-hex-digit : Parser Nat
+parse-hex-digit = do
+  c ← parse-char
+  case hex-to-nat c of λ where
+    (Some n) → pure n
+    None     → fail "Invalid hexadecimal digit"
+
+-- Parse four hexadecimal digits
+parse-four-hex-digits : Parser Nat
+parse-four-hex-digits = do
+  d1 ← parse-hex-digit
+  d2 ← parse-hex-digit
+  d3 ← parse-hex-digit
+  d4 ← parse-hex-digit
+  pure (((d1 * 4096) + (d2 * 256)) + ((d3 * 16) + d4))
 
 -- Parses an escape sequence
 parse-escape : Parser Char
@@ -32,7 +56,9 @@ parse-escape = do
     'n'  → pure '\n'
     'r'  → pure '\r'
     't'  → pure '\t'
-    'u'  → fail "Unicode escape sequences are not supported"
+    'u'  → do
+      code ← parse-four-hex-digits
+      pure (from-nat code)
     _    → fail "Invalid escape sequence")
 
 -- Parses a single character in a JSON string
