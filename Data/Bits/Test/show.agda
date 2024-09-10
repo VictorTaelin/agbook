@@ -2,6 +2,7 @@ module Data.Bits.Test.show where
 
 open import Data.Bits.Type
 open import Data.Bits.show
+open import Data.Trait.Show
 open import Data.String.Type
 open import Data.String.eq
 open import Data.Trait.Eq

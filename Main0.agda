@@ -2,6 +2,7 @@ module Main0 where
 
 open import Data.Bits.Type
 open import Data.Bits.show
+open import Data.Trait.Show
 open import Data.IO.Type
 open import Data.IO.bind
 open import Data.IO.print

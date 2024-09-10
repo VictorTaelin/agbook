@@ -2,7 +2,6 @@ module Data.Map.count where
 
 open import Data.Map.Type
 open import Data.Nat.Type
-open import Data.Nat.show
 open import Data.Nat.add
 open import Data.Maybe.Type
 open import Data.String.Type
