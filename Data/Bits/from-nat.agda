@@ -13,6 +13,7 @@ open import Data.Bits.strip
 -- The rightmost bit is the least significant.
 -- - n: The natural number to convert.
 -- = The Bits representation of the natural number, stripped of leading zeros.
+{-# TERMINATING #-}
 from-nat : Nat → Bits
 from-nat Zero = E
 from-nat n = strip (reverse (go n E))
