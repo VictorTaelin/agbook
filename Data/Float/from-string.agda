@@ -42,9 +42,11 @@ split-float-string char-list = split-at-element eq '.' char-list
 extract-sign : String → Pair Bool String
 extract-sign s = case to-list s of λ where
   [] → False , s
-  (x :: _) → if (x == '-')
-              then True , drop 1 s
-              else False , s
+  (x :: xs) → if (x == '-')
+               then True , drop 1 s
+               else if (x == '+')
+                    then False , drop 1 s
+                    else False , s
 
 from-string : String → Maybe Float
 from-string s =
@@ -63,6 +65,3 @@ from-string s =
          (Some f) → 
             let abs-value = primIntToFloat (Pos i) f+ (primRatioToFloat (Pos f) (Pos frac-divisor))
             in Some (if is-neg then (fnegate abs-value) else abs-value)
-
-
-
