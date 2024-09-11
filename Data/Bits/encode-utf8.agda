@@ -10,7 +10,9 @@ open import Data.String.to-list
 open import Data.Bits.Type
 open import Data.Bits.concat
 
--- Transforms a UTF-8 encoded string into its Bits representation.
+-- Encodes a string into its UTF-8 representation as Bits.
+-- - str: The input string to encode.
+-- = A Bits value representing the UTF-8 encoding of the entire string.
 encode-utf8 : String → Bits
 encode-utf8 str = do
   let char-list = to-list str
