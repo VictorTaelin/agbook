@@ -5,6 +5,24 @@ open import Data.Nat.sub
 open import Data.Nat.lt
 open import Data.Bool.if
 
+-- Helper function  div-helper  for Euclidean division.
+---------------------------------------------------------------------------
+--
+-- div-helper computes n / 1+m via iteration on n.
+--
+--   n div (suc m) = div-helper 0 m n m
+--
+-- The state of the iterator has two accumulator variables:
+--
+--   k: The quotient, returned once n=0.  Initialized to 0.
+--
+--   j: A counter, initialized to the divisor m, decreased on each iteration step.
+--      Once it reaches 0, the quotient k is increased and j reset to m,
+--      starting the next countdown.
+--
+-- Under the precondition j ≤ m, the invariant is
+--
+--   div-helper k m n j = k + (n + m - j) div (1 + m)
 div-helper : Nat → Nat → Nat → Nat → Nat
 div-helper k m  Zero    j      = k
 div-helper k m (Succ n)  Zero   = div-helper (Succ k) m n m
