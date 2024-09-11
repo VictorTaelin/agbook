@@ -10,4 +10,4 @@ postulate
 {-# FOREIGN GHC import qualified Data.Text.IO as Text #-}
 
 {-# COMPILE GHC print = Text.putStrLn #-}
-{-# COMPILE JS print = function(x) { return function() { console.log(x); }; } #-}
+{-# COMPILE JS print = function(str) { return function() { console.log(str); return {}; }; } #-}

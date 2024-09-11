@@ -16,3 +16,5 @@ _++_ : String → String → String
 _++_ = append
 
 infixr 5 _++_
+
+{-# COMPILE JS primStringAppend = function(x) { return function(y) { return x+y; }; } #-}
