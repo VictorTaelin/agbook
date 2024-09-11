@@ -1,4 +1,4 @@
-module Data.HTTP.Method.to-string where
+module Network.HTTP.Method.to-string where
 
 open import Data.HTTP.Method.Type
 open import Data.String.Type

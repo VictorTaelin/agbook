@@ -1,4 +1,4 @@
-module Data.HTTP.fetch where
+module Network.HTTP.fetch where
 
 open import Data.IOAsync.Type
 open import Data.String.Type
@@ -6,7 +6,7 @@ open import Data.String.Type
 postulate
   fetch : String → String → String → IOAsync String
 
-{-# FOREIGN GHC import qualified Data.HTTP.FFI.Fetch as HSF #-}
+{-# FOREIGN GHC import qualified Network.HTTP.FFI.Fetch as HSF #-}
 {-# FOREIGN GHC import qualified Data.Text as T #-}
 {-# COMPILE GHC fetch = HSF.fetch #-}
 
