@@ -7,7 +7,7 @@ open import Data.U64.Type
 open import Data.U64.and
 open import Data.Maybe.Type
 
--- auxiliar function to handle maybe values
+-- helper function to handle maybe values
 maybe : ∀ {a b} {A : Set a} {B : Set b} → B → (A → B) → Maybe A → B
 maybe d f None = d
 maybe d f (Some x) = f x

@@ -22,19 +22,18 @@ test-case a b expected =
 
 -- Run cases
 run-tests : Unit
-run-tests =
-    let
-        _ : test-case 0.0 0.0 0.0
+run-tests = do
+    let _ : test-case 0.0 0.0 0.0
         _ = unit
-        _ : test-case 1.0 1.0 2.0
+    let _ : test-case 1.0 1.0 2.0
         _ = unit
-        _ : test-case 1.1 2.2 3.3
+    let _ : test-case 1.1 2.2 3.3
         _ = unit
-        _ : test-case -1.2 -2.4 -3.6
+    let _ : test-case -1.2 -2.4 -3.6
         _ = unit 
-        _ : test-case 10.0 -3.0 7.0
+    let _ : test-case 10.0 -3.0 7.0
         _ = unit
-    in unit
+    unit
 
 -- Main function to run tests
 main : Unit
