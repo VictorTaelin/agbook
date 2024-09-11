@@ -11,7 +11,8 @@ open import Data.Parser.skip-spaces
 open import Data.Parser.take-while
 open import Data.Char.is-digit
 open import Data.Float.from-string
-open import Data.Float.Operations
+open import Data.Float.mul
+open import Data.Float.pow renaming (_^_ to _f^_)
 open import Data.Function.case
 open import Data.String.append
 open import Data.String.Type
@@ -55,7 +56,7 @@ parse-number = do
         case exp-part of λ where
           "" → pure (JNumber base-num)
           _ → case from-string exp-part of λ where
-            (Some exp-num) → pure (JNumber (base-num f* (10.0 f^ exp-num)))
+            (Some exp-num) → pure (JNumber (base-num * (10.0 f^ exp-num)))
             None → fail ("Invalid exponent: " ++ exp-part)
       None → fail ("Invalid number: " ++ base-num-str)
 

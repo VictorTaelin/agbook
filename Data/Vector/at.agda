@@ -2,8 +2,10 @@ module Data.Vector.at where
 
 open import Data.Vector.Type
 open import Data.Nat.Type
-open import Data.Nat.less
+open import Data.Nat.lt
 open import Data.Maybe.Type
+open import Data.List.Type
+open import Data.List.append
 
 -- Retrieves the element at the specified index in the vector.
 -- - A: The type of elements in the vector.
@@ -12,6 +14,7 @@ open import Data.Maybe.Type
 -- - i: The index to retrieve.
 -- = Just the element at index i if i < n.
 at : ∀ {A : Set} {n : Nat} → Vector A n → (i : Nat) → Maybe A
-at []        _        = none
-at (x :: _)  zero     = some x
-at (_ :: xs) (succ i) = at xs i
+at []        _        = None
+at (x :: _)  Zero     = Some x
+at (_ :: xs) (Succ i) = at xs i
+
