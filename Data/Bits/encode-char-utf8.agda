@@ -1,36 +1,49 @@
 module Data.Bits.encode-char-utf8 where
 
 open import Data.Char.Type
-open import Data.Char.to-nat
-open import Data.Nat.Type
 open import Data.Bits.Type
-open import Data.Bits.from-nat
-open import Data.Bits.and
 open import Data.Bits.lte
-open import Data.Bits.rshift
-open import Data.Bits.add
+open import Data.Bits.from-char
+open import Data.Bits.append
+open import Data.Bits.from-nat
+open import Data.Bits.split-at
 open import Data.Bits.pad-zeros
-open import Data.List.Type
-open import Data.List.singleton
 open import Data.Bool.Type
+open import Data.Bool.if
+open import Data.Pair.Type
 
--- Encodes a Char (a Unicode codepoint) to its possibly multi-byte UTF-8 representation.
--- Note that least significant bits come LAST, so you'll probably need to reverse the resulting list.
--- - c: The input Char to encode.
--- = A List of Bits representing the UTF-8 encoding of the input Char.
-encode-char-utf8 : Char → List Bits
-encode-char-utf8 c = go (from-nat (to-nat c)) where
-  go : Bits → List Bits
-  go oc with oc <= (from-nat 0x7f)
-  ... | True = [ pad-zeros 8 oc ]
-  ... | False with oc <= (from-nat 0x7ff)
-  ...   | True = pad-zeros 8 ((from-nat 0xc0) + (oc >> 6)) ::
-                 pad-zeros 8 ((from-nat 0x80) + (oc && (from-nat 0x3f))) :: []
-  ...   | False with oc <= (from-nat 0xffff)
-  ...     | True = pad-zeros 8 ((from-nat 0xe0) + (oc >> 12)) ::
-                   pad-zeros 8 ((from-nat 0x80) + ((oc >> 6) && (from-nat 0x3f))) ::
-                   pad-zeros 8 ((from-nat 0x80) + (oc && (from-nat 0x3f))) :: []
-  ...     | False = pad-zeros 8 ((from-nat 0xf0) + (oc >> 18)) ::
-                    pad-zeros 8 ((from-nat 0x80) + ((oc >> 12) && (from-nat 0x3f))) ::
-                    pad-zeros 8 ((from-nat 0x80) + ((oc >> 6) && (from-nat 0x3f))) ::
-                    pad-zeros 8 ((from-nat 0x80) + (oc && (from-nat 0x3f))) :: []
+-- Encodes a character into its UTF-8 representation as Bits.
+-- - c: The character to encode.
+-- = A Bits value representing the UTF-8 encoding of the character.
+encode-char-utf8 : Char → Bits
+encode-char-utf8 c = do
+  let bits = from-char c -- should be exactly 21 bits
+  if bits <= from-nat 0x7F
+    then (do
+      -- 1-byte character (0xxxxxxx)
+      let (bits₁ , rest₁) = split-at 7 bits
+      bits₁ ++ (O E))
+    else if bits <= from-nat 0x7FF
+      then (do
+        -- 2-byte character (110xxxxx 10xxxxxx)
+        let (bits₁ , rest₁) = split-at 6 bits
+        let (bits₂ , rest₂) = split-at 5 rest₁
+        bits₁ ++ O (I E) ++ bits₂ ++ O (I (I E)))
+      else if bits <= from-nat 0xFFFF
+        then (do
+          -- 3-byte character (1110xxxx 10xxxxxx 10xxxxxx)
+          let (bits₁ , rest₁) = split-at 6 bits
+          let (bits₂ , rest₂) = split-at 6 rest₁
+          let (bits₃ , rest₃) = split-at 4 rest₂
+          bits₁ ++ O (I E) ++ bits₂ ++ O (I E) ++ bits₃ ++ O (I (I (I E))))
+        else if bits <= from-nat 0x10FFFF
+          then (do
+            -- 4-byte character (11110xxx 10xxxxxx 10xxxxxx 10xxxxxx)
+            let (bits₁ , rest₁) = split-at 6 bits
+            let (bits₂ , rest₂) = split-at 6 rest₁
+            let (bits₃ , rest₃) = split-at 6 rest₂
+            let (bits₄ , rest₄) = split-at 3 rest₃
+            bits₁ ++ O (I E) ++ bits₂ ++ O (I E) ++ bits₃ ++ O (I E) ++ bits₄ ++ O (I (I (I (I E)))))
+          else (do
+            -- Invalid char - shouldn't happen, we'll put a \0
+            pad-zeros 8 E)
