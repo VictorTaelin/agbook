@@ -15,4 +15,4 @@ contains (Node (Some _) _   _  ) E     = True
 contains (Node None     _   _  ) E     = False
 contains (Node _        lft _  ) (O k) = contains lft k
 contains (Node _        _   rgt) (I k) = contains rgt k
-contains Leaf                   _     = False
+contains Leaf                   _      = False

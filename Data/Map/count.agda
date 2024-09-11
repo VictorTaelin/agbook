@@ -11,7 +11,7 @@ open import Data.String.Type
 -- - m: The Map to count elements from.
 -- = The number of elements in the Map.
 count : ∀ {A : Set} → Map A → Nat
-count Leaf = Zero
-count (Node None left right) = count left + count right
+count Leaf                       = Zero
+count (Node None left right)     = count left + count right
 count (Node (Some _) left right) = Succ (count left + count right)
 

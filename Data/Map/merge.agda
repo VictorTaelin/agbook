@@ -11,12 +11,13 @@ open import Data.List.Type
 open import Data.List.foldr
 open import Data.Pair.Type
 
+-- merge entry helper
+merge-entry : ∀ {A : Set} → Pair Bits A → Map A → Map A
+merge-entry (k , v) m = set m k v
+
 -- Merges two Maps, giving priority to values in the second Map when there are conflicts.
 -- - m1: The first Map to merge.
 -- - m2: The second Map to merge (takes priority on conflicts).
 -- = A new Map containing all key-value pairs from both input Maps.
 merge : ∀ {A : Set} → Map A → Map A → Map A
 merge m1 m2 = foldr merge-entry m1 (to-list m2)
-  where
-    merge-entry : ∀ {A : Set} → Pair Bits A → Map A → Map A
-    merge-entry (k , v) m = set m k v
