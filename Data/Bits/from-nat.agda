@@ -1,7 +1,6 @@
 module Data.Bits.from-nat where
 
 open import Data.Bits.Type
-open import Data.Bits.reverse
 open import Data.Bits.normal
 open import Data.Bool.if
 open import Data.Nat.Type

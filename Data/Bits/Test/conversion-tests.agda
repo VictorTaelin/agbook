@@ -1,4 +1,4 @@
-module Test.Bits.conversion-tests where
+module Data.Bits.Test.conversion-tests where
 
 open import Data.Bits.Type
 open import Data.Bits.encode-utf8

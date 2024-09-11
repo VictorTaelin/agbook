@@ -1,7 +1,6 @@
 module Data.Bits.concat where
 
 open import Data.List.Type
-open import Data.List.reverse
 open import Data.Bits.Type
 
 -- Converts a list of Bits in to a single Bits.
