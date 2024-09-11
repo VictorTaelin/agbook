@@ -12,10 +12,10 @@ open import Data.Pair.Type
 -- = A pair containing the new Map and the value associated with the key (wrapped in Maybe).
 take : ∀ {A : Set} → Map A → Bits → Pair (Map A) (Maybe A)
 take (Node val lft rgt) E     = (Node None lft rgt) , val
-take (Node val lft rgt) (O k) = 
+take (Node val lft rgt) (O k) = do
   let (new-lft , v) = take lft k
-  in (Node val new-lft rgt) , v
-take (Node val lft rgt) (I k) = 
+  (Node val new-lft rgt) , v
+take (Node val lft rgt) (I k) = do
   let (new-rgt , v) = take rgt k
-  in (Node val lft new-rgt) , v
+  (Node val lft new-rgt) , v
 take Leaf               _     = Leaf , None
