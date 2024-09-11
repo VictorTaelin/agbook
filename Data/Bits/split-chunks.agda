@@ -12,5 +12,5 @@ split-chunks : Nat → Bits → List Bits
 split-chunks 0 _ = []
 split-chunks d E = []
 split-chunks d bits with split-at d bits
-... | (collected , E) = collected :: []
+... | (collected , E)    = collected :: []
 ... | (collected , rest) = collected :: (split-chunks d rest)

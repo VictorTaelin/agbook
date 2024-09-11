@@ -3,6 +3,7 @@
 .holefill
 .backup/
 .tmp/
+.ctx/
 *.agdai
 *.vim
 *.swp

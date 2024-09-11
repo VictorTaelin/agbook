@@ -1,4 +1,4 @@
-module HVM.Interaction.interact where
+module HVM.Runtime.interact where
 
 open import Debug.Trace
 
@@ -37,4 +37,3 @@ interact = do
         (MkRedex (Dup a1 a2) (Con b1 b2)) → trace "J" (comm b1 b2 a1 a2)
         (MkRedex (Dup a1 a2) (Dup b1 b2)) → trace "K" (anni a1 a2 b1 b2)
       pure True
-
