@@ -13,19 +13,19 @@ open import Data.Bool.Type
 -- = The binary representation of the number as Bits.
 {-# TERMINATING #-}
 to-bits-helper : U64 → Bits
-to-bits-helper n =
-  let two = primWord64FromNat 2
-      quotient = divU64 n two
-      remainder = modU64 n two
-  in ifU64 remainder
-      (I (to-bits-helper quotient))
-      (O (to-bits-helper quotient))
+to-bits-helper n = do
+  let two       = primWord64FromNat 2
+  let quotient  = div n two
+  let remainder = mod n two
+  if remainder
+    (I (to-bits-helper quotient))
+    (O (to-bits-helper quotient))
 
 -- Converts a U64 number to its binary representation.
 -- - n: The U64 number to convert.
 -- = The binary representation of the number as Bits.
 to-bits : U64 → Bits
 to-bits n = 
-  ifU64 n
+  if n
     (to-bits-helper n)
     (O E)
