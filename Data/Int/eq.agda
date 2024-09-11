@@ -13,7 +13,5 @@ eq (Pos            _) (NegSuc         _) = False
 eq (NegSuc         _) (Pos            _) = False
 eq (               _) (               _) = False
 
-_==_ : Int → Int → Bool
-_==_ = eq
-
-main = (NegSuc 0) == (Pos 0)
+_===_ : Int → Int → Bool
+_===_ = eq
