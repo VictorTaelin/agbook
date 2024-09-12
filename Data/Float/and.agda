@@ -2,16 +2,17 @@ module Data.Float.and where
 
 open import Data.Float.Type
 open import Data.Bool.Type
-open import Data.Bool.and
+import Data.Bool.and as Bool
+open import Data.Bool.not
 
--- Performs bitwise AND on two floats.
+-- Performs logical AND on two floats.
 -- - x: The 1st float.
 -- - y: The 2nd float.
--- = The result of bitwise AND on x and y.
-float-and : Float → Float → Bool
-float-and x y = and (primFloatLess 0.0 x) (primFloatLess 0.0 y)
+-- = true if both x and y are true.
+and : Float → Float → Bool
+and x y = Bool.and (not (primFloatEquality 0.0 x)) (not (primFloatEquality 0.0 y))
 
--- The infix version of float-and.
-infixl 6 _&_
-_&_ : Float → Float → Bool
-_&_ = float-and
+-- The infix version of and.
+infixl 6 _&&_
+_&&_ : Float → Float → Bool
+_&&_ = and
