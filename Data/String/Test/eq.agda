@@ -5,16 +5,14 @@ open import Data.String.eq
 open import Data.Bool.Type
 open import Data.Equal.Type
 
--- Eq tests
-_ : ("hello" == "hello") === True
-_ = refl
+test-eq-same-string : ("hello" == "hello") === True
+test-eq-same-string = refl
 
-_ : ("hello" == "world") === False
-_ = refl
+test-eq-different-strings : ("hello" == "world") === False
+test-eq-different-strings = refl
 
-_ : ("hello" != "world") === True
-_ = refl
+test-neq-different-strings : ("hello" != "world") === True
+test-neq-different-strings = refl
 
-_ : ("" == "") === True
-_ = refl
-
+test-eq-empty-strings : ("" == "") === True
+test-eq-empty-strings = refl
