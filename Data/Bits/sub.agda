@@ -8,7 +8,7 @@ open import Data.Bits.dec
 -- - b: The 2nd Bits value (subtrahend).
 -- = A new Bits value representing the difference of a and b.
 sub : Bits → Bits → Bits
-sub E     b     = E
+sub E     _     = E
 sub a     E     = a
 sub (O a) (O b) = O (sub a b)
 sub (O a) (I b) = I (dec (sub a b))
