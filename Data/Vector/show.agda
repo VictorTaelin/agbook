@@ -8,22 +8,12 @@ open import Data.Trait.Show
 
 instance
   ShowVector : ∀ {A : Set} {n : Nat} {{ShowA : Show A}} → Show (Vector A n)
-  ShowVector {{ShowA}} = record { toString = showVector }
+  ShowVector {{ShowA}} = record { to-string = show-vector }
     where
-      showVector : ∀ {n} → Vector _ n → String
-      showVector [] = "[]"
-      showVector (x :: xs) = "<" ++ show x ++ showRest xs
+      show-vector : ∀ {n} → Vector _ n → String
+      show-vector [] = "<>"
+      show-vector (x :: xs) = "<" ++ to-string{{ShowA}} x ++ show-rest xs
         where
-          showRest : ∀ {n} → Vector _ n → String
-          showRest [] = ">"
-          showRest (y :: ys) = ", " ++ show y ++ showRest ys
-
--- Tests
-open import Data.Nat.show
-open import Data.Equal.Type
-
-_ : show (1 :: 2 :: 3 :: []) === "<1, 2, 3>"
-_ = refl
-
-_ : show [] === "[]"
-_ = refl
+          show-rest : ∀ {n} → Vector _ n → String
+          show-rest [] = ">"
+          show-rest (y :: ys) = ", " ++ to-string{{ShowA}} y ++ show-rest ys

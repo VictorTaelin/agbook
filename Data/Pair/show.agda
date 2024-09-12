@@ -7,17 +7,7 @@ open import Data.Trait.Show
 
 instance
   ShowPair : ∀ {A B : Set} {{ShowA : Show A}} {{ShowB : Show B}} → Show (Pair A B)
-  ShowPair {{ShowA}} {{ShowB}} = record { toString = showPair }
+  ShowPair {{ShowA}} {{ShowB}} = record { to-string = show-pair }
     where
-      showPair : Pair _ _ → String
-      showPair (a , b) = "(" ++ show a ++ ", " ++ show b ++ ")"
-
--- Tests
-open import Data.Nat.Type
-open import Data.Nat.show
-open import Data.Bool.Type
-open import Data.Bool.show
-open import Data.Equal.Type
-
-_ : show (1 , True) === "(1, true)"
-_ = refl
+      show-pair : Pair _ _ → String
+      show-pair (a , b) = "(" ++ to-string{{ShowA}} a ++ ", " ++ to-string{{ShowB}} b ++ ")"

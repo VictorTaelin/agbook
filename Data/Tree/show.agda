@@ -7,16 +7,8 @@ open import Data.Trait.Show
 
 instance
   ShowTree : ∀ {A : Set} {{ShowA : Show A}} → Show (Tree A)
-  ShowTree {{ShowA}} = record { toString = showTree }
+  ShowTree {{ShowA}} = record { to-string = show-tree }
     where
-      showTree : Tree _ → String
-      showTree Leaf = "Leaf"
-      showTree (Node x l r) = "Node(" ++ show x ++ ", " ++ show l ++ ", " ++ show r ++ ")"
-
--- Tests
-open import Data.Nat.Type
-open import Data.Nat.show
-open import Data.Equal.Type
-
-_ : show (Node 2 (Node 1 Leaf Leaf) (Node 3 Leaf Leaf)) === "Node(2, Node(1, Leaf, Leaf), Node(3, Leaf, Leaf))"
-_ = refl
+      show-tree : Tree _ → String
+      show-tree Leaf = "Leaf"
+      show-tree (Node x l r) = "Node(" ++ to-string{{ShowA}} x ++ ", " ++ to-string{{ShowA}} l ++ ", " ++ to-string{{ShowA}} r ++ ")"

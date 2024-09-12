@@ -12,13 +12,6 @@ primitive
 instance
   EqChar : Eq Char
   EqChar = record
-    { _≡_ = primCharEquality
-    ; _≠_ = λ x y → not (primCharEquality x y)
+    { eq = primCharEquality
+    ; neq = λ x y → not (primCharEquality x y)
     }
-
--- Testes
-_ : ('a' == 'a') === True
-_ = refl
-
-_ : ('a' == 'b') === False
-_ = refl

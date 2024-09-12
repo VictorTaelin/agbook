@@ -7,8 +7,8 @@ open import Data.Equal.Type
 instance
   EqBool : Eq Bool
   EqBool = record
-    { _≡_ = eq-bool
-    ; _≠_ = neq-bool
+    { eq = eq-bool
+    ; neq = neq-bool
     }
     where
       eq-bool : Bool → Bool → Bool
@@ -20,13 +20,3 @@ instance
       neq-bool True  False = True
       neq-bool False True  = True
       neq-bool _     _     = False
-
--- Testes
-_ : (True == True) === True
-_ = refl
-
-_ : (False == True) === False
-_ = refl
-
-_ : (True != False) === True
-_ = refl

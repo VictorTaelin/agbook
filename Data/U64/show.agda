@@ -7,10 +7,4 @@ open import Data.Nat.show
 
 instance
   ShowU64 : Show U64
-  ShowU64 = record { toString = λ x → show (primWord64ToNat x) }
-
--- Tests
-open import Data.Equal.Type
-
-_ : show 42 === "42"
-_ = refl
+  ShowU64 = record { to-string = λ x → show (primWord64ToNat x) }

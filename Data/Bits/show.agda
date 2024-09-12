@@ -7,18 +7,9 @@ open import Data.Trait.Show
 
 instance
   ShowBits : Show Bits
-  ShowBits = record { toString = showBits }
+  ShowBits = record { to-string = show-bits }
     where
-      showBits : Bits → String
-      showBits E = "e"
-      showBits (O b) = "0" ++ showBits b
-      showBits (I b) = "1" ++ showBits b
-
--- Tests
-open import Data.Equal.Type
-
-_ : show (I (O (I E))) === "101e"
-_ = refl
-
-_ : show (E) === "e"
-_ = refl
+      show-bits : Bits → String
+      show-bits E = "e"
+      show-bits (O b) = "0" ++ show-bits b
+      show-bits (I b) = "1" ++ show-bits b

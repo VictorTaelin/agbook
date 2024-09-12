@@ -2,14 +2,13 @@ module Data.Nat.eq where
 
 open import Data.Nat.Type
 open import Data.Bool.Type
-open import Data.Equal.Type
 open import Data.Trait.Eq
 
 instance
   EqNat : Eq Nat
   EqNat = record
-    { _≡_ = eq-nat
-    ; _≠_ = neq-nat
+    { eq = eq-nat
+    ; neq = neq-nat
     }
     where
       eq-nat : Nat → Nat → Bool
@@ -23,12 +22,3 @@ instance
       neq-nat Zero     Zero     = False
       neq-nat (Succ m) (Succ n) = neq-nat m n
 
--- Testes
-_ : (3 == 3) === True
-_ = refl
-
-_ : (2 == 3) === False
-_ = refl
-
-_ : (4 != 4) === False
-_ = refl

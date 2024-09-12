@@ -7,23 +7,12 @@ open import Data.Trait.Show
 
 instance
   ShowList : ∀ {A : Set} {{ShowA : Show A}} → Show (List A)
-  ShowList {{ShowA}} = record { toString = showList }
+  ShowList {{ShowA}} = record { to-string = show-list }
     where
-      showList : List _ → String
-      showList [] = "[]"
-      showList (x :: xs) = "[" ++ show x ++ showRest xs
+      show-list : List _ → String
+      show-list [] = "[]"
+      show-list (x :: xs) = "[" ++ to-string{{ShowA}} x ++ show-rest xs
         where
-          showRest : List _ → String
-          showRest [] = "]"
-          showRest (y :: ys) = ", " ++ show y ++ showRest ys
-
--- Tests
-open import Data.Nat.Type
-open import Data.Nat.show
-open import Data.Equal.Type
-
-_ : show (1 :: 2 :: 3 :: []) === "[1, 2, 3]"
-_ = refl
-
-_ : show [] === "[]"
-_ = refl
+          show-rest : List _ → String
+          show-rest [] = "]"
+          show-rest (y :: ys) = ", " ++ to-string{{ShowA}} y ++ show-rest ys

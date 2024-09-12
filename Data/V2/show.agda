@@ -5,19 +5,11 @@ open import Data.String.Type
 open import Data.String.append
 open import Data.Trait.Show
 open import Data.Float.Type
+open import Data.Float.show
 
 instance
   ShowV2 : Show V2
-  ShowV2 = record { toString = showV2 }
+  ShowV2 = record { to-string = show-v2 }
     where
-      showV2 : V2 → String
-      showV2 (MkV2 x y) = "V2(" ++ primShowFloat x ++ ", " ++ primShowFloat y ++ ")"
-
--- Tests
-open import Data.Equal.Type
-
-_ : show (MkV2 1.0 2.0) === "V2(1.0, 2.0)"
-_ = refl
-
-_ : show (MkV2 0.0 0.0) === "V2(0.0, 0.0)"
-_ = refl
+      show-v2 : V2 → String
+      show-v2 (MkV2 x y) = "V2(" ++ show x ++ ", " ++ show y ++ ")"

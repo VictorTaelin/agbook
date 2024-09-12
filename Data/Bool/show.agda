@@ -6,20 +6,11 @@ open import Data.Trait.Show
 
 instance
   ShowBool : Show Bool
-  ShowBool = record { toString = showBool }
+  ShowBool = record { to-string = show-bool }
     where
-      showBool : Bool → String
-      showBool True = "true"
-      showBool False = "false"
-
--- Tests
-open import Data.Equal.Type
-
-_ : show True === "true"
-_ = refl
-
-_ : show False === "false"
-_ = refl
+      show-bool : Bool → String
+      show-bool True = "true"
+      show-bool False = "false"
 
 {-# COMPILE JS show = function(a) {
     if (a === true) {

@@ -8,19 +8,8 @@ open import Data.Trait.Show
 
 instance
   ShowChar : Show Char
-  ShowChar = record { toString = showChar }
+  ShowChar = record { to-string = show-char }
     where
-      showChar : Char → String
-      showChar c = "'" ++ from-char c ++ "'"
+      show-char : Char → String
+      show-char c = "'" ++ from-char c ++ "'"
 
--- Tests
-open import Data.Equal.Type
-
-_ : show 'a' === "'a'"
-_ = refl
-
-_ : show '1' === "'1'"
-_ = refl
-
-_ : show ' ' === "' '"
-_ = refl

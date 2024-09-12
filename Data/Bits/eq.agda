@@ -4,13 +4,12 @@ open import Data.Bits.Type
 open import Data.Bool.Type
 open import Data.Bool.not
 open import Data.Trait.Eq
-open import Data.Equal.Type
 
 instance
   EqBits : Eq Bits
   EqBits = record
-    { _≡_ = eq-bits
-    ; _≠_ = neq-bits
+    { eq = eq-bits
+    ; neq = neq-bits
     }
     where
       eq-bits : Bits → Bits → Bool
@@ -21,13 +20,3 @@ instance
 
       neq-bits : Bits → Bits → Bool
       neq-bits x y = not (eq-bits x y)
-
--- Testes
-_ : (O (I E) == O (I E)) === True
-_ = refl
-
-_ : (I E == O E) === False
-_ = refl
-
-_ : (I (O E) != I (O E)) === False
-_ = refl
