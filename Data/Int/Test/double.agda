@@ -21,7 +21,7 @@ lemma2 {Succ n} = do
 
 lemma : ∀ {x}→  (x + x) == double x
 lemma {(Pos Zero)}      = refl
-lemma {(NegSuc Zero)}   = refl
+lemma {(Neg Zero)}   = refl
 lemma {(Pos (Succ n))}  = do
   let ind   = lemma {(Pos n)}
   let app   = (apply inc ind)

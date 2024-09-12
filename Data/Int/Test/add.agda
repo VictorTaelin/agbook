@@ -22,7 +22,6 @@ lemma {Succ n} = do
   let rwt = subst (λ m →  inc (add (Pos n) (Pos m)) == add (Pos n) (Pos (Succ n)))
   {!!}
 
-
 -- Goal: inc (inc (add (Pos (Succ (Succ n)))(Pos n))) == inc (inc (inc (add (Pos (Succ n))(Pos n))))
 -- ind :      inc (add (Pos (      Succ n)) (Pos n))  ==      inc (inc (add (Pos       n) (Pos n)))
 -- app : inc (inc (add (Pos (      Succ n)) (Pos n))) == inc (inc (inc (add (Pos       n) (Pos n))))

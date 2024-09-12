@@ -22,3 +22,8 @@ test3 = refl
 test4 : inc (Pos (Succ (Succ (Succ Zero)))) == Pos (Succ (Succ (Succ (Succ Zero))))
 test4 = refl
 
+test5 : ∀ {n} → inc (Pos n) == Pos (Succ n) 
+test5 = refl
+
+test6 : ∀ {n} → inc (Neg (Succ n)) == (Neg n)
+test6 = refl
