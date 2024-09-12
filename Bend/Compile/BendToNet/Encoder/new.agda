@@ -10,4 +10,4 @@ open import Data.String.Type
 -- - name: The name for the new net
 -- = A new Encoder with initialized components
 new : String → Encoder
-new name = MkEncoder (net-new name) map-new []
+new name = MkEncoder (net-new name) map-new
