@@ -33,12 +33,12 @@ decode-utf8 bits = from-list (go (split-chunks 8 (reverse bits)))
       = to-char (reverse bits₁) :: go rest
     -- 2-byte character (110xxxxx 10xxxxxx)
     ... | (I (I (O bits₁))) :: (I (O (bits₂))) :: rest
-      = to-char (reverse bits₂ ++ reverse bits₁) :: go rest
+      = to-char (reverse (bits₁ ++ bits₂)) :: go rest
     -- 3-byte character (1110xxxx 10xxxxxx 10xxxxxx)
     ... | (I (I (I (O bits₁)))) :: (I (O (bits₂))) :: (I (O bits₃)) :: rest
-      = to-char (reverse bits₃ ++ reverse bits₂ ++ reverse bits₁) :: go rest
+      = to-char (reverse (bits₁ ++ bits₂ ++ bits₃)) :: go rest
     -- 4-byte character (11110xxx 10xxxxxx 10xxxxxx 10xxxxxx)
     ... | (I (I (I (I (O bits₁))))) :: (I (O bits₂)) :: (I (O bits₃)) :: (I (O bits₄)) :: rest
-      = to-char (reverse bits₄ ++ reverse bits₃ ++ reverse bits₂ ++ reverse bits₁) :: go rest
+      = to-char (reverse (bits₁ ++ bits₂ ++ bits₃ ++ bits₄)) :: go rest
     -- Invalid sequence: replace with the replacement character
     ... | _ :: rest = utf8-replacement-character :: go rest
