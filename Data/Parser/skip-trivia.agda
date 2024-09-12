@@ -1,3 +1,5 @@
+{-# OPTIONS --no-termination-check #-}
+
 module Data.Parser.skip-trivia where
 
 open import Data.Bool.Type
