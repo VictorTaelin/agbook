@@ -6,7 +6,8 @@ open import Data.String.Type
 open import Bend.Fun.FanKind.Type
 open import Bend.Fun.Pattern.Type
 open import Bend.Fun.Op.Type
-open import Bend.Fun.Source.Type
+open import Bend.Source.Type
+open import Bend.Source.TextSpan.Type
 
 open import Data.List.Type renaming (List to List')
 open import Bend.Fun.Num.Type renaming (Num to Num')
@@ -21,25 +22,26 @@ private
   import Bend.Fun.FnDef.Type as FD
   open module FnDef = FD Term
 
+-- Represents the various constructs in the language
 data Term where
-  Lam  : Pattern → Term → Term
-  Var  : String → Term
-  Link : String → Term
-  Let  : Pattern → Term → Term → Term
-  With : String → Term → Term
-  Ask  : Pattern → Term → Term → Term
-  Use  : Maybe String → Term → Term → Term
-  App  : Term → Term → Term
-  Fan  : FanKind → List' Term → Term
-  Num  : Num' → Term
-  Str  : String → Term
-  List : List' Term → Term
-  Oper : Op → Term → Term → Term
-  Mat  : Maybe String → Term → List' (Maybe String) → List' Term → List' MatchRule → Term
-  Swt  : Maybe String → Term → List' (Maybe String) → List' Term → Maybe String → List' Term → Term
-  Fold : Maybe String → Term → List' (Maybe String) → List' Term → List' MatchRule → Term
-  Bend : List' (Maybe String) → List' Term → Term → Term → Term → Term
-  Open : String → String → Term → Term
-  Ref  : String → Term
-  Def  : FnDef → Term → Term
+  Lam  : (pat : Pattern) → (bod : Term) → Term
+  Var  : (nam : String) → Term
+  Link : (nam : String) → Term
+  Let  : (pat : Pattern) → (val : Term) → (nxt : Term) → Term
+  With : (typ : String) → (bod : Term) → Term
+  Ask  : (pat : Pattern) → (val : Term) → (nxt : Term) → Term
+  Use  : (nam : Maybe String) → (val : Term) → (nxt : Term) → Term
+  App  : (fun : Term) → (arg : Term) → Term
+  Fan  : (fan : FanKind) → (els : List' Term) → Term
+  Num  : (val : Num') → Term
+  Str  : (val : String) → Term
+  List : (els : List' Term) → Term
+  Oper : (opr : Op) → (fst : Term) → (snd : Term) → Term
+  Mat  : (bnd : Maybe String) → (arg : Term) → (with-bnd : List' (Maybe String)) → (with-arg : List' Term) → (arms : List' MatchRule) → Term
+  Swt  : (bnd : Maybe String) → (arg : Term) → (with-bnd : List' (Maybe String)) → (with-arg : List' Term) → (pred : Maybe String) → (arms : List' Term) → Term
+  Fold : (bnd : Maybe String) → (arg : Term) → (with-bnd : List' (Maybe String)) → (with-arg : List' Term) → (arms : List' MatchRule) → Term
+  Bend : (bnd : List' (Maybe String)) → (arg : List' Term) → (cond : Term) → (step : Term) → (base : Term) → Term
+  Open : (typ : String) → (var : String) → (bod : Term) → Term
+  Ref  : (nam : String) → Term
+  Def  : (def : FnDef) → (nxt : Term) → Term
   Era  : Term

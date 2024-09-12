@@ -3,16 +3,17 @@ module Bend.Fun.Type.Type where
 open import Data.List.Type
 open import Data.String.Type
 
+-- Types of terms and functions in Bend.
 data Type : Set where
-  Any : Type
+  Any  : Type
   Hole : Type
-  Var  : String → Type
-  Arr  : Type → Type → Type
-  Ctr  : String → List Type → Type
-  Tup  : List Type → Type
+  Var  : (nam : String) → Type
+  Arr  : (dom : Type) → (cod : Type) → Type
+  Ctr  : (nam : String) → (args : List Type) → Type
+  Tup  : (els : List Type) → Type
   U24  : Type
   I24  : Type
   F24  : Type
   None : Type
-  Number : Type → Type
-  Integer : Type → Type
+  Num  : (t : Type) → Type
+  Int  : (t : Type) → Type

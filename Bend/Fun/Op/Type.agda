@@ -1,20 +1,21 @@
 module Bend.Fun.Op.Type where
 
+-- Binary operators between native numbers in Bend.
 data Op : Set where
-  Add : Op
-  Sub : Op
-  Mul : Op
-  Div : Op
-  Rem : Op
-  Eql : Op
-  Neq : Op
-  Ltn : Op
-  Gtn : Op
-  Lte : Op
-  Gte : Op
-  And : Op
-  Or  : Op
-  Xor : Op
-  Shl : Op
-  Shr : Op
-  Pow : Op
+  Add : Op  -- Addition
+  Sub : Op  -- Subtraction
+  Mul : Op  -- Multiplication
+  Div : Op  -- Division
+  Rem : Op  -- Remainder
+  Eql : Op  -- Equality
+  Neq : Op  -- Inequality
+  Ltn : Op  -- Less than
+  Gtn : Op  -- Greater than
+  Lte : Op  -- Less than or equal
+  Gte : Op  -- Greater than or equal
+  And : Op  -- Bitwise AND
+  Or  : Op  -- Bitwise OR
+  Xor : Op  -- Bitwise XOR
+  Shl : Op  -- Shift left
+  Shr : Op  -- Shift right
+  Pow : Op  -- Exponentiation
