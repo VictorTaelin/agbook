@@ -2,41 +2,38 @@ module Data.Bits.Test.or where
 
 open import Data.Bits.Type
 open import Data.Bits.or
-open import Data.Bits.eq
-open import Data.Bool.if
-open import Data.Unit.Type
-open import Data.Empty.Type
+open import Data.Equal.Type
 
-test-case : Bits → Bits → Bits → Set
-test-case a b expected =
-  let result = a || b
-  in if result == expected then Unit else Empty
+-- Test empty bitstrings
+test-empty : E || E == E
+test-empty = refl
 
-run-tests : Unit
-run-tests = 
-  let
-    _ : test-case E E E
-    _ = unit
-    _ : test-case (O E) (O E) (O E)
-    _ = unit
-    _ : test-case (O E) (I E) (I E)
-    _ = unit
-    _ : test-case (I E) (O E) (I E)
-    _ = unit
-    _ : test-case (I E) (I E) (I E)
-    _ = unit
-    _ : test-case (I (O (I E))) (O (I (O E))) (I (I (I E)))
-    _ = unit
-    _ : test-case (O (I (O E))) (I (O (I E))) (I (I (I E)))
-    _ = unit
-    _ : test-case (I (I (I E))) (O (O (O E))) (I (I (I E)))
-    _ = unit
-    _ : test-case (I (O (I (O (I E))))) (O (I (O (I (O E))))) (I (I (I (I (I E)))))
-    _ = unit
-    _ : test-case (O (O (O (O (O E))))) (I (I (I (I (I E))))) (I (I (I (I (I E)))))
-    _ = unit
+-- Test empty with non-empty
+test-empty-right : E || (I E) == I E
+test-empty-right = refl
 
-  in unit
+test-empty-left : (O E) || E == O E
+test-empty-left = refl
 
-main : Unit
-main = run-tests
+-- Test single bit operations
+test-single-bit-1 : (O E) || (O E) == O E
+test-single-bit-1 = refl
+
+test-single-bit-2 : (O E) || (I E) == I E
+test-single-bit-2 = refl
+
+test-single-bit-3 : (I E) || (O E) == I E
+test-single-bit-3 = refl
+
+test-single-bit-4 : (I E) || (I E) == I E
+test-single-bit-4 = refl
+
+-- Test multi-bit operations
+test-multi-bit-1 : (O (I E)) || (I (O E)) == I (I E)
+test-multi-bit-1 = refl
+
+test-multi-bit-2 : (I (O (I E))) || (O (I (O E))) == I (I (I E))
+test-multi-bit-2 = refl
+
+test-multi-bit-3 : (O (O (I E))) || (I (I (O E))) == I (I (I E))
+test-multi-bit-3 = refl

@@ -2,36 +2,35 @@ module Data.Bits.Test.from-nat where
 
 open import Data.Bits.Type
 open import Data.Bits.from-nat
-open import Data.Bits.eq
 open import Data.Nat.Type
-open import Data.Bool.if
-open import Data.Unit.Type
-open import Data.Empty.Type
+open import Data.Equal.Type
 
-test-case : Nat → Bits → Set
-test-case n expected =
-  let result = from-nat n
-  in if result == expected then Unit else Empty
+test-from-nat-zero : from-nat 0 == E
+test-from-nat-zero = refl
 
-run-tests : Unit
-run-tests = 
-  let
-    _ : test-case 0 (E)
-    _ = unit
-    _ : test-case 1 (I E)
-    _ = unit
-    _ : test-case 2 (O (I E))
-    _ = unit
-    _ : test-case 3 (I (I E))
-    _ = unit
-    _ : test-case 4 (O (O (I E)))
-    _ = unit
-    _ : test-case 5 (I (O (I E)))
-    _ = unit
-    _ : test-case 8 (O (O (O (I E))))
-    _ = unit
+test-from-nat-one : from-nat 1 == I E
+test-from-nat-one = refl
 
-  in unit
+test-from-nat-two : from-nat 2 == O (I E)
+test-from-nat-two = refl
 
-main : Unit
-main = run-tests
+test-from-nat-three : from-nat 3 == I (I E)
+test-from-nat-three = refl
+
+test-from-nat-four : from-nat 4 == O (O (I E))
+test-from-nat-four = refl
+
+test-from-nat-five : from-nat 5 == I (O (I E))
+test-from-nat-five = refl
+
+test-from-nat-ten : from-nat 10 == O (I (O (I E)))
+test-from-nat-ten = refl
+
+test-from-nat-fifteen : from-nat 15 == I (I (I (I E)))
+test-from-nat-fifteen = refl
+
+test-from-nat-sixteen : from-nat 16 == O (O (O (O (I E))))
+test-from-nat-sixteen = refl
+
+test-from-nat-thirty-one : from-nat 31 == I (I (I (I (I E))))
+test-from-nat-thirty-one = refl

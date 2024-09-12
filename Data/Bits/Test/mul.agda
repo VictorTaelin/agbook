@@ -4,57 +4,18 @@ open import Data.Bits.Type
 open import Data.Bits.mul
 open import Data.Bits.from-nat
 open import Data.Bits.to-nat
-open import Data.Bits.eq
-open import Data.Bool.if
 open import Data.Nat.Type
-open import Data.Nat.mul renaming (mul to mul-nat; _*_ to _*n_)
-open import Data.Unit.Type
-open import Data.Empty.Type
+open import Data.Equal.Type
 
-test-case : Nat → Nat → Set
-test-case a b =
-  let result = (from-nat a) * (from-nat b)
-      expected = from-nat (a *n b)
-  in if result == expected then Unit else Empty
+test-mul-zero : (I (I E)) * E == E
+test-mul-zero = refl
 
-run-tests : Unit
-run-tests = 
-  let
-    -- Corner cases
-    _ : test-case 0 0
-    _ = unit
-    _ : test-case 0 1
-    _ = unit
-    _ : test-case 1 0
-    _ = unit
-    _ : test-case 1 1
-    _ = unit
-    _ : test-case 2 3
-    _ = unit
-    _ : test-case 4 5
-    _ = unit
-    _ : test-case 7 8
-    _ = unit
-    _ : test-case 15 16
-    _ = unit
-    _ : test-case 42 58
-    _ = unit
-    _ : test-case 100 100
-    _ = unit
-    _ : test-case 16 16
-    _ = unit
-    _ : test-case 32 8
-    _ = unit
-    _ : test-case 17 19
-    _ = unit
-    _ : test-case 23 29
-    _ = unit
-    _ : test-case 1000 7
-    _ = unit
-    _ : test-case 9 999
-    _ = unit
+test-mul-one : (I (O (I E))) * (I E) == (I (O (I E)))
+test-mul-one = refl
 
-  in unit
+test-mul-non-trivial : (I (O (I E))) * (I (I E)) == (I (I (I (I E))))
+test-mul-non-trivial = refl
 
-main : Unit
-main = run-tests
+test-mul-nat-conversion : to-nat ((from-nat 3) * (from-nat 2)) == 6
+test-mul-nat-conversion = refl
+

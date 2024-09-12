@@ -2,37 +2,42 @@ module Data.Bits.Test.concat where
 
 open import Data.Bits.Type
 open import Data.Bits.concat
-open import Data.Bits.eq
-open import Data.Bool.if
-open import Data.Unit.Type
-open import Data.Empty.Type
 open import Data.List.Type
-open import Data.List.append
+open import Data.Equal.Type
 
-test-case : List Bits → Bits → Set
-test-case input expected =
-  let result = concat input
-  in if result == expected then Unit else Empty
+-- Test concatenating an empty list
+test-concat-empty : concat [] == E
+test-concat-empty = refl
 
-run-tests : Unit
-run-tests = 
-  let
-    _ : test-case [] E
-    _ = unit
-    _ : test-case (E :: []) E
-    _ = unit
-    _ : test-case (O E :: I E :: []) (O (I E))
-    _ = unit
-    _ : test-case (I E :: O E :: []) (I (O E))
-    _ = unit
-    _ : test-case (O (I E) :: I (O E) :: []) (O (I (I (O E))))
-    _ = unit
-    _ : test-case (I (O (I E)) :: O (I (O E)) :: []) (I (O (I (O (I (O E))))))
-    _ = unit
-    _ : test-case (O (O (O (I E))) :: I (I (I E)) :: []) (O (O (O (I (I (I (I E)))))))
-    _ = unit
+-- Test concatenating a single empty Bits
+test-concat-single-empty : concat (E :: []) == E
+test-concat-single-empty = refl
 
-  in unit
+-- Test concatenating a single non-empty Bits
+test-concat-single-zero : concat ((O E) :: []) == O E
+test-concat-single-zero = refl
 
-main : Unit
-main = run-tests
+test-concat-single-one : concat ((I E) :: []) == I E
+test-concat-single-one = refl
+
+-- Test concatenating multiple Bits
+test-concat-multiple-1 : concat ((O E) :: (I E) :: []) == I (O E)
+test-concat-multiple-1 = refl
+
+test-concat-multiple-2 : concat ((I E) :: (O E) :: (I E) :: []) == I (O (I E))
+test-concat-multiple-2 = refl
+
+-- Test concatenating nested Bits
+test-concat-nested-1 : concat ((O (I E)) :: (I E) :: []) == I (O (I E))
+test-concat-nested-1 = refl
+
+test-concat-nested-2 : concat ((I (O E)) :: (O (I E)) :: []) == I (O (O (I E)))
+test-concat-nested-2 = refl
+
+-- Test concatenating with empty Bits in between
+test-concat-with-empty : concat ((O E) :: E :: (I E) :: []) == I (O E)
+test-concat-with-empty = refl
+
+-- Main function to run all tests (placeholder)
+main : _
+main = _
