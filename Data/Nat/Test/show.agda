@@ -5,12 +5,11 @@ open import Data.Nat.show
 open import Data.String.Type
 open import Data.Equal.Type
 
--- Show tests
-_ : show 42 === "42"
-_ = refl
+test-show-regular : show 42 === "42"
+test-show-regular = refl
 
-_ : show 0 === "0"
-_ = refl
+test-show-zero : show 0 === "0"
+test-show-zero = refl
 
-_ : show 1000 === "1000"
-_ = refl
+test-show-large : show 1000 === "1000"
+test-show-large = refl

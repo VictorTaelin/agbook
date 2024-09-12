@@ -2,47 +2,40 @@ module Data.Bits.Test.gt where
 
 open import Data.Bits.Type
 open import Data.Bits.gt
-open import Data.Bits.from-nat
-open import Data.Bits.eq
 open import Data.Bool.Type
-open import Data.Bool.if
-open import Data.Bool.eq 
-open import Data.Nat.Type
-open import Data.Unit.Type
-open import Data.Empty.Type
+open import Data.Equal.Type
 
-test-case : Nat → Nat → Bool → Set
-test-case a b expected =
-  let result = (from-nat a) > (from-nat b)
-  in if result == expected then Unit else Empty
+test-gt-empty-empty : (E > E) === False
+test-gt-empty-empty = refl
 
-run-tests : Unit
-run-tests = 
-  let
-    _ : test-case 0 0 False
-    _ = unit
-    _ : test-case 1 0 True
-    _ = unit
-    _ : test-case 0 1 False
-    _ = unit
-    _ : test-case 2 1 True
-    _ = unit
-    _ : test-case 1 2 False
-    _ = unit
-    _ : test-case 7 8 False
-    _ = unit
-    _ : test-case 8 7 True
-    _ = unit
-    _ : test-case 15 16 False
-    _ = unit
-    _ : test-case 16 15 True
-    _ = unit
-    _ : test-case 42 42 False
-    _ = unit
-    _ : test-case 1042 58 True
-    _ = unit
+test-gt-empty-non-empty : (E > (O E)) === False
+test-gt-empty-non-empty = refl
 
-  in unit
+test-gt-non-empty-empty : ((O E) > E) === True
+test-gt-non-empty-empty = refl
 
-main : Unit
-main = run-tests
+test-gt-one-zero : ((I E) > (O E)) === True
+test-gt-one-zero = refl
+
+test-gt-zero-one : ((O E) > (I E)) === False
+test-gt-zero-one = refl
+
+test-gt-two-one : ((I (O E)) > (O (I E))) === True
+test-gt-two-one = refl
+
+test-gt-one-two : ((O (I E)) > (I (O E))) === False
+test-gt-one-two = refl
+
+test-gt-three-two : ((I (I E)) > (I (O E))) === True
+test-gt-three-two = refl
+
+test-gt-four-three : ((O (O (I E))) > O (I (I E))) === False
+test-gt-four-three = refl
+
+-- This compares up two the min bits, so it compares II and OO, no padding
+test-gt-three-four : ((I (I E)) > (O (O (I E)))) === True
+test-gt-three-four = refl
+
+test-gt-equal : ((I (O (I E))) > (I (O (I E)))) === False
+test-gt-equal = refl
+

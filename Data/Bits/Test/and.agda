@@ -2,40 +2,37 @@ module Data.Bits.Test.and where
 
 open import Data.Bits.Type
 open import Data.Bits.and
-open import Data.Bits.eq
 open import Data.Bool.if
 open import Data.Unit.Type
 open import Data.Empty.Type
+open import Data.Equal.Type
 
-test-case : Bits → Bits → Bits → Set
-test-case a b expected =
-  let result = a && b
-  in if result == expected then Unit else Empty
+test-and-empty-empty : (E && E) === E
+test-and-empty-empty = refl
 
-run-tests : Unit
-run-tests = 
-  let
-    _ : test-case E E E
-    _ = unit
-    _ : test-case (O E) (O E) (O E)
-    _ = unit
-    _ : test-case (O E) (I E) (O E)
-    _ = unit
-    _ : test-case (I E) (O E) (O E)
-    _ = unit
-    _ : test-case (I E) (I E) (I E)
-    _ = unit
-    _ : test-case (I (O (I E))) (I (I (O E))) (I (O (O E)))
-    _ = unit
-    _ : test-case (I (O (I (I E)))) (I (I (O (I E)))) (I (O (O (I E))))
-    _ = unit
-    _ : test-case (O (I (O (I E)))) (I (O (I (O E)))) (O (O (O (O E))))
-    _ = unit
-    _ : test-case (I (I (I (I E)))) (I (O (I (O E)))) (I (O (I (O E))))
-    _ = unit
-    _ : test-case (I (O (I (O (I E))))) (I (I (O (I (I E))))) (I (O (O (O (I E)))))
-    _ = unit
-  in unit
+test-and-empty-zero : (E && (O E)) === E
+test-and-empty-zero = refl
 
-main : Unit
-main = run-tests
+test-and-one-empty : ((I E) && E) === E
+test-and-one-empty = refl
+
+test-and-zero-zero : ((O E) && (O E)) === (O E)
+test-and-zero-zero = refl
+
+test-and-zero-one : ((O E) && (I E)) === (O E)
+test-and-zero-one = refl
+
+test-and-one-zero : ((I E) && (O E)) === (O E)
+test-and-one-zero = refl
+
+test-and-one-one : ((I E) && (I E)) === (I E)
+test-and-one-one = refl
+
+test-and-complex-1 : ((I (O E)) && (I (I E))) === (I (O E))
+test-and-complex-1 = refl
+
+test-and-complex-2 : ((I (O (I E))) && (I (I (O E)))) === (I (O (O E)))
+test-and-complex-2 = refl
+
+test-and-complex-3 : ((O (I (O E))) && (I (O (I E)))) === (O (O (O E)))
+test-and-complex-3 = refl

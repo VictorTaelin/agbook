@@ -7,15 +7,14 @@ open import Data.Nat.Type
 open import Data.Nat.eq
 open import Data.Equal.Type
 
--- Eq tests
-_ : ((Node 1 Leaf Leaf) == (Node 1 Leaf Leaf)) === True
-_ = refl
+test-eq-same-tree : ((Node 1 Leaf Leaf) == (Node 1 Leaf Leaf)) === True
+test-eq-same-tree = refl
 
-_ : (Node 1 (Node 2 Leaf Leaf) Leaf != Node 1 (Node 2 Leaf Leaf) Leaf) === False
-_ = refl
+test-neq-same-tree : (Node 1 (Node 2 Leaf Leaf) Leaf != Node 1 (Node 2 Leaf Leaf) Leaf) === False
+test-neq-same-tree = refl
 
-_ : ((Node 1 Leaf Leaf) == Node 2 Leaf Leaf) === False
-_ = refl
+test-eq-different-root : ((Node 1 Leaf Leaf) == Node 2 Leaf Leaf) === False
+test-eq-different-root = refl
 
-_ : (Leaf != (Node 1 Leaf Leaf)) === True
-_ = refl
+test-neq-leaf-node : (Leaf != (Node 1 Leaf Leaf)) === True
+test-neq-leaf-node = refl

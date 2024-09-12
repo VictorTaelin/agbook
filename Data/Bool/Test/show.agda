@@ -5,10 +5,8 @@ open import Data.Bool.show
 open import Data.String.Type
 open import Data.Equal.Type
 
--- Show tests
+test-show-true : show True === "true"
+test-show-true = refl
 
-_ : show True === "true"
-_ = refl
-
-_ : show False === "false"
-_ = refl
+test-show-false : show False === "false"
+test-show-false = refl

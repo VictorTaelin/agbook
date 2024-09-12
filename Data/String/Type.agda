@@ -8,3 +8,4 @@ postulate String : Set
 
 primitive
   primStringEquality : String → String → Bool
+  primShowString : String → String

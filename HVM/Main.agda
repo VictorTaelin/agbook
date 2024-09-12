@@ -16,8 +16,8 @@ open import HVM.Runtime.bind
 open import HVM.Runtime.boot
 open import HVM.Runtime.fresh
 open import HVM.Runtime.get-state
-open import HVM.Runtime.normalize
 open import HVM.Runtime.materialize
+open import HVM.Runtime.normalize
 open import HVM.Runtime.pure
 open import HVM.Runtime.run
 open import HVM.Runtime.set-state

@@ -5,15 +5,14 @@ open import Data.Char.show
 open import Data.String.Type
 open import Data.Equal.Type
 
--- Show tests
-_ : show 'a' === "'a'"
-_ = refl
+test-show-a : show 'a' === "'a'"
+test-show-a = refl
 
-_ : show '0' === "'0'"
-_ = refl
+test-show-0 : show '0' === "'0'"
+test-show-0 = refl
 
-_ : show '\n' === "'\n'"
-_ = refl
+test-show-new-line : show '\n' === "'\n'"
+test-show-new-line = refl
 
-_ : show ' ' === "' '"
-_ = refl
+test-show-space : show ' ' === "' '"
+test-show-space = refl

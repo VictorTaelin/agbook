@@ -6,12 +6,12 @@ open import Data.Nat.Type
 open import Data.Nat.show
 open import Data.String.Type
 open import Data.Equal.Type
--- Show tests
-_ : show (Some 42) === "Some(42)"
-_ = refl
 
-_ : show (None {A = Nat}) === "None"
-_ = refl
+test-show-some : show (Some 42) === "Some(42)"
+test-show-some = refl
 
-_ : show None === "None"
-_ = refl
+test-show-none-nat : show (None {A = Nat}) === "None"
+test-show-none-nat = refl
+
+test-show-none : show None === "None"
+test-show-none = refl

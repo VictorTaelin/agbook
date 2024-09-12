@@ -7,12 +7,11 @@ open import Data.Nat.Type
 open import Data.Nat.show
 open import Data.Equal.Type
 
--- Show tests
-_ : show (Leaf) === "_"
-_ = refl
+test-show-leaf : show (Leaf) === "_"
+test-show-leaf = refl
 
-_ : show (Leaf {A = Nat}) === "_"
-_ = refl
+test-show-leaf-nat : show (Leaf {A = Nat}) === "_"
+test-show-leaf-nat = refl
 
-_ : show (Node 2 (Node 1 Leaf Leaf) (Node 3 Leaf Leaf)) === "{2, {1, _, _}, {3, _, _}}"
-_ = refl
+test-show-complex-tree : show (Node 2 (Node 1 Leaf Leaf) (Node 3 Leaf Leaf)) === "{2, {1, _, _}, {3, _, _}}"
+test-show-complex-tree = refl

@@ -10,18 +10,17 @@ open import Data.Char.Type
 open import Data.Char.eq
 open import Data.Equal.Type
 
--- Eq tests
-_ : ((1 , True) == (1 , True)) === True
-_ = refl
+test-eq-same-pair : ((1 , True) == (1 , True)) === True
+test-eq-same-pair = refl
 
-_ : ((1 , True) == (2 , True)) === False
-_ = refl
+test-eq-different-first : ((1 , True) == (2 , True)) === False
+test-eq-different-first = refl
 
-_ : ((1 , True) != (1 , False)) === True
-_ = refl
+test-neq-different-second : ((1 , True) != (1 , False)) === True
+test-neq-different-second = refl
 
-_ : ((1 , 'a') == (1 , 'a')) === True
-_ = refl
+test-eq-char-pair-same : ((1 , 'a') == (1 , 'a')) === True
+test-eq-char-pair-same = refl
 
-_ : ((1 , 'a') == (2 , 'a')) === False
-_ = refl
+test-eq-char-pair-different : ((1 , 'a') == (2 , 'a')) === False
+test-eq-char-pair-different = refl

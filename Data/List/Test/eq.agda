@@ -8,19 +8,17 @@ open import Data.Bool.Type
 open import Data.Bool.eq
 open import Data.Equal.Type
 
--- Eq tests
+test-eq-different-lists : ((1 :: 2 :: 3 :: []) == (1 :: 2 :: 4 :: [])) === False
+test-eq-different-lists = refl
 
-_ : ((1 :: 2 :: 3 :: []) == (1 :: 2 :: 4 :: [])) === False
-_ = refl
+test-eq-empty-lists : ([] == ([] {A = Nat})) === True
+test-eq-empty-lists = refl
 
-_ : ([] == ([] {A = Nat})) === True
-_ = refl
+test-eq-identical-lists : ((1 :: 2 :: 3 :: []) == (1 :: 2 :: 3 :: [])) === True
+test-eq-identical-lists = refl
 
-_ : ((1 :: 2 :: 3 :: []) == (1 :: 2 :: 3 :: [])) === True
-_ = refl
+test-eq-different-length : ((1 :: 2 :: []) == (1 :: 2 :: 3 :: [])) === False
+test-eq-different-length = refl
 
-_ : ((1 :: 2 :: []) == (1 :: 2 :: 3 :: [])) === False
-_ = refl
-
-_ : ((True :: False :: []) != (True :: True :: [])) === True
-_ = refl
+test-neq-bool-lists : ((True :: False :: []) != (True :: True :: [])) === True
+test-neq-bool-lists = refl

@@ -7,16 +7,14 @@ open import Data.Nat.eq
 open import Data.Bool.Type
 open import Data.Equal.Type
 
--- Eq tests
+test-eq-neq-different-element : ((1 :: 2 :: 3 :: []) != (1 :: 2 :: 4 :: [])) === True
+test-eq-neq-different-element = refl
 
-_ : ((1 :: 2 :: 3 :: []) != (1 :: 2 :: 4 :: [])) === True
-_ = refl
+test-eq-neq-empty-vectors : ([] != ([] {A = Nat})) === False
+test-eq-neq-empty-vectors = refl
 
-_ : ([] != ([] {A = Nat})) === False
-_ = refl
+test-eq-same-vectors : ((1 :: 2 :: 3 :: []) == (1 :: 2 :: 3 :: [])) === True
+test-eq-same-vectors = refl
 
-_ : ((1 :: 2 :: 3 :: []) == (1 :: 2 :: 3 :: [])) === True
-_ = refl
-
-_ : ((1 :: 2 :: []) == (1 :: 3 :: [])) === False
-_ = refl
+test-eq-different-vectors : ((1 :: 2 :: []) == (1 :: 3 :: [])) === False
+test-eq-different-vectors = refl

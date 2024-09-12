@@ -2,44 +2,34 @@ module Data.Bits.Test.add where
 
 open import Data.Bits.Type
 open import Data.Bits.add
-open import Data.Bits.from-nat
-open import Data.Bits.to-nat
-open import Data.Bits.eq
-open import Data.Bool.if
-open import Data.Nat.Type
-open import Data.Nat.add renaming (add to add-nat; _+_ to _+n_)
-open import Data.Unit.Type
-open import Data.Empty.Type
+open import Data.Equal.Type
 
-test-case : Nat → Nat → Set
-test-case a b =
-  let result = (from-nat a) + (from-nat b)
-      expected = from-nat (a +n b)
-  in if result == expected then Unit else Empty
+test-add-zero-zero : (O E) + (O E) === (O E)
+test-add-zero-zero = refl
 
-run-tests : Unit
-run-tests = 
-  let
-    _ : test-case 0 0
-    _ = unit
-    _ : test-case 1 1
-    _ = unit
-    _ : test-case 2 3
-    _ = unit
-    _ : test-case 7 8
-    _ = unit
-    _ : test-case 15 16
-    _ = unit
-    _ : test-case 42 58
-    _ = unit
-    _ : test-case 1042 58
-    _ = unit
+test-add-one-zero : (I E) + (O E) === (I E)
+test-add-one-zero = refl
 
-  in unit
+test-add-zero-one : (O E) + (I E) === (I E)
+test-add-zero-one = refl
 
--- Main function to run tests
--- This will only type check if all tests pass
-main : Unit
-main = run-tests
+test-add-one-one : (I E) + (I E) === (O E)
+test-add-one-one = refl
 
+test-add-two-one : (O (I E)) + (I (O E)) === (I (I E))
+test-add-two-one = refl
 
+test-add-three-one : (I (I E)) + (I (O E)) === (O (O E))
+test-add-three-one = refl
+
+test-add-five-three : (I (O (I E))) + (I (I (O E))) === (O (O (O  E)))
+test-add-five-three = refl
+
+test-add-empty-empty : E + E === E
+test-add-empty-empty = refl
+
+test-add-nonempty-empty : (I (O (I E))) + E === (I (O (I E)))
+test-add-nonempty-empty = refl
+
+test-add-empty-nonempty : E + (I (O (I E))) === (I (O (I E)))
+test-add-empty-nonempty = refl

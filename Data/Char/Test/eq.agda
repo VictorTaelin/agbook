@@ -5,12 +5,11 @@ open import Data.Char.eq
 open import Data.Bool.Type
 open import Data.Equal.Type
 
--- Eq tests
-_ : ('a' == 'a') === True
-_ = refl
+test-eq-a-a : ('a' == 'a') === True
+test-eq-a-a = refl
 
-_ : ('a' == 'b') === False
-_ = refl
+test-eq-a-b : ('a' == 'b') === False
+test-eq-a-b = refl
 
-_ : ('0' == '0') === True
-_ = refl
+test-eq-0-0 : ('0' == '0') === True
+test-eq-0-0 = refl

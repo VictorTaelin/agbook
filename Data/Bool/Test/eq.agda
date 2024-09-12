@@ -4,12 +4,11 @@ open import Data.Bool.Type
 open import Data.Bool.eq
 open import Data.Equal.Type
 
--- Tests
-_ : (True == True) === True
-_ = refl
+test-eq-true-true : (True == True) === True
+test-eq-true-true = refl
 
-_ : (False == True) === False
-_ = refl
+test-eq-false-true : (False == True) === False
+test-eq-false-true = refl
 
-_ : (True != False) === True
-_ = refl
+test-eq-true-false : (True != False) === True
+test-eq-true-false = refl

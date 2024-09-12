@@ -5,9 +5,8 @@ open import Data.U64.show
 open import Data.String.Type
 open import Data.Equal.Type
 
--- Show tests
-_ : show (primWord64FromNat 42) === "42"
-_ = refl
+test-show-positive : show (primWord64FromNat 42) === "42"
+test-show-positive = refl
 
-_ : show (primWord64FromNat 0) === "0"
-_ = refl
+test-show-zero : show (primWord64FromNat 0) === "0"
+test-show-zero = refl

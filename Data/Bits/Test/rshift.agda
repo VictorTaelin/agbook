@@ -3,51 +3,26 @@ module Data.Bits.Test.rshift where
 open import Data.Bits.Type
 open import Data.Bits.rshift
 open import Data.Bits.from-nat
-open import Data.Bits.eq
 open import Data.Nat.Type
-open import Data.Bool.if
-open import Data.Unit.Type
-open import Data.Empty.Type
+open import Data.Equal.Type
 
-test-case : Bits → Nat → Bits → Set
-test-case input shift expected =
-  let result = input >> shift
-  in if result == expected then Unit else Empty
+test-rshift-one-by-one : (I E >> 1) === E
+test-rshift-one-by-one = refl
 
-run-tests : Unit
-run-tests = 
-  let
-    -- Test with empty bits
-    _ : test-case E 0 E
-    _ = unit
-    _ : test-case E 1 E
-    _ = unit
-    _ : test-case (I E) 0 (I E)
-    _ = unit
-    _ : test-case (I E) 1 E
-    _ = unit
-    _ : test-case (O (I E)) 1 (I E)
-    _ = unit
-    _ : test-case (I (O (I E))) 0 (I (O (I E)))
-    _ = unit
-    _ : test-case (I (O (I E))) 1 (O (I E))
-    _ = unit
-    _ : test-case (I (O (I E))) 2 (I E)
-    _ = unit
-    _ : test-case (I (O (I E))) 3 E
-    _ = unit
-    _ : test-case (from-nat 8) 1 (from-nat 4)
-    _ = unit
-    _ : test-case (from-nat 12) 2 (from-nat 3)
-    _ = unit
-    _ : test-case (from-nat 56) 3 (from-nat 7)
-    _ = unit
-    _ : test-case (from-nat 16) 4 (from-nat 1)
-    _ = unit
-    _ : test-case (from-nat 96) 5 (from-nat 3)
-    _ = unit
+test-rshift-two-by-one : (O (I E) >> 1) === I E
+test-rshift-two-by-one = refl
 
-  in unit
+test-rshift-seven-by-two : (I (I (I E)) >> 2) === I E
+test-rshift-seven-by-two = refl
 
-main : Unit
-main = run-tests
+test-rshift-eight-by-three : (O (O (O (I E))) >> 3) === I E
+test-rshift-eight-by-three = refl
+
+test-rshift-fifteen-by-four : (I (I (I (I E))) >> 4) === E
+test-rshift-fifteen-by-four = refl
+
+test-rshift-by-zero : (bits : Bits) → (bits >> 0) === bits
+test-rshift-by-zero bits = refl
+
+test-rshift-from-nat : (from-nat 42 >> 2) === from-nat 10
+test-rshift-from-nat = refl

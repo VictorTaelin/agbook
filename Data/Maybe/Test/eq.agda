@@ -7,15 +7,14 @@ open import Data.Nat.eq
 open import Data.Bool.Type
 open import Data.Equal.Type
 
--- Eq tests
-_ : ((Some 42) == (Some 42)) === True
-_ = refl
+test-eq-some-equal : ((Some 42) == (Some 42)) === True
+test-eq-some-equal = refl
 
-_ : ((Some 42) == (Some 43)) === False
-_ = refl
+test-eq-some-different : ((Some 42) == (Some 43)) === False
+test-eq-some-different = refl
 
-_ : (None == None) === True
-_ = refl
+test-eq-none : (None == None) === True
+test-eq-none = refl
 
-_ : ((Some 42) == None) === False
-_ = refl
+test-eq-some-none : ((Some 42) == None) === False
+test-eq-some-none = refl

@@ -2,50 +2,39 @@ module Data.Bits.Test.eq where
 
 open import Data.Bits.Type
 open import Data.Bits.eq
-open import Data.Bits.not
-open import Data.Bits.or
+open import Data.Equal.Type
 open import Data.Bool.Type
-open import Data.Bool.eq
-open import Data.Bool.if
-open import Data.Unit.Type
-open import Data.Empty.Type
 
-test-case : Bits → Bits → Bool → Set
-test-case a b expected = 
-  let result = a == b
-  in if result == expected then Unit else Empty
+test-eq-empty-empty : (E == E) === True
+test-eq-empty-empty = refl
 
-run-tests : Unit
-run-tests = 
-  let
-    _ : test-case E E True
-    _ = unit
-    _ : test-case (O E) (O E) True
-    _ = unit
-    _ : test-case (I E) (I E) True
-    _ = unit
-    _ : test-case (O E) (I E) False
-    _ = unit
-    _ : test-case (O (I E)) (O (I E)) True
-    _ = unit
-    _ : test-case (I (O (I E))) (I (O (I E))) True
-    _ = unit
-    _ : test-case (O (I (O E))) (O (I (I E))) False
-    _ = unit
-    _ : test-case (O (I E)) (O (I (O E))) False
-    _ = unit
-    _ : test-case (I (O E)) (I E) False
-    _ = unit
-    _ : test-case (O (I E)) (~ (I (O E))) True
-    _ = unit
-    _ : test-case (I (I E)) ((O (I E)) || (I (O E))) True
-    _ = unit
-    _ : test-case (O E) E False
-    _ = unit
-    _ : test-case E (I E) False
-    _ = unit
+test-eq-zero-zero : (O E == O E) === True
+test-eq-zero-zero = refl
 
-  in unit
+test-eq-one-one : (I E == I E) === True
+test-eq-one-one = refl
 
-main : Unit
-main = run-tests
+test-eq-zero-one : (O E == I E) === False
+test-eq-zero-one = refl
+
+test-eq-one-zero : (I E == O E) === False
+test-eq-one-zero = refl
+
+test-eq-101-101 : (I (O (I E)) == I (O (I E))) === True
+test-eq-101-101 = refl
+
+test-eq-110-101 : (I (I (O E)) == I (O (I E))) === False
+test-eq-110-101 = refl
+
+test-eq-1010-1010 : (O (I (O (I E))) == O (I (O (I E)))) === True
+test-eq-1010-1010 = refl
+
+test-eq-1010-1011 : (O (I (O (I E))) == I (I (O (I E)))) === False
+test-eq-1010-1011 = refl
+
+test-eq-10-100 : (O (I E) == O (O (I E))) === False
+test-eq-10-100 = refl
+
+test-eq-100-10 : (O (O (I E)) == O (I E)) === False
+test-eq-100-10 = refl
+

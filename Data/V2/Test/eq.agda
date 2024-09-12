@@ -7,16 +7,14 @@ open import Data.Float.eq
 open import Data.Bool.Type
 open import Data.Equal.Type
 
--- Eq tests
+test-eq-different-y : ((MkV2 1.0 2.0) == (MkV2 1.0 3.0)) === False
+test-eq-different-y = refl
 
-_ : ((MkV2 1.0 2.0) == (MkV2 1.0 3.0)) === False
-_ = refl
+test-eq-different-x : ((MkV2 1.0 2.0) == (MkV2 2.0 2.0)) === False
+test-eq-different-x = refl
 
-_ : ((MkV2 1.0 2.0) == (MkV2 2.0 2.0)) === False
-_ = refl
+test-eq-same : ((MkV2 1.0 2.0) == (MkV2 1.0 2.0)) === True
+test-eq-same = refl
 
-_ : ((MkV2 1.0 2.0) == (MkV2 1.0 2.0)) === True
-_ = refl
-
-_ : ((MkV2 1.0 2.0) != (MkV2 2.0 1.0)) === True
-_ = refl
+test-neq-different : ((MkV2 1.0 2.0) != (MkV2 2.0 1.0)) === True
+test-neq-different = refl

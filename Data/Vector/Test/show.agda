@@ -7,12 +7,11 @@ open import Data.Nat.show
 open import Data.String.Type
 open import Data.Equal.Type
 
--- Show tests
-_ : show ([] {A = Nat}) === "<>"
-_ = refl
+test-show-empty-vector-nat : show ([] {A = Nat}) === "<>"
+test-show-empty-vector-nat = refl
 
-_ : show (1 :: 2 :: 3 :: []) === "<1, 2, 3>"
-_ = refl
+test-show-non-empty-vector : show (1 :: 2 :: 3 :: []) === "<1, 2, 3>"
+test-show-non-empty-vector = refl
 
-_ : show [] === "<>"
-_ = refl
+test-show-empty-vector : show [] === "<>"
+test-show-empty-vector = refl

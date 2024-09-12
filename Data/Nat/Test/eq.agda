@@ -5,15 +5,14 @@ open import Data.Nat.eq
 open import Data.Bool.Type
 open import Data.Equal.Type
 
--- Eq tests
-_ : (42 == 42) === True
-_ = refl
+test-eq-same : (42 == 42) === True
+test-eq-same = refl
 
-_ : (42 == 43) === False
-_ = refl
+test-eq-different : (42 == 43) === False
+test-eq-different = refl
 
-_ : (0 == 0) === True
-_ = refl
+test-eq-zero : (0 == 0) === True
+test-eq-zero = refl
 
-_ : (4 != 4) === False
-_ = refl
+test-neq-same : (4 != 4) === False
+test-neq-same = refl

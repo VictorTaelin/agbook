@@ -6,26 +6,23 @@ open import Data.Float.Operations
 open import Data.String.Type
 open import Data.Equal.Type
 
--- Show tests
+test-show-pi : show 3.14 === "3.14"
+test-show-pi = refl
 
-_ : show 3.14 === "3.14"
-_ = refl
+test-show-zero : show 0.0 === "0.0"
+test-show-zero = refl
 
-_ : show 0.0 === "0.0"
-_ = refl
-
-_ : show -2.5 === "-2.5"
-_ = refl
+test-show-negative : show -2.5 === "-2.5"
+test-show-negative = refl
 
 -- NaN and Infinity tests (if supported)
 -- Uncomment these if your Float implementation supports NaN and Infinity
 
-_ : show (1.0 f/ 0.0) === "Infinity"
-_ = refl
+test-show-infinity : show (1.0 f/ 0.0) === "Infinity"
+test-show-infinity = refl
 
-_ : show (-1.0 f/ 0.0) === "-Infinity"
-_ = refl
+test-show-negative-infinity : show (-1.0 f/ 0.0) === "-Infinity"
+test-show-negative-infinity = refl
 
-_ : show (0.0 f/ 0.0) === "NaN"
-_ = refl
-
+test-show-nan : show (0.0 f/ 0.0) === "NaN"
+test-show-nan = refl

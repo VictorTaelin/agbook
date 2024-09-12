@@ -8,8 +8,8 @@ open import Data.Nat.Type
 -- - n: The number of positions to shift right (represented as Nat).
 -- = A new Bits value representing the right-shifted result.
 rshift : Bits → Nat → Bits
-rshift bits Zero     = bits
-rshift E    _        = E
+rshift bits     Zero     = bits
+rshift E        _        = E
 rshift (O bits) (Succ n) = rshift bits n
 rshift (I bits) (Succ n) = rshift bits n
 

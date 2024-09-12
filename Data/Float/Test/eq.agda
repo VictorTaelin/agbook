@@ -11,25 +11,23 @@ equal : Float → Float → Bool
 equal x y = primFloatLess (primFloatMinus x y) 0.000001 
          && primFloatLess (primFloatMinus y x) 0.000001
 
--- Eq tests
+test-eq-zero : (0.0 == -0.0) === True
+test-eq-zero = refl
 
-_ : (0.0 == -0.0) === True
-_ = refl
+test-eq-pi : (3.14 == 3.14) ===  True
+test-eq-pi = refl
 
-_ : (3.14 == 3.14) ===  True
-_ = refl
+test-eq-sum : ((1.1 f+ 2.2) == 3.3) === False
+test-eq-sum = refl
 
-_ : ((1.1 f+ 2.2) == 3.3) === False
-_ = refl
+test-eq-sum-approx : (equal (1.1 f+ 2.2) 3.3) === True
+test-eq-sum-approx = refl
 
-_ : (equal (1.1 f+ 2.2) 3.3) === True
-_ = refl
+test-eq-different : (3.14 == 2.71) === False
+test-eq-different = refl
 
-_ : (3.14 == 2.71) === False
-_ = refl
+test-neq-same : (3.14 != 3.14) === False
+test-neq-same = refl
 
-_ : (3.14 != 3.14) === False
-_ = refl
-
-_ : (3.14 != 2.71) === True
-_ = refl
+test-neq-different : (3.14 != 2.71) === True
+test-neq-different = refl
