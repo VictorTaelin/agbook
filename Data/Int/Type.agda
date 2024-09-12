@@ -4,17 +4,17 @@ open import Data.Nat.Type
 open import Data.String.Type
 open import Data.Nat.sub
 
-data Int : Set where
-  Pos    : Nat → Int
-  NegSuc : Nat → Int
+data Int  : Set where
+  Pos     : Nat → Int
+  Neg     : Nat → Int
 
-{-# BUILTIN INTEGER       Int    #-}
-{-# BUILTIN INTEGERPOS    Pos    #-}
-{-# BUILTIN INTEGERNEGSUC NegSuc #-}
+{-# BUILTIN INTEGER       Int #-}
+{-# BUILTIN INTEGERPOS    Pos #-}
+{-# BUILTIN INTEGERNEGSUC Neg #-}
 
 -_ : Nat →  Int
 -(Zero)   = Pos Zero
--(Succ n) = NegSuc n
+-(Succ n) = Neg n
 
 +_ : Nat → Int
 +(Zero)   = Pos Zero
@@ -22,4 +22,3 @@ data Int : Set where
 
 primitive
   primShowInteger : Int → String
-
