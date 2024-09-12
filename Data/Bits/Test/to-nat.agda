@@ -3,45 +3,31 @@ module Data.Bits.Test.to-nat where
 open import Data.Bits.Type
 open import Data.Bits.to-nat
 open import Data.Nat.Type
-open import Data.Nat.eq
-open import Data.Bool.if
-open import Data.Unit.Type
-open import Data.Empty.Type
+open import Data.Equal.Type
 
-test-case : Bits → Nat → Set
-test-case bits expected =
-  let result = to-nat bits
-  in if result == expected then Unit else Empty
+test-empty : to-nat E == 0
+test-empty = refl
 
-run-tests : Unit
-run-tests = 
-  let
-    _ : test-case E 0
-    _ = unit
-    _ : test-case (O E) 0
-    _ = unit
-    _ : test-case (I E) 1
-    _ = unit
-    _ : test-case (O (I E)) 2
-    _ = unit
-    _ : test-case (I (O E)) 1
-    _ = unit
-    _ : test-case (I (I E)) 3
-    _ = unit
-    _ : test-case (O (O (I E))) 4
-    _ = unit
-    _ : test-case (I (O (I E))) 5
-    _ = unit
-    _ : test-case (O (I (I E))) 6
-    _ = unit
-    _ : test-case (I (I (I E))) 7
-    _ = unit
-    _ : test-case (O (O (O (I E)))) 8
-    _ = unit
-    _ : test-case (I (O (I (O (I E))))) 21
-    _ = unit
+test-zero : to-nat (O E) == 0
+test-zero = refl
 
-  in unit
+test-one : to-nat (I E) == 1
+test-one = refl
 
-main : Unit
-main = run-tests
+test-two : to-nat (O (I E)) == 2
+test-two = refl
+
+test-three : to-nat (I (I E)) == 3
+test-three = refl
+
+test-four : to-nat (O (O (I E))) == 4
+test-four = refl
+
+test-five : to-nat (I (O (I E))) == 5
+test-five = refl
+
+test-ten : to-nat (O (I (O (I E)))) == 10
+test-ten = refl
+
+test-twenty-five : to-nat (I (O (O (I (I E))))) == 25
+test-twenty-five = refl

@@ -3,54 +3,41 @@ module Data.Bits.Test.lt where
 open import Data.Bits.Type
 open import Data.Bits.lt
 open import Data.Bits.from-nat
-open import Data.Bits.eq
+open import Data.Equal.Type
 open import Data.Bool.Type
-open import Data.Bool.if
-open import Data.Bool.eq renaming (_==_ to _b==_)
-open import Data.Nat.Type
-open import Data.Unit.Type
-open import Data.Empty.Type
 
-test-case : Nat → Nat → Bool → Set
-test-case a b expected =
-  let result = (from-nat a) < (from-nat b)
-  in if result b== expected then Unit else Empty
+test-empty-not-lt : (E < E) == False
+test-empty-not-lt = refl
 
-run-tests : Unit
-run-tests = 
-  let
-    _ : test-case 0 0 False
-    _ = unit
-    _ : test-case 1 0 False
-    _ = unit
-    _ : test-case 0 1 True
-    _ = unit
-    _ : test-case 2 1 False
-    _ = unit
-    _ : test-case 1 2 True
-    _ = unit
-    _ : test-case 7 8 True
-    _ = unit
-    _ : test-case 8 7 False
-    _ = unit
-    _ : test-case 15 16 True
-    _ = unit
-    _ : test-case 16 15 False
-    _ = unit
-    _ : test-case 42 42 False
-    _ = unit
-    _ : test-case 1042 58 False
-    _ = unit
-    _ : test-case 0 255 True
-    _ = unit
-    _ : test-case 255 0 False
-    _ = unit
-    _ : test-case 1 255 True
-    _ = unit
-    _ : test-case 254 255 True
-    _ = unit
+test-empty-lt-non-empty : (E < O E) == True
+test-empty-lt-non-empty = refl
 
-  in unit
+test-non-empty-not-lt-empty : (O E < E) == False
+test-non-empty-not-lt-empty = refl
 
-main : Unit
-main = run-tests
+test-zero-lt-one : (O E < I E) == True
+test-zero-lt-one = refl
+
+test-one-not-lt-zero : (I E < O E) == False
+test-one-not-lt-zero = refl
+
+-- False because it checks up to the shortest str
+test-one-lt-two : (I E < O (I E)) == False
+test-one-lt-two = refl
+
+test-two-lt-three : (O (I E) < I (I E)) == True
+test-two-lt-three = refl
+
+test-three-not-lt-three : (I (I E) < I (I E)) == False
+test-three-not-lt-three = refl
+
+-- checks up to shortest
+test-four-not-lt-three : (O (O (I E)) < I (I E)) == True
+test-four-not-lt-three = refl
+
+test-five-lt-seven : (from-nat 5 < from-nat 7) == True
+test-five-lt-seven = refl
+
+test-eight-not-lt-eight : (from-nat 8 < from-nat 8) == False
+test-eight-not-lt-eight = refl
+

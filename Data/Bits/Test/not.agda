@@ -2,37 +2,22 @@ module Data.Bits.Test.not where
 
 open import Data.Bits.Type
 open import Data.Bits.not
-open import Data.Bits.eq
-open import Data.Bool.if
-open import Data.Unit.Type
-open import Data.Empty.Type
+open import Data.Equal.Type
 
-test-case : Bits → Bits → Set
-test-case input expected =
-  let result = not input
-  in if result == expected then Unit else Empty
+test-not-empty : not E == E
+test-not-empty = refl
 
-run-tests : Unit
-run-tests = 
-  let
-    _ : test-case E E
-    _ = unit
-    _ : test-case (O E) (I E)
-    _ = unit
-    _ : test-case (I E) (O E)
-    _ = unit
-    _ : test-case (I (O (I E))) (O (I (O E)))
-    _ = unit
-    _ : test-case (O (I (O E))) (I (O (I E)))
-    _ = unit
-    _ : test-case (I (I (I E))) (O (O (O E)))
-    _ = unit
-    _ : test-case (I (O (I (O (I E))))) (O (I (O (I (O E)))))
-    _ = unit
-    _ : test-case (O (O (O (O (O E))))) (I (I (I (I (I E)))))
-    _ = unit
+test-not-zero : not (O E) == I E
+test-not-zero = refl
 
-  in unit
+test-not-one : not (I E) == O E
+test-not-one = refl
 
-main : Unit
-main = run-tests
+test-not-multiple : not (O (I (O E))) == I (O (I E))
+test-not-multiple = refl
+
+test-not-double : not (not (I (O (I E)))) == I (O (I E))
+test-not-double = refl
+
+test-prefix-not : ~ (O (I E)) == I (O E)
+test-prefix-not = refl

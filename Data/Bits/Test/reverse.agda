@@ -2,41 +2,25 @@ module Data.Bits.Test.reverse where
 
 open import Data.Bits.Type
 open import Data.Bits.reverse
-open import Data.Bits.eq
-open import Data.Bool.if
-open import Data.Unit.Type
-open import Data.Empty.Type
+open import Data.Equal.Type
 
-test-case : Bits → Bits → Set
-test-case input expected =
-  let result = reverse input
-  in if result == expected then Unit else Empty
+test-reverse-empty : reverse E == E
+test-reverse-empty = refl
 
-run-tests : Unit
-run-tests = 
-  let
-    _ : test-case E E
-    _ = unit
-    _ : test-case (O E) (O E)
-    _ = unit
-    _ : test-case (I E) (I E)
-    _ = unit
-    _ : test-case (O (I E)) (I (O E))
-    _ = unit
-    _ : test-case (I (O E)) (O (I E))
-    _ = unit
-    _ : test-case (O (I (O E))) (O (I (O E)))
-    _ = unit
-    _ : test-case (I (O (I E))) (I (O (I E)))
-    _ = unit
-    _ : test-case (O (O (I (I E)))) (I (I (O (O E))))
-    _ = unit
-    _ : test-case (O (O (O (I E)))) (I (O (O (O E))))
-    _ = unit
-    _ : test-case (I (I (O (O E)))) (O (O (I (I E))))
-    _ = unit
+test-reverse-zero : reverse (O E) == O E
+test-reverse-zero = refl
 
-  in unit
+test-reverse-one : reverse (I E) == I E
+test-reverse-one = refl
 
-main : Unit
-main = run-tests
+test-reverse-two-bits : reverse (O (I E)) == I (O E)
+test-reverse-two-bits = refl
+
+test-reverse-three-bits : reverse (I (O (I E))) == I (O (I E))
+test-reverse-three-bits = refl
+
+test-reverse-longer : reverse (I (O (O (I (O (I (I E))))))) == I (I (O (I (O (O (I E))))))
+test-reverse-longer = refl
+
+test-double-reverse : reverse (reverse (I (O (I E)))) == I (O (I E))
+test-double-reverse = refl

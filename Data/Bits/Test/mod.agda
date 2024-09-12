@@ -3,46 +3,22 @@ module Data.Bits.Test.mod where
 open import Data.Bits.Type
 open import Data.Bits.mod
 open import Data.Bits.from-nat
-open import Data.Bits.to-nat
-open import Data.Bits.eq
-open import Data.Bool.if
-open import Data.Nat.Type
-open import Data.Nat.eq renaming (_==_ to _n==_)
-open import Data.Nat.mod renaming (mod to mod-nat; _%_ to _%n_)
-open import Data.Unit.Type
-open import Data.Empty.Type
+open import Data.Equal.Type
 
-test-case : Nat → Nat → Set
-test-case a b =
-  let result = to-nat ((from-nat a) % (from-nat b))
-      expected = a %n b
-  in if ((to-nat (from-nat result)) n== (to-nat (from-nat expected))) then Unit else Empty
+test-mod-1 : (from-nat 5 % from-nat 3) == from-nat 2
+test-mod-1 = refl
 
-run-tests : Unit
-run-tests = 
-  let
-    _ : test-case 2 1
-    _ = unit
-    _ : test-case 15 4
-    _ = unit
-    _ : test-case 7 2
-    _ = unit
-    _ : test-case 20 6
-    _ = unit
-    _ : test-case 100 8
-    _ = unit
-    _ : test-case 42 5
-    _ = unit
-    _ : test-case 0 5
-    _ = unit
-    _ : test-case 17 17
-    _ = unit
-    _ : test-case 1024 10
-    _ = unit
-    _ : test-case 9999 100
-    _ = unit
+test-mod-2 : (from-nat 10 % from-nat 4) == from-nat 2
+test-mod-2 = refl
 
-  in unit
+test-mod-3 : (from-nat 7 % from-nat 2) == from-nat 1
+test-mod-3 = refl
 
-main : Unit
-main = run-tests
+test-mod-4 : (from-nat 0 % from-nat 5) == from-nat 0
+test-mod-4 = refl
+
+test-mod-5 : (from-nat 15 % from-nat 15) == from-nat 0
+test-mod-5 = refl
+
+test-mod-6 : (from-nat 100 % from-nat 30) == from-nat 10
+test-mod-6 = refl

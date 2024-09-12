@@ -2,40 +2,34 @@ module Data.Bits.Test.dec where
 
 open import Data.Bits.Type
 open import Data.Bits.dec
-open import Data.Bits.from-nat
-open import Data.Bits.to-nat
-open import Data.Bits.eq
-open import Data.Bool.if
-open import Data.Nat.Type
-open import Data.Nat.sub renaming (sub to sub-nat; _-_ to _-n_)
-open import Data.Unit.Type
-open import Data.Empty.Type
+open import Data.Equal.Type
 
-test-case : Nat → Set
-test-case n =
-  let result = dec (from-nat n)
-      expected = from-nat (n -n 1)
-  in if result == expected then Unit else Empty
+test-dec-zero : dec (O E) == (I E)
+test-dec-zero = refl
 
-run-tests : Unit
-run-tests = 
-  let
-    _ : test-case 1
-    _ = unit
-    _ : test-case 2
-    _ = unit
-    _ : test-case 3
-    _ = unit
-    _ : test-case 8
-    _ = unit
-    _ : test-case 16
-    _ = unit
-    _ : test-case 42
-    _ = unit
-    _ : test-case 100
-    _ = unit
+test-dec-one : dec (I E) == (O E)
+test-dec-one = refl
 
-  in unit
+test-dec-two : dec (O (I E)) == (I (O E))
+test-dec-two = refl
 
-main : Unit
-main = run-tests
+test-dec-three : dec (I (I E)) == (O (I E))
+test-dec-three = refl
+
+test-dec-four : dec (O (O (I E))) == (I (I (O E)))
+test-dec-four = refl
+
+test-dec-five : dec (I (O (I E))) == (O (O (I E)))
+test-dec-five = refl
+
+test-dec-empty : dec E == E
+test-dec-empty = refl
+
+test-dec-long : dec (I (O (I (I (O E))))) == (O (O (I (I (O E)))))
+test-dec-long = refl
+
+test-dec-all-ones : dec (I (I (I (I E)))) == (O (I (I (I E))))
+test-dec-all-ones = refl
+
+test-dec-all-zeros : dec (O (O (O (O E)))) == (I (I (I (I E))))
+test-dec-all-zeros = refl
