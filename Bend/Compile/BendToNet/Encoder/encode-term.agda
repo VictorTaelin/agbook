@@ -22,7 +22,11 @@ open import Bend.Compile.BendToNet.Encoder.link-var
 open import Bend.Compile.BendToNet.Encoder.encode-pat
 open import Bend.Compile.BendToNet.Encoder.encode-num
 
--- Encodes the term into a net, linking the result to the given port.
+-- Encodes a Term into the Encoder, linking the result to the given port
+-- - enc: The current Encoder state
+-- - term: The Term to be encoded
+-- - up: The upstream Port to connect the encoded term to
+-- = The Encoder with the nodes from the compiled term or None on error
 encode-term : Encoder → Term → Port → Result Encoder String
 
 encode-term enc (Term.Var name) up = do
@@ -108,6 +112,7 @@ encode-term enc (Term.Oper _opr fst snd) up = do
   enc ← to-result (link enc (MkPort node2 2) up) "link oper ret fail"
   Done enc
 
+-- These should have already been removed at this point of compilation
 encode-term enc (Term.Str _)          up = Fail "str in compile"
 encode-term enc (Term.List _)         up = Fail "list in compile"
 encode-term enc (Term.With _ _)       up = Fail "with in compile"

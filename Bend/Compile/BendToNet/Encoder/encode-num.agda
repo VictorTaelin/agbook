@@ -6,6 +6,9 @@ open import Data.Int.to-bits renaming (to-bits to int-to-bits)
 open import Data.Float.to-bits renaming (to-bits to float-to-bits)
 open import Bend.Fun.Num.Type using (Num)
 
+-- Encodes a Num (number) into its HVM bit representation
+-- - num: The Num to be encoded
+-- = The Bits representation of the number
 -- TODO: This is temporary and we should instead use the HVM conversions
 encode-num : Num → Bits
 encode-num (Num.U24 n) = nat-to-bits n

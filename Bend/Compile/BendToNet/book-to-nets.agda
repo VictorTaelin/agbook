@@ -26,18 +26,26 @@ private
   open module Rule = Rule' Term
 
 -- Converts all definitions in a book to a list of flat nets
+-- - book: The Book containing function definitions
+-- = A List of Nets with the compiled definitions or an error message
 book-to-nets : Book → Result (List Net) String
 book-to-nets book =
   let (_ , defs) = unzip (map-to-list (Book.defs book)) in
   go defs
   where
 
+  -- Converts a single function definition to a Net
+  -- - def: The FnDef (function definition) to convert
+  -- = The function compiled to a Net or an error message
   def-to-net : FnDef → Result Net String
   def-to-net (MkFnDef name type check rules src) = do
       rule ← to-result (head rules) ("No rules found for " ++ name)
       enc ← encode-term (new-encoder name) (Rule.body rule) net-root
       Done (Encoder.net enc)
 
+  -- Recursively processes a list of function definitions into Nets
+  -- - defs: The list of FnDef (function definitions) to process
+  -- = A List of compiled Nets or an error message
   go : List FnDef → Result (List Net) String
   go [] = Done []
   go (def :: defs) = do

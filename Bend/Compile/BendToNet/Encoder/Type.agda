@@ -1,6 +1,3 @@
-
-
-
 module Bend.Compile.BendToNet.Encoder.Type where
 
 open import Data.Map.Type
@@ -11,9 +8,10 @@ open import Bend.Fun.Pattern.Type
 open import Bend.Net.Type
 open import Bend.Net.Port.Type
 
+-- State for encoding Bend Terms to the internal flat inet representation
 record Encoder : Set where
   constructor MkEncoder
   field
-    net  : Net
-    vars : Map Port
-    lets : List (Pair Pattern Term)
+    net  : Net                       -- Current state of the Net being built
+    vars : Map Port                  -- Map of variable names to their corresponding Ports
+    lets : List (Pair Pattern Term)  -- List of lets to be processed
