@@ -6,10 +6,10 @@ open import HVM.State.Type
 
 -- Monadic bind for Runtime type
 bind : ∀ {A B : Set} → Runtime A → (A → Runtime B) → Runtime B
-bind ma fn state = 
+bind ma fn state = do
   let (state , a) = ma state
-      (state , b) = fn a state
-  in (state , b)
+  let (state , b) = fn a state
+  (state , b)
 
 -- Infix operator for bind
 _>>=_ : ∀ {A B : Set} → Runtime A → (A → Runtime B) → Runtime B

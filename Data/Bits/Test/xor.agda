@@ -2,41 +2,37 @@ module Data.Bits.Test.xor where
 
 open import Data.Bits.Type
 open import Data.Bits.xor
-open import Data.Bits.eq
-open import Data.Bool.if
-open import Data.Unit.Type
-open import Data.Empty.Type
+open import Data.Equal.Type
 
-test-case : Bits → Bits → Bits → Set
-test-case a b expected =
-  let result = a ^ b
-  in if result == expected then Unit else Empty
+test-xor-empty : E ^ E === E
+test-xor-empty = refl
 
-run-tests : Unit
-run-tests = 
-  let
-    _ : test-case E E E
-    _ = unit
-    _ : test-case (O E) (O E) (O E)
-    _ = unit
-    _ : test-case (O E) (I E) (I E)
-    _ = unit
-    _ : test-case (I E) (O E) (I E)
-    _ = unit
-    _ : test-case (I E) (I E) (O E)
-    _ = unit
-    _ : test-case (I (O (I E))) (I (I (O E))) (O (I (I E)))
-    _ = unit
-    _ : test-case (I (O (I (I E)))) (I (I (O (I E)))) (O (I (I (O E))))
-    _ = unit
-    _ : test-case (O (I (O (I E)))) (I (O (I (O E)))) (I (I (I (I E))))
-    _ = unit
-    _ : test-case (I (I (I (I E)))) (I (O (I (O E)))) (O (I (O (I E))))
-    _ = unit
-    _ : test-case (I (O (I (O (I E))))) (I (I (O (I (I E))))) (O (I (I (I (O E)))))
-    _ = unit
+test-xor-empty-left : E ^ (I (O E)) === I (O E)
+test-xor-empty-left = refl
 
-  in unit
+test-xor-empty-right : (O (I E)) ^ E === O (I E)
+test-xor-empty-right = refl
 
-main : Unit
-main = run-tests
+test-xor-zero-zero : (O E) ^ (O E) === O E
+test-xor-zero-zero = refl
+
+test-xor-zero-one : (O E) ^ (I E) === I E
+test-xor-zero-one = refl
+
+test-xor-one-zero : (I E) ^ (O E) === I E
+test-xor-one-zero = refl
+
+test-xor-one-one : (I E) ^ (I E) === O E
+test-xor-one-one = refl
+
+test-xor-multi : (I (O (I E))) ^ (O (I (O E))) === I (I (I E))
+test-xor-multi = refl
+
+test-xor-associative : ((I (O E)) ^ (O (I E))) ^ (I (I E)) === (I (O E)) ^ ((O (I E)) ^ (I (I E)))
+test-xor-associative = refl
+
+test-xor-commutative : (I (O (I E))) ^ (O (I (O E))) === (O (I (O E))) ^ (I (O (I E)))
+test-xor-commutative = refl
+
+test-xor-self-zero : (I (O (I E))) ^ (I (O (I E))) === O (O (O E))
+test-xor-self-zero = refl

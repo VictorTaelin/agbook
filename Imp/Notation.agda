@@ -1,74 +1,85 @@
 module Imp.Notation where
 
-open import Imp.Type
+open import Data.String.Type
+open import Imp.Expr.Type
+open import Imp.Stmt.Type
 open import Data.Nat.Type
 
-_>>_ : Stmt → Stmt → Stmt
+
+-- Monatic then notation for `do` blocks.
 _>>_ = Then
 
 -- Expressions
 
+-- Local variable access
 infix 100 ↑_
-↑_ : Nat -> Expr
 ↑_ = Var
 
-infix 50 _+_ _-_ _*_ _/_ _%_
-infix 40 _&&_ _||_ _==_ _<_
+-- Numeric operations
+infix 50 _+_ _-_ _*_ _/_ _%_ _&&_ _||_ !_
 
-_+_ : Expr → Expr → Expr
 _+_ = Add
-
-_-_ : Expr → Expr → Expr
 _-_ = Sub
-
-_*_ : Expr → Expr → Expr
 _*_ = Mul
-
-_/_ : Expr → Expr → Expr
 _/_ = Div
-
-_%_ : Expr → Expr → Expr
 _%_ = Mod
-
-_&&_ : Expr → Expr → Expr
 _&&_ = And
-
-_||_ : Expr → Expr → Expr
 _||_ = Or
+!_ = Not
 
-~_ : Expr → Expr
-~_ = Not
+-- Comparisons
+infix 40 _==_ _!=_ _<_ _<=_ _>_ _>=_
 
-_==_ : Expr → Expr → Expr
 _==_ = Eq
-
-_<_ : Expr → Expr → Expr
+_!=_ = Eq
 _<_ = Lt
+_<=_ = Le
+_>_ = Gt
+_>=_ = Ge
 
+-- Conditionals
 infix 30 cond_then_else_
+
 cond_then_else_ : Expr → Expr → Expr → Expr
 cond_then_else_ = Cond
 
 -- Statements
 
-infix 20 _:l=_ _:s=_ _:g=_
+-- Assignments
+infix 20 _:=_ _s=_ _g=_
 
-_:l=_ : Nat → Expr → Stmt
-_:l=_ = LSet
+_:=_ = LSet
+_s=_ = SSet
+_g=_ = GSet
 
-_:s=_ : Nat → Expr → Stmt
-_:s=_ = SSet
+-- Convenience Assignments
+infix 20 _+=_ _-=_
 
-_:g=_ : Nat → Expr → Stmt
-_:g=_ = GSet
+_+=_ : String → Expr → Stmt
+_+=_ v x = LSet v (Add (Var v) x)
 
-if_then_else_ : Expr → Stmt → Stmt → Stmt
-if_then_else_ = If
+_-=_ : String → Expr → Stmt
+_-=_ v x = LSet v (Sub (Var v) x)
+
+-- Control flow
+infix 5 if_then_ elif_then_ else_ while_go_
+
+if_then_ : Expr → Stmt → Stmt
+if_then_ = If
+
+elif_then_ : Expr → Stmt → Stmt
+elif_then_ = ElseIf
+
+else_ : Stmt → Stmt
+else_ = Else
 
 while_go_ : Expr -> Stmt -> Stmt
 while_go_ = While
 
-infix 10 return_
+-- Exceptional control flow
+
+infix 15 return_
+
 return_ : Expr → Stmt
 return_ = Ret
 
