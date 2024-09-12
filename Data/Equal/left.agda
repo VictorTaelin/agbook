@@ -12,5 +12,5 @@ open import Data.Equal.trans
 -- - r: Proof that a is equal to x
 -- - s: Proof that b is equal to x
 -- = Proof that a is equal to b
-left : ∀ {a} {A : Set a} {x a b : A} → a == x → b == x → a == b
+left : ∀ {a} {A : Set a} {x a b : A} → a === x → b === x → a === b
 left r s = trans r (sym s)

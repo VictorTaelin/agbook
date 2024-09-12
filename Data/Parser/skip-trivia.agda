@@ -26,7 +26,7 @@ open import Data.String.to-list
 
 -- Checks if a character is a newline
 is-newline : Char → Bool
-is-newline c = eq c '\n'
+is-newline c = c == '\n'
 
 -- Checks if a list of characters starts with "//"
 is-comment : List Char → Bool

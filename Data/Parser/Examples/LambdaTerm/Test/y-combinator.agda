@@ -11,7 +11,7 @@ open import Data.Parser.Examples.LambdaTerm.parse
 open import Data.Equal.Type
 
 _ : let parsed = parse (new "λf (λx (f (x x)) λx (f (x x)))")
-    in  parsed == 
+    in  parsed === 
             (Done (MkReply (MkState "" 30)
             (Lam "f"
               (App

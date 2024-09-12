@@ -2,7 +2,11 @@ module Data.Nat.show where
 
 open import Data.Nat.Type
 open import Data.String.Type
+open import Data.Trait.Show public
 
--- Converts a natural number to its string representation.
-show : Nat → String
-show = primShowNat
+instance
+  ShowNat : Show Nat
+  ShowNat = record { to-string = show-nat }
+    where
+      show-nat : Nat → String
+      show-nat = primShowNat

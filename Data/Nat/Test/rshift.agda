@@ -13,7 +13,7 @@ open import Data.List.Type
 open import Data.List.and
 open import Data.List.map
 open import Data.Pair.Type
-open import Data.Equal.Type renaming (_==_ to _≡_)
+open import Data.Equal.Type 
 
 -- Test case type
 TestCase : Set
@@ -38,5 +38,5 @@ run-tests = map test-rshift test-cases
 all-tests-pass : Bool
 all-tests-pass = and run-tests
 
-_ : all-tests-pass ≡ True
+_ : all-tests-pass  ===  True
 _ = refl

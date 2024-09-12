@@ -3,7 +3,7 @@ module Data.V2.normalize where
 open import Data.V2.Type
 open import Data.Float.Operations
 open import Data.V2.length
-open import Data.V2.div_scalar
+open import Data.V2.div-scalar
 
 -- Normalizes a V2 vector (makes it a unit vector).
 -- - v: The V2 vector to normalize.
@@ -11,4 +11,4 @@ open import Data.V2.div_scalar
 normalize : V2 → V2
 normalize v = 
   let len = length v
-  in div_scalar v len
+  in div-scalar v len

@@ -2,13 +2,18 @@ module Data.String.eq where
 
 open import Data.String.Type
 open import Data.Bool.Type
+open import Data.Bool.not
+open import Data.Trait.Eq public
 
-primitive
-  primStringEquality : String → String → Bool
+instance
+  EqString : Eq String
+  EqString = record
+    { eq = eq-string
+    ; neq = neq-string
+    }
+    where
+    eq-string : String → String → Bool
+    eq-string = primStringEquality
 
--- Checks if two strings are equal.
--- - s1: The 1st string.
--- - s2: The 2nd string.
--- = True if s1 and s2 are equal.
-_==_ : String → String → Bool
-s1 == s2 = primStringEquality s1 s2
+    neq-string : String → String → Bool
+    neq-string x y = not (eq-string x y)

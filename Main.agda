@@ -11,6 +11,7 @@ open import Data.Map.set
 open import Data.Map.to-list
 open import Data.List.Type
 open import Data.List.map
+open import Data.List.foldr
 open import Data.Bits.Type
 open import Data.Bits.show
 open import Data.Pair.Type
