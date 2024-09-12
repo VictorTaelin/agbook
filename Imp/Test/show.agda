@@ -1,4 +1,4 @@
-module Imp.Test.Basic where
+module Imp.Test.show where
 
 open import Data.Nat.Type
 open import Data.U64.Type
