@@ -3,6 +3,7 @@ module Data.Nat.eq where
 open import Data.Nat.Type
 open import Data.Bool.Type
 open import Data.Trait.Eq
+open import Data.Trait.Eq public
 
 instance
   EqNat : Eq Nat

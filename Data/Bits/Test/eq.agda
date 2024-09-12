@@ -2,7 +2,6 @@ module Data.Bits.Test.eq where
 
 open import Data.Bits.Type
 open import Data.Bits.eq
-open import Data.Trait.Eq
 open import Data.Bits.not
 open import Data.Bits.or
 open import Data.Bool.Type

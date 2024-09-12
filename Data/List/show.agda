@@ -3,7 +3,7 @@ module Data.List.show where
 open import Data.List.Type
 open import Data.String.Type
 open import Data.String.append
-open import Data.Trait.Show
+open import Data.Trait.Show public
 
 instance
   ShowList : ∀ {A : Set} {{ShowA : Show A}} → Show (List A)

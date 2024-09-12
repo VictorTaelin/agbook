@@ -2,7 +2,7 @@ module Data.Float.show where
 
 open import Data.Float.Type
 open import Data.String.Type
-open import Data.Trait.Show
+open import Data.Trait.Show public
 
 instance
   ShowFloat : Show Float

@@ -8,7 +8,6 @@ open import Data.Bits.eq
 open import Data.Bool.if
 open import Data.Nat.Type
 open import Data.Nat.eq
-open import Data.Trait.Eq renaming (_==_ to _n==_)
 open import Data.Nat.mod renaming (mod to mod-nat; _%_ to _%n_)
 open import Data.Unit.Type
 open import Data.Empty.Type
@@ -17,7 +16,7 @@ test-case : Nat → Nat → Set
 test-case a b =
   let result = to-nat ((from-nat a) % (from-nat b))
       expected = a %n b
-  in if ((to-nat (from-nat result)) n== (to-nat (from-nat expected))) then Unit else Empty
+  in if ((to-nat (from-nat result)) == (to-nat (from-nat expected))) then Unit else Empty
 
 run-tests : Unit
 run-tests = 

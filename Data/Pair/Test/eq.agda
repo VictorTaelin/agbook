@@ -8,7 +8,6 @@ open import Data.Bool.Type
 open import Data.Bool.eq
 open import Data.Char.Type
 open import Data.Char.eq
-open import Data.Trait.Eq
 open import Data.Equal.Type
 
 -- Eq tests

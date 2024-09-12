@@ -7,7 +7,6 @@ open import Data.Nat.show
 open import Data.Bool.Type
 open import Data.Bool.show
 open import Data.String.Type
-open import Data.Trait.Show
 open import Data.Equal.Type
 
 -- Show tests

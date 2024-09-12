@@ -5,7 +5,6 @@ open import Data.Vector.eq
 open import Data.Nat.Type
 open import Data.Nat.eq
 open import Data.Bool.Type
-open import Data.Trait.Eq
 open import Data.Equal.Type
 
 -- Eq tests

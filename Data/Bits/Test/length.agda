@@ -5,7 +5,6 @@ open import Data.Bits.length
 open import Data.Bits.from-nat
 open import Data.Nat.Type
 open import Data.Nat.eq
-open import Data.Trait.Eq renaming (_==_ to _n==_)
 open import Data.Bool.if
 open import Data.Unit.Type
 open import Data.Empty.Type
@@ -13,7 +12,7 @@ open import Data.Empty.Type
 test-case : Bits → Nat → Set
 test-case bits expected =
   let result = length bits
-  in if result n== expected then Unit else Empty
+  in if result == expected then Unit else Empty
 
 run-tests : Unit
 run-tests = 

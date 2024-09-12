@@ -7,7 +7,6 @@ open import Data.Char.Type
 open import Data.Char.is-alpha
 open import Data.Char.is-digit
 open import Data.Char.eq
-open import Data.Trait.Eq
 open import Data.String.eq
 open import Data.Parser.Type
 open import Data.Parser.take-while

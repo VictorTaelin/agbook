@@ -3,7 +3,6 @@ module Data.Bits.Test.concat where
 open import Data.Bits.Type
 open import Data.Bits.concat
 open import Data.Bits.eq
-open import Data.Trait.Eq
 open import Data.Bool.if
 open import Data.Unit.Type
 open import Data.Empty.Type

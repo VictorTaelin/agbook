@@ -1,13 +1,13 @@
-module Data.Tree.Trait.eq where
+module Data.Tree.Test.eq where
 
 open import Data.Tree.Type
+open import Data.Tree.eq
+open import Data.Bool.Type
 open import Data.Nat.Type
 open import Data.Nat.eq
-open import Data.Bool.Type
-open import Data.Bool.eq
 open import Data.Equal.Type
 
--- Testes
+-- Eq tests
 _ : ((Node 1 Leaf Leaf) == (Node 1 Leaf Leaf)) === True
 _ = refl
 

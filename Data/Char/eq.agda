@@ -4,14 +4,18 @@ open import Data.Char.Type
 open import Data.Bool.Type
 open import Data.Bool.not
 open import Data.Equal.Type
-open import Data.Trait.Eq
 
-primitive
-  primCharEquality : Char → Char → Bool
+open import Data.Trait.Eq public
 
 instance
   EqChar : Eq Char
   EqChar = record
-    { eq = primCharEquality
-    ; neq = λ x y → not (primCharEquality x y)
+    { eq = eq-char
+    ; neq = neq-char
     }
+    where
+      eq-char : Char → Char → Bool
+      eq-char = primCharEquality
+
+      neq-char : Char → Char → Bool
+      neq-char x y = not (eq-char x y)

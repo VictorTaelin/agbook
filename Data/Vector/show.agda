@@ -4,7 +4,7 @@ open import Data.Vector.Type
 open import Data.Nat.Type
 open import Data.String.Type
 open import Data.String.append
-open import Data.Trait.Show
+open import Data.Trait.Show public
 
 instance
   ShowVector : ∀ {A : Set} {n : Nat} {{ShowA : Show A}} → Show (Vector A n)

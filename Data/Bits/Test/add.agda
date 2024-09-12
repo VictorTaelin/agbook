@@ -5,7 +5,6 @@ open import Data.Bits.add
 open import Data.Bits.from-nat
 open import Data.Bits.to-nat
 open import Data.Bits.eq
-open import Data.Trait.Eq
 open import Data.Bool.if
 open import Data.Nat.Type
 open import Data.Nat.add renaming (add to add-nat; _+_ to _+n_)

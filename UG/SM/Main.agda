@@ -11,7 +11,6 @@ open import UG.SM.Time.time-to-tick
 
 open import Data.Nat.Type
 open import Data.Nat.show
-open import Data.Trait.Show
 open import Data.Bool.Type
 open import Data.String.Type
 open import Data.IO.seq

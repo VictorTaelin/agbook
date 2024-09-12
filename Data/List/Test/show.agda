@@ -5,7 +5,6 @@ open import Data.List.show
 open import Data.Nat.Type
 open import Data.Nat.show
 open import Data.String.Type
-open import Data.Trait.Show
 open import Data.Equal.Type
 
 -- Show tests

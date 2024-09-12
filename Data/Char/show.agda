@@ -4,7 +4,7 @@ open import Data.Char.Type
 open import Data.String.Type
 open import Data.String.append
 open import Data.String.from-char
-open import Data.Trait.Show
+open import Data.Trait.Show public
 
 instance
   ShowChar : Show Char

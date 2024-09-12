@@ -2,7 +2,7 @@ module Data.Bool.show where
 
 open import Data.Bool.Type
 open import Data.String.Type
-open import Data.Trait.Show
+open import Data.Trait.Show public
 
 instance
   ShowBool : Show Bool

@@ -3,7 +3,7 @@ module Data.Bits.show where
 open import Data.Bits.Type
 open import Data.String.Type
 open import Data.String.append
-open import Data.Trait.Show
+open import Data.Trait.Show public
 
 instance
   ShowBits : Show Bits

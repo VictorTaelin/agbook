@@ -3,9 +3,9 @@ module Data.V2.show where
 open import Data.V2.Type
 open import Data.String.Type
 open import Data.String.append
-open import Data.Trait.Show
 open import Data.Float.Type
 open import Data.Float.show
+open import Data.Trait.Show public
 
 instance
   ShowV2 : Show V2

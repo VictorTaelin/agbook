@@ -5,9 +5,8 @@ open import Data.Nat.Type
 open import Data.Bool.Type
 open import Data.Bool.not
 open import Data.Equal.Type
-open import Data.Trait.Eq
 open import Data.Nat.eq
-
+open import Data.Trait.Eq public
 
 instance
   EqU64 : Eq U64

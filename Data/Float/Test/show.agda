@@ -4,7 +4,6 @@ open import Data.Float.Type
 open import Data.Float.show
 open import Data.Float.Operations
 open import Data.String.Type
-open import Data.Trait.Show
 open import Data.Equal.Type
 
 -- Show tests

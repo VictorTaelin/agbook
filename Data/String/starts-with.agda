@@ -4,7 +4,6 @@ open import Data.Bool.Type
 open import Data.Bool.if
 open import Data.Char.Type
 open import Data.Char.eq
-open import Data.Trait.Eq
 open import Data.List.Type
 open import Data.String.Type
 open import Data.String.to-list

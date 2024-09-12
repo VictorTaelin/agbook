@@ -14,7 +14,6 @@ open import Data.List.map
 open import Data.List.foldr
 open import Data.Bits.Type
 open import Data.Bits.show
-open import Data.Trait.Show
 open import Data.Pair.Type
 open import Data.Pair.fst
 open import Data.String.Type

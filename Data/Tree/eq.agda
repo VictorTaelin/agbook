@@ -2,10 +2,9 @@ module Data.Tree.eq where
 
 open import Data.Tree.Type
 open import Data.Bool.Type
-open import Data.Trait.Eq
 open import Data.Bool.and
 open import Data.Bool.not
-
+open import Data.Trait.Eq public
 
 instance
   EqTree : ∀ {A : Set} {{EqA : Eq A}} → Eq (Tree A)
