@@ -4,7 +4,6 @@ open import Data.Bits.Type
 open import Data.Bits.sub
 open import Data.Bits.from-nat
 open import Data.Bits.to-nat
---open import Data.Bits.eq
 open import Data.Equal.Type
 
 test-sub-zero-zero : (E - E) == E

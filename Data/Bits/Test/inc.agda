@@ -5,11 +5,9 @@ open import Data.Bits.inc
 open import Data.Equal.Type
 open import Data.Bool.Type
 
--- Test incrementing E (empty bitstring)
 test-inc-empty : inc E == E
 test-inc-empty = refl
 
--- Test incrementing 0 (O E)
 test-inc-zero : inc (O E) == I E
 test-inc-zero = refl
 

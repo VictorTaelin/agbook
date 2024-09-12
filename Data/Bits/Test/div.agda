@@ -5,8 +5,6 @@ open import Data.Bits.div
 open import Data.Equal.Type
 open import Data.Unit.Type
 
--- Test cases for division
-
 -- 0 / 1 = 0
 test-div-zero-one : (O E) / (I E) == E
 test-div-zero-one = refl
@@ -16,7 +14,7 @@ test-div-one-one : (I E) / (I E) == (I E)
 test-div-one-one = refl
 
 -- 2 / 1 = 2
-test-div-two-one : (O (I E)) / (I E) == (O (I E))
+test-div-two-one : (O (I E)) / (I E) == ( O (I E))
 test-div-two-one = refl
 
 -- 4 / 2 = 2
