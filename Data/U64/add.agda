@@ -1,11 +1,12 @@
-module Data.U64.add where
+module Data.U64.add where 
 
-open import Data.Nat.add renaming (_+_ to _n+_; add to addN)
 open import Data.U64.Type
+open import Data.U64.from-nat
+open import Data.Bits.Type
+open import Data.Bits.from-nat renaming (from-nat to bits-from-nat)
+open import Data.Bits.add
+open import Data.Nat.Type
 
-add : U64 → U64 → U64
-add a b = primWord64FromNat (primWord64ToNat a n+ primWord64ToNat b)
+addU64 : U64 -> U64 -> Bits 
+addU64 a b = (bits-from-nat (primWord64ToNat a)) + (bits-from-nat (primWord64ToNat b))
 
-infixl 6 _+_
-_+_ : U64 → U64 → U64
-_+_ = add

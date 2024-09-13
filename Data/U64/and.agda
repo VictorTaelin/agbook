@@ -1,13 +1,13 @@
-module Data.U64.and where
+module Data.U64.and where 
 
 open import Data.U64.Type
+open import Data.U64.from-nat
+open import Data.Bits.Type
+open import Data.Bits.from-nat renaming (from-nat to bits-from-nat)
+open import Data.Bits.and
 open import Data.Nat.Type
 
--- Performs bitwise AND operation on two U64 values.
--- - x: The first U64 value.
--- - y: The second U64 value.
--- = The result of bitwise AND on x and y.
-and : U64 → U64 → U64
-and x y = primU64And x y
-  where
-    postulate primU64And : U64 → U64 → U64
+andU64 : U64 -> U64 -> Bits 
+andU64 a b = (bits-from-nat (primWord64ToNat a)) && (bits-from-nat (primWord64ToNat b))
+
+
