@@ -6,6 +6,7 @@ open import Imp.Expr.Type
 open import Imp.Stmt.Type
 open import Imp.Notation
 open import Imp.Stmt.show as Stmt
+open import Data.Equal.Type
 
 private
   from-nat : Nat → Expr
@@ -40,8 +41,6 @@ while (a < 10) {
     return i
   }
 }"
-
-open import Data.Equal.Type renaming (_==_ to _===_)
 
 test-example : (Stmt.show example) === expected-string
 test-example = refl
