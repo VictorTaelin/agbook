@@ -12,7 +12,7 @@ open import Data.Equal.apply
 -- - m: The 1st int.
 -- - n: The 2nd int.
 -- = The sum of m and n.
---
+
 add : Int → Int → Int
 add (Pos Zero)     (n)            = n
 add (Neg Zero)     (n)            = dec n

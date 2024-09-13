@@ -11,7 +11,7 @@ open import Data.Equal.subst
 
 
 
-lemma2 : ∀ {n} → add (Pos n) (Pos (Succ n)) == (inc (add (Pos n) (Pos n)))
+lemma2 : ∀ {n} → add (Pos n) (Pos (Succ n)) === (inc (add (Pos n) (Pos n)))
 lemma2 {Zero} = refl
 lemma2 {Succ n} = do
   let ind = lemma2 {n}
@@ -19,7 +19,7 @@ lemma2 {Succ n} = do
   {!!}
 
 
-lemma : ∀ {x}→  (x + x) == double x
+lemma : ∀ {x}→  (x + x) === double x
 lemma {(Pos Zero)}      = refl
 lemma {(Neg Zero)}   = refl
 lemma {(Pos (Succ n))}  = do
