@@ -1,10 +1,10 @@
-module Data.Int.neg where
+module Data.Int.not where
 
 open import Data.Int.Type
 open import Data.Nat.Type
 
 
-neg : Int → Int
-neg (Pos Zero) = Pos Zero
-neg (Pos (Succ n)) = Neg n
-neg (Neg n) = Pos (Succ n)
+not : Int → Int
+not (Pos Zero) = Pos Zero
+not (Pos (Succ n)) = Neg n
+not (Neg n) = Pos (Succ n)

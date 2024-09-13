@@ -8,4 +8,4 @@ open import Data.Nat.to-bits renaming (to-bits to nat-to-bits)
 
 to-bits : Int → Bits
 to-bits (Pos n) = nat-to-bits n
-to-bits (NegSuc n) = inc (not (nat-to-bits n))
+to-bits (Neg n) = inc (not (nat-to-bits n))
