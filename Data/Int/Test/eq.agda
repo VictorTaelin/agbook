@@ -7,12 +7,12 @@ open import Data.Equal.Type
 open import Data.Bool.Type
 
 
-test0 : (+ 0 == + 0) === True
-test0 = refl
+eq0 : (+ 0 == + 0) === True
+eq0 = refl
 
-test1 : (+ 0 == + 1) === False
-test1 = refl
+eq1 : (+ 0 == + 1) === False
+eq1 = refl
 
-test2 : ∀ {n} → ((Neg n) == (Pos n)) === False
-test2 {Zero} = refl
-test2 {Succ n} = refl
+eq2 : ∀ {n} → ((Neg n) == (Pos n)) === False
+eq2 {Zero} = refl
+eq2 {Succ n} = refl

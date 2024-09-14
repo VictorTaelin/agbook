@@ -13,13 +13,13 @@ lemma1 : ∀ {n} → dec (Pos (Succ n)) === Pos n
 lemma1 {Zero}   = refl
 lemma1 {Succ n} = refl
 
-test :  ∀ {n}→  (Pos n) === dec (Pos (Succ n))
-test {Zero}   = refl
-test {Succ n} = refl
+dec0 :  ∀ {n}→  (Pos n) === dec (Pos (Succ n))
+dec0 {Zero}   = refl
+dec0 {Succ n} = refl
 
-test1 : ∀ {n}→  (Neg (Succ n)) === dec (Neg n)
-test1 {Zero}   = refl
-test1 {Succ n} = refl
+dec1 : ∀ {n}→  (Neg (Succ n)) === dec (Neg n)
+dec1 {Zero}   = refl
+dec1 {Succ n} = refl
 
-test2 : (Neg 1) === dec (Pos Zero)
-test2 = refl
+dec2 : (Neg 1) === dec (Pos Zero)
+dec2 = refl
