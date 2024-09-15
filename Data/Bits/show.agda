@@ -3,11 +3,13 @@ module Data.Bits.show where
 open import Data.Bits.Type
 open import Data.String.Type
 open import Data.String.append
+open import Data.Trait.Show public
 
--- Converts a Bits value to its string representation.
--- - bits: The Bits value to convert.
--- = A string representation of the Bits value.
-show : Bits → String
-show E        = "e"
-show (O bits) = "0" ++ show bits
-show (I bits) = "1" ++ show bits
+instance
+  ShowBits : Show Bits
+  ShowBits = record { to-string = show-bits }
+    where
+      show-bits : Bits → String
+      show-bits E = "e"
+      show-bits (O b) = "0" ++ show-bits b
+      show-bits (I b) = "1" ++ show-bits b

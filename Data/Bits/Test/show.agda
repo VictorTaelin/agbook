@@ -3,34 +3,28 @@ module Data.Bits.Test.show where
 open import Data.Bits.Type
 open import Data.Bits.show
 open import Data.String.Type
-open import Data.String.eq
-open import Data.Bool.if
-open import Data.Unit.Type
-open import Data.Empty.Type
+open import Data.Equal.Type
 
-test-case : Bits → String → Set
-test-case bits expected =
-  if (show bits) == expected then Unit else Empty
+test-empty : show E === "e"
+test-empty = refl
 
-run-tests : Unit
-run-tests = 
-  let
-    _ : test-case E "e"
-    _ = unit
-    _ : test-case (O E) "0e"
-    _ = unit
-    _ : test-case (I E) "1e"
-    _ = unit
-    _ : test-case (I (O E)) "10e"
-    _ = unit
-    _ : test-case (O (I E)) "01e"
-    _ = unit
-    _ : test-case (I (O (I E))) "101e"
-    _ = unit
-    _ : test-case (O (O (I E))) "001e"
-    _ = unit
+test-zero : show (O E) === "0e"
+test-zero = refl
 
-  in unit
+test-one : show (I E) === "1e"
+test-one = refl
 
-main : Unit
-main = run-tests
+test-two : show (O (I E)) === "01e"
+test-two = refl
+
+test-three : show (I (I E)) === "11e"
+test-three = refl
+
+test-four : show (O (O (I E))) === "001e"
+test-four = refl
+
+test-five : show (I (O (I E))) === "101e"
+test-five = refl
+
+test-complex : show (I (O (I (I (O (O (I E))))))) === "1011001e"
+test-complex = refl

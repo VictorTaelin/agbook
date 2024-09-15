@@ -9,7 +9,7 @@ open import Data.Map.show
 open import Data.Maybe.Type
 open import Data.Nat.Type
 open import Data.Nat.add
-open import Data.Nat.show
+
 open import Data.String.Type
 
 main : Maybe Nat

@@ -12,7 +12,7 @@ open import Data.Equal.Type
 -- = Proof that P holds for y
 subst : ∀ {a b} {A : Set a} {x y : A} 
       → (P : A → Set b) 
-      → x == y 
+      → x === y 
       → P x 
       → P y
 subst P refl px = px
