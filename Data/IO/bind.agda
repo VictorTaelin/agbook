@@ -11,5 +11,6 @@ _>>=_ : ∀ {A B : Set} → IO A → (A → IO B) → IO B
 _>>=_ = bind
 
 {-# COMPILE GHC bind = \_ _ -> (>>=) #-}
-{-# COMPILE JS _>>=_ = function(ma) { return function(f) { return function() { return f(ma())(); }; }; } #-}
+
+{-# COMPILE JS _>>=_ = function(ma) { return function(f) { return function() { return ma().then(function(a) { return f(a)(); }); }; }; } #-}
 

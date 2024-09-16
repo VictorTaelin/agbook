@@ -11,5 +11,17 @@ postulate
 {-# FOREIGN GHC import qualified Data.Text as T #-}
 
 {-# COMPILE GHC mkdir = System.Directory.createDirectory . T.unpack #-}
-{-# COMPILE JS mkdir = function(path) { return function() { require('fs').mkdirSync(path); return {}; }; } #-}
 
+{-# COMPILE JS mkdir = function(path) { 
+  return function() { 
+    return new Promise(function(resolve, reject) { 
+      require('fs').mkdir(path, { recursive: true }, function(err) { 
+        if (err && err.code !== 'EEXIST') {
+          reject(err);
+        } else {
+          resolve({});
+        }
+      }); 
+    }); 
+  }; 
+} #-}

@@ -11,9 +11,10 @@ postulate
 
 {-# COMPILE GHC get-line = Text.getLine #-}
 
-{-# COMPILE JS get-line = function() {
-    const buffer = Buffer.alloc(1024); 
-    let bytesRead = require('fs').readSync(0, buffer, 0, buffer.length, null); 
-    return buffer.toString('utf-8', 0, bytesRead).split('\n')[0].trim();
-  }; 
-#-}
+{-# COMPILE JS get-line = function() { 
+    return new Promise(function(resolve) { 
+      const buffer = Buffer.alloc(1024); 
+      let bytesRead = require('fs').readSync(0, buffer, 0, buffer.length, null); 
+      resolve(buffer.toString('utf-8', 0, bytesRead).split('\n')[0].trim());
+    }); 
+  } #-}

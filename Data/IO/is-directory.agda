@@ -12,12 +12,13 @@ postulate
 
 {-# COMPILE GHC is-directory = System.Directory.doesDirectoryExist . T.unpack #-}
 
-{-# COMPILE JS is-directory = function(path) {
-  return function() {
-    try {
-      return require('fs').statSync(path).isDirectory();
-    } catch (e) {
-      return false;
-    }
-  };
+{-# COMPILE JS is-directory = function(path) { 
+  return function() { 
+    return new Promise(function(resolve) { 
+      require('fs').stat(path, function(err, stats) { 
+        if (err) resolve(false); 
+        else resolve(stats.isDirectory()); 
+      }); 
+    });
+  }; 
 } #-}

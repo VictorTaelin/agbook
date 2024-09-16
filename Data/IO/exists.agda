@@ -18,12 +18,12 @@ exists path = is-file path >>= λ file-exists →
               then pure True
               else is-directory path
 
-{-# COMPILE JS exists = function(path) {
-  return function() {
-    try {
-      return require('fs').existsSync(path);
-    } catch (e) {
-      return false;
-    }
-  };
+{-# COMPILE JS exists = function(path) { 
+  return function() { 
+    return new Promise(function(resolve) { 
+      require('fs').access(path, function(err) { 
+        resolve(!err); 
+      });
+     }); 
+  }; 
 } #-}
