@@ -8,19 +8,17 @@ open import Bend.Fun.Pattern.Type
 open import Bend.Fun.Op.Type
 open import Bend.Source.Type
 open import Bend.Source.TextSpan.Type
-
 open import Data.List.Type renaming (List to List')
 open import Bend.Fun.Num.Type renaming (Num to Num')
+import Bend.Fun.MatchRule.Type as MatchRule'
+import Bend.Fun.FnDef.Type as FnDef'
 
 -- Forward declare to import the parameterised modules
 data Term : Set
 
 private
-  import Bend.Fun.MatchRule.Type as MR
-  open module MatchRule = MR Term
-
-  import Bend.Fun.FnDef.Type as FD
-  open module FnDef = FD Term
+  open module MatchRule = MatchRule' Term
+  open module FnDef = FnDef' Term
 
 -- Represents the various constructs in the language
 data Term where
