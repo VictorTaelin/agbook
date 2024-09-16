@@ -1,7 +1,7 @@
 module Data.Float.max where
 
-open import Data.Float.Type
 open import Data.Bool.if
+open import Data.Float.Type
 
 -- Returns the maximum of two floats.
 -- - x: The 1st float.

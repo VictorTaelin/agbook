@@ -2,7 +2,7 @@ module Data.Float.sub where
 
 open import Data.Float.Type
 
--- Subtracts of floats.
+-- Subtraction of floats.
 -- - x: The number to subtract from.
 -- - y: The number to subtract.
 -- = The result of x - y.

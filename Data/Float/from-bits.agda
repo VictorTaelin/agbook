@@ -1,13 +1,18 @@
 module Data.Float.from-bits where
 
+open import Data.Bits.Type
 open import Data.Float.Type
-open import Data.U64.Type
+open import Data.Float.from-u64
 open import Data.Maybe.Type
+open import Data.U64.Type
+import Data.U64.from-bits as U64
 
--- Converts a U64 to a Float.
--- - x: The U64 to convert.
--- = The Float representation of x.
-from-bits : U64 → Maybe Float
-from-bits x = Some (primFloatFromWord64 x)
+-- Converts a bit representation to a Float
+-- - b: The bit representation to convert.
+-- = The Float representation of b, or nothing if conversion fails.
+from-bits : Bits → Float
+from-bits b = helper (U64.from-bits b)
     where
-        postulate primFloatFromWord64 : U64 → Float
+        helper : Maybe U64 → Float
+        helper (Some x) = from-u64 x
+        helper None     = 0.0

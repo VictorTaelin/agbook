@@ -1,11 +1,11 @@
 module Data.Float.to-bits where
 
-open import Data.Float.Type
-open import Data.U64.Type
-open import Data.Maybe.Type
-open import Data.Float.to-u64
 open import Data.Bits.Type
+open import Data.Float.to-u64
+open import Data.Float.Type
+open import Data.Maybe.Type
 import Data.U64.to-bits as U64
+open import Data.U64.Type
 
 -- Converts a float to its bit representation as Bits.
 -- - x: The float to convert.

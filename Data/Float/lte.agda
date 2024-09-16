@@ -1,8 +1,8 @@
 module Data.Float.lte where
 
-open import Data.Float.Type
-open import Data.Bool.Type
 open import Data.Bool.not
+open import Data.Bool.Type
+open import Data.Float.Type
 
 -- Check if the 1st float is less than or equal to the 2nd float.
 -- - x: The 1st float.

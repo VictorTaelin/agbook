@@ -1,8 +1,8 @@
 module Data.Float.to-u64 where
 
 open import Data.Float.Type
-open import Data.U64.Type
 open import Data.Maybe.Type
+open import Data.U64.Type
 
 -- Converts a float to its U64 representation.
 -- - x: The float to convert

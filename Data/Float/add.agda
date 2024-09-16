@@ -2,10 +2,10 @@ module Data.Float.add where
 
 open import Data.Float.Type
 
---- Addition of floats.
---- - x: The 1st float.
---- - y: The 2nd float.
---- = The sum of x and y.
+-- Addition of floats.
+-- - x: The 1st float.
+-- - y: The 2nd float.
+-- = The sum of x and y.
 add : Float → Float → Float
 add = primFloatPlus
 
