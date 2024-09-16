@@ -5,4 +5,4 @@ open import Data.U64.lte
 open import Data.U64.if
 
 min : U64 → U64 → U64
-min x y = if (x <= y) x y
+min x y = if (x <= y) then x else y

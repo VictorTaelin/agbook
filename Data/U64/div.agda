@@ -14,8 +14,8 @@ div x y = primWord64FromNat (go (primWord64ToNat x) (primWord64ToNat y))
     go Zero _ = Zero
     go _ Zero = Zero  -- Handle division by zero
     go m n = if (lte (primWord64FromNat m) (primWord64FromNat n) )
-             Zero
-             (Succ (go (primWord64ToNat (min (primWord64FromNat m) (primWord64FromNat n))) n))
+             then Zero
+             else (Succ (go (primWord64ToNat (min (primWord64FromNat m) (primWord64FromNat n))) n))
 
 infix 8 _/_
 _/_ = div

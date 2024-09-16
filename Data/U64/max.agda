@@ -5,4 +5,4 @@ open import Data.U64.lte
 open import Data.U64.if
 
 max : U64 → U64 → U64
-max x y = if (x <= y) y x
+max x y = if (x <= y) then y else x
