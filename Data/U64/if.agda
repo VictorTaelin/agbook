@@ -6,7 +6,7 @@ open import Data.Nat.Type
 
 infix 0 if_then_else_
 
--- Conditional expression.
+-- Conditional expression for U64.
 -- - n: The U64 condition to evaluate (non-zero is considered true).
 -- - t: The value to return if the condition is true (non-zero).
 -- - f: The value to return if the condition is false (zero).
