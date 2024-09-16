@@ -33,7 +33,7 @@ data Event : Set where
   MouseMove : Float → Float → Event 
 
 postulate
-  --     window   color    fps   initSt   stateUpdate
+  --     window   color    fps   initSt   stateUpdate          event handling
   play : Window → String → Nat → State → (State → State) → (Event → (State → State) → State → State) → IO Unit
 
 {-# FOREIGN GHC import qualified UG.SIPD.FFI.FGloss as FG #-}
@@ -42,5 +42,4 @@ postulate
 {-# COMPILE GHC Click = data FG.AgdaClick (FG.ALeftButton | FG.ARightButton) #-}
 {-# COMPILE GHC Event = data FG.AgdaEvent (FG.KeyEvent | FG.MouseClick | FG.MouseMove) #-}
 {-# COMPILE GHC play = FG.playGame #-}
-
 

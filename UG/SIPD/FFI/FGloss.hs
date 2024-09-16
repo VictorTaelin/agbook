@@ -32,12 +32,10 @@ window (name, (width, height)) = InWindow (T.unpack name) (fromIntegral width, f
 background :: Color
 background = white
 
-
 render :: State -> Picture
 render game = 
   pictures [
-    translate (-100) 0 $ scale 0.3 0.3 $ text $ "Clicks: " ++ show (clickCount game),
---    color red $ circleSolid 50  -- This draws a red circle with radius 50
+    translate (-100) 0 $ scale 0.3 0.3 $ text $ "Clicks: " ++ show (clickCount game)
   ]
 
 update :: Float -> State -> State
@@ -62,6 +60,5 @@ playGame win _ fps initState eventFn handleEventFn = do
     handleGlossEvent event state =
       let agdaEvent = convertEvent event
       in handleEventFn agdaEvent eventFn state
-
 
 
