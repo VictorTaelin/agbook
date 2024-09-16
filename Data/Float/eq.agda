@@ -1,16 +1,21 @@
 module Data.Float.eq where
 
-open import Data.Bool.Type
 open import Data.Float.Type
+open import Data.Bool.Type
+open import Data.Bool.not
+open import Data.Trait.Eq public
 
--- Checks if two floats are equal.
--- - x: The 1st float.
--- - y: The 2nd float.
--- = True if x and y are equal.
-eq : Float → Float → Bool
-eq = primFloatEquality
+-- Instance of Eq typeclass for Float
+-- Compares two Float values for equality
+instance
+  EqFloat : Eq Float
+  EqFloat = record
+    { eq = eq-float
+    ; neq = neq-float
+    }
+    where
+      eq-float : Float → Float → Bool
+      eq-float = primFloatEquality
 
--- infix version of eq
-infix 4 _==_
-_==_ : Float → Float → Bool
-_==_ = eq
+      neq-float : Float → Float → Bool
+      neq-float x y = not (eq-float x y)

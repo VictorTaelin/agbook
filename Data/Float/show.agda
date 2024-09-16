@@ -2,9 +2,13 @@ module Data.Float.show where
 
 open import Data.Float.Type
 open import Data.String.Type
+open import Data.Trait.Show public
 
--- Converts a float to its string representation
--- - x: The float to convert
--- = The string representation of x
-show : Float → String
-show = primShowFloat
+-- Compares two Float values for equality
+-- Instance of Show typeclass for Float
+instance
+  ShowFloat : Show Float
+  ShowFloat = record { to-string = show-float }
+    where
+      show-float : Float → String
+      show-float = primShowFloat

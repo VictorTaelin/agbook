@@ -4,10 +4,10 @@ open import Data.Bool.Type
 open import Data.Bool.if
 open import Data.Maybe.Type
 open import Data.Unit.Type
-open import HVM.Interaction.interact
 open import HVM.Redex.Type
 open import HVM.Runtime.Type
 open import HVM.Runtime.bind
+open import HVM.Runtime.interact
 open import HVM.Runtime.pop-redex
 open import HVM.Runtime.pure
 
@@ -18,3 +18,4 @@ normalize = do
   if worked
     then normalize
     else (pure unit)
+

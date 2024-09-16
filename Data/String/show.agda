@@ -1,12 +1,11 @@
 module Data.String.show where
 
 open import Data.String.Type
+open import Data.Trait.Show public
 
-primitive
-  primShowString : String → String
-
--- Converts a string to a string representation.
--- - s: The input string.
--- = A string representation of the input string.
-show : String → String
-show = primShowString
+instance
+  ShowString : Show String
+  ShowString = record { to-string = show-string }
+    where
+      show-string : String → String
+      show-string = primShowString

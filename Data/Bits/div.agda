@@ -6,6 +6,8 @@ open import Data.Nat.Type
 open import Data.Nat.div using () renaming (div to nat-div)
 open import Data.Bits.from-nat
 
+-- FIXME: implement proper bitwise algorithm?
+
 -- Perform bit division by converting to Nat, dividing, and converting back to Bits
 -- - a: The dividend (Bits).
 -- - b: The divisor (Bits).
