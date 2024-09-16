@@ -8,3 +8,5 @@ record Pair (A B : Set) : Set where
     snd : B
 
 infixr 4 _,_
+
+{-# COMPILE GHC Pair = data (,) ((,)) #-}
