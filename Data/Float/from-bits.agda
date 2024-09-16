@@ -14,5 +14,5 @@ from-bits : Bits → Maybe Float
 from-bits b = helper (U64.from-bits b)
     where
         helper          : Maybe U64 → Maybe Float
-        helper (Some x) =  Some (from-u64 x)
+        helper (Some x) = Some (from-u64 x)
         helper None     = None
