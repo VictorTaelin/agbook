@@ -6,6 +6,7 @@ open import Data.Nat.Type
 open import Data.U64.if
 open import Data.U64.lte
 open import Data.U64.min
+open import Data.U64.from-bool
 
 div : U64 → U64 → U64
 div x y = primWord64FromNat (go (primWord64ToNat x) (primWord64ToNat y))
@@ -13,7 +14,7 @@ div x y = primWord64FromNat (go (primWord64ToNat x) (primWord64ToNat y))
     go : Nat → Nat → Nat
     go Zero _ = Zero
     go _ Zero = Zero  -- Handle division by zero
-    go m n = if (lte (primWord64FromNat m) (primWord64FromNat n) )
+    go m n = if (from-bool (lte (primWord64FromNat m) (primWord64FromNat n)) )
              then Zero
              else (Succ (go (primWord64ToNat (min (primWord64FromNat m) (primWord64FromNat n))) n))
 

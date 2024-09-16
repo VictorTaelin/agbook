@@ -11,4 +11,4 @@ or : U64 -> U64 -> U64
 or a b = primWord64FromNat (to-nat ((to-bits a) ||b (to-bits b)))
 
 _||_ : U64 -> U64 -> U64
-_||_ = or
+_||_ = or 
