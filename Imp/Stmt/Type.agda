@@ -1,14 +1,23 @@
 module Imp.Stmt.Type where
 
-open import Imp.Expr.Type
+import Imp.Expr.Type as Expr'
 open import Data.String.Type
 open import Data.Nat.Type
 open import Data.Bool.Type
 open import Data.U64.Type
 open import Data.List.Type
 
+data Stmt : Set
+
+private
+  open module Expr = Expr' Stmt
+
 -- Statement type
-data Stmt : Set where
+-- TODO(enricozb): need synchronization primitives (block & global)
+data Stmt where
+  -- Declares local variables
+  Locals : List String → Stmt
+
   -- Variable Assignments
   LSet : String → Expr → Stmt -- set local variable
 
@@ -24,7 +33,9 @@ data Stmt : Set where
   Ret    : Expr → Stmt
   Cont   : Stmt
   Break  : Stmt
-  Then   : Stmt → Stmt → Stmt
+
+  -- Monadic then (>>)
+  Then : Stmt → Stmt → Stmt
 
   -- Executes an expression and drops the value
   Ignore : Expr → Stmt
