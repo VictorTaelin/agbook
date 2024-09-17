@@ -1,46 +1,69 @@
 module Imp.Test.show where
 
-open import Data.Nat.Type
-open import Data.U64.Type
-open import Imp.Expr.Type
+import Imp.Expr.Type as Expr'
 open import Imp.Stmt.Type
 open import Imp.Notation
 open import Imp.Stmt.show as Stmt
+open import Data.Nat.Type
+open import Data.U64.Type
+open import Data.List.Type
 open import Data.Equal.Type
 
 private
+  open module Expr = Expr' Stmt
   from-nat : Nat → Expr
-  from-nat n = (Num (primWord64FromNat n))
+  from-nat n = Num (primWord64FromNat n)
+
+fib : Expr → Stmt
+fib n = do
+  local ("a" :: "b" :: [])
+
+  "a" := from-nat 0
+  "b" := from-nat 1
+  "n" := n
+
+  while ↑"n" > from-nat 0 go do
+    "t" := ↑"b"
+    "b" := ↑"a" + ↑"b"
+    "a" := ↑"t"
+    "n" -= from-nat 1
+
+  return ↑"a"
 
 example : Stmt
 example = do
-  "i" := from-nat 0
-  "a" := from-nat 1
-  "b" := from-nat 2
+  local ("fib1" :: "fib2" :: [])
 
-  while (↑ "a") < (from-nat 10) go do
-    while (↑ "b") < (from-nat 10) go do
-      "i" := (↑ "a") * (↑ "b")
+  "fib1" := Call (fib (from-nat 1))
+  "fib2" := Call (fib (from-nat 2))
 
-      "a" += (from-nat 1)
-      Ignore (SAdd 0 (from-nat 1))
-
-    if (↑ "a") % (↑ "b") == (from-nat 2) then do
-      return (↑ "i")
-
-expected-string = "i = 0
-a = 1
-b = 2
-while (a < 10) {
-  while (b < 10) {
-    i = a * b
-    a = a + 1
-    atomic_add(shared[0], 1)
+expected-string = "local fib1, fib2
+fib1 = ({
+  local a, b
+  a = 0
+  b = 1
+  n = 1
+  while (n > 0) {
+    t = b
+    b = a + b
+    a = t
+    n = n - 1
   }
-  if (a % b == 2) {
-    return i
+  return a
+})
+fib2 = ({
+  local a, b
+  a = 0
+  b = 1
+  n = 2
+  while (n > 0) {
+    t = b
+    b = a + b
+    a = t
+    n = n - 1
   }
-}"
+  return a
+})"
 
 test-example : (Stmt.show example) === expected-string
 test-example = refl
