@@ -36,3 +36,12 @@ insert v t = Pair.fst (insert' v t) where
       (True  , -one) → Node curr zero    left other , False
       (True  , zero) → Node curr +one    left other , True
       (True  , +one) → rotate-left (Node curr +one left other)
+
+-- Infix notation for inserting an element into an AVL tree.
+-- - x: The value to insert.
+-- - t: The AVL tree to insert into.
+-- = A new AVL tree with the value inserted and balance maintained.
+_::>_ : ∀ {A : Set} → {{OrdA : Ord A}} → A → AVLTree A → AVLTree A
+_::>_ = insert
+
+infixr 5 _::>_

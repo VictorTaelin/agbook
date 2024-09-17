@@ -37,7 +37,7 @@ rotate-right tree with tree
           right)
       , True
 
-... | Node v₁ +one
+... | Node v₁ -one
         (Node v₂ +one child-left
           (Node v₃ balance
             child-child-left
