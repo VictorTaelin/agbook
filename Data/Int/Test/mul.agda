@@ -66,7 +66,7 @@ mul_lemma3 {Neg Zero}     = refl
 mul_lemma3 {Pos (Succ m)} = do
   let ind0 = mul_lemma3 {Pos m}
   let app0 = apply (λ t → inc t) ind0
-  let cong = add_lemma3 {Pos m} 
+  let cong = add_lemma4 {Pos m} 
   let mirr = sym ind0
   let rwt0 = subst (λ t →  (add (Pos 1) t) === (Pos (Succ m) )) mirr cong
   rwt0
