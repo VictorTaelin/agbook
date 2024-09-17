@@ -16,7 +16,6 @@ postulate
   receiveData : WSConnection → IOAsync String
   sendTextData : WSConnection → String → IOAsync Unit
   sendClose : WSConnection → String → IOAsync Unit
-  receiveDataAsync : WSConnection → IOAsync String
 
 {-# FOREIGN GHC import qualified Network.WebSockets as WS #-}
 {-# FOREIGN GHC import qualified Data.Text as T #-}
@@ -26,7 +25,6 @@ postulate
 {-# FOREIGN GHC import qualified Control.Concurrent as CC #-}
 {-# FOREIGN GHC import qualified Network.Socket as NS #-}
 
-{-# COMPILE GHC receiveDataAsync =  #-}
 
 {-# COMPILE GHC WSConnection = type WS.Connection #-}
 {-# COMPILE GHC runClient = \host port path app -> WS.runClient (T.unpack host) (fromIntegral port) (T.unpack path) (\conn -> app conn) #-}
