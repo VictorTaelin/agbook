@@ -40,7 +40,7 @@ game : Game GameState GameAction
 game = record
   { init = Score 0
   ; when = λ { AddPoint (Score n) → Score (Succ n) }
-  ; tick = λ { (Score n) → Score (n) }  -- Increment score on each tick
+  ; tick = λ { (Score n) → Score (Succ n) }  -- Increment score on each tick
   }
 
 -- Action equality function

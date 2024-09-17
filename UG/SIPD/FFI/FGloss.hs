@@ -3,16 +3,20 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE BlockArguments #-}
 
-
 module UG.SIPD.FFI.FGloss where
 
 import qualified Graphics.Gloss as Gloss
 import qualified SDL
+import qualified SDL.Font as TTF
+import Data.List (foldl)
 import Graphics.Gloss.Interface.Pure.Game
 import qualified Graphics.Gloss.Interface.IO.Game as G
 import qualified Data.Text as T
 import Control.Monad (unless)
 import MAlonzo.Code.UG.SIPD.State.Type (State(..))
+import MAlonzo.Code.UG.SM.QregisterZ45Zaction
+import qualified MAlonzo.Code.UG.SM.Game.Type as Game
+import Foreign.C.Types (CInt)
 
 data AgdaClick = ALeftButton | ARightButton
 
@@ -21,8 +25,8 @@ data AgdaEvent
   | MouseClick AgdaClick Double Double
   | MouseMove Double Double
 
-convertEventS :: SDL.Event -> AgdaEvent
-convertEventS (SDL.Event _ (SDL.KeyboardEvent keyboardEvent)) =
+convertEvent :: SDL.Event -> AgdaEvent
+convertEvent (SDL.Event _ (SDL.KeyboardEvent keyboardEvent)) =
   let keycode = SDL.keysymKeycode (SDL.keyboardEventKeysym keyboardEvent)
       pressed = SDL.keyboardEventKeyMotion keyboardEvent == SDL.Pressed
   in case keycode of
@@ -33,88 +37,79 @@ convertEventS (SDL.Event _ (SDL.KeyboardEvent keyboardEvent)) =
        SDL.KeycodeQ -> KeyEvent (T.pack "Q") pressed
        SDL.KeycodeE -> KeyEvent (T.pack "E") pressed
        _            -> KeyEvent (T.pack "") False -- Handle other keys
-convertEventS (SDL.Event _ (SDL.MouseButtonEvent mouseButtonEvent)) =
+convertEvent (SDL.Event _ (SDL.MouseButtonEvent mouseButtonEvent)) =
   let SDL.P (SDL.V2 x y) = SDL.mouseButtonEventPos mouseButtonEvent
       button = SDL.mouseButtonEventButton mouseButtonEvent
-  in case button of
-       SDL.ButtonLeft  -> MouseClick ALeftButton (fromIntegral x) (fromIntegral y)
-       SDL.ButtonRight -> MouseClick ARightButton (fromIntegral x) (fromIntegral y)
-       _               -> MouseMove 0 0
-convertEventS (SDL.Event _ (SDL.MouseMotionEvent motionEvent)) =
+      motion = SDL.mouseButtonEventMotion mouseButtonEvent
+  in case (button, motion) of
+       (SDL.ButtonLeft, SDL.Pressed)  -> MouseClick ALeftButton (fromIntegral x) (fromIntegral y)
+       (SDL.ButtonRight, SDL.Pressed) -> MouseClick ARightButton (fromIntegral x) (fromIntegral y)
+       (_, SDL.Released)              -> MouseMove 0 0
+       _                              -> MouseMove 0 0
+convertEvent (SDL.Event _ (SDL.MouseMotionEvent motionEvent)) =
   let SDL.P (SDL.V2 x y) = SDL.mouseMotionEventPos motionEvent
   in MouseMove (fromIntegral x) (fromIntegral y)
-convertEventS _ = MouseMove 0 0
-
-convertEvent :: G.Event -> AgdaEvent
-convertEvent (G.EventKey (G.Char c) G.Down _ _) = KeyEvent (T.pack [c]) True
-convertEvent (G.EventKey (G.Char c) G.Up _ _) = KeyEvent (T.pack [c]) False
-convertEvent (G.EventKey (G.MouseButton G.LeftButton) G.Down _ (x, y)) =
-  MouseClick ALeftButton (realToFrac x) (realToFrac y)
-convertEvent (G.EventKey (G.MouseButton G.RightButton) G.Down _ (x, y)) = 
-  MouseClick ARightButton (realToFrac x) (realToFrac y)
-convertEvent (G.EventMotion (x, y)) = MouseMove (realToFrac x) (realToFrac y)
 convertEvent _ = MouseMove 0 0
 
-displayPicture :: (Int, Int) -> Color -> Float -> Picture -> IO ()
-displayPicture (w, h) background scale picture =
-  Gloss.display (InWindow "Game" (w, h) (10, 10)) background (Scale scale scale picture)
+renderText :: SDL.Renderer -> String -> SDL.Point SDL.V2 CInt -> IO ()
+renderText renderer text (SDL.P (SDL.V2 x y)) = do
+  font <- TTF.load "/home/lorenzo/work/monobook/UG/SIPD/FFI/AntonSC-Regular.ttf" 24 
+  surface <- TTF.solid font (SDL.V4 0 0 0 255) (T.pack text)   -- Black
+  texture <- SDL.createTextureFromSurface renderer surface
+  SDL.freeSurface surface
+  SDL.TextureInfo {SDL.textureWidth = w, SDL.textureHeight = h} <- SDL.queryTexture texture
 
-gameLoop :: State -> IO ()
-gameLoop state = do
+  let destRect = SDL.Rectangle (SDL.P (SDL.V2 x y)) (SDL.V2 w h)
+
+  SDL.copy renderer texture Nothing (Just destRect)
+  SDL.destroyTexture texture
+
+  TTF.free font
+
+
+displayPicture :: SDL.Window -> SDL.Renderer -> State -> IO ()
+displayPicture window renderer state = do
+  -- Set the drawing color (background)
+  SDL.rendererDrawColor renderer SDL.$= SDL.V4 255 255 255 255  -- White background
+  SDL.clear renderer  -- Clear the screen
+
+  -- Render the game state
+  render renderer state
+
+  -- Present the rendered content
+  SDL.present renderer
+
+render :: SDL.Renderer -> State -> IO ()
+render renderer state = do
+  SDL.rendererDrawColor renderer SDL.$= SDL.V4 0 0 0 255  -- Black color for text
+  renderText renderer ("Clicks: " ++ show (clickCount state)) (SDL.P (SDL.V2 10 10))
+
+gameLoop :: (Game.Game State AgdaEvent) -> IO ()
+gameLoop game = do
+--  d_register'45'action_10
+--  Adding the state machine is simple, just receive it as an arg and use register action instead of 
+--  folding the events through the when function.
   SDL.initialize [SDL.InitVideo]
+  TTF.initialize
+  let state = (Game.init game)
   window <- SDL.createWindow "Game" SDL.defaultWindow
-  SDL.showWindow window
+  renderer <- SDL.createRenderer window (-1) SDL.defaultRenderer
 
   let loop s = do
         events <- SDL.pollEvents
-        let newState = s
+        let agdaEvents = map convertEvent events
         
-        displayPicture (800, 600) white 1.0 (render newState)
+        let newState = foldl (flip ((Game.when game))) s agdaEvents
+        
+        displayPicture window renderer newState
 
         let quit = any (== SDL.QuitEvent) (map SDL.eventPayload events)
         unless quit (loop newState)
 
+  loop state
 
-  --loop state
+  SDL.destroyRenderer renderer
   SDL.destroyWindow window
+  TTF.quit
   SDL.quit
 
-window :: (T.Text, (Integer, Integer)) -> Display
-window (name, (width, height)) = InWindow (T.unpack name) (fromIntegral width, fromIntegral height) (100, 100)
-
-background :: Color
-background = white
-
-render :: State -> Picture
-render game = 
-  pictures [
-    translate (-100) 0 $ scale 0.3 0.3 $ text $ "Clicks: " ++ show (clickCount game)
-  ]
-
--- tick FN, comes from agda (SM)
-update :: Float -> State -> State
---update _ st = st { clickCount = clickCount st + 1 }
-update _ = id
-
--- | The 'playGame' function sets up and runs a game using Gloss.
---
--- Parameters:
--- - (T.Text, (Integer, Integer)): A tuple containing:
---   * T.Text: The title of the game window
---   * (Integer, Integer): The dimensions of the game window (width, height)
--- - T.Text: Background color
--- - Integer: The number of simulation steps to take for each second of real time
--- - Integer: Initial state
--- - (Integer -> Integer): A function that updates the game state for each frame
---
---
--- INSTEAD of receiving a lot of params, receive the state machine and use init, tick, when (the Game type)
--- think about how to mix the play function with the SM.
-playGame :: (T.Text, (Integer, Integer)) -> T.Text -> Integer -> State -> (State -> State) -> (AgdaEvent -> (State -> State) -> State -> State) -> IO ()
-playGame win _ fps initState eventFn handleEventFn = do
-  play (window win) background (fromIntegral fps) initState render handleGlossEvent update
-  where
-    handleGlossEvent :: Event -> State -> State
-    handleGlossEvent event state =
-      let agdaEvent = convertEvent event
-      in handleEventFn agdaEvent eventFn state

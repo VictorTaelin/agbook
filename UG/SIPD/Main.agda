@@ -12,6 +12,8 @@ open import Data.Pair.Type
 open import UG.SIPD.FFI.Gloss
 open import UG.SIPD.State.Type
 open import UG.SIPD.State.init
+open import UG.SM.Game.Type
+open import Data.Bool.Type
 
 
 -- Define the window size and title
@@ -30,17 +32,26 @@ fps = 60
 initialState : State
 initialState = init
 
--- Define the update function
-when : State → State
-when (MkState count) = MkState (Succ count)
+-- for now just dont check duplicates since we dont have the time element
+event-eq : Event → Event → Bool
+event-eq _ _ = False
 
-handleEvent : Event → (State → State) → State → State
-handleEvent (MouseClick LeftButton _ _) when game = when game
-handleEvent _ _ game = game
+-- Define the update function for a single event
+handleSingleEv : Event → State → State
+handleSingleEv (MouseClick LeftButton _ _) (MkState count) = MkState (Succ count)
+handleSingleEv _ game = game
+
+tick : State → State
+tick s = s
+
+game : Game State Event
+game = record 
+  { init = initialState
+  ; when = handleSingleEv
+  ; tick = tick
+  }
 
 -- Main function that runs the game
 main : IO Unit
-main = play window background fps initialState when handleEvent
-
-
+main = gameLoop game
 
