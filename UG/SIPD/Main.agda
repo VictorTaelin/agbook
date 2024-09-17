@@ -51,7 +51,13 @@ game = record
   ; tick = tick
   }
 
--- Main function that runs the game
+-- now to integrate with websocket, we just need to:
+-- receive the runClientWithHandler or similar in the gameLoop
+-- have a function that correctly processes the incoming messages (this goes along with the State Machine process)
+-- adjust the game loop to run the process function every tick
+
 main : IO Unit
 main = gameLoop game
+
+
 
