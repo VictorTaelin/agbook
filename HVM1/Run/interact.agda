@@ -15,13 +15,13 @@ open import HVM1.Rule.comm
 open import HVM1.Rule.eras
 open import HVM1.Run.Type
 open import HVM1.Run.bind
-open import HVM1.Run.get-node
+open import HVM1.Run.node-get
 open import HVM1.Run.pure
 
 interact : Bits → Bits → Run Unit
 interact a b = do
-  m-node-a ← get-node a
-  m-node-b ← get-node b
+  m-node-a ← node-get a
+  m-node-b ← node-get b
   case (m-node-a , m-node-b) of λ where
     (Some Era , Some Era) → do
       pure unit

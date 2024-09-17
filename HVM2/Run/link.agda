@@ -12,9 +12,9 @@ open import Data.Unit.Type
 open import HVM2.Run.Type
 open import HVM2.Run.bind
 open import HVM2.Run.pure
-open import HVM2.Run.push-redex
-open import HVM2.Run.swap-subst
-open import HVM2.Run.take-subst
+open import HVM2.Run.redex-push
+open import HVM2.Run.subst-swap
+open import HVM2.Run.subst-take
 open import HVM2.Term.Type
 
 mutual
@@ -24,14 +24,14 @@ mutual
     link' : Term -> Term -> Run Unit
     link' (Var x) b       = subst x b
     link' a       (Var y) = subst y a
-    link' a       b       = push-redex a b
+    link' a       b       = redex-push a b
 
   -- Substitutes a variable with a term
   subst : Bits → Term → Run Unit
   subst x b = do
-    old-val ← swap-subst x b
+    old-val ← subst-swap x b
     case old-val of λ where
       None        → pure unit
       (Some term) → do
-        take-subst x
+        subst-take x
         link term b

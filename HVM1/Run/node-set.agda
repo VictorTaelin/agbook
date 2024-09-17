@@ -1,4 +1,4 @@
-module HVM1.Run.set-node where
+module HVM1.Run.node-set where
 
 import Data.Map.Type as M
 import Data.Map.set as M
@@ -10,10 +10,10 @@ open import HVM1.Node.Type
 open import HVM1.Run.State.Type
 open import HVM1.Run.Type
 open import HVM1.Run.bind
-open import HVM1.Run.mut-state
+open import HVM1.Run.state-mut
 
-set-node : Bits → Node → Run Unit
-set-node addr node = mut-state λ state → do
+node-set : Bits → Node → Run Unit
+node-set addr node = state-mut λ state → do
   let net = State.net state
   let net = MkNet (M.set (Net.net net) addr node)
   record state { net = net }

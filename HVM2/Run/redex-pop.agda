@@ -1,4 +1,4 @@
-module HVM2.Run.pop-redex where
+module HVM2.Run.redex-pop where
 
 open import Data.Function.case
 open import Data.List.Type
@@ -10,8 +10,8 @@ open import HVM2.Run.Type
 open import HVM2.Run.State.Type
 
 -- Pops the first redex from the redex bag
-pop-redex : Run (Maybe Redex)
-pop-redex = λ state →
+redex-pop : Run (Maybe Redex)
+redex-pop = λ state →
   case Net.rbag (State.gnet state) of λ where
     []        → state , None
     (r :: rs) →  do

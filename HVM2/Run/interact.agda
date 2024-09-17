@@ -14,13 +14,13 @@ open import Data.Unit.Type
 open import HVM2.Redex.Type
 open import HVM2.Run.Type
 open import HVM2.Run.bind
-open import HVM2.Run.pop-redex
+open import HVM2.Run.redex-pop
 open import HVM2.Run.pure
 open import HVM2.Term.Type
 
 interact : Run Bool
 interact = do
-  redex ← pop-redex
+  redex ← redex-pop
   case redex of λ where
     None     → pure False
     (Some r) → do

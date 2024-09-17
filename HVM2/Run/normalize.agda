@@ -8,7 +8,7 @@ open import HVM2.Redex.Type
 open import HVM2.Run.Type
 open import HVM2.Run.bind
 open import HVM2.Run.interact
-open import HVM2.Run.pop-redex
+open import HVM2.Run.redex-pop
 open import HVM2.Run.pure
 
 -- Normalizes the HVM2 state
