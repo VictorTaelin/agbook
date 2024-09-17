@@ -8,7 +8,9 @@ open import Data.Pair.Type
 open import Data.Bool.Type
 open import Data.Bool.if
 
--- fixes imbalance of 2, returns True if height of root stayed the same
+-- Performs a left rotation on an AVL tree to fix an imbalance of +2.
+-- - tree: The AVL tree to rotate.
+-- = A pair containing the rotated AVL tree and a boolean indicating if the height of the root stayed the same.
 rotate-left : ∀ {A : Set} → AVLTree A → Pair (AVLTree A) Bool
 rotate-left tree with tree
 ... | Node v₁ +one

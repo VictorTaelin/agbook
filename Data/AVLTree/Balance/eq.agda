@@ -7,9 +7,8 @@ open import Data.Bool.Type
 
 instance
   EqBalance : Eq Balance
-  EqBalance = default-eq eq-bal where
-    eq-bal : Balance → Balance → Bool
-    eq-bal -one -one = True
-    eq-bal zero zero = True
-    eq-bal +one +one = True
-    eq-bal _    _    = False
+  EqBalance = default-eq λ where
+    -one -one → True
+    zero zero → True
+    +one +one → True
+    _    _    → False

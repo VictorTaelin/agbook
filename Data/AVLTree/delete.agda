@@ -15,6 +15,10 @@ open import Data.Pair.map-snd
 open import Data.Ordering.Type
 open import Data.Function.case
 
+-- Deletes a value from an AVL tree, maintaining balance.
+-- - v: The value to delete.
+-- - t: The AVL tree to delete from.
+-- = A new AVL tree with the value deleted and balance maintained.
 delete : ∀ {A : Set} → {{OrdA : Ord A}} → A → AVLTree A → AVLTree A
 delete v t = Pair.fst (delete' v t) where
   -- returns True if the height decreased

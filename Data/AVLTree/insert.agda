@@ -11,6 +11,10 @@ open import Data.Pair.Type
 open import Data.Ordering.Type
 open import Data.Function.case
 
+-- Inserts a value into an AVL tree, maintaining balance.
+-- - v: The value to insert.
+-- - t: The AVL tree to insert into.
+-- = A new AVL tree with the value inserted and balance maintained.
 insert : ∀ {A : Set} → {{OrdA : Ord A}} → A → AVLTree A → AVLTree A
 insert v t = Pair.fst (insert' v t) where
   -- returns True if the height increased
@@ -32,4 +36,3 @@ insert v t = Pair.fst (insert' v t) where
       (True  , -one) → Node curr zero    left other , False
       (True  , zero) → Node curr +one    left other , True
       (True  , +one) → rotate-left (Node curr +one left other)
- 

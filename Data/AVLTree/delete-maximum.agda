@@ -10,7 +10,13 @@ open import Data.Pair.Type
 open import Data.Maybe.Type
 open import Data.Function.case
 
--- returns the maximum element and true if the height decreased
+-- Deletes the maximum element from an AVL tree, maintaining balance.
+-- - tree: The AVL tree to delete from.
+-- = A pair containing:
+--   1. Another pair with:
+--      a. The new AVL tree with the maximum element removed.
+--      b. The maximum element that was removed (or None if the tree was empty).
+--   2. A boolean indicating whether the height of the tree decreased.
 delete-maximum : ∀ {A : Set} → {{OrdA : Ord A}} → AVLTree A → Pair (Pair (AVLTree A) (Maybe A)) Bool
 delete-maximum Leaf = (empty , None) , False
 delete-maximum (Node v    _       left Leaf)  = (left , Some v) , True
