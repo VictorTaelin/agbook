@@ -3,7 +3,7 @@ module HVM1.Net.link where
 open import HVM1.Net.Type
 open import HVM1.Port.Type
 open import HVM1.Node.Type
-open import HVM1.Node.set-port
+open import HVM1.Node.port-set
 open import Data.Maybe.Type
 open import Data.Maybe.bind
 open import Data.Maybe.run
@@ -22,8 +22,8 @@ link : Net → Port → Port → Net
 link (MkNet net) a b = run (MkNet net) (do
   node-a ← M.get net (Port.addr a)
   node-b ← M.get net (Port.addr b)
-  let node-a = set-port node-a (Port.slot a) b
-  let node-b = set-port node-b (Port.slot b) a
+  let node-a = port-set node-a (Port.slot a) b
+  let node-b = port-set node-b (Port.slot b) a
   let net    = M.set net (Port.addr a) node-a
   let net    = M.set net (Port.addr b) node-b
   Some (MkNet net))
