@@ -1,7 +1,6 @@
 module Data.Bits.from-nat where
 
 open import Data.Bits.Type
-open import Data.Bits.reverse
 open import Data.Bits.normal
 open import Data.Bool.if
 open import Data.Nat.Type
@@ -14,6 +13,7 @@ open import Data.Nat.mod
 -- The rightmost bit is the least significant.
 -- - n: The natural number to convert.
 -- = The Bits representation of the natural number, normalized.
+{-# TERMINATING #-}
 from-nat : Nat → Bits
 from-nat Zero = E
 from-nat n    = normal (go n (λ x → x)) where

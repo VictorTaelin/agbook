@@ -14,4 +14,4 @@ open import Data.V2.mul-scalar
 -- = The interpolated V2 vector.
 linear-interpolation : V2 → V2 → Float → V2
 linear-interpolation v1 v2 t = 
-  add-v2 v1 (mul-scalar (sub-v2 v2 v1) t)
+  add_v2 v1 (mul-scalar (sub_v2 v2 v1) t)

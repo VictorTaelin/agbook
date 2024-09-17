@@ -4,52 +4,23 @@ open import Data.Bits.Type
 open import Data.Bits.pad-length
 open import Data.Bits.length
 open import Data.Bits.from-nat
-open import Data.Nat.eq
-open import Data.Bool.if
-open import Data.Bool.and
-open import Data.Nat.Type
-open import Data.Nat.gt
-open import Data.Unit.Type
-open import Data.Empty.Type
 open import Data.Pair.Type
 open import Data.Pair.fst
 open import Data.Pair.snd
+open import Data.Equal.Type
+open import Data.Nat.Type
 
-test-case : Nat → Nat → Set
-test-case n1 n2 =
-  let bits1 = from-nat n1
-      bits2 = from-nat n2
-      result = pad-length bits1 bits2
-      expected-len = if (length bits1) == (length bits2)
-                     then length bits1
-                     else if (length bits1) > (length bits2)
-                          then length bits1
-                          else length bits2
-  in if ((length (fst result)) == expected-len) &&
-        ((length (snd result)) == expected-len) &&
-        ((length (fst result)) == (length (snd result)))
-     then Unit
-     else Empty
+test-pad-empty : pad-length E E === (E , E)
+test-pad-empty = refl
 
-run-tests : Unit
-run-tests = 
-  let
-    _ : test-case 0 0
-    _ = unit
-    _ : test-case 1 1
-    _ = unit
-    _ : test-case 2 3
-    _ = unit
-    _ : test-case 7 4
-    _ = unit
-    _ : test-case 15 5
-    _ = unit
-    _ : test-case 42 8
-    _ = unit
-    _ : test-case 1042 12
-    _ = unit
+test-pad-single-empty : pad-length (I E) E === (I E , O E)
+test-pad-single-empty = refl
 
-  in unit
+test-pad-single-single : pad-length (O E) (I E) === (O E , I E)
+test-pad-single-single = refl
 
-main : Unit
-main = run-tests
+test-pad-longer-left : pad-length (I (I (O E))) (O E) === (I (I (O E)) , O (O (O E)))
+test-pad-longer-left = refl
+
+test-pad-longer-right : pad-length (O E) (I (O (I E))) === (O (O (O E)) , I (O (I E)))
+test-pad-longer-right = refl

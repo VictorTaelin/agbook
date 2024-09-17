@@ -3,8 +3,8 @@ module Data.Nat.gte where
 open import Data.Nat.Type
 open import Data.Bool.Type
 open import Data.Bool.or
-open import Data.Nat.eq
 open import Data.Nat.gt
+open import Data.Nat.eq
 
 -- Greater-than-or-equal-to comparison for nats.
 -- - x: The 1st nat.

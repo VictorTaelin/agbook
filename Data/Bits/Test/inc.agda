@@ -2,40 +2,27 @@ module Data.Bits.Test.inc where
 
 open import Data.Bits.Type
 open import Data.Bits.inc
-open import Data.Bits.from-nat
-open import Data.Bits.to-nat
-open import Data.Bits.eq
-open import Data.Bool.if
-open import Data.Nat.Type
-open import Data.Nat.add renaming (add to add-nat; _+_ to _+n_)
-open import Data.Unit.Type
-open import Data.Empty.Type
+open import Data.Equal.Type
+open import Data.Bool.Type
 
-test-case : Nat → Set
-test-case n =
-  let result = inc (from-nat n)
-      expected = from-nat (n +n 1)
-  in if result == expected then Unit else Empty
+test-inc-empty : inc E === E
+test-inc-empty = refl
 
-run-tests : Unit
-run-tests = 
-  let
-    _ : test-case 0
-    _ = unit
-    _ : test-case 1
-    _ = unit
-    _ : test-case 2
-    _ = unit
-    _ : test-case 7
-    _ = unit
-    _ : test-case 15
-    _ = unit
-    _ : test-case 41
-    _ = unit
-    _ : test-case 99
-    _ = unit
+test-inc-zero : inc (O E) === I E
+test-inc-zero = refl
 
-  in unit
+test-inc-one : inc (I E) === (O E)
+test-inc-one = refl
 
-main : Unit
-main = run-tests
+test-inc-two : inc (O (I E)) === I (I E)
+test-inc-two = refl
+
+test-inc-three : inc (I (I E)) === (O (O E))
+test-inc-three = refl
+
+test-inc-four : inc (O (O (I E))) === I (O (I E))
+test-inc-four = refl
+
+test-inc-seven : inc (I (I (I E))) === (O (O (O  E)))
+test-inc-seven = refl
+

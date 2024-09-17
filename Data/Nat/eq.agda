@@ -2,17 +2,24 @@ module Data.Nat.eq where
 
 open import Data.Nat.Type
 open import Data.Bool.Type
+open import Data.Trait.Eq
+open import Data.Trait.Eq public
 
--- Checks if two nats are equal.
--- - m: The 1st nat.
--- - n: The 2nd nat.
--- = True if m and n are equal.
-eq : Nat → Nat → Bool
-eq Zero     Zero     = True
-eq (Succ m) (Succ n) = eq m n
-eq _        _        = False
+instance
+  EqNat : Eq Nat
+  EqNat = record
+    { eq = eq-nat
+    ; neq = neq-nat
+    }
+    where
+      eq-nat : Nat → Nat → Bool
+      eq-nat Zero     Zero     = True
+      eq-nat (Succ m) (Succ n) = eq-nat m n
+      eq-nat _        _        = False
 
-_==_ : Nat → Nat → Bool
-_==_ = eq
+      neq-nat : Nat → Nat → Bool
+      neq-nat Zero     (Succ _) = True
+      neq-nat (Succ _) Zero     = True
+      neq-nat Zero     Zero     = False
+      neq-nat (Succ m) (Succ n) = neq-nat m n
 
-{-# BUILTIN NATEQUALS _==_ #-}

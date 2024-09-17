@@ -16,7 +16,7 @@ open import Data.String.Type
 open import Data.IO.seq
 open import Data.String.append
 open import Data.IO.Type
-open import Data.IO.put-str-ln
+open import Data.IO.print
 open import Data.Unit.Type
 open import Data.Maybe.Type
 open import Data.List.Type
@@ -52,7 +52,7 @@ gameStateToString (Score n) = "Score " ++ show n
 
 -- Debug log function
 debug-log : String → IO Unit
-debug-log = put-str-ln
+debug-log = print
 
 -- Test function
 test : IO Unit
