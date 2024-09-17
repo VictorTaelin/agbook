@@ -8,7 +8,7 @@ instance
   ShowBool : Show Bool
   ShowBool = record { to-string = show-bool }
     where
-      show-bool : Bool → String
+      show-bool : Bool → String 
       show-bool True = "true"
       show-bool False = "false"
 

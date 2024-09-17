@@ -8,6 +8,11 @@ open import Data.Equal.Type
 open import Data.Nat.eq
 open import Data.Trait.Eq public
 
+-- Equality comparison of two U64 numbers.
+-- - x: The first U64 number.
+-- - y: The second U64 number.
+-- = A Bool indicating whether x and y are equal.
+
 instance
   EqU64 : Eq U64
   EqU64 = record
