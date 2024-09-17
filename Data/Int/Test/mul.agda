@@ -5,21 +5,12 @@ open import Data.Nat.Type
 open import Data.Equal.Type
 open import Data.Equal.apply
 open import Data.Equal.sym
--- open import Data.Equal.left
 open import Data.Equal.subst
 open import Data.Int.mul
 open import Data.Int.inc
 open import Data.Int.not
 open import Data.Int.add
-open import Data.Int.Test.inc
 open import Data.Int.Test.add
-
-
-open import Data.Pair.Type
-open import Data.Pair.fst
-open import Data.Pair.snd
-
-
 
 mul1 : ((+ 2) * (+ 3)) === (+ 6)
 mul1 = refl
@@ -92,8 +83,9 @@ mul_lemma3 {Neg (Succ m)} = refl
   let rwt1 = subst (λ t →  ( mul (Pos 1) (Pos n)  === t))  mir0 ind1
   rwt1
 λ-cong-mul {Succ m} {n} eq = do
-  let ind0 = λ-cong-mul {m} {n} {!!}
+  let ind0 = λ-cong-mul {m} {n}
   {!!}
+
 
 mul_comm : ∀ {m n} → (m * n) === (n * m)
 mul_comm {Pos Zero}     {n}         = sym (mul_lemma0 {n})

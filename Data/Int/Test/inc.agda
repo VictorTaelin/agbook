@@ -22,11 +22,11 @@ inc3 = refl
 inc4 : inc (Pos (Succ (Succ (Succ Zero)))) === Pos (Succ (Succ (Succ (Succ Zero))))
 inc4 = refl
 
-inc5 : ∀ {n} → inc (Pos n) === Pos (Succ n)
+inc5 : ∀{n} → inc (Pos n) === Pos (Succ n)
 inc5 {Zero} = refl
 inc5 {Succ n} = refl
 
-inc6 : ∀ {n} → inc (Neg (Succ n)) === (Neg n)
+inc6 : ∀{n} → inc (Neg (Succ n)) === (Neg n)
 inc6 = refl
 
 

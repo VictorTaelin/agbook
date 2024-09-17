@@ -7,46 +7,57 @@ open import Data.Equal.apply
 open import Data.Int.inc
 open import Data.Int.add
 open import Data.Equal.subst
+open import Data.Equal.sym
+open import Data.Int.Test.inc
 
-add_lemma3 : ∀ {n} →  add (Pos 1) n === (inc n) 
-add_lemma3 {Pos Zero}     = refl
-add_lemma3 {Neg Zero}     = refl
-add_lemma3 {Pos (Succ n)} = refl
-add_lemma3 {Neg (Succ n)} = refl
-
--- add_lemma1 : ∀ {n} → inc (add (Pos n) (Pos n)) === add (Pos n) (Pos (Succ n))
-
--- add_lemma : ∀ {n}→  inc (add (Pos (Succ n)) (Pos n)) === inc (inc (add (Pos n) (Pos n)))
--- add_lemma {Zero} = refl
--- add_lemma {Succ n} = do
---   let ind = add_lemma {n}
---   let app = apply inc ind
---   let lam = (λ z →  (add (Pos (Succ z)) (Pos n)))
---   let ap1 = apply (λ x → inc (add (Pos (Succ x)) (Pos n) ) === inc (inc (add (Pos x) (Pos n))) )
---   let ap2 = add_lemma1
---   let rwt = subst (λ m →  inc (add (Pos n) (Pos m)) === add (Pos n) (Pos (Succ n)))
---   {!!}
-
--- Goal: inc (inc (add (Pos (Succ (Succ n)))(Pos n))) == inc (inc (inc (add (Pos (Succ n))(Pos n))))
--- ind :      inc (add (Pos (      Succ n)) (Pos n))  ==      inc (inc (add (Pos       n) (Pos n)))
--- app : inc (inc (add (Pos (      Succ n)) (Pos n))) == inc (inc (inc (add (Pos       n) (Pos n))))
--- ap1 : 
--- {x y : Nat} → x == y →
---           (inc (add (Pos (      Succ x)) (Pos n)) ==       inc (inc (add (Pos      x) (Pos n)))) ==
---           (inc (add (Pos (      Succ y)) (Pos n)) ==       inc (inc (add (Pos      y) (Pos n))))
---ap2 : {n = n₁ : Nat} → inc (add (Pos n₁) (Pos n₁)) == add (Pos n₁) (Pos (Succ n₁))
-
-
-
-
-add_lemma2 : ∀ {n} →  add n (Pos Zero) === n 
-add_lemma2 {Pos Zero} = refl
-add_lemma2 {Pos (Succ n)} = do 
-  let ind = add_lemma2 {Pos n}
+add_lemma0 : ∀ {n} →  add n (Pos Zero) === n 
+add_lemma0 {Pos Zero} = refl
+add_lemma0 {Pos (Succ n)} = do 
+  let ind = add_lemma0 {Pos n}
   let app = apply inc ind
   app
-add_lemma2 {Neg Zero} = refl
-add_lemma2 {Neg (Succ n)} = refl
+add_lemma0 {Neg Zero} = refl
+add_lemma0 {Neg (Succ n)} = refl
 
+add_zero_lemma : ∀ {n} → add (Pos Zero) n === n
+add_zero_lemma {Pos Zero}     = refl
+add_zero_lemma {Neg Zero}     = refl
+add_zero_lemma {Pos (Succ n)} = refl
+add_zero_lemma {Neg (Succ n)} = refl
 
+add_lemma1 : ∀ {n} →  add (Pos 1) n === (inc n) 
+add_lemma1 {Pos Zero}     = refl
+add_lemma1 {Neg Zero}     = refl
+add_lemma1 {Pos (Succ n)} = refl
+add_lemma1 {Neg (Succ n)} = refl
+
+add_lemma2 : ∀ {m n} → (inc (add (Pos m) (Pos n))) === add (Pos m) (inc (Pos n))
+add_lemma2 {Zero} {n} = do
+  let add0 = (add_zero_lemma {Pos n})
+  let app = apply inc add0
+  app
+add_lemma2 {Succ m} {n} = do
+  let ind = add_lemma2 {m} {n}
+  let app = apply inc ind
+  let ind0 = add_lemma2 {m }{Zero} 
+  let appm = apply (add (Pos n)) ind0
+  {!!}
+  
+
+-- - Goal : inc (add (Pos (Succ m)) (Pos n)) === inc (add (Pos m) (Pos (Succ n)))
+-- - ind  : inc (add (Pos m) (Pos n))        === add (Pos m) (Pos (Succ n))
+-- - app  : inc (inc (add (Pos m) (Pos n)))  === inc (add (Pos m) (Pos (Succ n)))
+-- - ind0 : Pos (Succ m)                     === add (Pos m) (Pos 1)
+-- - appm : add (Pos n) (Pos (Succ m))       === add (Pos n) (add (Pos m) (Pos 1))
+
+add_lemma4 : ∀ {m n} → (add m n) === (add n m)
+add_lemma4 {Pos Zero}     {Pos Zero}      = refl
+add_lemma4 {Pos Zero}     {Pos (Succ n)}  = refl
+add_lemma4 {Pos Zero}     {Neg Zero}      = refl
+add_lemma4 {Pos Zero}     {Neg (Succ n)}  = refl
+add_lemma4 {Pos (Succ m)} {Pos Zero}      = refl
+add_lemma4 {Pos (Succ m)} {Pos (Succ n)}  = do
+  let ind = add_lemma4 {Pos m} {Pos n}
+  let app = apply inc ind
+  {!!}
 
