@@ -1,19 +1,17 @@
 module Bend.Compile.NetToHvm.get-redexes where
 
 open import Data.Bool.if
-open import Data.Maybe.Type
-open import Data.Maybe.bind
 open import Data.List.Type
-open import Data.List.unzip
 open import Data.Pair.Type
 open import Data.Map.Type using (Map)
 open import Data.Map.new renaming (new to map-new)
 open import Data.Map.set renaming (set to map-set)
+open import Data.Map.values renaming (values to map-values)
 open import Data.Map.to-list
 open import Data.Nat.Type
 open import Data.Nat.eq
 open import Data.Nat.min
-open import Data.Nat.to-bits renaming (to-bits to to-bits)
+open import Data.Nat.to-bits
 open import Data.Bits.Type
 open import Data.Bits.to-nat
 open import Bend.Net.Type
@@ -24,11 +22,11 @@ open import Bend.Net.Port.Type
 get-redexes : Net → List (Pair Nat Nat)
 get-redexes net =
   let redexes = check-nodes (to-list (Net.nodes net)) map-new in
-  let (_ , redexes) = unzip (to-list redexes) in
-  redexes
+  map-values redexes
   where
 
-  -- Check each node in the net, if it's part of a redex, add it to the map, using the smaller node id as the key
+  -- Check each node in the net: if it's part of a redex, add it to
+  -- the map, using the smaller node id as the key.
   check-nodes : List (Pair Bits Node) → Map (Pair Nat Nat) → Map (Pair Nat Nat)
   check-nodes [] map = map
   check-nodes ((key-a , node-a) :: nodes) map =
