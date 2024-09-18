@@ -22,19 +22,8 @@ open import Concurrent.Channel.Type
 open import Concurrent.Channel.new-channel
 open import Concurrent.Channel.read-channel
 open import Concurrent.Channel.write-channel
+open import Network.WebSocket.run-concurrent-client
 
-
-postulate
-  runClientWithHandler : String → Int → String → (WSConnection → IOAsync Unit) → IOAsync Unit
-
-{-# FOREIGN GHC import qualified Control.Concurrent as CC #-}
-{-# FOREIGN GHC import Control.Monad (void)  #-}
-{-# FOREIGN GHC import qualified Data.Text as T #-}
-{-# FOREIGN GHC import qualified Network.WebSockets as WS #-}
-
-{-# COMPILE GHC runClientWithHandler = \host port path handler -> do
-    void $ CC.forkIO $ WS.runClient (T.unpack host) (fromIntegral port) (T.unpack path) handler
-#-}
 
 handleWebSocket : Channel String → WSConnection → IOAsync Unit
 handleWebSocket chan conn = do
@@ -64,7 +53,7 @@ main = do
   chan ← new-channel
 
   print ("Connecting to WebSocket server")
-  runClientWithHandler host port path (handleWebSocket chan)
+  run-concurrent-client host port path (handleWebSocket chan)
 
   print "Started WebSocket client in separate thread"
   processMessages chan
