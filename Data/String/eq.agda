@@ -12,8 +12,8 @@ instance
     ; neq = neq-string
     }
     where
-    eq-string : String → String → Bool
-    eq-string = primStringEquality
+      eq-string : String → String → Bool
+      eq-string = primStringEquality
 
-    neq-string : String → String → Bool
-    neq-string x y = not (eq-string x y)
+      neq-string : String → String → Bool
+      neq-string x y = not (eq-string x y)

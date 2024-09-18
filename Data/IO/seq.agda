@@ -11,5 +11,3 @@ _>>_ : {A B : Set} → IO A → IO B → IO B
 m1 >> m2 = m1 >>= λ _ → m2
 
 infixl 1 _>>_
-
-{-# COMPILE JS _>>_ = function(ma) { return function(mb) { return function() { ma(); return mb(); }; }; } #-}
