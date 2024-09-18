@@ -1,9 +1,11 @@
 module Data.AVL.Type where
 
 open import Data.AVL.Balance.Type
+open import Data.Pair.Type
 
 -- Defines an AVL tree datatype.
--- - A: The type of values stored in the tree.
-data AVL (A : Set) : Set where
-  Leaf : AVL A
-  Node : (value : A) → (balance : Balance) → (left : AVL A) → (right : AVL A) → AVL A
+-- - K: The type of keys stored in the tree.
+-- - V: The type of values stored in the tree.
+data AVL (K V : Set) : Set where
+  Leaf : AVL K V
+  Node : (key-value : Pair K V) → (balance : Balance) → (left : AVL K V) → (right : AVL K V) → AVL K V

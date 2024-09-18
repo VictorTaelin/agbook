@@ -8,17 +8,19 @@ open import Data.AVL.Balance.rotate-right
 open import Data.Trait.Ord
 open import Data.Bool.Type
 open import Data.Pair.Type
+-- We compare Pairs only by their first elements
+open import Data.Pair.ord.fst
 open import Data.Ordering.Type
 open import Data.Function.case
 
 -- Inserts a value into an AVL tree, maintaining balance.
--- - v: The value to insert.
+-- - v: The pair key-value to insert.
 -- - t: The AVL tree to insert into.
 -- = A new AVL tree with the value inserted and balance maintained.
-insert : ∀ {A : Set} → {{OrdA : Ord A}} → A → AVL A → AVL A
+insert : ∀ {K V : Set} → {{_ : Ord K}} → Pair K V → AVL K V → AVL K V
 insert v t = Pair.fst (insert' v t) where
   -- returns True if the height increased
-  insert' : ∀ {A : Set} → {{OrdA : Ord A}} → A → AVL A → Pair (AVL A) Bool
+  insert' : ∀ {K V : Set} → {{_ : Ord K}} → Pair K V → AVL K V → Pair (AVL K V) Bool
   insert' v Leaf = Node v zero empty empty , True
   insert' v (Node curr balance left right) with compare v curr
   ... | EQ = Node curr balance left right , False
@@ -41,7 +43,7 @@ insert v t = Pair.fst (insert' v t) where
 -- - x: The value to insert.
 -- - t: The AVL tree to insert into.
 -- = A new AVL tree with the value inserted and balance maintained.
-_::>_ : ∀ {A : Set} → {{OrdA : Ord A}} → A → AVL A → AVL A
+_::>_ : ∀ {K V : Set} → {{_ : Ord K}} → Pair K V → AVL K V → AVL K V
 _::>_ = insert
 
 infixr 5 _::>_

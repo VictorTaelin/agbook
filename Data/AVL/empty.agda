@@ -5,5 +5,5 @@ open import Data.AVL.Balance.Type
 
 -- Creates an empty AVL tree.
 -- = An empty AVL tree.
-empty : ∀ {A : Set} → AVL A
+empty : ∀ {K V : Set} → AVL K V
 empty = Leaf

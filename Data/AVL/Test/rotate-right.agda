@@ -9,63 +9,64 @@ open import Data.Nat.Type
 open import Data.Nat.eq
 open import Data.Pair.Type
 open import Data.Bool.Type
+open import Data.Unit.Type
 
 -- Test case 1: Rotate right with left child having -one balance
 test-rotate-right-1 : 
-  rotate-right (Node 2 -one 
-                  (Node 1 -one 
+  rotate-right (Node (2 , unit) -one 
+                  (Node (1 , unit) -one 
                     empty 
                     empty)
                   empty) 
   ===
-  (Node 1 zero 
+  (Node (1 , unit) zero 
     empty
-    (Node 2 zero 
+    (Node (2 , unit) zero 
       empty 
       empty) , False)
 test-rotate-right-1 = refl
 
 -- Test case 2: Rotate right with left child having zero balance
 test-rotate-right-2 : 
-  rotate-right (Node 2 -one 
-                  (Node 1 zero 
+  rotate-right (Node (2 , unit) -one 
+                  (Node (1 , unit) zero 
                     empty 
                     empty)
                   empty) 
   ===
-  (Node 1 +one 
+  (Node (1 , unit) +one 
     empty
-    (Node 2 -one 
+    (Node (2 , unit) -one 
       empty 
       empty) , True)
 test-rotate-right-2 = refl
 
 -- Test case 3: Rotate right with left child having +one balance
 test-rotate-right-3 : 
-  rotate-right (Node 3 -one 
-                  (Node 1 +one 
+  rotate-right (Node (3 , unit) -one 
+                  (Node (1 , unit) +one 
                     empty 
-                    (Node 2 zero 
+                    (Node (2 , unit) zero 
                       empty 
                       empty))
                   empty) 
   ===
-  (Node 2 zero 
-    (Node 1 zero 
+  (Node (2 , unit) zero 
+    (Node (1 , unit) zero 
       empty 
       empty)
-    (Node 3 zero 
+    (Node (3 , unit) zero 
       empty 
       empty) , False)
 test-rotate-right-3 = refl
 
 -- Test case 4: Invalid rotation (should return the same tree)
 test-rotate-right-4 : 
-  rotate-right (Node 1 zero 
+  rotate-right (Node (1 , unit) zero 
                   empty 
                   empty) 
   ===
-  (Node 1 zero 
+  (Node (1 , unit) zero 
     empty 
     empty , False)
 test-rotate-right-4 = refl
