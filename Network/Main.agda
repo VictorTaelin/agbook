@@ -3,7 +3,6 @@ module Network.Main where
 open import Data.JSON.Type
 open import Data.JSON.parse
 open import Data.JSON.show
-open import Network.WebSocket.Client
 open import Data.Unit.Type
 open import Data.IOAsync.Type
 open import Data.IOAsync.bind
@@ -17,6 +16,9 @@ open import Data.Int.Type
 open import Data.String.Type
 open import Data.String.append
 open import Data.Maybe.Type
+open import Network.WebSocket.WSConnection
+open import Network.WebSocket.receive-data
+
 
 postulate
   Chan : Set → Set
@@ -42,7 +44,7 @@ postulate
 
 handleWebSocket : Chan String → WSConnection → IOAsync Unit
 handleWebSocket chan conn = do
-  msg ← receiveData conn
+  msg ← receive-data conn
   writeChan chan msg
   handleWebSocket chan conn
 
