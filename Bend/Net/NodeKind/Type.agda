@@ -1,7 +1,7 @@
 module Bend.Net.NodeKind.Type where
 
-open import Data.String.Type
-open import Data.Bits.Type
+open import Base.String.Type
+open import Base.Bits.Type
 
 data NodeKind : Set where
   Rot : NodeKind

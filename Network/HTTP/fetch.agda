@@ -1,7 +1,7 @@
 module Network.HTTP.fetch where
 
-open import Data.IO.Type
-open import Data.String.Type
+open import Base.IO.Type
+open import Base.String.Type
 
 postulate
   fetch : String → String → String → IO String

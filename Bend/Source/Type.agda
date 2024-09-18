@@ -1,7 +1,7 @@
 module Bend.Source.Type where
 
-open import Data.Maybe.Type
-open import Data.String.Type
+open import Base.Maybe.Type
+open import Base.String.Type
 open import Bend.Source.TextSpan.Type
 open import Bend.Source.SourceKind.Type 
 

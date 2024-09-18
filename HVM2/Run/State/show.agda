@@ -1,18 +1,18 @@
 module HVM2.Run.State.show where
 
-import Data.Bits.show as Bits
+import Base.Bits.show as Bits
 import HVM2.Net.show as Net
 import HVM2.Term.show as Term
-open import Data.Bits.Type
-open import Data.List.Type
-open import Data.List.map
-open import Data.Map.to-list
-open import Data.Pair.Type
-open import Data.Pair.fst
-open import Data.Pair.snd
-open import Data.String.Type
-open import Data.String.append
-open import Data.String.join
+open import Base.Bits.Type
+open import Base.List.Type
+open import Base.List.map
+open import Base.Map.to-list
+open import Base.Pair.Type
+open import Base.Pair.fst
+open import Base.Pair.snd
+open import Base.String.Type
+open import Base.String.append
+open import Base.String.join
 open import HVM2.Run.State.Type
 open import HVM2.Term.Type
 

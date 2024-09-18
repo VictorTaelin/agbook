@@ -1,8 +1,8 @@
 module Bend.Fun.Num.Type where
 
-open import Data.Nat.Type
-open import Data.Int.Type
-open import Data.Float.Type
+open import Base.Nat.Type
+open import Base.Int.Type
+open import Base.Float.Type
 
 -- Native numeric types in Bend.
 data Num : Set where

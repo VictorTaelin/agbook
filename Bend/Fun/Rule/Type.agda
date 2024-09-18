@@ -1,6 +1,6 @@
 module Bend.Fun.Rule.Type (Term : Set) where
 
-open import Data.List.Type
+open import Base.List.Type
 open import Bend.Fun.Pattern.Type
 
 -- Represents a pattern matching rule in a function definition

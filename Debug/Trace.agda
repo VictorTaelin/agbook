@@ -2,8 +2,8 @@
 
 module Debug.Trace where
 
-open import Data.String.Type
-open import Data.Equal.Type
+open import Base.String.Type
+open import Base.Equal.Type
 
 postulate
   trace : ∀ {a} {A : Set a} → String → A → A

@@ -1,7 +1,7 @@
 module HVM2.Run.enter where
 
-open import Data.Function.case
-open import Data.Maybe.Type
+open import Base.Function.case
+open import Base.Maybe.Type
 open import HVM2.Run.Type
 open import HVM2.Run.bind
 open import HVM2.Run.pure

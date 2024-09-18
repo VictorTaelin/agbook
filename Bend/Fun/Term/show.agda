@@ -3,17 +3,17 @@ module Bend.Fun.Term.show where
 open import Bend.Fun.Term.Type
 open import Bend.Fun.Num.Type renaming (Num to Num')
 open import Bend.Fun.FanKind.Type
-open import Data.String.Type
-open import Data.String.append
-open import Data.String.join
-open import Data.Pair.Type
-open import Data.Nat.Type
-open import Data.List.Type renaming (List to List')
-open import Data.List.map
-open import Data.List.zip
-open import Data.Maybe.Type
-open import Data.Trait.Show public
-open import Data.Nat.show
+open import Base.String.Type
+open import Base.String.append
+open import Base.String.join
+open import Base.Pair.Type
+open import Base.Nat.Type
+open import Base.List.Type renaming (List to List')
+open import Base.List.map
+open import Base.List.zip
+open import Base.Maybe.Type
+open import Base.Trait.Show public
+open import Base.Nat.show
 open import Bend.Fun.show-bind
 open import Bend.Fun.Op.show
 open import Bend.Fun.Num.show

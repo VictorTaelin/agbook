@@ -1,8 +1,8 @@
 module Bend.Compile.BendToNet.Encoder.Type where
 
-open import Data.Map.Type
-open import Data.List.Type
-open import Data.Pair.Type
+open import Base.Map.Type
+open import Base.List.Type
+open import Base.Pair.Type
 open import Bend.Fun.Term.Type using (Term)
 open import Bend.Fun.Pattern.Type
 open import Bend.Net.Type

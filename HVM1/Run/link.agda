@@ -1,7 +1,7 @@
 module HVM1.Run.link where
 
 import HVM1.Net.link
-open import Data.Unit.Type
+open import Base.Unit.Type
 open import HVM1.Net.Type
 open import HVM1.Port.Type
 open import HVM1.Run.State.Type

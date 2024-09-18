@@ -4,10 +4,10 @@ import Imp.Expr.Type as Expr'
 open import Imp.Stmt.Type
 open import Imp.Notation
 open import Imp.Stmt.show as Stmt
-open import Data.Nat.Type
-open import Data.U64.Type
-open import Data.List.Type
-open import Data.Equal.Type
+open import Base.Nat.Type
+open import Base.U64.Type
+open import Base.List.Type
+open import Base.Equal.Type
 
 private
   open module Expr = Expr' Stmt

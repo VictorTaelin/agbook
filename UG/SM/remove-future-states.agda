@@ -5,8 +5,8 @@ open import UG.SM.Tick.Type
 open import UG.SM.StateLogs.Type
 open import UG.SM.StateLogs.remove-range
 
-open import Data.Nat.Type
-open import Data.Nat.add
+open import Base.Nat.Type
+open import Base.Nat.add
 
 -- mach : The machine state to update
 -- tick : The current tick, used to determine which states to remove

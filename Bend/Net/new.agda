@@ -4,10 +4,10 @@ open import Bend.Net.Type
 open import Bend.Net.Port.Type
 open import Bend.Net.Node.Type
 open import Bend.Net.NodeKind.Type
-open import Data.Nat.to-bits renaming (to-bits to nat-to-bits)
-open import Data.Map.set renaming (set to map-set)
-open import Data.Map.new renaming (new to map-new)
-open import Data.String.Type
+open import Base.Nat.to-bits renaming (to-bits to nat-to-bits)
+open import Base.Map.set renaming (set to map-set)
+open import Base.Map.new renaming (new to map-new)
+open import Base.String.Type
 
 -- Creates a new flattened num-indexed net, with root represented by a deadlocked node.
 new : String → Net

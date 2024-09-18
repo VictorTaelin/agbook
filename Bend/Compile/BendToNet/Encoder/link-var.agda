@@ -1,13 +1,13 @@
 module Bend.Compile.BendToNet.Encoder.link-var where
 
-open import Data.Function.case
-open import Data.Maybe.Type
-open import Data.Maybe.bind
-open import Data.Pair.Type
-open import Data.String.Type
-open import Data.String.hash
-open import Data.Map.take renaming (take to map-take)
-open import Data.Map.set renaming (set to map-set)
+open import Base.Function.case
+open import Base.Maybe.Type
+open import Base.Maybe.bind
+open import Base.Pair.Type
+open import Base.String.Type
+open import Base.String.hash
+open import Base.Map.take renaming (take to map-take)
+open import Base.Map.set renaming (set to map-set)
 open import Bend.Compile.BendToNet.Encoder.Type
 open import Bend.Net.link renaming (link to net-link)
 open import Bend.Net.Port.Type

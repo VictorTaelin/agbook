@@ -1,6 +1,6 @@
 module Bend.Net.Port.Type where
 
-open import Data.Nat.Type
+open import Base.Nat.Type
 
 record Port : Set where
   constructor MkPort

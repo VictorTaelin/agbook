@@ -1,7 +1,7 @@
 module HVM1.Node.Type where
 
-open import Data.Bits.Type
-open import Data.Nat.Type
+open import Base.Bits.Type
+open import Base.Nat.Type
 open import HVM1.Port.Type
 
 -- Represents a node in the HVM1 system

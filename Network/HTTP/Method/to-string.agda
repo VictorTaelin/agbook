@@ -1,7 +1,7 @@
 module Network.HTTP.Method.to-string where
 
 open import Network.HTTP.Method.Type
-open import Data.String.Type
+open import Base.String.Type
 
 to-string : Method → String
 to-string GET     = "GET"
