@@ -12,24 +12,25 @@ open import Data.Bool.if
 -- - tree: The AVL tree to rotate.
 -- = A pair containing the rotated AVL tree and a boolean indicating if the height of the root stayed the same.
 rotate-left : ∀ {A : Set} → AVLTree A → Pair (AVLTree A) Bool
-rotate-left tree with tree
-... | Node v₁ +one
+rotate-left
+   (Node v₁ +one
+      left
+      (Node v₂ +one
+        child-left
+        child-right))
+  = Node v₂ zero
+      (Node v₁ zero
         left
-        (Node v₂ +one
-          child-left
-          child-right)
-    = Node v₂ zero
-        (Node v₁ zero
-          left
-          child-left)
-        child-right
-    , False
+        child-left)
+      child-right
+  , False
 
-... | Node v₁ +one
+rotate-left
+     (Node v₁ +one
         left
         (Node v₂ zero
           child-left
-          child-right)
+          child-right))
     = Node v₂ -one
         (Node v₁ +one
           left
@@ -37,13 +38,14 @@ rotate-left tree with tree
         child-right
     , True
 
-... | Node v₁ +one
+rotate-left
+     (Node v₁ +one
         left
         (Node v₂ -one
           (Node v₃ balance
             child-child-left
             child-child-right)
-          child-right)
+          child-right))
     = let b₁ = if balance == +one then -one else zero
           b₂ = if balance == -one then +one else zero in
       Node v₃ zero
@@ -56,4 +58,4 @@ rotate-left tree with tree
       , False
 
 -- Invalid call to `rotate-left`
-... | _ = tree , False
+rotate-left tree = tree , False
