@@ -2,7 +2,7 @@ module Network.WebSocket.run-concurrent-client where
 
 open import Network.WebSocket.WSConnection
 open import Data.String.Type
-open import Data.IOAsync.Type
+open import Data.IO.Type
 open import Data.Unit.Type
 open import Data.Int.Type
 
@@ -13,7 +13,7 @@ open import Data.Int.Type
 -- - handler: A function that handles the WebSocket connection.
 -- = An asynchronous operation that runs the client concurrently.
 postulate
-  run-concurrent-client : String → Int → String → (WSConnection → IOAsync Unit) → IOAsync Unit
+  run-concurrent-client : String → Int → String → (WSConnection → IO Unit) → IO Unit
 
 {-# FOREIGN GHC import qualified Control.Concurrent as CC #-}
 {-# FOREIGN GHC import Control.Monad (void)  #-}

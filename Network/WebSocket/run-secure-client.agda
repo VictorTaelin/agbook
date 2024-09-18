@@ -2,7 +2,7 @@ module Network.WebSocket.run-secure-client where
 
 open import Network.WebSocket.WSConnection
 open import Data.String.Type
-open import Data.IOAsync.Type
+open import Data.IO.Type
 open import Data.Unit.Type
 open import Data.Int.Type
 
@@ -13,7 +13,7 @@ open import Data.Int.Type
 -- - path: The path component of the WebSocket URL.
 -- - app: The application function to run with the established WebSocket connection.
 -- = An asynchronous I/O action that performs the secure WebSocket connection and runs the application.
-run-secure-client : String → Int → String → (WSConnection → IOAsync Unit) → IOAsync Unit
+run-secure-client : String → Int → String → (WSConnection → IO Unit) → IO Unit
 
 {-# FOREIGN GHC import qualified Data.Text as T #-}
 {-# FOREIGN GHC import qualified Wuss #-}

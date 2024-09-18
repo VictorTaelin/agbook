@@ -4,11 +4,11 @@ open import Data.JSON.Type
 open import Data.JSON.parse
 open import Data.JSON.show
 open import Data.Unit.Type
-open import Data.IOAsync.Type
-open import Data.IOAsync.bind
-open import Data.IOAsync.print
-open import Data.IOAsync.seq
-open import Data.IOAsync.pure
+open import Data.IO.Type
+open import Data.IO.bind
+open import Data.IO.print
+open import Data.IO.seq
+open import Data.IO.pure
 open import Data.Result.Type
 open import Data.Parser.Reply
 open import Data.Parser.Error
@@ -25,26 +25,26 @@ open import Concurrent.Channel.write-channel
 open import Network.WebSocket.run-concurrent-client
 
 
-handleWebSocket : Channel String → WSConnection → IOAsync Unit
+handleWebSocket : Channel String → WSConnection → IO Unit
 handleWebSocket chan conn = do
   msg ← receive-data conn
   write-channel chan msg
   handleWebSocket chan conn
 
-processMessages : Channel String → IOAsync Unit
+processMessages : Channel String → IO Unit
 processMessages chan = do
   msg ← read-channel chan
   let parseResult = parse-json-string msg
   handleParseResult parseResult
   processMessages chan
   where
-    handleParseResult : Result (Reply JSON) Error → IOAsync Unit
+    handleParseResult : Result (Reply JSON) Error → IO Unit
     handleParseResult (Done reply) = 
       print ("Received and parsed JSON: " ++ show (Reply.value reply))
     handleParseResult (Fail error) = 
       print ("Failed to parse JSON")
 
-main : IOAsync Unit
+main : IO Unit
 main = do
   let host = "127.0.0.1"
   let port = (Pos 8080)

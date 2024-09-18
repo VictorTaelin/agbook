@@ -1,10 +1,10 @@
 module UG.SIPD.Main where
 
-open import Data.IOAsync.Type
-open import Data.IOAsync.bind
-open import Data.IOAsync.seq
-open import Data.IOAsync.print
-open import Data.IOAsync.pure
+open import Data.IO.Type
+open import Data.IO.bind
+open import Data.IO.seq
+open import Data.IO.print
+open import Data.IO.pure
 open import Data.Unit.Type
 open import Data.String.Type
 open import Data.String.append
@@ -17,6 +17,7 @@ open import UG.SIPD.FFI.Gloss
 open import UG.SIPD.State.Type
 open import UG.SIPD.State.init
 open import UG.SM.Game.Type
+open import UG.SM.Type
 open import Data.Bool.Type
 open import Concurrent.Channel.Type
 open import Concurrent.Channel.write-channel
@@ -33,6 +34,8 @@ open import Data.JSON.parse
 open import Data.JSON.show renaming (show to jshow)
 open import Data.Maybe.Type
 open import Data.Function.case
+open import UG.SM.new-mach
+open import UG.SM.register-action
 
 -- Define the window size and title
 window : Window
@@ -74,19 +77,19 @@ game = record
 -- have a function that correctly processes the incoming messages (this goes along with the State Machine process)
 -- adjust the game loop to run the process function every tick
 
-handle-websocket : Channel String → WSConnection → IOAsync Unit
+handle-websocket : Channel String → WSConnection → IO Unit
 handle-websocket channel connection = do
   msg <- receive-data connection
   write-channel channel msg
   handle-websocket channel connection
 
 
-handle-json-result : Result (Reply JSON) Error → IOAsync Unit
+handle-json-result : Result (Reply JSON) Error → IO Unit
 handle-json-result (Done reply) = print ("Received and parsed JSON: " ++ jshow (Reply.value reply))
 handle-json-result (Fail error) = print ("Failed to parse JSON")
 
 
-process-messages : Channel String → IOAsync Unit
+process-messages : Channel String → IO Unit
 process-messages channel = do
   maybe-msg <- read-channel channel
   case maybe-msg of λ where
@@ -95,8 +98,12 @@ process-messages channel = do
       handle-json-result parse-result
     None → pure unit
 --  process-messages channel
+
+
+initial-mach : Mach State Event
+initial-mach = new-mach 60 event-eq
   
-main : IOAsync Unit
+main : IO Unit
 main = do
   let host = "127.0.0.1"
   let port = (Pos 8080)
@@ -107,7 +114,11 @@ main = do
   print ("Connecting to WebSocket server")
   run-concurrent-client host port path (handle-websocket chan)
 
-  gameLoop game (process-messages) chan
+  gameLoop initial-mach (register-action) game (process-messages) chan
+
+--  gameLoop : (Mach State Event) -> (Mach State Event -> TimedAction Event -> Mach State Event) ->
+--             (Game State Event) -> (Channel String → IO Unit) -> (Channel String) -> IOAsync Unit
+
 
 
 

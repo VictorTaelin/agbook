@@ -2,7 +2,7 @@ module Network.WebSocket.send-text-data where
 
 open import Network.WebSocket.WSConnection
 open import Data.String.Type
-open import Data.IOAsync.Type
+open import Data.IO.Type
 open import Data.Unit.Type
 
 -- Sends text data over a WebSocket connection.
@@ -10,7 +10,7 @@ open import Data.Unit.Type
 -- - msg: The text message to be sent.
 -- = An asynchronous operation that sends the text data and returns nothing.
 postulate
-  send-text-data : WSConnection → String → IOAsync Unit
+  send-text-data : WSConnection → String → IO Unit
 
 {-# FOREIGN GHC import qualified Network.WebSockets as WS #-}
 

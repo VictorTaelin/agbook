@@ -2,7 +2,7 @@ module UG.SIPD.FFI.Gloss where
 
 open import Data.Nat.Type
 open import Data.String.Type
-open import Data.IOAsync.Type
+open import Data.IO.Type
 open import Data.Unit.Type
 open import Data.Nat.show
 open import Data.String.append
@@ -14,6 +14,7 @@ open import UG.SIPD.State.Type
 open import Data.Unit.Type
 open import UG.SM.Game.Type
 open import UG.SM.Type
+open import UG.SM.TimedAction.Type
 open import UG.SM.new-mach
 open import Concurrent.Channel.Type
 
@@ -38,7 +39,8 @@ data Event : Set where
   MouseMove : Float → Float → Event 
 
 postulate
-  gameLoop : (Game State Event) → (Channel String → IOAsync Unit) → (Channel String) → IOAsync Unit
+  gameLoop : (Mach State Event) -> (Mach State Event -> TimedAction Event -> Mach State Event) ->
+             (Game State Event) -> (Channel String → IO Unit) -> (Channel String) -> IO Unit
 
 {-# FOREIGN GHC import qualified UG.SIPD.FFI.FGloss as FG #-}
 {-# FOREIGN GHC import qualified Data.Text as T #-}

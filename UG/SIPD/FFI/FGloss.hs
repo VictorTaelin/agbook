@@ -16,6 +16,7 @@ import Control.Monad (unless)
 import MAlonzo.Code.UG.SIPD.State.Type (State(..))
 --import MAlonzo.Code.UG.SM.QregisterZ45Zaction
 import qualified MAlonzo.Code.UG.SM.Game.Type as Game
+import qualified MAlonzo.Code.UG.SM.Type as Mach
 import Foreign.C.Types (CInt)
 import qualified Control.Concurrent as CC
 
@@ -86,7 +87,9 @@ render renderer state = do
   renderText renderer ("Clicks: " ++ show (clickCount state)) (SDL.P (SDL.V2 10 10))
 
 
--- gameLoop : (Game State Event) → (Channel String → IOAsync Unit) → IOAsync Unit
+--gameLoop : (Mach State Event) -> (Mach State Event -> TimedAction A -> Mach State Event) ->
+           --(Game State Event) -> (Channel String → IOAsync Unit) -> (Channel String) -> IOAsync Unit
+
 
 gameLoop :: (Game.Game State AgdaEvent) -> (CC.Chan T.Text -> IO ()) -> (CC.Chan T.Text) -> IO ()
 gameLoop game processMsg channel = do
