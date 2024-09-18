@@ -14,5 +14,14 @@ postulate
 {-# FOREIGN GHC import qualified Data.Text as T #-}
 
 {-# COMPILE GHC delete-file = System.Directory.removeFile . T.unpack #-}
-{-# COMPILE JS delete-file = function(path) { return function() { require('fs').unlinkSync(path); return {}; }; } #-}
 
+{-# COMPILE JS delete-file = function(path) { 
+  return function() { 
+    return new Promise(function(resolve, reject) { 
+      require('fs').unlink(path, function(err) { 
+        if (err) reject(err); 
+        else resolve({}); 
+      }); 
+    }); 
+  };
+} #-}

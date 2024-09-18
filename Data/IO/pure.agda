@@ -6,4 +6,7 @@ postulate
   pure : ∀ {A : Set} → A → IO A
 
 {-# COMPILE GHC pure = \_ -> return #-}
-{-# COMPILE JS pure = function(a) { return function() { return a; }; } #-}
+
+{-# COMPILE JS pure = function(x) { return function() { return Promise.resolve(x); }; } #-}
+
+

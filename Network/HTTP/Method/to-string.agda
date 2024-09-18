@@ -1,6 +1,6 @@
 module Network.HTTP.Method.to-string where
 
-open import Data.HTTP.Method.Type
+open import Network.HTTP.Method.Type
 open import Data.String.Type
 
 to-string : Method → String

@@ -5,6 +5,8 @@ open import Data.Bool.Type
 open import Data.Bool.not
 open import Data.Trait.Eq public
 
+-- Instance of Eq typeclass for Float
+-- Compares two Float values for equality
 instance
   EqFloat : Eq Float
   EqFloat = record
