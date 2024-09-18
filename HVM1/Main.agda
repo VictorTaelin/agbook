@@ -9,7 +9,6 @@ open import HVM1.Run.Type
 open import HVM1.Run.bind
 open import HVM1.Run.pure
 
--- A simple Run computation that prints "Hello, World!"
 main : IO Unit
 main = do
-  print "Hello, World!!! 5"
+  print "Hello, World"
