@@ -1,15 +1,15 @@
 module Bend.Compile.BendToNet.Encoder.encode-term where
 
-open import Data.Bits.Type
-open import Data.Function.case
-open import Data.List.Type
-open import Data.Maybe.Type
-open import Data.Maybe.to-result
-open import Data.Pair.Type
-open import Data.String.Type
-open import Data.String.append
-open import Data.Result.Type
-open import Data.Result.bind
+open import Base.Bits.Type
+open import Base.Function.case
+open import Base.List.Type
+open import Base.Maybe.Type
+open import Base.Maybe.to-result
+open import Base.Pair.Type
+open import Base.String.Type
+open import Base.String.append
+open import Base.Result.Type
+open import Base.Result.bind
 open import Bend.Fun.Pattern.Type using (Pattern)
 open import Bend.Fun.Term.Type using (Term)
 open import Bend.Net.Port.Type

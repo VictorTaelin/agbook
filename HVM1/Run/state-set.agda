@@ -1,7 +1,7 @@
 module HVM1.Run.state-set where
 
-open import Data.Pair.Type
-open import Data.Unit.Type
+open import Base.Pair.Type
+open import Base.Unit.Type
 open import HVM1.Run.State.Type
 open import HVM1.Run.Type
 

@@ -2,11 +2,11 @@ module HVM1.Node.port-mut where
 
 -- NOTE: do *NOT* fix the style of this file
 
-open import Data.Bits.Type
-open import Data.Nat.Type
-open import Data.Unit.Type
-open import Data.Maybe.Type
-open import Data.Function.case
+open import Base.Bits.Type
+open import Base.Nat.Type
+open import Base.Unit.Type
+open import Base.Maybe.Type
+open import Base.Function.case
 open import HVM1.Net.Type
 open import HVM1.Node.Type
 open import HVM1.Node.port-get
@@ -16,9 +16,9 @@ open import HVM1.Run.State.Type
 open import HVM1.Run.Type
 open import HVM1.Run.bind
 open import HVM1.Run.state-mut
-import Data.Map.Type as M
-import Data.Map.get as M
-import Data.Map.set as M
+import Base.Map.Type as M
+import Base.Map.get as M
+import Base.Map.set as M
 
 -- Mutates the port of a node at a given slot in the HVM1 system.
 -- - addr: The address of the node to modify.

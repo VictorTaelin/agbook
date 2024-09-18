@@ -1,14 +1,14 @@
 module HVM2.Run.link where
 
 open import Debug.Trace
-open import Data.String.append
-import Data.Bits.show as Bits
+open import Base.String.append
+import Base.Bits.show as Bits
 import HVM2.Term.show as Term
 
-open import Data.Bits.Type
-open import Data.Function.case
-open import Data.Maybe.Type
-open import Data.Unit.Type
+open import Base.Bits.Type
+open import Base.Function.case
+open import Base.Maybe.Type
+open import Base.Unit.Type
 open import HVM2.Run.Type
 open import HVM2.Run.bind
 open import HVM2.Run.pure

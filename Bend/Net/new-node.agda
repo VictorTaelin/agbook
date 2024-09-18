@@ -1,9 +1,9 @@
 module Bend.Net.new-node where
 
-open import Data.Nat.to-bits
-open import Data.Nat.Type
-open import Data.Pair.Type
-open import Data.Map.set
+open import Base.Nat.to-bits
+open import Base.Nat.Type
+open import Base.Pair.Type
+open import Base.Map.set
 open import Bend.Net.Type
 open import Bend.Net.Node.Type
 open import Bend.Net.NodeKind.Type

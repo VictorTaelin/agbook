@@ -1,10 +1,10 @@
 module HVM1.Run.node-set where
 
-import Data.Map.Type as M
-import Data.Map.set as M
-open import Data.Bits.Type
-open import Data.Pair.Type
-open import Data.Unit.Type
+import Base.Map.Type as M
+import Base.Map.set as M
+open import Base.Bits.Type
+open import Base.Pair.Type
+open import Base.Unit.Type
 open import HVM1.Net.Type
 open import HVM1.Node.Type
 open import HVM1.Run.State.Type

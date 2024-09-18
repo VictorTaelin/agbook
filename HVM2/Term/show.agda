@@ -1,8 +1,8 @@
 module HVM2.Term.show where
 
-import Data.Bits.show as Bits
-open import Data.String.Type
-open import Data.String.append
+import Base.Bits.show as Bits
+open import Base.String.Type
+open import Base.String.append
 open import HVM2.Term.Type
 
 -- Converts a Term to its string representation.

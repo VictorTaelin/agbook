@@ -1,8 +1,8 @@
 module Bend.Fun.MatchRule.Type (Term : Set) where
 
-open import Data.List.Type
-open import Data.Maybe.Type
-open import Data.String.Type
+open import Base.List.Type
+open import Base.Maybe.Type
+open import Base.String.Type
 
 -- A rule in a pattern matching expression ('match')
 record MatchRule : Set where

@@ -1,12 +1,12 @@
 module Network.WebSocket.Client where
 
-open import Data.IO.Type
-open import Data.Maybe.Type
-open import Data.String.Type
-open import Data.Bool.Type
-open import Data.Pair.Type
-open import Data.Unit.Type
-open import Data.Int.Type
+open import Base.IO.Type
+open import Base.Maybe.Type
+open import Base.String.Type
+open import Base.Bool.Type
+open import Base.Pair.Type
+open import Base.Unit.Type
+open import Base.Int.Type
 
 postulate WSConnection : Set
 

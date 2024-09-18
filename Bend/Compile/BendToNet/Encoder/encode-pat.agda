@@ -1,12 +1,12 @@
 module Bend.Compile.BendToNet.Encoder.encode-pat where
 
-open import Data.List.Type
-open import Data.List.map
-open import Data.Maybe.Type
-open import Data.Maybe.bind
-open import Data.Pair.Type
-open import Data.String.Type
-open import Data.String.append
+open import Base.List.Type
+open import Base.List.map
+open import Base.Maybe.Type
+open import Base.Maybe.bind
+open import Base.Pair.Type
+open import Base.String.Type
+open import Base.String.append
 open import Bend.Fun.Pattern.Type
 open import Bend.Net.Port.Type
 open import Bend.Net.NodeKind.Type

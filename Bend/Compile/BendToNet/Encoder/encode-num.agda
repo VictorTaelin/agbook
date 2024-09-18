@@ -1,9 +1,9 @@
 module Bend.Compile.BendToNet.Encoder.encode-num where
 
-open import Data.Bits.Type
-open import Data.Nat.to-bits renaming (to-bits to nat-to-bits)
-open import Data.Int.to-bits renaming (to-bits to int-to-bits)
-open import Data.Float.to-bits renaming (to-bits to float-to-bits)
+open import Base.Bits.Type
+open import Base.Nat.to-bits renaming (to-bits to nat-to-bits)
+open import Base.Int.to-bits renaming (to-bits to int-to-bits)
+open import Base.Float.to-bits renaming (to-bits to float-to-bits)
 open import Bend.Fun.Num.Type using (Num)
 
 -- Encodes a Num (number) into its HVM bit representation

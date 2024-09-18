@@ -2,8 +2,8 @@ module UG.SM.update-genesis-tick where
 
 open import UG.SM.Type
 open import UG.SM.Tick.Type
-open import Data.Nat.Type
-open import Data.Nat.min
+open import Base.Nat.Type
+open import Base.Nat.min
 
 -- mach: The machine state to update
 -- new-tick: The new tick to compare with the current genesis tick

@@ -1,16 +1,16 @@
 module Bend.Compile.BendToNet.book-to-nets where
 
-open import Data.Function.case
-open import Data.List.Type
-open import Data.List.head
-open import Data.List.unzip
-open import Data.Map.to-list renaming (to-list to map-to-list)
-open import Data.Maybe.to-result
-open import Data.Pair.Type
-open import Data.Result.Type
-open import Data.Result.bind
-open import Data.String.Type
-open import Data.String.append
+open import Base.Function.case
+open import Base.List.Type
+open import Base.List.head
+open import Base.List.unzip
+open import Base.Map.to-list renaming (to-list to map-to-list)
+open import Base.Maybe.to-result
+open import Base.Pair.Type
+open import Base.Result.Type
+open import Base.Result.bind
+open import Base.String.Type
+open import Base.String.append
 open import Bend.Compile.BendToNet.Encoder.new renaming (new to new-encoder)
 open import Bend.Compile.BendToNet.Encoder.encode-term
 open import Bend.Compile.BendToNet.Encoder.Type

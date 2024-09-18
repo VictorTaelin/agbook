@@ -5,11 +5,11 @@ open import UG.SM.Game.Type
 open import UG.SM.Tick.Type
 open import UG.SM.StateLogs.Type
 
-open import Data.Function.case using (case_of_)
-open import Data.Map.get
-open import Data.Map.set
-open import Data.Nat.to-bits
-open import Data.Maybe.Type
+open import Base.Function.case using (case_of_)
+open import Base.Map.get
+open import Base.Map.set
+open import Base.Nat.to-bits
+open import Base.Maybe.Type
 
 -- get-initial-state: Helper function to get initial state
 -- mach: The machine containing state logs

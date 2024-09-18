@@ -1,12 +1,12 @@
 module HVM2.Run.subst-take where
 
-open import Data.Bits.Type
-open import Data.Maybe.Type
-open import Data.Pair.Type
+open import Base.Bits.Type
+open import Base.Maybe.Type
+open import Base.Pair.Type
 open import HVM2.Run.Type
 open import HVM2.Run.State.Type
 open import HVM2.Term.Type
-import Data.Map.take as Map
+import Base.Map.take as Map
 
 -- Removes and retrieves a substitution from the subst map
 subst-take : Bits → Run (Maybe Term)

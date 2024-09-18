@@ -1,9 +1,9 @@
 module Bend.Fun.Pattern.Type where
 
-open import Data.List.Type
-open import Data.Maybe.Type
-open import Data.Nat.Type
-open import Data.String.Type
+open import Base.List.Type
+open import Base.Maybe.Type
+open import Base.Nat.Type
+open import Base.String.Type
 open import Bend.Fun.FanKind.Type
 
 -- Represents a variable bind pattern that introduces one or more variables to the scope

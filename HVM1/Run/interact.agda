@@ -1,11 +1,11 @@
 module HVM1.Run.interact where
 
-open import Data.Bits.Type
-open import Data.Bits.eq
-open import Data.Function.case
-open import Data.Maybe.Type
-open import Data.Pair.Type
-open import Data.Unit.Type
+open import Base.Bits.Type
+open import Base.Bits.eq
+open import Base.Function.case
+open import Base.Maybe.Type
+open import Base.Pair.Type
+open import Base.Unit.Type
 open import HVM1.Net.Type
 open import HVM1.Node.Type
 open import HVM1.Port.Type
@@ -16,7 +16,7 @@ open import HVM1.Run.Type
 open import HVM1.Run.bind
 open import HVM1.Run.node-get
 open import HVM1.Run.pure
-open import Data.Bool.if
+open import Base.Bool.if
 
 interact-go : Node → Node → Run Unit
 interact-go Era               Era               = pure unit

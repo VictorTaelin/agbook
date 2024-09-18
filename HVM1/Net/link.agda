@@ -4,14 +4,14 @@ open import HVM1.Net.Type
 open import HVM1.Port.Type
 open import HVM1.Node.Type
 open import HVM1.Node.port-set
-open import Data.Maybe.Type
-open import Data.Maybe.bind
-open import Data.Maybe.run
-open import Data.Pair.Type
-open import Data.Equal.Type
-import Data.Map.Type as M
-import Data.Map.get as M
-import Data.Map.set as M
+open import Base.Maybe.Type
+open import Base.Maybe.bind
+open import Base.Maybe.run
+open import Base.Pair.Type
+open import Base.Equal.Type
+import Base.Map.Type as M
+import Base.Map.get as M
+import Base.Map.set as M
 
 -- Links two ports in a Net.
 -- - net: The Net to modify.

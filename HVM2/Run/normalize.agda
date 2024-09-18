@@ -1,9 +1,9 @@
 module HVM2.Run.normalize where
 
-open import Data.Bool.Type
-open import Data.Bool.if
-open import Data.Maybe.Type
-open import Data.Unit.Type
+open import Base.Bool.Type
+open import Base.Bool.if
+open import Base.Maybe.Type
+open import Base.Unit.Type
 open import HVM2.Redex.Type
 open import HVM2.Run.Type
 open import HVM2.Run.bind

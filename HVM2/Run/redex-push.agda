@@ -1,7 +1,7 @@
 module HVM2.Run.redex-push where
 
-open import Data.Unit.Type
-open import Data.List.Type
+open import Base.Unit.Type
+open import Base.List.Type
 open import HVM2.Run.Type
 open import HVM2.Run.state-mut
 open import HVM2.Run.State.Type

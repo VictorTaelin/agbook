@@ -1,7 +1,7 @@
 module HVM1.Rule.comm where
 
-open import Data.Bits.Type
-open import Data.Unit.Type
+open import Base.Bits.Type
+open import Base.Unit.Type
 open import HVM1.Port.Type
 open import HVM1.Run.Type
 open import HVM1.Run.bind
