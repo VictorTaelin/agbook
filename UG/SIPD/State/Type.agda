@@ -4,8 +4,6 @@ open import Data.Map.Type
 open import Data.Nat.Type
 open import UG.SM.Tick.Type
 open import UG.SIPD.Player.Type
-open import Data.IO.Type
-open import Data.IO.pure
 open import Data.Unit.Type
 
 -- Represents the state of the game

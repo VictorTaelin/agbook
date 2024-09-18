@@ -14,9 +14,10 @@ import qualified Graphics.Gloss.Interface.IO.Game as G
 import qualified Data.Text as T
 import Control.Monad (unless)
 import MAlonzo.Code.UG.SIPD.State.Type (State(..))
-import MAlonzo.Code.UG.SM.QregisterZ45Zaction
+--import MAlonzo.Code.UG.SM.QregisterZ45Zaction
 import qualified MAlonzo.Code.UG.SM.Game.Type as Game
 import Foreign.C.Types (CInt)
+import qualified Control.Concurrent as CC
 
 data AgdaClick = ALeftButton | ARightButton
 
@@ -84,8 +85,11 @@ render renderer state = do
   SDL.rendererDrawColor renderer SDL.$= SDL.V4 0 0 0 255  -- Black color for text
   renderText renderer ("Clicks: " ++ show (clickCount state)) (SDL.P (SDL.V2 10 10))
 
-gameLoop :: (Game.Game State AgdaEvent) -> IO ()
-gameLoop game = do
+
+-- gameLoop : (Game State Event) → (Channel String → IOAsync Unit) → IOAsync Unit
+
+gameLoop :: (Game.Game State AgdaEvent) -> (CC.Chan T.Text -> IO ()) -> (CC.Chan T.Text) -> IO ()
+gameLoop game processMsg channel = do
 --  d_register'45'action_10
 --  Adding the state machine is simple, just receive it as an arg and use register action instead of 
 --  folding the events through the when function.
@@ -98,10 +102,12 @@ gameLoop game = do
   let loop s = do
         events <- SDL.pollEvents
         let agdaEvents = map convertEvent events
-        
+ 
         let newState = foldl (flip ((Game.when game))) s agdaEvents
         
         displayPicture window renderer newState
+
+        processMsg channel
 
         let quit = any (== SDL.QuitEvent) (map SDL.eventPayload events)
         unless quit (loop newState)

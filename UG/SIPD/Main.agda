@@ -1,6 +1,10 @@
 module UG.SIPD.Main where
 
-open import Data.IO.Type
+open import Data.IOAsync.Type
+open import Data.IOAsync.bind
+open import Data.IOAsync.seq
+open import Data.IOAsync.print
+open import Data.IOAsync.pure
 open import Data.Unit.Type
 open import Data.String.Type
 open import Data.String.append
@@ -14,7 +18,21 @@ open import UG.SIPD.State.Type
 open import UG.SIPD.State.init
 open import UG.SM.Game.Type
 open import Data.Bool.Type
-
+open import Concurrent.Channel.Type
+open import Concurrent.Channel.write-channel
+open import Concurrent.Channel.new-channel
+open import Concurrent.Channel.read-channel
+open import Network.WebSocket.WSConnection
+open import Network.WebSocket.receive-data
+open import Network.WebSocket.run-concurrent-client
+open import Data.Result.Type
+open import Data.Parser.Reply
+open import Data.Parser.Error
+open import Data.JSON.Type
+open import Data.JSON.parse
+open import Data.JSON.show renaming (show to jshow)
+open import Data.Maybe.Type
+open import Data.Function.case
 
 -- Define the window size and title
 window : Window
@@ -56,8 +74,40 @@ game = record
 -- have a function that correctly processes the incoming messages (this goes along with the State Machine process)
 -- adjust the game loop to run the process function every tick
 
-main : IO Unit
-main = gameLoop game
+handle-websocket : Channel String → WSConnection → IOAsync Unit
+handle-websocket channel connection = do
+  msg <- receive-data connection
+  write-channel channel msg
+  handle-websocket channel connection
+
+
+handle-json-result : Result (Reply JSON) Error → IOAsync Unit
+handle-json-result (Done reply) = print ("Received and parsed JSON: " ++ jshow (Reply.value reply))
+handle-json-result (Fail error) = print ("Failed to parse JSON")
+
+
+process-messages : Channel String → IOAsync Unit
+process-messages channel = do
+  maybe-msg <- read-channel channel
+  case maybe-msg of λ where
+    (Some msg) → do
+      let parse-result = parse-json-string msg
+      handle-json-result parse-result
+    None → pure unit
+--  process-messages channel
+  
+main : IOAsync Unit
+main = do
+  let host = "127.0.0.1"
+  let port = (Pos 8080)
+  let path = "/"
+
+  chan <- new-channel
+
+  print ("Connecting to WebSocket server")
+  run-concurrent-client host port path (handle-websocket chan)
+
+  gameLoop game (process-messages) chan
 
 
 

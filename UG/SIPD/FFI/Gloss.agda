@@ -2,7 +2,7 @@ module UG.SIPD.FFI.Gloss where
 
 open import Data.Nat.Type
 open import Data.String.Type
-open import Data.IO.Type
+open import Data.IOAsync.Type
 open import Data.Unit.Type
 open import Data.Nat.show
 open import Data.String.append
@@ -14,6 +14,7 @@ open import UG.SIPD.State.Type
 open import Data.Unit.Type
 open import UG.SM.Game.Type
 open import UG.SM.Type
+open import Concurrent.Channel.Type
 
 Window : Set
 Window = Pair String (Pair Nat Nat)
@@ -35,8 +36,10 @@ data Event : Set where
   MouseClick : Click → Float → Float → Event
   MouseMove : Float → Float → Event 
 
+--process-messages : Channel String → IOAsync Unit
+
 postulate
-  gameLoop : (Game State Event) → IO Unit
+  gameLoop : (Game State Event) → (Channel String → IOAsync Unit) → (Channel String) → IOAsync Unit
 
 {-# FOREIGN GHC import qualified UG.SIPD.FFI.FGloss as FG #-}
 {-# FOREIGN GHC import qualified Data.Text as T #-}
