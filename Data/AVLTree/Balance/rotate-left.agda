@@ -26,36 +26,36 @@ rotate-left
   , False
 
 rotate-left
-     (Node v₁ +one
+   (Node v₁ +one
+      left
+      (Node v₂ zero
+        child-left
+        child-right))
+  = Node v₂ -one
+      (Node v₁ +one
         left
-        (Node v₂ zero
-          child-left
-          child-right))
-    = Node v₂ -one
-        (Node v₁ +one
-          left
-          child-left)
-        child-right
-    , True
+        child-left)
+      child-right
+  , True
 
 rotate-left
-     (Node v₁ +one
+   (Node v₁ +one
+      left
+      (Node v₂ -one
+        (Node v₃ balance
+          child-child-left
+          child-child-right)
+        child-right))
+  = let b₁ = if balance == +one then -one else zero
+        b₂ = if balance == -one then +one else zero in
+    Node v₃ zero
+      (Node v₁ b₁
         left
-        (Node v₂ -one
-          (Node v₃ balance
-            child-child-left
-            child-child-right)
-          child-right))
-    = let b₁ = if balance == +one then -one else zero
-          b₂ = if balance == -one then +one else zero in
-      Node v₃ zero
-        (Node v₁ b₁
-          left
-          child-child-left)
-        (Node v₂ b₂
-          child-child-right
-          child-right)
-      , False
+        child-child-left)
+      (Node v₂ b₂
+        child-child-right
+        child-right)
+    , False
 
 -- Invalid call to `rotate-left`
 rotate-left tree = tree , False

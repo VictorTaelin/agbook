@@ -13,48 +13,48 @@ open import Data.Bool.if
 -- = A pair containing the rotated AVL tree and a boolean indicating if the height of the root stayed the same.
 rotate-right : ∀ {A : Set} → AVLTree A → Pair (AVLTree A) Bool
 rotate-right
-     (Node v₁ -one
-        (Node v₂ -one
-          child-left
-          child-right)
-        right)
-    = Node v₂ zero
-        child-left 
-        (Node v₁ zero
-          child-right
-          right)
-      , False
-
-rotate-right
-     (Node v₁ -one
-        (Node v₂ zero
-          child-left
-          child-right)
-        right)
-    = Node v₂ +one
+   (Node v₁ -one
+      (Node v₂ -one
         child-left
-        (Node v₁ -one
-          child-right
-          right)
-      , True
+        child-right)
+      right)
+  = Node v₂ zero
+      child-left 
+      (Node v₁ zero
+        child-right
+        right)
+    , False
 
 rotate-right
-     (Node v₁ -one
-        (Node v₂ +one child-left
-          (Node v₃ balance
-            child-child-left
-            child-child-right))
+   (Node v₁ -one
+      (Node v₂ zero
+        child-left
+        child-right)
+      right)
+  = Node v₂ +one
+      child-left
+      (Node v₁ -one
+        child-right
         right)
-    = let b₁ = if balance == +one then -one else zero
-          b₂ = if balance == -one then +one else zero in
-      Node v₃ zero
-        (Node v₂ b₁
-          child-left
-          child-child-left)
-        (Node v₁ b₂
-          child-child-right
-          right)
-      , False
+    , True
+
+rotate-right
+   (Node v₁ -one
+      (Node v₂ +one child-left
+        (Node v₃ balance
+          child-child-left
+          child-child-right))
+      right)
+  = let b₁ = if balance == +one then -one else zero
+        b₂ = if balance == -one then +one else zero in
+    Node v₃ zero
+      (Node v₂ b₁
+        child-left
+        child-child-left)
+      (Node v₁ b₂
+        child-child-right
+        right)
+    , False
 
 -- Invalid call to `rotate-right`
 rotate-right tree = tree , False
