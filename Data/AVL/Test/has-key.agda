@@ -1,9 +1,9 @@
-module Data.AVLTree.Test.has-key where
+module Data.AVL.Test.has-key where
 
-open import Data.AVLTree.Type
-open import Data.AVLTree.empty
-open import Data.AVLTree.insert
-open import Data.AVLTree.has-key
+open import Data.AVL.Type
+open import Data.AVL.empty
+open import Data.AVL.insert
+open import Data.AVL.has-key
 open import Data.Equal.Type
 open import Data.Bool.Type
 open import Data.Nat.Type
@@ -11,7 +11,7 @@ open import Data.Nat.ord
 open import Data.Trait.Ord
 
 -- Sample AVL tree for testing
-sample-tree : AVLTree Nat
+sample-tree : AVL Nat
 sample-tree = 5 ::> 3 ::> 7 ::> 1 ::> 4 ::> 6 ::> 8 ::> empty
 
 -- Test 1: Empty tree

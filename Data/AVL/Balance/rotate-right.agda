@@ -1,9 +1,9 @@
-module Data.AVLTree.Balance.rotate-right where
+module Data.AVL.Balance.rotate-right where
 
-open import Data.AVLTree.Type
-open import Data.AVLTree.empty
-open import Data.AVLTree.Balance.Type
-open import Data.AVLTree.Balance.eq
+open import Data.AVL.Type
+open import Data.AVL.empty
+open import Data.AVL.Balance.Type
+open import Data.AVL.Balance.eq
 open import Data.Pair.Type
 open import Data.Bool.Type
 open import Data.Bool.if
@@ -11,7 +11,7 @@ open import Data.Bool.if
 -- Performs a right rotation on an AVL tree to fix an imbalance of -2.
 -- - tree: The AVL tree to rotate.
 -- = A pair containing the rotated AVL tree and a boolean indicating if the height of the root stayed the same.
-rotate-right : ∀ {A : Set} → AVLTree A → Pair (AVLTree A) Bool
+rotate-right : ∀ {A : Set} → AVL A → Pair (AVL A) Bool
 rotate-right
    (Node v₁ -one
       (Node v₂ -one

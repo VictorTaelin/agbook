@@ -1,4 +1,4 @@
-module Data.AVLTree.Balance.Type where
+module Data.AVL.Balance.Type where
 
 -- Represents the balance factor of an AVL tree node.
 -- - -one: Left subtree is taller by 1.

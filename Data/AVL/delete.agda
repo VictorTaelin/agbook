@@ -1,11 +1,11 @@
-module Data.AVLTree.delete where
+module Data.AVL.delete where
 
-open import Data.AVLTree.Type
-open import Data.AVLTree.empty
-open import Data.AVLTree.delete-maximum
-open import Data.AVLTree.Balance.Type
-open import Data.AVLTree.Balance.rotate-left
-open import Data.AVLTree.Balance.rotate-right
+open import Data.AVL.Type
+open import Data.AVL.empty
+open import Data.AVL.delete-maximum
+open import Data.AVL.Balance.Type
+open import Data.AVL.Balance.rotate-left
+open import Data.AVL.Balance.rotate-right
 open import Data.Trait.Ord
 open import Data.Maybe.Type
 open import Data.Bool.Type
@@ -19,10 +19,10 @@ open import Data.Function.case
 -- - v: The value to delete.
 -- - t: The AVL tree to delete from.
 -- = A new AVL tree with the value deleted and balance maintained.
-delete : ∀ {A : Set} → {{OrdA : Ord A}} → A → AVLTree A → AVLTree A
+delete : ∀ {A : Set} → {{OrdA : Ord A}} → A → AVL A → AVL A
 delete v t = Pair.fst (delete' v t) where
   -- returns True if the height decreased
-  delete' : ∀ {A : Set} → {{OrdA : Ord A}} → A → AVLTree A → Pair (AVLTree A) Bool
+  delete' : ∀ {A : Set} → {{OrdA : Ord A}} → A → AVL A → Pair (AVL A) Bool
   delete' _ Leaf = empty , False
   delete' v (Node curr balance left right) with compare v curr
   ... | EQ =

@@ -1,12 +1,12 @@
-module Data.AVLTree.Test.delete-maximum where
+module Data.AVL.Test.delete-maximum where
 
-open import Data.AVLTree.Type
-open import Data.AVLTree.insert
-open import Data.AVLTree.delete-maximum
-open import Data.AVLTree.to-list
-open import Data.AVLTree.empty
-open import Data.AVLTree.Balance.Type
-open import Data.AVLTree.Test.is-balanced
+open import Data.AVL.Type
+open import Data.AVL.insert
+open import Data.AVL.delete-maximum
+open import Data.AVL.to-list
+open import Data.AVL.empty
+open import Data.AVL.Balance.Type
+open import Data.AVL.Test.is-balanced
 open import Data.List.Type
 open import Data.List.eq
 open import Data.Nat.Type
@@ -22,7 +22,7 @@ open import Data.Trait.Ord
 open import Data.Nat.lt
 
 -- Helper function to create a test tree
-create-test-tree : AVLTree Nat
+create-test-tree : AVL Nat
 create-test-tree =
   10 ::> 2 ::> 8 ::> 6 ::> 4 ::> 9 ::> 1 ::> 7 ::> 3 ::> 5 ::> empty
 
@@ -51,7 +51,7 @@ test-multiple-delete :
 test-multiple-delete = refl
 
 -- Test 6: Checking if the tree remains balanced after deleting maximum
-test-balanced-after-delete : True === is-balanced? (Pair.fst (Pair.fst (delete-maximum create-test-tree)))
+test-balanced-after-delete : True === is-balanced (Pair.fst (Pair.fst (delete-maximum create-test-tree)))
 test-balanced-after-delete = refl
 
 -- Test 7: Checking if the tree remains balanced after multiple deletions
@@ -59,5 +59,5 @@ test-balanced-after-multiple-deletes :
   let tree₁ = Pair.fst (Pair.fst (delete-maximum create-test-tree))
       tree₂ = Pair.fst (Pair.fst (delete-maximum tree₁))
       tree₃ = Pair.fst (Pair.fst (delete-maximum tree₂))
-  in True === (is-balanced? tree₁ && is-balanced? tree₂ && is-balanced? tree₃)
+  in True === (is-balanced tree₁ && is-balanced tree₂ && is-balanced tree₃)
 test-balanced-after-multiple-deletes = refl

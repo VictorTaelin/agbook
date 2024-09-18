@@ -1,9 +1,9 @@
-module Data.AVLTree.Test.rotate-left where
+module Data.AVL.Test.rotate-left where
 
-open import Data.AVLTree.Type
-open import Data.AVLTree.Balance.Type
-open import Data.AVLTree.Balance.rotate-left
-open import Data.AVLTree.empty
+open import Data.AVL.Type
+open import Data.AVL.Balance.Type
+open import Data.AVL.Balance.rotate-left
+open import Data.AVL.empty
 open import Data.Equal.Type
 open import Data.Nat.Type
 open import Data.Nat.eq
