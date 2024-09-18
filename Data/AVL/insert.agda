@@ -1,10 +1,10 @@
-module Data.AVLTree.insert where
+module Data.AVL.insert where
 
-open import Data.AVLTree.Type
-open import Data.AVLTree.empty
-open import Data.AVLTree.Balance.Type
-open import Data.AVLTree.Balance.rotate-left
-open import Data.AVLTree.Balance.rotate-right
+open import Data.AVL.Type
+open import Data.AVL.empty
+open import Data.AVL.Balance.Type
+open import Data.AVL.Balance.rotate-left
+open import Data.AVL.Balance.rotate-right
 open import Data.Trait.Ord
 open import Data.Bool.Type
 open import Data.Pair.Type
@@ -15,10 +15,10 @@ open import Data.Function.case
 -- - v: The value to insert.
 -- - t: The AVL tree to insert into.
 -- = A new AVL tree with the value inserted and balance maintained.
-insert : ∀ {A : Set} → {{OrdA : Ord A}} → A → AVLTree A → AVLTree A
+insert : ∀ {A : Set} → {{OrdA : Ord A}} → A → AVL A → AVL A
 insert v t = Pair.fst (insert' v t) where
   -- returns True if the height increased
-  insert' : ∀ {A : Set} → {{OrdA : Ord A}} → A → AVLTree A → Pair (AVLTree A) Bool
+  insert' : ∀ {A : Set} → {{OrdA : Ord A}} → A → AVL A → Pair (AVL A) Bool
   insert' v Leaf = Node v zero empty empty , True
   insert' v (Node curr balance left right) with compare v curr
   ... | EQ = Node curr balance left right , False
@@ -41,7 +41,7 @@ insert v t = Pair.fst (insert' v t) where
 -- - x: The value to insert.
 -- - t: The AVL tree to insert into.
 -- = A new AVL tree with the value inserted and balance maintained.
-_::>_ : ∀ {A : Set} → {{OrdA : Ord A}} → A → AVLTree A → AVLTree A
+_::>_ : ∀ {A : Set} → {{OrdA : Ord A}} → A → AVL A → AVL A
 _::>_ = insert
 
 infixr 5 _::>_

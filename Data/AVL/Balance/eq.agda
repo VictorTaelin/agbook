@@ -1,6 +1,6 @@
-module Data.AVLTree.Balance.eq where
+module Data.AVL.Balance.eq where
 
-open import Data.AVLTree.Balance.Type
+open import Data.AVL.Balance.Type
 open import Data.Trait.Eq public
 open import Data.Trait.Eq.default-eq
 open import Data.Bool.Type

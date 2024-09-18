@@ -1,11 +1,11 @@
-module Data.AVLTree.Test.insert where
+module Data.AVL.Test.insert where
 
-open import Data.AVLTree.Type
-open import Data.AVLTree.insert
-open import Data.AVLTree.empty
-open import Data.AVLTree.from-list
-open import Data.AVLTree.Balance.Type
-open import Data.AVLTree.Test.is-balanced
+open import Data.AVL.Type
+open import Data.AVL.insert
+open import Data.AVL.empty
+open import Data.AVL.from-list
+open import Data.AVL.Balance.Type
+open import Data.AVL.Test.is-balanced
 open import Data.Equal.Type
 open import Data.Nat.Type
 open import Data.Nat.eq
@@ -15,7 +15,7 @@ open import Data.Bool.Type
 open import Data.Bool.and
 
 -- Helper function to create a balanced tree
-balanced-tree : AVLTree Nat
+balanced-tree : AVL Nat
 balanced-tree = from-list (3 :: 2 :: 4 :: [])
 
 -- Test: Insert into an empty tree
@@ -42,5 +42,5 @@ test-insert-duplicate : insert 2 balanced-tree === balanced-tree
 test-insert-duplicate = refl
 
 -- Test: Check if the tree remains balanced after insertions
-test-balanced-after-insertions : is-balanced? (insert 6 (insert 5 (insert 4 (insert 0 balanced-tree)))) === True
+test-balanced-after-insertions : is-balanced (insert 6 (insert 5 (insert 4 (insert 0 balanced-tree)))) === True
 test-balanced-after-insertions = refl
