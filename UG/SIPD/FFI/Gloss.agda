@@ -14,6 +14,7 @@ open import UG.SIPD.State.Type
 open import Data.Unit.Type
 open import UG.SM.Game.Type
 open import UG.SM.Type
+open import UG.SM.new-mach
 open import Concurrent.Channel.Type
 
 Window : Set
@@ -35,8 +36,6 @@ data Event : Set where
   KeyEvent : String → Bool → Event
   MouseClick : Click → Float → Float → Event
   MouseMove : Float → Float → Event 
-
---process-messages : Channel String → IOAsync Unit
 
 postulate
   gameLoop : (Game State Event) → (Channel String → IOAsync Unit) → (Channel String) → IOAsync Unit

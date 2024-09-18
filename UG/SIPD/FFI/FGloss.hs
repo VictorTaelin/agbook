@@ -99,6 +99,21 @@ gameLoop game processMsg channel = do
   window <- SDL.createWindow "Game" SDL.defaultWindow
   renderer <- SDL.createRenderer window (-1) SDL.defaultRenderer
 
+
+-- what is the role of the state machine in the gameLoop?
+-- the main role of the state machine is to time the events that come and go and control and compute the state following a Tick
+-- How to make this work correctly in haskell through the FFI?
+-- our game loop receives the initial state machine.
+-- it will register the actions (which are AgdaEvents here)
+-- it will just use compute (and when is used to compute the actions, but it is embedded in the machine so its ok)
+-- Considering that the loop now folds with Game.when (and we receive the game), what will change?
+-- We should receive just the machine. The machine is updated everytime with the nem actions that are registered
+-- Through the processMsg channel (that will return a Maybe machine or smth like this). Actually a Maybe Action that then maybe will update the machine.
+-- we loop with the new machine (and state).
+-- Therefore, we just need to receive as an argument to the game loop postulate:
+--  The initial Machine (with the 3 functions - tick, when and compute)
+--  the register-action is kind of a problem because we will have to write down all the compile pragmas but ok
+--  keep this general to integrate correctly with js game after.
   let loop s = do
         events <- SDL.pollEvents
         let agdaEvents = map convertEvent events
@@ -118,4 +133,6 @@ gameLoop game processMsg channel = do
   SDL.destroyWindow window
   TTF.quit
   SDL.quit
+
+
 
