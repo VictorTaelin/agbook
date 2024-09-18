@@ -3,10 +3,10 @@ module Data.Float.Type where
 -- The primitive binary relations implement their IEEE 754 equivalents
 
 open import Data.Bool.Type
-open import Data.Nat.Type
-open import Data.String.Type
 open import Data.Int.Type
 open import Data.Maybe.Type
+open import Data.Nat.Type
+open import Data.String.Type
 open import Data.U64.Type
 
 postulate Float : Set
@@ -56,3 +56,4 @@ primitive
 
   primFloatLess              : Float → Float → Bool
   primFloatEquality          : Float → Float → Bool
+  

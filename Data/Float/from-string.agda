@@ -1,27 +1,28 @@
 module Data.Float.from-string where
 
-open import Data.Char.Type
+open import Data.Bool.if
+open import Data.Bool.Type
 open import Data.Char.eq
 open import Data.Char.digit-to-nat
-open import Data.Function.case
+open import Data.Char.Type
 open import Data.Float.Type
-open import Data.Float.Operations
+import Data.Float.add as Float
+open import Data.Float.negate
+open import Data.Function.case
 open import Data.Int.Type
-open import Data.List.Type
-open import Data.List.map
 open import Data.List.length
+open import Data.List.map
 open import Data.List.split-at-element
-open import Data.String.drop
+open import Data.List.Type
 open import Data.Maybe.Type
 open import Data.Nat.Type
 open import Data.Nat.mul
 open import Data.Nat.add
 open import Data.Nat.exp
 open import Data.Pair.Type
-open import Data.String.Type
+open import Data.String.drop
 open import Data.String.to-list
-open import Data.Bool.Type
-open import Data.Bool.if
+open import Data.String.Type
 
 digits-to-nat : List Char → List (Maybe Nat)
 digits-to-nat = map digit-to-nat
@@ -63,5 +64,6 @@ from-string s =
        (Some i) → case frac-value of λ where
          None → None
          (Some f) → 
-            let abs-value = primIntToFloat (Pos i) f+ (primRatioToFloat (Pos f) (Pos frac-divisor))
-            in Some (if is-neg then (fnegate abs-value) else abs-value)
+            let abs-value = primIntToFloat (Pos i) Float.+ (primRatioToFloat (Pos f) (Pos frac-divisor))
+            in Some (if is-neg then (negate abs-value) else abs-value)
+ 
