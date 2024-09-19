@@ -1,4 +1,4 @@
-module HVM2.Run.pure where
+module HVM2.Run.Monad.pure where
 
 open import HVM2.Run.Type
 open import HVM2.Run.State.Type

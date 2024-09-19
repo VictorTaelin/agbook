@@ -1,7 +1,7 @@
 module Bend.Compile.BendToNet.Encoder.link where
 
 open import Base.Maybe.Type
-open import Base.Maybe.bind
+open import Base.Maybe.Monad.bind
 open import Bend.Compile.BendToNet.Encoder.Type
 open import Bend.Net.link renaming (link to net-link)
 open import Bend.Net.Port.Type

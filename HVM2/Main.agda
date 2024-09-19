@@ -12,15 +12,15 @@ open import Base.Unit.Type
 open import HVM2.Net.Type
 open import HVM2.Redex.Type
 open import HVM2.Run.Type
-open import HVM2.Run.bind
+open import HVM2.Run.Monad.bind
 open import HVM2.Run.boot
 open import HVM2.Run.fresh
-open import HVM2.Run.get-state
+open import HVM2.Run.state-get
 open import HVM2.Run.materialize
 open import HVM2.Run.normalize
-open import HVM2.Run.pure
+open import HVM2.Run.Monad.pure
 open import HVM2.Run.run
-open import HVM2.Run.set-state
+open import HVM2.Run.state-set
 open import HVM2.Run.State.Type
 open import HVM2.Term.Type
 
@@ -49,4 +49,4 @@ test = do
 
 -- Main function that creates a demo net and prints it
 main : IO Unit
-main = print (Term.show (run test))
+main = print ("OI")

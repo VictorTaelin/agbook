@@ -1,4 +1,4 @@
-module Base.Trait.Show where
+module Base.Show.Trait where
 
 open import Agda.Primitive
 open import Base.String.Type

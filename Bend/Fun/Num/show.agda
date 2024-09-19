@@ -7,7 +7,7 @@ open import Base.Nat.Type
 open import Base.Nat.show
 open import Base.Int.Type
 open import Base.Float.show
-open import Base.Trait.Show
+open import Base.Show.Trait
 
 instance
   ShowNum : Show Num'

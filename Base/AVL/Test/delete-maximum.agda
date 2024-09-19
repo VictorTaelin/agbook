@@ -20,7 +20,7 @@ open import Base.Maybe.Type
 open import Base.Bool.Type
 open import Base.Bool.or
 open import Base.Bool.and
-open import Base.Trait.Ord
+open import Base.Ord.Trait
 open import Base.Nat.lt
 open import Base.Unit.Type
 

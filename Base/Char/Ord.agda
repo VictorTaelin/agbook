@@ -5,7 +5,7 @@ open import Base.Char.to-nat
 open import Base.Nat.Type
 open import Base.Nat.Ord
 open import Base.Bool.Type
-open import Base.Trait.Ord
+open import Base.Ord.Trait public
 
 instance
   OrdChar : Ord Char

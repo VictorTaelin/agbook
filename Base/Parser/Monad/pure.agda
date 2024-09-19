@@ -1,4 +1,4 @@
-module Base.Parser.pure where
+module Base.Parser.Monad.pure where
 
 open import Base.Parser.Type
 open import Base.Parser.Reply

@@ -2,7 +2,7 @@ module Base.OrdSet.contains where
 
 open import Base.OrdSet.Type
 open import Base.Bool.Type
-open import Base.Trait.Ord
+open import Base.Ord.Trait
 import Base.AVL.has-key as AVL
 
 -- Checks if an element is present in the OrdSet.

@@ -4,7 +4,7 @@ open import Base.U64.Type
 open import Base.U64.Ord
 open import Base.U64.if
 open import Base.U64.from-bool
-open import Base.Trait.Ord
+open import Base.Ord.Trait
 
 -- Maximum of two U64 numbers.
 -- - x: The first U64 number.

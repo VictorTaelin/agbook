@@ -2,7 +2,7 @@ module Base.Nat.eq where
 
 open import Base.Nat.Type
 open import Base.Bool.Type
-open import Base.Trait.Eq public
+open import Base.Eq.Trait public
 
 instance
   EqNat : Eq Nat

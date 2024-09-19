@@ -1,8 +1,8 @@
 module Base.IO.exists where
 
 open import Base.IO.Type
-open import Base.IO.bind
-open import Base.IO.pure
+open import Base.IO.Monad.bind
+open import Base.IO.Monad.pure
 open import Base.IO.is-directory
 open import Base.IO.is-file
 open import Base.String.Type

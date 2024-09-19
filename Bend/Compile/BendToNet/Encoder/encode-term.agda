@@ -9,7 +9,7 @@ open import Base.Pair.Type
 open import Base.String.Type
 open import Base.String.append
 open import Base.Result.Type
-open import Base.Result.bind
+open import Base.Result.Monad.bind
 open import Bend.Fun.Pattern.Type using (Pattern)
 open import Bend.Fun.Term.Type using (Term)
 open import Bend.Net.Port.Type

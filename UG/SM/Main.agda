@@ -13,7 +13,7 @@ open import Base.Nat.Type
 open import Base.Nat.show
 open import Base.Bool.Type
 open import Base.String.Type
-open import Base.IO.seq
+open import Base.IO.Monad.bind
 open import Base.String.append
 open import Base.IO.Type
 open import Base.IO.print

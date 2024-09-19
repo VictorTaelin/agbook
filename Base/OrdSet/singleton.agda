@@ -4,7 +4,7 @@ open import Base.OrdSet.Type
 import Base.AVL.singleton as AVL
 open import Base.Unit.Type
 open import Base.Pair.Type
-open import Base.Trait.Ord
+open import Base.Ord.Trait
 
 -- Creates an OrdSet containing a single element.
 -- - V: The type of the element.

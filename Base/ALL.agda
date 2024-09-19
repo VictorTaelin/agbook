@@ -63,8 +63,14 @@ module Parser where
 module Queue where
   open import Base.Queue.ALL public
 
-module Trait where
-  open import Base.Trait.ALL public
+module Eq where
+  open import Base.Eq.ALL public
+
+module Ord where
+  open import Base.Ord.ALL public
+
+module Show where
+  open import Base.Show.ALL public
 
 module Tree where
   open import Base.Tree.ALL public

@@ -8,8 +8,8 @@ open import HVM1.Net.Type
 open import HVM1.Node.Type
 open import HVM1.Run.State.Type
 open import HVM1.Run.Type
-open import HVM1.Run.bind
-open import HVM1.Run.pure
+open import HVM1.Run.Monad.bind
+open import HVM1.Run.Monad.pure
 open import HVM1.Run.state-get
 
 node-get : Bits → Run (Maybe Node)

@@ -1,8 +1,8 @@
 module Base.AVL.Balance.eq where
 
 open import Base.AVL.Balance.Type
-open import Base.Trait.Eq public
-open import Base.Trait.Eq.default-eq
+open import Base.Eq.Trait public
+open import Base.Eq.default-eq
 open import Base.Bool.Type
 
 instance

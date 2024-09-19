@@ -6,7 +6,7 @@ open import Base.AVL.empty
 open import Base.List.Type
 open import Base.List.foldr
 open import Base.Pair.Type
-open import Base.Trait.Ord
+open import Base.Ord.Trait
 
 -- Constructs an AVL tree from a list of elements.
 -- - xs: The input list of elements.

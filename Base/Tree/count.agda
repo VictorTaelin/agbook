@@ -5,7 +5,7 @@ open import Base.Bool.Type
 open import Base.Bool.if
 open import Base.Nat.Type
 open import Base.Nat.add
-open import Base.Trait.Eq
+open import Base.Eq.Trait
 
 count : ∀ {A : Set} {{EqA : Eq A}} → A → Tree A → Nat
 count _ Leaf = Zero

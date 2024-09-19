@@ -12,7 +12,7 @@ open import Base.List.Type renaming (List to List')
 open import Base.List.map
 open import Base.List.zip
 open import Base.Maybe.Type
-open import Base.Trait.Show public
+open import Base.Show.Trait public
 open import Base.Nat.show
 open import Bend.Fun.show-bind
 open import Bend.Fun.Op.show

@@ -3,7 +3,7 @@ module Base.Maybe.eq where
 open import Base.Maybe.Type
 open import Base.Bool.Type
 open import Base.Bool.not
-open import Base.Trait.Eq public
+open import Base.Eq.Trait public
 
 instance
   EqMaybe : ∀ {A : Set} {{EqA : Eq A}} → Eq (Maybe A)

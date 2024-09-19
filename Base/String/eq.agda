@@ -3,7 +3,7 @@ module Base.String.eq where
 open import Base.String.Type
 open import Base.Bool.Type
 open import Base.Bool.not
-open import Base.Trait.Eq public
+open import Base.Eq.Trait public
 
 instance
   EqString : Eq String

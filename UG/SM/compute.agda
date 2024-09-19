@@ -14,6 +14,7 @@ open import UG.SM.get-initial-state
 open import Base.Bool.if
 open import Base.Nat.Type
 open import Base.Nat.eq
+open import Base.Nat.Ord
 open import Base.Nat.max
 open import Base.Nat.lt
 open import Base.Function.case using (case_of_)

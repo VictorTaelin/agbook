@@ -2,7 +2,7 @@ module Base.JSON.parse where
 
 open import Base.JSON.Type
 open import Base.Parser.alternative
-open import Base.Parser.bind
+open import Base.Parser.Monad.bind
 open import Base.Parser.skip-spaces
 open import Base.Parser.Type
 

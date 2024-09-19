@@ -4,7 +4,7 @@ open import Base.Tree.Type
 open import Base.Bool.Type
 open import Base.Bool.and
 open import Base.Bool.not
-open import Base.Trait.Eq public
+open import Base.Eq.Trait public
 
 instance
   EqTree : ∀ {A : Set} {{EqA : Eq A}} → Eq (Tree A)

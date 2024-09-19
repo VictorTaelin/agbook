@@ -1,7 +1,7 @@
 module Base.Nat.Ord where
 
 open import Base.Nat.Type
-open import Base.Trait.Ord hiding (compare)
+open import Base.Ord.Trait public hiding (compare)
 
 import Base.Nat.lt as N
 import Base.Nat.lte as N

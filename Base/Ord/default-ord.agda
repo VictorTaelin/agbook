@@ -1,6 +1,6 @@
-module Base.Trait.Ord.default-ord where
+module Base.Ord.default-ord where
 
-open import Base.Trait.Ord
+open import Base.Ord.Trait
 open import Base.Ordering.Type
 open import Base.Ordering.eq
 open import Base.Bool.or

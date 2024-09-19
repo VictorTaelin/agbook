@@ -3,7 +3,7 @@ module Base.OrdMap.get where
 open import Base.OrdMap.Type
 open import Base.Maybe.Type
 open import Base.Pair.Type
-open import Base.Trait.Ord
+open import Base.Ord.Trait
 import Base.AVL.get as AVL
 
 -- Retrieves the value associated with a given key in the OrdMap.

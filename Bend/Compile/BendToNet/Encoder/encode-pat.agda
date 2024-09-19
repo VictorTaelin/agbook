@@ -3,7 +3,7 @@ module Bend.Compile.BendToNet.Encoder.encode-pat where
 open import Base.List.Type
 open import Base.List.map
 open import Base.Maybe.Type
-open import Base.Maybe.bind
+open import Base.Maybe.Monad.bind
 open import Base.Pair.Type
 open import Base.String.Type
 open import Base.String.append
