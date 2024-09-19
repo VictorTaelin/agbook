@@ -14,7 +14,7 @@ open import HVM1.Node.port-set
 open import HVM1.Port.Type
 open import HVM1.Run.State.Type
 open import HVM1.Run.Type
-open import HVM1.Run.bind
+open import HVM1.Run.Monad.bind
 open import HVM1.Run.state-mut
 import Base.Map.Type as M
 import Base.Map.get as M

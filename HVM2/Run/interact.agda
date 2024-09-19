@@ -13,9 +13,9 @@ open import Base.Bool.Type
 open import Base.Unit.Type
 open import HVM2.Redex.Type
 open import HVM2.Run.Type
-open import HVM2.Run.bind
+open import HVM2.Run.Monad.bind
 open import HVM2.Run.redex-pop
-open import HVM2.Run.pure
+open import HVM2.Run.Monad.pure
 open import HVM2.Term.Type
 
 interact : Run Bool

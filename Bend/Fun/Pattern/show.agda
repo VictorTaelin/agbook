@@ -8,7 +8,7 @@ open import Base.List.Type
 open import Base.List.map
 open import Base.Nat.show
 open import Base.String.show
-open import Base.Trait.Show
+open import Base.Show.Trait
 open import Bend.Fun.Pattern.Type
 open import Bend.Fun.FanKind.Type
 open import Bend.Fun.show-bind

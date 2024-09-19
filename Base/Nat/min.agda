@@ -3,7 +3,7 @@ module Base.Nat.min where
 open import Base.Nat.Type
 open import Base.Bool.if
 open import Base.Nat.Ord
-open import Base.Trait.Ord
+open import Base.Ord.Trait
 
 -- Returns the minimum of two natural numbers.
 -- - x: The first natural number.

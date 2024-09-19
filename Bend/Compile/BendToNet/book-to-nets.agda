@@ -8,7 +8,7 @@ open import Base.Map.to-list renaming (to-list to map-to-list)
 open import Base.Maybe.to-result
 open import Base.Pair.Type
 open import Base.Result.Type
-open import Base.Result.bind
+open import Base.Result.Monad.bind
 open import Base.String.Type
 open import Base.String.append
 open import Bend.Compile.BendToNet.Encoder.new renaming (new to new-encoder)

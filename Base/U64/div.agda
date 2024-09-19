@@ -7,7 +7,7 @@ open import Base.Nat.Type
 open import Base.U64.if
 open import Base.U64.min
 open import Base.U64.from-bool
-open import Base.Trait.Ord
+open import Base.Ord.Trait
 
 -- Division function for U64 (64-bit unsigned integers)
 div : U64 → U64 → U64

@@ -6,7 +6,7 @@ open import Base.Bool.Type
 open import Base.Bool.not
 open import Base.Equal.Type
 open import Base.Nat.eq
-open import Base.Trait.Eq public
+open import Base.Eq.Trait public
 
 -- Equality comparison of two U64 numbers.
 -- - x: The first U64 number.

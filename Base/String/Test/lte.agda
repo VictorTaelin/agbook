@@ -1,7 +1,7 @@
 module Base.String.Test.lte where
 
 open import Base.String.Type
-open import Base.String.lte
+open import Base.String.Ord
 open import Base.Equal.Type
 open import Base.Bool.Type
 

@@ -2,7 +2,7 @@ module Base.List.lte where
 
 open import Base.List.Type
 open import Base.Bool.Type
-open import Base.Trait.Ord
+open import Base.Ord.Trait
 
 lte : ∀ {A : Set} → {{O : Ord A}} → List A → List A → Bool
 lte {{O}} []        []        = True

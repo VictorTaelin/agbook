@@ -1,6 +1,6 @@
-module Data.List.Monad.pure where
+module Base.List.Monad.pure where
 
-open import Data.List.Type
+open import Base.List.Type
 
 -- The pure function for the List monad.
 -- Wraps a single element in a list.
@@ -8,4 +8,3 @@ open import Data.List.Type
 -- = A list containing only x.
 pure : ∀ {A : Set} → A → List A
 pure x = x :: []
-

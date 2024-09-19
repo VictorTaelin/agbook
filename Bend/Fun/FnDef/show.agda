@@ -1,5 +1,5 @@
 open import Bend.Fun.Term.Type using (Term)
-open import Base.Trait.Show
+open import Base.Show.Trait
 
 module Bend.Fun.FnDef.show (TShow : Show Term) where
 

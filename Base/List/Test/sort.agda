@@ -5,7 +5,7 @@ open import Base.List.sort
 open import Base.List.eq
 open import Base.Nat.Type
 open import Base.Nat.eq
-open import Base.Nat.lt
+open import Base.Nat.Ord
 open import Base.Bool.Type
 open import Base.Bool.eq
 open import Base.Equal.Type

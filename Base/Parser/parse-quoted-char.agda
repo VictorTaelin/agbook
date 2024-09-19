@@ -2,9 +2,9 @@ module Base.Parser.parse-quoted-char where
 
 open import Base.Char.Type
 open import Base.Parser.Type
-open import Base.Parser.bind
+open import Base.Parser.Monad.bind
 open import Base.Parser.fail
-open import Base.Parser.pure
+open import Base.Parser.Monad.pure
 open import Base.Parser.consume
 open import Base.Parser.parse-char
 

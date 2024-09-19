@@ -1,7 +1,7 @@
 module Base.OrdSet.union where
 
 open import Base.OrdSet.Type
-open import Base.Trait.Ord
+open import Base.Ord.Trait
 import Base.AVL.union as AVL
 
 -- Computes the union of two OrdSets.

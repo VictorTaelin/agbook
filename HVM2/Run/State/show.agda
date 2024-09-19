@@ -8,8 +8,8 @@ open import Base.List.Type
 open import Base.List.map
 open import Base.Map.to-list
 open import Base.Pair.Type
-open import Base.Pair.fst
-open import Base.Pair.snd
+open import Base.Pair.get-fst
+open import Base.Pair.get-snd
 open import Base.String.Type
 open import Base.String.append
 open import Base.String.join

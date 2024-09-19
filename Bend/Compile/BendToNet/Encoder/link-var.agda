@@ -2,7 +2,7 @@ module Bend.Compile.BendToNet.Encoder.link-var where
 
 open import Base.Function.case
 open import Base.Maybe.Type
-open import Base.Maybe.bind
+open import Base.Maybe.Monad.bind
 open import Base.Pair.Type
 open import Base.String.Type
 open import Base.String.hash

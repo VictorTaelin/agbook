@@ -1,7 +1,7 @@
 module Test.T1 where
 
 open import Base.Maybe.Type
-open import Base.Maybe.bind
+open import Base.Maybe.Monad.bind
 open import Base.Nat.Type
 open import Base.Nat.add
 open import Base.Bool.Type

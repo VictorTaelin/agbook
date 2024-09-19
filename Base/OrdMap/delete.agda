@@ -4,7 +4,7 @@ open import Base.AVL.Type
 import Base.AVL.delete as T
 open import Base.OrdMap.Type
 open import Base.Pair.Type
-open import Base.Trait.Ord
+open import Base.Ord.Trait
 
 -- Deletes a key-value pair from an OrdMap.
 -- This function is a wrapper around the AVL tree delete operation.

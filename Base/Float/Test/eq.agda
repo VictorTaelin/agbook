@@ -2,7 +2,7 @@ module Base.Float.Test.eq where
 
 open import Base.Float.Type
 open import Base.Float.eq
-open import Base.Float.Operations
+open import Base.Float.add
 open import Base.Bool.Type
 open import Base.Bool.and
 open import Base.Equal.Type
@@ -17,10 +17,10 @@ test-eq-zero = refl
 test-eq-pi : (3.14 == 3.14) ===  True
 test-eq-pi = refl
 
-test-eq-sum : ((1.1 f+ 2.2) == 3.3) === False
+test-eq-sum : ((1.1 + 2.2) == 3.3) === False
 test-eq-sum = refl
 
-test-eq-sum-approx : (equal (1.1 f+ 2.2) 3.3) === True
+test-eq-sum-approx : (equal (1.1 + 2.2) 3.3) === True
 test-eq-sum-approx = refl
 
 test-eq-different : (3.14 == 2.71) === False

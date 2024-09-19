@@ -4,7 +4,7 @@ open import Base.OrdMap.Type
 open import Base.AVL.Type
 import Base.AVL.union as AVL
 open import Base.Pair.Type
-open import Base.Trait.Ord
+open import Base.Ord.Trait
 
 -- Computes the union of two OrdMaps.
 -- This function uses the AVL fold operation to insert all elements

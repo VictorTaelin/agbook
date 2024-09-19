@@ -2,7 +2,7 @@ module Base.U64.Ord where
 
 open import Base.Bool.Type
 open import Base.Nat.Ord
-open import Base.Trait.Ord
+open import Base.Ord.Trait public
 open import Base.U64.Type
 
 instance

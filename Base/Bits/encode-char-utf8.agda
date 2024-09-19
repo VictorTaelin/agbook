@@ -13,7 +13,7 @@ open import Base.Bool.if
 open import Base.Nat.Type
 open import Base.Nat.Ord
 open import Base.Pair.Type
-open import Base.Trait.Ord
+open import Base.Ord.Trait
 
 -- Encodes a character into its UTF-8 representation as Bits.
 -- - c: The character to encode.

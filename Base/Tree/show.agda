@@ -3,7 +3,7 @@ module Base.Tree.show where
 open import Base.Tree.Type
 open import Base.String.Type
 open import Base.String.append
-open import Base.Trait.Show public
+open import Base.Show.Trait public
 
 instance
   ShowTree : ∀ {A : Set} {{ShowA : Show A}} → Show (Tree A)

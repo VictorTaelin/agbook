@@ -11,10 +11,10 @@ open import Base.Maybe.Type
 open import Base.Nat.Type
 open import Base.Parser.Type
 open import Base.Parser.advance-one
-open import Base.Parser.bind
+open import Base.Parser.Monad.bind
 open import Base.Parser.consume
 open import Base.Parser.fail
-open import Base.Parser.pure
+open import Base.Parser.Monad.pure
 open import Base.Parser.take-while
 open import Base.String.Type
 open import Base.String.append

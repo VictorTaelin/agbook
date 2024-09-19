@@ -1,6 +1,6 @@
 module Base.List.ALL where
 
-open import Base.List.Monad.Type public
+open import Base.List.Monad.bind public
 open import Base.List.Omega.Type public
 open import Base.List.Type public
 open import Base.List.all-equal public

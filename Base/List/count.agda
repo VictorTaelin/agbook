@@ -5,7 +5,7 @@ open import Base.Equal.Type
 open import Base.Bool.if
 open import Base.Nat.Type
 open import Base.Nat.add
-open import Base.Trait.Eq
+open import Base.Eq.Trait
 
 count : ∀ {A : Set} {{eqA : Eq A}} → A → List A → Nat
 count _ [] = Zero

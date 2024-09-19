@@ -7,7 +7,7 @@ open import Base.List.append
 open import Base.List.filter
 open import Base.Nat.Type
 open import Base.Nat.Ord
-open import Base.Trait.Ord
+open import Base.Ord.Trait
 
 -- Quicksort algorithm for sorting lists of natural numbers.
 -- - xs: The input list to be sorted.

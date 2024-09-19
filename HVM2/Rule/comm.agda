@@ -2,10 +2,10 @@ module HVM2.Rule.comm where
 
 open import Base.Unit.Type
 open import HVM2.Run.Type
-open import HVM2.Run.bind
+open import HVM2.Run.Monad.bind
 open import HVM2.Run.fresh
 open import HVM2.Run.link
-open import HVM2.Run.pure
+open import HVM2.Run.Monad.pure
 open import HVM2.Term.Type
 
 -- Commutation interaction

@@ -11,8 +11,8 @@ open import Base.Parser.skip-trivia
 open import Base.Parser.consume
 open import Base.Parser.peek-one
 open import Base.Parser.parse-name
-open import Base.Parser.bind
-open import Base.Parser.pure
+open import Base.Parser.Monad.bind
+open import Base.Parser.Monad.pure
 open import Base.Function.case
 
 parse : Parser Term

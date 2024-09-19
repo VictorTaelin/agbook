@@ -4,7 +4,7 @@ open import Base.List.Type
 open import Base.Bool.Type
 open import Base.Bool.and
 open import Base.Bool.not
-open import Base.Trait.Eq public
+open import Base.Eq.Trait public
 
 instance
   EqList : ∀ {A : Set} {{EqA : Eq A}} → Eq (List A)

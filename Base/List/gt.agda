@@ -2,7 +2,7 @@ module Base.List.gt where
 
 open import Base.List.Type
 open import Base.Bool.Type
-open import Base.Trait.Ord
+open import Base.Ord.Trait
 
 gt : ∀ {A : Set} → {{O : Ord A}} → List A → List A → Bool
 gt {{O}} []        []        = False
