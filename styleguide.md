@@ -41,12 +41,56 @@
 - For functions with many arguments, alignment is not necessary. Use good judgment for readability
 - Avoid unnecessary parentheses. Only use them when they are required for precedence or clarity
 - When writing argument spacing, don't put space inside the argument in CI example
+- Align chains of if-then-else statements
 
-```agda
-TODO: Pass the example here.
+#### Correct Examples:
+```hs
+pad-length : Bits → Bits → Pair Bits Bits
+pad-length a b = do
+  let len-a   = length a
+  let len-b   = length b
+  let trg-len = max len-a len-b
+  pad-zeros trg-len a , pad-zeros trg-len b
+  ```
+
+Here, do notation with let is used for clarity and to avoid the let...in structure. The indentation is aligned, making the code easy to read.
+
+Another correct form of aligning patterns:
+
+```hs
+pred : Bits → Bits
+pred E      = E
+pred (O E)  = E
+pred (O bs) = I (pred bs)
+pred (I bs) = O bs
 ```
 
-- Align chains of if-then-else statements
+#### Incorrec Examples:
+```hs
+pad-length : Bits → Bits → Pair Bits Bits
+pad-length a b =
+  let len-a = length a
+      len-b = length b
+      target-len = max len-a len-b
+  in pad-zeros target-len a , pad-zeros target-len b
+  ```
+
+Another incorrect forms of aligning patterns:
+
+```hs
+pred : Bits → Bits
+pred E= E
+pred (O E) = E
+pred (O bs) = I (pred bs)
+pred (I bs) = O bs
+
+pred : Bits → Bits
+pred         E  = E
+pred (O      E) = E
+pred (O     bs) = I (pred bs)
+pred (I     bs) = O bs
+
+```
 ### Function Style
 - Prefer `do` notation with `let` over `let...in` and `where`
 - Use `with` for pattern matching instead of `case of` or `if`
