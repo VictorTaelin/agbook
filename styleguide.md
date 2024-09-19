@@ -1,128 +1,146 @@
-# Agda Style Guide
+# Monobook Style Guide
 
-## Naming Conventions
+## 1. Code Structure
 
-### Variable Names
-- Kebab Case (e.g., variable-name) is the standard style for variables and functions in our Agda code.
-- Camel Case (e.g., TypeName) is used exclusively for types.
-- Snake Case is not possible due to mixfix notation.
-### Function and Variable Names
-- Use kebab-case for function and variable names (e.g., "add-nat" instead of "addNat").
-- Use basic operation names when possible.
-- Use qualified imports to avoid name clashes (e.g., `import qualified Data.Nat as Nat`).
-### Type Definitions
-- Use CamelCase for type names (e.g., NaturalNumber, BinaryTree).- For types under `Data/`, use naming patterns consistent with Agda builtins.
-- Example: Use `Zero` and `Succ` instead of `zero` and `suc` for natural numbers.
-
-## Code Structure
-
-### File Structure
+### File Organization
 1. Module declaration
-2. Imports
+2. Imports (alphabetically ordered)
 3. Comments
 4. Function definitions
 5. Infix declarations
 
-### Imports
-- Order alphabetically and by character.
-- Avoid using `renaming`.
-- Use `import qualified`.
-- Each file should export only one definition (except for infix operators).
+### Naming Conventions
+- Variables and Functions: Use kebab-case (e.g., "add-nat")
+- Types: Use CamelCase (e.g., NaturalNumber, BinaryTree)
+- Avoid apostrophes in names
+- For types under `Base/`, use naming consistent with Agda builtins (e.g., `Zero` and `Succ`)
+- Helper functions should have the prefix of the filename followed by "-go"
 
-### Indentation and Spacing
-- Use 2 spaces for indentation.
-- Align arguments when reasonable:
-  ```agda
-  concat : List Bits → Bits 
-  concat []             = E 
-  concat (E :: xs)      = concat xs
-  concat (O bits :: xs) = O (concat (bits :: xs))
-  concat (I bits :: xs) = I (concat (bits :: xs))
-  ```
-- Align patterns in function definitions:
-  ```agda
-  pred : Bits → Bits
-  pred E      = E
-  pred (O E)  = E
-  pred (O bs) = I (pred bs)
-  pred (I bs) = O bs
-  ```
+### Indentation and Formatting
+- Use 2 spaces for indentation
+- Align arguments and patterns in function definitions
+- For functions with many arguments, alignment is not necessary. Use good judgment for readability
+- Avoid unnecessary parentheses. Only use them when they are required for precedence or clarity
+- When writing argument spacing, don't put space inside the argument in CI example
 
-### Function Style
-- Prefer `do` notation with `let` over `let...in` and `where`.
-- Example:
-  ```agda
-  pad-length a b = do
-    let len-a   = length a
-    let len-b   = length b
-    let trg-len = max len-a len-b
-    pad-zeros trg-len a , pad-zeros trg-len b
-  ```
-
-## Documentation and Comments
-
-### Function Documentation
-Use the following format:
 ```agda
--- Performs right shift operation on a Bits value.
--- - 1st: The input Bits value.
--- - 2nd: The number of positions to shift right (represented as Nat).
--- = A new Bits value representing the right-shifted result.
-rshift : Bits → Nat → Bits
+TODO: Pass the example here.
 ```
 
-### General Comment Guidelines
-- Start with a capital letter and end with a period.
-- Use complete sentences for explanatory comments.
-- Use numerical abbreviations (1st, 2nd, etc.) for simple argument descriptions.
+- Align chains of if-then-else statements
 
-## Unicode and Operators
+### Function Style
+- Prefer `do` notation with `let` over `let...in` and `where`
+- Use `with` for pattern matching instead of `case of` or `if`
+- Use native Agda `if` instead of `case of` and `Bool.if`
+- If possible, replace a record with a sequence of let statements
 
-### Unicode
-- Avoid Unicode characters except for:
-  - ∀ (for all)
-  - λ (lambda)
-  - ≡ (equality)
-  - Σ (sigma)
-- Use standard arrow (→) instead of Unicode arrow.
+```agda
+TODO: Pass the example here.
+```
 
-### Operators
-- Minimize the use of operators.
-- Exceptions: Common operators like +, -, ++.
-- When defining an operator, export both the operator and its corresponding function name.
+- Define helper functions at the top of the file or in separate files for complex ones
+- Align `where` clauses with the function definition
+- Primitives must be specific in the function file (e.g., primCharEquality should be in Char/eq)
 
-## Testing
 
-- Place test directories in the same location as the data being tested (e.g., `Data/Map/Test/`).
-- Create a test file for each data file (e.g., `Data/Map/Test/hey.agda` for `Data/Map/hey.agda`).
-- Prefer tests using Eq and `refl` as proofs.
+```agda
+TODO: Pass the example here.
+```
 
-## Best Practices
+## 2. Language-Specific Guidelines (Agda)
 
-- Check all repository files when changing existing code or definitions.
-- Run tests and type-checking frequently.
-- Add a CI/CD pipeline for automated checks.
-- Each file should export only one definition (except for infix operators).
+### Imports
+- Use `import qualified` to avoid name clashes
+- Each file should export only one definition (except for infix operators)
 
-## Review Process
-
-After establishing the guideline, review and adjust all project files to ensure compliance with the new rules.
-
-### Examples of Qualified Imports
-
-Use qualified imports to avoid name clashes and improve code clarity:
-
+Example:
 ```agda
 import qualified Data.List as List
 import qualified Data.Maybe as Maybe
-import qualified Data.Nat as Nat
-import qualified Data.Vec as Vec
 
--- Usage examples:
-List.length : List A → Nat
-Maybe.fromMaybe : A → Maybe A → A
-Nat._+_ : Nat → Nat → Nat
-Vec.replicate : ∀ {a} {A : Set a} → (n : Nat) → A → Vec A n
+-- Usage:
+List.length : List A -> Nat
+Maybe.fromMaybe : A -> Maybe A -> A
 ```
 
-This approach allows you to use functions with the same name from different modules without conflicts.
+### Types and Data Structures
+- For natural numbers, use native syntax (e.g., `3`) instead of `Succ(Succ(Succ Zero))`
+
+### Unicode and Operators
+- Use Unicode for ∀, λ, ≡, and Σ
+- Use standard arrow (->) instead of Unicode arrow
+- Minimize operator use, except for common ones (TODO: write here the exceptions)
+- Export both the operator and its corresponding function name
+
+## 3. Documentation
+
+### Comments
+- Start comments with a capital letter and end with a period
+- Use complete sentences for explanatory comments
+- Use numerical abbreviations for simple argument descriptions (e.g., 1st, 2nd, 3rd, 4th...)
+- Use `=` to comment on what the function will return
+
+Example:
+
+```hs
+
+module Base.Float.add where
+
+open import Base.Float.Type
+
+-- Addition of floats.
+-- - x: The 1st float.
+-- - y: The 2nd float.
+-- = The sum of x and y.
+add : Float -> Float -> Float
+add = primFloatPlus
+
+-- The infix version of add.
+_+_ : Float -> Float -> Float
+_+_ = add
+
+infixl 6 _+_
+
+```
+
+## 5. Testing
+- Create a test file for each data file
+- Prefer tests using Eq and `refl` as proofs
+- Place test directories alongside the tested data
+
+Example directory structure:
+```md
+.
+├── Base
+│   ├── ALL.agda
+│   ├── AVL
+│   │   ├── ALL.agda
+│   │   ├── Balance
+│   │   ├── Test
+│   │   │   └── delete.agda
+│   │   └──Type.agda
+
+```
+
+## 6. Code Review Process
+- Regularly review code for guideline compliance
+- Be open to adjusting guidelines as the team's experience grows
+
+
+## 8. Performance Considerations
+- Be aware of performance impacts when choosing between constructs
+- Trust the compiler for optimizations
+
+## 9. Third-Party Libraries and Dependencies (FFI)
+- Use a dedicated "FFI" folder with language-specific subfolders
+- Separate complex FFI functions into their own files
+
+
+## 11. Examples
+(Various examples are provided throughout the document)
+
+## 12. Tools and Linters
+- Run tests and type-checking frequently
+- Use CI/CD for automated checks
+
