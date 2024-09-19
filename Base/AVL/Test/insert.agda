@@ -13,34 +13,36 @@ open import Base.Nat.Ord
 open import Base.List.Type
 open import Base.Bool.Type
 open import Base.Bool.and
+open import Base.Unit.Type
+open import Base.Pair.Type
 
 -- Helper function to create a balanced tree
-balanced-tree : AVL Nat
-balanced-tree = from-list (3 :: 2 :: 4 :: [])
+balanced-tree : AVL Nat Unit
+balanced-tree = from-list ((3 , unit) :: (2 , unit) :: (4 , unit) :: [])
 
 -- Test: Insert into an empty tree
-test-insert-empty : insert 1 empty === Node 1 zero empty empty
+test-insert-empty : insert (1 , unit) empty === Node (1 , unit) zero empty empty
 test-insert-empty = refl
 
 -- Test: Insert into a balanced tree (no rotation needed)
-test-insert-no-rotation : insert 5 balanced-tree ===
-  Node 3 +one (Node 2 zero empty empty) (Node 4 +one empty (Node 5 zero empty empty))
+test-insert-no-rotation : insert (5 , unit) balanced-tree ===
+  Node (3 , unit) +one (Node (2 , unit) zero empty empty) (Node (4 , unit) +one empty (Node (5 , unit) zero empty empty))
 test-insert-no-rotation = refl
 
 -- Test: Insert triggering a left rotation
-test-insert-left-rotation : insert 5 (insert 6 balanced-tree) ===
-  Node 3 +one (Node 2 zero empty empty) (Node 5 zero (Node 4 zero empty empty) (Node 6 zero empty empty))
+test-insert-left-rotation : insert (5 , unit) (insert (6 , unit) balanced-tree) ===
+  Node (3 , unit) +one (Node (2 , unit) zero empty empty) (Node (5 , unit) zero (Node (4 , unit) zero empty empty) (Node (6 , unit) zero empty empty))
 test-insert-left-rotation = refl
 
 -- Test: Insert triggering a right rotation
-test-insert-right-rotation : insert 1 (insert 0 balanced-tree) ===
-  Node 3 -one (Node 1 zero (Node 0 zero empty empty) (Node 2 zero empty empty)) (Node 4 zero empty empty)
+test-insert-right-rotation : insert (1 , unit) (insert (0 , unit) balanced-tree) ===
+  Node (3 , unit) -one (Node (1 , unit) zero (Node (0 , unit) zero empty empty) (Node (2 , unit) zero empty empty)) (Node (4 , unit) zero empty empty)
 test-insert-right-rotation = refl
 
 -- Test: Inserting a duplicate value
-test-insert-duplicate : insert 2 balanced-tree === balanced-tree
+test-insert-duplicate : insert (2 , unit) balanced-tree === balanced-tree
 test-insert-duplicate = refl
 
 -- Test: Check if the tree remains balanced after insertions
-test-balanced-after-insertions : is-balanced (insert 6 (insert 5 (insert 4 (insert 0 balanced-tree)))) === True
+test-balanced-after-insertions : is-balanced (insert (6 , unit) (insert (5 , unit) (insert (4 , unit) (insert (0 , unit) balanced-tree)))) === True
 test-balanced-after-insertions = refl

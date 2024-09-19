@@ -11,7 +11,7 @@ open import Base.Bool.if
 -- Performs a right rotation on an AVL tree to fix an imbalance of -2.
 -- - tree: The AVL tree to rotate.
 -- = A pair containing the rotated AVL tree and a boolean indicating if the height of the root stayed the same.
-rotate-right : ∀ {A : Set} → AVL A → Pair (AVL A) Bool
+rotate-right : ∀ {K V : Set} → AVL K V → Pair (AVL K V) Bool
 rotate-right
    (Node v₁ -one
       (Node v₂ -one

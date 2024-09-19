@@ -7,11 +7,13 @@ import Base.Nat.lt as N
 import Base.Nat.lte as N
 import Base.Nat.gt as N
 import Base.Nat.gte as N
+import Base.Nat.compare as N
 
 instance
   OrdNat : Ord Nat
   OrdNat = record
-    { _<_ = N.lt
+    { compare = N.compare
+    ; _<_ = N.lt
     ; _<=_ = N.lte
     ; _>_ = N.gt
     ; _>=_ = N.gte

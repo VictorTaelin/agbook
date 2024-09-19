@@ -9,13 +9,15 @@ open import Base.Bool.Type
 open import Base.Nat.Type
 open import Base.Nat.Ord
 open import Base.Trait.Ord
+open import Base.Unit.Type
+open import Base.Pair.Type
 
 -- Sample AVL tree for testing
-sample-tree : AVL Nat
-sample-tree = 5 ::> 3 ::> 7 ::> 1 ::> 4 ::> 6 ::> 8 ::> empty
+sample-tree : AVL Nat Unit
+sample-tree = (5 , unit) ::> (3 , unit) ::> (7 , unit) ::> (1 , unit) ::> (4 , unit) ::> (6 , unit) ::> (8 , unit) ::> empty
 
 -- Test 1: Empty tree
-test-empty : has-key 5 empty === False
+test-empty : has-key 5 (empty {V = Unit}) === False
 test-empty = refl
 
 -- Test 2: Key present in root
@@ -51,9 +53,9 @@ test-not-present-between : has-key 2 sample-tree === False
 test-not-present-between = refl
 
 -- Test 10: Single-element tree (key present)
-test-single-present : has-key 1 (1 ::> empty) === True
+test-single-present : has-key 1 ((1 , unit) ::> empty) === True
 test-single-present = refl
 
 -- Test 11: Single-element tree (key not present)
-test-single-not-present : has-key 2 (1 ::> empty) === False
+test-single-not-present : has-key 2 ((1 , unit) ::> empty) === False
 test-single-not-present = refl
