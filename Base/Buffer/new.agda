@@ -15,4 +15,4 @@ new length = MkBuffer length (fill (primWord64FromNat 0) (primWord64ToNat length
   where
   fill : U64 → Nat → (OrdMap U64 U64) → (OrdMap U64 U64)
   fill _     Zero map = map
-  fill v (Succ n) map = fill v n (insert {{OrdU64}} (primWord64FromNat n , v) map)
+  fill v (Succ n) map = fill v n (insert (primWord64FromNat n , v) map)

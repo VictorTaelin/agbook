@@ -10,8 +10,8 @@ instance
   OrdU64 : Ord U64
   OrdU64 = record
     { compare = λ x y → Nat.compare (primWord64ToNat x) (primWord64ToNat y)
-    ; _<_     = λ x y → _<_  {{OrdNat}} (primWord64ToNat x) (primWord64ToNat y)
-    ; _<=_    = λ x y → _<=_ {{OrdNat}} (primWord64ToNat x) (primWord64ToNat y)
-    ; _>_     = λ x y → _>_  {{OrdNat}} (primWord64ToNat x) (primWord64ToNat y)
-    ; _>=_    = λ x y → _>=_ {{OrdNat}} (primWord64ToNat x) (primWord64ToNat y)
+    ; _<_     = λ x y → _<_  (primWord64ToNat x) (primWord64ToNat y)
+    ; _<=_    = λ x y → _<=_ (primWord64ToNat x) (primWord64ToNat y)
+    ; _>_     = λ x y → _>_  (primWord64ToNat x) (primWord64ToNat y)
+    ; _>=_    = λ x y → _>=_ (primWord64ToNat x) (primWord64ToNat y)
     }
