@@ -31,7 +31,7 @@ private
 book-to-nets : Book → Result (List Net) String
 book-to-nets book =
   let (_ , defs) = unzip (map-to-list (Book.defs book)) in
-  go defs
+  defs-to-nets defs
   where
 
   -- Converts a single function definition to a Net
@@ -46,9 +46,10 @@ book-to-nets book =
   -- Recursively processes a list of function definitions into Nets
   -- - defs: The list of FnDef (function definitions) to process
   -- = A List of compiled Nets or an error message
-  go : List FnDef → Result (List Net) String
-  go [] = Done []
-  go (def :: defs) = do
+  -- TODO: This could just be a foldM
+  defs-to-nets : List FnDef → Result (List Net) String
+  defs-to-nets [] = Done []
+  defs-to-nets (def :: defs) = do
     net ← def-to-net def
-    nets ← go defs
+    nets ← defs-to-nets defs
     (Done (net :: nets))

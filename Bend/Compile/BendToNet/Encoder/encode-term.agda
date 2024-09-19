@@ -34,7 +34,7 @@ encode-term enc (Term.Var name) up = do
   Done enc
 
 encode-term enc (Term.Link name) up = do
-  enc ← to-result (link-var enc name up) "link unscoped fail"
+  enc ← to-result (link-var enc ("$" ++ name) up) "link unscoped fail"
   Done enc
 
 encode-term enc (Term.Lam pat bod) up = do
@@ -45,11 +45,12 @@ encode-term enc (Term.Lam pat bod) up = do
   Done enc
 
 encode-term enc (Term.Let pat val nxt) up = do
-  let (var1 , enc) = new-node NodeKind.Var enc
-  let (var2 , enc) = new-node NodeKind.Var enc
-  enc ← to-result (encode-pat enc pat (MkPort var1 0)) "encode let pat fail"
-  enc ← encode-term enc val (MkPort var2 0)
-  enc ← to-result (link enc (MkPort var1 1) (MkPort var2 1)) "link let var fail"
+  let (fst , enc) = new-node NodeKind.Var enc
+  let (snd , enc) = new-node NodeKind.Var enc
+  enc ← to-result (encode-pat enc pat (MkPort fst 0)) "encode let pat fail"
+  enc ← encode-term enc val (MkPort snd 0)
+  enc ← to-result (link enc (MkPort fst 1) (MkPort snd 1)) "link let var fail"
+  -- Port 2 of vars is unused (unary node)
   enc ← encode-term enc nxt up
   Done enc
 
@@ -123,3 +124,4 @@ encode-term enc (Term.Fold _ _ _ _ _) up = Fail "fold in compile"
 encode-term enc (Term.Bend _ _ _ _ _) up = Fail "bend in compile"
 encode-term enc (Term.Open _ _ _)     up = Fail "open in compile"
 encode-term enc (Term.Def _ _)        up = Fail "def in compile"
+ 

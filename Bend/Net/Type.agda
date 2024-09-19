@@ -1,4 +1,3 @@
-
 module Bend.Net.Type where
 
 open import Base.Map.Type using (Map)

@@ -9,7 +9,8 @@ open import Base.List.map
 open import Base.List.foldl
 open import Base.Nat.Type
 open import Base.Nat.to-bits
-open import Base.Nat.xor
+open import Base.Nat.xor using () renaming (xor to _xor_)
+open import Base.Nat.exp using () renaming (exp to _exp_)
 open import Base.Nat.mul
 open import Base.Nat.div
 open import Base.Nat.mod
@@ -27,18 +28,18 @@ hash str =
   
   rotate-left : Nat → Nat → Nat → Nat
   rotate-left n shift width =
-    let lower = div n (2 ^ (width - shift)) in
-    let upper = (n * (2 ^ shift) % (2 ^ width)) in
+    let lower = div n (2 exp (width - shift)) in
+    let upper = (n * (2 exp shift)) % (2 exp width) in
     (upper + lower)
 
   fxhash-step : Nat → Nat → Nat
   fxhash-step hash char =
     let seed = 0x517cc1b727220a95 in
     let hash = rotate-left hash 5 64 in
-    let hash = hash ^ char in
+    let hash = hash xor char in
     let hash = hash * seed in
-    let hash = hash % (2 ^ 64) in
+    let hash = hash % (2 exp 64) in
     hash
 
   fxhash : List Nat → Nat
-  fxhash = foldl fxhash-step 0
+  fxhash ns = foldl fxhash-step 0 ns

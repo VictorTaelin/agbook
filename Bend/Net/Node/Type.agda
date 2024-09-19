@@ -1,4 +1,3 @@
-
 module Bend.Net.Node.Type where
 
 open import Bend.Net.Port.Type
