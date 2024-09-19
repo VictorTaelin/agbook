@@ -196,6 +196,9 @@ module Base.Float.add where
 
 open import Base.Float.Type
 
+primitive
+  primFloatPlus : Float → Float → Float
+
 -- Addition of floats.
 -- - x: The 1st float.
 -- - y: The 2nd float.
@@ -219,15 +222,21 @@ Example directory structure:
 ```md
 .
 ├── Base
-│   ├── ALL.agda
-│   ├── AVL
+│   ├── Nat
 │   │   ├── ALL.agda
-│   │   ├── Balance
+│   │   ├── Ord.agda
 │   │   ├── Test
-│   │   │   └── delete.agda
-│   │   └──Type.agda
+│   │   │   ├── eq.agda
+│   │   │   ├── rshift.agda
+│   │   │   └── show.agda
+│   │   ├── Type.agda
+│   │   └──add.agda
 ```
+Path Example: 
 
+```hs
+module Data.Nat.Test.eq where
+```
 ## 5. Code Review Process
 - Regularly review code for guideline compliance
 - Be open to adjusting guidelines as the team's experience grows
