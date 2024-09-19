@@ -2,23 +2,23 @@
 
 ## Summary
 
-1. [Code Structure](#1-code-structure)
-   1.1 [File Organization](#11-file-organization)
-   1.2 [Naming Conventions](#12-naming-conventions)
-   1.3 [Indentation and Formatting](#13-indentation-and-formatting)
-   1.4 [Function Style](#14-function-style)
-2. [Language-Specific Guidelines (Agda)](#2-language-specific-guidelines-agda)
-   2.1 [Imports](#21-imports)
-   2.2 [Types and Data Structures](#22-types-and-data-structures)
-   2.3 [Unicode and Operators](#23-unicode-and-operators)
-3. [Documentation](#3-documentation)
-   3.1 [Comments](#31-comments)
-4. [Testing](#4-testing)
-5. [Code Review Process](#5-code-review-process)
-6. [Performance Considerations](#6-performance-considerations)
-7. [Third-Party Libraries and Dependencies (FFI)](#7-third-party-libraries-and-dependencies-ffi)
-8. [Examples](#8-examples)
-9. [Tools and Linters](#9-tools-and-linters)
+1. [Code Structure](#1-code-structure)  
+   1.1 [File Organization](#11-file-organization)  
+   1.2 [Naming Conventions](#12-naming-conventions)  
+   1.3 [Indentation and Formatting](#13-indentation-and-formatting)  
+   1.4 [Function Style](#14-function-style)  
+2. [Language-Specific Guidelines (Agda)](#2-language-specific-guidelines-agda)  
+   2.1 [Imports](#21-imports)  
+   2.2 [Types and Data Structures](#22-types-and-data-structures)  
+   2.3 [Unicode and Operators](#23-unicode-and-operators)  
+3. [Documentation](#3-documentation)  
+   3.1 [Comments](#31-comments)  
+4. [Testing](#4-testing)  
+5. [Code Review Process](#5-code-review-process)  
+6. [Performance Considerations](#6-performance-considerations)  
+7. [Third-Party Libraries and Dependencies (FFI)](#7-third-party-libraries-and-dependencies-ffi)  
+8. [Examples](#8-examples)  
+9. [Tools and Linters](#9-tools-and-linters)  
 
 ## 1. Code Structure
 
@@ -66,7 +66,7 @@ infixl 6 _+_
    Succ : Nat -> Nat
   ```
 
-- Helper functions should have the prefix of the filename followed by "-go"
+- Helper functions should have the prefix of the fil:ename followed by "-go"
 
 ### 1.3 Indentation and Formatting
 
@@ -323,8 +323,8 @@ In this case, the indentation is inconsistent, making the code harder to read. T
 - Align `where` clauses with the function definition
 - Primitives must be specific in the function file (e.g., primCharEquality should be in Char/eq)
 
-```agda
-TODO: Pass the example here.
+```hs 
+primitive primFloatPlus : Float → Float → Float
 ```
 
 ## 2. Language-Specific Guidelines (Agda)
@@ -377,8 +377,12 @@ Maybe.fromMaybe : A -> Maybe A -> A
 
 - Use Unicode for ∀, λ, ≡, and Σ
 - Use standard arrow (->) instead of Unicode arrow
-- Minimize operator use, except for common ones (TODO: write here the exceptions)
-- Export both the operator and its corresponding function name
+- Minimize operator use, except for common ones like arithmetic and bitwise operators.
+
+  Examples:
+   Arithmetic: \_+\_ (add), \_-\_ (sub), \_\*\_ (mul), \_/\_ (div), \_%\_ (mod), \_\*\*\_ (exp)
+   Bitwise: \_&\_ (and), \_|\_ (or), \_^_\ (xor), \_~\_ (not), \_<<\_ (left shift), \_>>\_ (right shift)
+
 
 ## 3. Documentation
 
