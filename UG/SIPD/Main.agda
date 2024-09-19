@@ -36,6 +36,8 @@ open import Data.Maybe.Type
 open import Data.Function.case
 open import UG.SM.new-mach
 open import UG.SM.register-action
+open import Data.List.foldl
+open import UG.SIPD.FFI.quit-video
 
 -- Define the window size and title
 window : Window
@@ -72,11 +74,6 @@ game = record
   ; tick = tick
   }
 
--- now to integrate with websocket, we just need to:
--- receive the runClientWithHandler or similar in the gameLoop
--- have a function that correctly processes the incoming messages (this goes along with the State Machine process)
--- adjust the game loop to run the process function every tick
-
 handle-websocket : Channel String → WSConnection → IO Unit
 handle-websocket channel connection = do
   msg <- receive-data connection
@@ -97,11 +94,28 @@ process-messages channel = do
       let parse-result = parse-json-string msg
       handle-json-result parse-result
     None → pure unit
---  process-messages channel
 
 
 initial-mach : Mach State Event
 initial-mach = new-mach 60 event-eq
+
+
+loop : (Mach State Event) -> SDLWindow -> Renderer -> State -> (Channel String -> IO Unit) -> Channel String -> IO State
+loop mach window renderer state process-message channel = do
+
+  process-message channel
+
+  events <- get-events
+
+  -- let updatedMach = foldr register-action mach events
+  -- TODO: use state machine here
+  let newState = foldl (λ state event → Game.when game event state) state events
+
+  --let newState = foldl (Game.when game) state events
+
+  draw window renderer newState
+  loop mach window renderer newState process-message channel
+
   
 main : IO Unit
 main = do
@@ -114,11 +128,12 @@ main = do
   print ("Connecting to WebSocket server")
   run-concurrent-client host port path (handle-websocket chan)
 
-  gameLoop initial-mach (register-action) game (process-messages) chan
+  init-video
 
---  gameLoop : (Mach State Event) -> (Mach State Event -> TimedAction Event -> Mach State Event) ->
---             (Game State Event) -> (Channel String → IO Unit) -> (Channel String) -> IOAsync Unit
+  window <- create-window 
+  renderer <- create-renderer window
 
+  loop initial-mach window renderer initialState (process-messages) chan
 
-
+  quit-video
 
