@@ -1,6 +1,6 @@
-module Base.Trait.Eq.default-eq where
+module Base.Eq.default-eq where
 
-open import Base.Trait.Eq
+open import Base.Eq.Trait
 open import Base.Bool.Type
 open import Base.Bool.not
 

@@ -1,7 +1,7 @@
-module Base.Trait.Eq.from-ord where
+module Base.Eq.from-ord where
 
-open import Base.Trait.Eq
-open import Base.Trait.Ord
+open import Base.Eq.Trait
+open import Base.Ord.Trait
 open import Base.Ordering.Type
 open import Base.Ordering.eq
 

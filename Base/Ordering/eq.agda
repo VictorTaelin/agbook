@@ -2,8 +2,8 @@ module Base.Ordering.eq where
 
 open import Base.Ordering.Type
 open import Base.Bool.Type
-open import Base.Trait.Eq
-open import Base.Trait.Eq public
+open import Base.Eq.Trait
+open import Base.Eq.Trait public
 
 instance
   EqOrdering : Eq Ordering
