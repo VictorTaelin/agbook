@@ -1,61 +1,63 @@
-# Style Guide
+# Monobook Style Guide
 
-## Variable Names
+## Summary
+1. [Code Structure](#1-code-structure)  
+   1.1 [File Organization](#11-file-organization)  
+   1.2 [Naming Conventions](#12-naming-conventions)  
+   1.3 [Indentation and Formatting](#13-indentation-and-formatting)  
+   1.4 [Function Style](#14-function-style)  
+2. [Language-Specific Guidelines (Agda)](#2-language-specific-guidelines-agda)  
+   2.1 [Imports](#21-imports)  
+   2.2 [Types and Data Structures](#22-types-and-data-structures)  
+   2.3 [Unicode and Operators](#23-unicode-and-operators)  
+3. [Documentation](#3-documentation)  
+   3.1 [Comments](#31-comments)  
+4. [Testing](#4-testing)  
+5. [Code Review Process](#5-code-review-process)  
+6. [Performance Considerations](#6-performance-considerations)  
+7. [Third-Party Libraries and Dependencies (FFI)](#7-third-party-libraries-and-dependencies-ffi)  
+8. [Examples](#8-examples)  
+9. [Tools and Linters](#9-tools-and-linters)  
 
-Camel Case (variableName) is the most used style in agda.
-Kebab Case (variable-name) is also possible, from my POV it is used when you have related names (suppose you want to proof reflexivity for floats, it would be float-refl).
-Snake Case not really possible because of mixfix notation.
+## 1. Code Structure
 
-## Type Definitions
+### 1.1 File Organization
+1. Module declaration
+2. Imports (alphabetically ordered)
+3. Comments
+4. Function definitions
+5. Infix declarations
 
-In our repo, each file defines either a type or a function.
-For type definitions that are under `Data/` , it was discussed that types should be named with the same pattern of builtins.
-E.g, today we have:
-```agda
-data Nat : Set where
-  Zero : Nat
-  Succ : Nat → Nat
-```
-But the default agda builtin uses `zero` and `suc`. Then it is easy to use the Agda definitions we want.
+### 1.2 Naming Conventions
+- Variables and Functions: Use kebab-case (e.g., "add-nat")
+- Types: Use CamelCase (e.g., NaturalNumber, BinaryTree)
+- Avoid apostrophes in names
+- For types under `Base/`, use naming consistent with Agda builtins (e.g., `Zero` and `Succ`)
+- Helper functions should have the prefix of the filename followed by "-go"
 
-## Tabs
+### 1.3 Indentation and Formatting
+- Use 2 spaces for indentation
+- Align arguments and patterns in function definitions
+- For functions with many arguments, alignment is not necessary. Use good judgment for readability
+- Avoid unnecessary parentheses. Only use them when they are required for precedence or clarity
+- When writing argument spacing, don't put space inside the argument in CI example
+- Align chains of if-then-else statements
 
-Identation, define 2 or 4 spaces.
-
-## Function style
-
-Same discussion of variable names. For example, should we call `from-nat` or `fromNat` ?
-
-For functions, its preferred to use `do` notation with `let` instead of `let...in` and `where`. Practical example:
-```agda
+#### Correct Examples:
+```hs
 pad-length : Bits → Bits → Pair Bits Bits
-pad-length a b =
-  let len-a = length a
-      len-b = length b
-      target-len = max len-a len-b
-  in pad-zeros target-len a , pad-zeros target-len b
-``` 
-This was the old implementation of a `pad-length` function. The fixed implementation would be:
-```agda
 pad-length a b = do
   let len-a   = length a
   let len-b   = length b
   let trg-len = max len-a len-b
   pad-zeros trg-len a , pad-zeros trg-len b
-```
+  ```
 
-Note that the identation of patterns is also aligned (both for lets and when using match as well, e.g:)
-This is wrong:
-```agda
-pred : Bits → Bits
-pred E = E
-pred (O E) = E
-pred (O bs) = I (pred bs)
-pred (I bs) = O bs
-```
+Here, do notation with let is used for clarity and to avoid the let...in structure. The indentation is aligned, making the code easy to read.
 
-This is right:
-```agda
+Another correct form of aligning patterns:
+
+```hs
 pred : Bits → Bits
 pred E      = E
 pred (O E)  = E
@@ -63,26 +65,194 @@ pred (O bs) = I (pred bs)
 pred (I bs) = O bs
 ```
 
-For names, we should focus on basic operations. If you are implementing Nat/add , call the function `add`, no need to `nat-add`. Although this causes name clashes when you use multiple add for types, you can rename using `open import Base.Nat.add renaming (_+_ to _n+_)` for example. It also makes it easy to implement TypeClasses later.
+#### Incorrec Examples:
+```hs
+pad-length : Bits → Bits → Pair Bits Bits
+pad-length a b =
+  let len-a = length a
+      len-b = length b
+      target-len = max len-a len-b
+  in pad-zeros target-len a , pad-zeros target-len b
+  ```
 
-## Tests
+Another incorrect forms of aligning patterns:
 
-A test directory should be in the same directory of the data it is testing. E.g, the test files for maps are in `Data/Map/Test/` .
-Each data file should have a test equivalent (e.g if you define `Data/Map/hey.agda` another file `Data/Map/Test/hey.agda` should exist.
+```hs
+pred : Bits → Bits
+pred E= E
+pred (O E) = E
+pred (O bs) = I (pred bs)
+pred (I bs) = O bs
 
-Preference for tests using Eq and `refl` as proofs.
+pred : Bits → Bits
+pred         E  = E
+pred (O      E) = E
+pred (O     bs) = I (pred bs)
+pred (I     bs) = O bs
 
----
-
-When changing existing code or definitions, check ALL the files of the repository, since you could directly break other features that use the one you changed. This is happening a lot now (because we are defining a lot of new stuff and changing fast), but we should be used to run tests and typechecking all the time.
-(this should also be added as a workflow on a CI/CD pipeline).
-
-Always add documentation to the functions you write. The format:
 ```
--- Performs right shift operation on a Bits value.
--- - bits: The input Bits value.
--- - n: The number of positions to shift right (represented as Nat).
--- = A new Bits value representing the right-shifted result.
-rshift : Bits → Nat → Bits
+### Function Style
+- Prefer `do` notation with `let` over `let...in` and `where`
+- Use `with` for pattern matching instead of `case of` or `if`
+- Use native Agda `if` instead of `case of` and `Bool.if`
+- If possible, replace a record with a sequence of let statements
+
+#### Correct Examples:
+
+```hs
+to-digit : Nat -> Char -> Maybe Nat
+to-digit base c =
+  if is-digit c then 
+    digit-to-nat c
+  else if (base = 16) && is-hex-digit c then
+    hex-to-nat c
+  else
+    None
 ```
-Is the one adopted so far. Quick and easy.
+
+Here, native `if` statements are used, and the structure is clear and readable. Pattern matching alternatives such as `case of` are avoided.
+
+```hs
+exists : String -> I Bool
+exists path = do
+  file-exists <- is-file path 
+  if file-exists 
+    then pure True
+    else is-directory path
+```
+
+This example shows the use of `do` notation with an `if` block for clarity and conciseness. The `do` notation improves readability over a more complex `let...in` or `where` construct.
+
+Another correct form for indentation is:
+```hs
+to-digit : Nat -> Char -> Maybe Nat
+to-digit base c =
+  if is-digit c 
+    then 
+       digit-to-nat c
+    else if (base = 16) && is-hex-digit c then
+       hex-to-nat c
+    else
+       None
+```
+
+#### Incorrect Example:
+```hs
+exists : String -> I Bool
+exists path = do
+  file-exists <- is-file path 
+  if file-exists 
+  then pure True
+  else is-directory path
+```
+
+In this case, the indentation is inconsistent, making the code harder to read. The `then` and `else` branches should be properly aligned for better readability.
+
+- Define helper functions at the top of the file or in separate files for complex ones
+- Align `where` clauses with the function definition
+- Primitives must be specific in the function file (e.g., primCharEquality should be in Char/eq)
+
+```agda
+TODO: Pass the example here.
+```
+
+## 2. Language-Specific Guidelines (Agda)
+
+### 2.1 Imports
+- Use `import qualified` to avoid name clashes
+- Each file should export only one definition (except for infix operators)
+
+Example:
+```agda
+import qualified Data.List as List
+import qualified Data.Maybe as Maybe
+
+-- Usage:
+List.length : List A -> Nat
+Maybe.fromMaybe : A -> Maybe A -> A
+```
+
+### 2.2 Types and Data Structures
+- For natural numbers, use native syntax (e.g., `3`) instead of `Succ(Succ(Succ Zero))`
+
+### 2.3 Unicode and Operators
+- Use Unicode for ∀, λ, ≡, and Σ
+- Use standard arrow (->) instead of Unicode arrow
+- Minimize operator use, except for common ones (TODO: write here the exceptions)
+- Export both the operator and its corresponding function name
+
+## 3. Documentation
+
+### 3.1 Comments
+- Start comments with a capital letter and end with a period
+- Use complete sentences for explanatory comments
+- Use numerical abbreviations for simple argument descriptions (e.g., 1st, 2nd, 3rd, 4th...)
+- Use `=` to comment on what the function will return
+
+Example:
+
+```hs
+module Base.Float.add where
+
+open import Base.Float.Type
+
+primitive
+  primFloatPlus : Float → Float → Float
+
+-- Addition of floats.
+-- - x: The 1st float.
+-- - y: The 2nd float.
+-- = The sum of x and y.
+add : Float -> Float -> Float
+add = primFloatPlus
+
+-- The infix version of add.
+_+_ : Float -> Float -> Float
+_+_ = add
+
+infixl 6 _+_
+```
+
+## 4. Testing
+- Create a test file for each data file
+- Prefer tests using Eq and `refl` as proofs
+- Place test directories alongside the tested data
+
+Example directory structure:
+```md
+.
+├── Base
+│   ├── Nat
+│   │   ├── ALL.agda
+│   │   ├── Ord.agda
+│   │   ├── Test
+│   │   │   ├── eq.agda
+│   │   │   ├── rshift.agda
+│   │   │   └── show.agda
+│   │   ├── Type.agda
+│   │   └──add.agda
+```
+Path Example: 
+
+```hs
+module Data.Nat.Test.eq where
+```
+## 5. Code Review Process
+- Regularly review code for guideline compliance
+- Be open to adjusting guidelines as the team's experience grows
+
+## 6. Performance Considerations
+- Be aware of performance impacts when choosing between constructs
+- Trust the compiler for optimizations
+
+## 7. Third-Party Libraries and Dependencies (FFI)
+- Use a dedicated "FFI" folder with language-specific subfolders
+- Separate complex FFI functions into their own files
+
+## 8. Examples
+(Various examples are provided throughout the document)
+
+## 9. Tools and Linters
+- Run tests and type-checking frequently
+- Use CI/CD for automated checks
+
