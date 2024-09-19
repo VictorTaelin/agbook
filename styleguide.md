@@ -117,6 +117,7 @@ pred (I     bs) = O bs
 - Use `with` for pattern matching instead of `case of` or `if`
 - Use native Agda `if` instead of `case of` and `Bool.if`
 - If possible, replace a record with a sequence of let statements
+- If a helper function is very large or complex, it should be placed in a separate file
 
 #### Correct Examples:
 
