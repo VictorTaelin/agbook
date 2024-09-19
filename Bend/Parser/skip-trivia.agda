@@ -12,8 +12,8 @@ open import Base.Nat.Type
 open import Base.Nat.add
 open import Base.Nat.sub
 open import Base.Parser.Type
-open import Base.Parser.bind
-open import Base.Parser.pure
+open import Base.Parser.Monad.bind
+open import Base.Parser.Monad.pure
 open import Base.Parser.starts-with
 open import Base.Parser.peek-one
 open import Base.Parser.advance-many

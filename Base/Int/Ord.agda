@@ -1,6 +1,6 @@
 module Base.Int.Ord where
 
-open import Base.Trait.Ord
+open import Base.Ord.Trait
 open import Base.Ordering.Type
 open import Base.Int.Type
 open import Base.Int.compare renaming (compare to compare-int)

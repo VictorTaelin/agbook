@@ -2,9 +2,9 @@ module Bend.Parser.try-parse-keyword where
 
 open import Base.String.Type
 open import Base.Parser.Type
-open import Base.Parser.bind
+open import Base.Parser.Monad.bind
+open import Base.Parser.Monad.pure
 open import Base.Parser.fail
-open import Base.Parser.pure
 open import Base.Bool.Type
 open import Base.Bool.if
 open import Bend.Parser.starts-with-keyword

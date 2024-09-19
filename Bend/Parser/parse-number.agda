@@ -30,12 +30,12 @@ open import Base.String.length
 open import Base.String.from-list
 open import Base.String.to-nat-base
 open import Base.Pair.Type
-open import Base.Trait.Ord
+open import Base.Ord.Trait
 open import Base.Parser.Type
 open import Base.Parser.State
 open import Base.Parser.take-while
-open import Base.Parser.bind
-open import Base.Parser.pure
+open import Base.Parser.Monad.bind
+open import Base.Parser.Monad.pure
 open import Base.Parser.fail
 open import Base.Parser.alternative
 open import Base.Result.Type

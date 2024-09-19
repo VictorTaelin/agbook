@@ -1,7 +1,7 @@
 module Bend.Parser.consume where
 
 open import Base.Parser.Type
-open import Base.Parser.bind
+open import Base.Parser.Monad.bind
 open import Bend.Parser.skip-trivia
 open import Bend.Parser.consume-exactly
 open import Base.String.Type

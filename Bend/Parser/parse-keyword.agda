@@ -2,7 +2,7 @@ module Bend.Parser.parse-keyword where
 
 open import Base.String.Type
 open import Base.Parser.Type
-open import Base.Parser.bind
+open import Base.Parser.Monad.bind
 open import Base.Parser.fail
 open import Base.Unit.Type
 open import Base.Bool.if

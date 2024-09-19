@@ -8,8 +8,8 @@ open import Base.Result.Type
 open import Base.Parser.State
 open import Base.Parser.Reply
 open import Base.Parser.Type
-open import Base.Parser.bind
-open import Base.Parser.pure
+open import Base.Parser.Monad.bind
+open import Base.Parser.Monad.pure
 open import Base.Parser.alternative
 open import Base.Parser.starts-with
 open import Base.Parser.advance-many
