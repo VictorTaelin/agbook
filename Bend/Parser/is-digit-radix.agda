@@ -1,12 +1,12 @@
 module Bend.Parser.is-digit-radix where
 
-open import Data.Char.Type
-open import Data.Char.is-digit
-open import Data.Char.is-hex-digit
-open import Data.Char.eq
-open import Data.Nat.Type
-open import Data.Bool.Type
-open import Data.Bool.or
+open import Base.Char.Type
+open import Base.Char.is-digit
+open import Base.Char.is-hex-digit
+open import Base.Char.eq
+open import Base.Nat.Type
+open import Base.Bool.Type
+open import Base.Bool.or
 
 -- | Checks if a character is a valid digit for the given radix.
 -- - radix: The numeric base (2 for binary, 10 for decimal, 16 for hexadecimal).

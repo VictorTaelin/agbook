@@ -1,7 +1,7 @@
 module Bend.Net.Node.get where
 
-open import Data.Maybe.Type
-open import Data.Nat.Type
+open import Base.Maybe.Type
+open import Base.Nat.Type
 open import Bend.Net.Node.Type
 open import Bend.Net.Port.Type
 open import Bend.Net.NodeKind.Type

@@ -2,7 +2,7 @@ module Bend.Fun.Book.new where
 
 open import Bend.Fun.Book.Type
 open import Bend.Fun.Term.Type
-open import Data.Map.new as Map renaming (new to map-new)
+open import Base.Map.new as Map renaming (new to map-new)
 
 private
   import Bend.Fun.FnDef.Type as FnDef'

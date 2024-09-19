@@ -1,9 +1,9 @@
 module HVM1.Run.node-mut where
 
-open import Data.Bits.Type
-open import Data.Function.case
-open import Data.Maybe.Type
-open import Data.Unit.Type
+open import Base.Bits.Type
+open import Base.Function.case
+open import Base.Maybe.Type
+open import Base.Unit.Type
 open import HVM1.Node.Type
 open import HVM1.Run.Type
 open import HVM1.Run.bind

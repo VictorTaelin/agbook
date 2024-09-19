@@ -1,0 +1,36 @@
+{-# OPTIONS --no-termination-check #-}
+
+module Base.Parser.Examples.LambdaTerm.parse where
+
+open import Base.Parser.Examples.LambdaTerm.Type
+open import Base.String.Type
+open import Base.Maybe.Type
+open import Base.Parser.Type
+open import Base.Parser.State
+open import Base.Parser.skip-trivia
+open import Base.Parser.consume
+open import Base.Parser.peek-one
+open import Base.Parser.parse-name
+open import Base.Parser.bind
+open import Base.Parser.pure
+open import Base.Function.case
+
+parse : Parser Term
+parse = do
+  skip-trivia
+  one ← peek-one
+  case one of λ where
+    (Some 'λ') → do
+      consume "λ"
+      name ← parse-name
+      body ← parse
+      pure (Lam name body)
+    (Some '(') → do
+      consume "("
+      func ← parse
+      argm ← parse
+      consume ")"
+      pure (App func argm)
+    _ → do
+      name ← parse-name
+      pure (Var name)

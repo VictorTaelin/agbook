@@ -1,28 +1,28 @@
-      module Bend.Parser.Fun.parse-term where
+module Bend.Parser.Fun.parse-term where
 
-open import Data.Function.case
-open import Data.Bool.Type
-open import Data.Bool.if
-open import Data.List.Type
-open import Data.List.foldl
-open import Data.List.unzip
-open import Data.List.reverse
-open import Data.String.Type
-open import Data.String.append
-open import Data.Maybe.Type
-open import Data.Nat.Type
-open import Data.Nat.show
-open import Data.Pair.Type
+open import Base.Function.case
+open import Base.Bool.Type
+open import Base.Bool.if
+open import Base.List.Type
+open import Base.List.foldl
+open import Base.List.unzip
+open import Base.List.reverse
+open import Base.String.Type
+open import Base.String.append
+open import Base.Maybe.Type
+open import Base.Maybe.maybe
+open import Base.Nat.Type
+open import Base.Nat.show
+open import Base.Pair.Type
 open import Bend.Fun.Term.Type renaming (List to List')
 open import Bend.Fun.FanKind.Type
-open import Bend.Fun.MatchRule.Type
-open import Data.Parser.Type
-open import Data.Parser.State
-open import Data.Parser.fail
-open import Data.Parser.bind
-open import Data.Parser.pure
-open import Data.Parser.alternative
-open import Data.Parser.parse-string
+open import Base.Parser.Type
+open import Base.Parser.State
+open import Base.Parser.fail
+open import Base.Parser.bind
+open import Base.Parser.pure
+open import Base.Parser.alternative
+open import Base.Parser.parse-string
 open import Bend.Parser.consume
 open import Bend.Parser.try-consume
 open import Bend.Parser.skip-trivia
@@ -34,6 +34,11 @@ open import Bend.Parser.list-like
 open import Bend.Parser.sep-by
 open import Bend.Parser.Fun.parse-pattern
 
+import Bend.Fun.MatchRule.Type as MatchRule'
+
+private
+  open module MatchRule = MatchRule' Term
+
 parse-term : Parser Term
 parse-term = do
   skip-trivia
@@ -41,8 +46,8 @@ parse-term = do
     parse-parenthesized <|>
     parse-superposition <|>
     parse-list <|>
-    parse-string-term <|>
-    parse-number <|>
+    parse-str-term <|>
+    parse-num-term <|>
     parse-let <|>
     parse-use <|>
     parse-ask <|>
@@ -100,10 +105,15 @@ parse-term = do
     els ← list-like parse-term "[" "]" "," False 0
     pure (List' els)
 
-  parse-string-term : Parser Term
-  parse-string-term = do
+  parse-str-term : Parser Term
+  parse-str-term = do
     str ← parse-string
     pure (Str str)
+
+  parse-num-term : Parser Term
+  parse-num-term = do
+    num ← parse-number
+    pure (Num num)
 
   parse-let : Parser Term
   parse-let = do
@@ -209,7 +219,7 @@ parse-term = do
     consume "{"
     (pred , arms) ← parse-switch-arms 0 []
     let arms = reverse arms
-    let pred = (bnd ++ "-" ++ (show pred))
+    let pred = maybe None (λ bnd → Some (bnd ++ "-" ++ (show pred))) bnd
     pure (Swt bnd arg with-bnd with-arg pred arms)
 
   parse-fold : Parser Term
@@ -225,7 +235,7 @@ parse-term = do
   parse-bend = do
     consume "bend"
     args ← list-like parse-named-arg "" "{" "," False 1
-    bnd , arg ← unzip args
+    let bnd , arg = unzip args
     consume "when"
     cond ← parse-term
     consume ":"

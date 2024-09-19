@@ -1,0 +1,16 @@
+module Base.IO.bind where
+
+open import Base.IO.Type
+
+postulate
+  bind : ∀ {A B : Set} → IO A → (A → IO B) → IO B
+
+infixl 1 _>>=_
+
+_>>=_ : ∀ {A B : Set} → IO A → (A → IO B) → IO B
+_>>=_ = bind
+
+{-# COMPILE GHC bind = \_ _ -> (>>=) #-}
+
+{-# COMPILE JS _>>=_ = function(ma) { return function(f) { return function() { return ma().then(function(a) { return f(a)(); }); }; }; } #-}
+

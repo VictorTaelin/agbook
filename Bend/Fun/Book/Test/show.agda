@@ -9,17 +9,17 @@ open import Bend.Fun.FnDef.show
 open import Bend.Fun.Type.Type using () renaming (Type to Ty)
 open import Bend.Source.Type
 open import Bend.Source.SourceKind.Type
-open import Data.Map.Type
-open import Data.Map.from-list
-open import Data.Maybe.Type
-open import Data.Pair.Type
-open import Data.String.Type
-open import Data.String.eq
-open import Data.String.hash
-open import Data.List.Type
-open import Data.Bool.Type
-open import Data.Equal.Type
-open import Data.Nat.Type
+open import Base.Map.Type
+open import Base.Map.from-list
+open import Base.Maybe.Type
+open import Base.Pair.Type
+open import Base.String.Type
+open import Base.String.eq
+open import Base.String.hash
+open import Base.List.Type
+open import Base.Bool.Type
+open import Base.Equal.Type
+open import Base.Nat.Type
 import Bend.Fun.Rule.Type as Rule'
 import Bend.Fun.FnDef.Type as FnDef'
 

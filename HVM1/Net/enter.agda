@@ -4,11 +4,11 @@ open import HVM1.Net.Type
 open import HVM1.Port.Type
 open import HVM1.Node.Type
 open import HVM1.Node.port-get
-open import Data.Maybe.Type
-open import Data.Maybe.bind
-open import Data.Maybe.run
-import Data.Map.Type as M
-import Data.Map.get as M
+open import Base.Maybe.Type
+open import Base.Maybe.bind
+open import Base.Maybe.run
+import Base.Map.Type as M
+import Base.Map.get as M
 
 -- Enters a port in the Net, returning the connected port.
 -- - net: The Net to traverse.

@@ -9,23 +9,23 @@ open import UG.SM.Time.Type
 open import UG.SM.TimedAction.Type
 open import UG.SM.Time.time-to-tick
 
-open import Data.Nat.Type
-open import Data.Nat.show
-open import Data.Bool.Type
-open import Data.String.Type
-open import Data.IO.seq
-open import Data.String.append
-open import Data.IO.Type
-open import Data.IO.print
-open import Data.Unit.Type
-open import Data.Maybe.Type
-open import Data.List.Type
+open import Base.Nat.Type
+open import Base.Nat.show
+open import Base.Bool.Type
+open import Base.String.Type
+open import Base.IO.seq
+open import Base.String.append
+open import Base.IO.Type
+open import Base.IO.print
+open import Base.Unit.Type
+open import Base.Maybe.Type
+open import Base.List.Type
 
-open import Data.Map.Type
-open import Data.Map.new
-open import Data.Map.set
-open import Data.Map.count
-open import Data.Bits.Type
+open import Base.Map.Type
+open import Base.Map.new
+open import Base.Map.set
+open import Base.Map.count
+open import Base.Bits.Type
 
 -- Simple game state
 data GameState : Set where

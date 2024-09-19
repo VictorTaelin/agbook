@@ -1,9 +1,9 @@
 module HVM2.Run.redex-pop where
 
-open import Data.Function.case
-open import Data.List.Type
-open import Data.Maybe.Type
-open import Data.Pair.Type
+open import Base.Function.case
+open import Base.List.Type
+open import Base.Maybe.Type
+open import Base.Pair.Type
 open import HVM2.Net.Type
 open import HVM2.Redex.Type
 open import HVM2.Run.Type

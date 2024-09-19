@@ -1,11 +1,11 @@
 module Bend.Parser.is-name-char where
 
-open import Data.Char.Type
-open import Data.Bool.Type
-open import Data.Bool.or
-open import Data.Char.eq
-open import Data.Char.is-alpha
-open import Data.Char.is-digit
+open import Base.Char.Type
+open import Base.Bool.Type
+open import Base.Bool.or
+open import Base.Char.eq
+open import Base.Char.is-alpha
+open import Base.Char.is-digit
 
 -- Checks if a character is valid for a Bend name.
 -- - c: The character to check.

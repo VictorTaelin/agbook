@@ -2,27 +2,27 @@
 
 module Bend.Parser.skip-trivia where
 
-open import Data.Function.case
-open import Data.Bool.Type
-open import Data.Bool.if
-open import Data.Char.Type
-open import Data.Char.is-space
-open import Data.Maybe.Type
-open import Data.Nat.Type
-open import Data.Nat.add
-open import Data.Nat.sub
-open import Data.Parser.Type
-open import Data.Parser.bind
-open import Data.Parser.pure
-open import Data.Parser.starts-with
-open import Data.Parser.peek-one
-open import Data.Parser.advance-many
-open import Data.Parser.advance-one
-open import Data.Parser.take-while
-open import Data.Unit.Type
-open import Data.String.Type
-open import Data.String.eq
-open import Data.Char.eq
+open import Base.Function.case
+open import Base.Bool.Type
+open import Base.Bool.if
+open import Base.Char.Type
+open import Base.Char.is-space
+open import Base.Maybe.Type
+open import Base.Nat.Type
+open import Base.Nat.add
+open import Base.Nat.sub
+open import Base.Parser.Type
+open import Base.Parser.bind
+open import Base.Parser.pure
+open import Base.Parser.starts-with
+open import Base.Parser.peek-one
+open import Base.Parser.advance-many
+open import Base.Parser.advance-one
+open import Base.Parser.take-while
+open import Base.Unit.Type
+open import Base.String.Type
+open import Base.String.eq
+open import Base.Char.eq
 
 -- Skips a single-line comment
 skip-single-line-comment : Parser Unit

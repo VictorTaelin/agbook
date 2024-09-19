@@ -1,21 +1,21 @@
 module Bend.Parser.Fun.Test.parse-pattern where
 
-open import Data.Parser.Type
-open import Data.Parser.Reply
-open import Data.Parser.State
-open import Data.Parser.Error
+open import Base.Parser.Type
+open import Base.Parser.Reply
+open import Base.Parser.State
+open import Base.Parser.Error
 open import Bend.Parser.Fun.parse-pattern
 open import Bend.Fun.Pattern.Type
 open import Bend.Fun.FanKind.Type as FanKind
-open import Data.Parser.Type
-open import Data.Parser.State
-open import Data.Function.case
-open import Data.Equal.Type
-open import Data.String.Type
-open import Data.Maybe.Type
-open import Data.Result.Type
-open import Data.List.Type
-open import Data.Pair.Type
+open import Base.Parser.Type
+open import Base.Parser.State
+open import Base.Function.case
+open import Base.Equal.Type
+open import Base.String.Type
+open import Base.Maybe.Type
+open import Base.Result.Type
+open import Base.List.Type
+open import Base.Pair.Type
 
 parse : String → Result (Reply Pattern) Error
 parse input = parse-pattern (new-parser-state input)

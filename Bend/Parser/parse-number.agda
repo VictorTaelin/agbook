@@ -1,43 +1,44 @@
 module Bend.Parser.parse-number where
 
-open import Data.Function.case
-open import Data.Function.id
-open import Data.Bool.Type
-open import Data.Bool.and
-open import Data.Bool.if
-open import Data.Char.Type
-open import Data.Char.eq
-open import Data.List.Type
-open import Data.List.filter
-open import Data.Maybe.Type
-open import Data.Maybe.maybe
-open import Data.Float.Type
-open import Data.Float.div
-open import Data.Float.mul renaming (_*_ to _f*_)
-open import Data.Float.add renaming (_+_ to _f+_)
-open import Data.Int.Type
-open import Data.Int.from-neg
-open import Data.Int.from-nat
-open import Data.Int.ord
-open import Data.Int.mul renaming (_*_ to _i*_)
-open import Data.Nat.Type
-open import Data.Nat.ord
-open import Data.Nat.exp using () renaming (_^_ to _exp_)
-open import Data.String.Type
-open import Data.String.to-list
-open import Data.String.append
-open import Data.String.length
-open import Data.String.from-list
-open import Data.String.to-nat-base
-open import Data.Pair.Type
-open import Data.Parser.Type
-open import Data.Parser.State
-open import Data.Parser.take-while
-open import Data.Parser.bind
-open import Data.Parser.pure
-open import Data.Parser.fail
-open import Data.Parser.alternative
-open import Data.Result.Type
+open import Base.Function.case
+open import Base.Function.id
+open import Base.Bool.Type
+open import Base.Bool.and
+open import Base.Bool.if
+open import Base.Char.Type
+open import Base.Char.eq
+open import Base.List.Type
+open import Base.List.filter
+open import Base.Maybe.Type
+open import Base.Maybe.maybe
+open import Base.Float.Type
+open import Base.Float.div
+open import Base.Float.mul renaming (_*_ to _f*_)
+open import Base.Float.add renaming (_+_ to _f+_)
+open import Base.Int.Type
+open import Base.Int.from-neg
+open import Base.Int.from-nat
+open import Base.Int.Ord
+open import Base.Int.mul renaming (_*_ to _i*_)
+open import Base.Nat.Type
+open import Base.Nat.Ord
+open import Base.Nat.exp
+open import Base.String.Type
+open import Base.String.to-list
+open import Base.String.append
+open import Base.String.length
+open import Base.String.from-list
+open import Base.String.to-nat-base
+open import Base.Pair.Type
+open import Base.Trait.Ord
+open import Base.Parser.Type
+open import Base.Parser.State
+open import Base.Parser.take-while
+open import Base.Parser.bind
+open import Base.Parser.pure
+open import Base.Parser.fail
+open import Base.Parser.alternative
+open import Base.Result.Type
 open import Bend.Parser.consume-exactly
 open import Bend.Parser.try-consume-exactly
 open import Bend.Parser.is-digit-radix
@@ -99,7 +100,7 @@ parse-number = do
         digits ← take-while (is-digit-radix radix)
         let digits = from-list (filter (λ c → c != '_') (to-list digits))
         let num = maybe 0 id (to-nat-base radix digits)
-        let num = (primNatToFloat num) / (primNatToFloat (radix exp (length digits)))
+        let num = (primNatToFloat num) / (primNatToFloat (radix ** (length digits)))
         pure (Some num))
       else
         pure None

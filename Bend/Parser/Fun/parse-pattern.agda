@@ -1,21 +1,21 @@
 module Bend.Parser.Fun.parse-pattern where
 
-open import Data.Function.case
-open import Data.Bool.Type
-open import Data.Bool.if
-open import Data.Char.to-nat
-open import Data.Maybe.Type
-open import Data.List.Type
+open import Base.Function.case
+open import Base.Bool.Type
+open import Base.Bool.if
+open import Base.Char.to-nat
+open import Base.Maybe.Type
+open import Base.List.Type
 open import Bend.Fun.Num.Type renaming (Num to Num')
 open import Bend.Fun.Pattern.Type
 open import Bend.Fun.FanKind.Type
-open import Data.Parser.Type
-open import Data.Parser.bind
-open import Data.Parser.pure
-open import Data.Parser.fail
-open import Data.Parser.alternative
-open import Data.Parser.parse-quoted-char
-open import Data.Parser.parse-string
+open import Base.Parser.Type
+open import Base.Parser.bind
+open import Base.Parser.pure
+open import Base.Parser.fail
+open import Base.Parser.alternative
+open import Base.Parser.parse-quoted-char
+open import Base.Parser.parse-string
 open import Bend.Parser.consume
 open import Bend.Parser.try-consume
 open import Bend.Parser.skip-trivia

@@ -2,7 +2,7 @@ module HVM1.Node.port-set where
 
 open import HVM1.Node.Type
 open import HVM1.Port.Type
-open import Data.Nat.Type
+open import Base.Nat.Type
 
 -- Sets the port of a node at a given slot.
 -- - node: The node to modify.

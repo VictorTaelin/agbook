@@ -1,11 +1,11 @@
 module Bend.Parser.consume where
 
-open import Data.Parser.Type
-open import Data.Parser.bind
+open import Base.Parser.Type
+open import Base.Parser.bind
 open import Bend.Parser.skip-trivia
 open import Bend.Parser.consume-exactly
-open import Data.String.Type
-open import Data.Unit.Type
+open import Base.String.Type
+open import Base.Unit.Type
 
 consume : String → Parser Unit
 consume target = do

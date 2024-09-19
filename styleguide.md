@@ -63,7 +63,7 @@ pred (O bs) = I (pred bs)
 pred (I bs) = O bs
 ```
 
-For names, we should focus on basic operations. If you are implementing Nat/add , call the function `add`, no need to `nat-add`. Although this causes name clashes when you use multiple add for types, you can rename using `open import Data.Nat.add renaming (_+_ to _n+_)` for example. It also makes it easy to implement TypeClasses later.
+For names, we should focus on basic operations. If you are implementing Nat/add , call the function `add`, no need to `nat-add`. Although this causes name clashes when you use multiple add for types, you can rename using `open import Base.Nat.add renaming (_+_ to _n+_)` for example. It also makes it easy to implement TypeClasses later.
 
 ## Tests
 
@@ -86,4 +86,3 @@ Always add documentation to the functions you write. The format:
 rshift : Bits → Nat → Bits
 ```
 Is the one adopted so far. Quick and easy.
-

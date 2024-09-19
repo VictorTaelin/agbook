@@ -1,7 +1,7 @@
 module Bend.Fun.show-bind where
 
-open import Data.Maybe.Type
-open import Data.String.Type
+open import Base.Maybe.Type
+open import Base.String.Type
 open import Bend.Fun.Term.Type
 
 -- Converts a Maybe String to a String representation.

@@ -2,8 +2,8 @@ module Imp.Notation where
 
 import Imp.Expr.Type as Expr'
 open import Imp.Stmt.Type
-open import Data.Nat.Type
-open import Data.String.Type
+open import Base.Nat.Type
+open import Base.String.Type
 
 private
   open module Expr = Expr' Stmt

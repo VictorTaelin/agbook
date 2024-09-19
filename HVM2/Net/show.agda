@@ -2,11 +2,11 @@ module HVM2.Net.show where
 
 import HVM2.Redex.show as Redex
 import HVM2.Term.show as Term
-open import Data.List.Type
-open import Data.List.map
-open import Data.String.Type
-open import Data.String.append
-open import Data.String.join
+open import Base.List.Type
+open import Base.List.map
+open import Base.String.Type
+open import Base.String.append
+open import Base.String.join
 open import HVM2.Net.Type
 open import HVM2.Redex.Type
 

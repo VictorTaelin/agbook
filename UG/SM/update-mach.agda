@@ -4,9 +4,9 @@ open import UG.SM.Type
 open import UG.SM.Tick.Type
 open import UG.SM.StateLogs.Type
 
-open import Data.Nat.max
-open import Data.Map.set
-open import Data.Nat.to-bits
+open import Base.Nat.max
+open import Base.Map.set
+open import Base.Nat.to-bits
 
 -- mach: The machine to be updated
 -- t: The new tick to update the machine with

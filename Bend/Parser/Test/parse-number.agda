@@ -1,13 +1,13 @@
 module Bend.Parser.Test.parse-number where
 
-open import Data.Int.from-nat
-open import Data.Int.from-neg
-open import Data.Equal.Type
-open import Data.Maybe.Type
-open import Data.Parser.State
-open import Data.Result.Type
-open import Data.Parser.Reply
-open import Data.Parser.Error
+open import Base.Int.from-nat
+open import Base.Int.from-neg
+open import Base.Equal.Type
+open import Base.Maybe.Type
+open import Base.Parser.State
+open import Base.Result.Type
+open import Base.Parser.Reply
+open import Base.Parser.Error
 open import Bend.Parser.parse-number
 open import Bend.Fun.Num.Type
 

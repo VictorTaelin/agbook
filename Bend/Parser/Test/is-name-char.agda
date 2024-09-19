@@ -1,10 +1,10 @@
 module Bend.Parser.Test.is-name-char where
 
 open import Bend.Parser.is-name-char
-open import Data.Char.Type
-open import Data.Bool.Type
-open import Data.Equal.Type
-open import Data.String.from-char
+open import Base.Char.Type
+open import Base.Bool.Type
+open import Base.Equal.Type
+open import Base.String.from-char
 
 -- Test valid name characters
 _ : is-name-char 'a' === True

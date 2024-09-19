@@ -1,10 +1,10 @@
 module Imp.Expr.Type ( Stmt : Set ) where
 
-open import Data.Nat.Type
-open import Data.Bool.Type
-open import Data.U64.Type
-open import Data.List.Type
-open import Data.String.Type
+open import Base.Nat.Type
+open import Base.Bool.Type
+open import Base.U64.Type
+open import Base.List.Type
+open import Base.String.Type
 
 -- Expression type
 data Expr : Set where

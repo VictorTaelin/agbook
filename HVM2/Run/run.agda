@@ -1,10 +1,10 @@
 module HVM2.Run.run where
 
-open import Data.Bits.Type
-open import Data.List.Type
-open import Data.Map.Type
-open import Data.Map.empty
-open import Data.Pair.Type
+open import Base.Bits.Type
+open import Base.List.Type
+open import Base.Map.Type
+open import Base.Map.empty
+open import Base.Pair.Type
 open import HVM2.Net.Type
 open import HVM2.Run.Type
 open import HVM2.Run.State.Type

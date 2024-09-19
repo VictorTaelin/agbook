@@ -1,21 +1,21 @@
 module Bend.Parser.list-like where
 
-open import Data.Parser.Type
-open import Data.Parser.bind
-open import Data.Parser.pure
-open import Data.Parser.alternative
+open import Base.Parser.Type
+open import Base.Parser.bind
+open import Base.Parser.pure
+open import Base.Parser.alternative
 open import Bend.Parser.consume
 open import Bend.Parser.try-consume
 open import Bend.Parser.skip-trivia
-open import Data.Bool.Type
-open import Data.Bool.if
-open import Data.List.Type
-open import Data.List.reverse
-open import Data.Maybe.Type
-open import Data.Unit.Type
-open import Data.String.Type
-open import Data.Nat.Type
-open import Data.Function.case
+open import Base.Bool.Type
+open import Base.Bool.if
+open import Base.List.Type
+open import Base.List.reverse
+open import Base.Maybe.Type
+open import Base.Unit.Type
+open import Base.String.Type
+open import Base.Nat.Type
+open import Base.Function.case
 
 {-# TERMINATING #-}
 -- Parses a list-like structure with possibly trailing separators.

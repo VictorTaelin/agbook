@@ -5,9 +5,9 @@ open import UG.SM.Tick.Type
 open import UG.SM.StateLogs.Type
 open import UG.SM.ActionLogs.Type
 
-open import Data.Nat.Type
-open import Data.Map.new
-open import Data.Bool.Type
+open import Base.Nat.Type
+open import Base.Map.new
+open import Base.Bool.Type
 
 -- Creates a new Mach (state machine) with the given ticks per second and action equality function.
 -- - ticks_per_second: The number of ticks per second for this machine.

@@ -1,7 +1,7 @@
 module HVM2.Run.state-mut where
 
-open import Data.Pair.Type
-open import Data.Unit.Type
+open import Base.Pair.Type
+open import Base.Unit.Type
 open import HVM2.Run.Type
 open import HVM2.Run.State.Type
 

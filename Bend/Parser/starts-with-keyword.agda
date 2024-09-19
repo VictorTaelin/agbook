@@ -1,26 +1,26 @@
 module Bend.Parser.starts-with-keyword where
 
-open import Data.Function.case
-open import Data.Bool.Type
-open import Data.Bool.and
-open import Data.Bool.not
-open import Data.Char.Type
-open import Data.String.Type
-open import Data.String.length
-open import Data.String.split-at
-open import Data.String.eq
-open import Data.String.head
-open import Data.Nat.Type
-open import Data.Maybe.Type
-open import Data.Maybe.maybe
-open import Data.Maybe.map
-open import Data.Pair.Type
-open import Data.Parser.Type
-open import Data.Parser.State
-open import Data.Parser.starts-with
-open import Data.Parser.peek-many
-open import Data.Parser.pure
-open import Data.Parser.bind
+open import Base.Function.case
+open import Base.Bool.Type
+open import Base.Bool.and
+open import Base.Bool.not
+open import Base.Char.Type
+open import Base.String.Type
+open import Base.String.length
+open import Base.String.split-at
+open import Base.String.eq
+open import Base.String.head
+open import Base.Nat.Type
+open import Base.Maybe.Type
+open import Base.Maybe.maybe
+open import Base.Maybe.map
+open import Base.Pair.Type
+open import Base.Parser.Type
+open import Base.Parser.State
+open import Base.Parser.starts-with
+open import Base.Parser.peek-many
+open import Base.Parser.pure
+open import Base.Parser.bind
 open import Bend.Parser.is-name-char
 
 -- Checks if the input starts with the given keyword.

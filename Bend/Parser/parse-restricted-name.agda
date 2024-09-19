@@ -1,24 +1,24 @@
 module Bend.Parser.parse-restricted-name where
 
-open import Data.Char.Type
-open import Data.Bool.Type
-open import Data.Bool.if
-open import Data.String.Type
-open import Data.String.to-list
-open import Data.String.from-list
-open import Data.String.eq
-open import Data.String.starts-with
-open import Data.String.contains
-open import Data.String.append
-open import Data.Maybe.Type
-open import Data.Unit.Type
-open import Data.Parser.Type
-open import Data.Parser.State
-open import Data.Parser.consume
-open import Data.Parser.fail
-open import Data.Parser.bind
-open import Data.Parser.pure
-open import Data.Parser.take-while
+open import Base.Char.Type
+open import Base.Bool.Type
+open import Base.Bool.if
+open import Base.String.Type
+open import Base.String.to-list
+open import Base.String.from-list
+open import Base.String.eq
+open import Base.String.starts-with
+open import Base.String.contains
+open import Base.String.append
+open import Base.Maybe.Type
+open import Base.Unit.Type
+open import Base.Parser.Type
+open import Base.Parser.State
+open import Base.Parser.consume
+open import Base.Parser.fail
+open import Base.Parser.bind
+open import Base.Parser.pure
+open import Base.Parser.take-while
 open import Bend.Parser.is-name-char
 
 -- Parses a restricted name.

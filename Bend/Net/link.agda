@@ -1,7 +1,7 @@
 module Bend.Net.link where
 
-open import Data.Maybe.Type
-open import Data.Maybe.bind
+open import Base.Maybe.Type
+open import Base.Maybe.bind
 open import Bend.Net.Type
 open import Bend.Net.Port.Type
 open import Bend.Net.set-port
