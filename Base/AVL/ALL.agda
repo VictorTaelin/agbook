@@ -18,6 +18,9 @@ open import Base.AVL.keys public
 open import Base.AVL.singleton public
 open import Base.AVL.to-list public
 open import Base.AVL.values public
+open import Base.AVL.fold public
+open import Base.AVL.intersect public
+open import Base.AVL.union public
 
 -- Re-export the AVL type and Balance type
 open Base.AVL.Type public using (AVL; Leaf; Node)
