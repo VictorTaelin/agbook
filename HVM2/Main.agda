@@ -49,4 +49,4 @@ test = do
 
 -- Main function that creates a demo net and prints it
 main : IO Unit
-main = print (Term.show (run test))
+main = print ("OI")

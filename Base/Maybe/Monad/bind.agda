@@ -1,4 +1,4 @@
-module Base.Maybe.bind where
+module Base.Maybe.Monad.bind where
 
 open import Base.Maybe.Type
 

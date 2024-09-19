@@ -1,4 +1,4 @@
-module Base.Result.bind where
+module Base.Result.Monad.bind where
 
 open import Base.Result.Type
 
