@@ -59,11 +59,13 @@ infixl 6 _+_
 - Types: Use CamelCase (e.g., NaturalNumber, BinaryTree)
 - Avoid apostrophes in names
 - For types under `Base/`, use naming consistent with Agda builtins (e.g., `Zero` and `Succ`)
+
  ```hs
   data Nat : Set where
-   Zero : Nat  
+   Zero : Nat
    Succ : Nat -> Nat
   ```
+
 - Helper functions should have the prefix of the filename followed by "-go"
 
 ### 1.3 Indentation and Formatting
@@ -73,7 +75,6 @@ infixl 6 _+_
 - For functions with many arguments, alignment is not necessary. Use good judgment for readability
 - Avoid unnecessary parentheses. Only use them when they are required for precedence or clarity
 - When writing argument spacing, don't put space inside the argument in CI example
-- Align chains of if-then-else statements
 
 #### 1.3.1 Correct Examples
 
@@ -97,6 +98,41 @@ pred (O E)  = E
 pred (O bs) = I (pred bs)
 pred (I bs) = O bs
 ```
+
+```hs
+to-digit : Nat -> Char -> Maybe Nat
+to-digit base c =
+  if is-digit c then
+    digit-to-nat c
+  else if (base = 16) && is-hex-digit c then
+    hex-to-nat c
+  else
+    None
+```
+
+Aqui, declarações `if` nativas são usadas, e a estrutura é clara e legível. Alternativas de correspondência de padrões, como `case of`, são evitadas.
+
+```hs
+exists : String -> I Bool
+exists path = do
+  file-exists <- is-file path
+  if file-exists
+    then pure True
+    else is-directory path
+```
+Este exemplo mostra o uso da notação do com um bloco `if` para clareza e concisão. A notação do melhora a legibilidade em comparação com um constructo mais complexo como `let...in` ou `where`.
+
+Outra forma correta de indentação é:
+
+```hs
+exists : String -> I Bool
+exists path = do
+  file-exists <- is-file path
+  if file-exists
+    then pure True
+    else is-directory path
+````
+
 
 #### 1.3.2 Incorrec Examples
 
@@ -125,6 +161,17 @@ pred (O     bs) = I (pred bs)
 pred (I     bs) = O bs
 ```
 
+```hs
+exists : String -> I Bool
+exists path = do
+  file-exists <- is-file path
+  if file-exists
+  then pure True
+  else is-directory path
+```
+
+Essa estrutura de controle não está corretamente indentada, o que pode prejudicar a legibilidade do código.
+
 ### 1.4 Function Style
 
 - Prefer `do` notation with `let` over `let...in` and `where`
@@ -133,7 +180,93 @@ pred (I     bs) = O bs
 - If possible, replace a record with a sequence of let statements
 - If a helper function is very large or complex, it should be placed in a separate file
 
-#### 1.4.1 Correct Examples
+#### 1.4.1 Incorrect Example
+
+```hs
+module Base.String.hash where
+
+-- imports here
+
+hash : String → Bits
+hash str =
+  let words = (map to-nat (to-list str)) in
+  to-bits (fxhash words)
+
+  where
+
+  rotate-left : Nat → Nat → Nat → Nat
+  rotate-left n shift width =
+    let lower = div n (2 exp (width - shift)) in
+    let upper = (n * (2 exp shift)) % (2 exp width) in
+    (upper + lower)
+
+  fxhash-step : Nat → Nat → Nat
+  fxhash-step hash char =
+    let seed = 0x517cc1b727220a95 in
+    let hash = rotate-left hash 5 64 in
+    let hash = hash xor char in
+    let hash = hash * seed in
+    let hash = hash % (2 exp 64) in
+    hash
+
+  fxhash : List Nat → Nat
+  fxhash ns = foldl fxhash-step 0 ns
+```
+
+#### 1.4.2 Correct Example
+
+- file: Base/String/Hash.hs
+
+```hs
+  module Base.String.Hash where
+
+-- imports here
+
+-- Função principal de hash
+hash : String → Bits
+hash str =
+  let words = (map to-nat (to-list str)) in
+  to-bits (fxhash words)
+```
+
+- file: Base/String/HashRotateLeft.hs
+
+```hs
+module Base.String.HashRotateLeft where
+
+-- imports here
+
+-- Função auxiliar para rotação à esquerda
+hash-rotate-left : Nat → Nat → Nat → Nat
+hash-rotate-left n shift width =
+  let lower = div n (2 exp (width - shift)) in
+  let upper = (n * (2 exp shift)) % (2 exp width) in
+  (upper + lower)
+```
+
+- file: Base/String/FxHash.hs
+
+```hs
+module Base.String.FxHash where
+
+-- imports here
+
+-- Função auxiliar para um passo do fxhash
+fxhash-step : Nat → Nat → Nat
+fxhash-step hash char =
+  let seed = 0x517cc1b727220a95 in
+  let hash = hash-rotate-left hash 5 64 in
+  let hash = hash xor char in
+  let hash = hash * seed in
+  let hash = hash % (2 exp 64) in
+  hash
+
+-- Função principal do fxhash
+fxhash : List Nat → Nat
+fxhash ns = foldl fxhash-step 0 ns
+```
+
+####  Correct Examples
 
 ```hs
 to-digit : Nat -> Char -> Maybe Nat
@@ -173,7 +306,7 @@ to-digit base c =
        None
 ```
 
-#### 1.4.2 Incorrect Example
+#### Incorrect Example
 
 ```hs
 exists : String -> I Bool
