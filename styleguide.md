@@ -59,6 +59,11 @@ infixl 6 _+_
 - Types: Use CamelCase (e.g., NaturalNumber, BinaryTree)
 - Avoid apostrophes in names
 - For types under `Base/`, use naming consistent with Agda builtins (e.g., `Zero` and `Succ`)
+ ```hs
+  data Nat : Set where
+   Zero : Nat  
+   Succ : Nat -> Nat
+  ```
 - Helper functions should have the prefix of the filename followed by "-go"
 
 ### 1.3 Indentation and Formatting
