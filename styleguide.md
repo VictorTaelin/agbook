@@ -66,7 +66,7 @@ infixl 6 _+_
    Succ : Nat -> Nat
   ```
 
-- Helper functions should have the prefix of the fil:ename followed by "-go"
+- Helper functions should have the prefix of the filename followed by "-go"
 
 ### 1.3 Indentation and Formatting
 
@@ -110,7 +110,7 @@ to-digit base c =
     None
 ```
 
-Aqui, declarações `if` nativas são usadas, e a estrutura é clara e legível. Alternativas de correspondência de padrões, como `case of`, são evitadas.
+Here, native `if` statements are used, and the structure is clear and readable. Pattern matching alternatives such as `case of` are avoided.
 
 ```hs
 exists : String -> I Bool
@@ -120,9 +120,9 @@ exists path = do
     then pure True
     else is-directory path
 ```
-Este exemplo mostra o uso da notação do com um bloco `if` para clareza e concisão. A notação do melhora a legibilidade em comparação com um constructo mais complexo como `let...in` ou `where`.
+This example shows the use of do notation with an `if` block for clarity and conciseness. The do notation improves readability compared to a more complex construct like `let...in` or `where`.
 
-Outra forma correta de indentação é:
+Another correct form of indentation is:
 
 ```hs
 exists : String -> I Bool
@@ -131,7 +131,7 @@ exists path = do
   if file-exists
     then pure True
     else is-directory path
-````
+```
 
 
 #### 1.3.2 Incorrec Examples
@@ -170,7 +170,7 @@ exists path = do
   else is-directory path
 ```
 
-Essa estrutura de controle não está corretamente indentada, o que pode prejudicar a legibilidade do código.
+This control structure is not correctly indented, which can impair code readability.
 
 ### 1.4 Function Style
 
@@ -222,7 +222,7 @@ hash str =
 
 -- imports here
 
--- Função principal de hash
+-- Main hash function
 hash : String → Bits
 hash str =
   let words = (map to-nat (to-list str)) in
@@ -236,7 +236,7 @@ module Base.String.HashRotateLeft where
 
 -- imports here
 
--- Função auxiliar para rotação à esquerda
+-- Helper function for left rotation
 hash-rotate-left : Nat → Nat → Nat → Nat
 hash-rotate-left n shift width =
   let lower = div n (2 exp (width - shift)) in
@@ -251,7 +251,7 @@ module Base.String.FxHash where
 
 -- imports here
 
--- Função auxiliar para um passo do fxhash
+-- Helper function for a fxhash step
 fxhash-step : Nat → Nat → Nat
 fxhash-step hash char =
   let seed = 0x517cc1b727220a95 in
@@ -261,7 +261,7 @@ fxhash-step hash char =
   let hash = hash % (2 exp 64) in
   hash
 
--- Função principal do fxhash
+-- Main fxhash function
 fxhash : List Nat → Nat
 fxhash ns = foldl fxhash-step 0 ns
 ```
