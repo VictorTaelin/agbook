@@ -47,16 +47,62 @@ TODO: Pass the example here.
 ```
 
 - Align chains of if-then-else statements
-
-### 1.4 Function Style
+### Function Style
 - Prefer `do` notation with `let` over `let...in` and `where`
 - Use `with` for pattern matching instead of `case of` or `if`
 - Use native Agda `if` instead of `case of` and `Bool.if`
 - If possible, replace a record with a sequence of let statements
 
-```agda
-TODO: Pass the example here.
+#### Correct Examples:
+
+```hs
+to-digit : Nat -> Char -> Maybe Nat
+to-digit base c =
+  if is-digit c then 
+    digit-to-nat c
+  else if (base = 16) && is-hex-digit c then
+    hex-to-nat c
+  else
+    None
 ```
+
+Here, native `if` statements are used, and the structure is clear and readable. Pattern matching alternatives such as `case of` are avoided.
+
+```hs
+exists : String -> I Bool
+exists path = do
+  file-exists <- is-file path 
+  if file-exists 
+    then pure True
+    else is-directory path
+```
+
+This example shows the use of `do` notation with an `if` block for clarity and conciseness. The `do` notation improves readability over a more complex `let...in` or `where` construct.
+
+Another correct form for indentation is:
+```hs
+to-digit : Nat -> Char -> Maybe Nat
+to-digit base c =
+  if is-digit c 
+    then 
+       digit-to-nat c
+    else if (base = 16) && is-hex-digit c then
+       hex-to-nat c
+    else
+       None
+```
+
+#### Incorrect Example:
+```hs
+exists : String -> I Bool
+exists path = do
+  file-exists <- is-file path 
+  if file-exists 
+  then pure True
+  else is-directory path
+```
+
+In this case, the indentation is inconsistent, making the code harder to read. The `then` and `else` branches should be properly aligned for better readability.
 
 - Define helper functions at the top of the file or in separate files for complex ones
 - Align `where` clauses with the function definition
