@@ -12,7 +12,7 @@ open import Base.Nat.eq
 open import Base.Nat.to-bits
 open import Base.Pair.Type
 open import Base.Result.Type
-open import Base.Result.Monad.bind
+open import Base.Result.bind
 open import Base.String.Type
 open import Bend.Net.Type renaming (Net to BNet)
 open import Bend.Net.get-node

@@ -13,8 +13,8 @@ open import Base.List.Type
 open import Base.List.map
 open import Base.List.sort
 open import Base.Map.to-list
-open import Base.Show.Trait
-open import Base.Ord.Trait
+open import Base.Trait.Ord
+open import Base.Trait.Show public
 import Bend.Fun.FnDef.Type as FnDef'
 import Bend.Fun.FnDef.show as FDShow'
 

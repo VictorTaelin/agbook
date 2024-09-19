@@ -3,7 +3,7 @@ module Bend.Compile.NetToHvm.nets-to-hvm where
 open import Base.List.Type
 open import Base.Pair.Type
 open import Base.Result.Type
-open import Base.Result.Monad.bind
+open import Base.Result.bind
 open import Base.String.Type
 open import Bend.Net.Type renaming (Net to BNet)
 open import HVM2.Net.Type renaming (Net to HNet)
