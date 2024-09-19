@@ -1,6 +1,6 @@
 module HVM2.Rule.comm where
 
-open import Data.Unit.Type
+open import Base.Unit.Type
 open import HVM2.Run.Type
 open import HVM2.Run.bind
 open import HVM2.Run.fresh

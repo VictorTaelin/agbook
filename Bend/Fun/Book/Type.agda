@@ -1,6 +1,6 @@
 module Bend.Fun.Book.Type where
 
-open import Data.Map.Type
+open import Base.Map.Type
 open import Bend.Fun.Term.Type
 
 private

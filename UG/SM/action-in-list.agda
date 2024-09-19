@@ -1,9 +1,9 @@
 module UG.SM.action-in-list where
 
 open import UG.SM.Type
-open import Data.List.Type
-open import Data.Bool.Type
-open import Data.Bool.or
+open import Base.List.Type
+open import Base.Bool.Type
+open import Base.Bool.or
 
 -- mach : The machine containing the action equality function
 -- a    : The action to search for

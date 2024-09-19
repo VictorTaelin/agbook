@@ -4,9 +4,9 @@ open import UG.SM.Type
 open import UG.SM.Time.Type
 open import UG.SM.Tick.Type
 
-open import Data.Nat.Type
-open import Data.Nat.div
-open import Data.Nat.mul
+open import Base.Nat.Type
+open import Base.Nat.div
+open import Base.Nat.mul
 
 -- Converts a Time value to a Tick value for a given state machine.
 -- - mach: The state machine.

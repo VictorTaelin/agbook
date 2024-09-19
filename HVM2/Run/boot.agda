@@ -1,8 +1,8 @@
 module HVM2.Run.boot where
 
 import HVM2.Run.State.boot as HVM2
-open import Data.Pair.Type
-open import Data.Unit.Type
+open import Base.Pair.Type
+open import Base.Unit.Type
 open import HVM2.Net.Type
 open import HVM2.Run.Type
 open import HVM2.Run.State.Type

@@ -1,7 +1,7 @@
 module Bend.Compile.BendToNet.Encoder.new-node where
 
-open import Data.Nat.Type
-open import Data.Pair.Type
+open import Base.Nat.Type
+open import Base.Pair.Type
 open import Bend.Compile.BendToNet.Encoder.Type
 open import Bend.Net.new-node renaming (new-node to net-new-node)
 open import Bend.Net.NodeKind.Type

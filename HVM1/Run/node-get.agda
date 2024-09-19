@@ -1,9 +1,9 @@
 module HVM1.Run.node-get where
 
-import Data.Map.Type as M
-import Data.Map.get as M
-open import Data.Bits.Type
-open import Data.Maybe.Type
+import Base.Map.Type as M
+import Base.Map.get as M
+open import Base.Bits.Type
+open import Base.Maybe.Type
 open import HVM1.Net.Type
 open import HVM1.Node.Type
 open import HVM1.Run.State.Type

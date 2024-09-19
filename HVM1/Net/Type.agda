@@ -1,6 +1,6 @@
 module HVM1.Net.Type where
 
-import Data.Map.Type as M
+import Base.Map.Type as M
 open import HVM1.Node.Type
 
 -- Represents a net of nodes in the HVM1 system

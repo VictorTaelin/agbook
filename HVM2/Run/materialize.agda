@@ -1,6 +1,6 @@
 module HVM2.Run.materialize where
 
-open import Data.Function.case
+open import Base.Function.case
 open import HVM2.Run.Type
 open import HVM2.Run.bind
 open import HVM2.Run.enter

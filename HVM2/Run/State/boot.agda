@@ -1,9 +1,9 @@
 module HVM2.Run.State.boot where
 
-open import Data.Bits.Type
-open import Data.Map.Type
-open import Data.Map.empty
-open import Data.Nat.Type
+open import Base.Bits.Type
+open import Base.Map.Type
+open import Base.Map.empty
+open import Base.Nat.Type
 open import HVM2.Net.Type
 open import HVM2.Run.State.Type
 

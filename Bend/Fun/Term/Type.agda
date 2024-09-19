@@ -1,14 +1,14 @@
 module Bend.Fun.Term.Type where
 
-open import Data.Maybe.Type
-open import Data.Nat.Type
-open import Data.String.Type
+open import Base.Maybe.Type
+open import Base.Nat.Type
+open import Base.String.Type
 open import Bend.Fun.FanKind.Type
 open import Bend.Fun.Pattern.Type
 open import Bend.Fun.Op.Type
 open import Bend.Source.Type
 open import Bend.Source.TextSpan.Type
-open import Data.List.Type renaming (List to List')
+open import Base.List.Type renaming (List to List')
 open import Bend.Fun.Num.Type renaming (Num to Num')
 import Bend.Fun.MatchRule.Type as MatchRule'
 import Bend.Fun.FnDef.Type as FnDef'

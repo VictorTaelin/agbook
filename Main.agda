@@ -1,8 +1,7 @@
 module Main where
 
-import HVM2.Main
-open import Data.IO.Type
-open import Data.Unit.Type
+open import Base.ALL
 
 main : IO Unit
-main = HVM2.Main.main
+main = do
+  IO.print "Hello, world!"

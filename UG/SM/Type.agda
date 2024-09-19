@@ -4,8 +4,8 @@ open import UG.SM.Tick.Type
 open import UG.SM.StateLogs.Type
 open import UG.SM.ActionLogs.Type
 
-open import Data.Nat.Type
-open import Data.Bool.Type
+open import Base.Nat.Type
+open import Base.Bool.Type
 
 -- S : The type of states in the state machine
 -- A : The type of actions that can be performed on the state machine

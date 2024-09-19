@@ -1,8 +1,8 @@
 module Bend.Fun.FnDef.Type (Term : Set) where
 
-open import Data.Bool.Type
-open import Data.List.Type
-open import Data.String.Type
+open import Base.Bool.Type
+open import Base.List.Type
+open import Base.String.Type
 open import Bend.Source.Type
 open import Bend.Fun.Type.Type
 

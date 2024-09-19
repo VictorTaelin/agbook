@@ -5,14 +5,14 @@
 module Imp.Show.indented where
 
 import Imp.Expr.Type as Expr'
-import Data.Nat.show as Nat
-import Data.U64.Type as U64
+import Base.Nat.show as Nat
+import Base.U64.Type as U64
 open import Imp.Stmt.Type
-open import Data.Nat.Type
-open import Data.Nat.add
-open import Data.String.Type
-open import Data.String.append
-open import Data.String.join
+open import Base.Nat.Type
+open import Base.Nat.add
+open import Base.String.Type
+open import Base.String.append
+open import Base.String.join
 
 private
   open module Expr = Expr' Stmt

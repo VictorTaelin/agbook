@@ -4,11 +4,11 @@ open import Debug.Trace
 
 import HVM2.Net.show as Net
 import HVM2.Term.show as Term
-open import Data.Bits.Type
-open import Data.IO.Type
-open import Data.IO.print
-open import Data.List.Type
-open import Data.Unit.Type
+open import Base.Bits.Type
+open import Base.IO.Type
+open import Base.IO.print
+open import Base.List.Type
+open import Base.Unit.Type
 open import HVM2.Net.Type
 open import HVM2.Redex.Type
 open import HVM2.Run.Type
