@@ -1,19 +1,19 @@
 module Bend.Compile.NetToHvm.tree-to-hvm where
 
-open import Data.Bool.if
-open import Data.Function.case
-open import Data.Map.Type
-open import Data.Map.get renaming (get to map-get)
-open import Data.Map.set renaming (set to map-set)
-open import Data.Maybe.Type
-open import Data.Maybe.to-result
-open import Data.Nat.Type
-open import Data.Nat.eq
-open import Data.Nat.to-bits
-open import Data.Pair.Type
-open import Data.Result.Type
-open import Data.Result.bind
-open import Data.String.Type
+open import Base.Bool.if
+open import Base.Function.case
+open import Base.Map.Type
+open import Base.Map.get renaming (get to map-get)
+open import Base.Map.set renaming (set to map-set)
+open import Base.Maybe.Type
+open import Base.Maybe.to-result
+open import Base.Nat.Type
+open import Base.Nat.eq
+open import Base.Nat.to-bits
+open import Base.Pair.Type
+open import Base.Result.Type
+open import Base.Result.bind
+open import Base.String.Type
 open import Bend.Net.Type renaming (Net to BNet)
 open import Bend.Net.get-node
 open import Bend.Net.get-port

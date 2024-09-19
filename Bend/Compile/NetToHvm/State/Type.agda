@@ -1,8 +1,8 @@
 module Bend.Compile.NetToHvm.State.Type where
 
-open import Data.Bits.Type
-open import Data.Map.Type
-open import Data.Nat.Type
+open import Base.Bits.Type
+open import Base.Map.Type
+open import Base.Nat.Type
 
 record State : Set where
   constructor MkState

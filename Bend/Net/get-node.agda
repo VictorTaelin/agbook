@@ -1,11 +1,11 @@
 module Bend.Net.get-node where
 
-open import Data.Map.get renaming (get to map-get)
-open import Data.Maybe.Type
-open import Data.Maybe.bind
-open import Data.Nat.Type
-open import Data.Nat.to-bits renaming (to-bits to nat-to-bits)
-open import Data.Pair.Type
+open import Base.Map.get renaming (get to map-get)
+open import Base.Maybe.Type
+open import Base.Maybe.bind
+open import Base.Nat.Type
+open import Base.Nat.to-bits renaming (to-bits to nat-to-bits)
+open import Base.Pair.Type
 open import Bend.Net.Type
 open import Bend.Net.Node.Type
 

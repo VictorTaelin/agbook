@@ -1,13 +1,13 @@
 module Bend.Compile.NetToHvm.net-to-hvm where
 
-open import Data.Result.Type
-open import Data.Result.bind
-open import Data.List.Type
-open import Data.Maybe.Type
-open import Data.Maybe.to-result
-open import Data.Nat.Type
-open import Data.Pair.Type
-open import Data.String.Type
+open import Base.Result.Type
+open import Base.Result.bind
+open import Base.List.Type
+open import Base.Maybe.Type
+open import Base.Maybe.to-result
+open import Base.Nat.Type
+open import Base.Pair.Type
+open import Base.String.Type
 open import Bend.Net.Type renaming (Net to BNet)
 open import Bend.Net.get-port
 open import Bend.Net.net-root

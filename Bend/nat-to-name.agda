@@ -15,17 +15,17 @@ pub fn num_to_name(mut num: u64) -> String {
 }
  -}
 
-open import Data.Char.Type
-open import Data.Char.from-nat
-open import Data.Char.to-nat
-open import Data.List.Type
-open import Data.List.map
-open import Data.Nat.Type
-open import Data.Nat.add
-open import Data.Nat.div
-open import Data.Nat.mod
-open import Data.String.Type
-open import Data.String.from-list
+open import Base.Char.Type
+open import Base.Char.from-nat
+open import Base.Char.to-nat
+open import Base.List.Type
+open import Base.List.map
+open import Base.Nat.Type
+open import Base.Nat.add
+open import Base.Nat.div
+open import Base.Nat.mod
+open import Base.String.Type
+open import Base.String.from-list
 
 
 {-# TERMINATING #-}

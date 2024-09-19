@@ -1,10 +1,10 @@
 module Bend.Compile.book-to-hvm where
 
-open import Data.List.Type
-open import Data.Pair.Type
-open import Data.Result.Type
-open import Data.Result.bind
-open import Data.String.Type
+open import Base.List.Type
+open import Base.Pair.Type
+open import Base.Result.Type
+open import Base.Result.bind
+open import Base.String.Type
 open import Bend.Fun.Book.Type renaming (Book to BBook)
 open import Bend.Compile.BendToNet.book-to-nets
 open import Bend.Compile.NetToHvm.nets-to-hvm

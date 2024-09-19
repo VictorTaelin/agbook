@@ -1,9 +1,9 @@
 module Bend.Net.Port.to-bits where
 
-open import Data.Bits.Type
-open import Data.Bits.pad-zeros
-open import Data.Bits.append
-open import Data.Nat.to-bits renaming (to-bits to nat-to-bits)
+open import Base.Bits.Type
+open import Base.Bits.pad-zeros
+open import Base.Bits.append
+open import Base.Nat.to-bits renaming (to-bits to nat-to-bits)
 open import Bend.Net.Port.Type
 
 to-bits : Port → Bits

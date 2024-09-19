@@ -1,10 +1,10 @@
 module Bend.Net.Node.show where
 
-open import Data.String.Type
-open import Data.String.append
-open import Data.Nat.show
-open import Data.Bits.show
-open import Data.Trait.Show public
+open import Base.String.Type
+open import Base.String.append
+open import Base.Nat.show
+open import Base.Bits.show
+open import Base.Trait.Show public
 open import Bend.Net.Node.Type
 open import Bend.Net.Port.Type
 open import Bend.Net.Port.show

@@ -1,19 +1,19 @@
 module Bend.Compile.NetToHvm.get-redexes where
 
-open import Data.Bool.if
-open import Data.List.Type
-open import Data.Pair.Type
-open import Data.Map.Type using (Map)
-open import Data.Map.new renaming (new to map-new)
-open import Data.Map.set renaming (set to map-set)
-open import Data.Map.values renaming (values to map-values)
-open import Data.Map.to-list
-open import Data.Nat.Type
-open import Data.Nat.eq
-open import Data.Nat.min
-open import Data.Nat.to-bits
-open import Data.Bits.Type
-open import Data.Bits.to-nat
+open import Base.Bool.if
+open import Base.List.Type
+open import Base.Pair.Type
+open import Base.Map.Type using (Map)
+open import Base.Map.new renaming (new to map-new)
+open import Base.Map.set renaming (set to map-set)
+open import Base.Map.values renaming (values to map-values)
+open import Base.Map.to-list
+open import Base.Nat.Type
+open import Base.Nat.eq
+open import Base.Nat.min
+open import Base.Nat.to-bits
+open import Base.Bits.Type
+open import Base.Bits.to-nat
 open import Bend.Net.Type
 open import Bend.Net.Node.Type
 open import Bend.Net.Port.Type

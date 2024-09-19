@@ -1,13 +1,13 @@
 module Bend.Net.Test.show where
 
-open import Data.String.Type
-open import Data.String.eq
-open import Data.Equal.Type
-open import Data.Map.Type
-open import Data.Map.empty
-open import Data.Map.set
-open import Data.Nat.Type
-open import Data.Bits.from-nat
+open import Base.String.Type
+open import Base.String.eq
+open import Base.Equal.Type
+open import Base.Map.Type
+open import Base.Map.empty
+open import Base.Map.set
+open import Base.Nat.Type
+open import Base.Bits.from-nat
 open import Bend.Net.Type
 open import Bend.Net.Node.Type
 open import Bend.Net.Port.Type

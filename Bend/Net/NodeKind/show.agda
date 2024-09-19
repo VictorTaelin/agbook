@@ -1,12 +1,12 @@
 module Bend.Net.NodeKind.show where
 
 open import Bend.Net.NodeKind.Type
-open import Data.String.Type
-open import Data.String.append
-open import Data.Trait.Show public
-open import Data.Bits.Type
-open import Data.Bits.to-nat
-open import Data.Nat.show
+open import Base.String.Type
+open import Base.String.append
+open import Base.Trait.Show public
+open import Base.Bits.Type
+open import Base.Bits.to-nat
+open import Base.Nat.show
 
 instance
   ShowNodeKind : Show NodeKind

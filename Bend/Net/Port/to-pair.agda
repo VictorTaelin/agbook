@@ -1,8 +1,8 @@
 module Bend.Net.Port.to-pair where
 
 open import Bend.Net.Port.Type
-open import Data.Pair.Type
-open import Data.Nat.Type
+open import Base.Pair.Type
+open import Base.Nat.Type
 
 -- Converts a Port to a Pair of Nat
 -- - port: The Port to convert

@@ -1,8 +1,8 @@
 module Bend.Compile.NetToHvm.State.new where
 
-open import Data.Map.Type
-open import Data.Map.new renaming (new to map-new)
-open import Data.Nat.Type
+open import Base.Map.Type
+open import Base.Map.new renaming (new to map-new)
+open import Base.Nat.Type
 open import Bend.Compile.NetToHvm.State.Type
 
 new : Nat → State

@@ -1,19 +1,19 @@
 module Bend.Net.show where
 
-open import Data.String.Type
-open import Data.String.append
-open import Data.Nat.Type
-open import Data.Nat.show
-open import Data.Map.to-list
-open import Data.Pair.Type
-open import Data.Bits.Type
-open import Data.Bits.to-nat
-open import Data.List.foldr
-open import Data.List.map
+open import Base.String.Type
+open import Base.String.append
+open import Base.Nat.Type
+open import Base.Nat.show
+open import Base.Map.to-list
+open import Base.Pair.Type
+open import Base.Bits.Type
+open import Base.Bits.to-nat
+open import Base.List.foldr
+open import Base.List.map
 open import Bend.Net.Type
 open import Bend.Net.Node.Type
 open import Bend.Net.Node.show
-open import Data.Trait.Show public
+open import Base.Trait.Show public
 
 instance
   ShowNet : Show Net

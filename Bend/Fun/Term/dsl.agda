@@ -5,14 +5,14 @@ open import Bend.Fun.Pattern.Type as P
 open import Bend.Fun.FanKind.Type as Fan
 open import Bend.Fun.Op.Type
 open import Bend.Fun.Num.Type renaming (Num to Num')
-open import Data.Function.case
-open import Data.Maybe.Type
-open import Data.String.Type
-open import Data.String.append
-open import Data.List.Type renaming (List to List')
-open import Data.Nat.Type
-open import Data.Int.Type
-open import Data.Float.Type
+open import Base.Function.case
+open import Base.Maybe.Type
+open import Base.String.Type
+open import Base.String.append
+open import Base.List.Type renaming (List to List')
+open import Base.Nat.Type
+open import Base.Int.Type
+open import Base.Float.Type
 
 -- Embedded DSL for Bend Fun terms
 

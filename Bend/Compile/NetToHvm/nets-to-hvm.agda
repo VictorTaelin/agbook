@@ -1,10 +1,10 @@
 module Bend.Compile.NetToHvm.nets-to-hvm where
 
-open import Data.List.Type
-open import Data.Pair.Type
-open import Data.Result.Type
-open import Data.Result.bind
-open import Data.String.Type
+open import Base.List.Type
+open import Base.Pair.Type
+open import Base.Result.Type
+open import Base.Result.bind
+open import Base.String.Type
 open import Bend.Net.Type renaming (Net to BNet)
 open import HVM2.Net.Type renaming (Net to HNet)
 open import Bend.Compile.NetToHvm.net-to-hvm

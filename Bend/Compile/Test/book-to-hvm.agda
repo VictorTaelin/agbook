@@ -1,16 +1,16 @@
 module Bend.Compile.Test.book-to-hvm where
 
-open import Data.Equal.Type
-open import Data.Bool.Type
-open import Data.List.Type
-open import Data.Map.new renaming (new to map-new)
-open import Data.Map.set renaming (set to map-set)
-open import Data.Maybe.Type
-open import Data.Nat.to-bits renaming (to-bits to tb)
-open import Data.Pair.Type
-open import Data.Result.Type
-open import Data.String.Type
-open import Data.String.hash
+open import Base.Equal.Type
+open import Base.Bool.Type
+open import Base.List.Type
+open import Base.Map.new renaming (new to map-new)
+open import Base.Map.set renaming (set to map-set)
+open import Base.Maybe.Type
+open import Base.Nat.to-bits renaming (to-bits to tb)
+open import Base.Pair.Type
+open import Base.Result.Type
+open import Base.String.Type
+open import Base.String.hash
 open import Bend.Fun.Book.Type
 open import Bend.Fun.Term.Type using () renaming (Term to BTerm)
 open import Bend.Fun.Type.Type using (Type)
