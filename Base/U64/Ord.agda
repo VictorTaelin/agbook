@@ -9,8 +9,9 @@ open import Base.Trait.Ord
 instance
   OrdU64 : Ord U64
   OrdU64 = record
-    { _<_  = λ x y → _<_  {{OrdNat}} (primWord64ToNat x) (primWord64ToNat y)
-    ; _<=_ = λ x y → _<=_ {{OrdNat}} (primWord64ToNat x) (primWord64ToNat y)
-    ; _>_  = λ x y → _>_  {{OrdNat}} (primWord64ToNat x) (primWord64ToNat y)
-    ; _>=_ = λ x y → _>=_ {{OrdNat}} (primWord64ToNat x) (primWord64ToNat y)
+    { compare = λ x y → compare {{OrdNat}} (primWord64ToNat x) (primWord64ToNat y)
+    ; _<_     = λ x y → _<_     {{OrdNat}} (primWord64ToNat x) (primWord64ToNat y)
+    ; _<=_    = λ x y → _<=_    {{OrdNat}} (primWord64ToNat x) (primWord64ToNat y)
+    ; _>_     = λ x y → _>_     {{OrdNat}} (primWord64ToNat x) (primWord64ToNat y)
+    ; _>=_    = λ x y → _>=_    {{OrdNat}} (primWord64ToNat x) (primWord64ToNat y)
     }

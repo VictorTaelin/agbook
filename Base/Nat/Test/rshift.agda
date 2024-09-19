@@ -21,7 +21,7 @@ TestCase = Pair Nat Nat
 
 -- List of test cases (number, shift amount)
 test-cases : List TestCase
-test-cases = (120 , 2) :: (65550 , 3) :: (16 , 1) :: (7 , 1) :: (0 , 4) :: (32 , 1) :: (2 ^ 32 , 8) :: []
+test-cases = (120 , 2) :: (65550 , 3) :: (16 , 1) :: (7 , 1) :: (0 , 4) :: (32 , 1) :: (2 ** 32 , 8) :: []
 
 -- Perform the test for a single case
 test-rshift : TestCase → Bool
