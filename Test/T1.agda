@@ -1,12 +1,12 @@
 module Test.T1 where
 
-open import Data.Maybe.Type
-open import Data.Maybe.bind
-open import Data.Nat.Type
-open import Data.Nat.add
-open import Data.Bool.Type
-open import Data.Bool.and
-open import Data.Equal.Type
+open import Base.Maybe.Type
+open import Base.Maybe.bind
+open import Base.Nat.Type
+open import Base.Nat.add
+open import Base.Bool.Type
+open import Base.Bool.and
+open import Base.Equal.Type
 
 -- A simple test function using the Maybe monad with do-notation
 main : Maybe Nat

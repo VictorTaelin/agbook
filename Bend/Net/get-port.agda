@@ -1,10 +1,10 @@
 module Bend.Net.get-port where
 
-open import Data.Maybe.Type
-open import Data.Maybe.bind
-open import Data.Nat.to-bits renaming (to-bits to nat-to-bits)
-open import Data.Map.get renaming (get to map-get)
-open import Data.Map.set renaming (set to map-set)
+open import Base.Maybe.Type
+open import Base.Maybe.bind
+open import Base.Nat.to-bits renaming (to-bits to nat-to-bits)
+open import Base.Map.get renaming (get to map-get)
+open import Base.Map.set renaming (set to map-set)
 open import Bend.Net.Type
 open import Bend.Net.Port.Type
 open import Bend.Net.Node.get renaming (get to node-get)

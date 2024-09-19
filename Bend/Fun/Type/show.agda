@@ -1,16 +1,16 @@
 module Bend.Fun.Type.show where
 
 open import Bend.Fun.Type.Type
-open import Data.String.Type
-open import Data.String.append
-open import Data.String.join
-open import Data.List.Type
-open import Data.List.map
-open import Data.List.intersperse
-open import Data.List.concat
-open import Data.Trait.Show
-open import Data.Bool.Type
-open import Data.Bool.if
+open import Base.String.Type
+open import Base.String.append
+open import Base.String.join
+open import Base.List.Type
+open import Base.List.map
+open import Base.List.intersperse
+open import Base.List.concat
+open import Base.Trait.Show
+open import Base.Bool.Type
+open import Base.Bool.if
 
 
 instance

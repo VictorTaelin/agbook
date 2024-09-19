@@ -9,16 +9,16 @@ open import Bend.Fun.Op.Type
 open import Bend.Fun.Num.Type renaming (Num to Num')
 open import Bend.Source.Type
 open import Bend.Source.SourceKind.Type using (SourceKind)
-open import Data.String.Type
-open import Data.String.eq
-open import Data.String.append
-open import Data.List.Type renaming (List to List')
-open import Data.Maybe.Type
-open import Data.Bool.Type
-open import Data.Nat.Type
-open import Data.Equal.Type
-open import Data.Trait.Show
-open import Data.Pair.Type
+open import Base.String.Type
+open import Base.String.eq
+open import Base.String.append
+open import Base.List.Type renaming (List to List')
+open import Base.Maybe.Type
+open import Base.Bool.Type
+open import Base.Nat.Type
+open import Base.Equal.Type
+open import Base.Trait.Show
+open import Base.Pair.Type
 
 import Bend.Fun.MatchRule.Type as MatchRule'
 import Bend.Fun.FnDef.Type as FnDef'

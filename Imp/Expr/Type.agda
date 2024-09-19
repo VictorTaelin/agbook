@@ -1,15 +1,19 @@
-module Imp.Expr.Type where
+module Imp.Expr.Type ( Stmt : Set ) where
 
-open import Data.String.Type
-open import Data.Nat.Type
-open import Data.Bool.Type
-open import Data.U64.Type
-open import Data.List.Type
+open import Base.Nat.Type
+open import Base.Bool.Type
+open import Base.U64.Type
+open import Base.List.Type
+open import Base.String.Type
 
 -- Expression type
 data Expr : Set where
   -- Local variable read
   Var : String → Expr
+
+  -- Grid indices
+  Tid : Expr -- thread id
+  Bid : Expr -- block id
 
   -- Numeric operations
   Num : U64 → Expr
@@ -41,3 +45,6 @@ data Expr : Set where
   GAdd : (var : Nat) → (inc : Expr) → Expr -- Adds `inc` to global `var` returning the old value.
   SExc : (var : Nat) → (new : Expr) → Expr -- Writes `new` to shared `var` returning the old value.
   GExc : (var : Nat) → (new : Expr) → Expr -- Writes `new` to global `var` returning the old value.
+
+  -- A function call, necessary to ensure local variable hygiene
+  Call : Stmt → Expr

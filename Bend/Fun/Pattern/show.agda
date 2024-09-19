@@ -1,14 +1,14 @@
 module Bend.Fun.Pattern.show where
 
-open import Data.Maybe.Type
-open import Data.String.Type
-open import Data.String.append
-open import Data.String.join
-open import Data.List.Type
-open import Data.List.map
-open import Data.Nat.show
-open import Data.String.show
-open import Data.Trait.Show
+open import Base.Maybe.Type
+open import Base.String.Type
+open import Base.String.append
+open import Base.String.join
+open import Base.List.Type
+open import Base.List.map
+open import Base.Nat.show
+open import Base.String.show
+open import Base.Trait.Show
 open import Bend.Fun.Pattern.Type
 open import Bend.Fun.FanKind.Type
 open import Bend.Fun.show-bind

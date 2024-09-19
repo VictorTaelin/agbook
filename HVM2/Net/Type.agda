@@ -1,6 +1,6 @@
 module HVM2.Net.Type where
 
-open import Data.List.Type
+open import Base.List.Type
 open import HVM2.Redex.Type
 open import HVM2.Term.Type
 

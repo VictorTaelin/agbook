@@ -11,20 +11,20 @@ open import UG.SM.Time.time-to-tick
 open import UG.SM.update-mach
 open import UG.SM.get-initial-state
 
-open import Data.Bool.if
-open import Data.Nat.Type
-open import Data.Nat.eq
-open import Data.Nat.max
-open import Data.Nat.lt
-open import Data.Function.case using (case_of_)
-open import Data.List.Type
-open import Data.List.foldr
-open import Data.Maybe.Type
-open import Data.Map.get
-open import Data.Map.set
-open import Data.Nat.to-bits
-open import Data.Nat.sub
-open import Data.Nat.gt
+open import Base.Bool.if
+open import Base.Nat.Type
+open import Base.Nat.eq
+open import Base.Nat.max
+open import Base.Nat.lt
+open import Base.Function.case using (case_of_)
+open import Base.List.Type
+open import Base.List.foldr
+open import Base.Maybe.Type
+open import Base.Map.get
+open import Base.Map.set
+open import Base.Nat.to-bits
+open import Base.Nat.sub
+open import Base.Nat.gt
 
 -- mach: The state machine
 -- game: The game rules

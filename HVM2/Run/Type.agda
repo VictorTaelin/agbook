@@ -1,6 +1,6 @@
 module HVM2.Run.Type where
 
-open import Data.Pair.Type
+open import Base.Pair.Type
 open import HVM2.Run.State.Type
 
 -- A function with a global HVM2 State

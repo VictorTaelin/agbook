@@ -7,10 +7,10 @@ open import HVM2.Rule.comm
 open import HVM2.Rule.eras
 open import HVM2.Rule.link
 open import HVM2.Rule.void
-open import Data.Function.case
-open import Data.Maybe.Type
-open import Data.Bool.Type
-open import Data.Unit.Type
+open import Base.Function.case
+open import Base.Maybe.Type
+open import Base.Bool.Type
+open import Base.Unit.Type
 open import HVM2.Redex.Type
 open import HVM2.Run.Type
 open import HVM2.Run.bind

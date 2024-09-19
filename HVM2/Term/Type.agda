@@ -1,7 +1,7 @@
 module HVM2.Term.Type where
 
-open import Data.Bits.Type
-open import Data.Nat.Type
+open import Base.Bits.Type
+open import Base.Nat.Type
 
 data Term : Set where
   Var : (nm : Bits) -> Term
