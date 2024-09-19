@@ -27,6 +27,27 @@
 3. Comments
 4. Function definitions
 5. Infix declarations
+example: 
+```hs
+module Base.Float.add where
+
+open import Base.Float.Type
+
+primitive primFloatPlus : Float → Float → Float
+
+-- Addition of floats.
+-- - x: The 1st float.
+-- - y: The 2nd float.
+-- = The sum of x and y.
+add : Float -> Float -> Float
+add = primFloatPlus
+
+-- The infix version of add.
+_+_ : Float -> Float -> Float
+_+_ = add
+
+infixl 6 _+_
+```
 
 ### 1.2 Naming Conventions
 - Variables and Functions: Use kebab-case (e.g., "add-nat")
@@ -91,7 +112,7 @@ pred (O     bs) = I (pred bs)
 pred (I     bs) = O bs
 
 ```
-### Function Style
+### 1.4 Function Style
 - Prefer `do` notation with `let` over `let...in` and `where`
 - Use `with` for pattern matching instead of `case of` or `if`
 - Use native Agda `if` instead of `case of` and `Bool.if`
@@ -161,9 +182,32 @@ TODO: Pass the example here.
 ### 2.1 Imports
 - Use `import qualified` to avoid name clashes
 - Each file should export only one definition (except for infix operators)
+- Each folder in the project should contain an ALL.agda file. The purpose of this file is to:
 
+1. Import and re-export all modules in the folder.
+2. Provide a single point of import for all functionality in that folder.
+3. Ensure consistent naming and organization across the project.
+
+Example of an ALL.agda file:
+
+```hs
+module Base.Example.ALL where
+
+open import Base.Example.Type public
+open import Base.Example.function1 public
+open import Base.Example.function2 public
+
+-- Re-export the main type and its constructors
+open Base.Example.Type public using (ExampleType; Constructor1; Constructor2)
+```
+
+This structure allows other modules to import all functionality from a folder by simply importing its ALL module:
+
+```hs
+open import Base.Example.ALL
+```
 Example:
-```agda
+```hs
 import qualified Data.List as List
 import qualified Data.Maybe as Maybe
 
@@ -257,32 +301,4 @@ module Data.Nat.Test.eq where
 - Use CI/CD for automated checks
 
 
-### 1.5 ALL.agda Files
-
-Each folder in the project should contain an ALL.agda file. The purpose of this file is to:
-
-1. Import and re-export all modules in the folder.
-2. Provide a single point of import for all functionality in that folder.
-3. Ensure consistent naming and organization across the project.
-
-Example of an ALL.agda file:
-
-```agda
-module Base.Example.ALL where
-
-open import Base.Example.Type public
-open import Base.Example.function1 public
-open import Base.Example.function2 public
-
--- Re-export the main type and its constructors
-open Base.Example.Type public using (ExampleType; Constructor1; Constructor2)
-```
-
-This structure allows other modules to import all functionality from a folder by simply importing its ALL module:
-
-```agda
-open import Base.Example.ALL
-```
-
-This practice promotes modularity and makes it easier to manage imports across the project.
 
