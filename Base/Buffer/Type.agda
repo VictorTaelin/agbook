@@ -5,7 +5,7 @@ open import Base.OrdMap.Type
 
 -- A buffer of data of a fixed length.
 -- If this is constructed manually, then (of course) you cannot
--- guarantee that `length` wll be the number entries in `data`.
+-- guarantee that `length` wll be the number entries in `buffer`.
 record Buffer : Set where
   constructor MkBuffer
   field
