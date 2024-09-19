@@ -1,3 +1,4 @@
+{-# OPTIONS --no-termination-check #-}
 module Data.Parser.parse-string where
 
 open import Data.Char.Type
