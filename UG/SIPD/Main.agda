@@ -13,7 +13,6 @@ open import Data.Nat.show
 open import Data.Int.Type
 open import Data.Float.Type
 open import Data.Pair.Type
-open import UG.SIPD.FFI.Gloss
 open import UG.SIPD.State.Type
 open import UG.SIPD.State.init
 open import UG.SM.Game.Type
@@ -23,9 +22,9 @@ open import Concurrent.Channel.Type
 open import Concurrent.Channel.write-channel
 open import Concurrent.Channel.new-channel
 open import Concurrent.Channel.read-channel
-open import Network.WebSocket.WSConnection
-open import Network.WebSocket.receive-data
-open import Network.WebSocket.run-concurrent-client
+--open import Network.WebSocket.WSConnection
+--open import Network.WebSocket.receive-data
+--open import Network.WebSocket.run-concurrent-client
 open import Data.Result.Type
 open import Data.Parser.Reply
 open import Data.Parser.Error
@@ -36,30 +35,26 @@ open import Data.Maybe.Type
 open import Data.Function.case
 open import UG.SM.new-mach
 open import UG.SM.register-action
+open import UG.SIPD.FFI.Window.Type
+open import UG.SIPD.FFI.Window.create-window
+open import UG.SIPD.FFI.Renderer.Type
+open import UG.SIPD.FFI.Renderer.create-renderer
 open import Data.List.foldl
 open import UG.SIPD.FFI.quit-video
+open import UG.SIPD.FFI.init-video
+open import UG.SIPD.FFI.draw
+open import UG.SIPD.FFI.Event
+open import UG.SIPD.FFI.get-events
 
--- Define the window size and title
-window : Window
-window = "Click Counter" , (800 , 600)
-
--- Define the background color
-background : String
-background = "white"
-
--- Define the frames per second
 fps : Nat
 fps = 60
 
--- Define the initial click count
 initialState : State
 initialState = init
 
--- for now just dont check duplicates since we dont have the time element
 event-eq : Event → Event → Bool
 event-eq _ _ = False
 
--- Define the update function for a single event
 handleSingleEv : Event → State → State
 handleSingleEv (MouseClick LeftButton _ _) (MkState count) = MkState (Succ count)
 handleSingleEv _ game = game
@@ -74,17 +69,15 @@ game = record
   ; tick = tick
   }
 
-handle-websocket : Channel String → WSConnection → IO Unit
-handle-websocket channel connection = do
-  msg <- receive-data connection
-  write-channel channel msg
-  handle-websocket channel connection
-
+--handle-websocket : Channel String → WSConnection → IO Unit
+--handle-websocket channel connection = do
+--  msg <- receive-data connection
+--  write-channel channel msg
+--  handle-websocket channel connection
 
 handle-json-result : Result (Reply JSON) Error → IO Unit
 handle-json-result (Done reply) = print ("Received and parsed JSON: " ++ jshow (Reply.value reply))
 handle-json-result (Fail error) = print ("Failed to parse JSON")
-
 
 process-messages : Channel String → IO Unit
 process-messages channel = do
@@ -95,15 +88,13 @@ process-messages channel = do
       handle-json-result parse-result
     None → pure unit
 
-
 initial-mach : Mach State Event
 initial-mach = new-mach 60 event-eq
 
-
-loop : (Mach State Event) -> SDLWindow -> Renderer -> State -> (Channel String -> IO Unit) -> Channel String -> IO State
+loop : (Mach State Event) -> Window -> Renderer -> State -> (Channel String -> IO Unit) -> Channel String -> IO State
 loop mach window renderer state process-message channel = do
 
-  process-message channel
+  -- process-message channel
 
   events <- get-events
 
@@ -126,7 +117,7 @@ main = do
   chan <- new-channel
 
   print ("Connecting to WebSocket server")
-  run-concurrent-client host port path (handle-websocket chan)
+  -- run-concurrent-client host port path (handle-websocket chan)
 
   init-video
 
