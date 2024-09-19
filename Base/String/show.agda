@@ -1,7 +1,7 @@
 module Base.String.show where
 
 open import Base.String.Type
-open import Base.Trait.Show public
+open import Base.Show.Trait public
 
 instance
   ShowString : Show String

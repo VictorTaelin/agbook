@@ -9,7 +9,7 @@ open import HVM1.Net.Type
 open import HVM1.Node.Type
 open import HVM1.Run.State.Type
 open import HVM1.Run.Type
-open import HVM1.Run.bind
+open import HVM1.Run.Monad.bind
 open import HVM1.Run.state-mut
 
 node-set : Bits → Node → Run Unit

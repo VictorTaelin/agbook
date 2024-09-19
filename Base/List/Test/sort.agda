@@ -9,7 +9,7 @@ open import Base.Nat.Ord
 open import Base.Bool.Type
 open import Base.Bool.eq
 open import Base.Equal.Type
-open import Base.Trait.Ord
+open import Base.Ord.Trait
 
 -- Test sorting an empty list
 test-sort-empty : sort _<_ ([] {A = Nat}) === []

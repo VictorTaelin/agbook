@@ -3,7 +3,7 @@ module Base.Bits.eq where
 open import Base.Bits.Type
 open import Base.Bool.Type
 open import Base.Bool.not
-open import Base.Trait.Eq public
+open import Base.Eq.Trait public
 
 instance
   EqBits : Eq Bits

@@ -17,7 +17,7 @@ open import Base.Maybe.Type
 open import Base.Bool.Type
 open import Base.Nat.Type
 open import Base.Equal.Type
-open import Base.Trait.Show
+open import Base.Show.Trait
 open import Base.Pair.Type
 
 import Bend.Fun.MatchRule.Type as MatchRule'

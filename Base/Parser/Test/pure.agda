@@ -1,6 +1,6 @@
 module Base.Parser.Test.pure where
 
-open import Base.Parser.pure
+open import Base.Parser.Monad.pure
 open import Base.Parser.State
 open import Base.Parser.Reply
 open import Base.Parser.Type

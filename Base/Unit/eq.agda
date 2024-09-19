@@ -1,7 +1,7 @@
 module Base.Unit.eq where
 
 open import Base.Unit.Type
-open import Base.Trait.Eq public
+open import Base.Eq.Trait public
 open import Base.Bool.Type
 
 instance

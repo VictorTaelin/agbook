@@ -4,7 +4,7 @@ open import Debug.Trace
 
 open import Base.Unit.Type
 open import HVM2.Run.Type
-open import HVM2.Run.bind
+open import HVM2.Run.Monad.bind
 open import HVM2.Run.link
 open import HVM2.Term.Type
 

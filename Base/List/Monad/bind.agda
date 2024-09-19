@@ -13,4 +13,8 @@ bind : ∀ {A B : Set} → List A → (A → List B) → List B
 bind []        f = []
 bind (x :: xs) f = f x ++ bind xs f
 
+-- Infix operator for bind
+_>>=_ : ∀ {A B : Set} → List A → (A → List B) → List B
+_>>=_ = bind
 
+infixl 1 _>>=_

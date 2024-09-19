@@ -6,8 +6,8 @@ open import Base.Maybe.Type
 open import Base.Unit.Type
 open import HVM1.Node.Type
 open import HVM1.Run.Type
-open import HVM1.Run.bind
-open import HVM1.Run.pure
+open import HVM1.Run.Monad.bind
+open import HVM1.Run.Monad.pure
 open import HVM1.Run.node-get
 open import HVM1.Run.node-set
 

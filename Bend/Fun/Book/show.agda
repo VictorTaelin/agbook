@@ -4,6 +4,7 @@ open import Bend.Fun.Book.Type
 open import Bend.Fun.Term.Type
 open import Bend.Fun.Term.show
 open import Base.Pair.Type
+open import Base.Pair.get-snd
 open import Base.String.Type
 open import Base.String.append
 open import Base.String.join

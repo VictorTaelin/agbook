@@ -4,8 +4,8 @@ open import Base.Bits.Type
 open import Base.Unit.Type
 open import HVM1.Port.Type
 open import HVM1.Run.Type
-open import HVM1.Run.bind
-open import HVM1.Run.pure
+open import HVM1.Run.Monad.bind
+open import HVM1.Run.Monad.pure
 open import HVM1.Run.node-set
 open import HVM1.Run.link
 open import HVM1.Node.Type

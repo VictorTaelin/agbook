@@ -1,7 +1,7 @@
 module Base.List.Ord where
 
 open import Base.List.Type
-open import Base.Trait.Ord
+open import Base.Ord.Trait public
 open import Base.List.lt
 open import Base.List.lte
 open import Base.List.gt

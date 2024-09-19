@@ -5,7 +5,7 @@ open import Base.AVL.empty
 open import Base.AVL.insert
 open import Base.AVL.has-key
 open import Base.AVL.get
-open import Base.Trait.Ord
+open import Base.Ord.Trait
 open import Base.Maybe.Type
 open import Base.Pair.Type
 open import Base.Pair.get-fst

@@ -1,7 +1,7 @@
 module Bend.Net.get-port where
 
 open import Base.Maybe.Type
-open import Base.Maybe.bind
+open import Base.Maybe.Monad.bind
 open import Base.Nat.to-bits renaming (to-bits to nat-to-bits)
 open import Base.Map.get renaming (get to map-get)
 open import Base.Map.set renaming (set to map-set)

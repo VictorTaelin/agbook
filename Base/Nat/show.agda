@@ -2,7 +2,7 @@ module Base.Nat.show where
 
 open import Base.Nat.Type
 open import Base.String.Type
-open import Base.Trait.Show public
+open import Base.Show.Trait public
 
 instance
   ShowNat : Show Nat

@@ -4,7 +4,7 @@ open import Base.U64.Type
 open import Base.String.Type
 open import Base.String.append
 open import Base.Nat.show
-open import Base.Trait.Show public
+open import Base.Show.Trait public
 
 -- Converts a U64 number to its string representation.
 -- - x: The U64 number to be converted.

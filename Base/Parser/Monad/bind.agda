@@ -1,4 +1,4 @@
-module Base.Parser.bind where
+module Base.Parser.Monad.bind where
 
 open import Base.Parser.Type
 open import Base.Parser.State
@@ -16,6 +16,7 @@ bind p f s = case p s of λ where
 seq : ∀ {A B : Set} → Parser A → Parser B → Parser B
 seq p q = bind p (λ _ → q)
 
+-- Infix operator
 _>>=_ : ∀ {A B : Set} → Parser A → (A → Parser B) → Parser B
 _>>=_ = bind
 

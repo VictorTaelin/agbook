@@ -5,7 +5,7 @@ open import HVM1.Port.Type
 open import HVM1.Node.Type
 open import HVM1.Node.port-set
 open import Base.Maybe.Type
-open import Base.Maybe.bind
+open import Base.Maybe.Monad.bind
 open import Base.Maybe.run
 open import Base.Pair.Type
 open import Base.Equal.Type

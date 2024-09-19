@@ -4,7 +4,7 @@ open import Base.AVL.Type
 open import Base.AVL.empty
 open import Base.AVL.Balance.Type
 open import Base.AVL.Balance.rotate-right
-open import Base.Trait.Ord
+open import Base.Ord.Trait
 open import Base.Bool.Type
 open import Base.Pair.Type
 -- We compare Pairs only by their first elements

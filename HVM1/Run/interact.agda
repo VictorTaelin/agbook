@@ -13,9 +13,9 @@ open import HVM1.Rule.anni
 open import HVM1.Rule.comm
 open import HVM1.Rule.eras
 open import HVM1.Run.Type
-open import HVM1.Run.bind
+open import HVM1.Run.Monad.bind
 open import HVM1.Run.node-get
-open import HVM1.Run.pure
+open import HVM1.Run.Monad.pure
 open import Base.Bool.if
 
 interact-go : Node → Node → Run Unit

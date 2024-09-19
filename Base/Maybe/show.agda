@@ -3,7 +3,7 @@ module Base.Maybe.show where
 open import Base.Maybe.Type
 open import Base.String.Type
 open import Base.String.append
-open import Base.Trait.Show public
+open import Base.Show.Trait public
 
 instance
   ShowMaybe : ∀ {A : Set} {{ShowA : Show A}} → Show (Maybe A)

@@ -1,4 +1,4 @@
-open import Base.Trait.Show
+open import Base.Show.Trait
 open import Bend.Fun.Term.Type using (Term)
 
 module Bend.Fun.MatchRule.show (TShow : Show Term) where

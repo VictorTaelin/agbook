@@ -3,7 +3,7 @@ module Base.Pair.show where
 open import Base.Pair.Type
 open import Base.String.Type
 open import Base.String.append
-open import Base.Trait.Show public
+open import Base.Show.Trait public
 
 instance
   ShowPair : ∀ {A B : Set} {{ShowA : Show A}} {{ShowB : Show B}} → Show (Pair A B)

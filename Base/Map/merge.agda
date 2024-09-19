@@ -5,7 +5,7 @@ open import Base.Map.get
 open import Base.Map.set
 open import Base.Map.to-list
 open import Base.Maybe.Type
-open import Base.Maybe.bind
+open import Base.Maybe.Monad.bind
 open import Base.Bits.Type
 open import Base.List.Type
 open import Base.List.foldr

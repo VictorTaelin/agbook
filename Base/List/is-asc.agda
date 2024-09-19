@@ -6,7 +6,7 @@ open import Base.List.Type
 open import Base.List.foldr
 open import Base.Nat.Type
 open import Base.Nat.Ord
-open import Base.Trait.Ord
+open import Base.Ord.Trait
 
 -- Checks if a list of Nats is in ascending order.
 -- - xs: The list of Nats to check.

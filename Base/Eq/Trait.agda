@@ -1,4 +1,4 @@
-module Base.Trait.Eq where
+module Base.Eq.Trait where
 
 open import Agda.Primitive
 open import Base.Bool.Type

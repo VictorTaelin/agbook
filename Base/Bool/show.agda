@@ -2,7 +2,7 @@ module Base.Bool.show where
 
 open import Base.Bool.Type
 open import Base.String.Type
-open import Base.Trait.Show public
+open import Base.Show.Trait public
 
 show-bool : Bool → String
 show-bool True = "true"

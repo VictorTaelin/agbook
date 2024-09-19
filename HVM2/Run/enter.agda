@@ -3,8 +3,8 @@ module HVM2.Run.enter where
 open import Base.Function.case
 open import Base.Maybe.Type
 open import HVM2.Run.Type
-open import HVM2.Run.bind
-open import HVM2.Run.pure
+open import HVM2.Run.Monad.bind
+open import HVM2.Run.Monad.pure
 open import HVM2.Run.subst-take
 open import HVM2.Term.Type
 
