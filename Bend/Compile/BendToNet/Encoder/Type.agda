@@ -14,4 +14,3 @@ record Encoder : Set where
   field
     net  : Net                       -- Current state of the Net being built
     vars : Map Port                  -- Map of variable names to their corresponding Ports
-    lets : List (Pair Pattern Term)  -- List of lets to be processed

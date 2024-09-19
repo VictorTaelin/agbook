@@ -10,8 +10,9 @@ open import Base.Ord.Trait public
 instance
   OrdChar : Ord Char
   OrdChar = record
-    { _<_  = λ x y → _<_  {{OrdNat}} (to-nat x) (to-nat y)
-    ; _<=_ = λ x y → _<=_ {{OrdNat}} (to-nat x) (to-nat y)
-    ; _>_  = λ x y → _>_  {{OrdNat}} (to-nat x) (to-nat y)
-    ; _>=_ = λ x y → _>=_ {{OrdNat}} (to-nat x) (to-nat y)
+    { compare = λ x y → compare {{OrdNat}} (to-nat x) (to-nat y)
+    ; _<_     = λ x y →    _<_  {{OrdNat}} (to-nat x) (to-nat y)
+    ; _<=_    = λ x y →    _<=_ {{OrdNat}} (to-nat x) (to-nat y)
+    ; _>_     = λ x y →    _>_  {{OrdNat}} (to-nat x) (to-nat y)
+    ; _>=_    = λ x y →    _>=_ {{OrdNat}} (to-nat x) (to-nat y)
     }
