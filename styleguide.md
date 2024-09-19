@@ -256,3 +256,33 @@ module Data.Nat.Test.eq where
 - Run tests and type-checking frequently
 - Use CI/CD for automated checks
 
+
+### 1.5 ALL.agda Files
+
+Each folder in the project should contain an ALL.agda file. The purpose of this file is to:
+
+1. Import and re-export all modules in the folder.
+2. Provide a single point of import for all functionality in that folder.
+3. Ensure consistent naming and organization across the project.
+
+Example of an ALL.agda file:
+
+```agda
+module Base.Example.ALL where
+
+open import Base.Example.Type public
+open import Base.Example.function1 public
+open import Base.Example.function2 public
+
+-- Re-export the main type and its constructors
+open Base.Example.Type public using (ExampleType; Constructor1; Constructor2)
+```
+
+This structure allows other modules to import all functionality from a folder by simply importing its ALL module:
+
+```agda
+open import Base.Example.ALL
+```
+
+This practice promotes modularity and makes it easier to manage imports across the project.
+
