@@ -3,6 +3,8 @@ module Bend.Parser.Fun.parse-term where
 open import Base.Function.case
 open import Base.Bool.Type
 open import Base.Bool.if
+open import Base.Bool.or
+open import Base.Char.is-digit
 open import Base.List.Type
 open import Base.List.foldl
 open import Base.List.unzip
@@ -21,19 +23,24 @@ open import Base.Parser.State
 open import Base.Parser.fail
 open import Base.Parser.Monad.bind
 open import Base.Parser.Monad.pure
+open import Base.Parser.peek-one
 open import Base.Parser.alternative
 open import Base.Parser.parse-string
+open import Base.Parser.starts-with
 open import Bend.Parser.consume
 open import Bend.Parser.try-consume
+open import Bend.Parser.first-with-guard
 open import Bend.Parser.skip-trivia
 open import Bend.Parser.starts-with-keyword
 open import Bend.Parser.parse-restricted-name
 open import Bend.Parser.parse-var-name
 open import Bend.Parser.parse-number
+open import Bend.Parser.parse-keyword
+open import Bend.Parser.parse-oper
 open import Bend.Parser.list-like
 open import Bend.Parser.sep-by
 open import Bend.Parser.Fun.parse-pattern
-
+import Bend.Fun.Op.Type as Op
 import Bend.Fun.MatchRule.Type as MatchRule'
 
 private
@@ -42,24 +49,28 @@ private
 parse-term : Parser Term
 parse-term = do
   skip-trivia
-  parse-lambda <|>
-    parse-parenthesized <|>
-    parse-superposition <|>
-    parse-list <|>
-    parse-str-term <|>
-    parse-num-term <|>
-    parse-let <|>
-    parse-use <|>
-    parse-ask <|>
-    parse-match <|>
-    parse-switch <|>
-    parse-fold <|>
-    parse-bend <|>
-    parse-open <|>
-    parse-link <|>
-    parse-var <|>
-    fail "Expected term"
-  
+  let starts-with-lam = do
+    is-lam ← starts-with "λ"
+    is-at ← starts-with "@"
+    pure (is-lam || is-at)
+  first-with-guard (
+          (starts-with-lam , parse-lambda)
+        :: (starts-with "(" , parse-parens)
+        :: (starts-with "{" , parse-sup)
+        :: (starts-with "[" , parse-list)
+        :: (starts-with "\"" , parse-str-term)
+        :: (starts-with "let" , parse-let)
+        :: (starts-with "use" , parse-use)
+        :: (starts-with "ask" , parse-ask)
+        :: (starts-with "match" , parse-match)
+        :: (starts-with "switch" , parse-switch)
+        :: (starts-with "fold" , parse-fold)
+        :: (starts-with "bend" , parse-bend)
+        :: (starts-with "open" , parse-open)
+        :: (starts-with "$" , parse-link)
+        :: (starts-with "*" , pure Era)
+        :: []) parse-num-or-var
+
   where
 
   parse-name-or-era : Parser (Maybe String)
@@ -85,18 +96,29 @@ parse-term = do
     let term = foldl App head tail
     pure term
 
-  parse-parenthesized : Parser Term
-  parse-parenthesized = do
+  parse-parens : Parser Term
+  parse-parens = do
     consume "("
-    head ← parse-term
+    opr ← (parse-oper >>= λ opr → pure (Some opr)) <|> pure None
     is-tup ← try-consume ","
-    if is-tup
-      then parse-tup head
-      else parse-app head
+    case opr , is-tup of λ where
+      -- (*, ...) is a tuple
+      (Some Op.Mul , True)  → parse-tup Era
+      (Some _      , True)  → fail "Expected term" 
+      (Some opr    , False) → do
+        fst ← parse-term
+        snd ← parse-term
+        consume ")"
+        pure (Oper opr fst snd)
+      (None        , _)     → do
+        head ← parse-term
+        is-tup ← try-consume ","
+        if is-tup
+          then parse-tup head
+          else parse-app head
 
-  parse-superposition : Parser Term
-  parse-superposition = do
-    consume "{"
+  parse-sup : Parser Term
+  parse-sup = do
     els ← list-like parse-term "{" "}" "," False 2
     pure (Fan FanKind.Dup els)
 
@@ -110,14 +132,9 @@ parse-term = do
     str ← parse-string
     pure (Str str)
 
-  parse-num-term : Parser Term
-  parse-num-term = do
-    num ← parse-number
-    pure (Num num)
-
   parse-let : Parser Term
   parse-let = do
-    consume "let"
+    parse-keyword "let"
     pat ← parse-pattern
     consume "="
     val ← parse-term
@@ -127,7 +144,7 @@ parse-term = do
 
   parse-use : Parser Term
   parse-use = do
-    consume "use"
+    parse-keyword "use"
     nam ← parse-var-name
     consume "="
     val ← parse-term
@@ -137,7 +154,7 @@ parse-term = do
 
   parse-ask : Parser Term
   parse-ask = do
-    consume "ask"
+    parse-keyword "ask"
     pat ← parse-pattern
     consume "="
     val ← parse-term
@@ -148,7 +165,7 @@ parse-term = do
   -- An arg with non-optional name and optional value
   parse-named-arg : Parser (Pair (Maybe String) Term)
   parse-named-arg = do
-    nam ← parse-var-name
+    nam ← parse-restricted-name "argument name"
     has-arg ← try-consume "="
     if has-arg then (do
         arg ← parse-term
@@ -171,7 +188,7 @@ parse-term = do
   parse-match-with : Parser (List (Pair (Maybe String) Term))
   parse-match-with = do
     let clause = do
-      consume "with"
+      parse-keyword "with"
       sep-by parse-named-arg "," 1
     clause <|> pure []
 
@@ -186,7 +203,7 @@ parse-term = do
 
   parse-match : Parser Term
   parse-match = do
-    consume "match"
+    parse-keyword "match"
     bnd , arg ← parse-match-arg
     with' ← parse-match-with
     let with-bnd , with-arg = unzip with'
@@ -212,35 +229,38 @@ parse-term = do
 
   parse-switch : Parser Term
   parse-switch = do
-    consume "switch"
+    parse-keyword "switch"
     bnd , arg ← parse-match-arg
     with' ← parse-match-with
     let with-bnd , with-arg = unzip with'
     consume "{"
     (pred , arms) ← parse-switch-arms 0 []
+    consume "}"
     let arms = reverse arms
     let pred = maybe None (λ bnd → Some (bnd ++ "-" ++ (show pred))) bnd
     pure (Swt bnd arg with-bnd with-arg pred arms)
 
   parse-fold : Parser Term
   parse-fold = do
-    consume "fold"
+    parse-keyword "fold"
     bnd , arg ← parse-match-arg
     with' ← parse-match-with
     let with-bnd , with-arg = unzip with'
     arms ← list-like parse-match-arm "{" "}" ";" False 1
-    pure (Fold None arg [] [] arms)
+    pure (Fold bnd arg with-bnd with-arg arms)
 
   parse-bend : Parser Term
   parse-bend = do
-    consume "bend"
+    parse-keyword "bend"
     args ← list-like parse-named-arg "" "{" "," False 1
     let bnd , arg = unzip args
-    consume "when"
+    skip-trivia
+    parse-keyword "when"
     cond ← parse-term
     consume ":"
     step ← parse-term
-    consume "else"
+    skip-trivia
+    parse-keyword "else"
     consume ":"
     base ← parse-term
     consume "}"
@@ -248,8 +268,10 @@ parse-term = do
 
   parse-open : Parser Term
   parse-open = do
-    consume "open"
+    parse-keyword "open"
+    skip-trivia
     typ ← parse-restricted-name "type"
+    skip-trivia
     var ← parse-var-name
     try-consume ";"
     bod ← parse-term
@@ -258,10 +280,17 @@ parse-term = do
   parse-link : Parser Term
   parse-link = do
     consume "$"
-    nam ← parse-var-name
+    nam ← parse-restricted-name "unscoped variable"
     pure (Link nam)
 
-  parse-var : Parser Term
-  parse-var = do
-    nam ← parse-var-name
-    pure (Var nam)
+  parse-num-or-var : Parser Term
+  parse-num-or-var = do
+    head ← peek-one
+    case head of λ where
+      (Some c) →  if is-digit c then (do
+                    num ← parse-number
+                    pure (Num num))
+                  else do
+                    var ← parse-var-name
+                    pure (Var var)
+      None → fail "Expected term"
