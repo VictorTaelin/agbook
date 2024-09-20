@@ -24,7 +24,7 @@ insert v t = get-fst (insert' v t) where
   insert' : ∀ {K V : Set} → {{_ : Ord K}} → Pair K V → AVL K V → Pair (AVL K V) Bool
   insert' v Leaf = Node v zero empty empty , True
   insert' v (Node curr balance left right) with compare v curr
-  ... | EQ = Node curr balance left right , False
+  ... | EQ = Node v    balance left right , False
   ... | LT =
     let (other , is-higher) = insert' v left in
     case (is-higher , balance) of λ where
