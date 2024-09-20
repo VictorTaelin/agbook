@@ -1,75 +1,85 @@
 module client where
 
-open import Agda.Builtin.String using (String)
-open import Agda.Builtin.Nat using (Nat)
-open import Agda.Builtin.Unit using (⊤)
-open import Agda.Builtin.IO using (IO)
+open import Data.String.Type
+open import Data.String.append
+open import Data.Nat.Type
+open import Data.Nat.show renaming (show to nshow)
+open import Data.Bool.if
+open import Data.Unit.Type
+open import Data.IO.Type
+open import Data.IO.bind
+open import Data.IO.print
+open import Data.IO.pure
+open import Data.IO.seq
+open import Data.Int.Type
+open import Network.WebSocket.WSConnection
+open import Network.WebSocket.run-client
+open import UG.SIPD.FFI.now
 
--- word8 is a byte that is converted to the Word8 type in haskell
--- in js we dont need the type, we just use the ArrayBuffer functions to integrate correctly
--- for now will postulate through ffi instead of defining a complex type bcs need it fast
--- so we simply need a way to pack things in bytestrings
--- also some way to call date (with getPOSIXTime)
--- And how to mimic the promises structure of the client class?
--- when opening, we sync time
--- we deal with errors
--- we use forkIO with a handleMessage function as we were doing in the gameLoop
--- send is just a call for send, no problem 
--- not sure about the receive, in the  ts version, rooms is a map of rooms to a set of callbacks. I believe you can be connected to multiple rooms and have many callbacks.
--- our receive function also has to call forkIO, the callback we will mimic
--- is a function that correctly handles the returns of the functions through a concurrent channel.
--- Then we have to deal with message format, which has the tag, room and time.
--- and the callback is called for each message. In the game, this is the deserialization of the message and registering it in the state machine. 
--- Deal with u48 writing 
--- maybe we have a word48 or smth, otherwise we create two aux functions as well.
-
-
--- Postulates for ByteString and Word8
 postulate
   ByteString : Set
   Word8 : Set
-  pack : String → ByteString
-  cons : Word8 → ByteString → ByteString
+  pack : String -> ByteString
+  cons : Word8 -> ByteString -> ByteString
+  sendBinaryData : WSConnection -> ByteString -> IO Unit
+  natToWord8 : Nat -> Word8
+  head : ByteString -> Word8
+  tail : ByteString -> ByteString
+  show : ByteString -> String
+  receiveBinaryData : WSConnection -> IO ByteString
 
--- Postulates for WebSocket functions
-postulate
-  Connection : Set
-  sendBinaryData : Connection → ByteString → IO ⊤
-  runClient : String → Nat → String → (Connection → IO ⊤) → IO ⊤
+{-# FOREIGN GHC import qualified Network.WebSockets as WS #-}
+{-# FOREIGN GHC import qualified Data.ByteString as BS #-}
+{-# FOREIGN GHC import qualified Data.Word as W #-}
+{-# FOREIGN GHC import qualified Data.Text as T #-}
+{-# FOREIGN GHC import qualified Data.Text.Encoding as TE #-}
+{-# COMPILE GHC ByteString = type BS.ByteString #-}
+{-# COMPILE GHC Word8 = type W.Word8 #-}
+{-# COMPILE GHC pack = TE.encodeUtf8 #-}
+{-# COMPILE GHC cons = BS.cons #-}
+{-# COMPILE GHC sendBinaryData = \conn msg -> WS.sendBinaryData conn msg #-}
+{-# COMPILE GHC natToWord8 = fromIntegral #-}
+{-# COMPILE GHC head = BS.head #-}
+{-# COMPILE GHC tail = BS.tail #-}
+{-# COMPILE GHC show = T.pack . show #-}
+{-# COMPILE GHC receiveBinaryData = \conn -> WS.receiveData conn #-}
 
--- Postulate for time function
-postulate
-  getPOSIXTime : IO Nat
-
--- Define the message type for PING
 pingMessageType : Word8
-pingMessageType = 1  -- Assuming 1 represents PING in your case
+pingMessageType = natToWord8 1
 
--- Function to send a PING message with additional data over WebSocket
-syncTime : Connection → IO ⊤
+
+syncTime : WSConnection -> IO Unit
 syncTime conn = do
   let stringData = pack "abc"
       buffer = cons pingMessageType stringData
-  
-  sendTime ← getPOSIXTime
-  
-  _ ← sendBinaryData conn buffer
-  
-  -- Store the last ping time (analogous to `this.last_ping_time`)
-  _ ← putStrLn ("Last ping time: " ++ show sendTime)
-  
-  return ⊤
+  sendTime <- now
+  _ <- sendBinaryData conn buffer
+  _ <- print ("Last ping time: " ++ nshow sendTime)
+  pure unit
 
-main : IO ⊤
+
+handleMessage : WSConnection -> ByteString -> IO Unit
+handleMessage conn msg = do
+  let messageType = head msg
+      dataPart = tail msg
+  _ <- print ("Received data: " ++ show dataPart)
+  pure unit
+  
+
+receiveLoop : WSConnection -> IO Unit
+receiveLoop conn = do
+  msg <- receiveBinaryData conn
+  _ <- handleMessage conn msg
+  receiveLoop conn
+
+
+main : IO Unit
 main = do
-  _ ← putStrLn "Connecting to WebSocket server..."
-  runClient "127.0.0.1" 8080 "/" λ conn → do
-    _ ← putStrLn "Connected to WebSocket server"
-    _ ← syncTime conn
-    _ ← putStrLn "Sync time message sent"
-    return ⊤
+  _ <- print "Connecting to WebSocket server..."
+  run-client "127.0.0.1" (Pos 8080) "/" λ conn -> do
+    _ <- print "Connected to WebSocket server"
+    _ <- syncTime conn
+    _ <- print "Sync time message sent"
+    receiveLoop conn
 
--- Postulate for putStrLn and show
-postulate
-  putStrLn : String → IO ⊤
-  show : Nat → String
+
