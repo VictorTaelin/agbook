@@ -9,7 +9,6 @@ open import Base.Nat.lt
 lte : Nat → Nat → Bool
 lte x y = (eq x y) || (lt x y)
 
-
 infix 4 _<=_
 _<=_ : Nat → Nat → Bool
 _<=_ = lte

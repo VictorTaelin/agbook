@@ -7,7 +7,6 @@ eq True  True  = True
 eq False False = True
 eq _     _     = False
 
-
 infix 4 _==_
 _==_ : Bool → Bool → Bool
 _==_ = eq
