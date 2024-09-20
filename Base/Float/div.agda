@@ -2,6 +2,9 @@ module Base.Float.div where
 
 open import Base.Float.Type
 
+primitive
+  primFloatDiv : Float → Float → Float
+
 -- Division of floats.
 -- - x: The dividend.
 -- - y: The divisor.

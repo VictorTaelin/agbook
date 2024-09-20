@@ -2,6 +2,9 @@ module Base.Float.mul where
 
 open import Base.Float.Type
 
+primitive
+  primFloatTimes : Float → Float → Float
+
 -- Multiplication of floats.
 -- - x: The 1st float.
 -- - y: The 2nd float.

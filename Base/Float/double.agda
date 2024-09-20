@@ -7,4 +7,4 @@ open import Base.Float.Type
 -- - x: The number to double.
 -- = The double of x.
 double : Float → Float
-double x = primFloatPlus x x
+double x = add x x

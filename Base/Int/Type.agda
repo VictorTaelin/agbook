@@ -10,6 +10,3 @@ data Int : Set where
 {-# BUILTIN INTEGER       Int    #-}
 {-# BUILTIN INTEGERPOS    Pos    #-}
 {-# BUILTIN INTEGERNEGSUC NegSuc #-}
-
-primitive
-  primShowInteger : Int → String

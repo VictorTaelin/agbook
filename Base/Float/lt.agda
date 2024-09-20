@@ -3,6 +3,9 @@ module Base.Float.lt where
 open import Base.Float.Type
 open import Base.Bool.Type
 
+primitive
+  primFloatLess : Float → Float → Bool
+
 lt : Float → Float → Bool
 lt = primFloatLess
 

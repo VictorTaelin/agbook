@@ -2,6 +2,9 @@ module Base.Float.sub where
 
 open import Base.Float.Type
 
+primitive
+  primFloatMinus : Float → Float → Float
+
 -- Subtraction of floats.
 -- - x: The number to subtract from.
 -- - y: The number to subtract.

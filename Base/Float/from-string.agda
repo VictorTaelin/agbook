@@ -24,6 +24,10 @@ open import Base.String.drop
 open import Base.String.to-list
 open import Base.String.Type
 
+primitive
+  primIntToFloat : Int → Float
+  primRatioToFloat : Int → Int → Float
+
 digits-to-nat : List Char → List (Maybe Nat)
 digits-to-nat = map digit-to-nat
 

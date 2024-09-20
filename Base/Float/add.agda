@@ -2,6 +2,9 @@ module Base.Float.add where
 
 open import Base.Float.Type
 
+primitive
+  primFloatPlus : Float → Float → Float
+
 -- Addition of floats.
 -- - x: The 1st float.
 -- - y: The 2nd float.

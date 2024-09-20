@@ -4,6 +4,9 @@ open import Base.Float.Type
 open import Base.Maybe.Type
 open import Base.U64.Type
 
+primitive
+  primFloatToWord64 : Float → Maybe U64
+
 -- Converts a float to its U64 representation.
 -- - x: The float to convert
 -- = The U64 representation of x, or nothing if conversion fails.

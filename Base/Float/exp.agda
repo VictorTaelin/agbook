@@ -2,6 +2,9 @@ module Base.Float.exp where
 
 open import Base.Float.Type
 
+primitive
+  primFloatPow : Float → Float → Float
+
 -- Exponentiation of floats.
 -- - x: The base float.
 -- - y: The exponent float.

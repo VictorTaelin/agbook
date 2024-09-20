@@ -7,6 +7,3 @@ data Nat : Set where
   Succ : Nat → Nat
 
 {-# BUILTIN NATURAL Nat #-}
-
-primitive
-  primShowNat : Nat → String

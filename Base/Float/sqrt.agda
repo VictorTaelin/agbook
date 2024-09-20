@@ -2,6 +2,9 @@ module Base.Float.sqrt where
 
 open import Base.Float.Type
 
+primitive
+  primFloatSqrt : Float → Float
+
 -- Computes the square root of a float.
 -- Returns NaN for negative numbers.
 -- - x: The float to take the square root of.
