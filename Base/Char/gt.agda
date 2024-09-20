@@ -1,11 +1,9 @@
 module Base.Char.gt where
 
 open import Base.Char.Type
-open import Base.Char.Ord
 open import Base.Bool.Type
-open import Base.Ord.Trait
+open import Base.Char.to-nat
+import Base.Nat.gt as Nat
 
--- Greater-than comparison for characters.
--- Uses the Ord instance for Char.
 gt : Char → Char → Bool
-gt = _>_ {{OrdChar}}
+gt x y = Nat.gt (to-nat x) (to-nat y)

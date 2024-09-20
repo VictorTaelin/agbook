@@ -1,5 +1,6 @@
 module Base.Nat.ALL where
 
+open import Base.Nat.Ord public
 open import Base.Nat.Type public
 open import Base.Nat.add public
 open import Base.Nat.compare public
@@ -17,7 +18,6 @@ open import Base.Nat.max public
 open import Base.Nat.min public
 open import Base.Nat.mod public
 open import Base.Nat.mul public
-open import Base.Nat.Ord public
 open import Base.Nat.pred public
 open import Base.Nat.rshift public
 open import Base.Nat.show public

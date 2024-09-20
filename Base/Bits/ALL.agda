@@ -39,6 +39,3 @@ open import Base.Bits.to-char public
 open import Base.Bits.to-nat public
 open import Base.Bits.xor public
 open import Base.Bits.zero public
-
--- Re-export the Bits type
-open Base.Bits.Type public using (Bits; O; I; E)

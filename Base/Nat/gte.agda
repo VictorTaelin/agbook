@@ -11,4 +11,4 @@ open import Base.Nat.eq
 -- - y: The 2nd nat.
 -- = True if x is greater than or equal to y.
 gte : Nat → Nat → Bool
-gte x y = (x == y) || (gt x y)
+gte x y = (eq x y) || (gt x y)

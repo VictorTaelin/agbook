@@ -3,10 +3,7 @@ module Base.Pair.eq where
 open import Base.Pair.Type
 open import Base.Bool.Type
 open import Base.Bool.and
-open import Base.Eq.default-eq
-open import Base.Eq.Trait public
+import Base.Trait.Eq as Eq
 
-instance
-  EqPair : ∀ {A B : Set} {{EqA : Eq A}} {{EqB : Eq B}} → Eq (Pair A B)
-  EqPair = default-eq λ where
-    (a₁ , a₂) (b₁ , b₂) → (a₁ == b₁) && (a₂ == b₂)
+eq : ∀ {A B : Set} → {{EqA : Eq.Eq A}} → {{EqB : Eq.Eq B}} → Pair A B → Pair A B → Bool
+eq {{EqA}} {{EqB}} (a₁ , a₂) (b₁ , b₂) = Eq.eq {{EqA}} a₁ b₁ && Eq.eq {{EqB}} a₂ b₂

@@ -1,11 +1,8 @@
 module Base.U64.gte where
 
 open import Base.U64.Type
-open import Base.U64.Ord
 open import Base.Bool.Type
-open import Base.Ord.Trait
+import Base.Nat.gte as Nat
 
--- Greater than or equal comparison for U64 numbers.
--- Uses the Ord instance for U64.
 gte : U64 → U64 → Bool
-gte = _>=_ {{OrdU64}}
+gte x y = Nat.gte (primWord64ToNat x) (primWord64ToNat y)

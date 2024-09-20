@@ -1,11 +1,9 @@
 module Base.Char.lt where
 
 open import Base.Char.Type
-open import Base.Char.Ord
 open import Base.Bool.Type
-open import Base.Ord.Trait
+open import Base.Char.to-nat
+import Base.Nat.lt as Nat
 
--- Less-than comparison for characters.
--- Uses the Ord instance for Char.
 lt : Char → Char → Bool
-lt = _<_ {{OrdChar}}
+lt x y = Nat.lt (to-nat x) (to-nat y)

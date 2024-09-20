@@ -2,21 +2,9 @@ module Base.Maybe.eq where
 
 open import Base.Maybe.Type
 open import Base.Bool.Type
-open import Base.Bool.not
-open import Base.Eq.Trait public
+import Base.Trait.Eq as Eq
 
-instance
-  EqMaybe : ∀ {A : Set} {{EqA : Eq A}} → Eq (Maybe A)
-  EqMaybe {{EqA}} = record
-    { eq = eq-maybe
-    ; neq = neq-maybe
-    }
-    where
-      eq-maybe : Maybe _ → Maybe _ → Bool
-      eq-maybe None     None     = True
-      eq-maybe (Some x) (Some y) = eq {{EqA}} x y
-      eq-maybe _        _        = False
-
-      neq-maybe : Maybe _ → Maybe _ → Bool
-      neq-maybe x y = not (eq-maybe x y)
-
+eq : ∀ {A : Set} → {{EqA : Eq.Eq A}} → Maybe A → Maybe A → Bool
+eq {{EqA}} None     None     = True
+eq {{EqA}} (Some x) (Some y) = Eq.eq {{EqA}} x y
+eq {{EqA}} _        _        = False

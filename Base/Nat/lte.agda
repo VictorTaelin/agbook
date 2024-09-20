@@ -11,4 +11,4 @@ open import Base.Nat.lt
 -- - y: The 2nd nat.
 -- = True if x is less than or equal to y.
 lte : Nat → Nat → Bool
-lte x y = (x == y) || (lt x y)
+lte x y = (eq x y) || (lt x y)

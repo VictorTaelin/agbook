@@ -3,16 +3,12 @@ module Base.List.show where
 open import Base.List.Type
 open import Base.String.Type
 open import Base.String.append
-open import Base.Show.Trait public
+import Base.Trait.Show as Show
 
-instance
-  ShowList : ∀ {A : Set} {{ShowA : Show A}} → Show (List A)
-  ShowList {{ShowA}} = record { to-string = show-list }
-    where
-      show-list : List _ → String
-      show-list [] = "[]"
-      show-list (x :: xs) = "[" ++ to-string{{ShowA}} x ++ show-rest xs
-        where
-          show-rest : List _ → String
-          show-rest [] = "]"
-          show-rest (y :: ys) = ", " ++ to-string{{ShowA}} y ++ show-rest ys
+show : ∀ {A : Set} → {{ShowA : Show.Show A}} → List A → String
+show [] = "[]"
+show (x :: xs) = "[" ++ Show.to-string x ++ show-rest xs
+  where
+    show-rest : List _ → String
+    show-rest [] = "]"
+    show-rest (y :: ys) = ", " ++ Show.to-string y ++ show-rest ys

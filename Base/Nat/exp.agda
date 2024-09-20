@@ -9,7 +9,7 @@ open import Base.Nat.mul
 -- - n: The 2nd nat.
 -- = m to the power of n.
 exp : Nat → Nat → Nat
-exp m     Zero = 1
+exp m Zero     = 1
 exp m (Succ n) = m * (exp m n)
 
 _**_ : Nat → Nat → Nat

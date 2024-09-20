@@ -5,7 +5,7 @@ open import Base.String.to-list
 open import Base.Bool.Type
 open import Base.Char.Type
 import Base.List.gte as List
-open import Base.Char.Ord
+import Base.Char.Trait.Ord as CharOrd
 
 gte : String → String → Bool
-gte s1 s2 = List.gte {{OrdChar}} (to-list s1) (to-list s2)
+gte s1 s2 = List.gte {{CharOrd.OrdChar}} (to-list s1) (to-list s2)

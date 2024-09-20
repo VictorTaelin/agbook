@@ -3,12 +3,8 @@ module Base.Tree.show where
 open import Base.Tree.Type
 open import Base.String.Type
 open import Base.String.append
-open import Base.Show.Trait public
+import Base.Trait.Show as Show
 
-instance
-  ShowTree : ∀ {A : Set} {{ShowA : Show A}} → Show (Tree A)
-  ShowTree {{ShowA}} = record { to-string = show-tree }
-    where
-      show-tree : Tree _ → String
-      show-tree Leaf = "_"
-      show-tree (Node x l r) = "{" ++ to-string{{ShowA}} x ++ ", " ++ show l ++ ", " ++ show r ++ "}"
+show : ∀ {A : Set} → {{ShowA : Show.Show A}} → Tree A → String
+show Leaf = "_"
+show (Node x l r) = "{" ++ Show.to-string x ++ ", " ++ show l ++ ", " ++ show r ++ "}"

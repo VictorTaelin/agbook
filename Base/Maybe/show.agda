@@ -3,13 +3,8 @@ module Base.Maybe.show where
 open import Base.Maybe.Type
 open import Base.String.Type
 open import Base.String.append
-open import Base.Show.Trait public
+import Base.Trait.Show as Show
 
-instance
-  ShowMaybe : ∀ {A : Set} {{ShowA : Show A}} → Show (Maybe A)
-  ShowMaybe {{ShowA}} = record { to-string = show-maybe }
-    where
-      show-maybe : Maybe _ → String
-      show-maybe None = "None"
-      show-maybe (Some x) = "Some(" ++ to-string{{ShowA}} x ++ ")"
-
+show : ∀ {A : Set} → {{ShowA : Show.Show A}} → Maybe A → String
+show {{ShowA}} None     = "None"
+show {{ShowA}} (Some x) = "Some(" ++ Show.to-string {{ShowA}} x ++ ")"

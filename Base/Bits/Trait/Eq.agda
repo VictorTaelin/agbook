@@ -1,0 +1,13 @@
+module Base.Bits.Trait.Eq where
+
+open import Base.Bits.Type
+import Base.Bits.eq as Bits
+import Base.Bits.neq as Bits
+open import Base.Trait.Eq
+
+instance
+  EqBits : Eq Bits
+  EqBits = record
+    { eq = Bits.eq
+    ; neq = Bits.neq
+    }
