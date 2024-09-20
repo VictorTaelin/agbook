@@ -37,7 +37,10 @@ open import Base.Parser.take-while
 open import Base.Parser.Monad.bind
 open import Base.Parser.Monad.pure
 open import Base.Parser.fail
-open import Base.Parser.alternative
+open import Base.Parser.advance-one
+open import Base.Parser.advance-many
+open import Base.Parser.peek-one
+open import Base.Parser.peek-many
 open import Base.Result.Type
 open import Bend.Parser.consume-exactly
 open import Bend.Parser.try-consume-exactly
@@ -76,14 +79,20 @@ parse-number = do
   where
 
   parse-sign : Parser (Maybe Int)
-  parse-sign = (consume-exactly "+" >> pure (Some (from-nat 1)))
-           <|> (consume-exactly "-" >> pure (Some -1))
-           <|> pure None
+  parse-sign = do
+    head ← peek-one
+    case head of λ where
+      (Some '+') → advance-one >> pure (Some (from-nat 1))
+      (Some '-') → advance-one >> pure (Some -1)
+      _ → pure None
 
   parse-radix : Parser Nat
-  parse-radix = (consume-exactly "0x" >> pure 16)
-            <|> (consume-exactly "0b" >> pure 2)
-            <|> pure 10
+  parse-radix = do
+    head ← peek-many 2
+    case head of λ where
+      (Some "0x") → advance-many 2 >> pure 16
+      (Some "0b") → advance-many 2 >> pure 2
+      _ → pure 10
 
   parse-num-radix : Nat → Parser Nat
   parse-num-radix radix = do

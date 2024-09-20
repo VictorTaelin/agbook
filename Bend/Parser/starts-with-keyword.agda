@@ -13,7 +13,6 @@ open import Base.String.head
 open import Base.Nat.Type
 open import Base.Maybe.Type
 open import Base.Maybe.maybe
-open import Base.Maybe.map
 open import Base.Pair.Type
 open import Base.Parser.Type
 open import Base.Parser.State
