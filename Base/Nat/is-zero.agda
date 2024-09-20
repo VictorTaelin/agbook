@@ -1,7 +1,7 @@
 module Base.Nat.is-zero where
 
-open import Base.Nat.Type
 open import Base.Bool.Type
+open import Base.Nat.Type
 
 -- Checks if a natural number is zero.
 -- - n: The natural number to check.

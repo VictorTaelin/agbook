@@ -6,7 +6,7 @@ open import Base.Nat.Type
 open import Base.Nat.mod using () renaming (mod to nat-mod)
 open import Base.Bits.from-nat
 
--- FIXME: implement proper bitwise algorithm?
+-- FIXME: implement proper bitwise algorithm
 
 -- Perform bit modulo operation by converting to Nat, performing modulo, and converting back to Bits
 -- - a: The dividend (Bits).
