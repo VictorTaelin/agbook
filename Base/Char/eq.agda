@@ -5,6 +5,9 @@ open import Base.Bool.Type
 open import Base.Bool.not
 open import Base.Trait.Eq public
 
+primitive
+  primCharEquality : Char → Char → Bool
+
 instance
   EqChar : Eq Char
   EqChar = record

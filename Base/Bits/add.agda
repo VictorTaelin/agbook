@@ -1,4 +1,4 @@
--- module Base.Bits.add where
+module Base.Bits.add where
 
 open import Base.Bits.Type
 open import Base.Bits.inc
