@@ -7,4 +7,9 @@ neq True  False = True
 neq False True  = True
 neq _     _     = False
 
+
+infix 4 _!=_
+_!=_ : Bool → Bool → Bool
+_!=_ = neq
+
 {-# COMPILE JS neq = function(x) { return function(y) { return x !== y; }; } #-}

@@ -7,7 +7,7 @@ open import Base.OrdMap.empty
 open import Base.Pair.Type
 open import Base.Nat.Type
 open import Base.U64.Type
-open import Base.U64.Ord
+open import Base.U64.Trait.Ord
 
 -- Creates a new Buffer with size `length` filled with zeros.
 new : U64 → Buffer

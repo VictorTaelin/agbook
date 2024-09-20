@@ -2,7 +2,7 @@ module Base.Nat.max where
 
 open import Base.Nat.Type
 open import Base.Bool.if
-open import Base.Nat.Ord
+open import Base.Nat.Trait.Ord
 open import Base.Trait.Ord
 
 -- Returns the maximum of two natural numbers.

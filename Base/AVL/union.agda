@@ -4,7 +4,7 @@ open import Base.AVL.Type
 open import Base.AVL.insert
 open import Base.AVL.fold
 open import Base.Pair.Type
-open import Base.Ord.Trait
+open import Base.Trait.Ord
 
 -- Computes the union of two AVL trees.
 -- - t1: The first AVL tree.

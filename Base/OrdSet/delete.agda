@@ -1,7 +1,7 @@
 module Base.OrdSet.delete where
 
 open import Base.OrdSet.Type
-open import Base.Ord.Trait
+open import Base.Trait.Ord
 import Base.AVL.delete as AVL
 
 -- Deletes an element from an OrdSet.

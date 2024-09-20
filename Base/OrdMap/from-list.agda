@@ -5,7 +5,7 @@ open import Base.List.Type
 open import Base.Pair.Type
 open import Base.AVL.Type
 import Base.AVL.from-list as T
-open import Base.Ord.Trait
+open import Base.Trait.Ord
 
 -- Converts a list of key-value pairs to an OrdMap.
 -- - pairs: A list of key-value pairs.

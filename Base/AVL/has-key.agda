@@ -2,7 +2,7 @@ module Base.AVL.has-key where
 
 open import Base.AVL.Type
 open import Base.Bool.Type
-open import Base.Ord.Trait
+open import Base.Trait.Ord
 open import Base.Ordering.Type
 open import Base.Pair.Type
 

@@ -7,3 +7,7 @@ import Base.Char.eq as Char
 
 neq : Char → Char → Bool
 neq x y = not (Char.eq x y)
+
+infix 4 _!=_
+_!=_ : Char → Char → Bool
+_!=_ = neq

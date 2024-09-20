@@ -5,12 +5,13 @@ open import Base.AVL.empty
 open import Base.AVL.Balance.Type
 open import Base.AVL.Balance.rotate-left
 open import Base.AVL.Balance.rotate-right
-open import Base.Ord.Trait
+open import Base.Trait.Ord
 open import Base.Bool.Type
 open import Base.Pair.Type
 open import Base.Pair.get-fst
 -- We compare Pairs only by their first elements
-open import Base.Pair.ord.fst
+-- FIXME: Pair shouldn't have an ord with that semantics. Instead, add a method on AVL.
+-- open import Base.Pair.ord.fst
 open import Base.Ordering.Type
 open import Base.Function.case
 

@@ -6,9 +6,10 @@ open import Base.Bool.or
 open import Base.Nat.gt
 open import Base.Nat.eq
 
--- Greater-than-or-equal-to comparison for nats.
--- - x: The 1st nat.
--- - y: The 2nd nat.
--- = True if x is greater than or equal to y.
 gte : Nat → Nat → Bool
 gte x y = (eq x y) || (gt x y)
+
+
+infix 4 _>=_
+_>=_ : Nat → Nat → Bool
+_>=_ = gte

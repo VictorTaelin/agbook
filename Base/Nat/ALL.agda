@@ -1,6 +1,6 @@
 module Base.Nat.ALL where
 
-open import Base.Nat.Ord public
+open import Base.Nat.Trait.Ord public
 open import Base.Nat.Type public
 open import Base.Nat.add public
 open import Base.Nat.compare public
@@ -25,5 +25,3 @@ open import Base.Nat.sub public
 open import Base.Nat.to-bits public
 open import Base.Nat.to-u64 public
 open import Base.Nat.xor public
-
-open Base.Nat.Type public using (Nat; Zero; Succ)

@@ -1,10 +1,10 @@
 module Base.U64.min where 
 
 open import Base.U64.Type
-open import Base.U64.Ord
+open import Base.U64.Trait.Ord
 open import Base.U64.if
 open import Base.U64.from-bool
-open import Base.Ord.Trait
+open import Base.Trait.Ord
 
 -- Minimum of two U64 numbers.
 -- - x: The first U64 number.

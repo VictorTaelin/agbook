@@ -8,3 +8,7 @@ import Base.List.eq as List
 
 neq : ∀ {A : Set} → {{EqA : Eq.Eq A}} → List A → List A → Bool
 neq xs ys = not (List.eq xs ys)
+
+infix 4 _!=_
+_!=_ : ∀ {A : Set} → {{EqA : Eq.Eq A}} → List A → List A → Bool
+_!=_ = neq

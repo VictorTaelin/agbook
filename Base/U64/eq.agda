@@ -7,3 +7,7 @@ import Base.Nat.eq as Nat
 
 eq : U64 → U64 → Bool
 eq x y = Nat.eq (primWord64ToNat x) (primWord64ToNat y)
+
+infix 4 _==_
+_==_ : U64 → U64 → Bool
+_==_ = eq

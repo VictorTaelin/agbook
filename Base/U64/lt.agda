@@ -6,3 +6,7 @@ import Base.Nat.lt as Nat
 
 lt : U64 → U64 → Bool
 lt x y = Nat.lt (primWord64ToNat x) (primWord64ToNat y)
+
+infix 4 _<_
+_<_ : U64 → U64 → Bool
+_<_ = lt

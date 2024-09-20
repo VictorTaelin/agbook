@@ -7,3 +7,7 @@ import Base.Float.eq as Float
 
 neq : Float → Float → Bool
 neq x y = not (Float.eq x y)
+
+infix 4 _!=_
+_!=_ : Float → Float → Bool
+_!=_ = neq

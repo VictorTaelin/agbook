@@ -3,7 +3,7 @@ module Base.Tree.all-equal where
 open import Base.Tree.Type
 open import Base.Bool.Type
 open import Base.Bool.and
-open import Base.Eq.Trait
+open import Base.Trait.Eq
 
 all-equal : ∀ {A : Set} {{EqA : Eq A}} → Tree A → Bool
 all-equal Leaf = True

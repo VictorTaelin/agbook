@@ -2,7 +2,7 @@ module Base.AVL.get where
 
 open import Base.AVL.Type
 open import Base.Maybe.Type
-open import Base.Ord.Trait
+open import Base.Trait.Ord
 open import Base.Ordering.Type
 open import Base.Pair.Type
 

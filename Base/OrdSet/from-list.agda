@@ -5,7 +5,7 @@ open import Base.List.Type
 open import Base.List.map
 open import Base.Pair.Type
 open import Base.Unit.Type
-open import Base.Ord.Trait
+open import Base.Trait.Ord
 import Base.AVL.from-list as T
 
 -- Converts a list of elements to an OrdSet.

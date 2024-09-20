@@ -20,7 +20,7 @@ open import Base.U64.mod public
 open import Base.U64.mul public
 open import Base.U64.not public
 open import Base.U64.or public
-open import Base.U64.Ord public
+open import Base.U64.Trait.Ord public
 open import Base.U64.show public
 open import Base.U64.sub public
 open import Base.U64.to-bits public

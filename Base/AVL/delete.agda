@@ -6,7 +6,7 @@ open import Base.AVL.delete-maximum
 open import Base.AVL.Balance.Type
 open import Base.AVL.Balance.rotate-left
 open import Base.AVL.Balance.rotate-right
-open import Base.Ord.Trait
+open import Base.Trait.Ord
 open import Base.Maybe.Type
 open import Base.Bool.Type
 open import Base.Bool.not

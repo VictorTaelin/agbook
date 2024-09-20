@@ -3,7 +3,7 @@ module Base.OrdSet.insert where
 open import Base.OrdSet.Type
 open import Base.Unit.Type
 open import Base.Pair.Type
-open import Base.Ord.Trait
+open import Base.Trait.Ord
 import Base.AVL.insert as AVL
 
 -- Inserts an element into an OrdSet.

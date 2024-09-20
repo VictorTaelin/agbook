@@ -6,3 +6,7 @@ open import Base.Bool.not
 
 lte : Float → Float → Bool
 lte x y = not (primFloatLess y x)
+
+infix 4 _<=_
+_<=_ : Float → Float → Bool
+_<=_ = lte

@@ -3,7 +3,7 @@ module Base.OrdMap.singleton where
 open import Base.OrdMap.Type
 import Base.AVL.singleton as AVL
 open import Base.Pair.Type
-open import Base.Ord.Trait
+open import Base.Trait.Ord
 
 -- Creates an OrdMap containing a single key-value pair.
 -- - K: The type of the key.

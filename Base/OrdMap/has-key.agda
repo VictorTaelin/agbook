@@ -5,7 +5,7 @@ open import Base.AVL.Type
 import Base.AVL.has-key as AVL
 open import Base.Pair.Type
 open import Base.Bool.Type
-open import Base.Ord.Trait
+open import Base.Trait.Ord
 open import Base.Pair.ord.fst
 
 -- Checks if a key exists in the OrdMap.

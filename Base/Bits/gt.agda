@@ -13,3 +13,7 @@ gt (O a) (O b) = gt a b
 gt (O _) (I _) = False
 gt (I _) (O _) = True
 gt (I a) (I b) = gt a b
+
+infix 4 _>_
+_>_ : Bits → Bits → Bool
+_>_ = gt

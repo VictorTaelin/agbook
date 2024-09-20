@@ -8,3 +8,7 @@ import Base.Trait.Eq as Eq
 
 neq : ∀ {A : Set} → {{EqA : Eq.Eq A}} → Tree A → Tree A → Bool
 neq t1 t2 = not (Tree.eq t1 t2)
+
+infix 4 _!=_
+_!=_ : ∀ {A : Set} → {{EqA : Eq.Eq A}} → Tree A → Tree A → Bool
+_!=_ = neq

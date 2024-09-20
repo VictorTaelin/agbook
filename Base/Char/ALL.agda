@@ -17,7 +17,7 @@ open import Base.Char.is-print public
 open import Base.Char.is-space public
 open import Base.Char.lt public
 open import Base.Char.lte public
-open import Base.Char.Ord public
+open import Base.Char.Trait.Ord public
 open import Base.Char.show public
 open import Base.Char.to-digit public
 open import Base.Char.to-lower public

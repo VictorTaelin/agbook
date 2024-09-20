@@ -11,9 +11,9 @@ open import Base.Bits.pad-zeros
 open import Base.Bool.Type
 open import Base.Bool.if
 open import Base.Nat.Type
-open import Base.Nat.Ord
+open import Base.Nat.Trait.Ord
 open import Base.Pair.Type
-open import Base.Ord.Trait
+open import Base.Trait.Ord
 
 -- Encodes a character into its UTF-8 representation as Bits.
 -- - c: The character to encode.
