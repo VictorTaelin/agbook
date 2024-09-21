@@ -1,20 +1,20 @@
 module UG.Chat.Client.Type where
 
 open import Data.String.Type
-open import Data.Float.Type
+open import Data.Nat.Type
+open import Data.Map.Type
+open import Network.WebSocket.WSConnection
 
-postulate
-  WebSocket : Set
-  Room : Set
-  Recv : Set
-  Map : Set -> Set -> Set
+--Recv : Set
+-- Recv = ByteString -> IO Unit
 
-record UwUChat2Client : Set where
+record Client : Set where
   field
-    ws : WebSocket
-    rooms : Map Room Recv
-    server-time-offset : Float
-    best-ping : Float
-    last-ping-time : Float
+    ws : WSConnection
+-- map keys are always bits, we map from a bit (room) to a recv callback
+--    rooms : Map Nat
+    server-time-offset : Nat
+    best-ping : Nat
+    last-ping-time : Nat
 
 

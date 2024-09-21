@@ -1,15 +1,26 @@
 module UG.Chat.Client.send where
 
+open import UG.Chat.Client.Type
+open import UG.Chat.Message.Type
+open import UG.Chat.Message.message-to-nat
 open import Data.Nat.Type
 open import Data.IO.Type
+open import Data.IO.bind
+open import Data.IO.seq
+open import Data.IO.pure
+open import Data.Unit.Type
 open import UG.Chat.Message.Type
+open import Network.WebSocket.send-binary-data
+open import UG.SIPD.FFI.nat-to-word8
+open import UG.SIPD.FFI.ByteString
+open import UG.SIPD.FFI.cons
+open import UG.SIPD.FFI.pack
 
 send : Client -> Nat -> ByteString -> IO Unit
 send client room msg = do
-  let message-type = from-nat (message-type-to-nat POST)
-  -- room is a nat and we need it as u48? not sure what nats are
-  let buffer = cons message-type room msg
-  _ <- send-binary-data (Client.conn client) buffer
+  let message-type = nat-to-word8 (message-to-nat POST)
+  let buffer = cons message-type (cons (nat-to-word8 room) msg)
+  _ <- send-binary-data (Client.ws client) buffer
   pure unit
   
 
