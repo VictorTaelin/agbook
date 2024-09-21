@@ -1,6 +1,5 @@
 module Base.Float.ALL where
 
-open import Base.Float.Comparison public
 open import Base.Float.Type public
 open import Base.Float.add public
 open import Base.Float.and public
@@ -28,10 +27,3 @@ open import Base.Float.sqrt public
 open import Base.Float.sub public
 open import Base.Float.to-bits public
 open import Base.Float.to-u64 public
-
--- Re-export the Float type
-open Base.Float.Type public using (Float)
-
--- Re-export any specific constructors or functions from Type if necessary
--- For example:
--- open Base.Float.Type public using (fromNat; toNat)

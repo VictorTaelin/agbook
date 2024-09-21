@@ -15,5 +15,3 @@ open import Base.Map.swap public
 open import Base.Map.take public
 open import Base.Map.to-list public
 open import Base.Map.values public
-
-open Base.Map.Type public using (Map)

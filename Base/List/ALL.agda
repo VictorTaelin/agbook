@@ -61,5 +61,3 @@ open import Base.List.update-at public
 open import Base.List.zip public
 open import Base.List.zip-cons public
 open import Base.List.zip-with public
-
-open Base.List.Type public using (List; []; _::_)

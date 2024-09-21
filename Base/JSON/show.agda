@@ -14,6 +14,8 @@ open import Base.String.Type
 open import Base.String.append
 open import Base.String.eq
 
+primitive primShowFloat : Float → String
+
 -- FIXME: use String.join instead
 show : JSON → String
 show JNull         = "null"

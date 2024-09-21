@@ -7,5 +7,3 @@ open import Base.Tree.eq public
 open import Base.Tree.fold public
 open import Base.Tree.show public
 open import Base.Tree.sum public
-
-open Base.Tree.Type public using (Tree; Node; Leaf)

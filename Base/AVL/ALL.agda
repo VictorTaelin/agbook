@@ -21,7 +21,3 @@ open import Base.AVL.values public
 open import Base.AVL.fold public
 open import Base.AVL.intersect public
 open import Base.AVL.union public
-
--- Re-export the AVL type and Balance type
-open Base.AVL.Type public using (AVL; Leaf; Node)
-open Base.AVL.Balance.Type public using (Balance; -one; zero; +one)

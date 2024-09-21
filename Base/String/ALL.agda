@@ -17,5 +17,3 @@ open import Base.String.starts-with public
 open import Base.String.to-list public
 open import Base.String.to-nat-base public
 open import Base.String.uncons public
-
-open Base.String.Type public using (String)

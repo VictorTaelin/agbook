@@ -28,8 +28,8 @@ open import Base.Bits.pad-zeros public
 open import Base.Bits.pred public
 open import Base.Bits.reverse public
 open import Base.Bits.rshift public
-open import Base.Bits.show-rev public
 open import Base.Bits.show public
+open import Base.Bits.show-rev public
 open import Base.Bits.split-at public
 open import Base.Bits.split-chunks public
 open import Base.Bits.sub public

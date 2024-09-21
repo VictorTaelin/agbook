@@ -23,6 +23,3 @@ open import Base.Char.to-digit public
 open import Base.Char.to-lower public
 open import Base.Char.to-nat public
 open import Base.Char.to-upper public
-
--- Re-export the Char type
-open Base.Char.Type public using (Char)

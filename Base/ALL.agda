@@ -63,23 +63,14 @@ module Parser where
 module Queue where
   open import Base.Queue.ALL public
 
-module Eq where
-  open import Base.Eq.ALL public
-
-module Ord where
-  open import Base.Ord.ALL public
-
-module Show where
-  open import Base.Show.ALL public
-
 module Tree where
   open import Base.Tree.ALL public
 
 module Unit where
   open import Base.Unit.ALL public
 
-module AVL where
-  open import Base.AVL.ALL public
+-- module AVL where
+  -- open import Base.AVL.ALL public
 
 -- FIXME: can we re-export types and constructors in a way that avoids the type
 -- prefix (i.e., Bool instead of Bool.Bool), and without re-defining them
@@ -248,11 +239,11 @@ Unit = Unit.Unit
 unit : Unit
 unit = Unit.unit
 
-AVL : Set → Set → Set
-AVL = AVL.AVL
+-- AVL : Set → Set → Set
+-- AVL = AVL.AVL
 
-AVLLeaf : ∀ {A B} → AVL A B
-AVLLeaf = AVL.Leaf
+-- AVLLeaf : ∀ {A B} → AVL A B
+-- AVLLeaf = AVL.Leaf
 
-AVLNode : ∀ {A B} → Pair A B → AVL.Balance → AVL A B → AVL A B → AVL A B
-AVLNode = AVL.Node
+-- AVLNode : ∀ {A B} → Pair A B → AVL.Balance → AVL A B → AVL A B → AVL A B
+-- AVLNode = AVL.Node
