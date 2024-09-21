@@ -4,6 +4,7 @@ open import Network.WebSocket.WSConnection
 open import Data.String.Type
 open import Data.IO.Type
 open import Data.Unit.Type
+open import UG.SIPD.FFI.ByteString
 
 -- Sends text data over a WebSocket connection.
 -- - conn: The WebSocket connection to send data through.
