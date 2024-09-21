@@ -8,7 +8,7 @@ open import Base.Nat.Type
 -- - n: The second natural number.
 -- = LT if m < n, EQ if m = n, GT if m > n.
 compare : Nat → Nat → Ordering
-compare Zero Zero = EQ
-compare Zero (Succ _) = LT
-compare (Succ _) Zero = GT
+compare Zero     Zero     = EQ
+compare Zero     (Succ _) = LT
+compare (Succ _) Zero     = GT
 compare (Succ m) (Succ n) = compare m n

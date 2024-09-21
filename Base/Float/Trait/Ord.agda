@@ -1,6 +1,7 @@
 module Base.Float.Trait.Ord where
 
 open import Base.Float.Type
+import Base.Float.compare as Float
 import Base.Float.lt as Float
 import Base.Float.gt as Float
 import Base.Float.lte as Float
@@ -10,7 +11,8 @@ open import Base.Trait.Ord
 instance
   OrdFloat : Ord Float
   OrdFloat = record
-    { lt = Float.lt
+    { compare = Float.compare
+    ; lt = Float.lt
     ; gt = Float.gt
     ; lte = Float.lte
     ; gte = Float.gte

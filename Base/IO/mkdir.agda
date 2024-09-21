@@ -1,3 +1,5 @@
+-- FIXME: this name is inconsistent (mkdir / is-directory?). solve
+
 module Base.IO.mkdir where
 
 open import Base.IO.Type

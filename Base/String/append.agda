@@ -2,8 +2,7 @@ module Base.String.append where
 
 open import Base.String.Type
 
-primitive
-  primStringAppend : String → String → String
+primitive primStringAppend : String → String → String
 
 -- Concatenates two strings.
 -- - s1: The first string.

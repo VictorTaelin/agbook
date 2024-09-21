@@ -14,7 +14,7 @@ open import Base.Trait.Ord
 -- = A new list containing all elements from xs in ascending order.
 quicksort : List Nat → List Nat
 quicksort []        = []
-quicksort (x :: xs) = 
+quicksort (x :: xs) = do
   let min = filter (λ y → _<_ {{OrdNat}} y x) xs
-      max = filter (λ y → _>_ {{OrdNat}} y x) xs
-  in quicksort min ++ (x :: quicksort max)
+  let max = filter (λ y → _>_ {{OrdNat}} y x) xs
+  quicksort min ++ (x :: quicksort max)

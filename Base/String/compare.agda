@@ -9,6 +9,9 @@ open import Base.Bool.if
 
 compare : String → String → Ordering
 compare s1 s2 = 
-  if (String.eq s1 s2) then EQ
-  else if (String.lt s1 s2) then LT
-  else GT
+  if (String.eq s1 s2) then
+    EQ
+  else if (String.lt s1 s2) then
+    LT
+  else
+    GT

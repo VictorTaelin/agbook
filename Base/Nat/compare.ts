@@ -1,4 +1,4 @@
-import { Ordering, LT, EQ, GT } from '../../Base/Ordering/Type';
+import { Ordering, $LT, $EQ, $GT } from '../../Base/Ordering/Type';
 import { Nat } from '../../Base/Nat/Type';
 
 // Compares two natural numbers.
@@ -8,26 +8,26 @@ import { Nat } from '../../Base/Nat/Type';
 export const $$compare = (m: Nat, n: Nat): Ordering => {
   if (m === 0n) {
     if (n === 0n) {
-      return EQ;
+      return $EQ;
     } else {
-      return LT;
+      return $LT;
     }
   } else {
     if (n === 0n) {
-      return GT;
+      return $GT;
     } else {
       var m_ = m - 1n;
       var n_ = n - 1n;
-      return $compare(m_, n_);
+      return $$compare(m_, n_);
     }
   }
 };
 
 // NOTE: Using native BigInt comparison for efficiency.
 export const $compare = (m: Nat, n: Nat): Ordering => {
-  if (m < n) return LT;
-  if (m > n) return GT;
-  return EQ;
+  if (m < n) return $LT;
+  if (m > n) return $GT;
+  return $EQ;
 };
 
 export const compare = (m: Nat) => (n: Nat) => $compare(m, n);

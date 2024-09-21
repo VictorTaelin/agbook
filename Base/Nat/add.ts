@@ -1,4 +1,4 @@
-import { Nat } from '../../Base/Nat/Type';
+import { Nat, $Succ, $Zero } from '../../Base/Nat/Type';
 
 // Addition of nats.
 // - m: The 1st nat.
@@ -9,7 +9,7 @@ export const $$add = (m: Nat, n: Nat): Nat => {
     return n;
   } else {
     var pred = m - 1n;
-    return 1n + $$add(pred, n);
+    return $Succ($$add(pred, n));
   }
 };
 

@@ -1,12 +1,12 @@
+-- FIXME: let's rename it to file-<action>. this should be a style, because it sorts better.
+
 module Base.IO.write-file where
 
 open import Base.IO.Type
 open import Base.String.Type
 open import Base.Unit.Type
 
-postulate
-  write-file   : String → String → IO Unit
-
+postulate write-file : String → String → IO Unit
 
 {-# FOREIGN GHC import qualified Data.Text    as T   #-}
 {-# FOREIGN GHC import qualified Data.Text.IO as TIO    #-}

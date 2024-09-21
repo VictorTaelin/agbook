@@ -4,8 +4,7 @@ open import Agda.Primitive
 open import Base.String.Type
 
 record Show {a} (A : Set a) : Set (lsuc a) where
-  field
-    to-string : A → String
+  field to-string : A → String
 
 open Show {{...}} public
 

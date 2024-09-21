@@ -1,3 +1,5 @@
+-- FIXME: let's rename it to file-<action>. this should be a style, because it sorts better.
+
 module Base.IO.append-file where
 
 open import Base.String.Type

@@ -11,9 +11,9 @@ open import Base.U64.from-nat
 -- - x: The bit representation to convert.
 -- = The U64 representation of x, or nothing if conversion fails.
 from-bits : Bits → Maybe U64
-from-bits b = helper b Zero
-    where
-        helper : Bits → Nat → Maybe U64
-        helper E acc = Some (from-nat acc)
-        helper (O bs) acc = helper bs (double acc)
-        helper (I bs) acc = helper bs (Succ (double acc))
+from-bits b = from-bits-go b Zero where
+  from-bits-go : Bits → Nat → Maybe U64
+  from-bits-go E      acc = Some (from-nat acc)
+  from-bits-go (O bs) acc = from-bits-go bs (double acc)
+  from-bits-go (I bs) acc = from-bits-go bs (Succ (double acc))
+
