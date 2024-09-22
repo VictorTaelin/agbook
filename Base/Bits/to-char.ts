@@ -1,7 +1,7 @@
 import { Bits } from '../../Base/Bits/Type';
 import { Char } from '../../Base/Char/Type';
-import { $to_nat } from '../../Base/Bits/to_nat';
-import { $from_nat } from '../../Base/Char/from_nat';
+import { $to_nat } from '../../Base/Bits/to-nat';
+import { $from_nat } from '../../Base/Char/from-nat';
 
 // Converts a Bits value to its corresponding character.
 // - bits: The Bits value to convert.

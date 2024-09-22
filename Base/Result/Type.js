@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Fail = exports.$Fail = exports.Done = exports.$Done = void 0;
+const $Done = (value) => ({ $: 'Done', value });
+exports.$Done = $Done;
+const Done = (value) => (0, exports.$Done)(value);
+exports.Done = Done;
+const $Fail = (error) => ({ $: 'Fail', error });
+exports.$Fail = $Fail;
+const Fail = (error) => (0, exports.$Fail)(error);
+exports.Fail = Fail;

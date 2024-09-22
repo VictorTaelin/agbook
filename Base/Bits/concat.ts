@@ -1,22 +1,22 @@
-import { List } from '../../Base/List/Type';
-import { Bits, O, I, E } from '../../Base/Bits/Type';
+import { List, $Cons, $Nil } from '../../Base/List/Type';
+import { Bits, $O, $I, $E } from '../../Base/Bits/Type';
 
 // Converts a list of Bits in to a single Bits.
 // Least significant bits should be to the left of the list.
-export const $concat = (xs: List<Bits>): Bits => {
-  switch (xs.$) {
+export const $concat = (bits_list: List<Bits>): Bits => {
+  switch (bits_list.$) {
     case '[]':
-      return E;
+      return $E;
     case '::':
-      switch (xs.head.$) {
+      switch (bits_list.head.$) {
         case 'E':
-          return $concat(xs.tail);
+          return $concat(bits_list.tail);
         case 'O':
-          return O($concat($Cons(xs.head.tail, xs.tail)));
+          return $O($concat($Cons(bits_list.head.tail, bits_list.tail)));
         case 'I':
-          return I($concat($Cons(xs.head.tail, xs.tail)));
+          return $I($concat($Cons(bits_list.head.tail, bits_list.tail)));
       }
   }
 };
 
-export const concat = (xs: List<Bits>) => $concat(xs);
+export const concat = (bits_list: List<Bits>) => $concat(bits_list);

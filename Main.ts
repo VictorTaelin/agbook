@@ -1,17 +1,23 @@
 import { IO } from './Base/IO/Type';
-import { Unit } from './Base/Unit/Type';
+import { Unit, $unit } from './Base/Unit/Type';
 import { $print } from './Base/IO/print';
-import { $seq } from './Base/IO/Monad/bind';
+import { $bind } from './Base/IO/Monad/bind';
+import { Nat, $Zero } from './Base/Nat/Type';
+import { $add } from './Base/Nat/add';
+import { $show } from './Base/Nat/show';
+import { $append } from './Base/String/append';
 
-export const main: IO<Unit> = () =>
-  $seq(
-    $print("Hello, world!"),
-    $print("Hello, world!")
-  )();
+const $loop = (i: Nat): IO<Unit> => {
+  return $bind(
+    $print($append("Hello ", $show(i))),
+    () => $loop($add(i, 1n))
+  );
+};
 
-// NOTE: In TypeScript, we don't have the 'do' notation like in Agda.
-// Instead, we use the `$seq` function to chain IO actions.
-// The main function returns a Promise that resolves after both print statements are executed.
+export const loop = (i: Nat) => $loop(i);
+
+export const $main: IO<Unit> = $loop($Zero);
+export const  main = () => $main;
 
 // To run the main function:
-main().then(() => console.log("Program finished"));
+$main().catch(error => console.error("An error occurred:", error));

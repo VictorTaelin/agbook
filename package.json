@@ -1,0 +1,8 @@
+{
+  "name": "bun-typescript-project",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "bun-types": "latest"
+  }
+}
