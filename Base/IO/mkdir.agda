@@ -1,4 +1,4 @@
--- FIXME: this name is inconsistent (mkdir / is-directory?). solve
+-- FIXME: this name is inconsistent (mkdir / is-directory). solve
 
 module Base.IO.mkdir where
 
