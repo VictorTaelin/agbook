@@ -4,7 +4,7 @@ module Bend.Net.Port.show where
 open import Bend.Net.Port.Type
 open import Bend.Net.Port.to-pair
 open import Base.Pair.show
-open import Base.Trait.Show public
+open import Base.Show.Trait
 open import Base.Nat.Type
 open import Base.Nat.show
 open import Base.String.Type

@@ -8,6 +8,7 @@ open import Base.Map.empty
 open import Base.Map.set
 open import Base.Nat.Type
 open import Base.Bits.from-nat
+open import Base.Show.Trait
 open import Bend.Net.Type
 open import Bend.Net.Node.Type
 open import Bend.Net.Port.Type
