@@ -1,5 +1,6 @@
 module Base.IO.ALL where
 
+open import Base.IO.Trait.Monad public
 open import Base.IO.Monad.bind public
 open import Base.IO.Monad.pure public
 open import Base.IO.Type public

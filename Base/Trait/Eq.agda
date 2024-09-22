@@ -19,8 +19,8 @@ _==_ {{eqA}} = eq {{eqA}}
 _!=_ : ∀ {a} {A : Set a} {{eqA : Eq A}} → A → A → Bool
 _!=_ {{eqA}} = neq {{eqA}}
 
-default : ∀ {a} {A : Set a} → (A → A → Bool) → Eq A
-default eq-impl = record
+make-eq : ∀ {a} {A : Set a} → (A → A → Bool) → Eq A
+make-eq eq-impl = record
   { eq = eq-impl
   ; neq = λ x y → not (eq-impl x y)
   }

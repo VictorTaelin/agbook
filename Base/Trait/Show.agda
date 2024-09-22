@@ -11,7 +11,7 @@ open Show {{...}} public
 show : ∀ {a} {A : Set a} {{showA : Show A}} → A → String
 show {{showA}} x = to-string {{showA}} x
 
-default : ∀ {a} {A : Set a} → (A → String) → Show A
-default show-impl = record
+make-show : ∀ {a} {A : Set a} → (A → String) → Show A
+make-show show-impl = record
   { to-string = show-impl
   }

@@ -1,5 +1,9 @@
 module Base.String.ALL where
 
+open import Base.String.Trait.Eq public
+open import Base.String.Trait.Monoid public
+open import Base.String.Trait.Ord public
+open import Base.String.Trait.Show public
 open import Base.String.Type public
 open import Base.String.append public
 open import Base.String.drop public
