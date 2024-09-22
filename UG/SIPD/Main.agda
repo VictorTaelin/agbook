@@ -1,4 +1,5 @@
 module UG.SIPD.Main where
+
 open import Data.IO.Type
 open import Data.IO.bind
 open import Data.IO.seq
@@ -17,6 +18,7 @@ open import UG.SIPD.State.Type
 open import UG.SIPD.State.init
 open import UG.SM.Game.Type
 open import UG.SM.Type
+open import UG.SM.Time.time-to-tick
 open import Data.Bool.Type
 open import Concurrent.Channel.Type
 open import Concurrent.Channel.write-channel
@@ -37,9 +39,12 @@ open import Data.Maybe.Type
 open import Data.Function.case
 open import UG.SM.new-mach
 open import UG.SM.register-action
+open import UG.SM.compute
+open import UG.SM.TimedAction.Type
 open import UG.SIPD.FFI.Window.Type
 open import UG.SIPD.FFI.Window.create-window
 open import UG.SIPD.FFI.Renderer.Type
+open import UG.SIPD.FFI.now
 open import UG.SIPD.FFI.Renderer.create-renderer
 open import Data.List.foldl
 open import Data.List.foldr
@@ -113,9 +118,15 @@ nat-to-bytes n = reverse (go n 6)
 
 write-u48 : Nat -> ByteString
 write-u48 n = pack-w8 (nat-to-bytes n)
+
+click-event : Event
+click-event = MouseClick LeftButton 0.0 0.0
+
+decode : ByteString -> TimedAction Event
+decode bs = record
+  { action = click-event ; time = 1 }
   
-# FIXME not getting results correctly
-# THIS should result in IO state machine, returning a state machine with updated and registered actions.
+-- FIXME not getting results correctly
 handle-bs-result : ByteString -> (Mach State Event) -> IO (Mach State Event)
 handle-bs-result bs mach = do
   let tag = head bs
@@ -128,35 +139,54 @@ handle-bs-result bs mach = do
   print ( "time is " ++ (show time))
   let msg = pack-w8 (take 6 (unpack rest2))
   print ( "msg is " ++ (bshow msg))
-  
-  pure unit
 
-process-messages : Channel ByteString -> (Mach State Event) -> (Mach State Event) - IO (Mach State Event)
-process-messages channel mach = do
+  -- this will handle a bytestring result which should be decoded in an action
+  let received-event = decode bs
+
+  let new-sm = register-action mach received-event
+  pure new-sm
+
+process-messages : Mach State Event -> Channel ByteString -> IO (Mach State Event)
+process-messages mach channel = do
   maybe-msg <- read-channel channel
   case maybe-msg of λ where
-    (Some msg) → do
-      handle-bs-result msg
-    None → pure unit
+    (Some msg) -> do
+      new-mach <- handle-bs-result msg mach
+      pure new-mach
+    None -> do 
+      pure mach
 
 initial-mach : Mach State Event
 initial-mach = new-mach 60 event-eq
 
-loop : (Mach State Event) -> Window -> Renderer -> State -> (Channel ByteString -> IO Unit) -> Channel ByteString -> IO State
+time-action : Nat -> Event -> TimedAction Event
+time-action time event = record { action = event ; time = time }
+
+register-events : Mach State Event -> List Event -> IO (Mach State Event)
+register-events mach events = do
+  -- time <- now
+  let time = 10
+  let timed-actions = map (time-action time) events
+  let final-mach = foldl (λ acc-mach action → register-action acc-mach action) mach timed-actions
+  pure final-mach
+
+loop : (Mach State Event) -> Window -> Renderer -> State -> (Channel ByteString -> IO (Mach State Event)) -> Channel ByteString -> IO State
 loop mach window renderer state process-message channel = do
 
-  new-mach <- process-message channel
-
   events <- get-events
+  registered-mach <- register-events mach events
 
-  -- let updatedMach = foldr register-action mach events
-  -- TODO: use state machine here
-  let newState = foldl (λ state event → Game.when game event state) state events
+  -- new-mach <- process-message channel
 
-  --let newState = foldl (Game.when game) state events
+  time-now <- now
 
-  draw window renderer newState
-  loop mach window renderer newState process-message channel
+  --let newState = compute registered-mach game (time-to-tick registered-mach time-now)
+  let newState = compute registered-mach game 100
+
+  -- let newState = foldl (λ state event → Game.when game event state) state events
+
+  draw window renderer state
+  loop registered-mach window renderer newState (λ chan -> process-message chan) channel
 
   
 main : IO Unit
@@ -168,14 +198,16 @@ main = do
   chan <- new-channel
 
   print ("Connecting to WebSocket server")
-  run-concurrent-client host port path (handle-websocket chan)
+  --run-concurrent-client host port path (handle-websocket chan)
 
   init-video
 
   window <- create-window 
   renderer <- create-renderer window
 
-  loop initial-mach window renderer initialState (process-messages) chan
+  loop initial-mach window renderer initialState (λ chan -> process-messages initial-mach chan) chan
 
   quit-video
+
+
 
