@@ -1,5 +1,8 @@
 module Base.ALL where
 
+-- Namespaced Modules
+-- ------------------
+
 module Bool where
   open import Base.Bool.ALL public
 
@@ -12,8 +15,8 @@ module String where
 module Nat where
   open import Base.Nat.ALL public
 
-module Int where
-  open import Base.Int.ALL public
+-- module Int where
+  -- open import Base.Int.ALL public
 
 module Float where
   open import Base.Float.ALL public
@@ -72,6 +75,18 @@ module Unit where
 -- module AVL where
   -- open import Base.AVL.ALL public
 
+-- Traits
+-- ------
+
+open import Base.Trait.Add public
+open import Base.Trait.Eq public
+open import Base.Trait.Monad public
+open import Base.Trait.Monoid public
+open import Base.Trait.Ord public
+open import Base.Trait.Show public
+
+-- Types and Constructors
+-- ----------------------
 -- FIXME: can we re-export types and constructors in a way that avoids the type
 -- prefix (i.e., Bool instead of Bool.Bool), and without re-defining them
 

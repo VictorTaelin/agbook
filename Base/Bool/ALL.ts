@@ -4,5 +4,7 @@ export * from '../../Base/Bool/Type';
 export * from '../../Base/Bool/eq';
 export * from '../../Base/Bool/neq';
 export * from '../../Base/Bool/show';
+export * from '../../Base/Bool/not';
 
-// NOTE: This file re-exports all the Bool-related modules for easier importing.
+// NOTE: This file re-exports all Bool-related modules for easier importing.
+// NOTE: Added export for 'not' module to match Agda's public imports.

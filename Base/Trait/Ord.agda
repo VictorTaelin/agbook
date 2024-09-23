@@ -30,8 +30,8 @@ _<=_ {{ordA}} = lte {{ordA}}
 _>=_ : ∀ {a} {A : Set a} {{ordA : Ord A}} → A → A → Bool
 _>=_ {{ordA}} = gte {{ordA}}
 
-default : ∀ {a} {A : Set a} → (A → A → Ordering) → Ord A
-default compare-impl = record
+make-ord : ∀ {a} {A : Set a} → (A → A → Ordering) → Ord A
+make-ord compare-impl = record
   { compare = compare-impl
   ; lt = λ x y → compare-impl x y == LT
   ; gt = λ x y → compare-impl x y == GT

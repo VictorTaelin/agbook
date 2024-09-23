@@ -8,7 +8,7 @@ open import Base.Float.double public
 open import Base.Float.eq public
 open import Base.Float.exp public
 open import Base.Float.from-bits public
-open import Base.Float.from-string public
+-- open import Base.Float.from-string public
 open import Base.Float.from-u64 public
 open import Base.Float.gt public
 open import Base.Float.gte public

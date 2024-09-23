@@ -1,8 +1,11 @@
 import { IO } from '../../../Base/IO/Type';
 
-// pure: Lifts a value into the IO monad
+// Lifts a value into the IO monad.
+// - A: The type of the value being lifted.
+// - x: The value to lift into IO.
+// = An IO action that will produce the value x.
 export const $pure = <A>(x: A): IO<A> => () => Promise.resolve(x);
-export const  pure = <A>(x: A) => $pure(x);
+export const  pure = <A>(x: A): IO<A> => $pure(x);
 
-// NOTE: This implementation matches the JS COMPILE pragma in the Agda code.
-// It creates an IO action (a function) that, when executed, immediately resolves to the given value.
+// NOTE: We're using a function that returns Promise.resolve to create a lazy IO action,
+// which is our representation of IO in TypeScript.

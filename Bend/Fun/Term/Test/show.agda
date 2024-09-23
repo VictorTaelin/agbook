@@ -63,8 +63,8 @@ test-oper : show (Oper Add (Var "x") (Var "y")) === "(x + y)"
 test-oper = refl
 
 test-mat : show (Mat (Some "x") (Var "expr") [] [] 
-             ((MkMatchRule "case1" [] (Var "result1")) :: 
-              (MkMatchRule "case2" [] (Var "result2")) :: [])) 
+             ((MkMatchRule (Some "case1") [] (Var "result1")) :: 
+              (MkMatchRule (Some "case2") [] (Var "result2")) :: [])) 
            === "match x = expr { case1: result1; case2: result2 }"
 test-mat = refl
 
@@ -73,8 +73,8 @@ test-swt : show (Swt (Some "x") (Var "expr") [] [] None (Var "case1" :: Var "cas
 test-swt = refl
 
 test-fold : show (Fold (Some "acc") (Var "list") [] [] 
-              ((MkMatchRule "case1" [] (Var "result1")) :: 
-               (MkMatchRule "case2" [] (Var "result2")) :: [])) 
+              ((MkMatchRule (Some "case1") [] (Var "result1")) :: 
+               (MkMatchRule (Some "case2") [] (Var "result2")) :: [])) 
             === "fold acc = list { case1: result1; case2: result2 }"
 test-fold = refl
 

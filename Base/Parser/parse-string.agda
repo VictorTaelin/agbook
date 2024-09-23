@@ -3,12 +3,12 @@ module Base.Parser.parse-string where
 open import Base.Char.Type
 open import Base.Function.case
 open import Base.List.Type
-open import Base.Parser.Type
 open import Base.Parser.Monad.bind
+open import Base.Parser.Monad.pure
+open import Base.Parser.Type
 open import Base.Parser.consume
 open import Base.Parser.fail
 open import Base.Parser.parse-char
-open import Base.Parser.Monad.pure
 open import Base.String.Type
 open import Base.String.from-list
 

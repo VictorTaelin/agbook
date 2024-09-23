@@ -1,7 +1,7 @@
 module Bend.Compile.NetToHvm.net-to-hvm where
 
 open import Base.Result.Type
-open import Base.Result.bind
+open import Base.Result.Monad.bind
 open import Base.List.Type
 open import Base.Maybe.Type
 open import Base.Maybe.to-result

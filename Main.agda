@@ -1,13 +1,11 @@
 module Main where
 
--- open import Base.ALL
+open import Base.ALL
 
-open import Base.IO.Monad.bind
-open import Base.Unit.Type
-open import Base.IO.Type
-open import Base.IO.print
+loop : Nat -> IO Unit
+loop i = do
+  IO.print ("Hello " <> show i)
+  loop (i + 1)
 
 main : IO Unit
-main = do
-  print "Hello, world!"
-  print "Hello, world!"
+main = loop 0

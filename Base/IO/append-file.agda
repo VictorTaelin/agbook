@@ -1,5 +1,3 @@
--- FIXME: let's rename it to file-<action>. this should be a style, because it sorts better.
-
 module Base.IO.append-file where
 
 open import Base.String.Type
@@ -13,16 +11,3 @@ postulate
 {-# FOREIGN GHC import qualified Data.Text.IO as TIO #-}
 
 {-# COMPILE GHC append-file = TIO.appendFile . T.unpack #-}
-
-{-# COMPILE JS append-file = function(path) { 
-  return function(content) { 
-    return function() { 
-      return new Promise(function(resolve, reject) { 
-        require('fs').appendFile(path, content, function(err) { 
-          if (err) reject(err); 
-          else resolve({}); 
-        }); 
-      }); 
-    }; 
-  }; 
-} #-}

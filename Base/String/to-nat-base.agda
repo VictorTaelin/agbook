@@ -13,7 +13,9 @@ open import Base.Function.case
 
 -- Converts a string to a natural number in the given base
 to-nat-base : Nat → String → Maybe Nat
-to-nat-base base s = go (to-list s) 0 where
+to-nat-base base s with to-list s
+... | [] = None
+... | cs = go cs 0 where
   go : List Char → Nat → Maybe Nat
   go []        acc = Some acc
   go (c :: cs) acc = 

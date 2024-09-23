@@ -19,7 +19,7 @@ open import Base.Empty.Type
 -- Helper function to run the parser and extract the result
 run-parser : Parser JSON → String → Result JSON Error
 run-parser parser input =
-  case parser (new_parser_state input) of λ where
+  case parser (new-parser-state input) of λ where
     (Done (MkReply _ value)) → Done value
     (Fail e) → Fail e
 
@@ -47,4 +47,3 @@ test-parse-number-7 = refl
 
 test-parse-number-8 : run-parser parse-number "1e+3" === Done (JNumber 1000.0)
 test-parse-number-8 = refl
-

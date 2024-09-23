@@ -5,7 +5,7 @@ export const $map = <A, B, C, D>(
   g: (x: A, y: B) => D,
   pair: Sigma<A, B>
 ): Sigma<C, D> => {
-  const [x, y] = pair;
+  var [x, y] = pair;
   return $Sigma(f(x), g(x, y));
 };
 

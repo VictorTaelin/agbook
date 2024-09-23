@@ -10,3 +10,4 @@
 *.vim
 *.swp
 Main
+node_modules/

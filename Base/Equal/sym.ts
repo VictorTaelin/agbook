@@ -7,4 +7,4 @@ import { Equal, $refl } from '../../Base/Equal/Type';
 // - p: Proof that x is equal to y
 // = Proof that y is equal to x
 export const $sym = <A>(_x: A, _y: A, _p: Equal<A>): Equal<A> => $refl;
-export const  sym = <A>(_x: A) => (_y: A) => (_p: Equal<A>) => $refl;
+export const  sym = <A>(_x: A) => (_y: A) => (_p: Equal<A>): Equal<A> => $refl;

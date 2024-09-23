@@ -53,3 +53,4 @@ delete k t = get-fst (delete-go k t) where
       (True  , +one) -> Node (curr-key , curr-val) zero    left other , True
       (True  , zero) -> Node (curr-key , curr-val) -one    left other , False
       (True  , -one) -> mut-snd not (rotate-right (Node (curr-key , curr-val) -one left other))
+

@@ -6,15 +6,16 @@ open import Base.Bits.and public
 open import Base.Bits.append public
 open import Base.Bits.concat public
 open import Base.Bits.dec public
-open import Base.Bits.decode-utf8 public
+-- open import Base.Bits.decode-utf8 public
 open import Base.Bits.div public
-open import Base.Bits.encode-char-utf8 public
-open import Base.Bits.encode-utf8 public
+-- open import Base.Bits.encode-char-utf8 public
+-- open import Base.Bits.encode-utf8 public
 open import Base.Bits.eq public
 open import Base.Bits.from-char public
 open import Base.Bits.from-nat public
 open import Base.Bits.gt public
 open import Base.Bits.inc public
+open import Base.Bits.is-zero public
 open import Base.Bits.length public
 open import Base.Bits.lshift public
 open import Base.Bits.lt public
@@ -38,4 +39,3 @@ open import Base.Bits.take public
 open import Base.Bits.to-char public
 open import Base.Bits.to-nat public
 open import Base.Bits.xor public
-open import Base.Bits.zero public
