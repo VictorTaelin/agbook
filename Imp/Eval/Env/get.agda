@@ -9,6 +9,6 @@ open import Base.U64.Type
 import Base.OrdMap.get as OrdMap
 
 -- Get a variable's value in the top-most map.
-get : String → Env → Maybe U64
-get _ []       = None
-get k (m :: _) = OrdMap.get k m
+get : Env → String → Maybe U64
+get []       _ = None
+get (m :: _) k = OrdMap.get k m

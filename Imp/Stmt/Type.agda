@@ -17,8 +17,8 @@ data Stmt : Set where
   LSet : String → Expr → Stmt -- set local variable
 
   -- TODO(enricozb): the atomic operations don't specify a memory order
-  SSet : Nat → Expr → Stmt -- set shared variable atomically
-  GSet : Nat → Expr → Stmt -- set global variable atomically
+  SSet : Expr → Expr → Stmt -- set shared variable atomically
+  GSet : Expr → Expr → Stmt -- set global variable atomically
 
   -- Control Flow
   If     : Expr → Stmt → Stmt → Stmt

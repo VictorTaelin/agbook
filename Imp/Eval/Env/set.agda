@@ -10,6 +10,6 @@ open import Base.U64.Type
 import Base.OrdMap.insert as OrdMap
 
 -- Set a variable's value in the top-most map.
-set : String → U64 → Env → Env
-set _ _ []       = []
-set k v (m :: r) = ((OrdMap.insert (k , v) m) :: r)
+set : Env → String → U64 → Env
+set []       _ _ = []
+set (m :: r) k v = ((OrdMap.insert (k , v) m) :: r)

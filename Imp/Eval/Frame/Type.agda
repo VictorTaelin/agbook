@@ -12,6 +12,6 @@ data Frame : Set where
   -- If a return is encountered, plug its value into the function
   -- and continue exection of the resulting statement.
   Fun  : (U64 → Stmt) → Frame
-  -- A loop's test condition, body, and continuation.
-  Loop : Expr → Stmt → Stmt → Frame
+  -- A loop's test condition and body
+  Loop : Expr → Stmt → Frame
 
