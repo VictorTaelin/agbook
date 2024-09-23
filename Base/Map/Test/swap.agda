@@ -5,7 +5,7 @@ open import Base.Map.new
 open import Base.Map.swap
 open import Base.Bits.Type
 open import Base.Maybe.Type
-open import Base.Tree.Type
+open import Base.TreeBin.Type
 open import Base.Pair.Type
 open import Base.Equal.Type
 open import Base.Nat.Type

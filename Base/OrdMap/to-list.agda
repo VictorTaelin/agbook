@@ -1,10 +1,10 @@
 module Base.OrdMap.to-list where
 
-open import Base.OrdMap.Type
+import Base.TreeAVL.to-list as AVL
 open import Base.List.Type
+open import Base.OrdMap.Type
 open import Base.Pair.Type
-open import Base.AVL.Type
-import Base.AVL.to-list as AVL
+open import Base.TreeAVL.Type
 
 -- Converts an OrdMap to a sorted list of key-value pairs.
 -- - map: The OrdMap to convert.

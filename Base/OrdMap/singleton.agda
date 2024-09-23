@@ -1,7 +1,7 @@
 module Base.OrdMap.singleton where
 
+import Base.TreeAVL.singleton as AVL
 open import Base.OrdMap.Type
-import Base.AVL.singleton as AVL
 open import Base.Pair.Type
 open import Base.Trait.Ord
 

@@ -6,7 +6,7 @@ open import Base.Map.empty
 open import Base.Map.set
 open import Base.Bits.Type
 open import Base.Maybe.Type
-open import Base.Tree.Type
+open import Base.TreeBin.Type
 open import Base.String.Type
 open import Base.Equal.Type
 open import Base.Nat.show renaming (show to showN)

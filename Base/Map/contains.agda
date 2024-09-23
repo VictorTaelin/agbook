@@ -3,7 +3,7 @@ module Base.Map.contains where
 open import Base.Map.Type
 open import Base.Bits.Type
 open import Base.Maybe.Type
-open import Base.Tree.Type
+open import Base.TreeBin.Type
 open import Base.Bool.Type
 
 -- Checks if a key exists in the Map.

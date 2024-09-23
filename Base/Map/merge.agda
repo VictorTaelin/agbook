@@ -1,6 +1,6 @@
 module Base.Map.merge where
 
-import Base.Tree.merge as Tree
+import Base.TreeBin.merge as TreeBin
 open import Base.Function.id
 open import Base.Map.Type
 open import Base.Maybe.Type
@@ -10,4 +10,4 @@ open import Base.Maybe.Type
 -- - m2: The second Map to merge (takes priority on conflicts).
 -- = A new Map containing all key-value pairs from both input Maps.
 merge : ∀ {A : Set} → Map A → Map A → Map A
-merge = Tree.merge id id (λ x y → y)
+merge = TreeBin.merge id id (λ x y → y)

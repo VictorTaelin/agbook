@@ -3,7 +3,7 @@ module Base.Map.take where
 open import Base.Map.Type
 open import Base.Bits.Type
 open import Base.Maybe.Type
-open import Base.Tree.Type
+open import Base.TreeBin.Type
 open import Base.Pair.Type
 
 -- Retrieves and removes a value from the Map given a key.

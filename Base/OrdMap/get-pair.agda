@@ -1,10 +1,10 @@
 module Base.OrdMap.get-pair where
 
-open import Base.OrdMap.Type
+import Base.TreeAVL.get-pair as AVL
 open import Base.Maybe.Type
+open import Base.OrdMap.Type
 open import Base.Pair.Type
 open import Base.Trait.Ord
-import Base.AVL.get-pair as AVL
 
 -- Retrieves a key-value pair from the OrdMap based on the given key.
 -- - K: The type of keys in the OrdMap.

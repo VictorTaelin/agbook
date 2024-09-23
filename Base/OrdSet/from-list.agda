@@ -1,12 +1,12 @@
 module Base.OrdSet.from-list where
 
-open import Base.OrdSet.Type
-open import Base.List.Type
+import Base.TreeAVL.from-list as T
 open import Base.List.map
+open import Base.List.Type
+open import Base.OrdSet.Type
 open import Base.Pair.Type
-open import Base.Unit.Type
 open import Base.Trait.Ord
-import Base.AVL.from-list as T
+open import Base.Unit.Type
 
 -- Converts a list of elements to an OrdSet.
 -- - elements: A list of elements to be added to the set.
