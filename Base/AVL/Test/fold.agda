@@ -7,10 +7,11 @@ open import Base.AVL.empty
 open import Base.AVL.from-list
 open import Base.Equal.Type
 open import Base.Nat.Type
-open import Base.Nat.eq
-open import Base.Nat.Ord
+open import Base.Nat.Trait.Eq
+open import Base.Nat.Trait.Ord
+open import Base.Trait.Ord
+open import Base.Trait.Eq
 open import Base.Nat.add
-open import Base.Ord.Trait
 open import Base.List.Type
 open import Base.Bool.Type
 open import Base.Bool.if

@@ -10,14 +10,15 @@ open import Base.Equal.Type
 open import Base.Bool.Type
 open import Base.Bool.and
 open import Base.Nat.Type
-open import Base.Nat.eq
-open import Base.Nat.Ord
+open import Base.Nat.Trait.Eq
+open import Base.Trait.Eq
+open import Base.Nat.Trait.Ord
 open import Base.List.Type
-open import Base.List.eq
+open import Base.List.Trait.Eq
 open import Base.Unit.Type
-open import Base.Unit.eq
+open import Base.Unit.Trait.Eq
 open import Base.Pair.Type
-open import Base.Pair.eq
+open import Base.Pair.Trait.Eq
 
 -- Test 1: Deleting from an empty tree
 test-delete-empty : delete 5 (empty {V = Unit}) === empty

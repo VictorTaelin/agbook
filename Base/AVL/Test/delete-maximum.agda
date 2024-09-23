@@ -10,8 +10,8 @@ open import Base.AVL.Test.is-balanced
 open import Base.List.Type
 open import Base.List.eq
 open import Base.Nat.Type
-open import Base.Nat.eq
-open import Base.Nat.Ord
+open import Base.Nat.Trait.Eq
+open import Base.Nat.Trait.Ord
 open import Base.Equal.Type
 open import Base.Pair.Type
 open import Base.Pair.get-fst
@@ -20,7 +20,7 @@ open import Base.Maybe.Type
 open import Base.Bool.Type
 open import Base.Bool.or
 open import Base.Bool.and
-open import Base.Ord.Trait
+open import Base.Trait.Ord
 open import Base.Nat.lt
 open import Base.Unit.Type
 

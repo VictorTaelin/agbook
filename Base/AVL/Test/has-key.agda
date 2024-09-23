@@ -7,8 +7,7 @@ open import Base.AVL.has-key
 open import Base.Equal.Type
 open import Base.Bool.Type
 open import Base.Nat.Type
-open import Base.Nat.Ord
-open import Base.Ord.Trait
+open import Base.Nat.Trait.Ord
 open import Base.Unit.Type
 open import Base.Pair.Type
 
