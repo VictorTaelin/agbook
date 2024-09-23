@@ -1,0 +1,20 @@
+module Base.BitMap.swap where
+
+open import Base.BitMap.Type
+open import Base.Bits.Type
+open import Base.Maybe.Type
+open import Base.TreeBin.Type
+open import Base.Pair.Type
+
+-- Swaps a value in the BitMap for a new value, returning the old value if it existed.
+-- - m: The BitMap to swap in.
+-- - k: The Bits key to swap.
+-- - v: The new value to insert.
+-- = A pair containing the new BitMap and the old value associated with the key (wrapped in Maybe).
+swap : ∀ {A : Set} → BitMap A → Bits → A → Pair (BitMap A) (Maybe A)
+swap (Node val lft rgt) E     v = (Node (Some v) lft rgt) , val
+swap (Node val lft rgt) (O k) v = let (new-lft , old-val) = swap lft k v in (Node val new-lft rgt) , old-val
+swap (Node val lft rgt) (I k) v = let (new-rgt , old-val) = swap rgt k v in (Node val lft new-rgt) , old-val
+swap Leaf               E     v = (Node (Some v) Leaf Leaf) , None
+swap Leaf               (O k) v = let (new-lft , old-val) = swap Leaf k v in (Node None new-lft Leaf) , old-val
+swap Leaf               (I k) v = let (new-rgt , old-val) = swap Leaf k v in (Node None Leaf new-rgt) , old-val

@@ -1,11 +1,11 @@
 module Base.OrdMap.from-list where
 
-open import Base.OrdMap.Type
+import Base.TreeAVL.from-list as T
 open import Base.List.Type
+open import Base.OrdMap.Type
 open import Base.Pair.Type
-open import Base.AVL.Type
-import Base.AVL.from-list as T
 open import Base.Trait.Ord
+open import Base.TreeAVL.Type
 
 -- Converts a list of key-value pairs to an OrdMap.
 -- - pairs: A list of key-value pairs.

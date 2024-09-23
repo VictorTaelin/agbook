@@ -1,10 +1,10 @@
 module Base.OrdSet.insert where
 
+import Base.TreeAVL.insert as AVL
 open import Base.OrdSet.Type
-open import Base.Unit.Type
 open import Base.Pair.Type
 open import Base.Trait.Ord
-import Base.AVL.insert as AVL
+open import Base.Unit.Type
 
 -- Inserts an element into an OrdSet.
 -- This function is a wrapper around the AVL tree insert operation.

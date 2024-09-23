@@ -1,6 +1,6 @@
 module Base.OrdSet.Type where
 
-open import Base.AVL.Type
+open import Base.TreeAVL.Type
 open import Base.Unit.Type
 
 -- OrdSet is a type alias for AVL trees with Unit as the value type.

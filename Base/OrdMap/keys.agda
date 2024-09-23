@@ -1,8 +1,8 @@
 module Base.OrdMap.keys where
 
-open import Base.OrdMap.Type
+import Base.TreeAVL.keys as AVL
 open import Base.List.Type
-import Base.AVL.keys as AVL
+open import Base.OrdMap.Type
 
 -- Extracts all keys from an OrdMap.
 -- - map: The OrdMap to extract keys from.
