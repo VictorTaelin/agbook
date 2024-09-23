@@ -3,8 +3,8 @@ module UG.SIPD.draw where
 open import Base.IO.Type
 open import Base.List.Type
 open import Base.Unit.Type
-open import UG.SIPD.FFI.Renderer.Type
-open import UG.SIPD.FFI.Window.Type
+open import UG.SIPD.Renderer.Type
+open import UG.SIPD.Window.Type
 open import UG.SIPD.State.Type
 
 postulate draw : Window -> Renderer -> State -> IO Unit
@@ -16,12 +16,14 @@ postulate draw : Window -> Renderer -> State -> IO Unit
 import qualified SDL.Font as TTF
 import Foreign.C.Types (CInt)
 import MAlonzo.Code.UG.SIPD.State.Type (State(..))
-import qualified Base.Text as T
+import qualified Data.Text as T
+import System.Directory (getCurrentDirectory)
 import System.FilePath ((</>))
 
 renderText :: SDL.Renderer -> String -> SDL.Point SDL.V2 CInt -> IO ()
 renderText renderer text (SDL.P (SDL.V2 x y)) = do
-  fontPath <- (</> "AntonSC-Regular.ttf") <$> SDL.getDataDir
+  currentDir <- getCurrentDirectory
+  let fontPath = currentDir </> "AntonSC-Regular.ttf"
   font <- TTF.load fontPath 24 
   surface <- TTF.solid font (SDL.V4 0 0 0 255) (T.pack text)   -- Black
   texture <- SDL.createTextureFromSurface renderer surface

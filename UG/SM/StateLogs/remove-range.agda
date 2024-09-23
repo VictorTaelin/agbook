@@ -6,7 +6,7 @@ open import UG.SM.Tick.Type
 open import Base.Map.Type
 open import Base.Map.del
 open import Base.Nat.Type
-open import Base.Nat.Ord
+open import Base.Nat.lt
 open import Base.Nat.to-bits
 open import Base.Bool.if
 

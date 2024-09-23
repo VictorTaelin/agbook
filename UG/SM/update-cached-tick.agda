@@ -3,8 +3,8 @@ module UG.SM.update-cached-tick where
 open import UG.SM.Type
 open import UG.SM.Tick.Type
 
-open import Base.Nat.Ord
 open import Base.Bool.if
+open import Base.Nat.lt
 
 -- mach: The machine state to update
 -- new-tick: The new tick value to potentially update the cached tick with

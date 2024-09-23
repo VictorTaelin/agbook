@@ -1,13 +1,13 @@
-module UG.SIPD.Video.quit-video where
+module UG.SIPD.Video.quit where
 
 open import Base.IO.Type
 open import Base.Unit.Type
 
-postulate quit-video : IO Unit
+postulate quit : IO Unit
 
 {-# FOREIGN GHC import qualified SDL #-}
 {-# FOREIGN GHC import qualified SDL.Font as TTF #-}
-{-# COMPILE GHC quit-video = do
+{-# COMPILE GHC quit = do
   { 
     TTF.quit ;
     SDL.quit

@@ -12,4 +12,4 @@ postulate receive-binary-data : WSConnection -> IO ByteString
 
 {-# FOREIGN GHC import qualified Network.WebSockets as WS #-}
 
-{-# COMPILE GHC receive-binary-data = \conn -> (WS.receiveBase conn) #-}
+{-# COMPILE GHC receive-binary-data = \conn -> (WS.receiveData conn) #-}

@@ -11,7 +11,9 @@ data Event : Set where
   MouseMove : Float -> Float -> Event 
 
 {-# FOREIGN GHC
-import qualified Base.Text as T
+import qualified Data.Text as T
+import MAlonzo.Code.UG.SIPD.Event.Click
+
 data AgdaEvent
   = KeyEvent T.Text Bool
   | MouseClick AgdaClick Double Double

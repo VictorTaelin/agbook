@@ -2,14 +2,15 @@ module UG.SIPD.Event.get-events where
 
 open import Base.IO.Type
 open import Base.List.Type
-open import UG.SIPD.FFI.Event
+open import UG.SIPD.Event.Type
 
 postulate get-events : IO (List Event)
 
 {-# FOREIGN GHC import qualified SDL as SDL #-}
 {-# FOREIGN GHC 
-import MAlonzo.Code.UG.SIPD.FFI.Event
-import qualified Base.Text as T
+import MAlonzo.Code.UG.SIPD.Event.Type
+import MAlonzo.Code.UG.SIPD.Event.Click
+import qualified Data.Text as T
 
 convertEvent :: SDL.Event -> AgdaEvent
 convertEvent (SDL.Event _ (SDL.KeyboardEvent keyboardEvent)) =
