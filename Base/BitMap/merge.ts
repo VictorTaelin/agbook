@@ -1,4 +1,4 @@
-import { $merge as $tree_merge } from '../../Base/Tree/merge';
+import { $merge as $tree_merge } from '../../Base/TreeBin/merge';
 import { $id } from '../Function/id';
 import { BitMap } from './Type';
 import { Maybe } from '../Maybe/Type';
