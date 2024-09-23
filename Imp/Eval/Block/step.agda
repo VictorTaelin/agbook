@@ -23,9 +23,11 @@ private
 step : (global : Buffer) → Block → StepResult
 
 step global (MkBlock bid shared threads) with (dequeue threads)
+
 ... | Some (thread , threads) = do
   state ← step-thread (MkMemory global shared) bid thread
   case state of λ where
     ((MkMemory global shared) , None       ) → Done (global , Some (MkBlock bid shared threads))
     ((MkMemory global shared) , Some thread) → Done (global , Some (MkBlock bid shared (enqueue threads thread)))
+
 ... | None                  = Done (global , None)
