@@ -1,6 +1,6 @@
 import { Map } from '../../Base/Map/Type';
 import { Maybe, $None } from '../../Base/Maybe/Type';
-import { Tree } from '../../Base/Tree/Type';
+import { TreeBin } from '../../Base/TreeBin/Type';
 import { Bits } from '../../Base/Bits/Type';
 
 // Retrieves a value from the Map given a key.

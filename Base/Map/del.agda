@@ -3,7 +3,7 @@ module Base.Map.del where
 open import Base.Map.Type
 open import Base.Bits.Type
 open import Base.Maybe.Type
-open import Base.Tree.Type
+open import Base.TreeBin.Type
 
 -- Removes a key-value pair from the Map.
 -- - m: The Map to remove from.

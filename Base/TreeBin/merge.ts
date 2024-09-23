@@ -1,4 +1,4 @@
-import { Tree, $Node, $Leaf } from '../../Base/Tree/Type';
+import { TreeBin, $Node, $Leaf } from '../../Base/TreeBin/Type';
 
 // Merges two trees using combining functions.
 // - a: Function to handle cases where only the first tree has a value.
@@ -12,9 +12,9 @@ export const $merge = <A, B, C>(
   a: (x: A) => C,
   b: (x: B) => C,
   ab: (x: A, y: B) => C,
-  t1: Tree<A>,
-  t2: Tree<B>
-): Tree<C> => {
+  t1: TreeBin<A>,
+  t2: TreeBin<B>
+): TreeBin<C> => {
   switch (t1.$) {
     case 'Leaf':
       switch (t2.$) {
@@ -45,4 +45,4 @@ export const $merge = <A, B, C>(
   }
 };
 
-export const merge = <A, B, C>(a: (x: A) => C) => (b: (x: B) => C) => (ab: (x: A, y: B) => C) => (t1: Tree<A>) => (t2: Tree<B>) => $merge(a, b, ab, t1, t2);
+export const merge = <A, B, C>(a: (x: A) => C) => (b: (x: B) => C) => (ab: (x: A, y: B) => C) => (t1: TreeBin<A>) => (t2: TreeBin<B>) => $merge(a, b, ab, t1, t2);

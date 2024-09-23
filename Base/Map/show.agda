@@ -2,7 +2,7 @@ module Base.Map.show where
 
 open import Base.Map.Type
 open import Base.Maybe.Type
-open import Base.Tree.Type
+open import Base.TreeBin.Type
 open import Base.String.Type
 open import Base.String.append
 

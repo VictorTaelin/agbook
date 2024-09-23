@@ -1,12 +1,12 @@
-module Base.Tree.fold where
+module Base.TreeBin.fold where
 
-open import Base.Tree.Type
+open import Base.TreeBin.Type
 
--- Fold operation for Tree.
+-- Fold operation for TreeBin.
 -- - f: Function to apply to each node.
 -- - z: Value to use for leaf nodes.
 -- - t: The tree to fold over.
 -- = The result of folding the tree.
-fold : ∀ {A B : Set} → (A → B → B → B) → B → Tree A → B
+fold : ∀ {A B : Set} → (A → B → B → B) → B → TreeBin A → B
 fold f z Leaf                = z
 fold f z (Node x left right) = f x (fold f z left) (fold f z right)

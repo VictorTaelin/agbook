@@ -66,8 +66,8 @@ module Parser where
 module Queue where
   open import Base.Queue.ALL public
 
-module Tree where
-  open import Base.Tree.ALL public
+module TreeBin where
+  open import Base.TreeBin.ALL public
 
 module Unit where
   open import Base.Unit.ALL public
@@ -239,14 +239,14 @@ Queue = Queue.Queue
 MkQueue : ∀ {a} {A : Set a} → List A → List A → Queue A
 MkQueue = Queue.MkQueue
 
-Tree : Set → Set
-Tree = Tree.Tree
+TreeBin : Set → Set
+TreeBin = TreeBin.TreeBin
 
-Node : ∀ {A} → A → Tree A → Tree A → Tree A
-Node = Tree.Node
+Node : ∀ {A} → A → TreeBin A → TreeBin A → TreeBin A
+Node = TreeBin.Node
 
-Leaf : ∀ {A} → Tree A
-Leaf = Tree.Leaf
+Leaf : ∀ {A} → TreeBin A
+Leaf = TreeBin.Leaf
 
 Unit : Set
 Unit = Unit.Unit

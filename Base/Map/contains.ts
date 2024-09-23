@@ -1,7 +1,7 @@
 import { Map, $Node, $Leaf } from '../../Base/Map/Type';
 import { Bits, $O, $I, $E } from '../../Base/Bits/Type';
 import { Maybe, $Some, $None } from '../../Base/Maybe/Type';
-import { Tree } from '../../Base/Tree/Type';
+import { TreeBin } from '../../Base/TreeBin/Type';
 import { Bool, $True, $False } from '../../Base/Bool/Type';
 
 // Checks if a key exists in the Map.
