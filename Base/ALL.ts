@@ -23,6 +23,7 @@ import * as ParserModule from '../Base/Parser/ALL';
 import * as QueueModule from '../Base/Queue/ALL';
 import * as TreeModule from '../Base/Tree/ALL';
 import * as UnitModule from '../Base/Unit/ALL';
+import * as V2Module from '../Base/V2/ALL';
 
 export { BoolModule as Bool };
 export { CharModule as Char };
@@ -46,6 +47,7 @@ export { ParserModule as Parser };
 export { QueueModule as Queue };
 export { TreeModule as Tree };
 export { UnitModule as Unit };
+export { V2Module as V2 };
 
 // Traits
 // ------

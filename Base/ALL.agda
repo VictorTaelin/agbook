@@ -72,6 +72,9 @@ module TreeBin where
 module Unit where
   open import Base.Unit.ALL public
 
+module V2 where
+  open import Base.V2.ALL public
+
 -- module AVL where
   -- open import Base.AVL.ALL public
 
