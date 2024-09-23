@@ -1,21 +1,21 @@
 module Base.AVL.delete where
 
-open import Base.AVL.Type
-open import Base.AVL.empty
-open import Base.AVL.delete-maximum
 open import Base.AVL.Balance.Type
 open import Base.AVL.Balance.rotate-left
 open import Base.AVL.Balance.rotate-right
-open import Base.Trait.Ord
-open import Base.Maybe.Type
+open import Base.AVL.Type
+open import Base.AVL.delete-maximum
+open import Base.AVL.empty
 open import Base.Bool.Type
 open import Base.Bool.not
-open import Base.Pair.Type
-open import Base.Pair.map
-open import Base.Pair.get-fst
-open import Base.Pair.mut-snd
-open import Base.Ordering.Type
 open import Base.Function.case
+open import Base.Maybe.Type
+open import Base.Ordering.Type
+open import Base.Pair.Type
+open import Base.Pair.get-fst
+open import Base.Pair.map
+open import Base.Pair.mut-snd
+open import Base.Trait.Ord
 
 -- Deletes a key-value pair from an AVL tree, maintaining balance.
 -- - k: The key to delete.

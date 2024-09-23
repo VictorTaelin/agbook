@@ -1,11 +1,11 @@
 module Base.AVL.Balance.rotate-left where
 
-open import Base.AVL.Type
-open import Base.AVL.empty
 open import Base.AVL.Balance.Type
 open import Base.AVL.Balance.eq
-open import Base.Pair.Type
+open import Base.AVL.Type
+open import Base.AVL.empty
 open import Base.Bool.Type
+open import Base.Pair.Type
 
 -- Performs a left rotation on an AVL tree to fix an imbalance of +2.
 -- - tree: The AVL tree to rotate.

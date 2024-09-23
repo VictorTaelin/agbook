@@ -1,14 +1,14 @@
 module Base.AVL.delete-maximum where
 
-open import Base.AVL.Type
-open import Base.AVL.empty
 open import Base.AVL.Balance.Type
 open import Base.AVL.Balance.rotate-right
-open import Base.Trait.Ord
+open import Base.AVL.Type
+open import Base.AVL.empty
 open import Base.Bool.Type
-open import Base.Pair.Type
-open import Base.Maybe.Type
 open import Base.Function.case
+open import Base.Maybe.Type
+open import Base.Pair.Type
+open import Base.Trait.Ord
 
 -- Deletes the maximum element from an AVL tree, maintaining balance.
 -- - tree: The AVL tree to delete from.
@@ -17,7 +17,6 @@ open import Base.Function.case
 --      a. The new AVL tree with the maximum element removed.
 --      b. The maximum key-value pair that was removed (or None if the tree was empty).
 --   2. A boolean indicating whether the height of the tree decreased.
---   switch this function to use `with` syntax instead of `case` syntax
 delete-maximum :
   ∀ {K V : Set} ->
   {{_ : Ord K}} ->
