@@ -13,7 +13,7 @@ open import Base.List.map
 open import Bend.Net.Type
 open import Bend.Net.Node.Type
 open import Bend.Net.Node.show
-open import Base.Trait.Show public
+open import Base.Show.Trait
 
 instance
   ShowNet : Show Net

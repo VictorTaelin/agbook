@@ -21,7 +21,7 @@ open import HVM2.Redex.Type
 open import HVM2.Net.show renaming (show to show-net)
 open import HVM2.Term.Type using () renaming (Term to H)
 open import Bend.Compile.book-to-hvm
-open import Bend.Fun.Term.dsl
+open import Bend.Fun.dsl
 import Bend.Fun.FnDef.Type as Def'
 import Bend.Fun.Rule.Type as Rule'
 

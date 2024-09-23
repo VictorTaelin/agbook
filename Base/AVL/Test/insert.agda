@@ -8,8 +8,8 @@ open import Base.AVL.Balance.Type
 open import Base.AVL.Test.is-balanced
 open import Base.Equal.Type
 open import Base.Nat.Type
-open import Base.Nat.eq
-open import Base.Nat.Ord
+open import Base.Nat.Trait.Eq
+open import Base.Nat.Trait.Ord
 open import Base.List.Type
 open import Base.Bool.Type
 open import Base.Bool.and

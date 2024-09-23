@@ -3,7 +3,7 @@ module Bend.Compile.book-to-hvm where
 open import Base.List.Type
 open import Base.Pair.Type
 open import Base.Result.Type
-open import Base.Result.bind
+open import Base.Result.Monad.bind
 open import Base.String.Type
 open import Bend.Fun.Book.Type renaming (Book to BBook)
 open import Bend.Compile.BendToNet.book-to-nets
