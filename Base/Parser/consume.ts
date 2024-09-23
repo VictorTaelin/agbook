@@ -40,6 +40,6 @@ export const $$consume = (target: String): Parser<Unit> => (str: State) => {
     var new_input = str.input.slice(target.length);
     return $Done($MkReply($MkState(new_input, new_index), $unit));
   } else {
-    return $Fail($MkError(str.index, `Expected ${target}`));
+    return $Fail($MkError(str.index, "Expected " + target));
   }
 };

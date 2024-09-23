@@ -18,4 +18,4 @@ export const MkState = (input: String) => (index: Nat) => $MkState(input, index)
 
 // Creates a new State with the given input and initial index of zero.
 export const $new_parser_state = (input: String): State => $MkState(input, $Zero);
-export const new_parser_state = (input: String) => $new_parser_state(input);
+export const  new_parser_state = (input: String) => $new_parser_state(input);

@@ -17,3 +17,6 @@ case x of f = f x
 -- = The result of applying f to x.
 case_returning_of_ : ∀ {A : Set} {B : A → Set} → (x : A) → (B : A → Set) → ((x : A) → B x) → B x
 case x returning B of f = f x
+
+-- NOTE: Avoid using this. Prefer Agda's 'with' instead.
+-- NOTE: Do NOT use this on TypeScript. Instead, compile to a plain switch.
