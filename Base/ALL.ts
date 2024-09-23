@@ -17,7 +17,7 @@ import * as EmptyModule from '../Base/Empty/ALL';
 import * as EqualModule from '../Base/Equal/ALL';
 import * as FunctionModule from '../Base/Function/ALL';
 import * as IOModule from '../Base/IO/ALL';
-import * as MapModule from '../Base/Map/ALL';
+import * as MapModule from './BitMap/ALL';
 import * as OrderingModule from '../Base/Ordering/ALL';
 import * as ParserModule from '../Base/Parser/ALL';
 import * as QueueModule from '../Base/Queue/ALL';
@@ -40,7 +40,7 @@ export { EmptyModule as Empty };
 export { EqualModule as Equal };
 export { FunctionModule as Function };
 export { IOModule as IO };
-export { MapModule as Map };
+export { MapModule as BitMap };
 export { OrderingModule as Ordering };
 export { ParserModule as Parser };
 export { QueueModule as Queue };
@@ -109,7 +109,7 @@ export const refl: Equal<any> = EqualModule.$refl;
 
 export type IO<A> = IOModule.IO<A>;
 
-export type Map<A> = MapModule.Map<A>;
+export type BitMap<A> = MapModule.BitMap<A>;
 
 export type Ordering = OrderingModule.Ordering;
 export const LT: Ordering = OrderingModule.$LT;

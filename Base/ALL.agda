@@ -54,8 +54,8 @@ module Function where
 module IO where
   open import Base.IO.ALL public
 
-module Map where
-  open import Base.Map.ALL public
+module BitMap where
+  open import Base.BitMap.ALL public
 
 module Ordering where
   open import Base.Ordering.ALL public
@@ -215,8 +215,8 @@ refl = Equal.refl
 IO : Set → Set
 IO = IO.IO
 
-Map : Set → Set
-Map = Map.Map
+BitMap : Set → Set
+BitMap = BitMap.BitMap
 
 Ordering : Set
 Ordering = Ordering.Ordering
