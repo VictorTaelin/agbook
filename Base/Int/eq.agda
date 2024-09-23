@@ -1,14 +1,15 @@
 module Base.Int.eq where
 
-open import Base.Int.Type
-open import Base.Bool.Type
 import Base.Nat.eq as Nat
+open import Base.Bool.Type
+open import Base.Int.Type
+open import Base.Nat.Type
 
 -- Checks if two integers are equal.
--- - x: The first integer.
--- - y: The second integer.
--- = True if x is equal to y, False otherwise.
-eq : Int -> Int -> Bool
+-- - x: The 1st integer.
+-- - y: The 2nd integer.
+-- = True if x and y are equal, False otherwise.
+eq : Int → Int → Bool
 eq (Pos m)    (Pos n)    = Nat.eq m n
 eq (NegSuc m) (NegSuc n) = Nat.eq m n
 eq _          _          = False

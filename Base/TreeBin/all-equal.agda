@@ -1,15 +1,14 @@
 module Base.TreeBin.all-equal where
 
-open import Base.Bool.and
-open import Base.Bool.Type
-open import Base.Trait.Eq
 open import Base.TreeBin.Type
+open import Base.Bool.Type
+open import Base.Bool.and
+open import Base.Trait.Eq
+open import Base.TreeBin.fold
 
+-- Checks if all values in a tree are equal.
+-- - t: The tree to check.
+-- = True if all values in the tree are equal, False otherwise.
 all-equal : ∀ {A : Set} {{EqA : Eq A}} → TreeBin A → Bool
-all-equal Leaf = True
-all-equal (Node x left right) = all-equal-to x left && all-equal-to x right
-  where
-    all-equal-to : ∀ {A : Set} {{EqA : Eq A}} → A → TreeBin A → Bool
-    all-equal-to _ Leaf = True
-    all-equal-to x (Node y left right) = 
-      (x == y) && all-equal-to x left && all-equal-to x right
+all-equal Leaf         = True
+all-equal (Node x l r) = fold (λ y le re → (x == y) && le && re) True (Node x l r)

@@ -1,12 +1,19 @@
 module Base.Int.Trait.Ord where
 
 open import Base.Trait.Ord
-open import Base.Ordering.Type
 open import Base.Int.Type
-import Base.Int.compare
+import Base.Int.compare as Int
+import Base.Int.lt as Int
+import Base.Int.gt as Int
+import Base.Int.lte as Int
+import Base.Int.gte as Int
 
--- Defines the total order for integers.
--- Uses the compare function to implement all operations.
 instance
   OrdInt : Ord Int
-  OrdInt = make-ord Base.Int.compare.compare
+  OrdInt = record
+    { compare = Int.compare
+    ; lt = Int.lt
+    ; gt = Int.gt
+    ; lte = Int.lte
+    ; gte = Int.gte
+    }

@@ -36,8 +36,8 @@ module Maybe where
 module Result where
   open import Base.Result.ALL public
 
-module JSON where
-  open import Base.JSON.ALL public
+-- module JSON where
+  -- open import Base.JSON.ALL public
 
 module Bits where
   open import Base.Bits.ALL public
@@ -170,26 +170,26 @@ Done = Result.Done
 Fail : ∀ {A E} → E → Result A E
 Fail = Result.Fail
 
-JSON : Set
-JSON = JSON.JSON
+-- JSON : Set
+-- JSON = JSON.JSON
 
-JNull : JSON
-JNull = JSON.JNull
+-- JNull : JSON
+-- JNull = JSON.JNull
 
-JBool : Bool → JSON
-JBool = JSON.JBool
+-- JBool : Bool → JSON
+-- JBool = JSON.JBool
 
-JNumber : Float → JSON
-JNumber = JSON.JNumber
+-- JNumber : Float → JSON
+-- JNumber = JSON.JNumber
 
-JString : String → JSON
-JString = JSON.JString
+-- JString : String → JSON
+-- JString = JSON.JString
 
-JArray : List JSON → JSON
-JArray = JSON.JArray
+-- JArray : List JSON → JSON
+-- JArray = JSON.JArray
 
-JObject : List (Pair String JSON) → JSON
-JObject = JSON.JObject
+-- JObject : List (Pair String JSON) → JSON
+-- JObject = JSON.JObject
 
 Bits : Set
 Bits = Bits.Bits
