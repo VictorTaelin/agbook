@@ -1,10 +1,10 @@
 module Base.OrdMap.get where
 
-open import Base.OrdMap.Type
+import Base.TreeAVL.get as AVL
 open import Base.Maybe.Type
+open import Base.OrdMap.Type
 open import Base.Pair.Type
 open import Base.Trait.Ord
-import Base.AVL.get as AVL
 
 -- Retrieves the value associated with a given key in the OrdMap.
 -- - K: The type of keys in the OrdMap.
