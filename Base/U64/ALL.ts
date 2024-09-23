@@ -1,7 +1,10 @@
+export * from '../../Base/U64/Trait/Eq';
 export * from '../../Base/U64/Trait/Ord';
+export * from '../../Base/U64/Trait/Show';
 export * from '../../Base/U64/Type';
 export * from '../../Base/U64/add';
 export * from '../../Base/U64/and';
+export * from '../../Base/U64/compare';
 export * from '../../Base/U64/div';
 export * from '../../Base/U64/double';
 export * from '../../Base/U64/eq';
@@ -17,11 +20,13 @@ export * from '../../Base/U64/max';
 export * from '../../Base/U64/min';
 export * from '../../Base/U64/mod';
 export * from '../../Base/U64/mul';
+export * from '../../Base/U64/neq';
 export * from '../../Base/U64/not';
 export * from '../../Base/U64/or';
 export * from '../../Base/U64/show';
 export * from '../../Base/U64/sub';
 export * from '../../Base/U64/to-bits';
+export * from '../../Base/U64/to-nat';
 export * from '../../Base/U64/xor';
 
 // NOTE: This file exports all U64-related modules.

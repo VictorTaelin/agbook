@@ -1,10 +1,19 @@
 module Base.Int.eq where
 
-open import Base.Eq.Trait
-open import Base.Eq.from-ord
+import Base.Nat.eq as Nat
+open import Base.Bool.Type
 open import Base.Int.Type
-open import Base.Int.Ord
+open import Base.Nat.Type
 
--- Derives the Eq instance for Int from its Ord instance.
-int-eq : Eq Int
-int-eq = from-ord OrdInt
+-- Checks if two integers are equal.
+-- - x: The 1st integer.
+-- - y: The 2nd integer.
+-- = True if x and y are equal, False otherwise.
+eq : Int → Int → Bool
+eq (Pos m)    (Pos n)    = Nat.eq m n
+eq (NegSuc m) (NegSuc n) = Nat.eq m n
+eq _          _          = False
+
+infix 4 _==_
+_==_ : Int → Int → Bool
+_==_ = eq
