@@ -1,10 +1,10 @@
 module Network.WebSocket.run-concurrent-client where
 
-open import Network.WebSocket.WSConnection
-open import Base.String.Type
 open import Base.IO.Type
-open import Base.Unit.Type
 open import Base.Int.Type
+open import Base.String.Type
+open import Base.Unit.Type
+open import Network.WebSocket.WSConnection
 
 -- Runs a concurrent WebSocket client.
 -- - host: The hostname of the WebSocket server.

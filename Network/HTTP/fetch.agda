@@ -3,8 +3,7 @@ module Network.HTTP.fetch where
 open import Base.IO.Type
 open import Base.String.Type
 
-postulate
-  fetch : String -> String -> String -> IO String
+postulate fetch : String -> String -> String -> IO String
 
 {-# FOREIGN GHC
 import qualified Network.HTTP.Simple as HTTP
