@@ -1,7 +1,7 @@
 module Base.ByteString.head where
 
-open import Base.Word8.Type
 open import Base.ByteString.Type
+open import Base.Word8.Type
 
 postulate head : ByteString -> Word8
 

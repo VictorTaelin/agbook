@@ -1,7 +1,7 @@
 module Base.ByteString.cons where
 
-open import Base.Word8.Type
 open import Base.ByteString.Type
+open import Base.Word8.Type
 
 postulate cons : Word8 -> ByteString -> ByteString
 

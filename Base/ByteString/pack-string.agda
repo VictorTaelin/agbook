@@ -1,8 +1,8 @@
 module Base.ByteString.pack-string where
 
 open import Base.ByteString.Type
-open import Base.String.Type
 open import Base.List.Type
+open import Base.String.Type
 
 postulate pack-string : String -> ByteString
 
