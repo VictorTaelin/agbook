@@ -46,6 +46,10 @@ v' x = Var x
 v'$ : String → Term
 v'$ = Link
 
+-- Reference
+ref' : String → Term
+ref' = Ref
+
 -- Erasure
 *' : Term
 *' = Era
