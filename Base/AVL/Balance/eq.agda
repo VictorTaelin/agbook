@@ -6,7 +6,7 @@ open import Base.Bool.Type
 
 instance
   EqBalance : Eq Balance
-  EqBalance = default λ where
+  EqBalance = make-eq λ where
     -one -one → True
     zero zero → True
     +one +one → True

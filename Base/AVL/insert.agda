@@ -9,9 +9,6 @@ open import Base.Trait.Ord
 open import Base.Bool.Type
 open import Base.Pair.Type
 open import Base.Pair.get-fst
--- We compare Pairs only by their first elements
--- FIXME: Pair shouldn't have an ord with that semantics. Instead, add a method on AVL.
--- open import Base.Pair.ord.fst
 open import Base.Ordering.Type
 open import Base.Function.case
 
@@ -24,8 +21,9 @@ insert v t = get-fst (insert' v t) where
   -- returns True if the height increased
   insert' : ∀ {K V : Set} → {{_ : Ord K}} → Pair K V → AVL K V → Pair (AVL K V) Bool
   insert' v Leaf = Node v zero empty empty , True
-  insert' v (Node curr balance left right) with compare v curr
-  ... | EQ = Node v    balance left right , False
+  insert' v@(v-key , v-val) (Node curr@(curr-key , curr-val) balance left right)
+    with compare v-key curr-key
+  ... | EQ = Node v balance left right , False
   ... | LT =
     let (other , is-higher) = insert' v left in
     case (is-higher , balance) of λ where

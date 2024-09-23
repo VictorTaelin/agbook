@@ -7,8 +7,6 @@ open import Base.AVL.Balance.rotate-right
 open import Base.Trait.Ord
 open import Base.Bool.Type
 open import Base.Pair.Type
--- We compare Pairs only by their first elements
-open import Base.Pair.ord.fst
 open import Base.Maybe.Type
 open import Base.Function.case
 
