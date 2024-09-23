@@ -1,7 +1,6 @@
-module Base.Int.Ord where
+module Base.Int.Trait.Ord where
 
-open import Base.Ord.Trait
-open import Base.Ord.default-ord
+open import Base.Trait.Ord
 open import Base.Ordering.Type
 open import Base.Int.Type
 import Base.Int.compare
@@ -10,4 +9,4 @@ import Base.Int.compare
 -- Uses the compare function to implement all operations.
 instance
   OrdInt : Ord Int
-  OrdInt = default-ord Base.Int.compare.compare
+  OrdInt = make-ord Base.Int.compare.compare
