@@ -14,6 +14,6 @@ open import Base.Pair.Type
 --   and the second string contains the characters from the index onwards.
 split-at : Nat → String → Pair String String
 split-at n s = do
-  let chars = to-list s
+  let chars       = to-list s
   let (fst , snd) = split-at' n chars
   (from-list fst , from-list snd)

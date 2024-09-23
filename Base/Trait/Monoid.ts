@@ -6,11 +6,10 @@ export interface Monoid<A> {
 }
 
 // Helper function to use the monoid's mapp function
-export const mapp = <A>(monoid: Monoid<A>) => (a: A, b: A): A => monoid.mapp(a, b);
+export const $mapp = <A>(monoid: Monoid<A>, a: A, b: A): A => monoid.mapp(a, b);
+export const  mapp = <A>(monoid: Monoid<A>) => (a: A) => (b: A) => monoid.mapp(a, b);
 
-// Infix operator for mapp (not directly translatable to TypeScript)
-// _<>_ : ∀ {A : Set} {{monoidA : Monoid A}} → A → A → A
-// _<>_ {{monoidA}} = mapp {{monoidA}}
+// NOTE: Operator omitted: '_<>_'.
 
 // Concatenates a list of elements using the monoid's operations
 export const $concat = <A>(monoid: Monoid<A>, xs: List<A>): A => {

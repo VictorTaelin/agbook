@@ -10,7 +10,6 @@ export const $$from_char = (c: Char): String => {
   return $from_list($Cons(c, $Nil));
 };
 
-// NOTE: For efficiency, we can directly return the character as a string
-// since we're using native string representation for both Char and String.
+// NOTE: Return the character directly for efficiency.
 export const $from_char = (c: Char): String => c;
-export const  from_char = (c: Char) => $from_char(c);
+export const  from_char = (c: Char) => c;

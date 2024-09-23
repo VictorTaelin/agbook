@@ -15,8 +15,8 @@ module String where
 module Nat where
   open import Base.Nat.ALL public
 
--- module Int where
-  -- open import Base.Int.ALL public
+module Int where
+  open import Base.Int.ALL public
 
 module Float where
   open import Base.Float.ALL public

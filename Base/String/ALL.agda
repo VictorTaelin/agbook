@@ -15,9 +15,14 @@ open import Base.String.head public
 open import Base.String.is-empty public
 open import Base.String.join public
 open import Base.String.lte public
+open import Base.String.neq public
 open import Base.String.replicate public
 open import Base.String.show public
 open import Base.String.starts-with public
 open import Base.String.to-list public
 open import Base.String.to-nat-base public
 open import Base.String.uncons public
+open import Base.String.compare public
+open import Base.String.gt public
+open import Base.String.gte public
+open import Base.String.lt public

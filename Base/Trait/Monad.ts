@@ -26,7 +26,6 @@ export const $seq = <M, A, B>(ma: any, mb: any, monad: Monad<M>): any =>
 export const seq = <M, A, B>(ma: any) => (mb: any) => (monad: Monad<M>): any =>
   monad.bind(ma, (_: A) => mb);
 
-// NOTE: Infix operators are represented as functions with '$' prefix
-// NOTE: Curried versions of operators are represented without prefix
+// NOTE: Infix operators are omitted in TypeScript
 // NOTE: Instance arguments are passed explicitly in TypeScript
 // NOTE: Using 'any' type to represent the monadic type M<A> due to lack of higher-kinded types

@@ -15,5 +15,5 @@ open import Base.Function.case
 drop : Nat → String → String
 drop Zero s = s
 drop (Succ n) s = case to-list s of λ where
-  [] → ""
+  []        → ""
   (_ :: xs) → drop n (from-list xs)

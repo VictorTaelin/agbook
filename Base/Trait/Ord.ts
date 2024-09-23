@@ -1,5 +1,5 @@
 import { Bool } from '../../Base/Bool/Type';
-import { Ordering, LT, GT } from '../../Base/Ordering/Type';
+import { Ordering, $LT, $GT } from '../../Base/Ordering/Type';
 import { $eq } from '../../Base/Ordering/eq';
 import { $neq } from '../../Base/Ordering/neq';
 
@@ -23,16 +23,15 @@ export const  lte = <A>(ord: Ord<A>) => (a: A) => (b: A): Bool => ord.lte(a, b);
 export const $gte = <A>(ord: Ord<A>, a: A, b: A): Bool => ord.gte(a, b);
 export const  gte = <A>(ord: Ord<A>) => (a: A) => (b: A): Bool => ord.gte(a, b);
 
-export const $make_default = <A>(compareImpl: (a: A, b: A) => Ordering): Ord<A> => ({
-  compare: compareImpl,
-  lt: (x: A, y: A) => $eq(compareImpl(x, y), LT),
-  gt: (x: A, y: A) => $eq(compareImpl(x, y), GT),
-  lte: (x: A, y: A) => $neq(compareImpl(x, y), GT),
-  gte: (x: A, y: A) => $neq(compareImpl(x, y), LT)
+export const $make_ord = <A>(compare_impl: (a: A, b: A) => Ordering): Ord<A> => ({
+  compare: compare_impl,
+  lt: (x: A, y: A) => $eq(compare_impl(x, y), $LT),
+  gt: (x: A, y: A) => $eq(compare_impl(x, y), $GT),
+  lte: (x: A, y: A) => $neq(compare_impl(x, y), $GT),
+  gte: (x: A, y: A) => $neq(compare_impl(x, y), $LT)
 });
 
-export const make_default = <A>(compareImpl: (a: A) => (b: A) => Ordering) =>
-  $make_default((a: A, b: A) => compareImpl(a)(b));
+export const make_ord = <A>(compare_impl: (a: A) => (b: A) => Ordering) =>
+  $make_ord((a: A, b: A) => compare_impl(a)(b));
 
 // NOTE: Operators omitted: '_<_', '_>_', '_<=_', '_>=_'.
-// NOTE: 'default' renamed to 'make_default' as 'default' is a keyword in TypeScript.
