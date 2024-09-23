@@ -17,9 +17,11 @@ open import Base.String.Type
 step : Grid → Result (Maybe Grid) String
 
 step (MkGrid global blocks) with (dequeue blocks)
+
 ... | Some (block , blocks) = do
   state ← step-block global block
   case state of λ where
     (global , None      ) → Done (Some (MkGrid global blocks))
     (global , Some block) → Done (Some (MkGrid global (enqueue blocks block)))
+
 ... | None                  = Done None
