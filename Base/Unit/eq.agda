@@ -1,11 +1,18 @@
 module Base.Unit.eq where
 
-open import Base.Unit.Type
 open import Base.Bool.Type
+open import Base.Unit.Type
 
+-- Equality check for Unit type.
+-- - x: The 1st Unit value.
+-- - y: The 2nd Unit value.
+-- = True, as all Unit values are equal.
 eq : Unit -> Unit -> Bool
 eq _ _ = True
 
-infix 4 _==_
+-- The infix version of eq.
 _==_ : Unit -> Unit -> Bool
 _==_ = eq
+
+infix 4 _==_
+
