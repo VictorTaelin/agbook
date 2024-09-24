@@ -7,7 +7,7 @@ on:
   workflow_dispatch: # Allows manual triggering
 
 jobs:
-  check-agda: 
+  check-all-agda: 
     runs-on: ubuntu-latest # self-hosted
     steps:
       - name: Checkout repository
@@ -17,14 +17,39 @@ jobs:
         run: |
           echo "PATH=$PATH:/usr/local/bin" >> $GITHUB_ENV
 
-      - name: Run Agda check script
+      - name: Verify Agda installation
+        run: |
+          which agda-cli
+          agda-cli --version
+
+      - name: Run Agda checks
         id: check_agda
         run: | 
-          chmod +x ./check_all.sh
-          output=$(./check_all.sh)
+          search_path="./Base"
+          OK_OUTPUT=$'Checked.\nNo output'
+          errors_found=false
+          output=""
+
+          while IFS= read -r -d '' file
+          do
+            check_output=$(agda-cli check "$file" 2>&1)
+            if [ "${check_output}" = "$OK_OUTPUT" ]; then
+              echo "Checked $file: OK"
+              output+="Checked $file: OK\n"
+            else
+              echo -e "\033[31mChecking: $file ERR\033[0m"
+              echo "$check_output"
+              output+="Checking: $file ERR\n$check_output\n"
+              errors_found=true
+            fi
+          done < <(find "$search_path" -name "*.agda" -not -path "*.tmp*" -not -path "*/Test/*" -print0)
+
           echo "$output" > output.log
-          echo "$output" | grep -q "Error: " && echo "errors_found=true" >> $GITHUB_ENV || echo "errors_found=false" >> $GITHUB_ENV
-          echo "::set-output name=output::$output"
+          echo "errors_found=$errors_found" >> $GITHUB_ENV
+          echo "output<<EOF" >> $GITHUB_OUTPUT
+          echo "$output" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+          
 
       - name: Check if errors were found
         if: env.errors_found == 'true'
