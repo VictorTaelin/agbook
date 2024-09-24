@@ -5,7 +5,7 @@ open import UG.SM.Tick.Type
 open import UG.SM.StateLogs.Type
 
 open import Base.Nat.max
-open import Base.Map.set
+open import Base.BitMap.set
 open import Base.Nat.to-bits
 
 -- mach: The machine to be updated

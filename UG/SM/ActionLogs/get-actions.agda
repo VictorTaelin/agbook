@@ -1,7 +1,7 @@
 module UG.SM.ActionLogs.get-actions where
 
 open import Base.List.Type
-open import Base.Map.get
+open import Base.BitMap.get
 open import Base.Nat.to-bits
 open import Base.Maybe.Type
 
