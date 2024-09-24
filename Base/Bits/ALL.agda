@@ -1,15 +1,15 @@
 module Base.Bits.ALL where
 
+-- open import Base.Bits.decode-utf8 public
+-- open import Base.Bits.encode-char-utf8 public
+-- open import Base.Bits.encode-utf8 public
 open import Base.Bits.Type public
 open import Base.Bits.add public
 open import Base.Bits.and public
 open import Base.Bits.append public
 open import Base.Bits.concat public
 open import Base.Bits.dec public
--- open import Base.Bits.decode-utf8 public
 open import Base.Bits.div public
--- open import Base.Bits.encode-char-utf8 public
--- open import Base.Bits.encode-utf8 public
 open import Base.Bits.eq public
 open import Base.Bits.from-char public
 open import Base.Bits.from-nat public

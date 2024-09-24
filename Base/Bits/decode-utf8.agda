@@ -1,15 +1,15 @@
 module Base.Bits.decode-utf8 where
 
-open import Base.List.Type
-open import Base.Char.Type
 import Base.Char.from-nat as C
+open import Base.Bits.Type
+open import Base.Bits.append
+open import Base.Bits.reverse
+open import Base.Bits.split-chunks
+open import Base.Bits.to-char
+open import Base.Char.Type
+open import Base.List.Type
 open import Base.String.Type
 open import Base.String.from-list
-open import Base.Bits.Type
-open import Base.Bits.to-char
-open import Base.Bits.split-chunks
-open import Base.Bits.reverse
-open import Base.Bits.append
 
 -- The Unicode replacement character (U+FFFD) used for invalid sequences.
 utf8-replacement-character : Char

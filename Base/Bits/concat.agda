@@ -1,10 +1,12 @@
 module Base.Bits.concat where
 
-open import Base.List.Type
 open import Base.Bits.Type
+open import Base.List.Type
 
--- Converts a list of Bits in to a single Bits.
--- Least significant bits should be to the left of the list.
+-- Concatenation of a list of Bits into a single Bits value.
+-- - xs: The list of Bits to concatenate.
+-- - The least significant bits are positioned to the left of the list.
+-- = The result is a single Bits value.
 concat : List Bits -> Bits
 concat []             = E
 concat (E :: xs)      = concat xs

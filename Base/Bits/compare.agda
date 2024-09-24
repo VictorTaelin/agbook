@@ -1,16 +1,20 @@
 module Base.Bits.compare where
 
-open import Base.Bits.Type
-open import Base.Ordering.Type
-open import Base.Bool.if
 import Base.Bits.eq as Bits
 import Base.Bits.lt as Bits
+open import Base.Bits.Type
+open import Base.Bool.Type
+open import Base.Ordering.Type
 
+-- Comparison of bits.
+-- - x: The 1st Bits value.
+-- - y: The 2nd Bits value.
+-- = The result of comparing x and y, returning an Ordering:
+--   - EQ if x is equal to y.
+--   - LT if x is less than y.
+--   - GT if x is greater than y.
 compare : Bits -> Bits -> Ordering
-compare x y = 
-  if (Bits.eq x y) then
-    EQ
-  else if (Bits.lt x y) then
-    LT
-  else
-    GT
+compare x y with Bits.eq x y | Bits.lt x y
+... | True  | _     = EQ
+... | False | True  = LT
+... | False | False = GT

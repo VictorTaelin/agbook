@@ -183,6 +183,45 @@ infixl 6 _+_
 - Use native Agda `if` instead of `case of` and `Bool.if`.
 - If possible, replace a `record` with a sequence of `let` statements.
 
+
+### Large Functions
+
+- When a function is very large, especially in cases where different branches can become confusing, it is helpful to **leave a blank line between cases**. This improves readability and visually separates the different conditions.
+
+- Continue using `do let` to maintain the style consistency.
+
+Example:
+
+```agda
+swap : ∀ {A : Set} -> BitMap A -> Bits -> A -> Pair (BitMap A) (Maybe A)
+swap (Node val l r) E v = do 
+  let n = (Node (Some v) l r) 
+  n , val
+
+swap (Node val l r) (O k) v = do 
+  let (new-l , old-v) = swap l k v 
+  (Node val new-l r) , old-v
+
+swap (Node val l r) (I k) v = do 
+  let (new-r , old-v) = swap r k v 
+  (Node val l new-r) , old-v
+
+swap Leaf E v = do
+  let n = (Node (Some v) Leaf Leaf)
+  n , None
+
+swap Leaf (O k) v = do 
+  let (new-l , old-v) = swap Leaf k v
+  (Node None new-l Leaf) , old-v
+
+swap Leaf (I k) v = do 
+  let (new-r , old-v) = swap Leaf k v 
+  (Node None Leaf new-r) , old-v
+```
+
+This structure enhances readability and understanding of the different cases while maintaining the function's style consistency.
+
+
 ### Layout of helper functions
 
 - Define helper functions at the top of the file or in separate files for complex ones.
