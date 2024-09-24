@@ -12,8 +12,8 @@ open import Base.List.Type renaming (List to List')
 open import Base.List.map
 open import Base.List.zip
 open import Base.Maybe.Type
-open import Base.Show.Trait public
-open import Base.Nat.show
+open import Base.Trait.Show
+open import Base.Nat.Trait.Show
 open import Bend.Fun.show-bind
 open import Bend.Fun.Op.show
 open import Bend.Fun.Num.show
@@ -42,7 +42,7 @@ instance
           show-bind-arg : Pair (Maybe String) Term -> String
           show-bind-arg (bnd , arg) = show-bind bnd ++ " = " ++ show arg
 
-      
+
       show-term-app : Term -> String
       show-term-app (App fun arg) = show-term-app fun ++ " " ++ show arg
       show-term-app term = show-term term
@@ -62,10 +62,10 @@ instance
       show-term (Str val) = "\"" ++ val ++ "\""
       show-term (List els) = "[" ++ join ", " (map show els) ++ "]"
       show-term (Oper opr fst snd) = "(" ++ show fst ++ " " ++ show opr ++ " " ++ show snd ++ ")"
-      show-term (Mat bnd arg with-bnd with-arg arms) = 
+      show-term (Mat bnd arg with-bnd with-arg arms) =
         "match " ++ show-bind bnd ++ " = " ++ show arg ++ " " ++
         show-with with-bnd with-arg ++ "{ " ++ join "; " (map show arms) ++ " }"
-      show-term (Swt bnd arg with-bnd with-arg pred arms) = 
+      show-term (Swt bnd arg with-bnd with-arg pred arms) =
         "switch " ++ show-bind bnd ++ " = " ++ show arg ++ " " ++
         show-with with-bnd with-arg ++ "{ " ++ show-switch-arms 0 pred arms ++ " }"
         where
@@ -74,11 +74,11 @@ instance
           show-switch-arms n pred (arm :: []) = "_ " ++ show-bind pred ++ ": " ++ show arm
           show-switch-arms n pred (arm :: arms) = show n ++ ": " ++ show arm ++ "; " ++
             show-switch-arms (Succ n) pred arms
-      show-term (Fold bnd arg with-bnd with-arg arms) = 
+      show-term (Fold bnd arg with-bnd with-arg arms) =
         "fold " ++ show-bind bnd ++ " = " ++ show arg ++ " " ++
         show-with with-bnd with-arg ++
         "{ " ++ join "; " (map show arms) ++ " }"
-      show-term (Bend bnd arg cond step base) = 
+      show-term (Bend bnd arg cond step base) =
         "bend " ++ join ", " (map show-bind-init (zip bnd arg)) ++ " { " ++
         "when " ++ show cond ++ ": " ++ show step ++ "; " ++
         "else: " ++ show base ++ " }"

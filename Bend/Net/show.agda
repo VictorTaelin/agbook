@@ -3,8 +3,8 @@ module Bend.Net.show where
 open import Base.String.Type
 open import Base.String.append
 open import Base.Nat.Type
-open import Base.Nat.show
-open import Base.Map.to-list
+open import Base.Nat.Trait.Show
+open import Base.BitMap.to-list
 open import Base.Pair.Type
 open import Base.Bits.Type
 open import Base.Bits.to-nat
@@ -13,7 +13,7 @@ open import Base.List.map
 open import Bend.Net.Type
 open import Bend.Net.Node.Type
 open import Bend.Net.Node.show
-open import Base.Show.Trait
+open import Base.Trait.Show
 
 instance
   ShowNet : Show Net

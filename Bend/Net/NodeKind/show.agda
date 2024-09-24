@@ -3,10 +3,10 @@ module Bend.Net.NodeKind.show where
 open import Bend.Net.NodeKind.Type
 open import Base.String.Type
 open import Base.String.append
-open import Base.Show.Trait
+open import Base.Trait.Show
 open import Base.Bits.Type
 open import Base.Bits.to-nat
-open import Base.Nat.show
+open import Base.Nat.Trait.Show
 
 instance
   ShowNodeKind : Show NodeKind

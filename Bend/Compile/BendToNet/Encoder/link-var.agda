@@ -6,8 +6,8 @@ open import Base.Maybe.Monad.bind
 open import Base.Pair.Type
 open import Base.String.Type
 open import Base.String.hash
-open import Base.Map.take renaming (take to map-take)
-open import Base.Map.set renaming (set to map-set)
+open import Base.BitMap.take renaming (take to map-take)
+open import Base.BitMap.set renaming (set to map-set)
 open import Bend.Compile.BendToNet.Encoder.Type
 open import Bend.Net.link renaming (link to net-link)
 open import Bend.Net.Port.Type

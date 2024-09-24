@@ -2,7 +2,7 @@ module Bend.Parser.Fun.parse-book where
 
 open import Base.Bool.if
 open import Base.String.hash
-open import Base.Map.set renaming (set to map-set)
+open import Base.BitMap.set renaming (set to map-set)
 open import Bend.Fun.Term.Type
 open import Base.Parser.Type
 open import Base.Parser.Monad.bind

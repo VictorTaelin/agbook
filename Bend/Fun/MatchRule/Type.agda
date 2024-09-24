@@ -8,6 +8,6 @@ open import Base.String.Type
 record MatchRule : Set where
   constructor MkMatchRule
   field
-    name  : Maybe String        -- The constructor or variable being matched
-    binds : List (Maybe String) -- The variables bound in this elimination
-    body  : Term                -- The body of the rule
+    nam : Maybe String        -- The constructor or variable being matched
+    bnd : List (Maybe String) -- The variables bound in this elimination
+    bod : Term                -- The body of the rule

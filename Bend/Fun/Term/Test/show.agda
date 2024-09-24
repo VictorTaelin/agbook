@@ -17,7 +17,7 @@ open import Base.Maybe.Type
 open import Base.Bool.Type
 open import Base.Nat.Type
 open import Base.Equal.Type
-open import Base.Show.Trait
+open import Base.Trait.Show
 open import Base.Pair.Type
 
 import Bend.Fun.MatchRule.Type as MatchRule'
@@ -45,7 +45,7 @@ test-app-many : show (App (App (Var "f") (Var "x")) (Var "y")) === "(f x y)"
 test-app-many = refl
 
 test-fan-tup : show (Fan FanKind.Tup (Var "x" :: Var "y" :: [])) === "(x, y)"
-test-fan-tup = refl 
+test-fan-tup = refl
 
 test-fan-dup : show (Fan FanKind.Dup (Var "x" :: Var "y" :: [])) === "{x y}"
 test-fan-dup = refl
@@ -62,34 +62,34 @@ test-list = refl
 test-oper : show (Oper Add (Var "x") (Var "y")) === "(x + y)"
 test-oper = refl
 
-test-mat : show (Mat (Some "x") (Var "expr") [] [] 
-             ((MkMatchRule (Some "case1") [] (Var "result1")) :: 
-              (MkMatchRule (Some "case2") [] (Var "result2")) :: [])) 
+test-mat : show (Mat (Some "x") (Var "expr") [] []
+             ((MkMatchRule (Some "case1") [] (Var "result1")) ::
+              (MkMatchRule (Some "case2") [] (Var "result2")) :: []))
            === "match x = expr { case1: result1; case2: result2 }"
 test-mat = refl
 
-test-swt : show (Swt (Some "x") (Var "expr") [] [] None (Var "case1" :: Var "case2" :: [])) 
+test-swt : show (Swt (Some "x") (Var "expr") [] [] None (Var "case1" :: Var "case2" :: []))
            === "switch x = expr { 0: case1; _ *: case2 }"
 test-swt = refl
 
-test-fold : show (Fold (Some "acc") (Var "list") [] [] 
-              ((MkMatchRule (Some "case1") [] (Var "result1")) :: 
-               (MkMatchRule (Some "case2") [] (Var "result2")) :: [])) 
+test-fold : show (Fold (Some "acc") (Var "list") [] []
+              ((MkMatchRule (Some "case1") [] (Var "result1")) ::
+               (MkMatchRule (Some "case2") [] (Var "result2")) :: []))
             === "fold acc = list { case1: result1; case2: result2 }"
 test-fold = refl
 
-test-bend : show (Bend (Some "i" :: []) (Num (U24 0) :: []) (Var "cond") (Var "step") (Var "base")) 
+test-bend : show (Bend (Some "i" :: []) (Num (U24 0) :: []) (Var "cond") (Var "step") (Var "base"))
             === "bend i = 0 { when cond: step; else: base }"
 test-bend = refl
 
 test-open : show (Open "Module" "m" (Var "expr")) === "open Module m; expr"
 test-open = refl
 
-test-def : 
+test-def :
   let rule = MkRule [] (Var "dummy") in
   let def = (MkFnDef "func" (Ty.Var "Type") True (rule :: []) (MkSource None None SourceKind.Generated)) in
-  show (Def def (Var "next")) 
-  === 
+  show (Def def (Var "next"))
+  ===
   "def func : Type\n" ++ "(func) = dummy\n" ++ "next"
 test-def = refl
 

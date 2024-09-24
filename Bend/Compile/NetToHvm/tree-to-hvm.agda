@@ -2,9 +2,9 @@ module Bend.Compile.NetToHvm.tree-to-hvm where
 
 open import Base.Bool.if
 open import Base.Function.case
-open import Base.Map.Type
-open import Base.Map.get renaming (get to map-get)
-open import Base.Map.set renaming (set to map-set)
+open import Base.BitMap.Type
+open import Base.BitMap.get renaming (get to map-get)
+open import Base.BitMap.set renaming (set to map-set)
 open import Base.Maybe.Type
 open import Base.Maybe.to-result
 open import Base.Nat.Type
@@ -31,7 +31,7 @@ mutual
   -- - net: The flattened internal Bend compilation inet.
   -- - node-id: The id of the root node of the tree.
   -- - state: Compilation state with found variables and remaining gas.
-  -- = A pair of the compiled term and the new compilation state. 
+  -- = A pair of the compiled term and the new compilation state.
   {-# TERMINATING #-}
   tree-to-hvm : BNet -> Nat -> State -> Result (Pair HTerm State) String
   -- We know that we should visit each node only once,

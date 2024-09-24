@@ -1,5 +1,5 @@
 open import Bend.Fun.Term.Type using (Term)
-open import Base.Show.Trait
+open import Base.Trait.Show
 
 module Bend.Fun.FnDef.show (TShow : Show Term) where
 
@@ -26,7 +26,7 @@ instance
       show-rule : String -> Rule -> String
       show-rule fname (MkRule pats body) =
         "(" ++ fname ++ (if is-nil pats then "" else " " ++ join " " (map show pats)) ++ ")" ++ " = " ++ show {{TShow}} body
-        
+
       show-fn-def : FnDef -> String
       show-fn-def (MkFnDef name type check rules src) =
         (if check then "" else "unchecked ") ++ name ++ " : " ++ show type ++ "\n" ++

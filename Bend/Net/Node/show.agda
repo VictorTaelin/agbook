@@ -2,9 +2,9 @@ module Bend.Net.Node.show where
 
 open import Base.String.Type
 open import Base.String.append
-open import Base.Nat.show
-open import Base.Bits.show
-open import Base.Show.Trait
+open import Base.Nat.Trait.Show
+open import Base.Bits.Trait.Show
+open import Base.Trait.Show
 open import Bend.Net.Node.Type
 open import Bend.Net.Port.Type
 open import Bend.Net.Port.show

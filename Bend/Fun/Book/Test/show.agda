@@ -9,8 +9,8 @@ open import Bend.Fun.FnDef.show
 open import Bend.Fun.Type.Type using () renaming (Type to Ty)
 open import Bend.Source.Type
 open import Bend.Source.SourceKind.Type
-open import Base.Map.Type
-open import Base.Map.from-list
+open import Base.BitMap.Type
+open import Base.BitMap.from-list
 open import Base.Maybe.Type
 open import Base.Pair.Type
 open import Base.String.Type
@@ -37,20 +37,20 @@ private
   dummy-fn-def name = MkFnDef name (Ty.Var "Type") True (dummy-rule :: []) dummy-source
 
   dummy-book : Book
-  dummy-book = MkBook (from-list 
-    ((hash "func1" , dummy-fn-def "func1") :: 
+  dummy-book = MkBook (from-list
+    ((hash "func1" , dummy-fn-def "func1") ::
      (hash "func2" , dummy-fn-def "func2") :: []))
 
 test-empty-book : show book-new === ""
 test-empty-book = refl
 
-test-single-function-book : 
+test-single-function-book :
   show (MkBook (from-list ((hash "func" , dummy-fn-def "func") :: [])))
   ===
   "func : Type\n(func) = dummy"
 test-single-function-book = refl
 
-test-multiple-functions-book : 
+test-multiple-functions-book :
   show dummy-book
   ===
   "func1 : Type\n(func1) = dummy\n\nfunc2 : Type\n(func2) = dummy"

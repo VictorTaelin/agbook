@@ -6,22 +6,24 @@ open import Base.Bool.Type
 open import Base.Bool.and
 open import Base.Bool.if
 open import Base.Char.Type
-open import Base.Char.eq
+open import Base.Char.Trait.Eq
 open import Base.List.Type
 open import Base.List.filter
 open import Base.Maybe.Type
 open import Base.Maybe.maybe
 open import Base.Float.Type
 open import Base.Float.div
+import Base.Float.from-nat as Float
+import Base.Float.from-int as Float
 open import Base.Float.mul renaming (_*_ to _f*_)
 open import Base.Float.add renaming (_+_ to _f+_)
 open import Base.Int.Type
 open import Base.Int.from-neg
 open import Base.Int.from-nat
-open import Base.Int.Ord
+open import Base.Int.Trait.Ord
 open import Base.Int.mul renaming (_*_ to _i*_)
 open import Base.Nat.Type
-open import Base.Nat.Ord
+open import Base.Nat.Trait.Ord
 open import Base.Nat.exp
 open import Base.String.Type
 open import Base.String.to-list
@@ -30,7 +32,8 @@ open import Base.String.length
 open import Base.String.from-list
 open import Base.String.to-nat-base
 open import Base.Pair.Type
-open import Base.Ord.Trait
+open import Base.Trait.Ord
+open import Base.Trait.Eq
 open import Base.Parser.Type
 open import Base.Parser.State
 open import Base.Parser.take-while
@@ -56,8 +59,8 @@ parse-number = do
   case frac-part , sign of λ where
     -- Fractional part: float
     (Some frac , _) -> do
-      let sign = maybe 1.0 primIntToFloat sign
-      pure (F24 (sign f* ((primNatToFloat int-part) f+ frac)))
+      let sign = maybe 1.0 Float.from-int sign
+      pure (F24 (sign f* ((Float.from-nat int-part) f+ frac)))
 
     -- Sign but no fractional part: signed integer
     (None , (Some sign)) -> do
@@ -109,7 +112,7 @@ parse-number = do
         digits <- take-while (is-digit-radix radix)
         let digits = from-list (filter (λ c -> c != '_') (to-list digits))
         let num = maybe 0 id (to-nat-base radix digits)
-        let num = (primNatToFloat num) / (primNatToFloat (radix ** (length digits)))
+        let num = (Float.from-nat num) / (Float.from-nat (radix ** (length digits)))
         pure (Some num))
       else
         pure None
