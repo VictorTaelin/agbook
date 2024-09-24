@@ -1,6 +1,6 @@
-import { Float } from '../../Base/Float/Type';
+import { F64 } from '../../Base/F64/Type';
 import { V2, $MkV2 } from '../../Base/V2/Type';
-import { $add as float_add } from '../../Base/Float/add';
+import { $add as float_add } from '../../Base/F64/add';
 
 // Adds two V2 vectors.
 // - v1: The 1st V2 vector.

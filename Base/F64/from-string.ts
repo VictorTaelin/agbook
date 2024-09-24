@@ -3,9 +3,9 @@ import { $if_then_else_ } from '../../Base/Bool/if';
 import { Char } from '../../Base/Char/Type';
 import { $eq } from '../../Base/Char/eq';
 import { $digit_to_nat } from '../../Base/Char/digit-to-nat';
-import { Float } from '../../Base/Float/Type';
-import { $add } from '../../Base/Float/add';
-import { $negate } from '../../Base/Float/negate';
+import { F64 } from '../../Base/F64/Type';
+import { $add } from '../../Base/F64/add';
+import { $negate } from '../../Base/F64/negate';
 import { Int } from '../../Base/Int/Type';
 import { $length } from '../../Base/List/length';
 import { $map } from '../../Base/List/map';
@@ -60,7 +60,7 @@ const extract_sign = (s: String): Pair<Bool, String> => {
   }
 };
 
-export const $from_string = (s: String): Maybe<Float> => {
+export const $from_string = (s: String): Maybe<F64> => {
   const [is_neg, str] = extract_sign(s);
   const char_list = $to_list(str);
   const [int_part, frac_part] = split_float_string(char_list);

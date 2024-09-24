@@ -1,4 +1,4 @@
-import { $show as $float_show } from '../../Base/Float/show';
+import { $show as $float_show } from '../../Base/F64/show';
 import { String } from '../../Base/String/Type';
 import { $append } from '../../Base/String/append';
 import { V2 } from '../../Base/V2/Type';

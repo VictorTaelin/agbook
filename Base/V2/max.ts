@@ -1,10 +1,10 @@
 import { V2, $MkV2 } from '../../Base/V2/Type';
-import { $max as Float$max } from '../../Base/Float/max';
+import { $max as F64$max } from '../../Base/F64/max';
 
 export const $max = (v1: V2, v2: V2): V2 => {
   return $MkV2(
-    Float$max(v1.x, v2.x),
-    Float$max(v1.y, v2.y)
+    F64$max(v1.x, v2.x),
+    F64$max(v1.y, v2.y)
   );
 };
 

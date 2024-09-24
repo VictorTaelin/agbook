@@ -1,5 +1,5 @@
-import { Float } from '../../Base/Float/Type';
-import { $negate } from '../../Base/Float/negate';
+import { F64 } from '../../Base/F64/Type';
+import { $negate } from '../../Base/F64/negate';
 import { V2, $MkV2 } from '../../Base/V2/Type';
 
 // Calculates a vector perpendicular to the given V2 vector.

@@ -1,11 +1,11 @@
-import { Float } from '../../Base/Float/Type';
+import { F64 } from '../../Base/F64/Type';
 
 // Exponentiation of floats.
 // - x: The base float.
 // - y: The exponent float.
 // = The result of raising x to the power of y.
-export const $exp = (x: Float, y: Float): Float => Math.pow(x, y);
-export const  exp = (x: Float) => (y: Float) => Math.pow(x, y);
+export const $exp = (x: F64, y: F64): F64 => Math.pow(x, y);
+export const  exp = (x: F64) => (y: F64) => Math.pow(x, y);
 
 // NOTE: Using native JavaScript Math.pow for efficiency.
 
