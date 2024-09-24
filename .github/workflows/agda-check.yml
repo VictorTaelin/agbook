@@ -8,20 +8,18 @@ on:
 
 jobs:
   check-all-agda: 
-    runs-on: ubuntu-latest # self-hosted
+    runs-on: self-hosted
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
       - name: Set up environment
         run: |
-          AGDA_CLI_PATH="/usr/local/bin"
-          AGDA_PATH="/home/runner/.local/bin"
-          echo "PATH=$PATH:$AGDA_CLI_PATH:$AGDA_PATH" >> $GITHUB_ENV
+          echo "PATH=$PATH:/usr/local/bin:/home/runner/.local/bin" >> $GITHUB_ENV
 
-      - name: Verify Agda installation
+      - name: Verify Agda and agda-cli installations
         run: |
-          which agda-cli
+          agda --version
           agda-cli --version
 
       - name: Run Agda checks
