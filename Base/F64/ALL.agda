@@ -1,0 +1,30 @@
+module Base.F64.ALL where
+
+-- open import Base.F64.from-string public
+open import Base.F64.Type public
+open import Base.F64.add public
+open import Base.F64.and public
+open import Base.F64.div public
+open import Base.F64.double public
+open import Base.F64.eq public
+open import Base.F64.exp public
+open import Base.F64.from-bits public
+open import Base.F64.from-nat public
+open import Base.F64.from-u64 public
+open import Base.F64.gt public
+open import Base.F64.gte public
+open import Base.F64.half public
+open import Base.F64.log public
+open import Base.F64.lt public
+open import Base.F64.lte public
+open import Base.F64.max public
+open import Base.F64.min public
+open import Base.F64.mod public
+open import Base.F64.mul public
+open import Base.F64.negate public
+open import Base.F64.or public
+open import Base.F64.show public
+open import Base.F64.sqrt public
+open import Base.F64.sub public
+open import Base.F64.to-bits public
+open import Base.F64.to-u64 public

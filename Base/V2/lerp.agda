@@ -1,6 +1,6 @@
 module Base.V2.lerp where
 
-open import Base.Float.Type
+open import Base.F64.Type
 open import Base.V2.Type
 open import Base.V2.add
 open import Base.V2.mul-scalar
@@ -11,5 +11,5 @@ open import Base.V2.sub
 -- - v2: The ending V2 vector.
 -- - t: The interpolation parameter (0.0 ≤ t ≤ 1.0).
 -- = The interpolated V2 vector.
-lerp : V2 -> V2 -> Float -> V2
+lerp : V2 -> V2 -> F64 -> V2
 lerp v1 v2 t = v1 + (mul-scalar (v2 - v1) t)

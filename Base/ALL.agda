@@ -18,8 +18,8 @@ module Nat where
 module Int where
   open import Base.Int.ALL public
 
-module Float where
-  open import Base.Float.ALL public
+module F64 where
+  open import Base.F64.ALL public
 
 module U64 where
   open import Base.U64.ALL public
@@ -126,8 +126,8 @@ Pos = Int.Pos
 NegSuc : Nat -> Int
 NegSuc = Int.NegSuc
 
-Float : Set
-Float = Float.Float
+F64 : Set
+F64 = F64.F64
 
 U64 : Set
 U64 = U64.U64
@@ -182,7 +182,7 @@ Fail = Result.Fail
 -- JBool : Bool -> JSON
 -- JBool = JSON.JBool
 
--- JNumber : Float -> JSON
+-- JNumber : F64 -> JSON
 -- JNumber = JSON.JNumber
 
 -- JString : String -> JSON

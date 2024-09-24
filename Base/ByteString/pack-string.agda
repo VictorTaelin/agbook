@@ -7,4 +7,4 @@ open import Base.String.Type
 postulate pack-string : String -> ByteString
 
 {-# FOREIGN GHC import qualified Data.Text.Encoding as TE #-}
-{-# COMPILE GHC pack = TE.encodeUtf8 #-}
+{-# COMPILE GHC pack-string = TE.encodeUtf8 #-}

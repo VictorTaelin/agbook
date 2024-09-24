@@ -1,6 +1,6 @@
 module Base.V2.Type where
 
-open import Base.Float.Type
+open import Base.F64.Type
 
 -- Represents a 2D vector with float coordinates.
 -- - x: The x-coordinate.
@@ -8,5 +8,5 @@ open import Base.Float.Type
 record V2 : Set where
   constructor MkV2
   field
-    x : Float
-    y : Float
+    x : F64
+    y : F64

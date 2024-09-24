@@ -10,9 +10,9 @@ open import Base.Parser.fail
 open import Base.Parser.skip-spaces
 open import Base.Parser.take-while
 open import Base.Char.is-digit
-open import Base.Float.from-string
-open import Base.Float.mul renaming (_*_ to _f*_)
-open import Base.Float.exp renaming (_^_ to _f^_)
+open import Base.F64.from-string
+open import Base.F64.mul renaming (_*_ to _f*_)
+open import Base.F64.exp renaming (_^_ to _f^_)
 open import Base.Function.case
 open import Base.String.append
 open import Base.String.Type
