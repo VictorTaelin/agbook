@@ -13,17 +13,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Install Git
-        run: apt update && apt install -y git
-
-      - name: Install Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '20'
-
-      - name: Install agda-cli
-        run: npm install -g git+https://github.com/HigherOrderCO/agda-cli.git
-
       - name: Run Agda check script
         id: check_agda
         run: | 
