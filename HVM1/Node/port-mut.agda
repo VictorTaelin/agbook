@@ -16,9 +16,9 @@ open import HVM1.Run.State.Type
 open import HVM1.Run.Type
 open import HVM1.Run.Monad.bind
 open import HVM1.Run.state-mut
-import Base.Map.Type as M
-import Base.Map.get as M
-import Base.Map.set as M
+import Base.BitMap.Type as M
+import Base.BitMap.get as M
+import Base.BitMap.set as M
 
 -- Mutates the port of a node at a given slot in the HVM1 system.
 -- - addr: The address of the node to modify.

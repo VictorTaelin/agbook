@@ -1,7 +1,7 @@
 module HVM1.Run.node-get where
 
-import Base.Map.Type as M
-import Base.Map.get as M
+import Base.BitMap.Type as M
+import Base.BitMap.get as M
 open import Base.Bits.Type
 open import Base.Maybe.Type
 open import HVM1.Net.Type

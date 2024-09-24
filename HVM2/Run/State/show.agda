@@ -6,7 +6,7 @@ import HVM2.Term.show as Term
 open import Base.Bits.Type
 open import Base.List.Type
 open import Base.List.map
-open import Base.Map.to-list
+open import Base.BitMap.to-list
 open import Base.Pair.Type
 open import Base.Pair.get-fst
 open import Base.Pair.get-snd

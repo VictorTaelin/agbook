@@ -1,7 +1,7 @@
 module HVM1.Run.node-set where
 
-import Base.Map.Type as M
-import Base.Map.set as M
+import Base.BitMap.Type as M
+import Base.BitMap.set as M
 open import Base.Bits.Type
 open import Base.Pair.Type
 open import Base.Unit.Type
