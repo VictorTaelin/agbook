@@ -3,13 +3,15 @@ module Base.F64.Test.eq where
 open import Base.F64.Type
 open import Base.F64.eq
 open import Base.F64.add
+open import Base.F64.lt
+open import Base.F64.sub
 open import Base.Bool.Type
 open import Base.Bool.and
 open import Base.Equal.Type
 
 equal : F64 -> F64 -> Bool
-equal x y = primF64Less (primF64Minus x y) 0.000001 
-         && primF64Less (primF64Minus y x) 0.000001
+equal x y = primFloatLess (primFloatMinus x y) 0.000001 
+         && primFloatLess (primFloatMinus y x) 0.000001
 
 test-eq-zero : (0.0 == -0.0) === True
 test-eq-zero = refl
