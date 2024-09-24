@@ -2,7 +2,7 @@
 
 search_path="${1:-./Base}"
 
-OK_OUTPUT=$'Checked.\nNo output'
+OK_OUTPUT=$'Checked.'
 
 find "$search_path" -name "*.agda" -not -path "*.tmp*" -not -path "*/Test/*" | while read -r file; do
     output=$(agda-cli check "$file" 2>&1)
