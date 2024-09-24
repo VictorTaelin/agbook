@@ -20,6 +20,7 @@ open import Base.List.Type
 open import Base.Bool.Type
 open import Base.Equal.Type
 open import Base.Nat.Type
+open import Base.Trait.Show
 import Bend.Fun.Rule.Type as Rule'
 import Bend.Fun.FnDef.Type as FnDef'
 
