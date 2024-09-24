@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-search_path="./Base"
+search_path="${1:-./Base}"
 
 find "$search_path" -name "*.agda" -not -path "*.tmp*" -not -path "*/Test/*" | while read -r file; do
     result=$(agda-cli check "$file" 2>&1)
