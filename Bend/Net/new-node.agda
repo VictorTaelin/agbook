@@ -3,7 +3,7 @@ module Bend.Net.new-node where
 open import Base.Nat.to-bits
 open import Base.Nat.Type
 open import Base.Pair.Type
-open import Base.Map.set
+open import Base.BitMap.set
 open import Bend.Net.Type
 open import Bend.Net.Node.Type
 open import Bend.Net.NodeKind.Type

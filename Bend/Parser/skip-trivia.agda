@@ -21,8 +21,9 @@ open import Base.Parser.advance-one
 open import Base.Parser.take-while
 open import Base.Unit.Type
 open import Base.String.Type
-open import Base.String.eq
-open import Base.Char.eq
+open import Base.String.Trait.Eq
+open import Base.Char.Trait.Eq
+open import Base.Trait.Eq
 
 -- Skips a single-line comment
 skip-single-line-comment : Parser Unit
@@ -68,7 +69,7 @@ skip-trivia : Parser Unit
 skip-trivia = do
   c <- peek-one
   case c of λ where
-    (Some c) -> 
+    (Some c) ->
       if is-space c then (do
         advance-one
         skip-trivia)

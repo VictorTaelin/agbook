@@ -1,7 +1,7 @@
 module Bend.Compile.NetToHvm.State.new where
 
-open import Base.Map.Type
-open import Base.Map.new renaming (new to map-new)
+open import Base.BitMap.Type
+open import Base.BitMap.new renaming (new to map-new)
 open import Base.Nat.Type
 open import Bend.Compile.NetToHvm.State.Type
 

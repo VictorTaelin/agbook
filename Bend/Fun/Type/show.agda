@@ -8,7 +8,7 @@ open import Base.List.Type
 open import Base.List.map
 open import Base.List.intersperse
 open import Base.List.concat
-open import Base.Show.Trait
+open import Base.Trait.Show
 open import Base.Bool.Type
 open import Base.Bool.if
 

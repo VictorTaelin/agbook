@@ -3,10 +3,10 @@ module Bend.Net.Port.show where
 
 open import Bend.Net.Port.Type
 open import Bend.Net.Port.to-pair
-open import Base.Pair.show
-open import Base.Show.Trait
+open import Base.Pair.Trait.Show
+open import Base.Trait.Show
 open import Base.Nat.Type
-open import Base.Nat.show
+open import Base.Nat.Trait.Show
 open import Base.String.Type
 
 instance
