@@ -15,7 +15,9 @@ jobs:
 
       - name: Set up environment
         run: |
-          echo "PATH=$PATH:/usr/local/bin" >> $GITHUB_ENV
+          AGDA_CLI_PATH="/usr/local/bin"
+          AGDA_PATH="/home/runner/.local/bin"
+          echo "PATH=$PATH:$AGDA_CLI_PATH:$AGDA_PATH" >> $GITHUB_ENV
 
       - name: Verify Agda installation
         run: |
