@@ -10,6 +10,7 @@ open import Base.Nat.lt
 -- Quicksort algorithm for sorting lists of natural numbers.
 -- - xs: The input list to be sorted.
 -- = A new list containing all elements from xs in ascending order.
+{-# TERMINATING #-}
 quicksort : List Nat -> List Nat
 quicksort []        = []
 quicksort (x :: xs) = do
