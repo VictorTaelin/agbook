@@ -9,9 +9,9 @@ open import Base.Maybe.Monad.bind
 open import Base.Maybe.run
 open import Base.Pair.Type
 open import Base.Equal.Type
-import Base.Map.Type as M
-import Base.Map.get as M
-import Base.Map.set as M
+import Base.BitMap.Type as M
+import Base.BitMap.get as M
+import Base.BitMap.set as M
 
 -- Links two ports in a Net.
 -- - net: The Net to modify.
