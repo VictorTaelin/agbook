@@ -1,11 +1,11 @@
 module Base.BinTree.count where
 
-open import Base.Bool.if
-open import Base.Bool.Type
-open import Base.Nat.add
-open import Base.Nat.Type
-open import Base.Trait.Eq
 open import Base.BinTree.Type
+open import Base.Bool.Type
+open import Base.Bool.if
+open import Base.Nat.Type
+open import Base.Nat.add
+open import Base.Trait.Eq
 
 count : ∀ {A : Set} {{EqA : Eq A}} -> A -> BinTree A -> Nat
 count _ Leaf         = Zero

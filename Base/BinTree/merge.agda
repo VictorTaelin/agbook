@@ -1,7 +1,7 @@
 module Base.BinTree.merge where
 
-open import Base.String.Type
 open import Base.BinTree.Type
+open import Base.String.Type
 
 -- Merges two trees using combining functions.
 -- - a: Function to handle cases where only the first tree has a value.

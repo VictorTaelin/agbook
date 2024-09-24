@@ -5,8 +5,8 @@ open import Base.BitMap.count
 open import Base.BitMap.empty
 open import Base.BitMap.set
 open import Base.Bits.Type
-open import Base.Nat.Type
 open import Base.Equal.Type
+open import Base.Nat.Type
 
 test-case : ∀ {A : Set} -> BitMap A -> Nat -> Set
 test-case m expected = count m === expected

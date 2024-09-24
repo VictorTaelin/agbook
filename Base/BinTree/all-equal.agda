@@ -1,10 +1,10 @@
 module Base.BinTree.all-equal where
 
 open import Base.BinTree.Type
+open import Base.BinTree.fold
 open import Base.Bool.Type
 open import Base.Bool.and
 open import Base.Trait.Eq
-open import Base.BinTree.fold
 
 -- Checks if all values in a tree are equal.
 -- - t: The tree to check.

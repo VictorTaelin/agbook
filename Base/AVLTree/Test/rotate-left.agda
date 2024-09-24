@@ -1,14 +1,14 @@
 module Base.AVLTree.Test.rotate-left where
 
-open import Base.AVLTree.Type
 open import Base.AVLTree.Balance.Type
 open import Base.AVLTree.Balance.rotate-left
+open import Base.AVLTree.Type
 open import Base.AVLTree.empty
+open import Base.Bool.Type
 open import Base.Equal.Type
 open import Base.Nat.Type
 open import Base.Nat.eq
 open import Base.Pair.Type
-open import Base.Bool.Type
 open import Base.Unit.Type
 
 -- Test case 1: Rotate left with right child having +one balance

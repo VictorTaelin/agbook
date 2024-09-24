@@ -3,12 +3,12 @@ module Base.BitMap.Test.del where
 open import Base.BitMap.Type
 open import Base.BitMap.del
 open import Base.BitMap.empty
-open import Base.BitMap.set
 open import Base.BitMap.get
+open import Base.BitMap.set
 open import Base.Bits.Type
-open import Base.Nat.Type
-open import Base.Maybe.Type
 open import Base.Equal.Type
+open import Base.Maybe.Type
+open import Base.Nat.Type
 
 test-empty : get (del empty E) E === None
 test-empty = refl

@@ -1,7 +1,7 @@
 module Base.BinTree.Trait.Show where
 
-import Base.Trait.Show as Show
 import Base.BinTree.show as BinTree
+import Base.Trait.Show as Show
 open import Base.BinTree.Type
 
 instance

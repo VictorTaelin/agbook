@@ -1,8 +1,8 @@
 module Base.BinTree.Trait.Eq where
 
-import Base.Trait.Eq as Eq
 import Base.BinTree.eq as BinTree
 import Base.BinTree.neq as BinTree
+import Base.Trait.Eq as Eq
 open import Base.BinTree.Type
 
 instance

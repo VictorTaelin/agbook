@@ -1,12 +1,12 @@
 module Base.AVLTree.Balance.rotate-right where
 
+open import Base.AVLTree.Balance.Type
+open import Base.AVLTree.Balance.eq
+open import Base.AVLTree.Type
+open import Base.AVLTree.empty
 open import Base.Bool.Type
 open import Base.Pair.Type
 open import Base.Pair.Type
-open import Base.AVLTree.Balance.eq
-open import Base.AVLTree.Balance.Type
-open import Base.AVLTree.empty
-open import Base.AVLTree.Type
 
 -- Performs a right rotation on an AVL tree to fix an imbalance of -2.
 -- - tree: The AVL tree to rotate.

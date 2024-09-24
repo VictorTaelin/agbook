@@ -1,8 +1,8 @@
 module Base.AVLTree.Balance.eq where
 
 open import Base.AVLTree.Balance.Type
-open import Base.Trait.Eq public
 open import Base.Bool.Type
+open import Base.Trait.Eq public
 open import Base.Trait.Eq public
 
 -- Equality for Balance values.

@@ -1,27 +1,27 @@
 module Base.AVLTree.Test.delete-maximum where
 
-open import Base.AVLTree.Type
-open import Base.AVLTree.insert
-open import Base.AVLTree.delete-maximum
-open import Base.AVLTree.to-list
-open import Base.AVLTree.empty
 open import Base.AVLTree.Balance.Type
 open import Base.AVLTree.Test.is-balanced
+open import Base.AVLTree.Type
+open import Base.AVLTree.delete-maximum
+open import Base.AVLTree.empty
+open import Base.AVLTree.insert
+open import Base.AVLTree.to-list
+open import Base.Bool.Type
+open import Base.Bool.and
+open import Base.Bool.or
+open import Base.Equal.Type
 open import Base.List.Type
 open import Base.List.eq
-open import Base.Nat.Type
+open import Base.Maybe.Type
 open import Base.Nat.Trait.Eq
 open import Base.Nat.Trait.Ord
-open import Base.Equal.Type
+open import Base.Nat.Type
+open import Base.Nat.lt
 open import Base.Pair.Type
 open import Base.Pair.get-fst
 open import Base.Pair.get-snd
-open import Base.Maybe.Type
-open import Base.Bool.Type
-open import Base.Bool.or
-open import Base.Bool.and
 open import Base.Trait.Ord
-open import Base.Nat.lt
 open import Base.Unit.Type
 
 -- Helper function to create a test tree
@@ -49,11 +49,11 @@ test-max-value : Some (10 , unit) === get-fst (delete-maximum create-test-tree)
 test-max-value = refl
 
 -- Test 5: Deleting maximum multiple times
-test-multiple-delete : 
-  let (_ , tree₁ , _) = delete-maximum create-test-tree
-      (_ , tree₂ , _) = delete-maximum tree₁
-      (_ , tree₃ , _) = delete-maximum tree₂
-  in to-list tree₃ === ((1 , unit) :: (2 , unit) :: (3 , unit) :: (4 , unit) ::
+test-multiple-delete : do
+  let (_ , tree1 , _) = delete-maximum create-test-tree
+  let (_ , tree2 , _) = delete-maximum tree1
+  let (_ , tree3 , _) = delete-maximum tree2
+  to-list tree3 === ((1 , unit) :: (2 , unit) :: (3 , unit) :: (4 , unit) ::
                         (5 , unit) :: (6 , unit) :: (7 , unit) :: [])
 test-multiple-delete = refl
 
@@ -62,9 +62,9 @@ test-balanced-after-delete : True === is-balanced (get-fst (get-snd (delete-maxi
 test-balanced-after-delete = refl
 
 -- Test 7: Checking if the tree remains balanced after multiple deletions
-test-balanced-after-multiple-deletes :
-  let (_ , tree₁ , _) = delete-maximum create-test-tree
-      (_ , tree₂ , _) = delete-maximum tree₁
-      (_ , tree₃ , _) = delete-maximum tree₂
-  in True === (is-balanced tree₁ && is-balanced tree₂ && is-balanced tree₃)
+test-balanced-after-multiple-deletes : do
+  let (_ , tree1 , _) = delete-maximum create-test-tree
+  let (_ , tree2 , _) = delete-maximum tree1
+  let (_ , tree3 , _) = delete-maximum tree2
+  True === (is-balanced tree1 && is-balanced tree2 && is-balanced tree3)
 test-balanced-after-multiple-deletes = refl

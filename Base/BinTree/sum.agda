@@ -1,8 +1,8 @@
 module Base.BinTree.sum where
 
-open import Base.Nat.add
-open import Base.Nat.Type
 open import Base.BinTree.Type
+open import Base.Nat.Type
+open import Base.Nat.add
 
 -- Calculates the sum of all values in a tree of natural numbers.
 -- - t: The tree to sum.

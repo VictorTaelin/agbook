@@ -1,9 +1,9 @@
 module Base.BinTree.eq where
 
 import Base.Trait.Eq as Eq
-open import Base.Bool.and
-open import Base.Bool.Type
 open import Base.BinTree.Type
+open import Base.Bool.Type
+open import Base.Bool.and
 
 eq : ∀ {A : Set} -> {{EqA : Eq.Eq A}} -> BinTree A -> BinTree A -> Bool
 eq {{EqA}} Leaf            Leaf            = True
