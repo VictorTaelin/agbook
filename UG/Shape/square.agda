@@ -7,8 +7,11 @@ open import Data.List.append
 open import Data.V2.Type
 open import UG.Shape.Type
 
--- Creates a square Shape centered at the given center with the given side length
-square : V2 → Float → Shape
+-- Creates a square Shape centered at a given point with a specified side length.
+-- - center: The center point of the square (V2).
+-- - side-length: The length of each side of the square (Float).
+-- = A Shape representing the square.
+square : V2 -> Float -> Shape
 square center side-length = do
   let half-side = side-length / 2.0
   let top-left     = MkV2 (0.0 - half-side) half-side
@@ -17,4 +20,3 @@ square center side-length = do
   let bottom-left  = MkV2 (0.0 - half-side) (0.0 - half-side)
 
   Polygon (top-left :: top-right :: bottom-right :: bottom-left :: [])
-
