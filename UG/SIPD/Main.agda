@@ -1,16 +1,19 @@
 module UG.SIPD.Main where
 
+import Concurrent.Channel.new as Channel
+import Concurrent.Channel.read as Channel
+import Concurrent.Channel.write as Channel
 import UG.SIPD.Renderer.create as Renderer
 import UG.SIPD.Video.init as Video
 import UG.SIPD.Window.create as Window
 open import Base.Bool.Type
 open import Base.ByteString.Type
 open import Base.ByteString.cons
-open import Base.ByteString.read-u48
-open import Base.ByteString.head
 open import Base.ByteString.drop
+open import Base.ByteString.head
 open import Base.ByteString.pack
 open import Base.ByteString.pack-string
+open import Base.ByteString.read-u48
 open import Base.ByteString.show renaming (show to bshow)
 open import Base.ByteString.tail
 open import Base.ByteString.unpack
@@ -48,9 +51,6 @@ open import Base.Word8.Type
 open import Base.Word8.from-nat
 open import Base.Word8.to-nat
 open import Concurrent.Channel.Type
-import Concurrent.Channel.new as Channel
-import Concurrent.Channel.read as Channel
-import Concurrent.Channel.write as Channel
 open import Network.WebSocket.WSConnection
 open import Network.WebSocket.receive-binary-data
 open import Network.WebSocket.receive-data
