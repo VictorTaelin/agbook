@@ -5,5 +5,5 @@ open import Base.TreeBin.Type
 
 -- Creates an empty BitMap.
 -- = An empty BitMap.
-empty : ∀ {A : Set} → BitMap A
+empty : ∀ {A : Set} -> BitMap A
 empty = Leaf
