@@ -11,10 +11,10 @@ open import HVM1.Run.node-set
 open import HVM1.Run.link
 open import HVM1.Node.Type
 
-eras : Port → Port → Port → Run Unit
+eras : Port -> Port -> Port -> Run Unit
 eras p0 p1 p2 = do
-  B1-loc ← fresh
-  B2-loc ← fresh
+  B1-loc <- fresh
+  B2-loc <- fresh
   node-set B1-loc Era
   node-set B2-loc Era
   link (To B1-loc 0) p1

@@ -10,10 +10,10 @@ open import Base.Float.eq
 -- - x: The 1st float.
 -- - y: The 2nd float.
 -- = true if both x and y are true.
-and : Float → Float → Bool
+and : Float -> Float -> Bool
 and x y = Bool.and (not (eq 0.0 x)) (not (eq 0.0 y))
 
 -- The infix version of and.
 infixl 6 _&&_
-_&&_ : Float → Float → Bool
+_&&_ : Float -> Float -> Bool
 _&&_ = and

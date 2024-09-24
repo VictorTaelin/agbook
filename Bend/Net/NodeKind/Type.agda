@@ -9,7 +9,7 @@ data NodeKind : Set where
   Con : NodeKind
   Dup : NodeKind
   Var : NodeKind
-  Ref : String → NodeKind
-  Num : Bits → NodeKind
+  Ref : String -> NodeKind
+  Num : Bits -> NodeKind
   Opr : NodeKind
   Swi : NodeKind

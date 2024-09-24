@@ -1,11 +1,18 @@
 module Base.Unit.neq where
 
-open import Base.Unit.Type
 open import Base.Bool.Type
+open import Base.Unit.Type
 
-neq : Unit → Unit → Bool
+-- Inequality check for Unit type.
+-- - x: The 1st Unit value.
+-- - y: The 2nd Unit value.
+-- = False, as all Unit values are equal.
+neq : Unit -> Unit -> Bool
 neq _ _ = False
 
-infix 4 _!=_
-_!=_ : Unit → Unit → Bool
+-- The infix version of neq.
+_!=_ : Unit -> Unit -> Bool
 _!=_ = neq
+
+infix 4 _!=_
+

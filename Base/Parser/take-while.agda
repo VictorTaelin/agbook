@@ -18,8 +18,8 @@ open import Base.String.to-list
 
 -- Consumes characters from the input as long as they satisfy the given predicate.
 -- Returns the consumed string.
-take-while : (Char → Bool) → Parser String
-take-while pred = λ s → do
+take-while : (Char -> Bool) -> Parser String
+take-while pred = λ s -> do
   let input     = State.input s
   let chars     = to-list input
   let consumed  = List.take-while pred chars

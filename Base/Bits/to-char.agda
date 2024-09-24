@@ -6,5 +6,5 @@ open import Base.Bits.Type
 open import Base.Bits.pad-zeros
 open import Base.Char.Type
 
-to-char : Bits → Char
+to-char : Bits -> Char
 to-char bits = C.from-nat (B.to-nat bits)

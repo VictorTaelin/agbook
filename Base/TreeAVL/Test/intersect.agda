@@ -20,7 +20,7 @@ open import Base.Pair.Type
 open import Base.Pair.get-fst
 
 -- Helper function to create AVL trees from lists
-tree-from : List (Pair Nat Unit) → AVL Nat Unit
+tree-from : List (Pair Nat Unit) -> AVL Nat Unit
 tree-from = from-list
 
 -- Test: Intersection of two empty trees

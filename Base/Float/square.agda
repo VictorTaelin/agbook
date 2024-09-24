@@ -6,5 +6,5 @@ open import Base.Float.mul
 -- Squares a float.
 -- - x: The number to square.
 -- = The square of x (x^2).
-square : Float → Float
+square : Float -> Float
 square x = mul x x

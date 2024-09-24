@@ -4,7 +4,7 @@ open import Base.IO.Type
 open import Base.String.Type
 
 postulate
-  fetch : String → String → String → IO String
+  fetch : String -> String -> String -> IO String
 
 {-# FOREIGN GHC import qualified Network.HTTP.FFI.Fetch as HSF #-}
 {-# FOREIGN GHC import qualified Data.Text as T #-}

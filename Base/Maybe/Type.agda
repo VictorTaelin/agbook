@@ -6,6 +6,6 @@ module Base.Maybe.Type where
 -- - Some: Represents the presence of a value.
 data Maybe {a} (A : Set a) : Set a where
   None : Maybe A
-  Some : (value : A) → Maybe A
+  Some : (value : A) -> Maybe A
 
 {-# BUILTIN MAYBE Maybe #-}

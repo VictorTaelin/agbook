@@ -12,16 +12,16 @@ open import Base.Trait.Ord
 -- - map₁: The first OrdMap.
 -- - map₂: The second OrdMap.
 -- = A new OrdMap containing only the key-value pairs present in both input maps.
-intersect : ∀ {K V : Set} → {{_ : Ord K}} →
-            OrdMap K V → OrdMap K V → OrdMap K V
+intersect : ∀ {K V : Set} -> {{_ : Ord K}} ->
+            OrdMap K V -> OrdMap K V -> OrdMap K V
 intersect = AVL.intersect
 
 -- Infix notation for intersecting two OrdMaps.
 -- - map₁: The first OrdMap.
 -- - map₂: The second OrdMap.
 -- = A new OrdMap containing only the key-value pairs present in both input maps.
-_∩_ : ∀ {K V : Set} → {{_ : Ord K}} →
-      OrdMap K V → OrdMap K V → OrdMap K V
+_∩_ : ∀ {K V : Set} -> {{_ : Ord K}} ->
+      OrdMap K V -> OrdMap K V -> OrdMap K V
 _∩_ = intersect
 
 infixr 6 _∩_

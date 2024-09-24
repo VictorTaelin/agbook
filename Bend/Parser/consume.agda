@@ -7,7 +7,7 @@ open import Bend.Parser.consume-exactly
 open import Base.String.Type
 open import Base.Unit.Type
 
-consume : String → Parser Unit
+consume : String -> Parser Unit
 consume target = do
   skip-trivia
   consume-exactly target

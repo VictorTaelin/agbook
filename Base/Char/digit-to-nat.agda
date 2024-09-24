@@ -5,7 +5,7 @@ open import Base.Nat.Type
 open import Base.Maybe.Type
 
 -- Converts a digit character to its corresponding natural number
-digit-to-nat : Char → Maybe Nat
+digit-to-nat : Char -> Maybe Nat
 digit-to-nat '0' = Some 0
 digit-to-nat '1' = Some 1
 digit-to-nat '2' = Some 2

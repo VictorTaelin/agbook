@@ -5,7 +5,7 @@ open import Base.String.Type
 open import Base.Bool.Type
 
 postulate
-  is-directory : String → IO Bool
+  is-directory : String -> IO Bool
 
 {-# FOREIGN GHC import qualified System.Directory #-}
 {-# FOREIGN GHC import qualified Data.Text as T #-}

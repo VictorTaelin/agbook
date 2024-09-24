@@ -13,6 +13,6 @@ open import Base.TreeAVL.Type
 -- - map2: The second OrdMap.
 -- = A new OrdMap containing all key-value pairs from both input maps,
 --   with values from map2 taking precedence in case of key conflicts.
-union : ∀ {K V : Set} → {{_ : Ord K}} →
-        OrdMap K V → OrdMap K V → OrdMap K V
+union : ∀ {K V : Set} -> {{_ : Ord K}} ->
+        OrdMap K V -> OrdMap K V -> OrdMap K V
 union = AVL.union

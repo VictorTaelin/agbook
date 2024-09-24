@@ -5,5 +5,5 @@ import Base.TreeBin.show as TreeBin
 open import Base.TreeBin.Type
 
 instance
-  ShowTree : ∀ {A : Set} {{ShowA : Show.Show A}} → Show.Show (TreeBin A)
+  ShowTree : ∀ {A : Set} {{ShowA : Show.Show A}} -> Show.Show (TreeBin A)
   ShowTree {{ShowA}} = record { to-string = TreeBin.show }

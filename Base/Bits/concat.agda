@@ -5,7 +5,7 @@ open import Base.Bits.Type
 
 -- Converts a list of Bits in to a single Bits.
 -- Least significant bits should be to the left of the list.
-concat : List Bits → Bits
+concat : List Bits -> Bits
 concat []             = E
 concat (E :: xs)      = concat xs
 concat (O bits :: xs) = O (concat (bits :: xs))

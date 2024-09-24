@@ -9,9 +9,9 @@ open import Bend.Net.Type
 open import Bend.Net.Port.Type
 open import Bend.Net.Node.get renaming (get to node-get)
 
-get-port : Net → Port → Maybe Port
+get-port : Net -> Port -> Maybe Port
 get-port (MkNet nodes len name) (MkPort node-id slot-id) = do
   let key = nat-to-bits node-id
-  a ← map-get nodes key
-  p ← node-get a slot-id
+  a <- map-get nodes key
+  p <- node-get a slot-id
   Some p

@@ -9,9 +9,9 @@ open import Base.Bool.not
 -- - x: The 1st integer.
 -- - y: The 2nd integer.
 -- = True if x and y are not equal, False otherwise.
-neq : Int → Int → Bool
+neq : Int -> Int -> Bool
 neq x y = not (x == y)
 
 infix 4 _!=_
-_!=_ : Int → Int → Bool
+_!=_ : Int -> Int -> Bool
 _!=_ = neq

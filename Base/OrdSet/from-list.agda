@@ -11,5 +11,5 @@ open import Base.Unit.Type
 -- Converts a list of elements to an OrdSet.
 -- - elements: A list of elements to be added to the set.
 -- = An OrdSet containing all the unique elements from the input list.
-from-list : ∀ {V : Set} → {{_ : Ord V}} → List V → OrdSet V
-from-list l = T.from-list (map (λ v → (v , unit)) l)
+from-list : ∀ {V : Set} -> {{_ : Ord V}} -> List V -> OrdSet V
+from-list l = T.from-list (map (λ v -> (v , unit)) l)

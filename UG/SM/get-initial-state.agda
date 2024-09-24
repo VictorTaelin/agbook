@@ -16,9 +16,9 @@ open import Base.Maybe.Type
 -- game: The game object with an init function
 -- ini-t: The initial tick
 -- = Returns the initial state of type S
-get-initial-state : ∀ {S A : Set} → Mach S A → Game S A → Tick → S
+get-initial-state : ∀ {S A : Set} -> Mach S A -> Game S A -> Tick -> S
 get-initial-state mach game ini-t =
   case get (Mach.state-logs mach) (to-bits ini-t) of
-    λ { (Some state) → state
-      ; Nothing      → Game.init game
+    λ { (Some state) -> state
+      ; Nothing      -> Game.init game
       }

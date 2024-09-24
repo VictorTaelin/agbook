@@ -8,7 +8,7 @@ open import Base.String.Type
 open import Base.Equal.Type
 open import Base.Bits.show-rev
 
-to-and-back : String → String
+to-and-back : String -> String
 to-and-back x = decode-utf8 (encode-utf8 x)
 
 test-inverses-1 : to-and-back "" === ""

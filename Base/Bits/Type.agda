@@ -13,6 +13,6 @@ module Base.Bits.Type where
 -- O (O (I E)) represents 0b100 (4)
 -- O (I (I E)) represents 0b110 (5)
 data Bits : Set where
-  O : Bits → Bits
-  I : Bits → Bits
+  O : Bits -> Bits
+  I : Bits -> Bits
   E : Bits

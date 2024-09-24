@@ -14,7 +14,7 @@ open import HVM2.Run.Monad.pure
 -- Normalizes the HVM2 state
 normalize : Run Unit
 normalize = do
-  worked ← interact
+  worked <- interact
   if worked
     then normalize
     else (pure unit)

@@ -6,6 +6,6 @@ open import Base.List.Type
 -- - fn: The function to be applied.
 -- - xs: The elements to apply f to.
 -- = A new list with f applied to all elements.
-map : ∀ {A B : Set} → (A → B) → List A → List B
+map : ∀ {A B : Set} -> (A -> B) -> List A -> List B
 map fn []        = []
 map fn (x :: xs) = fn x :: map fn xs

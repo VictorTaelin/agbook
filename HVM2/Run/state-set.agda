@@ -6,5 +6,5 @@ open import HVM2.Run.Type
 open import HVM2.Run.State.Type
 
 -- Sets the current state
-state-set : State → Run Unit
-state-set new-state = λ _ → (new-state , unit)
+state-set : State -> Run Unit
+state-set new-state = λ _ -> (new-state , unit)

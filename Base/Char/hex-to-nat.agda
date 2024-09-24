@@ -6,11 +6,11 @@ open import Base.Maybe.Type
 open import Base.Char.digit-to-nat
 
 -- Converts a hexadecimal character to its corresponding natural number
-hex-to-nat : Char → Maybe Nat
+hex-to-nat : Char -> Maybe Nat
 hex-to-nat c with digit-to-nat c
 ... | Some n = Some n
 ... | None   = aux c where
-  aux : Char → Maybe Nat
+  aux : Char -> Maybe Nat
   aux 'a' = Some 10
   aux 'b' = Some 11
   aux 'c' = Some 12

@@ -13,7 +13,7 @@ open import Base.Maybe.Type
 -- Checks if an AVL tree is balanced.
 -- - tree: The AVL tree to check.
 -- = Some height if the tree is balanced, None otherwise.
-is-balanced' : ∀ {K V : Set} → AVL K V → Maybe Nat
+is-balanced' : ∀ {K V : Set} -> AVL K V -> Maybe Nat
 is-balanced' Leaf = Some Zero
 is-balanced' (Node _ balance left right) with is-balanced' left | is-balanced' right
 ... | None | _    = None
@@ -26,7 +26,7 @@ is-balanced' (Node _ balance left right) with is-balanced' left | is-balanced' r
 -- Boolean return for the `is-balanced'` function
 -- - tree: The AVL tree to check.
 -- = True if the tree is balanced, False otherwise.
-is-balanced : ∀ {K V : Set} → AVL K V → Bool
+is-balanced : ∀ {K V : Set} -> AVL K V -> Bool
 is-balanced tree with is-balanced' tree
 ... | Some _ = True
 ... | None   = False

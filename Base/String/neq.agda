@@ -5,9 +5,9 @@ open import Base.Bool.Type
 open import Base.Bool.not
 import Base.String.eq as String
 
-neq : String → String → Bool
+neq : String -> String -> Bool
 neq x y = not (String.eq x y)
 
 infix 4 _!=_
-_!=_ : String → String → Bool
+_!=_ : String -> String -> Bool
 _!=_ = neq

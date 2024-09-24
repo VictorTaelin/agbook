@@ -114,16 +114,16 @@ Nat = Nat.Nat
 Zero : Nat
 Zero = Nat.Zero
 
-Succ : Nat → Nat
+Succ : Nat -> Nat
 Succ = Nat.Succ
 
 Int : Set
 Int = Int.Int
 
-Pos : Nat → Int
+Pos : Nat -> Int
 Pos = Int.Pos
 
-NegSuc : Nat → Int
+NegSuc : Nat -> Int
 NegSuc = Int.NegSuc
 
 Float : Set
@@ -132,45 +132,45 @@ Float = Float.Float
 U64 : Set
 U64 = U64.U64
 
-List : ∀ {a} → Set a → Set a
+List : ∀ {a} -> Set a -> Set a
 List = List.List
 
-[] : ∀ {a} {A : Set a} → List A
+[] : ∀ {a} {A : Set a} -> List A
 [] = List.[]
 
-_::_ : ∀ {a} {A : Set a} → A → List A → List A
+_::_ : ∀ {a} {A : Set a} -> A -> List A -> List A
 _::_ = List._::_
 infixr 5 _::_
 
-Sigma : ∀ {a b} (A : Set a) (B : A → Set b) → Set (a Agda.Primitive.⊔ b)
+Sigma : ∀ {a b} (A : Set a) (B : A -> Set b) -> Set (a Agda.Primitive.⊔ b)
 Sigma = Pair.Sigma
 
-Σ : ∀ {a b} (A : Set a) (B : A → Set b) → Set (a Agda.Primitive.⊔ b)
+Σ : ∀ {a b} (A : Set a) (B : A -> Set b) -> Set (a Agda.Primitive.⊔ b)
 Σ = Pair.Σ
 
-Pair : ∀ {a b} → Set a → Set b → Set (a Agda.Primitive.⊔ b)
+Pair : ∀ {a b} -> Set a -> Set b -> Set (a Agda.Primitive.⊔ b)
 Pair = Pair.Pair
 
-_,_ : ∀ {a b} {A : Set a} {B : A → Set b} → (x : A) → B x → Sigma A B
+_,_ : ∀ {a b} {A : Set a} {B : A -> Set b} -> (x : A) -> B x -> Sigma A B
 _,_ = Pair._,_
 infixr 4 _,_
 
-Maybe : ∀ {a} → Set a → Set a
+Maybe : ∀ {a} -> Set a -> Set a
 Maybe = Maybe.Maybe
 
-None : ∀ {a} {A : Set a} → Maybe A
+None : ∀ {a} {A : Set a} -> Maybe A
 None = Maybe.None
 
-Some : ∀ {a} {A : Set a} → A → Maybe A
+Some : ∀ {a} {A : Set a} -> A -> Maybe A
 Some = Maybe.Some
 
-Result : Set → Set → Set
+Result : Set -> Set -> Set
 Result = Result.Result
 
-Done : ∀ {A E} → A → Result A E
+Done : ∀ {A E} -> A -> Result A E
 Done = Result.Done
 
-Fail : ∀ {A E} → E → Result A E
+Fail : ∀ {A E} -> E -> Result A E
 Fail = Result.Fail
 
 -- JSON : Set
@@ -179,28 +179,28 @@ Fail = Result.Fail
 -- JNull : JSON
 -- JNull = JSON.JNull
 
--- JBool : Bool → JSON
+-- JBool : Bool -> JSON
 -- JBool = JSON.JBool
 
--- JNumber : Float → JSON
+-- JNumber : Float -> JSON
 -- JNumber = JSON.JNumber
 
--- JString : String → JSON
+-- JString : String -> JSON
 -- JString = JSON.JString
 
--- JArray : List JSON → JSON
+-- JArray : List JSON -> JSON
 -- JArray = JSON.JArray
 
--- JObject : List (Pair String JSON) → JSON
+-- JObject : List (Pair String JSON) -> JSON
 -- JObject = JSON.JObject
 
 Bits : Set
 Bits = Bits.Bits
 
-O : Bits → Bits
+O : Bits -> Bits
 O = Bits.O
 
-I : Bits → Bits
+I : Bits -> Bits
 I = Bits.I
 
 E : Bits
@@ -209,16 +209,16 @@ E = Bits.E
 Empty : Set
 Empty = Empty.Empty
 
-_===_ : ∀ {a} {A : Set a} → A → A → Set a
+_===_ : ∀ {a} {A : Set a} -> A -> A -> Set a
 _===_ = Equal._===_
 
-refl : ∀ {a} {A : Set a} {x : A} → x === x
+refl : ∀ {a} {A : Set a} {x : A} -> x === x
 refl = Equal.refl
 
-IO : Set → Set
+IO : Set -> Set
 IO = IO.IO
 
-BitMap : Set → Set
+BitMap : Set -> Set
 BitMap = BitMap.BitMap
 
 Ordering : Set
@@ -233,22 +233,22 @@ EQ = Ordering.EQ
 GT : Ordering
 GT = Ordering.GT
 
-Parser : Set → Set
+Parser : Set -> Set
 Parser = Parser.Parser
 
-Queue : ∀ {a} → Set a → Set a
+Queue : ∀ {a} -> Set a -> Set a
 Queue = Queue.Queue
 
-MkQueue : ∀ {a} {A : Set a} → List A → List A → Queue A
+MkQueue : ∀ {a} {A : Set a} -> List A -> List A -> Queue A
 MkQueue = Queue.MkQueue
 
-TreeBin : Set → Set
+TreeBin : Set -> Set
 TreeBin = TreeBin.TreeBin
 
-Node : ∀ {A} → A → TreeBin A → TreeBin A → TreeBin A
+Node : ∀ {A} -> A -> TreeBin A -> TreeBin A -> TreeBin A
 Node = TreeBin.Node
 
-Leaf : ∀ {A} → TreeBin A
+Leaf : ∀ {A} -> TreeBin A
 Leaf = TreeBin.Leaf
 
 Unit : Set
@@ -257,11 +257,11 @@ Unit = Unit.Unit
 unit : Unit
 unit = Unit.unit
 
--- AVL : Set → Set → Set
+-- AVL : Set -> Set -> Set
 -- AVL = AVL.AVL
 
--- AVLLeaf : ∀ {A B} → AVL A B
+-- AVLLeaf : ∀ {A B} -> AVL A B
 -- AVLLeaf = AVL.Leaf
 
--- AVLNode : ∀ {A B} → Pair A B → AVL.Balance → AVL A B → AVL A B → AVL A B
+-- AVLNode : ∀ {A B} -> Pair A B -> AVL.Balance -> AVL A B -> AVL A B -> AVL A B
 -- AVLNode = AVL.Node

@@ -39,15 +39,15 @@ private
   -- - scope: The current scope
   -- - names: The list of names to add
   -- = A new scope with the added names
-  add-bnd : Map String → List String → Map String
-  add-bnd scope names = foldr (λ name acc → set acc (hash name) name) scope names
+  add-bnd : Map String -> List String -> Map String
+  add-bnd scope names = foldr (λ name acc -> set acc (hash name) name) scope names
 
 -- Resolves references in a Term
 -- - book: The Book containing all definitions
 -- - scope: The current scope
 -- - term: The Term to resolve references in
 -- = A new Term with resolved references
-resolve-refs-term : Book → Map String → Term → Term
+resolve-refs-term : Book -> Map String -> Term -> Term
 resolve-refs-term book scope (Var name) = do
   let key = hash name
   if (not (contains scope key)) && (contains (Book.defs book) key)
@@ -64,30 +64,30 @@ resolve-refs-term book scope (Fan kind terms) = Fan kind (map (resolve-refs-term
 resolve-refs-term book scope (List' terms) = List' (map (resolve-refs-term book scope) terms)
 resolve-refs-term book scope (Oper op t1 t2) = Oper op (resolve-refs-term book scope t1) (resolve-refs-term book scope t2)
 resolve-refs-term book scope (Mat bnd arg with-bnd with-arg arms) = do
-  let new-scope = add-bnd scope (maybe [] (λ x → x :: []) bnd)
-  let new-scope = foldr (λ mb acc → add-bnd acc (maybe [] (λ x → x :: []) mb)) new-scope with-bnd
+  let new-scope = add-bnd scope (maybe [] (λ x -> x :: []) bnd)
+  let new-scope = foldr (λ mb acc -> add-bnd acc (maybe [] (λ x -> x :: []) mb)) new-scope with-bnd
   -- TODO: Each arm should add the names bound in the elimination to their scope.
   -- See https://github.com/HigherOrderCO/Bend/issues/718
   Mat bnd (resolve-refs-term book scope arg)
     with-bnd (map (resolve-refs-term book scope) with-arg)
-    (map (λ rule → record rule { body = resolve-refs-term book new-scope (MatchRule.body rule) }) arms)
+    (map (λ rule -> record rule { body = resolve-refs-term book new-scope (MatchRule.body rule) }) arms)
 resolve-refs-term book scope (Swt bnd arg with-bnd with-arg pred arms) = do
-  let scope-nums = add-bnd scope (maybe [] (λ x → x :: []) bnd)
-  let scope-pred = add-bnd scope-nums (maybe [] (λ x → x :: []) pred)
+  let scope-nums = add-bnd scope (maybe [] (λ x -> x :: []) bnd)
+  let scope-pred = add-bnd scope-nums (maybe [] (λ x -> x :: []) pred)
   let (nums , pred') = split-at 1 (reverse arms)
   let nums = map (resolve-refs-term book scope-nums) nums
-  let pred' = resolve-refs-term book scope-pred (maybe Era (λ x → x) (head pred'))
+  let pred' = resolve-refs-term book scope-pred (maybe Era (λ x -> x) (head pred'))
   Swt bnd (resolve-refs-term book scope arg)
     with-bnd (map (resolve-refs-term book scope) with-arg)
     pred (reverse (pred' :: nums))
 resolve-refs-term book scope (Fold bnd arg with-bnd with-arg arms) = do
-  let new-scope = add-bnd scope (maybe [] (λ x → x :: []) bnd)
-  let new-scope = foldr (λ mb acc → add-bnd acc (maybe [] (λ x → x :: []) mb)) new-scope with-bnd
+  let new-scope = add-bnd scope (maybe [] (λ x -> x :: []) bnd)
+  let new-scope = foldr (λ mb acc -> add-bnd acc (maybe [] (λ x -> x :: []) mb)) new-scope with-bnd
   Fold bnd (resolve-refs-term book scope arg)
     with-bnd (map (resolve-refs-term book scope) with-arg)
-    (map (λ rule → record rule { body = resolve-refs-term book new-scope (MatchRule.body rule) }) arms)
+    (map (λ rule -> record rule { body = resolve-refs-term book new-scope (MatchRule.body rule) }) arms)
 resolve-refs-term book scope (Bend bnd arg cond step base) = do
-  let new-scope = foldr (λ mb acc → add-bnd acc (maybe [] (λ x → x :: []) mb)) scope bnd
+  let new-scope = foldr (λ mb acc -> add-bnd acc (maybe [] (λ x -> x :: []) mb)) scope bnd
   Bend bnd (map (resolve-refs-term book scope) arg)
         (resolve-refs-term book new-scope cond)
         (resolve-refs-term book new-scope step)
@@ -96,21 +96,21 @@ resolve-refs-term book scope (Open typ var body) =
   -- TODO: put the variables from the constructor in scope
   Open typ var (resolve-refs-term book scope body)
 resolve-refs-term book scope (Def def nxt) =
-  Def (record def { rules = map (λ rule → record rule { body = resolve-refs-term book scope (Rule.body rule) }) (FnDef.rules def) })
+  Def (record def { rules = map (λ rule -> record rule { body = resolve-refs-term book scope (Rule.body rule) }) (FnDef.rules def) })
       (resolve-refs-term book scope nxt)
 resolve-refs-term book scope term = term
 
 -- Resolves references in an entire Book
 -- - book: The Book to resolve references in
 -- = A new Book with resolved references
-resolve-refs : Book → Book
+resolve-refs : Book -> Book
 resolve-refs book =
   let map-defs val lft rgt = (Node (case val of λ where
-      (Some def) → Some (record def {
+      (Some def) -> Some (record def {
         rules = (map 
-          (λ rule → record rule { body = resolve-refs-term book Map.new (Rule.body rule) }) 
+          (λ rule -> record rule { body = resolve-refs-term book Map.new (Rule.body rule) }) 
           (FnDef.rules def)) })
-      None → None) lft rgt) in
+      None -> None) lft rgt) in
 
   record book {
     defs = Tree.fold map-defs Leaf (Book.defs book)

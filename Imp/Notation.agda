@@ -40,7 +40,7 @@ _>=_ = Ge
 -- Conditionals
 infix 30 cond_then_else_
 
-cond_then_else_ : Expr → Expr → Expr → Expr
+cond_then_else_ : Expr -> Expr -> Expr -> Expr
 cond_then_else_ = Cond
 
 --------------------------------------------------
@@ -60,10 +60,10 @@ _g=_ = GSet
 -- Convenience Local Assignments
 infix 20 _+=_ _-=_
 
-_+=_ : String → Expr → Stmt
+_+=_ : String -> Expr -> Stmt
 _+=_ v e = LSet v (Add (Var v) e)
 
-_-=_ : String → Expr → Stmt
+_-=_ : String -> Expr -> Stmt
 _-=_ v e = LSet v (Sub (Var v) e)
 
 -- Control flow

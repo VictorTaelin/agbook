@@ -21,3 +21,4 @@ to-list-go Leaf                _   = []
 -- = A List of Pairs, where each Pair contains the Bits path and the corresponding value.
 to-list : ∀ {A : Set} -> BitMap A -> List (Pair Bits A)
 to-list m = to-list-go m E
+

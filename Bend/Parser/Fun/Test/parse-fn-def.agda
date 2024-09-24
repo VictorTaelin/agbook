@@ -26,10 +26,10 @@ import Bend.Fun.FnDef.Type as FnDef'
 private
   open module FnDef = FnDef' Term
 
-parse : String → Result (Reply FnDef) Error
+parse : String -> Result (Reply FnDef) Error
 parse input = parse-fn-def (MkState input 0)
 
-ok : String → Nat → FnDef → Result (Reply FnDef) Error
+ok : String -> Nat -> FnDef -> Result (Reply FnDef) Error
 ok input index expected = Done (MkReply (MkState input index) expected)
 
 -- Simple function definition

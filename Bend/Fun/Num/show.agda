@@ -13,11 +13,11 @@ instance
   ShowNum : Show Num'
   ShowNum = record { to-string = show-num }
     where
-      show-num : Num' → String
+      show-num : Num' -> String
       show-num (U24 n) = show n
       show-num (I24 n) = show-int n
         where
-          show-int : Int → String
+          show-int : Int -> String
           show-int (Pos n) = "+" ++ show n
           show-int (NegSuc n) = "-" ++ show (Succ n)
       show-num (F24 f) = show f

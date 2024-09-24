@@ -6,7 +6,7 @@ open import Base.IO.Type
 open import Base.String.Type
 open import Base.Unit.Type
 
-postulate mkdir : String → IO Unit
+postulate mkdir : String -> IO Unit
 
 {-# FOREIGN GHC import qualified System.Directory #-}
 {-# FOREIGN GHC import qualified Data.Text as T #-}

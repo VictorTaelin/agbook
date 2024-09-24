@@ -18,11 +18,11 @@ instance
   ShowType : Show Type
   ShowType = record { to-string = show-type }
     where
-      show-type-arrow : Type → String
+      show-type-arrow : Type -> String
       show-type-arrow (Arr dom cod) = show dom ++ " -> " ++ show-type-arrow cod
       show-type-arrow t = show t
 
-      show-type : Type → String
+      show-type : Type -> String
       show-type Any = "Any"
       show-type Hole = "_"
       show-type (Var name) = name

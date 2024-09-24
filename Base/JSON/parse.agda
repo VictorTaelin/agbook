@@ -26,7 +26,7 @@ mutual
 
 {-# COMPILE JS parse-JSON = undefined #-}
 
-parse-json-string : String → Result (Reply JSON) Error
+parse-json-string : String -> Result (Reply JSON) Error
 parse-json-string input = 
   parse-JSON (record { input = input ; index = 0 })
 

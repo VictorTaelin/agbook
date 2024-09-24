@@ -5,7 +5,7 @@ open import Base.Bits.Type
 -- Decrements a binary string by one, potentially reducing its size.
 -- - bs: The input binary string.
 -- = The decremented binary string, with leading zeros removed.
-pred : Bits → Bits
+pred : Bits -> Bits
 pred E      = E
 pred (O E)  = E
 pred (O bs) = I (pred bs)

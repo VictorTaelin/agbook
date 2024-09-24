@@ -11,5 +11,5 @@ open import Base.String.eq
 -- - sep: The separator string.
 -- - strs: The list of strings to join.
 -- = A single string with all input strings concatenated, separated by sep.
-join : String → List String → String
-join sep = foldr (λ s acc → if acc == "" then s else s ++ sep ++ acc) ""
+join : String -> List String -> String
+join sep = foldr (λ s acc -> if acc == "" then s else s ++ sep ++ acc) ""

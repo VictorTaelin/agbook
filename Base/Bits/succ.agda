@@ -5,7 +5,7 @@ open import Base.Bits.Type
 -- Increments a binary string by one, increasing its size if necessary.
 -- - bs: The input binary string.
 -- = The incremented binary string, with an additional bit if needed.
-succ : Bits → Bits
+succ : Bits -> Bits
 succ E      = I E
 succ (O bs) = I bs
 succ (I bs) = O (succ bs)

@@ -20,7 +20,7 @@ open import Base.String.to-list
 -- Skips spaces in the text.
 -- Returns the number of spaces skipped.
 skip-spaces : Parser Nat
-skip-spaces = λ s → do
+skip-spaces = λ s -> do
   let input     = State.input s
   let chars     = to-list input
   let skipped   = take-while is-space chars

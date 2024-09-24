@@ -18,13 +18,13 @@ utf8-replacement-character = C.from-nat 0xfffd
 -- Decodes a UTF-8 encoded Bits representation into a String.
 -- - bits: The input Bits representing a UTF-8 encoded string.
 -- = The decoded String.
-decode-utf8 : Bits → String
+decode-utf8 : Bits -> String
 decode-utf8 bits = from-list (go (split-chunks 8 (reverse bits)))
   where
     -- Helper function to process the list of 8-bit chunks.
     -- - bits: List of 8-bit chunks to process.
     -- = List of decoded characters.
-    go : List Bits → List Char
+    go : List Bits -> List Char
     go bits with bits
     -- End of string
     ... | [] = []

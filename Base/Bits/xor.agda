@@ -6,7 +6,7 @@ open import Base.Bits.Type
 -- - a: The 1st Bits value.
 -- - b: The 2nd Bits value.
 -- = A new Bits value representing the bitwise XOR of a and b.
-xor : Bits → Bits → Bits
+xor : Bits -> Bits -> Bits
 xor E     E     = E
 xor E     b     = b
 xor a     E     = a
@@ -16,7 +16,7 @@ xor (I a) (O b) = I (xor a b)
 xor (I a) (I b) = O (xor a b)
 
 -- Infix operator for bitwise XOR
-_^_ : Bits → Bits → Bits
+_^_ : Bits -> Bits -> Bits
 _^_ = xor
 
 infixr 5 _^_

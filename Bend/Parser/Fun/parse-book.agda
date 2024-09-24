@@ -26,23 +26,23 @@ parse-book = go new-book
   parse-top-level : Parser TopLevel
   parse-top-level = do
     -- TODO: Other top-level definitions
-    def ← parse-fn-def
+    def <- parse-fn-def
     pure (TopLevel.FunDef def)
 
-  add-top-level : TopLevel → ParseBook → Parser ParseBook
+  add-top-level : TopLevel -> ParseBook -> Parser ParseBook
   add-top-level (TopLevel.FunDef def) book = do
     -- TODO: Check for repeats
     let defs = ParseBook.fun-defs book
     let defs = map-set defs (hash (FnDef.name def)) def
     pure book
 
-  go : ParseBook → Parser ParseBook
+  go : ParseBook -> Parser ParseBook
   go book = do
     skip-trivia
-    eof ← is-eof
+    eof <- is-eof
     if eof then
         pure book
       else do
-        def ← parse-top-level
-        book ← add-top-level def book
+        def <- parse-top-level
+        book <- add-top-level def book
         go book

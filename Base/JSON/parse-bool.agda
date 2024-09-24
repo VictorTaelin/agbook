@@ -16,5 +16,5 @@ open import Base.Bool.Type
 parse-bool : Parser JSON
 parse-bool = do
   skip-spaces
-  b ← (consume "true" >> pure True) <|> (consume "false" >> pure False)
+  b <- (consume "true" >> pure True) <|> (consume "false" >> pure False)
   pure (JBool b)

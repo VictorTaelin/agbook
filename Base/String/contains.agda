@@ -7,9 +7,9 @@ open import Base.String.drop
 
 -- Checks if the first string contains the second string.
 -- Returns True if str contains substr, False otherwise.
-contains : String → String → Bool
+contains : String -> String -> Bool
 contains str substr = go str where
-  go : String → Bool
+  go : String -> Bool
   go "" = False
   go s with starts-with s substr
   ... | True  = True

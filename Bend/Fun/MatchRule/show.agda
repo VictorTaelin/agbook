@@ -23,8 +23,8 @@ instance
   ShowMatchRule : Show MatchRule
   ShowMatchRule = record { to-string = show-match-rule }
     where
-      show-match-rule : MatchRule → String
+      show-match-rule : MatchRule -> String
       show-match-rule (MkMatchRule name binds body) = do
         let binds-str = join " " (map show-bind binds)
-        let name = maybe "*" (λ n → n) name
+        let name = maybe "*" (λ n -> n) name
         name ++ (if binds-str == "" then "" else " " ++ binds-str) ++ ": " ++ show {{TShow}} body

@@ -24,4 +24,4 @@ record Mach (S A : Set) : Set where
     cached-tick : Tick
     state-logs : StateLogs S
     action-logs : ActionLogs A
-    action-eq : A → A → Bool
+    action-eq : A -> A -> Bool

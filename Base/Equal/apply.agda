@@ -9,5 +9,5 @@ open import Base.Equal.Type
 -- - y: The second value.
 -- - e: Proof that x is equal to y.
 -- = Proof that f x is equal to f y
-apply : ∀ {a b} {A : Set a} {B : Set b} (f : A → B) {x y : A} → x === y → f x === f y
+apply : ∀ {a b} {A : Set a} {B : Set b} (f : A -> B) {x y : A} -> x === y -> f x === f y
 apply f refl = refl

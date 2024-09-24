@@ -9,7 +9,7 @@ import Base.Trait.Ord as Ord
 -- - xs: The first list.
 -- - ys: The second list.
 -- = LT if xs < ys, EQ if xs = ys, GT if xs > ys.
-compare : ∀ {A : Set} → (A → A → Ordering) → List A → List A → Ordering
+compare : ∀ {A : Set} -> (A -> A -> Ordering) -> List A -> List A -> Ordering
 compare cmp []        []        = EQ
 compare cmp []        (_ :: _)  = LT
 compare cmp (_ :: _)  []        = GT

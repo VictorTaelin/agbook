@@ -11,6 +11,6 @@ open import Base.Equal.Type
 -- A simple test function using the Maybe monad with do-notation
 main : Maybe Nat
 main = do
-  x ← Some 3
-  y ← Some 4
+  x <- Some 3
+  y <- Some 4
   Some (x + y)

@@ -17,11 +17,11 @@ open import Base.Unit.Type
 open import Base.Empty.Type
 
 -- Helper function to run the parser and extract the result
-run-parser : Parser JSON → String → Result JSON Error
+run-parser : Parser JSON -> String -> Result JSON Error
 run-parser parser input =
   case parser (new-parser-state input) of λ where
-    (Done (MkReply _ value)) → Done value
-    (Fail e) → Fail e
+    (Done (MkReply _ value)) -> Done value
+    (Fail e) -> Fail e
 
 -- Test cases
 test-parse-number-1 : run-parser parse-number "42" === Done (JNumber 42.0)

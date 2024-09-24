@@ -8,4 +8,4 @@ open import Base.TreeAVL.Balance.Type
 -- - V: The type of values stored in the tree.
 data AVL (K V : Set) : Set where
   Leaf : AVL K V
-  Node : (key-value : Pair K V) → (balance : Balance) → (left : AVL K V) → (right : AVL K V) → AVL K V
+  Node : (key-value : Pair K V) -> (balance : Balance) -> (left : AVL K V) -> (right : AVL K V) -> AVL K V

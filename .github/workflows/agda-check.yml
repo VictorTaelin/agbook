@@ -1,0 +1,83 @@
+name: Check Agda Files
+
+on:
+  schedule:
+    # Runs twice a day at 08:00 and 18:00 BRT
+    - cron: '0 11,21 * * *'
+  workflow_dispatch: # Allows manual triggering
+
+jobs:
+  check-agda: 
+    runs-on: ubuntu-latest # self-hosted
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Run Agda check script
+        id: check_agda
+        run: | 
+          chmod +x ./check_all.sh
+          output=$(./check_all.sh)
+          echo "$output" > output.log
+          echo "$output" | grep -q "Error: " && echo "errors_found=true" >> $GITHUB_ENV || echo "errors_found=false" >> $GITHUB_ENV
+          echo "::set-output name=output::$output"
+
+      - name: Check if errors were found
+        if: env.errors_found == 'true'
+        run: |
+          echo "Processing issue creation or update..."
+
+      - name: Find existing issue
+        id: find_existing_issue
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const { data: issues } = await github.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              });
+            const existingIssue = issues.find(issue => 
+            issue.title === "Agda Check Errors (Auto-generated)" && issue.user.login === github.actor
+            );
+            return existingIssue ? existingIssue.number : null;
+          result-encoding: string
+            
+
+      - name: Create or update issue
+        if: env.errors_found == 'true'
+        uses: peter-evans/create-or-update-comment@v3
+        with: 
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ steps.find_existing_issue.outputs.result || 'new'}}
+          body: |
+            # Agda Check Errors
+            The following files failed checking:
+            ```hs
+            ${{ steps.check_agda.outputs.output }}
+            ```
+          title: "Agda Check Errors (Auto-generated)"
+          labels: errors, automated
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Save Issue Number
+        if: ${{ steps.find_existing_issue.outputs.result == '' && env.errors_found == 'true' }}
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const issue_number = {{ steps.create_or_update_comment.outputs.issue_number }};
+            fs.writeFileSync('.issue_number', issue_number);
+
+      - name: Upload output as an artifact
+        if: env.errors_found == 'true'
+        uses: actions/upload-artifact@v3
+        with:
+          name: agda-check-output
+          path: output.log
+
+      - name: Clean up
+        run: rm output.log
+

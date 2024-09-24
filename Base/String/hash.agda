@@ -19,20 +19,20 @@ open import Base.Nat.add
 
 -- FxHash64
 -- Note: Chars are only actually 21 bits long, so maybe this is bad.
-hash : String → Bits
+hash : String -> Bits
 hash str =
   let words = (map to-nat (to-list str)) in
   to-bits (fxhash words)
 
   where
   
-  rotate-left : Nat → Nat → Nat → Nat
+  rotate-left : Nat -> Nat -> Nat -> Nat
   rotate-left n shift width =
     let lower = div n (2 exp (width - shift)) in
     let upper = (n * (2 exp shift)) % (2 exp width) in
     (upper + lower)
 
-  fxhash-step : Nat → Nat → Nat
+  fxhash-step : Nat -> Nat -> Nat
   fxhash-step hash char =
     let seed = 0x517cc1b727220a95 in
     let hash = rotate-left hash 5 64 in
@@ -41,5 +41,5 @@ hash str =
     let hash = hash % (2 exp 64) in
     hash
 
-  fxhash : List Nat → Nat
+  fxhash : List Nat -> Nat
   fxhash ns = foldl fxhash-step 0 ns

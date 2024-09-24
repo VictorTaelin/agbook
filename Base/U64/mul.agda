@@ -9,9 +9,9 @@ open import Base.U64.from-nat
 -- - a: The first U64 to multiply.
 -- - b: The second U64 to multiply.
 -- = The result of a * b, potentially wrapping around due to 64-bit limitation.
-mul : U64 → U64 → U64
+mul : U64 -> U64 -> U64
 mul a b = from-nat (to-nat a n* to-nat b)
 
 infixl 8 _*_
-_*_ : U64 → U64 → U64
+_*_ : U64 -> U64 -> U64
 _*_ = mul

@@ -33,7 +33,7 @@ open import Base.Nat.gt
 -- current-tick: The current tick
 -- end-tick: The target tick
 -- = The computed state at the end tick
-compute-helper : ∀ {S A : Set} → Mach S A → Game S A → S → Tick → Tick → S
+compute-helper : ∀ {S A : Set} -> Mach S A -> Game S A -> S -> Tick -> Tick -> S
 compute-helper mach game state current-tick end-tick =
   if current-tick == end-tick
   then state
@@ -50,7 +50,7 @@ compute-helper mach game state current-tick end-tick =
 -- game: The game rules
 -- time: The target time
 -- = The computed state at the given time
-compute : ∀ {S A : Set} → Mach S A → Game S A → Time → S
+compute : ∀ {S A : Set} -> Mach S A -> Game S A -> Time -> S
 compute mach game time =
   let ini-t = Mach.cached-tick mach
       end-t = time-to-tick mach time

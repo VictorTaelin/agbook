@@ -17,7 +17,7 @@ open import Base.Result.Type
 open import Base.List.Type
 open import Base.Pair.Type
 
-parse : String → Result (Reply Pattern) Error
+parse : String -> Result (Reply Pattern) Error
 parse input = parse-pattern (new-parser-state input)
 
 -- Variable pattern

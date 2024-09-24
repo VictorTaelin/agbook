@@ -17,13 +17,13 @@ open import HVM2.Run.State.Type
 open import HVM2.Term.Type
 
 -- Converts a substitution (Pair Bits Term) to its string representation.
-show-subst : Pair Bits Term → String
-show-subst pair = Bits.show (fst pair) ++ " → " ++ Term.show (snd pair)
+show-subst : Pair Bits Term -> String
+show-subst pair = Bits.show (fst pair) ++ " -> " ++ Term.show (snd pair)
 
 -- Converts an HVM2 State to its string representation.
 -- - state: The HVM2 State to convert.
 -- = A string representation of the HVM2 State.
-show : State → String
+show : State -> String
 show state = do
   let net-str    = "GNet:\n" ++ Net.show (State.gnet state)
   let subst-list = to-list (State.subs state)

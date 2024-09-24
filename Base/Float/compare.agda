@@ -6,7 +6,7 @@ open import Base.Bool.if
 import Base.Float.eq as Float
 import Base.Float.lt as Float
 
-compare : Float → Float → Ordering
+compare : Float -> Float -> Ordering
 compare x y = 
   if (Float.eq x y) then
     EQ

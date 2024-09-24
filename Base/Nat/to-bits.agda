@@ -11,7 +11,7 @@ open import Base.Bool.if
 -- - n: The remaining part of the natural number to convert.
 -- = The binary representation of the number as Bits.
 {-# TERMINATING #-}
-to-bits-helper : Nat → Bits
+to-bits-helper : Nat -> Bits
 to-bits-helper Zero = O E
 to-bits-helper (Succ n) =
   let quotient = div (Succ n) 2
@@ -23,6 +23,6 @@ to-bits-helper (Succ n) =
 -- Converts a natural number to its binary representation.
 -- - n: The natural number to convert.
 -- = The binary representation of the number as Bits.
-to-bits : Nat → Bits
+to-bits : Nat -> Bits
 to-bits Zero = O E
 to-bits (Succ n) = to-bits-helper (Succ n)

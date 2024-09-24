@@ -10,5 +10,5 @@ open import Base.String.to-list
 
 -- Checks if the first string starts with the second string.
 -- Returns True if str starts with prefix, False otherwise.
-starts-with : String → String → Bool
+starts-with : String -> String -> Bool
 starts-with str prefix = Base.List.starts-with.starts-with {{EqChar}} (to-list prefix) (to-list str)

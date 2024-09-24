@@ -19,22 +19,22 @@ open import Bend.Parser.parse-keyword
 open import Bend.Parser.parse-top-level-name
 open import Bend.Parser.Fun.parse-pattern
 
-parse-rule-lhs : (Maybe String) → Parser (Pair String (List Pattern))
+parse-rule-lhs : (Maybe String) -> Parser (Pair String (List Pattern))
 parse-rule-lhs expected = do
   let p-nam = case expected of λ where
-    (Some name) → parse-keyword name >> pure name
-    None → parse-top-level-name
-  has-parens ← try-consume "("
-  name , pats ← if has-parens
+    (Some name) -> parse-keyword name >> pure name
+    None -> parse-top-level-name
+  has-parens <- try-consume "("
+  name , pats <- if has-parens
     then (do
       skip-trivia
-      name ← p-nam
-      pats ← list-like parse-pattern "" ")" "" False 0
+      name <- p-nam
+      pats <- list-like parse-pattern "" ")" "" False 0
       consume "="
       pure (name , pats))
     else do
       skip-trivia
-      name ← p-nam
-      pats ← list-like parse-pattern "" "=" "" False 0
+      name <- p-nam
+      pats <- list-like parse-pattern "" "=" "" False 0
       pure (name , pats)
   pure (name , pats)

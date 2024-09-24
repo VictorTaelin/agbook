@@ -29,7 +29,7 @@ open import Base.Bits.Type
 
 -- Simple game state
 data GameState : Set where
-  Score : Nat → GameState
+  Score : Nat -> GameState
 
 -- Simple game action
 data GameAction : Set where
@@ -39,19 +39,19 @@ data GameAction : Set where
 game : Game GameState GameAction
 game = record
   { init = Score 0
-  ; when = λ { AddPoint (Score n) → Score (Succ n) }
-  ; tick = λ { (Score n) → Score (n) }  -- Increment score on each tick
+  ; when = λ { AddPoint (Score n) -> Score (Succ n) }
+  ; tick = λ { (Score n) -> Score (n) }  -- Increment score on each tick
   }
 
 -- Action equality function
-action-eq : GameAction → GameAction → Bool
+action-eq : GameAction -> GameAction -> Bool
 action-eq AddPoint AddPoint = False
 
-gameStateToString : GameState → String
+gameStateToString : GameState -> String
 gameStateToString (Score n) = "Score " ++ show n
 
 -- Debug log function
-debug-log : String → IO Unit
+debug-log : String -> IO Unit
 debug-log = print
 
 -- Test function

@@ -13,22 +13,22 @@ open import Base.String.Type
 open import Base.JSON.parse-string
 
 -- Parses a single key-value pair in a JSON object.
-parse-pair : Parser JSON → Parser (Pair String JSON)
+parse-pair : Parser JSON -> Parser (Pair String JSON)
 parse-pair parseJSON = do
   skip-spaces
-  key ← parse-string-value
+  key <- parse-string-value
   skip-spaces
   consume ":"
-  value ← parseJSON
+  value <- parseJSON
   pure (key , value)
 
 -- Parses a list of key-value pairs in a JSON object.
-parse-pairs : Parser JSON → Parser (List (Pair String JSON))
-parse-pairs parseJSON = parse-pair parseJSON >>= λ first →
+parse-pairs : Parser JSON -> Parser (List (Pair String JSON))
+parse-pairs parseJSON = parse-pair parseJSON >>= λ first ->
   (do
     skip-spaces
     consume ","
-    rest ← parse-pairs parseJSON
+    rest <- parse-pairs parseJSON
     pure (first :: rest))
   <|> pure (first :: [])
   <|> pure []
@@ -39,16 +39,16 @@ parse-pairs parseJSON = parse-pair parseJSON >>= λ first →
 -- - Parses key-value pairs.
 -- - Consumes closing brace "}".
 -- - Returns a JObject JSON value.
-parse-object : Parser JSON → Parser JSON
+parse-object : Parser JSON -> Parser JSON
 parse-object parseJSON = do
   skip-spaces
   consume "{"
-  pairs ← (do
+  pairs <- (do
     skip-spaces
     consume "}"
     pure [])
     <|> (do
-      pairs ← parse-pairs parseJSON
+      pairs <- parse-pairs parseJSON
       skip-spaces
       consume "}"
       pure pairs)

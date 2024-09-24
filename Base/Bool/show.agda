@@ -3,7 +3,7 @@ module Base.Bool.show where
 open import Base.Bool.Type
 open import Base.String.Type
 
-show : Bool → String
+show : Bool -> String
 show True  = "true"
 show False = "false"
 

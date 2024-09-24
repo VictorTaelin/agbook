@@ -4,7 +4,7 @@ open import Base.Char.Type
 open import Base.Bool.Type
 
 primitive
-  primIsAlpha : Char → Bool
+  primIsAlpha : Char -> Bool
 
-is-alpha : Char → Bool
+is-alpha : Char -> Bool
 is-alpha = primIsAlpha

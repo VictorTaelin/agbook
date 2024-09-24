@@ -13,15 +13,15 @@ open import Base.Unit.Type
 -- - value: The element to be inserted into the OrdSet.
 -- - set: The OrdSet to insert into.
 -- = A new OrdSet with the specified element inserted.
-insert : ∀ {V : Set} → {{_ : Ord V}} →
-         V → OrdSet V → OrdSet V
+insert : ∀ {V : Set} -> {{_ : Ord V}} ->
+         V -> OrdSet V -> OrdSet V
 insert value set = AVL.insert (value , unit) set
 
 -- Infix notation for inserting an element into an OrdSet.
 -- - x: The element to insert.
 -- - s: The OrdSet to insert into.
 -- = A new OrdSet with the element inserted.
-_::>_ : ∀ {V : Set} → {{_ : Ord V}} → V → OrdSet V → OrdSet V
+_::>_ : ∀ {V : Set} -> {{_ : Ord V}} -> V -> OrdSet V -> OrdSet V
 _::>_ = insert
 
 infixr 5 _::>_

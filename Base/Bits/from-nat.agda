@@ -14,13 +14,13 @@ open import Base.Nat.mod
 -- - n: The natural number to convert.
 -- = The Bits representation of the natural number, normalized.
 {-# TERMINATING #-}
-from-nat : Nat → Bits
+from-nat : Nat -> Bits
 from-nat Zero = E
-from-nat n    = normal (go n (λ x → x)) where
-  go : Nat → (Bits → Bits) → Bits
+from-nat n    = normal (go n (λ x -> x)) where
+  go : Nat -> (Bits -> Bits) -> Bits
   go Zero acc = acc E
   go n    acc = do
     let rem = mod n 2
     let quo = div n 2
     let ctr = if rem == 0 then O else I
-    go quo (λ x → acc (ctr x))
+    go quo (λ x -> acc (ctr x))

@@ -7,7 +7,7 @@ private
   open module FnDef = FnDef' Term
 
 data TopLevel : Set where
-  FunDef : FnDef → TopLevel
+  FunDef : FnDef -> TopLevel
   -- TypeDef : TopLevel
   -- ImpDef  : TopLevel
   -- HVMDef  : TopLevel

@@ -10,4 +10,4 @@ open import Base.Result.Type
 open import Base.String.head
 
 peek-one : Parser (Maybe Char)
-peek-one = λ s → Done (MkReply s (head (State.input s)))
+peek-one = λ s -> Done (MkReply s (head (State.input s)))

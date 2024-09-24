@@ -6,6 +6,6 @@ open import Base.Bool.Type
 -- Checks if a list is empty.
 -- - xs: The input list to check.
 -- = True if the list is empty, False otherwise.
-empty : ∀ {A : Set} → List A → Bool
+empty : ∀ {A : Set} -> List A -> Bool
 empty [] = True
 empty  _ = False

@@ -8,4 +8,4 @@ open import Base.Result.Type
 open import Base.Nat.Type
 
 get-index : Parser Nat
-get-index = λ s → Done (MkReply s (State.index s))
+get-index = λ s -> Done (MkReply s (State.index s))

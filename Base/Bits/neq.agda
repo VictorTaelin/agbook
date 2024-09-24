@@ -5,9 +5,9 @@ open import Base.Bool.Type
 open import Base.Bool.not
 import Base.Bits.eq as Bits
 
-neq : Bits → Bits → Bool
+neq : Bits -> Bits -> Bool
 neq x y = not (Bits.eq x y)
 
 infix 4 _!=_
-_!=_ : Bits → Bits → Bool
+_!=_ : Bits -> Bits -> Bool
 _!=_ = neq

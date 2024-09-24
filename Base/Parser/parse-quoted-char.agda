@@ -11,6 +11,6 @@ open import Base.Parser.parse-char
 parse-quoted-char : Parser Char
 parse-quoted-char = do
   consume "'"
-  c ← parse-char
+  c <- parse-char
   consume "'"
   pure c

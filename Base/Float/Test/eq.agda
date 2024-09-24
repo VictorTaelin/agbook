@@ -7,7 +7,7 @@ open import Base.Bool.Type
 open import Base.Bool.and
 open import Base.Equal.Type
 
-equal : Float → Float → Bool
+equal : Float -> Float -> Bool
 equal x y = primFloatLess (primFloatMinus x y) 0.000001 
          && primFloatLess (primFloatMinus y x) 0.000001
 
