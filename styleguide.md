@@ -41,6 +41,23 @@ infixl 6 _+_
 - The contents of a top-level module should have zero indentation.
 - Every subsequent nested scope should then be indented by an additional **two spaces**.
 
+### Primitives and Postules 
+
+- For a single declaration, it should be written on one line:
+
+```agda
+postulate IO : Set -> Set
+```
+
+- For multiple declarations, use two-space indentation:
+
+```agda
+postulate
+  runClient : String -> Int -> String -> (WSConnection -> IO Unit) -> IO Unit
+  runSecureClient : String -> Int -> String -> (WSConnection -> IO Unit) -> IO Unit
+  receiveData : WSConnection -> IO String
+```
+
 ### Function arguments
 
 - Align arguments and patterns in function definitions at the start of each one rather than inside the arument.
@@ -342,6 +359,17 @@ exists path = do
   if file-exists
   then pure True
   else is-directory path
+```
+### Layout of Instance 
+
+```
+instance
+  Show-Int : Show Int
+```
+
+```
+instance
+  OrdInt : Ord Int
 ```
 
 ## Third-Party Libraries and Dependencies (FFI)
