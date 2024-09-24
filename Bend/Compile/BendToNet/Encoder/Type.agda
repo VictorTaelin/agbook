@@ -13,4 +13,4 @@ record Encoder : Set where
   constructor MkEncoder
   field
     net  : Net         -- Current state of the Net being built
-    vars : BitMap Port -- BitMap of variable names to their corresponding Ports
+    vars : BitMap Port -- Map of variable names to their corresponding Ports

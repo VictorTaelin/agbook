@@ -11,4 +11,4 @@ private
 record Book : Set where
   constructor MkBook
   field
-    defs : BitMap FnDef -- BitMap of function definitions
+    defs : BitMap FnDef -- Map of function definitions
