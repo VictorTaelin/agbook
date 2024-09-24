@@ -6,7 +6,7 @@ open import Base.String.append
 open import Base.Nat.Type
 open import Base.Nat.Trait.Show
 open import Base.Int.Type
-open import Base.Float.Trait.Show
+open import Base.F64.Trait.Show
 open import Base.Trait.Show
 
 instance

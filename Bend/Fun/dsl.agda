@@ -20,7 +20,7 @@ open import Base.Nat.Type
 open import Base.Nat.Trait.Show
 open import Base.Nat.sub
 open import Base.Int.Type
-open import Base.Float.Type
+open import Base.F64.Type
 open import Base.Bool.Type
 open import Base.Trait.Show
 import Bend.Fun.Type.Type as T
@@ -90,7 +90,7 @@ infix 2 let'_:=_in'_
 #i : Int -> Term
 #i n = Num (I24 n)
 
-#f : Float -> Term
+#f : F64 -> Term
 #f n = Num (F24 n)
 
 -- Operations
