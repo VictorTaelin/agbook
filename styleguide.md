@@ -2,13 +2,13 @@
 
 These are still a work in progress and not complete. Many are more like goals, so you might find some parts of the library that don't fully follow them yet. The plan is to eventually Koder automate most of this.
 
-## File Strucutre 
+## File Strucutre
 - The standard library follows the structure outlined below:
 
 1. Module declaration.
 2. Imports (alphabetically ordered).
 3. Primitive declarations.
-4. Helper functions. 
+4. Helper functions.
 5. Comments.
 6. Function definitions.
 7. Infix declarations.
@@ -20,7 +20,7 @@ module Base.Float.add where
 
 open import Base.Float.Type
 
-primitive primFloatPlus : Float → Float → Float
+primitive primFloatPlus : Float ->  Float ->  Float
 
 -- Addition of floats.
 -- - x: The 1st float.
@@ -36,12 +36,12 @@ _+_ = add
 infixl 6 _+_
 ```
 
-### Indentation 
+### Indentation
 
 - The contents of a top-level module should have zero indentation.
 - Every subsequent nested scope should then be indented by an additional **two spaces**.
 
-### Primitives and Postules 
+### Primitives and Postules
 
 - For a single declaration, it should be written on one line:
 
@@ -63,7 +63,7 @@ postulate
 - Align arguments and patterns in function definitions at the start of each one rather than inside the arument.
 
 ```hs
-pred : Bits → Bits
+pred : Bits ->  Bits
 pred E      = E
 pred (O E)  = E
 pred (O bs) = I (pred bs)
@@ -73,7 +73,7 @@ pred (I bs) = O bs
 rather than:
 
 ```hs
-pred : Bits → Bits
+pred : Bits ->  Bits
 pred         E  = E
 pred (O      E) = E
 pred (O     bs) = I (pred bs)
@@ -92,7 +92,7 @@ pred (I     bs) = O bs
 import Base.Float.div as Float
 ```
 
-usage: 
+usage:
 
 ```
 div (MkV2 x1 y1) (MkV2 x2 y2) = MkV2 (x1 Float./ x2) (y1 Float./ y2)
@@ -104,7 +104,7 @@ div (MkV2 x1 y1) (MkV2 x2 y2) = MkV2 (x1 Float./ x2) (y1 Float./ y2)
   1. Import and re-export all modules in the folder.
   2. We should use the imports from `All.agda` only when we are outside the `Base` directory.
   3. Ensure consistent naming and organization across the project.
- 
+
 Example:
 
 ```agda
@@ -124,16 +124,16 @@ This structure allows other modules to import all functionality from a folder by
 open import Base.Example.ALL
 ```
 
-### Comments 
+### Comments
 - Start comments with a capital letter and end with a period.
 - Use complete sentences for explanatory comments.
 - Use numerical abbreviations for simple argument descriptions (e.g., 1st, 2nd, 3rd, 4th...).
-- Use `=` to comment on what the function will return. 
+- Use `=` to comment on what the function will return.
 - Comments should be placed above a term rather then on the same line.
 
 Example:
 
-```agda 
+```agda
 -- Addition of floats.
 -- - x: The 1st float.
 -- - y: The 2nd float.
@@ -155,7 +155,7 @@ infixl 6 _+_
 - Avoid apostrophes in names.
 - Helper functions should have the prefix of the filename followed by "-go".
 
-### Types 
+### Types
 
 - Use CamelCase (e.g., NaturalNumber, BinaryTree).
 - For types under `Base/`, use naming consistent with Agda builtins (e.g., `Zero` and `Succ`).
@@ -165,15 +165,15 @@ infixl 6 _+_
    Zero : Nat
    Succ : Nat -> Nat
   ```
-  
+
  ### Unicode and Operators
 
 - Use Unicode for ∀, λ, ≡, and Σ.
 - Use standard arrow (->) instead of Unicode arrow.
 - Minimize operator use, except for common ones like arithmetic and bitwise operators.
 
-   Arithmetic: \_+\_ (add), \_-\_ (sub), \_\*\_ (mul), \_/\_ (div), \_%\_ (mod), \_\*\*\_ (exp).   
-   Bitwise: \_&\_ (and), \_|\_ (or), \_^_\ (xor), \_~\_ (not), \_<<\_ (left shift), \_>>\_ (right shift). 
+   Arithmetic: \_+\_ (add), \_-\_ (sub), \_\*\_ (mul), \_/\_ (div), \_%\_ (mod), \_\*\*\_ (exp).
+   Bitwise: \_&\_ (and), \_|\_ (or), \_^_\ (xor), \_~\_ (not), \_<<\_ (left shift), \_>>\_ (right shift).
 
 ## Function Style
 
@@ -194,28 +194,28 @@ Example:
 
 ```agda
 swap : ∀ {A : Set} -> BitMap A -> Bits -> A -> Pair (BitMap A) (Maybe A)
-swap (Node val l r) E v = do 
-  let n = (Node (Some v) l r) 
+swap (Node val l r) E v = do
+  let n = (Node (Some v) l r)
   n , val
 
-swap (Node val l r) (O k) v = do 
-  let (new-l , old-v) = swap l k v 
+swap (Node val l r) (O k) v = do
+  let (new-l , old-v) = swap l k v
   (Node val new-l r) , old-v
 
-swap (Node val l r) (I k) v = do 
-  let (new-r , old-v) = swap r k v 
+swap (Node val l r) (I k) v = do
+  let (new-r , old-v) = swap r k v
   (Node val l new-r) , old-v
 
 swap Leaf E v = do
   let n = (Node (Some v) Leaf Leaf)
   n , None
 
-swap Leaf (O k) v = do 
+swap Leaf (O k) v = do
   let (new-l , old-v) = swap Leaf k v
   (Node None new-l Leaf) , old-v
 
-swap Leaf (I k) v = do 
-  let (new-r , old-v) = swap Leaf k v 
+swap Leaf (I k) v = do
+  let (new-r , old-v) = swap Leaf k v
   (Node None Leaf new-r) , old-v
 ```
 
@@ -227,27 +227,27 @@ This structure enhances readability and understanding of the different cases whi
 - Define helper functions at the top of the file or in separate files for complex ones.
 - If a helper function is very large or complex, it should be placed in a separate file.
 
-instead of: 
+instead of:
 
 ```agda
 module Base.String.hash where
 
 -- imports here
 
-hash : String → Bits
+hash : String ->  Bits
 hash str =
   let words = (map to-nat (to-list str)) in
   to-bits (fxhash words)
 
   where
 
-  rotate-left : Nat → Nat → Nat → Nat
+  rotate-left : Nat ->  Nat ->  Nat ->  Nat
   rotate-left n shift width =
     let lower = div n (2 exp (width - shift)) in
     let upper = (n * (2 exp shift)) % (2 exp width) in
     (upper + lower)
 
-  fxhash-step : Nat → Nat → Nat
+  fxhash-step : Nat ->  Nat ->  Nat
   fxhash-step hash char =
     let seed = 0x517cc1b727220a95 in
     let hash = rotate-left hash 5 64 in
@@ -256,7 +256,7 @@ hash str =
     let hash = hash % (2 exp 64) in
     hash
 
-  fxhash : List Nat → Nat
+  fxhash : List Nat ->  Nat
   fxhash ns = foldl fxhash-step 0 ns
 ```
 
@@ -270,12 +270,12 @@ should be.
 -- imports here
 
 -- Main hash function
-hash : String → Bits
+hash : String ->  Bits
 hash str =
   let words = (map to-nat (to-list str)) in
   to-bits (fxhash words)
 ```
-you should write this way: 
+you should write this way:
 
 - file: Base/String/HashRotateLeft.hs
 
@@ -285,7 +285,7 @@ module Base.String.HashRotateLeft where
 -- imports here
 
 -- Helper function for left rotation
-hash-rotate-left : Nat → Nat → Nat → Nat
+hash-rotate-left : Nat ->  Nat ->  Nat ->  Nat
 hash-rotate-left n shift width =
   let lower = div n (2 exp (width - shift)) in
   let upper = (n * (2 exp shift)) % (2 exp width) in
@@ -300,7 +300,7 @@ module Base.String.FxHash where
 -- imports here
 
 -- Helper function for a fxhash step
-fxhash-step : Nat → Nat → Nat
+fxhash-step : Nat ->  Nat ->  Nat
 fxhash-step hash char =
   let seed = 0x517cc1b727220a95 in
   let hash = hash-rotate-left hash 5 64 in
@@ -310,7 +310,7 @@ fxhash-step hash char =
   hash
 
 -- Main fxhash function
-fxhash : List Nat → Nat
+fxhash : List Nat ->  Nat
 fxhash ns = foldl fxhash-step 0 ns
 ```
 
@@ -329,12 +329,12 @@ fxhash ns = foldl fxhash-step 0 ns
   ...                  | true  = x ∷ filter p xs
   ...                  | false = filter p xs
   ```
-  
+
 
 ## Layout of Let in
 
 ```hs
-pad-length : Bits → Bits → Pair Bits Bits
+pad-length : Bits ->  Bits ->  Pair Bits Bits
 pad-length a b = do
   let len-a   = length a
   let len-b   = length b
@@ -342,14 +342,14 @@ pad-length a b = do
   pad-zeros trg-len a , pad-zeros trg-len b
 ```
 ```hs
-pad-length : Bits → Bits → Pair Bits Bits
+pad-length : Bits ->  Bits ->  Pair Bits Bits
 pad-length a b =
   let len-a = length a
       len-b = length b
       target-len = max len-a len-b
   in pad-zeros target-len a , pad-zeros target-len b
   ```
-  
+
 
 
 ### Layout of if
@@ -389,7 +389,7 @@ exists path = do
     else is-directory path
 ```
 
-incorrect: 
+incorrect:
 
 ```agda
 exists : String -> I Bool
@@ -399,7 +399,7 @@ exists path = do
   then pure True
   else is-directory path
 ```
-### Layout of Instance 
+### Layout of Instance
 
 ```
 instance
