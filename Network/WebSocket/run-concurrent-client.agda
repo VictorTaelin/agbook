@@ -12,8 +12,7 @@ open import Network.WebSocket.WSConnection
 -- - path: The path to connect to on the WebSocket server.
 -- - handler: A function that handles the WebSocket connection.
 -- = An asynchronous operation that runs the client concurrently.
-postulate
-  run-concurrent-client : String -> Int -> String -> (WSConnection -> IO Unit) -> IO Unit
+postulate run-concurrent-client : String -> Int -> String -> (WSConnection -> IO Unit) -> IO Unit
 
 {-# FOREIGN GHC import qualified Control.Concurrent as CC #-}
 {-# FOREIGN GHC import Control.Monad (void)  #-}
