@@ -48,9 +48,9 @@ open import Base.Word8.Type
 open import Base.Word8.from-nat
 open import Base.Word8.to-nat
 open import Concurrent.Channel.Type
-open import Concurrent.Channel.new-channel
-open import Concurrent.Channel.read-channel
-open import Concurrent.Channel.write-channel
+import Concurrent.Channel.new as Channel
+import Concurrent.Channel.read as Channel
+import Concurrent.Channel.write as Channel
 open import Network.WebSocket.WSConnection
 open import Network.WebSocket.receive-binary-data
 open import Network.WebSocket.receive-data
@@ -98,7 +98,7 @@ game = record
 handle-websocket : Channel ByteString → WSConnection → IO Unit
 handle-websocket channel connection = do
   msg <- receive-binary-data connection
-  write-channel channel msg
+  Channel.write channel msg
   handle-websocket channel connection
 
 click-event : Event
@@ -127,7 +127,7 @@ handle-bs-result bs mach = do
 
 process-messages : Mach State Event -> Channel ByteString -> IO (Mach State Event)
 process-messages mach channel = do
-  maybe-msg <- read-channel channel
+  maybe-msg <- Channel.read channel
   case maybe-msg of λ where
     (Some msg) -> do
       new-mach <- handle-bs-result msg mach
@@ -171,7 +171,7 @@ main = do
   let port = (Pos 8080)
   let path = "/"
 
-  chan <- new-channel
+  chan <- Channel.new
 
   print ("Connecting to WebSocket server")
   --run-concurrent-client host port path (handle-websocket chan)

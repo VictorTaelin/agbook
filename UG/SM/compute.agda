@@ -20,8 +20,8 @@ open import Base.Function.case using (case_of_)
 open import Base.List.Type
 open import Base.List.foldr
 open import Base.Maybe.Type
-open import Base.Map.get
-open import Base.Map.set
+open import Base.BitMap.get
+open import Base.BitMap.set
 open import Base.Nat.to-bits
 open import Base.Nat.sub
 open import Base.Nat.gt

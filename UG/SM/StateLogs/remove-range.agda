@@ -3,8 +3,8 @@ module UG.SM.StateLogs.remove-range where
 open import UG.SM.StateLogs.Type
 open import UG.SM.Tick.Type
 
-open import Base.Map.Type
-open import Base.Map.del
+open import Base.BitMap.Type
+open import Base.BitMap.del
 open import Base.Nat.Type
 open import Base.Nat.lt
 open import Base.Nat.to-bits
