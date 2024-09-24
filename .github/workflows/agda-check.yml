@@ -20,7 +20,7 @@ jobs:
       - name: Verify Agda and agda-cli installations
         run: |
           agda --version
-          agda-cli --version
+          which agda-cli
 
       - name: Run Agda checks
         id: check_agda
