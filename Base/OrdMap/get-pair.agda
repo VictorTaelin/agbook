@@ -1,6 +1,6 @@
 module Base.OrdMap.get-pair where
 
-import Base.TreeAVL.get-pair as AVL
+import Base.AVLTree.get-pair as AVL
 open import Base.Maybe.Type
 open import Base.OrdMap.Type
 open import Base.Pair.Type

@@ -1,6 +1,6 @@
 module Base.OrdMap.values where
 
-import Base.TreeAVL.values as AVL
+import Base.AVLTree.values as AVL
 open import Base.List.Type
 open import Base.OrdMap.Type
 

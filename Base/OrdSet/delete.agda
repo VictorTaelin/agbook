@@ -2,7 +2,7 @@ module Base.OrdSet.delete where
 
 open import Base.OrdSet.Type
 open import Base.Trait.Ord
-import Base.TreeAVL.delete as AVL
+import Base.AVLTree.delete as AVL
 
 -- Deletes an element from an OrdSet.
 -- This function is a wrapper around the AVL tree delete operation.

@@ -1,6 +1,6 @@
 module Base.OrdMap.empty where
 
-import Base.TreeAVL.empty as AVL
+import Base.AVLTree.empty as AVL
 open import Base.OrdMap.Type
 
 -- Creates an empty OrdMap.

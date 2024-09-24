@@ -1,10 +1,10 @@
 module Base.OrdMap.insert where
 
-import Base.TreeAVL.insert as AVL
+import Base.AVLTree.insert as AVL
 open import Base.OrdMap.Type
 open import Base.Pair.Type
 open import Base.Trait.Ord
-open import Base.TreeAVL.Type
+open import Base.AVLTree.Type
 
 -- Inserts a key-value pair into an OrdMap.
 -- This function is a wrapper around the AVL tree insert operation.

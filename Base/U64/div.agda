@@ -12,6 +12,7 @@ open import Base.U64.to-nat
 open import Base.U64.from-nat
 
 -- Division function for U64 (64-bit unsigned integers)
+{-# TERMINATING #-}
 div : U64 -> U64 -> U64
 div x y = from-nat (go (to-nat x) (to-nat y))
   where

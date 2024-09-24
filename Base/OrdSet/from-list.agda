@@ -1,6 +1,6 @@
 module Base.OrdSet.from-list where
 
-import Base.TreeAVL.from-list as T
+import Base.AVLTree.from-list as T
 open import Base.List.map
 open import Base.List.Type
 open import Base.OrdSet.Type

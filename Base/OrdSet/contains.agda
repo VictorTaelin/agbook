@@ -1,6 +1,6 @@
 module Base.OrdSet.contains where
 
-import Base.TreeAVL.has-key as AVL
+import Base.AVLTree.has-key as AVL
 open import Base.Bool.Type
 open import Base.OrdSet.Type
 open import Base.Trait.Ord

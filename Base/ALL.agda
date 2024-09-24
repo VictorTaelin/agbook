@@ -75,8 +75,8 @@ module Unit where
 module V2 where
   open import Base.V2.ALL public
 
--- module AVL where
-  -- open import Base.AVL.ALL public
+module AVL where
+  open import Base.AVLTree.ALL public
 
 -- Traits
 -- ------

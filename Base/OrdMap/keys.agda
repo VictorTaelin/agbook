@@ -1,6 +1,6 @@
 module Base.OrdMap.keys where
 
-import Base.TreeAVL.keys as AVL
+import Base.AVLTree.keys as AVL
 open import Base.List.Type
 open import Base.OrdMap.Type
 

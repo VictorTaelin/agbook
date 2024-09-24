@@ -1,6 +1,6 @@
 module Base.OrdSet.intersect where
 
-import Base.TreeAVL.intersect as AVL
+import Base.AVLTree.intersect as AVL
 open import Base.OrdSet.Type
 open import Base.Trait.Ord
 
