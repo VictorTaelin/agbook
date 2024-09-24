@@ -4,7 +4,7 @@ open import Base.BitMap.Type
 open import Base.Maybe.Type
 open import Base.String.Type
 open import Base.String.append
-open import Base.TreeBin.Type
+open import Base.BinTree.Type
 
 show : ∀ {A : Set} -> (A -> String) -> BitMap A -> String
 show f Leaf                    = "_"

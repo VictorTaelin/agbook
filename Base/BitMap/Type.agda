@@ -1,12 +1,12 @@
 module Base.BitMap.Type where
 
-open import Base.TreeBin.Type
+open import Base.BinTree.Type
 open import Base.Maybe.Type
 
--- Represents a BitMap as a TreeBin of Maybe values.
+-- Represents a BitMap as a BinTree of Maybe values.
 -- - A: The type of values stored in the map.
 BitMap : Set -> Set
-BitMap A = TreeBin (Maybe A)
+BitMap A = BinTree (Maybe A)
 
 -- Export the tree constructors
-open TreeBin public
+open BinTree public

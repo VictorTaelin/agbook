@@ -1,9 +1,9 @@
-import { TreeBin } from '../../Base/TreeBin/Type';
+import { BinTree } from '../../Base/BinTree/Type';
 import { Bool, $True, $False } from '../../Base/Bool/Type';
 import { $and } from '../../Base/Bool/and';
 import { Eq } from '../../Base/Trait/Eq';
 
-export const $eq = <A>(eq_a: Eq<A>, a: TreeBin<A>, b: TreeBin<A>): Bool => {
+export const $eq = <A>(eq_a: Eq<A>, a: BinTree<A>, b: BinTree<A>): Bool => {
   switch (a.$) {
     case 'Leaf':
       switch (b.$) {
@@ -24,6 +24,6 @@ export const $eq = <A>(eq_a: Eq<A>, a: TreeBin<A>, b: TreeBin<A>): Bool => {
   }
 };
 
-export const eq = <A>(eq_a: Eq<A>) => (a: TreeBin<A>) => (b: TreeBin<A>): Bool => $eq(eq_a, a, b);
+export const eq = <A>(eq_a: Eq<A>) => (a: BinTree<A>) => (b: BinTree<A>): Bool => $eq(eq_a, a, b);
 
 // NOTE: Operator omitted: '_==_'.

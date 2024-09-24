@@ -1,11 +1,11 @@
-import { TreeBin } from '../../Base/TreeBin/Type';
+import { BinTree } from '../../Base/BinTree/Type';
 import { Bool } from '../../Base/Bool/Type';
 import { $if_then_else_ } from '../../Base/Bool/if';
 import { Nat, $Zero } from '../../Base/Nat/Type';
 import { $add } from '../../Base/Nat/add';
 import { Eq, $eq } from '../../Base/Trait/Eq';
 
-export const $count = <A>(eq_a: Eq<A>, x: A, tree: TreeBin<A>): Nat => {
+export const $count = <A>(eq_a: Eq<A>, x: A, tree: BinTree<A>): Nat => {
   switch (tree.$) {
     case 'Leaf':
       return $Zero;
@@ -17,4 +17,4 @@ export const $count = <A>(eq_a: Eq<A>, x: A, tree: TreeBin<A>): Nat => {
   }
 };
 
-export const count = <A>(eq_a: Eq<A>) => (x: A) => (tree: TreeBin<A>) => $count(eq_a, x, tree);
+export const count = <A>(eq_a: Eq<A>) => (x: A) => (tree: BinTree<A>) => $count(eq_a, x, tree);
