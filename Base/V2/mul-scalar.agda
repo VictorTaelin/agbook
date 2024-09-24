@@ -10,3 +10,10 @@ open import Base.V2.Type
 -- = A new V2 vector with both components multiplied by the scalar.
 mul-scalar : V2 -> F64 -> V2
 mul-scalar (MkV2 x y) s = MkV2 (x * s) (y * s)
+
+-- Infix operator for multiplying a V2 vector by a scalar.
+_*_ : V2 -> Float -> V2
+_*_ = mul-scalar
+
+infixl 7 _*_
+

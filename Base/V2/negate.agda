@@ -11,6 +11,8 @@ negate : V2 -> V2
 negate (MkV2 x y) = MkV2 (F64.negate x) (F64.negate y)
 
 -- Infix notation for negate
-infix 9 -_
 -_ : V2 -> V2
 -_ = negate
+
+infix 9 -_
+
