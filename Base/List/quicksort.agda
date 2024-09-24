@@ -1,13 +1,11 @@
 module Base.List.quicksort where
 
-open import Base.Bool.Type
-open import Base.Bool.not
 open import Base.List.Type
 open import Base.List.append
 open import Base.List.filter
 open import Base.Nat.Type
-open import Base.Nat.Trait.Ord
-open import Base.Trait.Ord
+open import Base.Nat.gt
+open import Base.Nat.lt
 
 -- Quicksort algorithm for sorting lists of natural numbers.
 -- - xs: The input list to be sorted.
@@ -15,6 +13,6 @@ open import Base.Trait.Ord
 quicksort : List Nat → List Nat
 quicksort []        = []
 quicksort (x :: xs) = do
-  let min = filter (λ y → _<_ {{OrdNat}} y x) xs
-  let max = filter (λ y → _>_ {{OrdNat}} y x) xs
+  let min = filter (λ y → y < x) xs
+  let max = filter (λ y → y > x) xs
   quicksort min ++ (x :: quicksort max)

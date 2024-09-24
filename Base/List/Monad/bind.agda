@@ -4,14 +4,12 @@ open import Base.List.Type
 open import Base.List.append
 
 -- The bind function for the List monad.
--- Applies a function that returns a list to each element of a list,
--- then flattens the result.
 -- - xs: The input list.
--- - f: The function to apply to each element.
--- = A new list resulting from applying f to each element and concatenating the results.
+-- - fn: The function to apply to each element.
+-- = The result of applying fn to each element and concatenating.
 bind : ∀ {A B : Set} → List A → (A → List B) → List B
-bind []        f = []
-bind (x :: xs) f = f x ++ bind xs f
+bind []        fn = []
+bind (x :: xs) fn = fn x ++ bind xs fn
 
 -- Infix operator for bind
 _>>=_ : ∀ {A B : Set} → List A → (A → List B) → List B
