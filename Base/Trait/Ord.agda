@@ -8,33 +8,33 @@ open import Base.Ordering.neq
 
 record Ord {a} (A : Set a) : Set (lsuc a) where
   field
-    compare : A → A → Ordering
-    lt : A → A → Bool
-    gt : A → A → Bool
-    lte : A → A → Bool
-    gte : A → A → Bool
+    compare : A -> A -> Ordering
+    lt : A -> A -> Bool
+    gt : A -> A -> Bool
+    lte : A -> A -> Bool
+    gte : A -> A -> Bool
 
 open Ord {{...}} public
 
 infix 4 _<_ _>_ _<=_ _>=_
 
-_<_ : ∀ {a} {A : Set a} {{ordA : Ord A}} → A → A → Bool
+_<_ : ∀ {a} {A : Set a} {{ordA : Ord A}} -> A -> A -> Bool
 _<_ {{ordA}} = lt {{ordA}}
 
-_>_ : ∀ {a} {A : Set a} {{ordA : Ord A}} → A → A → Bool
+_>_ : ∀ {a} {A : Set a} {{ordA : Ord A}} -> A -> A -> Bool
 _>_ {{ordA}} = gt {{ordA}}
 
-_<=_ : ∀ {a} {A : Set a} {{ordA : Ord A}} → A → A → Bool
+_<=_ : ∀ {a} {A : Set a} {{ordA : Ord A}} -> A -> A -> Bool
 _<=_ {{ordA}} = lte {{ordA}}
 
-_>=_ : ∀ {a} {A : Set a} {{ordA : Ord A}} → A → A → Bool
+_>=_ : ∀ {a} {A : Set a} {{ordA : Ord A}} -> A -> A -> Bool
 _>=_ {{ordA}} = gte {{ordA}}
 
-make-ord : ∀ {a} {A : Set a} → (A → A → Ordering) → Ord A
+make-ord : ∀ {a} {A : Set a} -> (A -> A -> Ordering) -> Ord A
 make-ord compare-impl = record
   { compare = compare-impl
-  ; lt = λ x y → compare-impl x y == LT
-  ; gt = λ x y → compare-impl x y == GT
-  ; lte = λ x y → compare-impl x y != GT
-  ; gte = λ x y → compare-impl x y != LT
+  ; lt = λ x y -> compare-impl x y == LT
+  ; gt = λ x y -> compare-impl x y == GT
+  ; lte = λ x y -> compare-impl x y != GT
+  ; gte = λ x y -> compare-impl x y != LT
   }

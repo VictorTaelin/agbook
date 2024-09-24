@@ -12,11 +12,11 @@ open import Base.U64.to-nat
 open import Base.U64.from-nat
 
 -- Division function for U64 (64-bit unsigned integers)
-div : U64 → U64 → U64
+div : U64 -> U64 -> U64
 div x y = from-nat (go (to-nat x) (to-nat y))
   where
     -- Helper function to perform division using natural numbers
-    go : Nat → Nat → Nat
+    go : Nat -> Nat -> Nat
     go Zero _ = Zero
     go _ Zero = Zero  -- Handle division by zero
     go m n = if (from-bool (_<=_ {{OrdU64}} (from-nat m) (from-nat n)))

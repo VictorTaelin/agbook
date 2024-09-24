@@ -4,11 +4,11 @@ open import Base.Float.Type
 open import Base.Bool.Type
 
 primitive
-  primFloatEquality : Float → Float → Bool
+  primFloatEquality : Float -> Float -> Bool
 
-eq : Float → Float → Bool
+eq : Float -> Float -> Bool
 eq = primFloatEquality
 
 infix 4 _==_
-_==_ : Float → Float → Bool
+_==_ : Float -> Float -> Bool
 _==_ = eq

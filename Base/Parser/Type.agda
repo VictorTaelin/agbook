@@ -10,5 +10,5 @@ open import Base.Result.Type
 -- A parser takes a State and returns a Result which is either:
 -- - Done: a Reply containing the parsed value and new state.
 -- - Fail: an Error containing the index and message.
-Parser : Set → Set
-Parser A = State → Result (Reply A) Error
+Parser : Set -> Set
+Parser A = State -> Result (Reply A) Error

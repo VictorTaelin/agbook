@@ -6,7 +6,7 @@ open import Base.Maybe.Type
 open import Base.Pair.Type
 open import Base.List.reverse
 
-dequeue : ∀ {a} → {A : Set a} → Queue A → Maybe (Pair A (Queue A))
+dequeue : ∀ {a} -> {A : Set a} -> Queue A -> Maybe (Pair A (Queue A))
 dequeue (MkQueue [] [])      = None
 dequeue (MkQueue (x :: f) b) = Some (x , MkQueue f b)
 dequeue (MkQueue [] b) with reverse b

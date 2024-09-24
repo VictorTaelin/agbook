@@ -6,6 +6,6 @@ open import Base.Float.Type
 
 -- Native numeric types in Bend.
 data Num : Set where
-  U24 : (val : Nat) → Num
-  I24 : (val : Int) → Num
-  F24 : (val : Float) → Num
+  U24 : (val : Nat) -> Num
+  I24 : (val : Int) -> Num
+  F24 : (val : Float) -> Num

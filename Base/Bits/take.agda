@@ -8,7 +8,7 @@ open import Base.Nat.Type
 -- - n: The number of bits to take.
 -- - bits: The input Bits structure.
 -- = A Bits structure containing the first n bits of the input, or all of the input if n > length bits.
-take : Nat → Bits → Bits
+take : Nat -> Bits -> Bits
 take Zero     _       = E
 take (Succ _) E       = E
 take (Succ n) (O bits) = O (take n bits)

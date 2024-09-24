@@ -18,10 +18,10 @@ import Base.Map.set as M
 -- - a: The first Port to link.
 -- - b: The second Port to link.
 -- = The modified Net with the two ports linked.
-link : Net → Port → Port → Net
+link : Net -> Port -> Port -> Net
 link (MkNet net) a b = run (MkNet net) (do
-  node-a ← M.get net (Port.addr a)
-  node-b ← M.get net (Port.addr b)
+  node-a <- M.get net (Port.addr a)
+  node-b <- M.get net (Port.addr b)
   let node-a = port-set node-a (Port.slot a) b
   let node-b = port-set node-b (Port.slot b) a
   let net    = M.set net (Port.addr a) node-a

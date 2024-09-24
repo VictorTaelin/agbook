@@ -2,7 +2,7 @@ module Base.IO.Monad.pure where
 
 open import Base.IO.Type
 
-postulate pure : ∀ {A : Set} → A → IO A
+postulate pure : ∀ {A : Set} -> A -> IO A
 
 {-# COMPILE GHC pure = \_ -> return #-}
 

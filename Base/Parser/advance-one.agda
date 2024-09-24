@@ -17,11 +17,11 @@ open import Base.String.uncons
 -- Advances the parser by one character, consuming it.
 -- Returns the consumed character if successful.
 advance-one : Parser (Maybe Char)
-advance-one = λ str →
+advance-one = λ str ->
   case uncons (State.input str) of λ where
-    None →
+    None ->
       Done (MkReply str None)
-    (Some pair) → do
+    (Some pair) -> do
       let head = get-fst pair
       let tail = get-snd pair
       Done (MkReply (MkState tail (Succ (State.index str))) (Some head))

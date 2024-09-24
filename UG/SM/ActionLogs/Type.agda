@@ -10,5 +10,5 @@ open import Base.List.append
 
 open import UG.SM.Tick.Type
 
-ActionLogs : Set → Set
+ActionLogs : Set -> Set
 ActionLogs A = Map (List A)

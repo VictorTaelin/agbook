@@ -29,13 +29,13 @@ private
   open module Def = Def' BTerm
   open module Rule = Rule' BTerm
 
-compile-term : BTerm → Result (List (Pair String Net)) String
+compile-term : BTerm -> Result (List (Pair String Net)) String
 compile-term term = do
   let main = MkFnDef "main" Type.Any False ((MkRule [] term) :: []) (MkSource None None Generated)
   let book = MkBook (map-set map-new (hash "main") main)
   book-to-hvm book
 
-make-result : List Redex → H → Result (List (Pair String Net)) String
+make-result : List Redex -> H -> Result (List (Pair String Net)) String
 make-result rbag root = Done (("main" , MkNet rbag root) :: [])
 
 -- Test compilation of the id function

@@ -18,7 +18,7 @@ open import Base.List.append
 -- - t: The tick at which to add the action.
 -- - a: The action to add.
 -- = A new ActionLogs with the action added at the specified tick.
-add-action : ∀ {A : Set} → ActionLogs A → Tick → A → ActionLogs A
+add-action : ∀ {A : Set} -> ActionLogs A -> Tick -> A -> ActionLogs A
 add-action logs t a with get logs (to-bits t)
 ... | None         = set logs (to-bits t) (a :: [])
 ... | Some actions = set logs (to-bits t) (actions ++ (a :: []))

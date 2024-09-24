@@ -25,15 +25,15 @@ import Base.Map.set as M
 -- - slot: The slot number (0, 1, or 2).
 -- - port: The new port to set.
 -- = A Run computation that modifies the node's port at the specified slot.
-port-mut : Bits → Nat → Port → Run Unit
-port-mut addr slot port = state-mut λ state →
+port-mut : Bits -> Nat -> Port -> Run Unit
+port-mut addr slot port = state-mut λ state ->
   let net = Net.net (State.net state)
       maybe-node = M.get net addr
   in 
     let new-net = 
           case maybe-node of λ where
-            None → net  -- Node not found, return unchanged net
-            (Some node) →
+            None -> net  -- Node not found, return unchanged net
+            (Some node) ->
               let new-node = port-set node slot port
               in M.set net addr new-node
     in record state { net = record (State.net state) { net = new-net } }

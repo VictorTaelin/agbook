@@ -17,8 +17,8 @@ open import Base.String.to-list
 
 -- Advances the parser by 'count' characters, consuming them.
 -- Returns the consumed characters as a Maybe String.
-advance-many : Nat → Parser (Maybe String)
-advance-many count = λ s →
+advance-many : Nat -> Parser (Maybe String)
+advance-many count = λ s ->
   let input     = State.input s
       chars     = to-list input
       consumed  = take count chars

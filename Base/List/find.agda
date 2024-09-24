@@ -9,7 +9,7 @@ open import Base.Bool.Type
 -- - xs: The input list to search.
 -- = Some x if an element x satisfying the predicate is found,
 --   None if no such element exists in the list.
-find : ∀ {A : Set} → (A → Bool) → List A → Maybe A
+find : ∀ {A : Set} -> (A -> Bool) -> List A -> Maybe A
 find pred []       = None
 find pred (x :: xs) with pred x
 ... | True  = Some x

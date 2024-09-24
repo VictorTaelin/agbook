@@ -9,7 +9,7 @@ open import Base.Maybe.Type
 open import Base.Pair.Type
 
 -- Helper function to traverse the BitMap and accumulate pairs
-to-list-helper : ∀ {A : Set} → BitMap A → Bits → List (Pair Bits A)
+to-list-helper : ∀ {A : Set} -> BitMap A -> Bits -> List (Pair Bits A)
 to-list-helper (Node None     lft rgt) acc = to-list-helper lft (O acc) ++ to-list-helper rgt (I acc)
 to-list-helper (Node (Some x) lft rgt) acc = (reverse acc , x) :: (to-list-helper lft (O acc) ++ to-list-helper rgt (I acc))
 to-list-helper Leaf                    _   = []
@@ -19,5 +19,5 @@ to-list-helper Leaf                    _   = []
 -- None values are skipped.
 -- - m: The input BitMap.
 -- = A List of Pairs, where each Pair contains the Bits path and the corresponding value.
-to-list : ∀ {A : Set} → BitMap A → List (Pair Bits A)
+to-list : ∀ {A : Set} -> BitMap A -> List (Pair Bits A)
 to-list m = to-list-helper m E

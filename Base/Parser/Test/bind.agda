@@ -13,10 +13,10 @@ open import Base.Parser.Monad.pure
 
 -- Definir parsers simples para testar
 parser1 : Parser Nat
-parser1 = λ s → Done (MkReply s 5)
+parser1 = λ s -> Done (MkReply s 5)
 
-parser2 : Nat → Parser String
-parser2 n = λ s → Done (MkReply s (replicate n 'a'))
+parser2 : Nat -> Parser String
+parser2 n = λ s -> Done (MkReply s (replicate n 'a'))
 
 test-bind : (bind parser1 parser2) (MkState "abc" 0) === Done (MkReply (MkState "abc" 0) "aaaaa")
 test-bind = refl

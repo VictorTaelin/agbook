@@ -9,5 +9,5 @@ open import Base.Trait.Ord
 -- - elem: The element to search for.
 -- - set: The OrdSet to search in.
 -- = True if the element is found, False otherwise.
-contains : ∀ {V : Set} → {{_ : Ord V}} → V → OrdSet V → Bool
+contains : ∀ {V : Set} -> {{_ : Ord V}} -> V -> OrdSet V -> Bool
 contains = AVL.has-key

@@ -49,18 +49,18 @@ open import Bend.Fun.Num.Type
 
 parse-number : Parser Num
 parse-number = do
-  sign      ← parse-sign
-  radix     ← parse-radix
-  int-part  ← parse-num-radix radix
-  frac-part ← parse-frac-part radix
+  sign      <- parse-sign
+  radix     <- parse-radix
+  int-part  <- parse-num-radix radix
+  frac-part <- parse-frac-part radix
   case frac-part , sign of λ where
     -- Fractional part: float
-    (Some frac , _) → do
+    (Some frac , _) -> do
       let sign = maybe 1.0 primIntToFloat sign
       pure (F24 (sign f* ((primNatToFloat int-part) f+ frac)))
 
     -- Sign but no fractional part: signed integer
-    (None , (Some sign)) → do
+    (None , (Some sign)) -> do
       let val = sign i* (from-nat int-part)
       let in-range = (-0x00800000 <= val) && (val <= (from-nat 0x007fffff))
       if in-range then
@@ -69,7 +69,7 @@ parse-number = do
           fail-range-error "i24"
 
     -- No sign or fractional part: unsigned integer
-    (None , _)       → do
+    (None , _)       -> do
       let val = int-part
       if val < 0x1000000 then
           pure (U24 val)
@@ -80,39 +80,39 @@ parse-number = do
 
   parse-sign : Parser (Maybe Int)
   parse-sign = do
-    head ← peek-one
+    head <- peek-one
     case head of λ where
-      (Some '+') → advance-one >> pure (Some (from-nat 1))
-      (Some '-') → advance-one >> pure (Some -1)
-      _ → pure None
+      (Some '+') -> advance-one >> pure (Some (from-nat 1))
+      (Some '-') -> advance-one >> pure (Some -1)
+      _ -> pure None
 
   parse-radix : Parser Nat
   parse-radix = do
-    head ← peek-many 2
+    head <- peek-many 2
     case head of λ where
-      (Some "0x") → advance-many 2 >> pure 16
-      (Some "0b") → advance-many 2 >> pure 2
-      _ → pure 10
+      (Some "0x") -> advance-many 2 >> pure 16
+      (Some "0b") -> advance-many 2 >> pure 2
+      _ -> pure 10
 
-  parse-num-radix : Nat → Parser Nat
+  parse-num-radix : Nat -> Parser Nat
   parse-num-radix radix = do
-    digits ← take-while (is-digit-radix radix)
-    let digits = from-list (filter (λ c → c != '_') (to-list digits))
+    digits <- take-while (is-digit-radix radix)
+    let digits = from-list (filter (λ c -> c != '_') (to-list digits))
     case (to-nat-base radix digits) of λ where
-      (Some n) → pure n
-      None     → fail "Expected number"
+      (Some n) -> pure n
+      None     -> fail "Expected number"
 
-  parse-frac-part : Nat → Parser (Maybe Float)
+  parse-frac-part : Nat -> Parser (Maybe Float)
   parse-frac-part radix = do
-    has-frac ← try-consume-exactly "."
+    has-frac <- try-consume-exactly "."
     if has-frac then (do
-        digits ← take-while (is-digit-radix radix)
-        let digits = from-list (filter (λ c → c != '_') (to-list digits))
+        digits <- take-while (is-digit-radix radix)
+        let digits = from-list (filter (λ c -> c != '_') (to-list digits))
         let num = maybe 0 id (to-nat-base radix digits)
         let num = (primNatToFloat num) / (primNatToFloat (radix ** (length digits)))
         pure (Some num))
       else
         pure None
 
-  fail-range-error : String → Parser Num
+  fail-range-error : String -> Parser Num
   fail-range-error typ = fail ("Number literal outside of range for " ++ typ)

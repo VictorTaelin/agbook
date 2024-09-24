@@ -9,7 +9,7 @@ open import Base.Nat.Type
 -- - slot: The slot number (0, 1, or 2).
 -- - port: The new port to set.
 -- = The modified node with the new port set at the specified slot.
-port-set : Node → Nat → Port → Node
+port-set : Node -> Nat -> Port -> Node
 port-set (Con tag _  p1 p2) 0 px = Con tag px p1 p2
 port-set (Con tag p0 _  p2) 1 px = Con tag p0 px p2
 port-set (Con tag p0 p1 _ ) 2 px = Con tag p0 p1 px

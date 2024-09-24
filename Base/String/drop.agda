@@ -12,8 +12,8 @@ open import Base.Function.case
 -- - n: The number of characters to drop.
 -- - s: The input string.
 -- = The string with the first n characters removed.
-drop : Nat → String → String
+drop : Nat -> String -> String
 drop Zero s = s
 drop (Succ n) s = case to-list s of λ where
-  []        → ""
-  (_ :: xs) → drop n (from-list xs)
+  []        -> ""
+  (_ :: xs) -> drop n (from-list xs)

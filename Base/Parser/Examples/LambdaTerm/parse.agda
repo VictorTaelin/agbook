@@ -18,19 +18,19 @@ open import Base.String.Type
 parse : Parser Term
 parse = do
   skip-trivia
-  one ← peek-one
+  one <- peek-one
   case one of λ where
-    (Some 'λ') → do
+    (Some 'λ') -> do
       consume "λ"
-      name ← parse-name
-      body ← parse
+      name <- parse-name
+      body <- parse
       pure (Lam name body)
-    (Some '(') → do
+    (Some '(') -> do
       consume "("
-      func ← parse
-      argm ← parse
+      func <- parse
+      argm <- parse
       consume ")"
       pure (App func argm)
-    _ → do
-      name ← parse-name
+    _ -> do
+      name <- parse-name
       pure (Var name)

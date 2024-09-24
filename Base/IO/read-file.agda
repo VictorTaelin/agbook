@@ -4,7 +4,7 @@ open import Base.String.Type
 open import Base.IO.Type
 
 postulate
-  read-file    : String → IO String
+  read-file    : String -> IO String
 
 {-# FOREIGN GHC import qualified Data.Text    as T   #-}
 {-# FOREIGN GHC import qualified Data.Text.IO as TIO #-}

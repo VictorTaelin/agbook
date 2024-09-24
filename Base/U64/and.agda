@@ -18,5 +18,5 @@ and a b = from-nat (to-nat ((to-bits a) &&b (to-bits b)))
 infixl 7 _&&_
 -- Infix operator for U64 bitwise AND.
 -- - Equivalent to the 'and' function.
-_&&_ : U64 → U64 → U64
+_&&_ : U64 -> U64 -> U64
 _&&_ = and

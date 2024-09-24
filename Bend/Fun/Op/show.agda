@@ -8,7 +8,7 @@ instance
   ShowOp : Show Op
   ShowOp = record { to-string = show-op }
     where
-      show-op : Op → String
+      show-op : Op -> String
       show-op Add = "+"
       show-op Sub = "-"
       show-op Mul = "*"

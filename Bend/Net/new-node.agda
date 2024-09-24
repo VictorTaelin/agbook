@@ -9,7 +9,7 @@ open import Bend.Net.Node.Type
 open import Bend.Net.NodeKind.Type
 open import Bend.Net.Port.Type
 
-new-node : NodeKind → Net → (Pair Nat Net)
+new-node : NodeKind -> Net -> (Pair Nat Net)
 new-node kind (MkNet nodes len name) =
   let node = MkNode (MkPort len 0) (MkPort len 1) (MkPort len 2) kind in
   let map = (set nodes (to-bits len) node) in

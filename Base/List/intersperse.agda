@@ -6,7 +6,7 @@ open import Base.List.Type
 -- - x: The value to intersperse.
 -- - xs: The input list.
 -- = A new list with x inserted between all elements of xs.
-intersperse : ∀ {A : Set} → A → List A → List A
+intersperse : ∀ {A : Set} -> A -> List A -> List A
 intersperse x []        = []
 intersperse x (y :: []) = y :: []
 intersperse x (y :: ys) = y :: x :: intersperse x ys

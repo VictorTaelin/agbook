@@ -8,5 +8,5 @@ open import Base.String.Type
 private
   open module Expr = Expr' Stmt
 
-show : Expr → String
+show : Expr -> String
 show s = show-i-expr 0 s

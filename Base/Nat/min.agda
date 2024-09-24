@@ -9,5 +9,5 @@ open import Base.Trait.Ord
 -- - x: The first natural number.
 -- - y: The second natural number.
 -- = The smaller of x and y.
-min : Nat → Nat → Nat
+min : Nat -> Nat -> Nat
 min x y = if (_<=_ {{OrdNat}} x y) then x else y

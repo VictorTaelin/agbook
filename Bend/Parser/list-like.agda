@@ -27,11 +27,11 @@ open import Base.Function.case
 -- - hard-sep: If the separator is mandatory or optional
 -- - min-els: Minimum number of elements required.
 -- Returns a list of parsed elements.
-list-like : ∀ {A : Set} → Parser A → String → String → String → Bool → Nat → Parser (List A)
+list-like : ∀ {A : Set} -> Parser A -> String -> String -> String -> Bool -> Nat -> Parser (List A)
 list-like p start end sep hard-sep min-els = do
   consume start
   skip-trivia
-  elements ← if hard-sep then
+  elements <- if hard-sep then
                 parse-hard p end sep [] min-els
               else
                 parse-soft p end sep [] min-els
@@ -40,32 +40,32 @@ list-like p start end sep hard-sep min-els = do
   where
 
   -- Parse elements with optional separators
-  parse-soft : {A : Set} → Parser A → String → String → List A → Nat → Parser (List A)
+  parse-soft : {A : Set} -> Parser A -> String -> String -> List A -> Nat -> Parser (List A)
   parse-soft p end sep acc 0 = do
     (consume end >> pure acc) <|> (do
       skip-trivia
-      element ← p
+      element <- p
       try-consume sep
       parse-soft p end sep (element :: acc) 0)
   parse-soft p end sep acc (Succ n) = do
     skip-trivia
-    element ← p
+    element <- p
     (try-consume sep)
     parse-soft p end sep (element :: acc) n
 
   -- Parse elements with mandatory separators
-  parse-hard : {A : Set} → Parser A → String → String → List A → Nat → Parser (List A)
+  parse-hard : {A : Set} -> Parser A -> String -> String -> List A -> Nat -> Parser (List A)
   parse-hard p end sep acc (Succ (Succ n)) = do
     skip-trivia
-    element ← p
+    element <- p
     consume sep
     parse-hard p end sep (element :: acc) (Succ n)
 
   -- One or zero mandatory elements, we allow a trailing separator
   parse-hard p end sep acc 1 = do
     skip-trivia
-    element ← p
-    is-sep ← try-consume sep
+    element <- p
+    is-sep <- try-consume sep
     if is-sep then
         parse-hard p end sep (element :: acc) 0
       else do
@@ -74,9 +74,9 @@ list-like p start end sep hard-sep min-els = do
 
   parse-hard p end sep acc 0 = do
     (consume end >> pure acc) <|> (do
-      element ← p
+      element <- p
       skip-trivia
-      is-sep ← try-consume sep
+      is-sep <- try-consume sep
       if is-sep then
           parse-hard p end sep (element :: acc) 0
         else do

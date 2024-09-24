@@ -13,5 +13,5 @@ instance
   ShowPort : Show Port
   ShowPort = record { to-string = show-port }
     where
-      show-port : Port → String
+      show-port : Port -> String
       show-port port = show (to-pair port)

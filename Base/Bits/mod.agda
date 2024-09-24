@@ -12,11 +12,11 @@ open import Base.Bits.from-nat
 -- - a: The dividend (Bits).
 -- - b: The divisor (Bits).
 -- = The remainder of a modulo b (Bits).
-mod : Bits → Bits → Bits
+mod : Bits -> Bits -> Bits
 mod a b = from-nat (nat-mod (to-nat a) (to-nat b))
 
 -- Infix operator for Bits modulo
-_%_ : Bits → Bits → Bits
+_%_ : Bits -> Bits -> Bits
 _%_ = mod
 
 infixl 7 _%_

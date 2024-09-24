@@ -11,7 +11,7 @@ open import HVM2.Run.State.Type
 open import HVM2.Term.Type
 
 -- Runs a Run A computation with an initial State, returning an A
-run : ∀ {A : Set} → Run A → A
+run : ∀ {A : Set} -> Run A -> A
 run fun = do
   let initial-net = MkNet [] Era
   let (_ , res) = fun (MkState initial-net empty E)

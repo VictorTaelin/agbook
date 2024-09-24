@@ -12,7 +12,7 @@ instance
   ShowNodeKind : Show NodeKind
   ShowNodeKind = record { to-string = show-node-kind }
     where
-      show-node-kind : NodeKind → String
+      show-node-kind : NodeKind -> String
       show-node-kind Rot = "Rot"
       show-node-kind Era = "Era"
       show-node-kind Con = "Con"

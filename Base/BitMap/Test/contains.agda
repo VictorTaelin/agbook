@@ -9,7 +9,7 @@ open import Base.Bool.Type
 open import Base.Nat.Type
 open import Base.Equal.Type
 
-test-case : ∀ {A : Set} → BitMap A → Bits → Bool → Set
+test-case : ∀ {A : Set} -> BitMap A -> Bits -> Bool -> Set
 test-case m k expected = contains m k === expected
 
 test-empty : contains empty E === False

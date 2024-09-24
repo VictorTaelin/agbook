@@ -8,7 +8,7 @@ open import Base.Unit.Type
 -- - path: The path of the file to delete.
 -- = IO action that deletes the file.
 postulate
-  delete-file : String → IO Unit
+  delete-file : String -> IO Unit
 
 {-# FOREIGN GHC import qualified System.Directory #-}
 {-# FOREIGN GHC import qualified Data.Text as T #-}

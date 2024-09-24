@@ -25,23 +25,23 @@ import Bend.Fun.Rule.Type as Rule'
 private
   open module Rule = Rule' Term
 
-parse-rule : (Maybe String) → Parser (Pair String Rule)
+parse-rule : (Maybe String) -> Parser (Pair String Rule)
 parse-rule expected = do
   let p-nam = case expected of λ where
-    (Some name) → parse-keyword name >> pure name
-    None → parse-top-level-name
-  has-parens ← try-consume "("
-  name , pats ← if has-parens
+    (Some name) -> parse-keyword name >> pure name
+    None -> parse-top-level-name
+  has-parens <- try-consume "("
+  name , pats <- if has-parens
     then (do
       skip-trivia
-      name ← p-nam
-      pats ← list-like parse-pattern "" ")" "" False 0
+      name <- p-nam
+      pats <- list-like parse-pattern "" ")" "" False 0
       consume "="
       pure (name , pats))
     else do
       skip-trivia
-      name ← p-nam
-      pats ← list-like parse-pattern "" "=" "" False 0
+      name <- p-nam
+      pats <- list-like parse-pattern "" "=" "" False 0
       pure (name , pats)
-  body ← parse-term
+  body <- parse-term
   pure (name , MkRule pats body)

@@ -5,6 +5,6 @@ module Base.Nat.Type where
 -- - Succ : Represents the successor of a natural number.
 data Nat : Set where
   Zero : Nat
-  Succ : (pred : Nat) → Nat
+  Succ : (pred : Nat) -> Nat
 
 {-# BUILTIN NATURAL Nat #-}

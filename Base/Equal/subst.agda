@@ -10,5 +10,5 @@ open import Base.Equal.Type
 -- - e: Proof that x is equal to y.
 -- - p: Proof that P holds for x.
 -- = Proof that P holds for y.
-subst : ∀ {a b} {A : Set a} {x y : A} → (P : A → Set b) → x === y → P x → P y
+subst : ∀ {a b} {A : Set a} {x y : A} -> (P : A -> Set b) -> x === y -> P x -> P y
 subst P refl p = p

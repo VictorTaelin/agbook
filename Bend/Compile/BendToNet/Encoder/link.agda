@@ -11,8 +11,8 @@ open import Bend.Net.Port.Type
 -- - a: The first Port to link
 -- - b: The second Port to link
 -- = The Encoder with the net updated or None on error
-link : Encoder → Port → Port → Maybe Encoder
+link : Encoder -> Port -> Port -> Maybe Encoder
 link enc a b = do
   let net = Encoder.net enc
-  net ← net-link net a b
+  net <- net-link net a b
   Some (record enc { net = net })

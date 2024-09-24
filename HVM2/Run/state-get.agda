@@ -6,4 +6,4 @@ open import HVM2.Run.State.Type
 
 -- Gets the current state
 state-get : Run State
-state-get = λ state → (state , state)
+state-get = λ state -> (state , state)

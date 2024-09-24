@@ -9,7 +9,7 @@ open import Bend.Parser.consume-exactly
 open import Base.Bool.Type
 open import Base.String.Type
 
-try-consume : String → Parser Bool
+try-consume : String -> Parser Bool
 try-consume target = do
   skip-trivia
   (consume-exactly target >> (pure True)) <|> (pure False)

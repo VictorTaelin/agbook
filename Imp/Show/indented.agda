@@ -18,13 +18,13 @@ private
   open module Expr = Expr' Stmt
 
   -- indent by two spaces
-  indent : Nat → String
+  indent : Nat -> String
   indent Zero     = ""
   indent (Succ n) = "  " ++ (indent n)
 
 interleaved mutual
-  show-i-expr : Nat → Expr → String
-  show-i-stmt : Nat → Stmt → String
+  show-i-expr : Nat -> Expr -> String
+  show-i-stmt : Nat -> Stmt -> String
 
   show-i-expr _ (Var v) = v
   show-i-expr _ (Num n) = Nat.show (U64.primWord64ToNat n)

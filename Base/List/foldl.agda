@@ -7,7 +7,7 @@ open import Base.List.Type
 -- - z: The initial value (for the empty list case).
 -- - xs: The list to fold over.
 -- = The result of folding the list.
-foldl : ∀ {a b} {A : Set a} {B : Set b} → (A → B → A) → A → List B → A
+foldl : ∀ {a b} {A : Set a} {B : Set b} -> (A -> B -> A) -> A -> List B -> A
 foldl f z []        = z
 foldl f z (x :: xs) = foldl f (f z x) xs
 

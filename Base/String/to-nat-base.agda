@@ -12,13 +12,13 @@ open import Base.Char.to-digit
 open import Base.Function.case
 
 -- Converts a string to a natural number in the given base
-to-nat-base : Nat → String → Maybe Nat
+to-nat-base : Nat -> String -> Maybe Nat
 to-nat-base base s with to-list s
 ... | [] = None
 ... | cs = go cs 0 where
-  go : List Char → Nat → Maybe Nat
+  go : List Char -> Nat -> Maybe Nat
   go []        acc = Some acc
   go (c :: cs) acc = 
     case to-digit base c of λ where
-      (Some d) → go cs (add (mul acc base) d)
-      None     → None
+      (Some d) -> go cs (add (mul acc base) d)
+      None     -> None

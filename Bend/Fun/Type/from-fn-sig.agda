@@ -4,5 +4,5 @@ open import Base.List.Type
 open import Base.List.foldr
 open import Bend.Fun.Type.Type
 
-from-fn-sig : List Type → Type → Type
+from-fn-sig : List Type -> Type -> Type
 from-fn-sig args ret = foldr Arr ret args

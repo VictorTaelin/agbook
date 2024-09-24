@@ -11,11 +11,11 @@ open import Base.Int.Type
 postulate WSConnection : Set
 
 postulate
-  runClient : String → Int → String → (WSConnection → IO Unit) → IO Unit
-  runSecureClient : String → Int → String → (WSConnection → IO Unit) → IO Unit
-  receiveData : WSConnection → IO String
-  sendTextData : WSConnection → String → IO Unit
-  sendClose : WSConnection → String → IO Unit
+  runClient : String -> Int -> String -> (WSConnection -> IO Unit) -> IO Unit
+  runSecureClient : String -> Int -> String -> (WSConnection -> IO Unit) -> IO Unit
+  receiveData : WSConnection -> IO String
+  sendTextData : WSConnection -> String -> IO Unit
+  sendClose : WSConnection -> String -> IO Unit
 
 {-# FOREIGN GHC import qualified Network.WebSockets as WS #-}
 {-# FOREIGN GHC import qualified Data.Text as T #-}

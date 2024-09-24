@@ -16,10 +16,10 @@ open import Base.TreeAVL.Type
 -- - t₁: The first AVL tree.
 -- - t₂: The second AVL tree.
 -- = A new AVL tree containing only the key-value pairs present in both input trees.
-intersect : ∀ {K V : Set} → {{_ : Ord K}} → AVL K V → AVL K V → AVL K V
+intersect : ∀ {K V : Set} -> {{_ : Ord K}} -> AVL K V -> AVL K V -> AVL K V
 intersect t₁ t₂ = intersect' t₁ t₂ empty
   where
-    intersect' : ∀ {K V : Set} → {{_ : Ord K}} → AVL K V → AVL K V → AVL K V → AVL K V
+    intersect' : ∀ {K V : Set} -> {{_ : Ord K}} -> AVL K V -> AVL K V -> AVL K V -> AVL K V
     intersect' Leaf _ acc = acc
     intersect' (Node (k , v) _ left right) t₂ acc =
       let acc' = if has-key k t₂
@@ -31,7 +31,7 @@ intersect t₁ t₂ = intersect' t₁ t₂ empty
 -- - t₁: The first AVL tree.
 -- - t₂: The second AVL tree.
 -- = A new AVL tree containing only the key-value pairs present in both input trees.
-_∩_ : ∀ {K V : Set} → {{_ : Ord K}} → AVL K V → AVL K V → AVL K V
+_∩_ : ∀ {K V : Set} -> {{_ : Ord K}} -> AVL K V -> AVL K V -> AVL K V
 _∩_ = intersect
 
 infixr 6 _∩_

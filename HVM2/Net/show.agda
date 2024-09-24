@@ -13,8 +13,8 @@ open import HVM2.Redex.Type
 -- Converts a Net to its string representation.
 -- - net: The Net to convert.
 -- = A string representation of the Net.
-show : Net → String
+show : Net -> String
 show net = do
   let root = Term.show (Net.root net)
-  let rbag = join "" (map (λ r → " & " ++ Redex.show r) (Net.rbag net))
+  let rbag = join "" (map (λ r -> " & " ++ Redex.show r) (Net.rbag net))
   root ++ rbag

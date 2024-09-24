@@ -21,7 +21,7 @@ open import Bend.Compile.BendToNet.Encoder.new-node
 -- - pattern: The Pattern to be encoded
 -- - up: The upstream Port to connect the pattern to
 -- = The Encoder with the nodes from the compiled pattern or None on error
-encode-pat : Encoder → Pattern → Port → Maybe Encoder
+encode-pat : Encoder -> Pattern -> Port -> Maybe Encoder
 encode-pat enc (Pattern.Var None)        up =
   let (node , enc) = new-node Era enc in
   link enc up (MkPort node 0)
@@ -35,7 +35,7 @@ encode-pat enc (Pattern.Fan kind pats)   up = enc-children enc (from-fan-kind ki
     -- - up: The upstream Port to connect to
     -- - pats: The list of child Patterns
     -- = The Encoder with the nodes from the compiled children or None on error
-    enc-children : Encoder → NodeKind → Port → List Pattern → Maybe Encoder
+    enc-children : Encoder -> NodeKind -> Port -> List Pattern -> Maybe Encoder
     enc-children enc kind up [] = None
     enc-children enc kind up (pat :: []) = encode-pat enc pat up
     enc-children enc kind up (pat :: pats) = do

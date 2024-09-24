@@ -9,8 +9,8 @@ open import HVM2.Term.Type
 import Base.Map.swap as Map
 
 -- Swaps a substitution in the state and returns the old value
-subst-swap : Bits → Term → Run (Maybe Term)
-subst-swap x t = λ state → do
+subst-swap : Bits -> Term -> Run (Maybe Term)
+subst-swap x t = λ state -> do
   let (new-subs , old-val) = Map.swap (State.subs state) x t
   let new-state = record state { subs = new-subs }
   new-state , old-val

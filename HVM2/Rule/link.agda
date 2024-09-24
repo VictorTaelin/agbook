@@ -7,5 +7,5 @@ open import HVM2.Run.Type
 open import HVM2.Term.Type
 
 -- Link interaction
-link : Bits → Term → Run Unit
+link : Bits -> Term -> Run Unit
 link x b = HVM2.Run.link.link (Var x) b

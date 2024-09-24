@@ -9,12 +9,12 @@ open import HVM2.Run.Monad.pure
 open import HVM2.Term.Type
 
 -- Commutation interaction
-comm : Term → Term → Term → Term → Run Unit
+comm : Term -> Term -> Term -> Term -> Run Unit
 comm a1 a2 b1 b2 = do
-  v0 ← fresh
-  v1 ← fresh
-  v2 ← fresh
-  v3 ← fresh
+  v0 <- fresh
+  v1 <- fresh
+  v2 <- fresh
+  v3 <- fresh
   let n0 = Con (Var v0) (Var v1)
   let n1 = Con (Var v2) (Var v3)
   let n2 = Dup (Var v0) (Var v2)

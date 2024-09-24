@@ -15,16 +15,16 @@ open import Base.String.from-list
 -- Helper function to parse multiple characters
 parse-chars : Parser (List Char)
 parse-chars = do
-  c ← parse-char
+  c <- parse-char
   case c of λ where
-    '"' → pure []
-    _   → do
-      cs ← parse-chars
+    '"' -> pure []
+    _   -> do
+      cs <- parse-chars
       pure (c :: cs)
 
 -- Parses a quoted string: "hello\nworld" etc.
 parse-string : Parser String
 parse-string = do
   consume "\""
-  chars ← parse-chars
+  chars <- parse-chars
   pure (from-list chars)

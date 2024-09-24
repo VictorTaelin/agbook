@@ -9,5 +9,5 @@ open import Base.String.Type
 -- Creates a new Encoder with empty net and var map
 -- - name: The name for the new net
 -- = A new Encoder with initialized components
-new : String → Encoder
+new : String -> Encoder
 new name = MkEncoder (net-new name) map-new

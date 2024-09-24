@@ -26,14 +26,14 @@ open import Bend.Parser.is-name-char
 -- Returns True if the input starts with the keyword and is followed by a non-name character.
 -- Returns False otherwise.
 -- Does not consume any input.
-starts-with-keyword : String → Parser Bool
+starts-with-keyword : String -> Parser Bool
 starts-with-keyword keyword = do
-  prefix ← peek-many (Succ (length keyword))
+  prefix <- peek-many (Succ (length keyword))
   case prefix of λ where
-    (Some prefix) → do
+    (Some prefix) -> do
       let (keyword' , nxt) = split-at (length keyword) prefix
       let starts-with = keyword' == keyword
       let nxt-is-name = maybe False is-name-char (head nxt)
       pure (starts-with && not nxt-is-name) 
-    None → pure False
+    None -> pure False
  

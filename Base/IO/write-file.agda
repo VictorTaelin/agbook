@@ -4,7 +4,7 @@ open import Base.IO.Type
 open import Base.String.Type
 open import Base.Unit.Type
 
-postulate write-file : String → String → IO Unit
+postulate write-file : String -> String -> IO Unit
 
 {-# FOREIGN GHC import qualified Data.Text    as T   #-}
 {-# FOREIGN GHC import qualified Data.Text.IO as TIO    #-}

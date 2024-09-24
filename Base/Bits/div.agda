@@ -12,11 +12,11 @@ open import Base.Bits.from-nat
 -- - a: The dividend (Bits).
 -- - b: The divisor (Bits).
 -- = The quotient of a divided by b (Bits).
-div : Bits → Bits → Bits
+div : Bits -> Bits -> Bits
 div a b = from-nat (nat-div (to-nat a) (to-nat b))
 
 -- Infix operator for Bits division
-_/_ : Bits → Bits → Bits
+_/_ : Bits -> Bits -> Bits
 _/_ = div
 
 infixl 7 _/_

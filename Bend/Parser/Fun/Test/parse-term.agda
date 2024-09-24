@@ -18,10 +18,10 @@ open import Base.Pair.Type
 open import Base.Nat.Type
 open import Base.Bool.Type
 
-parse : String → Result (Reply Term) Error
+parse : String -> Result (Reply Term) Error
 parse input = parse-term (MkState input 0)
 
-ok : String → Nat → Term → Result (Reply Term) Error
+ok : String -> Nat -> Term -> Result (Reply Term) Error
 ok input index expected = Done (MkReply (MkState input index) expected)
 
 -- Variable

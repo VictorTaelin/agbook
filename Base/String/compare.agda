@@ -7,7 +7,7 @@ open import Base.Ordering.Type
 open import Base.Bool.Type
 open import Base.Bool.if
 
-compare : String → String → Ordering
+compare : String -> String -> Ordering
 compare s1 s2 = 
   if (String.eq s1 s2) then
     EQ

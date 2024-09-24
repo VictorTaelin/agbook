@@ -9,5 +9,5 @@ open import Base.Trait.Ord
 -- - x: The first natural number.
 -- - y: The second natural number.
 -- = The larger of x and y.
-max : Nat → Nat → Nat
+max : Nat -> Nat -> Nat
 max x y = if (_>=_ {{OrdNat}} x y) then x else y

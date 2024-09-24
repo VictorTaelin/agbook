@@ -32,17 +32,17 @@ open import Base.String.from-list
 -- Converts a natural number into a unique name.
 -- - n: The number to convert.
 -- = A unique string representation of the number, using only lowercase ascii characters.
-nat-to-name : Nat → String
+nat-to-name : Nat -> String
 nat-to-name n = do
   from-list (nat-to-letters n)
   where
-    nat-to-letter : Nat → Char
+    nat-to-letter : Nat -> Char
     nat-to-letter n = from-nat (n + (to-nat 'a'))
 
     -- TODO: Show that it's terminating because (n / 26) < n
-    nat-to-letters' : Nat → List Char
+    nat-to-letters' : Nat -> List Char
     nat-to-letters' 0 = []
     nat-to-letters' n = nat-to-letter (n % 26) :: nat-to-letters' (div n 26)
 
-    nat-to-letters : Nat → List Char
+    nat-to-letters : Nat -> List Char
     nat-to-letters n = nat-to-letter (n % 26) :: nat-to-letters (div n 26)

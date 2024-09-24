@@ -11,5 +11,5 @@ record State : Set where
     index : Nat    -- The current parsing index.
 
 -- Creates a new State with the given input and initial index of zero.
-new-parser-state : String → State
+new-parser-state : String -> State
 new-parser-state input = MkState input Zero

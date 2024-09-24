@@ -34,20 +34,20 @@ instance
   {-# TERMINATING #-}
   ShowTerm = record { to-string = show-term }
     where mutual
-      show-with : List' (Maybe String) → List' Term → String
+      show-with : List' (Maybe String) -> List' Term -> String
       show-with [] [] = ""
       show-with with-bnd with-arg =
         "with " ++ join ", " (map show-bind-arg (zip with-bnd with-arg)) ++ " "
         where
-          show-bind-arg : Pair (Maybe String) Term → String
+          show-bind-arg : Pair (Maybe String) Term -> String
           show-bind-arg (bnd , arg) = show-bind bnd ++ " = " ++ show arg
 
       
-      show-term-app : Term → String
+      show-term-app : Term -> String
       show-term-app (App fun arg) = show-term-app fun ++ " " ++ show arg
       show-term-app term = show-term term
 
-      show-term : Term → String
+      show-term : Term -> String
       show-term (Lam pat bod) = "λ" ++ show pat ++ " " ++ show bod
       show-term (Var nam) = nam
       show-term (Link nam) = "$" ++ nam
@@ -69,7 +69,7 @@ instance
         "switch " ++ show-bind bnd ++ " = " ++ show arg ++ " " ++
         show-with with-bnd with-arg ++ "{ " ++ show-switch-arms 0 pred arms ++ " }"
         where
-          show-switch-arms : Nat → Maybe String → List' Term → String
+          show-switch-arms : Nat -> Maybe String -> List' Term -> String
           show-switch-arms n pred [] = ""  -- Unreachable
           show-switch-arms n pred (arm :: []) = "_ " ++ show-bind pred ++ ": " ++ show arm
           show-switch-arms n pred (arm :: arms) = show n ++ ": " ++ show arm ++ "; " ++
@@ -83,7 +83,7 @@ instance
         "when " ++ show cond ++ ": " ++ show step ++ "; " ++
         "else: " ++ show base ++ " }"
         where
-          show-bind-init : Pair (Maybe String) Term → String
+          show-bind-init : Pair (Maybe String) Term -> String
           show-bind-init (fst , snd) = show-bind fst ++ " = " ++ show snd
       show-term (Open typ var bod) = "open " ++ typ ++ " " ++ var ++ "; " ++ show bod
       show-term (Ref nam) = nam

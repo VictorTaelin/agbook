@@ -4,7 +4,7 @@ open import Base.Nat.Type
 open import Base.String.Type
 
 primitive
-  primShowNat : Nat → String
+  primShowNat : Nat -> String
 
-show : Nat → String
+show : Nat -> String
 show = primShowNat

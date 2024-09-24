@@ -15,7 +15,7 @@ open import Base.Bool.if
 -- - start_tick: The tick to start removing from (exclusive).
 -- - end_tick: The tick to stop removing at (inclusive).
 -- = The updated StateLogs with entries removed.
-remove-range : ∀ {S : Set} → StateLogs S → Tick → Tick → StateLogs S
+remove-range : ∀ {S : Set} -> StateLogs S -> Tick -> Tick -> StateLogs S
 remove-range logs start_tick end_tick =
   if start_tick < end_tick
   then remove-range (del logs (to-bits (Succ start_tick))) (Succ start_tick) end_tick

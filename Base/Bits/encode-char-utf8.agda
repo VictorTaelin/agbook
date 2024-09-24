@@ -18,7 +18,7 @@ open import Base.Trait.Ord
 -- Encodes a character into its UTF-8 representation as Bits.
 -- - c: The character to encode.
 -- = A Bits value representing the UTF-8 encoding of the character.
-encode-char-utf8 : Char → Bits
+encode-char-utf8 : Char -> Bits
 encode-char-utf8 c = do
   let bits = from-char c -- should be exactly 21 bits
   let n = to-nat bits

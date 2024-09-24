@@ -19,7 +19,7 @@ open import HVM2.Term.Type
 
 mutual
   -- Links two terms
-  link : Term → Term → Run Unit
+  link : Term -> Term -> Run Unit
   link a b = trace ("link " ++ Term.show a ++ " ~ " ++ Term.show b) (link' a b) where
     link' : Term -> Term -> Run Unit
     link' (Var x) b       = subst x b
@@ -27,11 +27,11 @@ mutual
     link' a       b       = redex-push a b
 
   -- Substitutes a variable with a term
-  subst : Bits → Term → Run Unit
+  subst : Bits -> Term -> Run Unit
   subst x b = do
-    old-val ← subst-swap x b
+    old-val <- subst-swap x b
     case old-val of λ where
-      None        → pure unit
-      (Some term) → do
+      None        -> pure unit
+      (Some term) -> do
         subst-take x
         link term b

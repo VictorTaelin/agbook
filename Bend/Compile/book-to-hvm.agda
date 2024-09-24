@@ -20,7 +20,7 @@ open import HVM2.Net.Type renaming (Net to HNet)
 --     - The name of the original Bend definition
 --     - The converted HVM Net
 --   - An error message if any step of the conversion fails
-book-to-hvm : BBook → Result (List (Pair String HNet)) String
+book-to-hvm : BBook -> Result (List (Pair String HNet)) String
 book-to-hvm book = do
-  nets ← book-to-nets book
+  nets <- book-to-nets book
   nets-to-hvm nets

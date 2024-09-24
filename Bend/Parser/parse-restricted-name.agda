@@ -24,9 +24,9 @@ open import Bend.Parser.is-name-char
 -- Parses a restricted name.
 -- - kind: The kind of name being parsed (e.g., "Datatype", "Variable").
 -- = A parser that returns the parsed name if successful.
-parse-restricted-name : String → Parser String
+parse-restricted-name : String -> Parser String
 parse-restricted-name kind = do
-  name ← take-while is-name-char
+  name <- take-while is-name-char
   let res = if name == "" then 
               fail ("Expected " ++ kind ++ " name") 
             else if contains "__" name then 

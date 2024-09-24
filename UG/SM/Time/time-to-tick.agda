@@ -12,6 +12,6 @@ open import Base.Nat.mul
 -- - mach: The state machine.
 -- - time: The time to convert.
 -- = The corresponding Tick value.
-time-to-tick : ∀ {S A : Set} → Mach S A → Time → Tick
+time-to-tick : ∀ {S A : Set} -> Mach S A -> Time -> Tick
 time-to-tick mach time = 
   div (mul time (Mach.ticks-per-second mach)) 1000

@@ -5,9 +5,9 @@ open import Base.Bool.Type
 import Base.Nat.gt as Nat
 open import Base.U64.to-nat
 
-gt : U64 → U64 → Bool
+gt : U64 -> U64 -> Bool
 gt x y = Nat.gt (to-nat x) (to-nat y)
 
 infix 4 _>_
-_>_ : U64 → U64 → Bool
+_>_ : U64 -> U64 -> Bool
 _>_ = gt
