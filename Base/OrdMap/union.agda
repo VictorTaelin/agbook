@@ -1,10 +1,10 @@
 module Base.OrdMap.union where
 
-import Base.TreeAVL.union as AVL
+import Base.AVLTree.union as AVL
 open import Base.OrdMap.Type
 open import Base.Pair.Type
 open import Base.Trait.Ord
-open import Base.TreeAVL.Type
+open import Base.AVLTree.Type
 
 -- Computes the union of two OrdMaps.
 -- This function uses the AVL fold operation to insert all elements

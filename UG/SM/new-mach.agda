@@ -6,7 +6,7 @@ open import UG.SM.StateLogs.Type
 open import UG.SM.ActionLogs.Type
 
 open import Base.Nat.Type
-open import Base.Map.new
+open import Base.BitMap.new
 open import Base.Bool.Type
 
 -- Creates a new Mach (state machine) with the given ticks per second and action equality function.

@@ -1,6 +1,6 @@
 module Base.OrdSet.empty where
 
-import Base.TreeAVL.empty as AVL
+import Base.AVLTree.empty as AVL
 open import Base.OrdSet.Type
 
 -- Creates an empty OrdSet.

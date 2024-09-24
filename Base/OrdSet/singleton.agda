@@ -1,6 +1,6 @@
 module Base.OrdSet.singleton where
 
-import Base.TreeAVL.singleton as AVL
+import Base.AVLTree.singleton as AVL
 open import Base.OrdSet.Type
 open import Base.Pair.Type
 open import Base.Trait.Ord

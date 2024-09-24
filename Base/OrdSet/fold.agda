@@ -1,6 +1,6 @@
 module Base.OrdSet.fold where
 
-import Base.TreeAVL.fold as AVL
+import Base.AVLTree.fold as AVL
 open import Base.OrdSet.Type
 open import Base.Pair.Type
 open import Base.Unit.Type

@@ -1,6 +1,6 @@
 module Base.OrdSet.insert where
 
-import Base.TreeAVL.insert as AVL
+import Base.AVLTree.insert as AVL
 open import Base.OrdSet.Type
 open import Base.Pair.Type
 open import Base.Trait.Ord

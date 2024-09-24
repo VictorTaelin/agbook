@@ -1,7 +1,7 @@
 module Base.OrdMap.Type where
 
 open import Base.Pair.Type
-open import Base.TreeAVL.Type
+open import Base.AVLTree.Type
 
 -- OrdMap is a type alias for AVL trees.
 -- It represents an ordered map (dictionary) data structure.

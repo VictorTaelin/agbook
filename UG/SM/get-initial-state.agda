@@ -6,8 +6,8 @@ open import UG.SM.Tick.Type
 open import UG.SM.StateLogs.Type
 
 open import Base.Function.case using (case_of_)
-open import Base.Map.get
-open import Base.Map.set
+open import Base.BitMap.get
+open import Base.BitMap.set
 open import Base.Nat.to-bits
 open import Base.Maybe.Type
 

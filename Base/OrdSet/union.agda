@@ -1,6 +1,6 @@
 module Base.OrdSet.union where
 
-import Base.TreeAVL.union as AVL
+import Base.AVLTree.union as AVL
 open import Base.OrdSet.Type
 open import Base.Trait.Ord
 

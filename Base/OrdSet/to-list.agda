@@ -1,6 +1,6 @@
 module Base.OrdSet.to-list where
 
-import Base.TreeAVL.keys as AVL
+import Base.AVLTree.keys as AVL
 open import Base.List.Type
 open import Base.OrdSet.Type
 open import Base.Pair.Type
