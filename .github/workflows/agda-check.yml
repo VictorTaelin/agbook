@@ -33,18 +33,17 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const { data: issues } = await github.issues.listForRepo({
+            const { data: issues } = await github.rest.issues.listForRepo({
               owner: context.repo.owner,
               repo: context.repo.repo,
               state: 'open',
               });
             const existingIssue = issues.find(issue => 
-            issue.title === "Agda Check Errors (Auto-generated)" && issue.user.login === github.actor
+              issue.title === "Agda Check Errors (Auto-generated)" && issue.user.login === github-actions[bot] && issue.labels.some(label => label.name === errors)
             );
             return existingIssue ? existingIssue.number : null;
           result-encoding: string
             
-
       - name: Create or update issue
         if: env.errors_found == 'true'
         uses: peter-evans/create-or-update-comment@v3
