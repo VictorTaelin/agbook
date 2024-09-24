@@ -1,6 +1,6 @@
 module UG.Chat.Client.Type where
 
-open import Base.Map.Type
+open import Base.BitMap.Type
 open import Base.Nat.Type
 open import Base.String.Type
 open import Network.WebSocket.WSConnection

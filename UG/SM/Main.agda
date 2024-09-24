@@ -21,10 +21,10 @@ open import Base.Unit.Type
 open import Base.Maybe.Type
 open import Base.List.Type
 
-open import Base.Map.Type
-open import Base.Map.new
-open import Base.Map.set
-open import Base.Map.count
+open import Base.BitMap.Type
+open import Base.BitMap.new
+open import Base.BitMap.set
+open import Base.BitMap.count
 open import Base.Bits.Type
 
 -- Simple game state
