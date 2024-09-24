@@ -29,7 +29,7 @@ open import Bend.Fun.Book.add-fn-def
 open import Bend.Fun.dsl
 import Bend.Source.from-file-span as Source
 import Bend.Fun.Book.new as Book
-import Base.BitMap.new as Map
+import Base.BitMap.new as BitMap
 import Bend.Fun.Pattern.Type as Pat
 import Bend.Fun.FnDef.Type as FnDef'
 
@@ -46,7 +46,7 @@ test-resolve-refs input =
       let book = Book.new
       let book = add-fn-def book (MkFnDef "A" Any True [] (Source.from-file-span 0 0))
       let book = add-fn-def book (MkFnDef "B" Any True [] (Source.from-file-span 0 0))
-      resolve-refs-term book Map.new parsed-term
+      resolve-refs-term book BitMap.new parsed-term
     _ -> Era
 
 -- Simple variable reference
