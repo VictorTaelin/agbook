@@ -7,6 +7,7 @@ open import Base.Char.Type
 open import Base.Char.digit-to-nat
 open import Base.Char.eq
 open import Base.F64.Type
+open import Base.F64.from-int
 open import Base.F64.negate
 open import Base.Function.case
 open import Base.Int.Type
@@ -25,7 +26,6 @@ open import Base.String.drop
 open import Base.String.to-list
 
 primitive
-  primIntToFloat : Int -> F64
   primRatioToFloat : Int -> Int -> F64
 
 digits-to-nat : List Char -> List (Maybe Nat)
