@@ -3,7 +3,7 @@ module Base.BitMap.take where
 open import Base.BitMap.Type
 open import Base.Bits.Type
 open import Base.Maybe.Type
-open import Base.TreeBin.Type
+open import Base.BinTree.Type
 open import Base.Pair.Type
 
 -- Retrieves and removes a value from the BitMap given a key.

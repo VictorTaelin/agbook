@@ -5,7 +5,7 @@ open import Base.Bits.Type
 open import Base.Bool.Type
 open import Base.Bool.if
 open import Base.Maybe.Type
-open import Base.TreeBin.Type
+open import Base.BinTree.Type
 
 -- Inserts a key-value pair into the BitMap.
 -- - m: The BitMap to insert into.

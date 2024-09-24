@@ -1,9 +1,9 @@
-import { TreeBin } from '../../Base/TreeBin/Type';
+import { BinTree } from '../../Base/BinTree/Type';
 import { String } from '../../Base/String/Type';
 import { $append } from '../../Base/String/append';
 import { Show } from '../../Base/Trait/Show';
 
-export const $show = <A>(show_a: Show<A>, tree: TreeBin<A>): String => {
+export const $show = <A>(show_a: Show<A>, tree: BinTree<A>): String => {
   switch (tree.$) {
     case 'Leaf':
       return '_';
@@ -19,4 +19,4 @@ export const $show = <A>(show_a: Show<A>, tree: TreeBin<A>): String => {
   }
 };
 
-export const show = <A>(show_a: Show<A>) => (tree: TreeBin<A>) => $show(show_a, tree);
+export const show = <A>(show_a: Show<A>) => (tree: BinTree<A>) => $show(show_a, tree);

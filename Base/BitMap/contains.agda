@@ -4,7 +4,7 @@ open import Base.BitMap.Type
 open import Base.Bits.Type
 open import Base.Bool.Type
 open import Base.Maybe.Type
-open import Base.TreeBin.Type
+open import Base.BinTree.Type
 
 -- Checks if a key exists in the BitMap.
 -- - m: The BitMap to search in.

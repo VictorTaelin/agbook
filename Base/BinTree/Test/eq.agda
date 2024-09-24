@@ -1,12 +1,12 @@
-module Base.TreeBin.Test.eq where
+module Base.BinTree.Test.eq where
 
 open import Base.Bool.Type
 open import Base.Equal.Type
 open import Base.Nat.Trait.Eq
 open import Base.Nat.Type
 open import Base.Trait.Eq
-open import Base.TreeBin.Trait.Eq
-open import Base.TreeBin.Type
+open import Base.BinTree.Trait.Eq
+open import Base.BinTree.Type
 
 test-eq-same-tree : ((Node 1 Leaf Leaf) == (Node 1 Leaf Leaf)) === True
 test-eq-same-tree = refl

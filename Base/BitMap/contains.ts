@@ -1,7 +1,7 @@
 import { BitMap, $Node, $Leaf } from './Type';
 import { Bits, $O, $I, $E } from '../Bits/Type';
 import { Maybe, $Some, $None } from '../Maybe/Type';
-import { TreeBin } from '../TreeBin/Type';
+import { BinTree } from '../BinTree/Type';
 import { Bool, $True, $False } from '../Bool/Type';
 
 // Checks if a key exists in the BitMap.

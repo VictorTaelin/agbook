@@ -1,6 +1,6 @@
 import { BitMap } from './Type';
 import { Maybe, $None } from '../Maybe/Type';
-import { TreeBin } from '../TreeBin/Type';
+import { BinTree } from '../BinTree/Type';
 import { Bits } from '../Bits/Type';
 
 // Retrieves a value from the BitMap given a key.

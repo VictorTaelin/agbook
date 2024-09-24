@@ -1,11 +1,11 @@
-import { TreeBin } from '../../Base/TreeBin/Type';
+import { BinTree } from '../../Base/BinTree/Type';
 
-// Fold operation for TreeBin.
+// Fold operation for BinTree.
 // - f: Function to apply to each node.
 // - z: Value to use for leaf nodes.
 // - t: The tree to fold over.
 // = The result of folding the tree.
-export const $fold = <A, B>(f: (x: A, left: B, right: B) => B, z: B, t: TreeBin<A>): B => {
+export const $fold = <A, B>(f: (x: A, left: B, right: B) => B, z: B, t: BinTree<A>): B => {
   switch (t.$) {
     case 'Leaf':
       return z;
@@ -14,4 +14,4 @@ export const $fold = <A, B>(f: (x: A, left: B, right: B) => B, z: B, t: TreeBin<
   }
 };
 
-export const fold = <A, B>(f: (x: A, left: B, right: B) => B) => (z: B) => (t: TreeBin<A>) => $fold(f, z, t);
+export const fold = <A, B>(f: (x: A, left: B, right: B) => B) => (z: B) => (t: BinTree<A>) => $fold(f, z, t);

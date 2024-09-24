@@ -4,7 +4,7 @@ open import Base.BitMap.Type
 open import Base.Bits.Type
 open import Base.Maybe.Type
 open import Base.Pair.Type
-open import Base.TreeBin.Type
+open import Base.BinTree.Type
 
 -- Swaps a value in the BitMap for a new value, returning the old value if it existed.
 -- - m: The BitMap to swap in.

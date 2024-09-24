@@ -1,6 +1,6 @@
 module Base.BitMap.merge where
 
-import Base.TreeBin.merge as TreeBin
+import Base.BinTree.merge as BinTree
 open import Base.BitMap.Type
 open import Base.Maybe.Type
 
@@ -10,4 +10,4 @@ open import Base.Maybe.Type
 -- = A new BitMap containing values from both input BitMaps,
 --   with values from m2 taking precedence when keys conflict.
 merge : ∀ {A : Set} -> BitMap A -> BitMap A -> BitMap A
-merge = TreeBin.merge (λ x -> x) (λ x -> x) (λ _ y -> y)
+merge = BinTree.merge (λ x -> x) (λ x -> x) (λ _ y -> y)
