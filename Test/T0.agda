@@ -1,11 +1,11 @@
 module Test.T0 where
 
 open import Base.Bits.Type
-open import Base.Map.Type
-open import Base.Map.get
-open import Base.Map.new
-open import Base.Map.set
-open import Base.Map.show
+open import Base.BitMap.Type
+open import Base.BitMap.get
+open import Base.BitMap.new
+open import Base.BitMap.set
+open import Base.BitMap.show
 open import Base.Maybe.Type
 open import Base.Nat.Type
 open import Base.Nat.add

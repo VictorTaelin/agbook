@@ -1,6 +1,6 @@
 module Bend.Net.get-node where
 
-open import Base.Map.get renaming (get to map-get)
+open import Base.BitMap.get renaming (get to map-get)
 open import Base.Maybe.Type
 open import Base.Maybe.Monad.bind
 open import Base.Nat.Type

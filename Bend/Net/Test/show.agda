@@ -3,12 +3,12 @@ module Bend.Net.Test.show where
 open import Base.String.Type
 open import Base.String.eq
 open import Base.Equal.Type
-open import Base.Map.Type
-open import Base.Map.empty
-open import Base.Map.set
+open import Base.BitMap.Type
+open import Base.BitMap.empty
+open import Base.BitMap.set
 open import Base.Nat.Type
 open import Base.Bits.from-nat
-open import Base.Show.Trait
+open import Base.Trait.Show
 open import Bend.Net.Type
 open import Bend.Net.Node.Type
 open import Bend.Net.Port.Type
@@ -25,7 +25,7 @@ test-show-single-node-net :
   in show net === expected-output
 test-show-single-node-net = refl
 
-test-show-multi-node-net : 
+test-show-multi-node-net :
   let node1 = MkNode (MkPort 0 0) (MkPort 0 1) (MkPort 0 2) Era
       node2 = MkNode (MkPort 1 0) (MkPort 1 1) (MkPort 1 2) Dup
       net = MkNet (set (set empty (from-nat 0) node1) (from-nat 1) node2) 2 "MultiNodeNet"

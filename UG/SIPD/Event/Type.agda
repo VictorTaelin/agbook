@@ -1,14 +1,14 @@
 module UG.SIPD.Event.Type where
 
 open import Base.Bool.Type
-open import Base.Float.Type
+open import Base.F64.Type
 open import Base.String.Type
 open import UG.SIPD.Event.Click
 
 data Event : Set where
   KeyEvent : String -> Bool -> Event
-  MouseClick : Click -> Float → Float → Event
-  MouseMove : Float -> Float -> Event 
+  MouseClick : Click -> F64 → F64 → Event
+  MouseMove : F64 -> F64 -> Event 
 
 {-# FOREIGN GHC
 import qualified Data.Text as T

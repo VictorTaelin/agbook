@@ -1,6 +1,6 @@
 module Bend.Fun.Book.Type where
 
-open import Base.Map.Type
+open import Base.BitMap.Type
 open import Bend.Fun.Term.Type
 
 private
@@ -11,4 +11,4 @@ private
 record Book : Set where
   constructor MkBook
   field
-    defs : Map FnDef -- Map of function definitions
+    defs : BitMap FnDef -- Map of function definitions

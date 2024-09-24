@@ -1,13 +1,13 @@
 module Bend.Net.Type where
 
-open import Base.Map.Type using (Map)
-open import Base.Nat.Type using (Nat)
-open import Bend.Net.Node.Type using (Node)
-open import Base.String.Type using (String)
+open import Base.BitMap.Type using (BitMap)
+open import Base.Nat.Type
+open import Bend.Net.Node.Type
+open import Base.String.Type
 
 record Net : Set where
   constructor MkNet
   field
-    nodes : Map Node
+    nodes : BitMap Node
     len   : Nat
     name  : String

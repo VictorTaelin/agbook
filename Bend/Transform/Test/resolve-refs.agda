@@ -15,8 +15,8 @@ open import Base.Parser.Type
 open import Base.Parser.State
 open import Base.Parser.Reply
 open import Base.Parser.Error
-open import Base.Map.Type
-open import Base.Map.set
+open import Base.BitMap.Type
+open import Base.BitMap.set
 open import Base.Pair.Type
 open import Bend.Parser.Fun.parse-term
 open import Bend.Transform.resolve-refs
@@ -29,7 +29,7 @@ open import Bend.Fun.Book.add-fn-def
 open import Bend.Fun.dsl
 import Bend.Source.from-file-span as Source
 import Bend.Fun.Book.new as Book
-import Base.Map.new as Map
+import Base.BitMap.new as Map
 import Bend.Fun.Pattern.Type as Pat
 import Bend.Fun.FnDef.Type as FnDef'
 
@@ -95,7 +95,7 @@ _ : test-resolve-refs "let A = 1; let B = A; let A = 2; (A B)" ===
     (let' (p' "A") := (#u 1) in'
       let' (p' "B") := (v' "A") in'
       let' (p' "A") := (#u 2) in'
-      ((v' "A") $ (v' "B")))  
+      ((v' "A") $ (v' "B")))
 _ = refl
 
 -- Shadowing in match expression

@@ -4,10 +4,10 @@ open import Bend.Fun.Num.Type renaming (Num to Num')
 open import Base.String.Type
 open import Base.String.append
 open import Base.Nat.Type
-open import Base.Nat.show
+open import Base.Nat.Trait.Show
 open import Base.Int.Type
-open import Base.Float.show
-open import Base.Show.Trait
+open import Base.F64.Trait.Show
+open import Base.Trait.Show
 
 instance
   ShowNum : Show Num'

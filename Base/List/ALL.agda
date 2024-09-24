@@ -38,6 +38,7 @@ open import Base.List.last public
 open import Base.List.length public
 open import Base.List.lookup public
 open import Base.List.map public
+open import Base.List.mfoldl public
 open import Base.List.or public
 open import Base.List.product public
 open import Base.List.quicksort public

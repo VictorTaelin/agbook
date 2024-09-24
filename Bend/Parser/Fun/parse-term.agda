@@ -14,8 +14,9 @@ open import Base.String.append
 open import Base.Maybe.Type
 open import Base.Maybe.maybe
 open import Base.Nat.Type
-open import Base.Nat.show
+open import Base.Nat.Trait.Show
 open import Base.Pair.Type
+open import Base.Trait.Show
 open import Bend.Fun.Term.Type renaming (List to List')
 open import Bend.Fun.FanKind.Type
 open import Base.Parser.Type
@@ -104,7 +105,7 @@ parse-term = do
     case opr , is-tup of λ where
       -- (*, ...) is a tuple
       (Some Op.Mul , True)  -> parse-tup Era
-      (Some _      , True)  -> fail "Expected term" 
+      (Some _      , True)  -> fail "Expected term"
       (Some opr    , False) -> do
         fst <- parse-term
         snd <- parse-term

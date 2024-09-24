@@ -3,8 +3,8 @@ module Bend.Compile.Test.book-to-hvm where
 open import Base.Equal.Type
 open import Base.Bool.Type
 open import Base.List.Type
-open import Base.Map.new renaming (new to map-new)
-open import Base.Map.set renaming (set to map-set)
+open import Base.BitMap.new renaming (new to map-new)
+open import Base.BitMap.set renaming (set to map-set)
 open import Base.Maybe.Type
 open import Base.Nat.to-bits renaming (to-bits to tb)
 open import Base.Pair.Type
@@ -50,7 +50,7 @@ test-id = refl
 
 -- Test compilation of the self-app function
 -- @{x1 x2} (x1 x2)  =>  ({(0 1) 0} 1)
-test-self-app : 
+test-self-app :
   let term = λ' (p'dup (p' "x1" :: p' "x2" :: [])) (v' "x1" $ v' "x2") in
   (compile-term term)
   ===
@@ -77,7 +77,7 @@ test-unscoped-var-no-shadow :
   (compile-term term)
   ===
   let rbag = [] in
-  let root = H.Con (H.Con (H.Con (H.Con (H.Var (tb 0)) (H.Var (tb 1))) (H.Con (H.Var (tb 1)) (H.Var (tb 0)))) (H.Var (tb 2))) (H.Var (tb 2)) in 
+  let root = H.Con (H.Con (H.Con (H.Con (H.Var (tb 0)) (H.Var (tb 1))) (H.Con (H.Var (tb 1)) (H.Var (tb 0)))) (H.Var (tb 2))) (H.Var (tb 2)) in
   make-result rbag root
 test-unscoped-var-no-shadow = refl
 

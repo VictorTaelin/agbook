@@ -10,7 +10,7 @@ open import Base.Result.Type
 open import Base.String.Type
 open import Base.Nat.Type
 open import Base.Equal.Type
-open import Base.Float.Type
+open import Base.F64.Type
 open import Base.Function.case
 open import Base.Bool.Type
 open import Base.Unit.Type

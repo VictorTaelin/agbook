@@ -1,14 +1,14 @@
 module Base.V2.negate where
 
-import Base.Float.negate as Float
-open import Base.Float.Type
+import Base.F64.negate as F64
+open import Base.F64.Type
 open import Base.V2.Type
 
 -- Negates a V2 vector.
 -- - v: The V2 vector to negate.
 -- = A new V2 vector with negated coordinates.
 negate : V2 -> V2
-negate (MkV2 x y) = MkV2 (Float.negate x) (Float.negate y)
+negate (MkV2 x y) = MkV2 (F64.negate x) (F64.negate y)
 
 -- Infix notation for negate
 infix 9 -_

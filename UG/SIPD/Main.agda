@@ -17,7 +17,7 @@ open import Base.ByteString.read-u48
 open import Base.ByteString.show renaming (show to bshow)
 open import Base.ByteString.tail
 open import Base.ByteString.unpack
-open import Base.Float.Type
+open import Base.F64.Type
 open import Base.Function.case
 open import Base.IO.Monad.bind
 open import Base.IO.Monad.pure

@@ -1,8 +1,8 @@
 module HVM2.Run.State.boot where
 
 open import Base.Bits.Type
-open import Base.Map.Type
-open import Base.Map.empty
+open import Base.BitMap.Type
+open import Base.BitMap.empty
 open import Base.Nat.Type
 open import HVM2.Net.Type
 open import HVM2.Run.State.Type

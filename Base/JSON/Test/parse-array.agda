@@ -13,7 +13,7 @@ open import Base.Nat.Type
 open import Base.Equal.Type
 open import Base.Bool.Type
 open import Base.List.Type
-open import Base.Float.Type
+open import Base.F64.Type
 
 test-parse-empty-array : parse-array parse-JSON (MkState "[]" 0) === Done (MkReply (MkState "" 2) (JArray []))
 test-parse-empty-array = refl

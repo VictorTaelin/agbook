@@ -4,7 +4,7 @@ open import Base.Function.case
 open import Base.List.Type
 open import Base.List.head
 open import Base.List.unzip
-open import Base.Map.to-list renaming (to-list to map-to-list)
+open import Base.BitMap.to-list renaming (to-list to map-to-list)
 open import Base.Maybe.to-result
 open import Base.Pair.Type
 open import Base.Result.Type

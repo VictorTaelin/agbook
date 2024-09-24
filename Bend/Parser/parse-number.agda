@@ -6,22 +6,24 @@ open import Base.Bool.Type
 open import Base.Bool.and
 open import Base.Bool.if
 open import Base.Char.Type
-open import Base.Char.eq
+open import Base.Char.Trait.Eq
 open import Base.List.Type
 open import Base.List.filter
 open import Base.Maybe.Type
 open import Base.Maybe.maybe
-open import Base.Float.Type
-open import Base.Float.div
-open import Base.Float.mul renaming (_*_ to _f*_)
-open import Base.Float.add renaming (_+_ to _f+_)
+open import Base.F64.Type
+open import Base.F64.div
+import Base.F64.from-nat as F64
+import Base.F64.from-int as F64
+open import Base.F64.mul renaming (_*_ to _f*_)
+open import Base.F64.add renaming (_+_ to _f+_)
 open import Base.Int.Type
 open import Base.Int.from-neg
 open import Base.Int.from-nat
-open import Base.Int.Ord
+open import Base.Int.Trait.Ord
 open import Base.Int.mul renaming (_*_ to _i*_)
 open import Base.Nat.Type
-open import Base.Nat.Ord
+open import Base.Nat.Trait.Ord
 open import Base.Nat.exp
 open import Base.String.Type
 open import Base.String.to-list
@@ -30,7 +32,8 @@ open import Base.String.length
 open import Base.String.from-list
 open import Base.String.to-nat-base
 open import Base.Pair.Type
-open import Base.Ord.Trait
+open import Base.Trait.Ord
+open import Base.Trait.Eq
 open import Base.Parser.Type
 open import Base.Parser.State
 open import Base.Parser.take-while
@@ -56,8 +59,8 @@ parse-number = do
   case frac-part , sign of λ where
     -- Fractional part: float
     (Some frac , _) -> do
-      let sign = maybe 1.0 primIntToFloat sign
-      pure (F24 (sign f* ((primNatToFloat int-part) f+ frac)))
+      let sign = maybe 1.0 F64.from-int sign
+      pure (F24 (sign f* ((F64.from-nat int-part) f+ frac)))
 
     -- Sign but no fractional part: signed integer
     (None , (Some sign)) -> do
@@ -102,14 +105,14 @@ parse-number = do
       (Some n) -> pure n
       None     -> fail "Expected number"
 
-  parse-frac-part : Nat -> Parser (Maybe Float)
+  parse-frac-part : Nat -> Parser (Maybe F64)
   parse-frac-part radix = do
     has-frac <- try-consume-exactly "."
     if has-frac then (do
         digits <- take-while (is-digit-radix radix)
         let digits = from-list (filter (λ c -> c != '_') (to-list digits))
         let num = maybe 0 id (to-nat-base radix digits)
-        let num = (primNatToFloat num) / (primNatToFloat (radix ** (length digits)))
+        let num = (F64.from-nat num) / (F64.from-nat (radix ** (length digits)))
         pure (Some num))
       else
         pure None
