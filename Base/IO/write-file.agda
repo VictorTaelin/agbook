@@ -10,7 +10,6 @@ postulate write-file : String -> String -> IO Unit
 {-# FOREIGN GHC import qualified Data.Text.IO as TIO    #-}
 {-# FOREIGN GHC import qualified System.IO              #-}
 
-{-# COMPILE GHC getLine     = TIO.getLine               #-}
 {-# COMPILE GHC write-file  = TIO.writeFile . T.unpack  #-}
 
 {-# COMPILE JS write-file = function(path) { 
