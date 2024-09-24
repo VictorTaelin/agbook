@@ -9,6 +9,6 @@ open import Base.Nat.add
 -- - m: The BitMap to count elements in.
 -- = The number of elements (non-None values) in the BitMap.
 count : ∀ {A : Set} -> BitMap A -> Nat
-count (Node None     lft rgt) = add (count lft) (count rgt)
-count (Node (Some _) lft rgt) = Succ (add (count lft) (count rgt))
-count Leaf                    = Zero
+count (Node None     l r) = add (count l) (count r)
+count (Node (Some _) l r) = Succ (add (count l) (count r))
+count Leaf                = Zero

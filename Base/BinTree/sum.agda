@@ -8,5 +8,5 @@ open import Base.BinTree.Type
 -- - t: The tree to sum.
 -- = The sum of all values in the tree.
 sum : BinTree Nat -> Nat
-sum Leaf                = Zero
-sum (Node x left right) = x + (sum left + sum right)
+sum Leaf         = Zero
+sum (Node x l r) = x + (sum l + sum r)

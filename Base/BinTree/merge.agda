@@ -7,8 +7,8 @@ open import Base.BinTree.Type
 -- - a: Function to handle cases where only the first tree has a value.
 -- - b: Function to handle cases where only the second tree has a value.
 -- - ab: Function to combine values when both trees have a value.
--- - t1: The first input tree.
--- - t2: The second input tree.
+-- - t1: The 1st input tree.
+-- - t2: The 2nd input tree.
 -- = A new tree where each node is the result of applying the appropriate
 --   function based on the presence of values in t1 and t2.
 merge : ∀ {A B C : Set} -> (a : A -> C) -> (b : B -> C) -> (ab : A -> B -> C) -> BinTree A -> BinTree B -> BinTree C
