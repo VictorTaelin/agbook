@@ -1,10 +1,10 @@
-module Imp.Expr.Type ( Stmt : Set ) where
+module Imp.Expr.Type where
 
-open import Base.Nat.Type
 open import Base.Bool.Type
-open import Base.U64.Type
 open import Base.List.Type
+open import Base.Nat.Type
 open import Base.String.Type
+open import Base.U64.Type
 
 -- Expression type
 data Expr : Set where
@@ -39,12 +39,9 @@ data Expr : Set where
 
   -- Atomics
   -- TODO(enricozb): the atomic operations don't specify a memory order
-  SGet : (var : Nat) -> Expr -- Atomically reads shared `var`.
-  GGet : (var : Nat) -> Expr -- Atomically reads global `var`.
-  SAdd : (var : Nat) -> (inc : Expr) -> Expr -- Adds `inc` to shared `var` returning the old value.
-  GAdd : (var : Nat) -> (inc : Expr) -> Expr -- Adds `inc` to global `var` returning the old value.
-  SExc : (var : Nat) -> (new : Expr) -> Expr -- Writes `new` to shared `var` returning the old value.
-  GExc : (var : Nat) -> (new : Expr) -> Expr -- Writes `new` to global `var` returning the old value.
-
-  -- A function call, necessary to ensure local variable hygiene
-  Call : Stmt -> Expr
+  SGet : (var : Expr) -> Expr -- Atomically reads shared `var`.
+  GGet : (var : Expr) -> Expr -- Atomically reads global `var`.
+  SAdd : (var : Expr) -> (inc : Expr) -> Expr -- Adds `inc` to shared `var` returning the old value.
+  GAdd : (var : Expr) -> (inc : Expr) -> Expr -- Adds `inc` to global `var` returning the old value.
+  SExc : (var : Expr) -> (new : Expr) -> Expr -- Writes `new` to shared `var` returning the old value.
+  GExc : (var : Expr) -> (new : Expr) -> Expr -- Writes `new` to global `var` returning the old value.
