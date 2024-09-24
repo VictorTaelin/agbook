@@ -32,13 +32,17 @@ jobs:
         run: | 
           OK_OUTPUT=$'Checked.\nNo output'
 
+          strip_ansi() {
+            sed 's/\x1b\[[0-9;]*m//g'
+          }
+
           check_file() {
             file="$1"	
-            output=$(agda-cli check "$file" 2>&1)
+            output=$(agda-cli check "$file" 2>&1 | strip_ansi)
             if [ "$output" = "$OK_OUTPUT" ]; then
               echo "Checked $file: OK"
             else
-              echo -e "\033[31mChecking: $file ERR\033[0m"
+              echo -e "Checking: $file ERR"
               echo "$output"
               {
                 echo "Checking: $file ERR"
@@ -49,6 +53,7 @@ jobs:
             fi 
           }
           export -f check_file
+          export -f strip_ansi
           export OK_OUTPUT
 
           > error_output.log
@@ -70,7 +75,20 @@ jobs:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
             const fs = require('fs');
-            const issueContent = fs.readFileSync('error_output.log', 'utf8');
+            let issueContent = fs.readFileSync('error_output.log', 'utf8');
+
+            // Format content for better readability
+            issueContent = "#Agda Check Errors\n\n" + issueContent.split('\n').map(line => {
+              if (line.startsWith('Checking:')) {
+                return `## ${line}`;
+              } else if (line.startsWith('Error:')) {
+                return `**${line}**`;
+              } else {
+                return line;
+              }
+            }).join('\n');
+
+
             const { data: issues } = await github.rest.issues.listForRepo({
               owner: context.repo.owner,
               repo: context.repo.repo,
