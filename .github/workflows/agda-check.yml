@@ -47,7 +47,7 @@ jobs:
           export OK_OUTPUT
 
           find "./Base" -name "*.agda" -not -path "*.tmp*" -not -path "*/Test/*" -print0 | \
-            parallel -0 -j+0 check_file
+            parallel -0 -j 48 check_file
 
           if [ -f error_output.log ]; then
             error_output=$(cat error_output.log)
