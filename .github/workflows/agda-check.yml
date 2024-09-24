@@ -46,13 +46,14 @@ jobs:
           export -f check_file
           export OK_OUTPUT
 
-          find "./Base" -name "*.agda" -not -path "*.tmp*" -not -path "*/Test/*" -print0 | \
-            parallel -0 -j+0 check_file
+          > error_output.log
 
-          if [ -f error_output.log ]; then
-            error_output=$(cat error_output.log)
+          find "./Base" -name "*.agda" -not -path "*.tmp*" -not -path "*/Test/*" -print0 | \
+            parallel -0 -j 96 check_file
+
+          if [ -s error_output.log ]; then
             echo "error_output<<EOF" >> $GITHUB_OUTPUT
-            echo "$error_output" >> $GITHUB_OUTPUT
+            cat error_output.log >> $GITHUB_OUTPUT
             echo "EOF" >> $GITHUB_OUTPUT
           fi
         timeout-minutes: 10
@@ -77,18 +78,15 @@ jobs:
             
       - name: Create or update issue
         if: env.errors_found == 'true'
-        uses: peter-evans/create-or-update-comment@v3
+        uses: peter-evans/create-issue-from-file@v4
         with: 
           token: ${{ secrets.GITHUB_TOKEN }}
-          issue-number: ${{ steps.find_existing_issue.outputs.result || 'new'}}
-          body: |
-            # Agda Check Errors
-            The following files failed checking:
-            ```hs
-            ${{ steps.check_agda.outputs.error_output }}
-            ```
           title: "Agda Check Errors (Auto-generated)"
-          labels: errors, automated
+          content-filepath: ./error_output.log
+          labels: |
+            errors
+            automated
+          issue-number: ${{ steps.find_existing_issue.outputs.result }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
