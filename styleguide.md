@@ -132,18 +132,20 @@ open import Base.Example.ALL
 Example:
 
 ```agda
--- Addition of floats.
--- - x: The 1st float.
--- - y: The 2nd float.
--- = The sum of x and y.
-add : Float -> Float -> Float
-add = primFloatPlus
+-- Checks if two binary trees are equal.
+-- 1st: The first tree to compare.
+-- 2nd: The second tree to compare.
+-- = True if the trees are equal, False otherwise.
+eq : ∀ {A : Set} -> {{EqA : Eq.Eq A}} -> BinTree A -> BinTree A -> Bool
+eq {{EqA}} Leaf            Leaf            = True
+eq {{EqA}} (Node ax al ar) (Node bx bl br) = Eq.eq {{EqA}} ax bx && (eq {{EqA}} al bl && eq {{EqA}} ar br)
+eq {{EqA}} _               _               = False
 
--- The infix version of add.
-_+_ : Float -> Float -> Float
-_+_ = add
+-- Infix operator for tree equality.
+_==_ : ∀ {A : Set} -> {{EqA : Eq.Eq A}} -> BinTree A -> BinTree A -> Bool
+_==_ = eq
 
-infixl 6 _+_
+infix 4 _==_
 ```
 
 ##  Naming Conventions
