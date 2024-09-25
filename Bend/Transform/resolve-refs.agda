@@ -16,6 +16,7 @@ open import Base.BitMap.contains
 open import Base.BitMap.set
 open import Base.Pair.Type
 open import Bend.Fun.Book.Type
+open import Bend.Fun.Book.contains-def
 open import Bend.Fun.Term.Type renaming (List to List')
 open import Bend.Fun.Term.map-children-with-binds
 open import Bend.Fun.Pattern.Type
