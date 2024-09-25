@@ -11,7 +11,10 @@ open import Base.Bool.and
 -- = True if the trees are equal, False otherwise.
 eq : ∀ {A : Set} -> {{EqA : Eq.Eq A}} -> BinTree A -> BinTree A -> Bool
 eq {{EqA}} Leaf            Leaf            = True
-eq {{EqA}} (Node ax al ar) (Node bx bl br) = Eq.eq {{EqA}} ax bx && (eq {{EqA}} al bl && eq {{EqA}} ar br)
+eq {{EqA}} (Node ax al ar) (Node bx bl br) = do
+  let eq1 = (eq {{EqA}} al bl)
+  let eq2 = (eq {{EqA}} ar br)
+  Eq.eq {{EqA}} ax bx && eq1 && eq2
 eq {{EqA}} _               _               = False
 
 -- Infix operator for tree equality.
