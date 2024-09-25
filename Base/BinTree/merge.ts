@@ -1,13 +1,13 @@
 import { BinTree, $Node, $Leaf } from '../../Base/BinTree/Type';
 
 // Merges two trees using combining functions.
-// - a: Function to handle cases where only the first tree has a value.
-// - b: Function to handle cases where only the second tree has a value.
-// - ab: Function to combine values when both trees have a value.
-// - t1: The first input tree.
-// - t2: The second input tree.
+// 1st: Function to handle cases where only the first tree has a value.
+// 2nd: Function to handle cases where only the second tree has a value.
+// 3rd: Function to combine values when both trees have a value.
+// 4th: The first input tree.
+// 5th: The second input tree.
 // = A new tree where each node is the result of applying the appropriate
-//   function based on the presence of values in t1 and t2.
+//   function based on the presence of values in both input trees.
 export const $merge = <A, B, C>(
   a: (x: A) => C,
   b: (x: B) => C,
