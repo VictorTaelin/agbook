@@ -83,7 +83,6 @@ pred (I     bs) = O bs
 - **Note** that for functions with many arguments, alignment is not necessary. **Use good judgment** for readability.
 - Avoid unnecessary parentheses. Only use them when they are required for precedence or clarity.
 
-
 ### Imports
 
 - Use `import qualified` to avoid name clashes.
@@ -103,7 +102,6 @@ div (MkV2 x1 y1) (MkV2 x2 y2) = MkV2 (x1 Float./ x2) (y1 Float./ y2)
 - Each folder in the project should contain an `ALL.agda` file. The purpose of this file is to:
   1. Import and re-export all modules in the folder.
   2. We should use the imports from `All.agda` only when we are outside the `Base` directory.
-  3. Ensure consistent naming and organization across the project.
 
 Example:
 
@@ -165,7 +163,16 @@ infixl 6 _+_
    Zero : Nat
    Succ : Nat -> Nat
   ```
-
+- If the type of a term does not fit on one line then the subsequent lines of the type should all be aligned with the first character of the first line of type, e.g.
+  ```agda
+    merge : ∀ {A B C : Set} -> 
+      (a : A -> C) -> 
+      (b : B -> C) -> 
+      (ab : A -> B -> C) -> 
+      BinTree A -> 
+      BinTree B ->  
+      BinTree C
+  ```
  ### Unicode and Operators
 
 - Use Unicode for ∀, λ, ≡, and Σ.
