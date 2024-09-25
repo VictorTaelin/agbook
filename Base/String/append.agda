@@ -5,12 +5,13 @@ open import Base.String.Type
 primitive primStringAppend : String -> String -> String
 
 -- Concatenates two strings.
--- - s1: The 1st string.
--- - s2: The 2nd string.
--- = The concatenation of s1 and s2.
+-- - 1st: The first string.
+-- - 2nd: The second string.
+-- = A new string that is the concatenation of the two input strings.
 append : String -> String -> String
 append = primStringAppend
 
+-- Infix operator for append.
 _++_ : String -> String -> String
 _++_ = append
 

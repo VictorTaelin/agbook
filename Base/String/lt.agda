@@ -1,15 +1,22 @@
 module Base.String.lt where
 
-open import Base.String.Type
-open import Base.String.to-list
+import Base.Char.Trait.Ord as CharOrd
+import Base.List.lt as List
 open import Base.Bool.Type
 open import Base.Char.Type
-import Base.List.lt as List
-import Base.Char.Trait.Ord as CharOrd
+open import Base.String.Type
+open import Base.String.to-list
 
+-- Compares two strings lexicographically.
+-- - 1st: The first string to compare.
+-- - 2nd: The second string to compare.
+-- = True if the first string is lexicographically less than the second, False otherwise.
 lt : String -> String -> Bool
 lt s1 s2 = List.lt {{CharOrd.OrdChar}} (to-list s1) (to-list s2)
 
-infix 4 _<_
+-- Infix operator for lt.
 _<_ : String -> String -> Bool
 _<_ = lt
+
+infix 4 _<_
+

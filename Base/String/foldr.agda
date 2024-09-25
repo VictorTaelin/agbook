@@ -7,9 +7,9 @@ open import Base.String.Type
 open import Base.String.to-list
 
 -- Performs a right fold over a string.
--- - f: The combining function.
--- - z: The initial value (for the empty string case).
--- - s: The string to fold over.
+-- - 1st: The combining function.
+-- - 2nd: The initial value (for the empty string case).
+-- - 3rd: The string to fold over.
 -- = The result of folding the string.
 foldr : ∀ {A : Set} -> (Char -> A -> A) -> A -> String -> A
 foldr f z s = List.foldr f z (to-list s)

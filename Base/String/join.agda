@@ -8,8 +8,8 @@ open import Base.String.append
 open import Base.String.eq
 
 -- Joins a list of strings with a separator.
--- - sep: The separator string.
--- - strs: The list of strings to join.
--- = A single string with all input strings concatenated, separated by sep.
+-- - 1st: The separator string.
+-- - 2nd: The list of strings to join.
+-- = A single string with all input strings concatenated, separated by the given separator.
 join : String -> List String -> String
 join sep = foldr (λ s acc -> if acc == "" then s else s ++ sep ++ acc) ""

@@ -1,10 +1,10 @@
 module Base.String.replicate where
 
-open import Base.Nat.Type
 open import Base.Char.Type
+open import Base.Nat.Type
 open import Base.String.Type
-open import Base.String.from-char
 open import Base.String.append
+open import Base.String.from-char
 
 -- Replicates a character n times to create a string.
 -- - n: The number of times to replicate the character.
