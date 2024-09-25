@@ -1,16 +1,17 @@
 module HVM2.Run.subst-take where
 
-open import Base.Bits.Type
+import Base.OrdMap.get as OrdMap
 open import Base.Maybe.Type
+open import Base.OrdMap.Type
 open import Base.Pair.Type
-open import HVM2.Run.Type
+open import Base.String.Trait.Ord
+open import Base.String.Type
 open import HVM2.Run.State.Type
+open import HVM2.Run.Type
 open import HVM2.Term.Type
-import Base.BitMap.take as BitMap
 
--- Removes and retrieves a substitution from the subst map
-subst-take : Bits -> Run (Maybe Term)
+-- Retrieves a substitution from the subst map without removing it
+subst-take : String -> Run (Maybe Term)
 subst-take key = λ state -> do
-  let (new-subs , maybe-term) = BitMap.take (State.subs state) key
-  let new-state = record state { subs = new-subs }
-  new-state , maybe-term
+  let maybe-term = OrdMap.get key (State.subs state)
+  state , maybe-term
