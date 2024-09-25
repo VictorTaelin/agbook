@@ -132,20 +132,18 @@ open import Base.Example.ALL
 Example:
 
 ```agda
--- Checks if two binary trees are equal.
--- 1st: The first tree to compare.
--- 2nd: The second tree to compare.
--- = True if the trees are equal, False otherwise.
-eq : ∀ {A : Set} -> {{EqA : Eq.Eq A}} -> BinTree A -> BinTree A -> Bool
-eq {{EqA}} Leaf            Leaf            = True
-eq {{EqA}} (Node ax al ar) (Node bx bl br) = Eq.eq {{EqA}} ax bx && (eq {{EqA}} al bl && eq {{EqA}} ar br)
-eq {{EqA}} _               _               = False
+-- Multiplies a V2 vector by a scalar.
+-- - 1st: V2 vector to be multiplied.
+-- - 2nd: Scalar (F64) to multiply by.
+-- = A new V2 vector with both components multiplied by the scalar.
+mul-scalar : V2 -> F64 -> V2
+mul-scalar (MkV2 x y) s = MkV2 (x F64.* s) (y F64.* s)
 
--- Infix operator for tree equality.
-_==_ : ∀ {A : Set} -> {{EqA : Eq.Eq A}} -> BinTree A -> BinTree A -> Bool
-_==_ = eq
+-- Infix operator for multiplying a V2 vector by a scalar.
+_*_ : V2 -> F64 -> V2
+_*_ = mul-scalar
 
-infix 4 _==_
+infixl 7 _*_
 ```
 
 ##  Naming Conventions
