@@ -15,8 +15,9 @@ open import Base.String.Type
 open import Base.String.from-list
 open import Base.String.to-list
 
--- Advances the parser by 'count' characters, consuming them.
--- Returns the consumed characters as a Maybe String.
+-- Advances the parser by a specified number of characters and returns the consumed characters.
+-- - 1st: The number of characters to advance.
+-- = A Parser that returns a Maybe String containing the consumed characters.
 advance-many : Nat -> Parser (Maybe String)
 advance-many count = λ s ->
   let input     = State.input s

@@ -20,8 +20,9 @@ open import Base.String.starts-with
 open import Base.String.to-list
 open import Base.Unit.Type
 
--- Tries to consume a specific string from the input.
--- Returns unit if successful.
+-- Attempts to consume a specific string from the input.
+-- - 1st: The target string to consume.
+-- = A Parser that returns unit if successful, or fails if the target string is not found at the current position.
 consume : String -> Parser Unit
 consume target = λ str ->
   case starts-with (State.input str) target of λ where

@@ -17,7 +17,8 @@ open import Base.String.from-list
 open import Base.String.to-list
 
 -- Inspects the next 'count' characters in the text without consuming them.
--- Returns a Maybe String containing the peeked characters, or None if there aren't enough characters.
+-- - 1st: The number of characters to peek.
+-- = A Parser that returns a Maybe String containing the peeked characters, or None if there aren't enough characters.
 peek-many : Nat -> Parser (Maybe String)
 peek-many count = λ s -> do
   let chars  = to-list (State.input s)

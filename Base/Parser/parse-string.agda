@@ -12,7 +12,10 @@ open import Base.Parser.parse-char
 open import Base.String.Type
 open import Base.String.from-list
 
--- Helper function to parse multiple characters
+-- Parses multiple characters until a closing quote is encountered.
+-- - 1st: The current character.
+-- - 2nd: The rest of the characters (recursively parsed).
+-- = A list of characters representing the parsed string content.
 parse-chars : Parser (List Char)
 parse-chars = do
   c <- parse-char
@@ -22,7 +25,10 @@ parse-chars = do
       cs <- parse-chars
       pure (c :: cs)
 
--- Parses a quoted string: "hello\nworld" etc.
+-- Parses a quoted string.
+-- - 1st: Consumes the opening quote.
+-- - 2nd: Parses the string content.
+-- = A String value representing the parsed quoted string.
 parse-string : Parser String
 parse-string = do
   consume "\""

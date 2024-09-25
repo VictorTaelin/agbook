@@ -4,8 +4,9 @@ open import Base.Nat.Type
 open import Base.String.Type
 
 -- Represents a parser error with an index and an error message.
--- - index: The position in the input where the error occurred.
--- - error: A string describing the error.
+-- - 1st: The position in the input where the error occurred.
+-- - 2nd: A string describing the error.
+-- = A record containing the error information.
 record Error : Set where
   constructor MkError
   field

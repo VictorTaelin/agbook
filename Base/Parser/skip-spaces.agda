@@ -17,8 +17,9 @@ open import Base.String.Type
 open import Base.String.from-list
 open import Base.String.to-list
 
--- Skips spaces in the text.
--- Returns the number of spaces skipped.
+-- Skips spaces in the text and returns the number of spaces skipped.
+-- - 1st: The parser state.
+-- = A Reply containing the updated state and the number of spaces skipped.
 skip-spaces : Parser Nat
 skip-spaces = λ s -> do
   let input     = State.input s
