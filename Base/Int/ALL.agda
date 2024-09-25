@@ -15,3 +15,4 @@ open import Base.Int.lte public
 open import Base.Int.mul public
 open import Base.Int.neq public
 open import Base.Int.to-bits public
+open import Base.Int.to-nat public

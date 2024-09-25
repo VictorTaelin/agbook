@@ -13,3 +13,4 @@ export * from '../../Base/Int/lte';
 export * from '../../Base/Int/mul';
 export * from '../../Base/Int/neq';
 export * from '../../Base/Int/to-bits';
+export * from '../../Base/Int/to-nat';
