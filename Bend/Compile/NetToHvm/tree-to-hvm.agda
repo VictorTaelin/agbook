@@ -21,6 +21,7 @@ open import Bend.Net.Node.Type
 open import Bend.Net.NodeKind.Type
 open import Bend.Net.Port.Type
 open import Bend.Net.Port.to-bits renaming (to-bits to port-to-bits)
+open import Bend.nat-to-name
 open import HVM2.Net.Type renaming (Net to HNet)
 open import HVM2.Term.Type renaming (Term to HTerm)
 open import Bend.Compile.NetToHvm.State.Type
@@ -92,9 +93,9 @@ mutual
     case map-get vars key-a of λ where
       (Some var) -> (HTerm.Var var , MkState vars n-vars n-nodes)
       None -> do
-        let key-b = port-to-bits b
-        let name = to-bits n-vars
+        let key-b  = port-to-bits b
+        let name   = nat-to-name n-vars
         let n-vars = Succ n-vars
-        let vars = map-set vars key-a name
-        let vars = map-set vars key-b name
+        let vars   = map-set vars key-a name
+        let vars   = map-set vars key-b name
         (HTerm.Var name , MkState vars n-vars n-nodes)
