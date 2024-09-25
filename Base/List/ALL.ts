@@ -11,6 +11,7 @@ export * from '../../Base/List/cartesian-product-with';
 export * from '../../Base/List/concat';
 export * from '../../Base/List/concat-map';
 export * from '../../Base/List/concat-maybes';
+export * from '../../Base/List/contains';
 export * from '../../Base/List/count';
 export * from '../../Base/List/diagonal';
 export * from '../../Base/List/drop';

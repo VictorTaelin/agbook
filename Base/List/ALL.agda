@@ -13,6 +13,7 @@ open import Base.List.cartesian-product-with public
 open import Base.List.concat public
 open import Base.List.concat-map public
 open import Base.List.concat-maybes public
+open import Base.List.contains public
 open import Base.List.count public
 open import Base.List.diagonal public
 open import Base.List.drop public
