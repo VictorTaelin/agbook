@@ -42,14 +42,13 @@ private
 -- - term: The Term to resolve references in
 -- = A new Term with resolved references
 resolve-refs-term : Book -> BitMap String -> Term -> Term
-resolve-refs-term book scope term = case term of λ where
-  (Var nam) ->
-    if (not (contains scope (hash nam))) && (contains (Book.defs book) (hash nam))
-      then Ref nam
-      else Var nam
-  _ -> do
-    let map-child binds child = resolve-refs-term book (add-bnd scope binds) child
-    map-children-with-binds map-child term
+resolve-refs-term book scope (Var nam) = do
+  if (not (contains scope (hash nam))) && (contains-def book nam)
+    then Ref nam
+    else Var nam
+resolve-refs-term book scope term = do
+  let map-child binds child = resolve-refs-term book (add-bnd scope binds) child
+  map-children-with-binds map-child term
 
 -- Resolves references in an entire Book
 -- - book: The Book to resolve references in

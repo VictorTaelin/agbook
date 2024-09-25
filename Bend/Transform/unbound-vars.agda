@@ -51,22 +51,37 @@ private
 
 private
   -- Adds a list of names to the scope
+  -- - scope: The current scope
+  -- - names: The names to add to the scope
+  -- = The updated scope with new names added
   add-bnd : List String -> List String -> List String
   add-bnd scope names = List.append names scope
 
   -- Checks if a name is in the scope
+  -- - nam: The name to check
+  -- - scope: The current scope
+  -- = True if the name is in the scope, False otherwise
   scope-contains : String -> List String -> Bool
   scope-contains nam scope = Maybe.to-bool (find (λ x -> x == nam) scope)
 
+  -- Represents a map of global variables with their binding and usage information
   Globals : Set
   Globals = BitMap (Pair String (Pair Nat Nat))
 
+  -- Updates the usage count of a global variable
+  -- - global: The current global variable map
+  -- - nam: The name of the variable to update
+  -- = An updated global variable map with the usage count incremented
   use-global : Globals -> String -> Globals
   use-global global nam =
     case (BitMap.get global (hash nam)) of λ where
       (Some (_ , bnd , use)) -> BitMap.set global (hash nam) (nam , bnd , use + 1)
       None                   -> BitMap.set global (hash nam) (nam , 0 , 1)
 
+  -- Updates the binding count of global variables
+  -- - global: The current global variable map
+  -- - nams: The list of names to update
+  -- = An updated global variable map with the binding counts incremented
   bnd-global : Globals -> List String -> Globals
   bnd-global global (nam :: nams) = do
     let global = case (BitMap.get global (hash nam)) of λ where
@@ -76,6 +91,10 @@ private
   bnd-global global [] = global
 
 -- Checks for unbound variables in a term
+-- - term: The term to check for unbound variables
+-- - scope: The current scope of bound variables
+-- - global: The global variable map
+-- = A Result containing either an updated global variable map or an error message
 unbound-vars-term : Term -> List String -> Globals -> Result Globals String
 
 unbound-vars-term (Var nam) scope global =
@@ -96,6 +115,8 @@ unbound-vars-term term scope global = do
     global (children-with-binds term)
 
 -- Checks for unbound variables in a function definition
+-- - def: The function definition to check
+-- = A Result containing either Unit (success) or an error message
 unbound-vars-def : FnDef -> Result Unit String
 unbound-vars-def def = do
   global ← mfoldl (λ global rule -> do
@@ -115,6 +136,8 @@ unbound-vars-def def = do
     (err :: _) -> Fail err
 
 -- Checks for unbound variables in an entire Book
+-- - book: The Book to check for unbound variables
+-- = A Result containing either Unit (success) or an error message
 unbound-vars : Book -> Result Unit String
 unbound-vars book =
   mfoldl (λ _ def -> unbound-vars-def def)
