@@ -2,6 +2,7 @@ module Base.OrdSet.ALL where
 
 open import Base.OrdSet.contains public
 open import Base.OrdSet.delete public
+open import Base.OrdSet.difference public
 open import Base.OrdSet.empty public
 open import Base.OrdSet.fold public
 open import Base.OrdSet.from-list public
