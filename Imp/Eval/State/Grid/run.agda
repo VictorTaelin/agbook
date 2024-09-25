@@ -1,0 +1,21 @@
+module Imp.Eval.State.Grid.run where
+
+open import Base.Buffer.Type
+open import Base.Function.case
+open import Base.Maybe.Type
+open import Base.Result.Monad.bind
+open import Base.Result.Type
+open import Base.String.Type
+open import Imp.Eval.State.Grid.Type
+open import Imp.Eval.State.Grid.step as Grid
+
+-- Runs a grid until there is no more work to be done and
+-- returns the global memory.
+{-# NON_TERMINATING #-}
+run : Grid → Result Buffer String
+
+run grid@(MkGrid global blocks) = do
+  new-grid ← (Grid.step grid)
+  case new-grid of λ where
+    (Some grid) → run grid
+    None        → Done global
