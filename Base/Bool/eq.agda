@@ -11,4 +11,4 @@ infix 4 _==_
 _==_ : Bool -> Bool -> Bool
 _==_ = eq
 
-{-# COMPILE JS eq = function(x) { return function(y) { return x === y; }; } #-}
+{-# COMPILE JS eq = function(x) { return function(y) { return x ≡ y; }; } #-}

@@ -10,5 +10,5 @@ open import Base.Equal.Type
 -- - p: Proof that x is equal to y.
 -- - q: Proof that y is equal to z.
 -- = Proof that x is equal to z.
-trans : ∀ {a} {A : Set a} {x y z : A} -> x === y -> y === z -> x === z
+trans : ∀ {a} {A : Set a} {x y z : A} -> x ≡ y -> y ≡ z -> x ≡ z
 trans refl refl = refl

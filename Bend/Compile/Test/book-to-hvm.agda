@@ -43,7 +43,7 @@ make-result rbag root = Done (("main" , MkNet rbag root) :: [])
 test-id :
   let term = λ' (p' "x") (v' "x") in
   (compile-term term)
-  ===
+  ≡
   let root = H.Con (H.Var (tb 0)) (H.Var (tb 0)) in
   make-result [] root
 test-id = refl
@@ -53,7 +53,7 @@ test-id = refl
 test-self-app :
   let term = λ' (p'dup (p' "x1" :: p' "x2" :: [])) (v' "x1" $ v' "x2") in
   (compile-term term)
-  ===
+  ≡
   let root = H.Con (H.Dup (H.Con (H.Var (tb 0)) (H.Var (tb 1))) (H.Var (tb 0))) (H.Var (tb 1)) in
   make-result [] root
 test-self-app = refl
@@ -64,7 +64,7 @@ test-self-app = refl
 test-let-var :
   let term = let' p' "a" := λ' (p' "x") (v' "x") in' (v' "a") in
   (compile-term term)
-  ===
+  ≡
   let rbag = MkRedex (H.Con (H.Var (tb 1)) (H.Var (tb 1))) (H.Var (tb 0)) :: [] in
   let root = H.Var (tb 0) in
   make-result rbag root
@@ -75,7 +75,7 @@ test-let-var = refl
 test-unscoped-var-no-shadow :
   let term = λ' (p' "a") (v' "a" $ tup (λ' (p'$ "a") (v'$ "b") :: λ' (p'$ "b") (v'$ "a") :: [])) in
   (compile-term term)
-  ===
+  ≡
   let rbag = [] in
   let root = H.Con (H.Con (H.Con (H.Con (H.Var (tb 0)) (H.Var (tb 1))) (H.Con (H.Var (tb 1)) (H.Var (tb 0)))) (H.Var (tb 2))) (H.Var (tb 2)) in
   make-result rbag root
@@ -88,7 +88,7 @@ test-unscoped-var-no-shadow = refl
 test-nested-let-pat :
   let term = let' (p'tup ((p'dup (p' "x1" :: p'* :: [])) :: p'* :: [])) := (tup (*' :: *' :: [])) in' v' "x1" in
   (compile-term term)
-  ===
+  ≡
   let rbag = MkRedex (H.Con H.Era H.Era) (H.Var (tb 1)) :: MkRedex (H.Con (H.Dup (H.Var (tb 0)) H.Era) H.Era) (H.Var (tb 1)) :: [] in
   let root = H.Var (tb 0) in
   make-result rbag root
@@ -100,7 +100,7 @@ test-nested-let-pat = refl
 test-nested-let-simple :
   let term = λ' (p' "x") (let' (p' "a") := (let' (p' "b") := (v' "x") in' (v' "b")) in' (v' "a")) in
   (compile-term term)
-  ===
+  ≡
   let rbag = MkRedex (H.Var (tb 1)) (H.Var (tb 0)) :: [] in
   let root = H.Con (H.Var (tb 0)) (H.Var (tb 1)) in
   make-result rbag root
@@ -119,7 +119,7 @@ test-complex-nested-let :
                 in' (λ' p'* (v' "a")))
   in
   (compile-term term)
-  ===
+  ≡
   let root = (H.Con (H.Con (H.Var (tb 0)) (H.Var (tb 1))) (H.Con H.Era (H.Var (tb 2))))
       rbag = MkRedex (H.Dup (H.Var (tb 3)) H.Era) (H.Var (tb 1)) ::
              MkRedex (H.Var (tb 2)) (H.Con (H.Var (tb 0)) (H.Var (tb 3))) :: []

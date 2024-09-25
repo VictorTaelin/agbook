@@ -13,11 +13,11 @@ open import Base.Bool.Type
 open import Base.Maybe.Type
 open import Base.Equal.Type
 
-test-parse-quoted-char-normal : parse-quoted-char (MkState "'a'" 0) === Done (MkReply (MkState "" 3) 'a')
+test-parse-quoted-char-normal : parse-quoted-char (MkState "'a'" 0) ≡ Done (MkReply (MkState "" 3) 'a')
 test-parse-quoted-char-normal = refl
 
-test-parse-quoted-char-escape : parse-quoted-char (MkState "'\\n'" 0) === Done (MkReply (MkState "" 4) '\n')
+test-parse-quoted-char-escape : parse-quoted-char (MkState "'\\n'" 0) ≡ Done (MkReply (MkState "" 4) '\n')
 test-parse-quoted-char-escape = refl
 
-test-parse-quoted-char-invalid : parse-quoted-char (MkState "'ab'" 0) === Fail (MkError 2 "Expected '")
+test-parse-quoted-char-invalid : parse-quoted-char (MkState "'ab'" 0) ≡ Fail (MkError 2 "Expected '")
 test-parse-quoted-char-invalid = refl

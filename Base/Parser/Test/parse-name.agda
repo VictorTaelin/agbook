@@ -9,11 +9,11 @@ open import Base.Result.Type
 open import Base.String.Type
 open import Base.Equal.Type
 
-test-parse-name-valid : parse-name (MkState "abc_123 def" 0) === Done (MkReply (MkState " def" 7) "abc_123")
+test-parse-name-valid : parse-name (MkState "abc_123 def" 0) ≡ Done (MkReply (MkState " def" 7) "abc_123")
 test-parse-name-valid = refl
 
-test-parse-name-empty : parse-name (MkState " abc" 0) === Fail (MkError 0 "Expected a name")
+test-parse-name-empty : parse-name (MkState " abc" 0) ≡ Fail (MkError 0 "Expected a name")
 test-parse-name-empty = refl
 
-test-parse-name-special : parse-name (MkState "abc-def.ghi" 0) === Done (MkReply (MkState "" 11) "abc-def.ghi")
+test-parse-name-special : parse-name (MkState "abc-def.ghi" 0) ≡ Done (MkReply (MkState "" 11) "abc-def.ghi")
 test-parse-name-special = refl
