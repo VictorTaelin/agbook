@@ -1,6 +1,7 @@
 module Base.AVLTree.delete where
 
 open import Base.AVLTree.Type
+open import Base.AVLTree.Type
 open import Base.AVLTree.delete-go
 open import Base.Pair.get-fst
 open import Base.Trait.Ord
@@ -10,5 +11,5 @@ open import Base.Trait.Ord
 -- - t: The AVL tree to delete from.
 -- = A new AVL tree with the value deleted and balance maintained.
 delete : ∀ {K V : Set} -> {{_ : Ord K}} -> K -> AVL K V -> AVL K V
-delete k t = get-fst (delete-go k t) where
+delete k t = get-fst (delete-go k t) 
 
