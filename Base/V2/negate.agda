@@ -5,14 +5,13 @@ open import Base.F64.Type
 open import Base.V2.Type
 
 -- Negates a V2 vector.
--- - v: The V2 vector to negate.
+-- - 1st: The V2 vector to negate.
 -- = A new V2 vector with negated coordinates.
 negate : V2 -> V2
 negate (MkV2 x y) = MkV2 (F64.negate x) (F64.negate y)
 
--- Infix notation for negate
+-- Infix notation for negate.
 -_ : V2 -> V2
 -_ = negate
 
 infix 9 -_
-

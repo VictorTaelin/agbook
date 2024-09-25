@@ -7,7 +7,7 @@ open import Base.F64.sqrt
 open import Base.V2.Type
 
 -- Calculates the length (magnitude) of a V2 vector.
--- - v: The V2 vector.
--- = The length of the vector.
+-- - 1st: The V2 vector.
+-- = The length (magnitude) of the vector as an F64.
 length : V2 -> F64
 length (MkV2 x y) = sqrt ((x * x) + (y * y))

@@ -7,9 +7,9 @@ open import Base.F64.Type
 open import Base.V2.Type
 
 -- Checks if two V2 vectors are equal.
--- - v1: The 1st V2 vector.
--- - v2: The 2nd V2 vector.
--- = True if v1 and v2 are equal, False otherwise.
+-- - 1st: The first V2 vector.
+-- - 2nd: The second V2 vector.
+-- = True if the vectors are equal, False otherwise.
 eq : V2 -> V2 -> Bool
 eq (MkV2 x1 y1) (MkV2 x2 y2) = (x1 F64.== x2) && (y1 F64.== y2)
 
@@ -18,4 +18,3 @@ _==_ : V2 -> V2 -> Bool
 _==_ = eq
 
 infix 4 _==_
-
