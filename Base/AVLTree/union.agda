@@ -10,9 +10,9 @@ open import Base.AVLTree.Type
 -- - t1: The first AVL tree.
 -- - t2: The second AVL tree.
 -- = A new AVL tree containing all elements from both input trees,
---   with elements from t2 overwriting those from t1 in case of key conflicts.
+--   with elements from t1 overwriting those from t2 in case of key conflicts.
 union : ∀ {K V : Set} -> {{_ : Ord K}} -> AVL K V -> AVL K V -> AVL K V
-union t1 t2 = fold insert t1 t2
+union t1 t2 = fold insert t2 t1
 
 -- Infix notation for the union of two AVL trees.
 -- - t1: The first AVL tree.
