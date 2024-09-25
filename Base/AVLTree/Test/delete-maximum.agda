@@ -25,7 +25,7 @@ open import Base.Trait.Ord
 open import Base.Unit.Type
 
 -- Helper function to create a test tree
-create-test-tree : AVL Nat Unit
+create-test-tree : AVLTree Nat Unit
 create-test-tree =
   (10 , unit) ::> (2 , unit) ::> (8 , unit) ::> (6 , unit) ::> (4 , unit) ::>
    (9 , unit) ::> (1 , unit) ::> (7 , unit) ::> (3 , unit) ::> (5 , unit) ::> empty

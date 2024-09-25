@@ -7,7 +7,7 @@ open import Base.Trait.Ord
 open import Base.AVLTree.Type
 
 -- Computes the union of two OrdMaps.
--- This function uses the AVL fold operation to insert all elements
+-- This function uses the AVLTree fold operation to insert all elements
 -- from the second map into the first map.
 -- - map1: The first OrdMap.
 -- - map2: The second OrdMap.

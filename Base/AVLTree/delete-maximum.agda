@@ -20,8 +20,8 @@ open import Base.AVLTree.Type
 delete-maximum :
   ∀ {K V : Set} ->
   {{_ : Ord K}} ->
-  AVL K V ->
-  Pair (Maybe (Pair K V)) (Pair (AVL K V) Bool)
+  AVLTree K V ->
+  Pair (Maybe (Pair K V)) (Pair (AVLTree K V) Bool)
 delete-maximum Leaf = None , empty , False
 delete-maximum (Node v    _       l Leaf)  = Some v , l , True
 delete-maximum (Node curr balance l r) with delete-maximum r

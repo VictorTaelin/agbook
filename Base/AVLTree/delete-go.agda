@@ -16,7 +16,7 @@ open import Base.Pair.mut-snd
 open import Base.Trait.Ord
 
 -- returns True if the height decreased
-delete-go : ∀ {K V : Set} -> {{_ : Ord K}} -> K -> AVL K V -> Pair (AVL K V) Bool
+delete-go : ∀ {K V : Set} -> {{_ : Ord K}} -> K -> AVLTree K V -> Pair (AVLTree K V) Bool
 
 delete-go _ Leaf = empty , False
 

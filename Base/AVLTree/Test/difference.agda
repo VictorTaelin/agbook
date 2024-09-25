@@ -22,7 +22,7 @@ open import Base.Pair.Trait.Eq
 open import Base.Trait.Eq
 
 -- Helper function to create a tree
-tree : List (Pair Nat Unit) → AVL Nat Unit
+tree : List (Pair Nat Unit) → AVLTree Nat Unit
 tree = from-list
 
 -- Test 1: Difference of an empty tree with itself

@@ -12,7 +12,7 @@ open import Base.Unit.Type
 open import Base.Pair.Type
 
 -- Sample AVL tree for testing
-sample-tree : AVL Nat Unit
+sample-tree : AVLTree Nat Unit
 sample-tree = (5 , unit) ::> (3 , unit) ::> (7 , unit) ::> (1 , unit) ::> (4 , unit) ::> (6 , unit) ::> (8 , unit) ::> empty
 
 -- Test 1: Empty tree

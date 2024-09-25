@@ -17,7 +17,7 @@ open import Base.Unit.Type
 open import Base.Pair.Type
 
 -- Helper function to create a balanced tree
-balanced-tree : AVL Nat Unit
+balanced-tree : AVLTree Nat Unit
 balanced-tree = from-list ((3 , unit) :: (2 , unit) :: (4 , unit) :: [])
 
 -- Test: Insert into an empty tree
