@@ -1,7 +1,9 @@
 module Base.ByteString.ALL where
 
 open import Base.ByteString.Type public
+open import Base.ByteString.append public
 open import Base.ByteString.cons public
+open import Base.ByteString.concat public
 open import Base.ByteString.drop public
 open import Base.ByteString.head public
 open import Base.ByteString.pack-string public

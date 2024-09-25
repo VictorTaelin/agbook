@@ -7,7 +7,6 @@ open import Network.WebSocket.WSConnection
 
 record Client : Set where
   field
-    ws : WSConnection
     server-time-offset : Nat
     best-ping : Nat
     last-ping-time : Nat

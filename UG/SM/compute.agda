@@ -11,6 +11,11 @@ open import UG.SM.Time.time-to-tick
 open import UG.SM.update-mach
 open import UG.SM.get-initial-state
 
+open import Base.IO.ALL
+import Base.Nat.show as Nat
+import Base.Bool.show as Bool
+open import Base.String.append
+
 open import Base.Bool.if
 open import Base.Nat.Type
 open import Base.Nat.eq
@@ -34,28 +39,30 @@ open import Base.IO.ALL
 -- current-tick: The current tick
 -- end-tick: The target tick
 -- = The computed state at the end tick
-compute-helper : ∀ {S A : Set} → Mach S A → Game S A → S → Tick → Tick → Pair S (Mach S A)
-compute-helper mach game state current-tick end-tick =
+compute-helper : ∀ {S A : Set} → Mach S A → Game S A → S → Tick → Tick → IO (Pair S (Mach S A))
+compute-helper mach game state current-tick end-tick = do
   if current-tick == end-tick
-  then (state , mach)
-  else 
-    let next-tick = Succ current-tick
-        actions = get-actions (Mach.action-logs mach) current-tick
-        state-with-actions = foldr (Game.when game) state actions
-        next-state = Game.tick game state-with-actions
-        updated-mach = update-mach mach current-tick state
-    in compute-helper updated-mach game next-state next-tick end-tick
+    then pure (state , mach)
+    else do
+      let next-tick = Succ current-tick
+      let actions = get-actions (Mach.action-logs mach) current-tick
+      let state-with-actions = foldr (Game.when game) state actions
+      let next-state = Game.tick game state-with-actions
+      let updated-mach = update-mach mach current-tick state
+      compute-helper updated-mach game next-state next-tick end-tick
 
 -- Computes the state of the game at a given time
 -- mach: The state machine
 -- game: The game rules
 -- time: The target time
 -- = The computed state at the given time
-compute : ∀ {S A : Set} → Mach S A → Game S A → Time → Pair S (Mach S A)
-compute mach game time =
+compute : ∀ {S A : Set} → Mach S A → Game S A → Time → IO (Pair S (Mach S A))
+compute mach game time = do
   let ini-t = Mach.cached-tick mach
-      end-t = time-to-tick mach time
-      initial-state = get-initial-state mach game ini-t
-  in if gt (sub end-t ini-t) 1000000
-     then (initial-state , mach)
-     else compute-helper mach game initial-state ini-t end-t
+  let end-t = time-to-tick mach time
+  let initial-state = get-initial-state mach game ini-t
+  let diff = end-t - ini-t
+  if diff > 1000000
+    then pure (initial-state , mach)
+    else compute-helper mach game initial-state ini-t end-t
+  
