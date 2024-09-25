@@ -75,7 +75,7 @@ module Unit where
 module V2 where
   open import Base.V2.ALL public
 
-module AVL where
+module AVLTree where
   open import Base.AVLTree.ALL public
 
 -- Traits
@@ -257,11 +257,11 @@ Unit = Unit.Unit
 unit : Unit
 unit = Unit.unit
 
--- AVL : Set -> Set -> Set
--- AVL = AVL.AVL
+-- AVLTree : Set -> Set -> Set
+-- AVLTree = AVL.AVL
 
--- AVLLeaf : ∀ {A B} -> AVL A B
+-- AVLLeaf : ∀ {A B} -> AVLTree A B
 -- AVLLeaf = AVL.Leaf
 
--- AVLNode : ∀ {A B} -> Pair A B -> AVL.Balance -> AVL A B -> AVL A B -> AVL A B
+-- AVLNode : ∀ {A B} -> Pair A B -> AVL.Balance -> AVLTree A B -> AVLTree A B -> AVLTree A B
 -- AVLNode = AVL.Node

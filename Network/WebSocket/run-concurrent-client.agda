@@ -16,7 +16,7 @@ postulate run-concurrent-client : String -> Int -> String -> (WSConnection -> IO
 
 {-# FOREIGN GHC import qualified Control.Concurrent as CC #-}
 {-# FOREIGN GHC import Control.Monad (void)  #-}
-{-# FOREIGN GHC import qualified Base.Text as T #-}
+{-# FOREIGN GHC import qualified Data.Text as T #-}
 {-# FOREIGN GHC import qualified Network.WebSockets as WS #-}
 
 {-# COMPILE GHC run-concurrent-client = \host port path handler -> do

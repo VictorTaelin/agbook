@@ -1,6 +1,7 @@
 module Base.OrdMap.ALL where
 
 open import Base.OrdMap.delete public
+open import Base.OrdMap.difference public
 open import Base.OrdMap.empty public
 open import Base.OrdMap.fold public
 open import Base.OrdMap.from-list public
@@ -17,7 +18,3 @@ open import Base.OrdMap.union public
 open import Base.OrdMap.values public
 
 open import Base.OrdMap.Type public using (OrdMap)
-
-open import Base.OrdMap.fold public using (fold)
-open import Base.OrdMap.intersect public using (intersect; _∩_)
-open import Base.OrdMap.union public using (union)

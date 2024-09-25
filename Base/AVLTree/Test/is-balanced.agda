@@ -13,7 +13,7 @@ open import Base.Nat.sub
 -- Checks if an AVL tree is balanced.
 -- - tree: The AVL tree to check.
 -- = Some height if the tree is balanced, None otherwise.
-is-balanced-go : ∀ {K V : Set} -> AVL K V -> Maybe Nat
+is-balanced-go : ∀ {K V : Set} -> AVLTree K V -> Maybe Nat
 is-balanced-go Leaf = Some Zero
 is-balanced-go (Node _ balance left right) with is-balanced-go left | is-balanced-go right
 ... | None | _    = None
@@ -26,7 +26,7 @@ is-balanced-go (Node _ balance left right) with is-balanced-go left | is-balance
 -- Boolean return for the `is-balanced'` function
 -- - tree: The AVL tree to check.
 -- = True if the tree is balanced, False otherwise.
-is-balanced : ∀ {K V : Set} -> AVL K V -> Bool
+is-balanced : ∀ {K V : Set} -> AVLTree K V -> Bool
 is-balanced tree with is-balanced-go tree
 ... | Some _ = True
 ... | None   = False

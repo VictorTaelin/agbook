@@ -6,7 +6,11 @@ import Concurrent.Channel.write as Channel
 import UG.SIPD.Renderer.create as Renderer
 import UG.SIPD.Video.init as Video
 import UG.SIPD.Window.create as Window
+import UG.Chat.Client.send as Client
+import UG.Chat.Client.handle-message as Client
+open import UG.Chat.Client.Type
 open import Base.Bool.Type
+open import Base.Bool.if
 open import Base.ByteString.Type
 open import Base.ByteString.cons
 open import Base.ByteString.drop
@@ -33,8 +37,10 @@ open import Base.List.foldr
 open import Base.List.map
 open import Base.List.reverse
 open import Base.List.take
+open import Base.List.length
 open import Base.Maybe.Type
 open import Base.Nat.Type
+open import Base.Nat.gt
 open import Base.Nat.add
 open import Base.Nat.sub
 open import Base.Nat.div
@@ -54,10 +60,12 @@ open import Base.Word8.to-nat
 open import Concurrent.Channel.Type
 open import Network.WebSocket.WSConnection
 open import Network.WebSocket.receive-binary-data
+open import Network.WebSocket.send-binary-data
 open import Network.WebSocket.receive-data
 open import Network.WebSocket.run-concurrent-client
 open import UG.SIPD.Event.Click
 open import UG.SIPD.Event.Type
+open import UG.SIPD.Event.show-list
 open import UG.SIPD.Event.get-events
 open import UG.SIPD.Renderer.Type
 open import UG.SIPD.State.Type
@@ -72,6 +80,7 @@ open import UG.SM.Type
 open import UG.SM.compute
 open import UG.SM.new-mach
 open import UG.SM.register-action
+open import UG.SM.ActionLogs.get-actions
 
 fps : Nat
 fps = 60
@@ -96,11 +105,31 @@ game = record
   ; tick = tick
   }
 
-handle-websocket : Channel ByteString → WSConnection → IO Unit
-handle-websocket channel connection = do
+handle-client-ev : WSConnection -> Maybe ByteString -> IO Unit
+handle-client-ev conn maybe-bs with maybe-bs
+... | Some bs = do
+  send-binary-data conn bs
+... | None    = do
+  pure unit
+
+handle-recv : Channel ByteString -> Maybe ByteString -> IO Unit
+handle-recv chann maybe-bs with maybe-bs
+... | Some bs = do
+  Channel.write chann bs  
+... | None = do
+  pure unit
+
+-- receive and update the client here. the problem is just the first client (i guess)
+-- or just pass data and instantiate every single time
+handle-ws : Channel ByteString -> Channel ByteString -> WSConnection -> IO Unit
+handle-ws recv-channel client-channel connection = do
+  client-ev <- Channel.read client-channel
+  _ <- handle-client-ev connection client-ev
+
   msg <- receive-binary-data connection
-  Channel.write channel msg
-  handle-websocket channel connection
+  _ <- handle-recv recv-channel msg
+
+  handle-ws recv-channel client-channel connection
 
 click-event : Event
 click-event = MouseClick LeftButton 0.0 0.0
@@ -126,15 +155,15 @@ handle-bs-result bs mach = do
   let new-sm = register-action mach received-event
   pure new-sm
 
-process-messages : Mach State Event -> Channel ByteString -> IO (Mach State Event)
-process-messages mach channel = do
+process-messages : Mach State Event -> Channel ByteString -> Client -> IO (Pair (Mach State Event) Client)
+process-messages mach channel client = do
   maybe-msg <- Channel.read channel
   case maybe-msg of λ where
     (Some msg) -> do
       new-mach <- handle-bs-result msg mach
-      pure new-mach
+      pure (new-mach , client)
     None -> do 
-      pure mach
+      pure (mach , client)
 
 initial-mach : Mach State Event
 initial-mach = new-mach 60 event-eq
@@ -142,52 +171,57 @@ initial-mach = new-mach 60 event-eq
 time-action : Nat -> Event -> TimedAction Event
 time-action time event = record { action = event ; time = time }
 
-register-events : Mach State Event -> List Event -> IO (Mach State Event)
-register-events mach events = do
+encode : Event -> ByteString
+encode event = pack-string "hello"
+
+register-events : Mach State Event -> List Event -> Channel ByteString -> IO (Mach State Event)
+register-events mach events client-channel = do
   time <- now 
-  let t = time - 1727220902
+  let t = time
+  let encoded-events = map encode events
+  
+  foldl (λ acc ev -> acc >>= λ _ -> Channel.write client-channel ev) (pure unit) encoded-events
+
   let timed-actions = map (time-action t) events
   let final-mach = foldl (λ acc-mach action -> register-action acc-mach action) mach timed-actions
   pure final-mach
 
-loop : (Mach State Event) -> Window -> Renderer -> State -> (Channel ByteString -> IO (Mach State Event)) -> Channel ByteString -> IO State
-loop mach window renderer state process-message channel = do
+loop : (Mach State Event) -> Window -> Renderer -> State -> (Channel ByteString -> Client -> IO (Pair (Mach State Event) Client)) -> Channel ByteString -> Channel ByteString -> Client -> IO State
+loop mach window renderer state process-message channel client-channel client = do
 
   events <- get-events
-  registered-mach <- register-events mach events
+
+  registered-mach <- register-events mach events client-channel
 
   time-now <- now
-  let time = time-now - 1727220902
-  print ( show time )
 
-  print ( show (Mach.cached-tick mach))
-  -- new-mach <- process-message channel
+  (new-mach , new-client) <- process-message channel client
 
-  let (newState , computed-mach) = compute registered-mach game (time-to-tick registered-mach time)
-  print ( show (Mach.cached-tick computed-mach))
-  --let newState = compute registered-mach game 100
+  -- let (newState , computed-mach) <- compute registered-mach game time-now
+  let (newState , computed-mach) = (state , registered-mach)
 
   draw window renderer state
-  loop computed-mach window renderer newState (λ chan -> process-message chan) channel
+  loop computed-mach window renderer newState (λ chan client -> process-message chan client) channel client-channel client
 
-  
 main : IO Unit
 main = do
   let host = "127.0.0.1"
   let port = (Pos 8080)
   let path = "/"
+  let client = record { server-time-offset = 0 ; best-ping = 1000000000 ; last-ping-time = 0 }
 
   chan <- Channel.new
+  client-chan <- Channel.new
 
   print ("Connecting to WebSocket server")
-  --run-concurrent-client host port path (handle-websocket chan)
+  run-concurrent-client host port path (handle-ws chan client-chan)
 
   Video.init
 
   window <- Window.create 
   renderer <- Renderer.create window 
 
-  loop initial-mach window renderer initialState (λ chan -> process-messages initial-mach chan) chan
+  loop initial-mach window renderer initialState (λ chan client -> process-messages initial-mach chan client) chan client-chan client
 
   quit
 

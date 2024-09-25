@@ -1,0 +1,154 @@
+module Bend.Transform.linearize-vars where
+
+open import Base.BitMap.Type
+open import Base.BitMap.empty
+open import Base.BitMap.get
+open import Base.BitMap.set
+open import Base.Bool.if
+open import Base.Function.case
+open import Base.List.Type renaming (List to List')
+open import Base.List.map
+open import Base.List.foldr
+open import Base.Maybe.Type
+open import Base.Nat.Type
+open import Base.Nat.Trait.Eq
+open import Base.Nat.gt
+open import Base.Nat.show
+open import Base.Nat.range
+open import Base.Pair.Type
+open import Base.Result.Type
+open import Base.String.Type
+open import Base.String.append
+open import Base.String.hash
+open import Base.Trait.Eq
+open import Bend.Fun.Book.Type
+open import Bend.Fun.FanKind.Type
+open import Bend.Fun.Term.Type
+open import Bend.Fun.Term.map-children-with-state
+open import Bend.Fun.Term.map-child-binds
+open import Bend.Fun.Pattern.Type
+open import Bend.Fun.Pattern.map-binds
+open import Bend.Transform.subst
+open import Bend.nat-to-name
+import Base.BitMap.to-list as BitMap
+import Base.BitMap.from-list as BitMap
+import Bend.Fun.Pattern.binds as Pat
+import Bend.Fun.Rule.Type as Rule'
+import Bend.Fun.FnDef.Type as FnDef'
+
+private
+  open module Rule = Rule' Term
+  open module FnDef = FnDef' Term
+
+-- Creates a new name by appending the use count to the original name.
+-- If the use count is 1, it returns the original name.
+-- - name: The original variable name.
+-- - uses: The number of times the variable is used.
+-- = The new name, possibly with a use count appended.
+dup-name : String -> Nat -> String
+dup-name name uses = if uses == 1 then name else name ++ "_" ++ show uses
+
+-- Retrieves the number of uses for a given variable name from the BitMap.
+-- Returns 0 if the variable is not found or if the name is None.
+-- - name: The name of the variable to look up.
+-- - var-uses: The BitMap containing variable use counts.
+-- = The number of uses for the given variable.
+get-var-uses : Maybe String -> BitMap Nat -> Nat
+get-var-uses None _ = 0
+get-var-uses (Some name) var-uses =
+  case get var-uses (hash name) of λ where
+    (Some count) -> count
+    None         -> 0
+
+-- Creates a duplicate pattern for variables used multiple times.
+-- The pattern is a Fan of Dup kind with variables named name_1, name_2, etc.
+-- - name: The original variable name.
+-- - uses: The number of times the variable is used.
+-- = A Fan pattern with duplicated variables.
+duplicate-pat : String -> Nat -> Pattern
+duplicate-pat name uses =
+  Fan FanKind.Dup (map (λ i -> Var (Some (dup-name name i))) (range 1 (Succ uses)))
+
+-- Main function to linearize variables in a term.
+-- It transforms the term to ensure each variable is used at most once.
+-- - term: The term to linearize.
+-- - var-uses: A BitMap tracking variable use counts.
+-- = The linearized term.
+linearize-vars-term : BitMap Nat -> Term -> (Pair (BitMap Nat) Term)
+
+-- Let terms with just a variable get inlined
+linearize-vars-term var-uses (Let (Var (Some nam)) val nxt) = do
+  let var-uses , nxt = linearize-vars-term var-uses nxt
+  let uses           = get-var-uses (Some nam) var-uses
+  let var-uses , val = linearize-vars-term var-uses val
+  let term           = case uses of λ where
+    0 -> Let (Var None) val nxt
+    1 -> subst nam val nxt
+    _ -> Let (duplicate-pat nam uses) val nxt
+  (var-uses , term)
+
+-- Count var uses and update the name to the duplication
+linearize-vars-term var-uses (Var nam) = do
+  let count     = get-var-uses (Some nam) var-uses
+  let new-count = Succ count
+  let var-uses  = set var-uses (hash nam) new-count
+  let term      = Var (dup-name nam new-count)
+  (var-uses , term)
+
+linearize-vars-term var-uses term = do
+  -- linearize the children
+  let var-uses , term = map-children-with-state linearize-vars-term var-uses term
+  -- erase unused bindings
+  let term = map-child-binds (λ bind _ -> erase-unused-bind bind var-uses) term
+  -- add duplications of bindings
+  let term = duplicate-term term var-uses
+  var-uses , term
+
+  where
+
+  -- Erases bindings that are not used (count is 0)
+  -- - bind: The binding to check.
+  -- - var-uses: The BitMap containing variable use counts.
+  -- = The binding if used, None otherwise.
+  erase-unused-bind : Maybe String -> BitMap Nat -> Maybe String
+  erase-unused-bind bind var-uses = if (get-var-uses bind var-uses) == 0 then None else bind
+
+  -- Adds duplication bindings for variables used multiple times
+  -- - bnd: List of bindings to check for duplication.
+  -- - nxt: The term to wrap with Let expressions for duplicated variables.
+  -- - var-uses: The BitMap containing variable use counts.
+  -- = The term with added duplications for multiply-used variables.
+  duplicate-binds : List' String -> Term -> BitMap Nat -> Term
+  duplicate-binds bnd nxt var-uses =
+    foldr (λ bnd nxt -> do
+            let uses = get-var-uses (Some bnd) var-uses
+            if uses > 1
+              then Let (duplicate-pat bnd uses) (Var bnd) nxt
+              else nxt)
+          nxt bnd
+
+  -- Applies duplication to specific term types (Lam and Let)
+  -- - term: The term to potentially duplicate.
+  -- - var-uses: The BitMap containing variable use counts.
+  -- = The term with duplications applied if necessary.
+  duplicate-term : Term -> BitMap Nat -> Term
+  duplicate-term (Lam pat bod) var-uses = do
+    let bod = duplicate-binds (Pat.binds pat) bod var-uses
+    Lam pat bod
+  duplicate-term (Let pat val nxt) var-uses = do
+    let nxt = duplicate-binds (Pat.binds pat) nxt var-uses
+    Let pat val nxt
+  duplicate-term term var-uses = do
+    term
+
+-- Applies linearize-vars-term to all functions in the book
+-- - book: The Book to linearize.
+-- = A new Book with linearized variables in all functions.
+linearize-vars : Book -> Book
+linearize-vars book = do
+  let map-body body = snd (linearize-vars-term empty body)
+  let map-rule rule = record rule { body = map-body (Rule.body rule) }
+  let map-def def   = record def { rules = map map-rule (FnDef.rules def) }
+  let defs          = (BitMap.to-list (Book.defs book))
+  let defs          = map (λ (key , def) -> (key , map-def def)) defs
+  record { defs = BitMap.from-list defs }

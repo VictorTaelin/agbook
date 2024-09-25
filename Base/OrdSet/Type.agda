@@ -9,4 +9,4 @@ open import Base.Unit.Type
 -- The underlying implementation uses an AVL tree for efficient
 -- insertion, deletion, and lookup operations.
 OrdSet : (V : Set) -> Set
-OrdSet V = AVL V Unit
+OrdSet V = AVLTree V Unit

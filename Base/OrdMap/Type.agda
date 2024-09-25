@@ -10,4 +10,4 @@ open import Base.AVLTree.Type
 -- The underlying implementation uses an AVL tree for efficient
 -- insertion, deletion, and lookup operations.
 OrdMap : (K V : Set) -> Set
-OrdMap K V = AVL K V
+OrdMap K V = AVLTree K V

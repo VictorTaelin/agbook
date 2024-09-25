@@ -10,7 +10,7 @@ open import Base.AVLTree.Type
 -- - key: The key to search for.
 -- - tree: The AVL tree to search in.
 -- = Some key-value pair if the key is found, None otherwise.
-get-pair : ∀ {K V : Set} -> {{_ : Ord K}} -> K -> AVL K V -> Maybe (Pair K V)
+get-pair : ∀ {K V : Set} -> {{_ : Ord K}} -> K -> AVLTree K V -> Maybe (Pair K V)
 get-pair _   Leaf = None
 get-pair key (Node (curr-key , curr-val) _ left right) with compare key curr-key
 ... | LT = get-pair key left

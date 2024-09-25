@@ -35,7 +35,7 @@ net-to-hvm net = do
   -- Helper function to process the list of redexes.
   -- - redexes: List of redex pairs to process.
   -- - state: Current compilation state.
-  -- = The list of HVM Redexes or an error message. 
+  -- = The list of HVM Redexes or an error message.
   go : List (Pair Nat Nat) -> State -> Result (List Redex) String
   go [] state = Done []
   go ((a , b) :: redexes) state = do
