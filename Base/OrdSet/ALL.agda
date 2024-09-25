@@ -8,6 +8,8 @@ open import Base.OrdSet.fold public
 open import Base.OrdSet.from-list public
 open import Base.OrdSet.insert public
 open import Base.OrdSet.intersect public
+open import Base.OrdSet.maximum public
+open import Base.OrdSet.minimum public
 open import Base.OrdSet.singleton public
 open import Base.OrdSet.size public
 open import Base.OrdSet.to-list public

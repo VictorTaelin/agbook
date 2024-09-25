@@ -69,7 +69,6 @@ jobs:
         timeout-minutes: 10
             
       - name: Handle Agda check results
-        if: env.errors_found == 'true'
         uses: actions/github-script@v6
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
