@@ -9,7 +9,7 @@ open import Base.BinTree.Type
 -- This allows BinTree to be used with equality operations.
 instance
   EqTree : ∀ {A : Set} {{EqA : Eq.Eq A}} -> Eq.Eq (BinTree A)
-  EqTree {{EqA}} = record
-    { eq = BinTree.eq
-    ; neq = BinTree.neq
-    }
+  EqTree {{EqA}} = do
+    let eq =  BinTree.eq 
+    let neq = BinTree.neq
+    record { eq = eq ; neq = neq }
