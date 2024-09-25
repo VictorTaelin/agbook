@@ -25,6 +25,8 @@ open import Base.BitMap.set
 open import Base.Nat.to-bits
 open import Base.Nat.sub
 open import Base.Nat.gt
+open import Base.Pair.Type
+open import Base.IO.ALL
 
 -- mach: The state machine
 -- game: The game rules
@@ -32,10 +34,10 @@ open import Base.Nat.gt
 -- current-tick: The current tick
 -- end-tick: The target tick
 -- = The computed state at the end tick
-compute-helper : ∀ {S A : Set} -> Mach S A -> Game S A -> S -> Tick -> Tick -> S
+compute-helper : ∀ {S A : Set} → Mach S A → Game S A → S → Tick → Tick → Pair S (Mach S A)
 compute-helper mach game state current-tick end-tick =
   if current-tick == end-tick
-  then state
+  then (state , mach)
   else 
     let next-tick = Succ current-tick
         actions = get-actions (Mach.action-logs mach) current-tick
@@ -49,12 +51,11 @@ compute-helper mach game state current-tick end-tick =
 -- game: The game rules
 -- time: The target time
 -- = The computed state at the given time
-compute : ∀ {S A : Set} -> Mach S A -> Game S A -> Time -> S
+compute : ∀ {S A : Set} → Mach S A → Game S A → Time → Pair S (Mach S A)
 compute mach game time =
   let ini-t = Mach.cached-tick mach
       end-t = time-to-tick mach time
       initial-state = get-initial-state mach game ini-t
-  in
-  if (end-t - ini-t) > 1000
-  then initial-state
-  else compute-helper mach game initial-state ini-t end-t
+  in if gt (sub end-t ini-t) 1000000
+     then (initial-state , mach)
+     else compute-helper mach game initial-state ini-t end-t

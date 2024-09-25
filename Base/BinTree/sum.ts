@@ -3,7 +3,7 @@ import { Nat, Zero } from '../../Base/Nat/Type';
 import { $add } from '../../Base/Nat/add';
 
 // Calculates the sum of all values in a tree of natural numbers.
-// - t: The tree to sum.
+// 1st: The tree to sum.
 // = The sum of all values in the tree.
 export const $sum = (t: BinTree<Nat>): Nat => {
   switch (t.$) {

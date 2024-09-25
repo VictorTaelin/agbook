@@ -1,13 +1,13 @@
-import { Float } from '../../Base/Float/Type';
+import { F64 } from '../../Base/F64/Type';
 import { Ordering, $EQ, $LT, $GT } from '../../Base/Ordering/Type';
-import { $eq } from '../../Base/Float/eq';
-import { $lt } from '../../Base/Float/lt';
+import { $eq } from '../../Base/F64/eq';
+import { $lt } from '../../Base/F64/lt';
 
-// Compares two Float values and returns their ordering relationship.
-// - x: The first Float value.
-// - y: The second Float value.
+// Compares two F64 values and returns their ordering relationship.
+// - x: The first F64 value.
+// - y: The second F64 value.
 // = An Ordering value representing the relationship between x and y.
-export const $compare = (x: Float, y: Float): Ordering => {
+export const $compare = (x: F64, y: F64): Ordering => {
   if ($eq(x, y)) {
     return $EQ;
   } else if ($lt(x, y)) {
@@ -17,10 +17,10 @@ export const $compare = (x: Float, y: Float): Ordering => {
   }
 };
 
-export const compare = (x: Float) => (y: Float) => $compare(x, y);
+export const compare = (x: F64) => (y: F64) => $compare(x, y);
 
 // NOTE: Using native JavaScript comparison for efficiency.
-export const $$compare = (x: Float, y: Float): Ordering => {
+export const $$compare = (x: F64, y: F64): Ordering => {
   if (x === y) {
     return $EQ;
   } else if (x < y) {

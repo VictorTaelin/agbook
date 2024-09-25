@@ -1,5 +1,5 @@
 import { V2, $MkV2 } from '../../Base/V2/Type';
-import { $sub as float_sub } from '../../Base/Float/sub';
+import { $sub as float_sub } from '../../Base/F64/sub';
 
 // Subtracts one V2 vector from another.
 // - v1: The first V2 vector (minuend).

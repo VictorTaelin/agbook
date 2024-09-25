@@ -1,6 +1,6 @@
-import { Float } from '../../Base/Float/Type';
+import { F64 } from '../../Base/F64/Type';
 import { V2, $MkV2 } from '../../Base/V2/Type';
-import { $negate as float_negate } from '../../Base/Float/negate';
+import { $negate as float_negate } from '../../Base/F64/negate';
 
 // Negates a V2 vector.
 // - v: The V2 vector to negate.

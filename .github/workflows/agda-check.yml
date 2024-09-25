@@ -1,6 +1,7 @@
 name: Check Agda Files
 
 on:
+
   schedule:
     # Runs twice a day at 08:00 and 18:00 BRT
     - cron: '0 11,21 * * *'
@@ -8,6 +9,10 @@ on:
 
 jobs:
   check-all-agda: 
+    permissions:
+      issues: write
+      contents: read
+
     runs-on: self-hosted
     steps:
       - name: Checkout repository
@@ -27,13 +32,17 @@ jobs:
         run: | 
           OK_OUTPUT=$'Checked.\nNo output'
 
+          strip_ansi() {
+            sed 's/\x1b\[[0-9;]*m//g'
+          }
+
           check_file() {
             file="$1"	
-            output=$(agda-cli check "$file" 2>&1)
+            output=$(agda-cli check "$file" 2>&1 | strip_ansi)
             if [ "$output" = "$OK_OUTPUT" ]; then
               echo "Checked $file: OK"
             else
-              echo -e "\033[31mChecking: $file ERR\033[0m"
+              echo -e "Checking: $file ERR"
               echo "$output"
               {
                 echo "Checking: $file ERR"
@@ -44,12 +53,13 @@ jobs:
             fi 
           }
           export -f check_file
+          export -f strip_ansi
           export OK_OUTPUT
 
           > error_output.log
 
           find "./Base" -name "*.agda" -not -path "*.tmp*" -not -path "*/Test/*" -print0 | \
-            parallel -0 -j 96 check_file
+            parallel -0 -j 12 check_file
 
           if [ -s error_output.log ]; then
             echo "error_output<<EOF" >> $GITHUB_OUTPUT
@@ -57,47 +67,71 @@ jobs:
             echo "EOF" >> $GITHUB_OUTPUT
           fi
         timeout-minutes: 10
-
-
-      - name: Find existing issue
-        id: find_existing_issue
+            
+      - name: Handle Agda check results
+        if: env.errors_found == 'true'
         uses: actions/github-script@v6
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
+            const fs = require('fs');
+            const errorsFound = process.env.errors_found === 'true';
+
             const { data: issues } = await github.rest.issues.listForRepo({
               owner: context.repo.owner,
               repo: context.repo.repo,
               state: 'open',
-              });
+              labels: 'errors,automated'
+            });
             const existingIssue = issues.find(issue => 
-              issue.title === "Agda Check Errors (Auto-generated)" && issue.user.login === 'github-actions[bot]' && issue.labels.some(label => label.name === 'errors')
+              issue.title === "Agda Check Errors (Auto-generated)" && 
+              issue.user.login === 'github-actions[bot]'
             );
-            return existingIssue ? existingIssue.number : null;
-          result-encoding: string
-            
-      - name: Create or update issue
-        if: env.errors_found == 'true'
-        uses: peter-evans/create-issue-from-file@v4
-        with: 
-          token: ${{ secrets.GITHUB_TOKEN }}
-          title: "Agda Check Errors (Auto-generated)"
-          content-filepath: ./error_output.log
-          labels: |
-            errors
-            automated
-          issue-number: ${{ steps.find_existing_issue.outputs.result }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Save Issue Number
-        if: ${{ steps.find_existing_issue.outputs.result == '' && env.errors_found == 'true' }}
-        uses: actions/github-script@v6
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const issue_number = {{ steps.create_or_update_comment.outputs.issue_number }};
-            fs.writeFileSync('.issue_number', issue_number);
+            if (errorsFound) {
+              let issueContent = fs.readFileSync('error_output.log', 'utf8');
+
+              // Format content for better readability
+              issueContent = "# Agda Check Errors\n\n" + issueContent.split('\n').map(line => {
+                if (line.startsWith('Checking:')) {
+                  return `## ${line}`;
+                } else if (line.startsWith('Error:')) {
+                  return `**${line}**\n\`\`\`hs`;
+                } else if (line.trim() === 'No output') {
+                  return `${line}\n\`\`\``;
+                } else {
+                  return line;
+                }
+              }).join('\n');
+
+              if (existingIssue) {
+                await github.rest.issues.update({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: existingIssue.number,
+                  title: "Agda Check Errors (Auto-generated)",
+                  body: issueContent,
+                  labels: ['errors', 'automated']
+                });
+              } else {
+                await github.rest.issues.create({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  title: "Agda Check Errors (Auto-generated)",
+                  body: issueContent,
+                  labels: ['errors', 'automated']
+                });
+              }
+            } else if (existingIssue) {
+              // Close issue if it exists and no errors were found
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existingIssue.number,
+                state: 'closed',
+                state_reason: 'completed'
+              });
+            }
 
       - name: Upload output as an artifact
         if: env.errors_found == 'true'

@@ -36,6 +36,7 @@ open import Base.List.take
 open import Base.Maybe.Type
 open import Base.Nat.Type
 open import Base.Nat.add
+open import Base.Nat.sub
 open import Base.Nat.div
 open import Base.Nat.mul
 open import Base.Nat.show
@@ -143,9 +144,10 @@ time-action time event = record { action = event ; time = time }
 
 register-events : Mach State Event -> List Event -> IO (Mach State Event)
 register-events mach events = do
-  time <- now
-  let timed-actions = map (time-action time) events
-  let final-mach = foldl (λ acc-mach action → register-action acc-mach action) mach timed-actions
+  time <- now 
+  let t = time - 1727220902
+  let timed-actions = map (time-action t) events
+  let final-mach = foldl (λ acc-mach action -> register-action acc-mach action) mach timed-actions
   pure final-mach
 
 loop : (Mach State Event) -> Window -> Renderer -> State -> (Channel ByteString -> IO (Mach State Event)) -> Channel ByteString -> IO State
@@ -155,14 +157,18 @@ loop mach window renderer state process-message channel = do
   registered-mach <- register-events mach events
 
   time-now <- now
+  let time = time-now - 1727220902
+  print ( show time )
 
+  print ( show (Mach.cached-tick mach))
   -- new-mach <- process-message channel
 
-  let newState = compute registered-mach game (time-to-tick registered-mach time-now)
+  let (newState , computed-mach) = compute registered-mach game (time-to-tick registered-mach time)
+  print ( show (Mach.cached-tick computed-mach))
   --let newState = compute registered-mach game 100
 
   draw window renderer state
-  loop registered-mach window renderer newState (λ chan -> process-message chan) channel
+  loop computed-mach window renderer newState (λ chan -> process-message chan) channel
 
   
 main : IO Unit

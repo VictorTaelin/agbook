@@ -8,5 +8,5 @@ open import Base.Equal.Type
 -- - y: The 2nd value.
 -- - p: Proof that x is equal to y.
 -- = Proof that y is equal to x.
-sym : ∀ {a} {A : Set a} {x y : A} -> x === y -> y === x
+sym : ∀ {a} {A : Set a} {x y : A} -> x ≡ y -> y ≡ x
 sym refl = refl

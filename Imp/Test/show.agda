@@ -65,5 +65,5 @@ fib2 = ({
   return a
 })"
 
-test-example : (Stmt.show example) === expected-string
+test-example : (Stmt.show example) ≡ expected-string
 test-example = refl

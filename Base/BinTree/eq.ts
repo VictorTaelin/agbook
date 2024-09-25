@@ -3,6 +3,11 @@ import { Bool, $True, $False } from '../../Base/Bool/Type';
 import { $and } from '../../Base/Bool/and';
 import { Eq } from '../../Base/Trait/Eq';
 
+// Checks if two binary trees are equal.
+// 1st: The equality function for type A.
+// 2nd: The first tree to compare.
+// 3rd: The second tree to compare.
+// = True if the trees are equal, False otherwise.
 export const $eq = <A>(eq_a: Eq<A>, a: BinTree<A>, b: BinTree<A>): Bool => {
   switch (a.$) {
     case 'Leaf':
@@ -25,5 +30,3 @@ export const $eq = <A>(eq_a: Eq<A>, a: BinTree<A>, b: BinTree<A>): Bool => {
 };
 
 export const eq = <A>(eq_a: Eq<A>) => (a: BinTree<A>) => (b: BinTree<A>): Bool => $eq(eq_a, a, b);
-
-// NOTE: Operator omitted: '_==_'.

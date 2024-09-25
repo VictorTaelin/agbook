@@ -1,7 +1,7 @@
-import { $eq as float_eq } from '../../Base/Float/eq';
+import { $eq as float_eq } from '../../Base/F64/eq';
 import { Bool } from '../../Base/Bool/Type';
 import { $and } from '../../Base/Bool/and';
-import { Float } from '../../Base/Float/Type';
+import { F64 } from '../../Base/F64/Type';
 import { V2 } from '../../Base/V2/Type';
 
 // Checks if two V2 vectors are equal.

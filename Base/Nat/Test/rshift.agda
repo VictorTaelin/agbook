@@ -38,5 +38,5 @@ run-tests = map test-rshift test-cases
 all-tests-pass : Bool
 all-tests-pass = and run-tests
 
-_ : all-tests-pass  ===  True
+_ : all-tests-pass  ≡  True
 _ = refl

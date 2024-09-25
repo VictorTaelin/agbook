@@ -1,5 +1,5 @@
 import { Bool } from '../../Base/Bool/Type';
-import { Float } from '../../Base/Float/Type';
+import { F64 } from '../../Base/F64/Type';
 import { String } from '../../Base/String/Type';
 import { List } from '../../Base/List/Type';
 import { Pair } from '../../Base/Pair/Type';
@@ -8,7 +8,7 @@ import { Pair } from '../../Base/Pair/Type';
 export type JSON
   = { $: 'JNull' }
   | { $: 'JBool', value: Bool }
-  | { $: 'JNumber', value: Float }
+  | { $: 'JNumber', value: F64 }
   | { $: 'JString', value: String }
   | { $: 'JArray', value: List<JSON> }
   | { $: 'JObject', value: List<Pair<String, JSON>> };
@@ -19,8 +19,8 @@ export const  JNull: JSON = $JNull;
 export const $JBool = (value: Bool): JSON => ({ $: 'JBool', value });
 export const  JBool = (value: Bool) => $JBool(value);
 
-export const $JNumber = (value: Float): JSON => ({ $: 'JNumber', value });
-export const  JNumber = (value: Float) => $JNumber(value);
+export const $JNumber = (value: F64): JSON => ({ $: 'JNumber', value });
+export const  JNumber = (value: F64) => $JNumber(value);
 
 export const $JString = (value: String): JSON => ({ $: 'JString', value });
 export const  JString = (value: String) => $JString(value);

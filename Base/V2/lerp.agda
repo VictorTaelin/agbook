@@ -1,6 +1,7 @@
 module Base.V2.lerp where
 
 open import Base.F64.Type
+
 open import Base.V2.Type
 open import Base.V2.add
 open import Base.V2.mul-scalar

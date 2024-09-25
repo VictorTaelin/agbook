@@ -6,5 +6,5 @@ open import Base.String.Type
 open import Base.Nat.Type
 open import Base.Equal.Type
 
-test-error-fields : let e = MkError 5 "Test error" in (Error.index e , Error.error e) === (5 , "Test error")
+test-error-fields : let e = MkError 5 "Test error" in (Error.index e , Error.error e) ≡ (5 , "Test error")
 test-error-fields = refl

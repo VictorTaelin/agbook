@@ -10,6 +10,8 @@ open import Base.V2.Type
 div : V2 -> V2 -> V2
 div (MkV2 x1 y1) (MkV2 x2 y2) = MkV2 (x1 F64./ x2) (y1 F64./ y2)
 
-infixl 7 _/_
 _/_ : V2 -> V2 -> V2
 _/_ = div
+
+infixl 7 _/_
+

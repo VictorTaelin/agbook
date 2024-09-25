@@ -32,9 +32,10 @@ open import Base.Bool.or
 -- timedAction: The action to be registered, containing the action and its associated time
 -- = Returns an updated state machine with the new action registered
 register-action : ∀ {S A : Set} -> Mach S A -> TimedAction A -> Mach S A
-register-action mach (record { action = action ; time = time }) =
+register-action mach (record { action = action ; time = time }) = do
   let tick = time-to-tick mach time
-      mach1 = update-genesis-tick mach tick
-      mach2 = update-cached-tick mach1 tick
-      mach3 = remove-future-states mach2 tick
-  in add-action-to-logs mach3 tick action
+  let mach1 = update-genesis-tick mach tick
+  let mach2 = update-cached-tick mach1 tick
+  let mach3 = remove-future-states mach2 tick
+  add-action-to-logs mach3 tick action
+

@@ -1,6 +1,6 @@
-import { Float } from '../../Base/Float/Type';
+import { F64 } from '../../Base/F64/Type';
 import { Bool } from '../../Base/Bool/Type';
-import { $eq as float_eq } from '../../Base/Float/eq';
+import { $eq as float_eq } from '../../Base/F64/eq';
 import { $and } from '../../Base/Bool/and';
 import { $not } from '../../Base/Bool/not';
 import { V2 } from '../../Base/V2/Type';

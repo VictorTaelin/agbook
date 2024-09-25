@@ -209,10 +209,10 @@ E = Bits.E
 Empty : Set
 Empty = Empty.Empty
 
-_===_ : ∀ {a} {A : Set a} -> A -> A -> Set a
-_===_ = Equal._===_
+_≡_ : ∀ {a} {A : Set a} -> A -> A -> Set a
+_≡_ = Equal._≡_
 
-refl : ∀ {a} {A : Set a} {x : A} -> x === x
+refl : ∀ {a} {A : Set a} {x : A} -> x ≡ x
 refl = Equal.refl
 
 IO : Set -> Set

@@ -1,12 +1,12 @@
-import { Float } from '../../Base/Float/Type';
+import { F64 } from '../../Base/F64/Type';
 import { U64 } from '../../Base/U64/Type';
 import { Nat } from '../../Base/Nat/Type';
 import { $to_nat } from '../../Base/U64/to-nat';
 
-// Converts a U64 to a Float
+// Converts a U64 to a F64
 // - x: The U64 to convert.
-// = The Float representation of x.
-export const $from_u64 = (x: U64): Float => {
+// = The F64 representation of x.
+export const $from_u64 = (x: U64): F64 => {
   return Number($to_nat(x));
 };
 

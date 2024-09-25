@@ -1,12 +1,12 @@
-import { Float } from '../../Base/Float/Type';
+import { F64 } from '../../Base/F64/Type';
 
 // Represents a 2D vector with float coordinates.
 export type V2 = {
   // - x: The x-coordinate.
-  x: Float;
+  x: F64;
   // - y: The y-coordinate.
-  y: Float;
+  y: F64;
 };
 
-export const $MkV2 = (x: Float, y: Float): V2 => ({ x, y });
-export const  MkV2 = (x: Float) => (y: Float) => $MkV2(x, y);
+export const $MkV2 = (x: F64, y: F64): V2 => ({ x, y });
+export const  MkV2 = (x: F64) => (y: F64) => $MkV2(x, y);
