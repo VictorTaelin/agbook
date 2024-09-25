@@ -18,6 +18,7 @@ open import Base.AVLTree.insert public
 open import Base.AVLTree.intersect public
 open import Base.AVLTree.keys public
 open import Base.AVLTree.singleton public
+open import Base.AVLTree.size public
 open import Base.AVLTree.to-list public
 open import Base.AVLTree.Type public
 open import Base.AVLTree.union public
