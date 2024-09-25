@@ -2,10 +2,10 @@ module Base.BinTree.fold where
 
 open import Base.BinTree.Type
 
--- Fold operation for BinTree.
--- - f: Function to apply to each node.
--- - z: Value to use for leaf nodes.
--- - t: The tree to fold over.
+-- Performs a fold operation on a binary tree.
+-- 1st: Function to apply to each node.
+-- 2nd: Value to use for leaf nodes.
+-- 3rd: The tree to fold over.
 -- = The result of folding the tree.
 fold : ∀ {A B : Set} -> (A -> B -> B -> B) -> B -> BinTree A -> B
 fold f z Leaf                = z

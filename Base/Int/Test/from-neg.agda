@@ -5,14 +5,14 @@ open import Base.Int.from-neg
 open import Base.Nat.Type
 open import Base.Equal.Type
 
-_ : from-neg Zero === Pos Zero
+_ : from-neg Zero ≡ Pos Zero
 _ = refl
 
-_ : -2 === NegSuc (Succ Zero)
+_ : -2 ≡ NegSuc (Succ Zero)
 _ = refl
 
-_ : -2 === from-neg 2
+_ : -2 ≡ from-neg 2
 _ = refl
 
-test : (n : Nat) -> (from-neg (Succ n) === NegSuc n)
+test : (n : Nat) -> (from-neg (Succ n) ≡ NegSuc n)
 test p = refl

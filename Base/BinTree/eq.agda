@@ -5,11 +5,17 @@ open import Base.BinTree.Type
 open import Base.Bool.Type
 open import Base.Bool.and
 
+-- Checks if two binary trees are equal.
+-- 1st: The first tree to compare.
+-- 2nd: The second tree to compare.
+-- = True if the trees are equal, False otherwise.
 eq : ∀ {A : Set} -> {{EqA : Eq.Eq A}} -> BinTree A -> BinTree A -> Bool
 eq {{EqA}} Leaf            Leaf            = True
 eq {{EqA}} (Node ax al ar) (Node bx bl br) = Eq.eq {{EqA}} ax bx && (eq {{EqA}} al bl && eq {{EqA}} ar br)
 eq {{EqA}} _               _               = False
 
-infix 4 _==_
+-- Infix operator for tree equality.
 _==_ : ∀ {A : Set} -> {{EqA : Eq.Eq A}} -> BinTree A -> BinTree A -> Bool
 _==_ = eq
+
+infix 4 _==_

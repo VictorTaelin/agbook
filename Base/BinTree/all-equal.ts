@@ -5,7 +5,8 @@ import { Eq, $eq } from '../../Base/Trait/Eq';
 import { $fold } from '../../Base/BinTree/fold';
 
 // Checks if all values in a tree are equal.
-// - t: The tree to check.
+// 1st: The equality function for type A.
+// 2nd: The tree to check.
 // = True if all values in the tree are equal, False otherwise.
 export const $all_equal = <A>(eq_a: Eq<A>, t: BinTree<A>): Bool => {
   switch (t.$) {

@@ -1,12 +1,9 @@
 module Imp.Notation where
 
-import Imp.Expr.Type as Expr'
+open import Imp.Expr.Type
 open import Imp.Stmt.Type
 open import Base.Nat.Type
 open import Base.String.Type
-
-private
-  open module Expr = Expr' Stmt
 
 --------------------------------------------------
 -- Expressions
@@ -67,12 +64,10 @@ _-=_ : String -> Expr -> Stmt
 _-=_ v e = LSet v (Sub (Var v) e)
 
 -- Control flow
-infix 5 if_then_ elif_then_ else_ while_go_
+infix 5 if_then_else_ while_go_
 
-if_then_   = If
-elif_then_ = ElseIf
-else_      = Else
-while_go_  = While
+if_then_else_ = If
+while_go_     = While
 
 -- Monadic then notation for `do` blocks.
 _>>_ = Then

@@ -8,5 +8,5 @@ open import Base.Result.Type
 open import Base.String.Type
 open import Base.Equal.Type
 
-test-fail : (fail "Test error") (MkState "abcdef" 0) === Fail (MkError 0 "Test error")
+test-fail : (fail "Test error") (MkState "abcdef" 0) ≡ Fail (MkError 0 "Test error")
 test-fail = refl

@@ -9,8 +9,8 @@ open import Base.String.Type
 open import Base.Nat.Type
 open import Base.Equal.Type
 
-test-pure-nat : (pure 42) (MkState "abc" 0) === Done (MkReply (MkState "abc" 0) 42)
+test-pure-nat : (pure 42) (MkState "abc" 0) ≡ Done (MkReply (MkState "abc" 0) 42)
 test-pure-nat = refl
 
-test-pure-string : (pure "hello") (MkState "abc" 0) === Done (MkReply (MkState "abc" 0) "hello")
+test-pure-string : (pure "hello") (MkState "abc" 0) ≡ Done (MkReply (MkState "abc" 0) "hello")
 test-pure-string = refl

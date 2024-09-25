@@ -1,7 +1,8 @@
 module Base.Buffer.Type where
 
-open import Base.U64.Type
+open import Base.Nat.Type
 open import Base.OrdMap.Type
+open import Base.U64.Type
 
 -- A buffer of data of a fixed length.
 -- If this is constructed manually, then (of course) you cannot
@@ -9,5 +10,5 @@ open import Base.OrdMap.Type
 record Buffer : Set where
   constructor MkBuffer
   field
-    length : U64
+    length : Nat
     buffer : OrdMap U64 U64

@@ -3,6 +3,10 @@ import { String } from '../../Base/String/Type';
 import { $append } from '../../Base/String/append';
 import { Show } from '../../Base/Trait/Show';
 
+// Converts a binary tree to a string representation.
+// 1st: The show function for type A.
+// 2nd: The tree to convert to a string.
+// = A string representation of the tree.
 export const $show = <A>(show_a: Show<A>, tree: BinTree<A>): String => {
   switch (tree.$) {
     case 'Leaf':

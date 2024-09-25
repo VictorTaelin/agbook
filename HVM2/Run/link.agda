@@ -2,11 +2,10 @@ module HVM2.Run.link where
 
 open import Debug.Trace
 open import Base.String.append
-import Base.Bits.show as Bits
 import HVM2.Term.show as Term
 
-open import Base.Bits.Type
 open import Base.Function.case
+open import Base.String.Type
 open import Base.Maybe.Type
 open import Base.Unit.Type
 open import HVM2.Run.Type
@@ -27,7 +26,7 @@ mutual
     link' a       b       = redex-push a b
 
   -- Substitutes a variable with a term
-  subst : Bits -> Term -> Run Unit
+  subst : String -> Term -> Run Unit
   subst x b = do
     old-val <- subst-swap x b
     case old-val of λ where

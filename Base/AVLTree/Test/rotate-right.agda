@@ -18,7 +18,7 @@ test-rotate-right-1 :
                     empty 
                     empty)
                   empty) 
-  ===
+  ≡
   (Node (1 , unit) zero 
     empty
     (Node (2 , unit) zero 
@@ -33,7 +33,7 @@ test-rotate-right-2 :
                     empty 
                     empty)
                   empty) 
-  ===
+  ≡
   (Node (1 , unit) +one 
     empty
     (Node (2 , unit) -one 
@@ -50,7 +50,7 @@ test-rotate-right-3 :
                       empty 
                       empty))
                   empty) 
-  ===
+  ≡
   (Node (2 , unit) zero 
     (Node (1 , unit) zero 
       empty 
@@ -65,7 +65,7 @@ test-rotate-right-4 :
   rotate-right (Node (1 , unit) zero 
                   empty 
                   empty) 
-  ===
+  ≡
   (Node (1 , unit) zero 
     empty 
     empty , False)

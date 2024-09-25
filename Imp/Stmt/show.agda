@@ -1,7 +1,6 @@
 module Imp.Stmt.show where
 
 open import Base.Nat.add
-open import Base.Nat.show renaming (show to show-nat)
 open import Base.Nat.Type
 open import Base.String.append
 open import Base.String.join
@@ -23,8 +22,8 @@ show = show-indent 0 where
   show-indent : Nat -> Stmt -> String
   show-indent i (Locals vs) = (indent i) ++ "local " ++ (join ", " vs)
   show-indent i (LSet v e) = (indent i) ++ v ++ " = " ++ (show-expr e)
-  show-indent i (SSet n e) = (indent i) ++ "atomic_set(shared[" ++ (show-nat n) ++ "], " ++ (show-expr e) ++ ")"
-  show-indent i (GSet n e) = (indent i) ++ "atomic_set(global[" ++ (show-nat n) ++ "], " ++ (show-expr e) ++ ")"
+  show-indent i (SSet n e) = (indent i) ++ "atomic_set(shared[" ++ (show-expr n) ++ "], " ++ (show-expr e) ++ ")"
+  show-indent i (GSet n e) = (indent i) ++ "atomic_set(global[" ++ (show-expr n) ++ "], " ++ (show-expr e) ++ ")"
   show-indent i (If e a b) =
     (indent i) ++ "if (" ++ (show-expr e) ++ ") {\n" ++
       (show-indent (i + 1) a) ++ "\n" ++

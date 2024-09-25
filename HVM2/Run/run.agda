@@ -1,9 +1,7 @@
 module HVM2.Run.run where
 
-open import Base.Bits.Type
 open import Base.List.Type
-open import Base.BitMap.Type
-open import Base.BitMap.empty
+open import Base.OrdMap.empty
 open import Base.Pair.Type
 open import HVM2.Net.Type
 open import HVM2.Run.Type
@@ -14,5 +12,5 @@ open import HVM2.Term.Type
 run : ∀ {A : Set} -> Run A -> A
 run fun = do
   let initial-net = MkNet [] Era
-  let (_ , res) = fun (MkState initial-net empty E)
+  let (_ , res) = fun (MkState initial-net empty 0)
   res

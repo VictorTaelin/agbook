@@ -9,11 +9,10 @@ open import Base.Nat.Type
 open import Base.Nat.to-u64
 open import Base.U64.Type
 open import Base.U64.Trait.Ord
-open import Base.U64.to-nat
 
 -- Creates a new Buffer with size `length` filled with zeros.
-new : U64 -> Buffer
-new length = MkBuffer length (fill (to-u64 0) (to-nat length) empty)
+new : Nat -> Buffer
+new length = MkBuffer length (fill (to-u64 0) length empty)
   where
   fill : U64 -> Nat -> (OrdMap U64 U64) -> (OrdMap U64 U64)
   fill _     Zero map = map

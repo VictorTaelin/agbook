@@ -17,7 +17,7 @@ postulate
 -- declaring it as a rewrite rule we internalise that evaluation rule.
 
 postulate
-  trace-eq : ∀ {a} {A : Set a} (a : A) str -> trace str a === a
+  trace-eq : ∀ {a} {A : Set a} (a : A) str -> trace str a ≡ a
 
 -- FIXME: lines below cause error
 -- {-# BUILTIN REWRITE _==_ #-}
