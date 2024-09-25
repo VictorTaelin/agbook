@@ -1,10 +1,10 @@
-module Base.AVLTree.delete-go where
+module Base.AVLTree.Delete.delete-go where
 
 open import Base.AVLTree.Balance.Type
 open import Base.AVLTree.Balance.rotate-left
 open import Base.AVLTree.Balance.rotate-right
 open import Base.AVLTree.Type
-open import Base.AVLTree.delete-maximum
+open import Base.AVLTree.Delete.delete-maximum
 open import Base.AVLTree.empty
 open import Base.Bool.Type
 open import Base.Bool.not

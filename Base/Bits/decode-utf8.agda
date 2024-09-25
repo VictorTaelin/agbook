@@ -1,7 +1,7 @@
 module Base.Bits.decode-utf8 where
 
 open import Base.Bits.Type
-open import Base.Bits.decode-utf8-go
+open import Base.Bits.Decode-utf8.decode-utf8-go
 open import Base.Bits.reverse
 open import Base.Bits.split-chunks
 open import Base.String.Type

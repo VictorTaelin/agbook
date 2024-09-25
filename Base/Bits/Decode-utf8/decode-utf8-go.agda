@@ -1,4 +1,4 @@
-module Base.Bits.decode-utf8-go where
+module Base.Bits.Decode-utf8.decode-utf8-go where
 
 import Base.Char.from-nat as C
 open import Base.Bits.Type

@@ -1,4 +1,4 @@
-module Base.AVLTree.delete-maximum where
+module Base.AVLTree.Delete.delete-maximum where
 
 open import Base.Bool.Type
 open import Base.Function.case

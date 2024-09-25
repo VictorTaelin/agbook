@@ -2,7 +2,7 @@ module Base.AVLTree.delete where
 
 open import Base.AVLTree.Type
 open import Base.AVLTree.Type
-open import Base.AVLTree.delete-go
+open import Base.AVLTree.Delete.delete-go
 open import Base.Pair.get-fst
 open import Base.Trait.Ord
 
