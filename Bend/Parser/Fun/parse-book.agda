@@ -34,7 +34,7 @@ parse-book = go new-book
     -- TODO: Check for repeats
     let defs = ParseBook.fun-defs book
     let defs = map-set defs (hash (FnDef.name def)) def
-    pure book
+    pure record book { fun-defs = defs }
 
   go : ParseBook -> Parser ParseBook
   go book = do
