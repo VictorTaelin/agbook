@@ -1,0 +1,5 @@
+use Base/List/ as L/
+use Base/String/ as S/
+
+// Represents a string of characters
+S/String : * = (L/List U32)

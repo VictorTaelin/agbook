@@ -1,0 +1,20 @@
+use Base/Bool/ as B/
+
+// Performs logical XOR operation on two bools.
+// - a: The 1st bool.
+// - b: The 2nd bool.
+// = True if a and b are different, False otherwise.
+B/xor
+: ∀(a: B/Bool)
+  ∀(b: B/Bool)
+  B/Bool
+= λ{
+  #True: λ{
+    #True: #False{}
+    #False: #True{}
+  }
+  #False: λ{
+    #True: #True{}
+    #False: #False{}
+  }
+}

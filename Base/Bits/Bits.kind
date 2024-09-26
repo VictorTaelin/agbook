@@ -1,11 +1,11 @@
-use Base/Bits/ as B/
+use Base/Bits/ as BS/
 
 // Represents a binary string.
 // - O: Represents a zero bit.
 // - I: Represents a one bit.
 // - E: Represents the end of the binary string.
-Base/Bits/Bits : * = #[]{
-  #o{ tail: B/Bits } : B/Bits
-  #i{ tail: B/Bits } : B/Bits
-  #e{} : B/Bits
+BS/Bits : * = #[]{
+  #O{ tail: BS/Bits } : BS/Bits
+  #I{ tail: BS/Bits } : BS/Bits
+  #E{} : BS/Bits
 }

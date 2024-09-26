@@ -1,0 +1,21 @@
+use Base/Nat/ as N/
+use Base/Bool/ as B/
+
+// Checks if two nats are equal.
+// - m: The 1st nat.
+// - n: The 2nd nat.
+// = True if m and n are equal, False otherwise.
+N/eq
+: ∀(m: N/Nat)
+  ∀(n: N/Nat)
+  B/Bool
+= λ{
+  #Zero: λ{
+    #Zero: #True{}
+    #Succ: λn.pred #False{}
+  }
+  #Succ: λm.pred λ{
+    #Zero: #False{}
+    #Succ: λn.pred (N/eq m.pred n.pred)
+  }
+}

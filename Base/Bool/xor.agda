@@ -1,5 +1,6 @@
 module Base.Bool.xor where
 
+
 open import Base.Bool.Bool
 
 -- Performs logical XOR operation on two bools.

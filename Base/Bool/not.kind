@@ -7,6 +7,6 @@ Base/Bool/not
 : ∀(b: B/Bool)
   B/Bool
 = λ{
-  #t: #f{}
-  #f: #t{}
+  #True: #False{}
+  #False: #True{}
 }

@@ -1,0 +1,14 @@
+use Base/Bits/ as BS/
+use Base/Bool/ as B/
+
+// Checks if a number in bits is zero or empty.
+// - n: The number of bits to use.
+// = True if the number is zero and false otherwise.
+BS/is-zero
+: ∀(bits: BS/Bits)
+  B/Bool
+= λ{
+  #E: #True{}
+  #O: λtail (B/and #True{} (BS/is-zero tail))
+  #I: λtail #False{}
+}

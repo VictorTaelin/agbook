@@ -1,0 +1,18 @@
+use Base/Bool/ as B/
+
+// Conditional expression.
+// - A: The type of the result.
+// - x: The boolean condition to evaluate.
+// - t: The value to return if the condition is true.
+// - f: The value to return if the condition is false.
+// = Either t or f, depending on the condition.
+B/if
+: ∀(A: *)
+  ∀(x: B/Bool)
+  ∀(t: A)
+  ∀(f: A)
+  A
+= λA λ{
+  #True: λt λf t
+  #False: λt λf f
+}

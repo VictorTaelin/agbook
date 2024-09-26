@@ -1,0 +1,15 @@
+use Base/Nat/ as N/
+
+// Calculates half of a nat.
+// - n: The number to halve.
+// = The largest nat not exceeding n/2.
+N/half
+: ∀(n: N/Nat)
+  N/Nat
+= λ{
+  #Zero: #Zero{}
+  #Succ: λ{
+    #Zero: #Zero{}
+    #Succ: λn.pred.pred #Succ{(N/half n.pred.pred)}
+  }
+}

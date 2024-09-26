@@ -1,0 +1,23 @@
+use Base/Bits/ as BS/
+
+// Performs addition of two Bits values.
+// - a: The 1st Bits value.
+// - b: The 2nd Bits value.
+// = A new Bits value representing the sum of a and b.
+BS/add
+: ∀(a: BS/Bits)
+  ∀(b: BS/Bits)
+  BS/Bits
+= λ{
+  #E: λb b
+  #O: λa.tail λ{
+    #E: #O{a.tail}
+    #O: λb.tail #O{(BS/add a.tail b.tail)}
+    #I: λb.tail #I{(BS/add a.tail b.tail)}
+  }
+  #I: λa.tail λ{
+    #E: #I{a.tail}
+    #O: λb.tail #I{(BS/add a.tail b.tail)}
+    #I: λb.tail #O{(BS/inc (BS/add a.tail b.tail))}
+  }
+}

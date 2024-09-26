@@ -2,9 +2,9 @@ module Base.Nat.half where
 
 open import Base.Nat.Nat
 
--- Calculates half of a natural number.
+-- Calculates half of a nat.
 -- - n: The number to halve.
--- = The largest natural number not exceeding n/2.
+-- = The largest nat not exceeding n/2.
 half : Nat -> Nat
 half Zero            = Zero
 half (Succ Zero)     = Zero

@@ -1,0 +1,14 @@
+use Base/Nat/ as N/
+
+// Exponentiation of nats.
+// - m: The base nat.
+// - n: The exponent nat.
+// = m to the power of n.
+N/exp
+: ∀(m: N/Nat)
+  ∀(n: N/Nat)
+  N/Nat
+= λm λ{
+  #Zero: #Succ{#Zero{}}
+  #Succ: λn.pred (N/mul m (N/exp m n.pred))
+}

@@ -1,0 +1,23 @@
+use Base/Bits/ as BS/
+
+// Performs bitwise AND operation on two Bits values.
+// - a: The 1st Bits value.
+// - b: The 2nd Bits value.
+// = A new Bits value representing the bitwise AND of a and b.
+BS/and
+: ∀(a: BS/Bits)
+  ∀(b: BS/Bits)
+  BS/Bits
+= λ{
+  #E: λb #E{}
+  #O: λ{
+    #E: λa.tail #E{}
+    #O: λa.tail λb.tail #O{(BS/and a.tail b.tail)}
+    #I: λa.tail λb.tail #O{(BS/and a.tail b.tail)}
+  }
+  #I: λ{
+    #E: λa.tail #E{}
+    #O: λa.tail λb.tail #O{(BS/and a.tail b.tail)}
+    #I: λa.tail λb.tail #I{(BS/and a.tail b.tail)}
+  }
+}

@@ -1,0 +1,18 @@
+use Base/Bits/ as BS/
+use Base/List/ as L/
+
+// Concatenation of a list of Bits into a single Bits value.
+// - xs: The list of Bits to concatenate.
+// - The least significant bits are positioned to the left of the list.
+// = The result is a single Bits value.
+BS/concat
+: ∀(xs: (L/List BS/Bits))
+  BS/Bits
+= λ{
+  #Nil: #E{}
+  #Cons: λ{
+    #E: λxs.tail (BS/concat xs.tail)
+    #O: λxs.head.tail λxs.tail #O{(BS/concat (#Cons{xs.head.tail xs.tail}))}
+    #I: λxs.head.tail λxs.tail #I{(BS/concat (#Cons{xs.head.tail xs.tail}))}
+  }
+}
