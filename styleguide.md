@@ -85,7 +85,7 @@ pred (I     bs) = O bs
 
 ### Imports
 
-- Use `import qualified` to avoid name clashes.
+- Use qualified import statements to avoid name clashes. **Note** that the `qualified` keyword is not used in Agda.
 
 ```agda
 import Base.Float.div as Float
