@@ -16,6 +16,7 @@ open import Base.AVLTree.has-key public
 open import Base.AVLTree.height public
 open import Base.AVLTree.insert public
 open import Base.AVLTree.intersect public
+open import Base.AVLTree.invert public
 open import Base.AVLTree.keys public
 open import Base.AVLTree.maximum public
 open import Base.AVLTree.minimum public
