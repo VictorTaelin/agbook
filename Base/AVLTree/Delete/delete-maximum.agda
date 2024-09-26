@@ -12,11 +12,10 @@ open import Base.AVLTree.AVLTree
 
 -- Deletes the maximum element from an AVL tree, maintaining balance.
 -- - tree: The AVL tree to delete from.
--- = A pair containing:
---   1. Another pair with:
---      a. The new AVL tree with the maximum element removed.
---      b. The maximum key-value pair that was removed (or None if the tree was empty).
---   2. A boolean indicating whether the height of the tree decreased.
+-- = A triple containing:
+--    1. The removed maximum key-value pair (or None if the tree was empty).
+--    2. The new AVL tree with the maximum element removed.
+--    3. A boolean indicating whether the height of the tree decreased.
 delete-maximum :
   ∀ {K V : Set} ->
   {{_ : Ord K}} ->
@@ -32,4 +31,3 @@ delete-maximum (Node curr balance l r) with delete-maximum r
 ... | (True , -one) = do
   let (node , height) = rotate-right (Node curr -one l other)
   v , node , height
-

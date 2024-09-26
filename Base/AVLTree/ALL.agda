@@ -5,7 +5,7 @@ open import Base.AVLTree.Balance.rotate-left public
 open import Base.AVLTree.Balance.rotate-right public
 open import Base.AVLTree.Balance.Balance public
 open import Base.AVLTree.delete public
-open import Base.AVLTree.delete-maximum public
+open import Base.AVLTree.Delete.delete-maximum public
 open import Base.AVLTree.difference public
 open import Base.AVLTree.empty public
 open import Base.AVLTree.fold public
