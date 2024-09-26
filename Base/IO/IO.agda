@@ -1,6 +1,7 @@
 module Base.IO.IO where
 
 postulate IO : Set -> Set
+
 {-# BUILTIN IO IO #-}
 {-# COMPILE GHC IO = type IO #-}
 

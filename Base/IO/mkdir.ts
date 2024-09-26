@@ -4,7 +4,7 @@ import { String } from '../../Base/String/String';
 import { Unit, $unit } from '../../Base/Unit/Unit';
 
 // Creates a directory with the given name.
-// - path: The path of the directory to create.
+// - 1st: The path of the directory to create.
 // = An IO action that creates the directory and returns Unit.
 export const $mkdir = (path: String): IO<Unit> => async () => {
   await fs.mkdir(path, { recursive: true });

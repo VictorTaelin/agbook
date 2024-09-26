@@ -4,6 +4,10 @@ open import Base.IO.IO
 open import Base.String.String
 open import Base.Unit.Unit
 
+-- Writes content to a file, overwriting any existing content.
+-- 1st: The path of the file to write to.
+-- 2nd: The content to write.
+-- = IO action that writes the content to the file.
 postulate write-file : String -> String -> IO Unit
 
 {-# FOREIGN GHC import qualified Data.Text    as T   #-}
@@ -11,16 +15,3 @@ postulate write-file : String -> String -> IO Unit
 {-# FOREIGN GHC import qualified System.IO              #-}
 
 {-# COMPILE GHC write-file  = TIO.writeFile . T.unpack  #-}
-
-{-# COMPILE JS write-file = function(path) { 
-  return function(content) { 
-    return function() { 
-      return new Promise(function(resolve, reject) { 
-        require('fs').writeFile(path, content, function(err) { 
-          if (err) reject(err); 
-          else resolve({}); 
-        }); 
-      }); 
-    }; 
-  }; 
-} #-}

@@ -3,8 +3,10 @@ module Base.IO.read-file where
 open import Base.String.String
 open import Base.IO.IO
 
-postulate
-  read-file    : String -> IO String
+-- Reads the contents of a file.
+-- 1st: The path of the file to read.
+-- = IO action that returns the contents of the file as a string.
+postulate read-file : String -> IO String
 
 {-# FOREIGN GHC import qualified Data.Text    as T   #-}
 {-# FOREIGN GHC import qualified Data.Text.IO as TIO #-}
@@ -22,14 +24,3 @@ postulate
     TIO.hGetContents h
 #-}
 {-# COMPILE GHC read-file   = readFiniteFile            #-}
-
-{-# COMPILE JS read-file = function(path) { 
-  return function() { 
-    return new Promise(function(resolve, reject) { 
-      require('fs').readFile(path, 'utf8', function(err, data) { 
-        if (err) reject(err); 
-        else resolve(data); 
-      }); 
-    }); 
-  }; 
-} #-}

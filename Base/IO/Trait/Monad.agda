@@ -5,6 +5,7 @@ open import Base.IO.Monad.pure
 open import Base.IO.IO
 open import Base.Trait.Monad
 
+-- Provides an instance of the Monad trait for IO.
 instance
   io-monad : Monad IO
   io-monad = record

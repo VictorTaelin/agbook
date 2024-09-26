@@ -3,7 +3,7 @@ import { Monad } from '../../../Base/Trait/Monad';
 import { $bind } from '../../../Base/IO/Monad/bind';
 import { $pure } from '../../../Base/IO/Monad/pure';
 
-// IO Monad instance
+// Provides an instance of the Monad trait for IO.
 export const io_monad: Monad<IO<any>> = {
   bind: $bind,
   pure: $pure
