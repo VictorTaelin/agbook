@@ -187,7 +187,6 @@ infixl 7 _*_
 - Align `where` clauses with the function definition.
 - Prefer `do` notation with `let` over `let...in` and `where`.
 - Use `with` for pattern matching instead of `case of` or `if`.
-- Use native Agda `if` instead of `case of` and `Bool.if`.
 - If possible, replace a `record` with a sequence of `let` statements.
 
 
@@ -358,54 +357,6 @@ pad-length a b =
   ```
 
 
-
-### Layout of if
-
-
-```hs
-to-digit : Nat -> Char -> Maybe Nat
-to-digit base c =
-  if is-digit c then
-    digit-to-nat c
-  else if (base = 16) && is-hex-digit c then
-    hex-to-nat c
-  else
-    None
-```
-
-Here, native `if` statements are used, and the structure is clear and readable. Pattern matching alternatives such as `case of` are avoided.
-
-```hs
-exists : String -> I Bool
-exists path = do
-  file-exists <- is-file path
-  if file-exists
-    then pure True
-    else is-directory path
-```
-This example shows the use of do notation with an `if` block for clarity and conciseness. The do notation improves readability compared to a more complex construct like `let...in` or `where`.
-
-Another correct form of indentation is:
-
-```hs
-exists : String -> I Bool
-exists path = do
-  file-exists <- is-file path
-  if file-exists
-    then pure True
-    else is-directory path
-```
-
-incorrect:
-
-```agda
-exists : String -> I Bool
-exists path = do
-  file-exists <- is-file path
-  if file-exists
-  then pure True
-  else is-directory path
-```
 ### Layout of Instance
 
 ```
