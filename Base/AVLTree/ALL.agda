@@ -8,6 +8,7 @@ open import Base.AVLTree.delete public
 open import Base.AVLTree.Delete.delete-maximum public
 open import Base.AVLTree.difference public
 open import Base.AVLTree.empty public
+open import Base.AVLTree.filter public
 open import Base.AVLTree.fold public
 open import Base.AVLTree.from-list public
 open import Base.AVLTree.get public
