@@ -1,4 +1,4 @@
-import { BitMap } from './Type';
+import { BitMap } from './BitMap';
 import { Maybe, $None } from '../Maybe/Maybe';
 import { BinTree } from '../BinTree/BinTree';
 import { Bits } from '../Bits/Bits';

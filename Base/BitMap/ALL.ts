@@ -1,4 +1,4 @@
-export * from './Type';
+export * from './BitMap';
 export * from './contains';
 export * from './count';
 export * from './del';

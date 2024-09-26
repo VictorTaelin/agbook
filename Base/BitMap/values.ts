@@ -1,4 +1,4 @@
-import { BitMap, $Node, $Leaf } from './Type';
+import { BitMap, $Node, $Leaf } from './BitMap';
 import { List, $Cons, $Nil } from '../List/List';
 import { $append } from '../List/append';
 import { Maybe } from '../Maybe/Maybe';

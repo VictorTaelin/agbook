@@ -1,4 +1,4 @@
-import { BitMap, $Leaf } from './Type';
+import { BitMap, $Leaf } from './BitMap';
 
 // Creates an empty BitMap.
 // = An empty BitMap.

@@ -6,7 +6,7 @@ import * as CharModule from '../Base/Char/ALL';
 import * as StringModule from '../Base/String/ALL';
 import * as NatModule from '../Base/Nat/ALL';
 import * as IntModule from '../Base/Int/ALL';
-import * as FloatModule from '../Base/Float/ALL';
+import * as FloatModule from '../Base/F64/ALL';
 import * as U64Module from '../Base/U64/ALL';
 import * as ListModule from '../Base/List/ALL';
 import * as PairModule from '../Base/Pair/ALL';
@@ -21,7 +21,7 @@ import * as MapModule from './BitMap/ALL';
 import * as OrderingModule from '../Base/Ordering/ALL';
 import * as ParserModule from '../Base/Parser/ALL';
 import * as QueueModule from '../Base/Queue/ALL';
-import * as TreeModule from '../Base/Tree/ALL';
+import * as TreeModule from '../Base/BinTree/ALL';
 import * as UnitModule from '../Base/Unit/ALL';
 import * as V2Module from '../Base/V2/ALL';
 
@@ -30,7 +30,7 @@ export { CharModule as Char };
 export { StringModule as String };
 export { NatModule as Nat };
 export { IntModule as Int };
-export { FloatModule as Float };
+export { FloatModule as F64 };
 export { U64Module as U64 };
 export { ListModule as List };
 export { PairModule as Pair };
@@ -45,7 +45,7 @@ export { MapModule as BitMap };
 export { OrderingModule as Ordering };
 export { ParserModule as Parser };
 export { QueueModule as Queue };
-export { TreeModule as Tree };
+export { TreeModule as BinTree };
 export { UnitModule as Unit };
 export { V2Module as V2 };
 
@@ -78,7 +78,7 @@ export type Int = IntModule.Int;
 export const Pos = IntModule.Pos;
 export const NegSuc = IntModule.NegSuc;
 
-export type Float = FloatModule.Float;
+export type Float = FloatModule.F64;
 
 export type U64 = U64Module.U64;
 
@@ -123,7 +123,7 @@ export type Parser<A> = ParserModule.Parser<A>;
 export type Queue<A> = QueueModule.Queue<A>;
 export const MkQueue = QueueModule.$MkQueue;
 
-export type Tree<A> = TreeModule.Tree<A>;
+export type Tree<A> = TreeModule.BinTree<A>;
 export const Node = TreeModule.$Node;
 export const Leaf: Tree<never> = TreeModule.$Leaf;
 
