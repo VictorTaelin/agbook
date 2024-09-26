@@ -12,7 +12,7 @@ open import ARC.DSL.Types.IntegerPair.IntegerPair
 -- - b: The second Numerical value
 -- = a - b
 subtract : Numerical -> Numerical -> Numerical
-subtract (lft x)         (lft y)         = lft (I.sub x y)
-subtract (lft x)         (rgt (y0 , y1)) = rgt (I.sub x y0  , I.sub x y1)
-subtract (rgt (x0 , x1)) (lft y)         = rgt (I.sub x0 y  , I.sub x1 y)
-subtract (rgt (x0 , x1)) (rgt (y0 , y1)) = rgt (I.sub x0 y0 , I.sub x1 y1)
+subtract (Lft x)         (Lft y)         = Lft (I.sub x y)
+subtract (Lft x)         (Rgt (y0 , y1)) = Rgt (I.sub x y0  , I.sub x y1)
+subtract (Rgt (x0 , x1)) (Lft y)         = Rgt (I.sub x0 y  , I.sub x1 y)
+subtract (Rgt (x0 , x1)) (Rgt (y0 , y1)) = Rgt (I.sub x0 y0 , I.sub x1 y1)

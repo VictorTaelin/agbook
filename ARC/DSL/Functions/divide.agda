@@ -12,7 +12,7 @@ open import ARC.DSL.Types.IntegerPair.IntegerPair
 -- - b: The second Numerical value
 -- = a / b
 divide : Numerical -> Numerical -> Numerical
-divide (lft x)         (lft y)         = lft (I.div x y)
-divide (lft x)         (rgt (y0 , y1)) = rgt (I.div x y0  , I.div x y1)
-divide (rgt (x0 , x1)) (lft y)         = rgt (I.div x0 y  , I.div x1 y)
-divide (rgt (x0 , x1)) (rgt (y0 , y1)) = rgt (I.div x0 y0 , I.div x1 y1)
+divide (Lft x)         (Lft y)         = Lft (I.div x y)
+divide (Lft x)         (Rgt (y0 , y1)) = Rgt (I.div x y0  , I.div x y1)
+divide (Rgt (x0 , x1)) (Lft y)         = Rgt (I.div x0 y  , I.div x1 y)
+divide (Rgt (x0 , x1)) (Rgt (y0 , y1)) = Rgt (I.div x0 y0 , I.div x1 y1)
