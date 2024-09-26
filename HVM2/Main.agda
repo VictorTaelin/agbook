@@ -19,7 +19,6 @@ open import HVM2.Run.state-get
 open import HVM2.Run.materialize
 open import HVM2.Run.normalize
 open import HVM2.Run.Monad.pure
-open import HVM2.Run.run
 open import HVM2.Run.state-set
 open import HVM2.Run.State.State
 open import HVM2.Term.Term
