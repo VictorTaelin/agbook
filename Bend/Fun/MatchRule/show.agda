@@ -13,7 +13,7 @@ open import Base.String.eq
 open import Base.List.List
 open import Base.List.map
 open import Base.Maybe.Maybe
-open import Base.Maybe.maybe
+open import Base.Maybe.fold
 import Bend.Fun.MatchRule.MatchRule as MatchRule'
 
 private
@@ -26,5 +26,5 @@ instance
       show-match-rule : MatchRule -> String
       show-match-rule (MkMatchRule name binds body) = do
         let binds-str = join " " (map show-bind binds)
-        let name = maybe "*" (λ n -> n) name
+        let name = fold "*" (λ n -> n) name
         name ++ (if binds-str == "" then "" else " " ++ binds-str) ++ ": " ++ show {{TShow}} body

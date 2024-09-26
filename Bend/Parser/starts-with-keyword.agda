@@ -12,7 +12,7 @@ open import Base.String.eq
 open import Base.String.head
 open import Base.Nat.Nat
 open import Base.Maybe.Maybe
-open import Base.Maybe.maybe
+open import Base.Maybe.fold
 open import Base.Pair.Pair
 open import Base.Parser.Parser
 open import Base.Parser.State
@@ -33,7 +33,6 @@ starts-with-keyword keyword = do
     (Some prefix) -> do
       let (keyword' , nxt) = split-at (length keyword) prefix
       let starts-with = keyword' == keyword
-      let nxt-is-name = maybe False is-name-char (head nxt)
-      pure (starts-with && not nxt-is-name) 
+      let nxt-is-name = fold False is-name-char (head nxt)
+      pure (starts-with && not nxt-is-name)
     None -> pure False
- 

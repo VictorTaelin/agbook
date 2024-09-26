@@ -14,4 +14,4 @@ mul = primFloatTimes
 -- infix version of mul
 infixl 7 _*_
 _*_ : F64 -> F64 -> F64
-_*_ = mul 
+_*_ = mul

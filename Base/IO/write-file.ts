@@ -4,8 +4,8 @@ import { Unit, $unit } from '../../Base/Unit/Unit';
 import * as fs from 'fs/promises';
 
 // Writes content to a file at the specified path.
-// - path: The path of the file to write.
-// - content: The content to write to the file.
+// - 1st: The path of the file to write.
+// - 2nd: The content to write to the file.
 // = An IO action that writes the content and returns Unit.
 export const $$write_file = (path: String, content: String): IO<Unit> => {
   return async () => {

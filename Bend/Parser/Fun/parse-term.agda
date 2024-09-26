@@ -12,7 +12,7 @@ open import Base.List.reverse
 open import Base.String.String
 open import Base.String.append
 open import Base.Maybe.Maybe
-open import Base.Maybe.maybe
+open import Base.Maybe.fold
 open import Base.Nat.Nat
 open import Base.Nat.Trait.Show
 open import Base.Pair.Pair
@@ -238,7 +238,7 @@ parse-term = do
     (pred , arms) <- parse-switch-arms 0 []
     consume "}"
     let arms = reverse arms
-    let pred = maybe None (λ bnd -> Some (bnd ++ "-" ++ (show pred))) bnd
+    let pred = fold None (λ bnd -> Some (bnd ++ "-" ++ (show pred))) bnd
     pure (Swt bnd arg with-bnd with-arg pred arms)
 
   parse-fold : Parser Term

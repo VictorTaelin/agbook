@@ -18,5 +18,5 @@ open import Base.Trait.Eq
 -- - c: The Container to search in.
 -- = True if x is in the Container, False otherwise.
 contained : ∀ {A : Set} {{_ : Eq A}} {{_ : Ord A}} → A → Container A → Boolean
-contained x (list l) = L.contains x l
-contained x (set  s) = S.contains x s
+contained x (ListC l) = L.contains x l
+contained x (SetC  s) = S.contains x s

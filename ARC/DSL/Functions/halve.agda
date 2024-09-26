@@ -11,5 +11,5 @@ open import ARC.DSL.Types.IntegerPair.IntegerPair
 -- - n: The Numerical value to be halved
 -- = n / 2
 halve : Numerical -> Numerical
-halve (lft x)       = lft (I.div x 2)
-halve (rgt (x , y)) = rgt (I.div x 2 , I.div y 2)
+halve (Lft x)       = Lft (I.div x 2)
+halve (Rgt (x , y)) = Rgt (I.div x 2 , I.div y 2)

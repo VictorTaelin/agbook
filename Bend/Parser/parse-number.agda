@@ -10,7 +10,7 @@ open import Base.Char.Trait.Eq
 open import Base.List.List
 open import Base.List.filter
 open import Base.Maybe.Maybe
-open import Base.Maybe.maybe
+import Base.Maybe.fold as Maybe
 open import Base.F64.F64
 open import Base.F64.div
 import Base.F64.from-nat as F64
@@ -59,7 +59,7 @@ parse-number = do
   case frac-part , sign of λ where
     -- Fractional part: float
     (Some frac , _) -> do
-      let sign = maybe 1.0 F64.from-int sign
+      let sign = Maybe.fold 1.0 F64.from-int sign
       pure (F24 (sign f* ((F64.from-nat int-part) f+ frac)))
 
     -- Sign but no fractional part: signed integer
@@ -111,7 +111,7 @@ parse-number = do
     if has-frac then (do
         digits <- take-while (is-digit-radix radix)
         let digits = from-list (filter (λ c -> c != '_') (to-list digits))
-        let num = maybe 0 id (to-nat-base radix digits)
+        let num = Maybe.fold 0 id (to-nat-base radix digits)
         let num = (F64.from-nat num) / (F64.from-nat (radix ** (length digits)))
         pure (Some num))
       else

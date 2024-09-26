@@ -10,7 +10,7 @@ open import Base.Bool.Bool
 open import Base.Bool.if
 
 -- Checks if a file or directory exists at the given path.
--- - path: The path to check.
+-- 1st: The path to check.
 -- = True if either a file or directory exists at the given path, False otherwise.
 exists : String -> IO Bool
 exists path = is-file path >>= λ file-exists ->

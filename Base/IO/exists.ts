@@ -5,7 +5,7 @@ import { $is_file } from '../../Base/IO/is-file';
 import { $is_directory } from '../../Base/IO/is-directory';
 
 // Checks if a file or directory exists at the given path.
-// - path: The path to check.
+// - 1st: The path to check.
 // = True if either a file or directory exists at the given path, False otherwise.
 export const $exists = (path: String): IO<Bool> => () => 
   $is_file(path)().then(file_exists => 

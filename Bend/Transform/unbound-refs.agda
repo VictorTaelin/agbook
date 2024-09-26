@@ -30,8 +30,8 @@ unbound-refs-term book term = do
   mfoldl (λ _ child -> unbound-refs-term book child) unit (children term)
 
 -- Main function to check unbound references in a book
-check-unbound-refs : Book → Result Unit String
-check-unbound-refs book = do
+unbound-refs : Book → Result Unit String
+unbound-refs book = do
   let defs = BitMap.values (Book.defs book)
   mfoldl (λ _ def ->
     mfoldl (λ _ rule -> unbound-refs-term book (Rule.body rule)) unit (FnDef.rules def))
