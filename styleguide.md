@@ -22,17 +22,17 @@ module Base.Float.add where
 
 open import Base.Float.Type
 
-primitive primFloatPlus : Float -> Float -> Float
+primitive primFloatPlus : Float → Float → Float
 
 -- Addition of floats.
 -- - x: The 1st float.
 -- - y: The 2nd float.
 -- = The sum of x and y.
-add : Float -> Float -> Float
+add : Float → Float → Float
 add = primFloatPlus
 
 -- The infix version of add.
-_+_ : Float -> Float -> Float
+_+_ : Float → Float → Float
 _+_ = add
 
 infixl 6 _+_
@@ -50,16 +50,16 @@ infixl 6 _+_
 - For a single declaration, it should be written on one line:
 
 ```agda
-postulate IO : Set -> Set
+postulate IO : Set → Set
 ```
 
 - For multiple declarations, use two-space indentation:
 
 ```agda
 postulate
-  runClient : String -> Int -> String -> (WSConnection -> IO Unit) -> IO Unit
-  runSecureClient : String -> Int -> String -> (WSConnection -> IO Unit) -> IO Unit
-  receiveData : WSConnection -> IO String
+  runClient : String → Int → String → (WSConnection → IO Unit) → IO Unit
+  runSecureClient : String → Int → String → (WSConnection → IO Unit) → IO Unit
+  receiveData : WSConnection → IO String
 ```
 
 
@@ -70,7 +70,7 @@ postulate
 Example:
 
 ```agda
-pred : Bits -> Bits
+pred : Bits → Bits
 pred E      = E
 pred (O E)  = E
 pred (O bs) = I (pred bs)
@@ -80,7 +80,7 @@ pred (I bs) = O bs
 Rather than:
 
 ```agda
-pred : Bits -> Bits
+pred : Bits → Bits
 pred         E  = E
 pred (O      E) = E
 pred (O     bs) = I (pred bs)
@@ -142,11 +142,11 @@ Example:
 -- - 1st: V2 vector to be multiplied.
 -- - 2nd: Scalar (F64) to multiply by.
 -- = A new V2 vector with both components multiplied by the scalar.
-mul-scalar : V2 -> F64 -> V2
+mul-scalar : V2 → F64 → V2
 mul-scalar (MkV2 x y) s = MkV2 (x F64.* s) (y F64.* s)
 
 -- Infix operator for multiplying a V2 vector by a scalar.
-_*_ : V2 -> F64 -> V2
+_*_ : V2 → F64 → V2
 _*_ = mul-scalar
 
 infixl 7 _*_
@@ -168,16 +168,16 @@ infixl 7 _*_
   ```agda
   data Nat : Set where
     Zero : Nat
-    Succ : Nat -> Nat
+    Succ : Nat → Nat
   ```
 - If the type of a term does not fit on one line then the subsequent lines of the type should all be aligned with the first character of the first line of type, e.g.
   ```agda
-    merge : ∀ {A B C : Set} ->
-      (a : A -> C) ->
-      (b : B -> C) ->
-      (ab : A -> B -> C) ->
-      BinTree A ->
-      BinTree B ->
+    merge : ∀ {A B C : Set} →
+      (a : A → C) →
+      (b : B → C) →
+      (ab : A → B → C) →
+      BinTree A →
+      BinTree B →
       BinTree C
   ```
 
@@ -185,7 +185,7 @@ infixl 7 _*_
 ### Unicode and Operators
 
 - Use Unicode for ∀, λ, ≡, and Σ.
-- Use standard arrow (`->`) instead of Unicode arrow (`→`).
+- Use Unicode arrow (`→`) instead of standard arrow (`->`).
 - Minimize operator use, except for common ones like arithmetic and bitwise operators.
 
 Arithmetic operators: `_+_` (add), `_-_` (sub), `_*_` (mul), `_\_` (div), `_%_` (mod), `_**_` (exp).
@@ -209,7 +209,7 @@ Bitwise operators: `_&_` (and), `_|_` (or), `_^_` (xor), `_~_` (not), `_<<_` (le
 Example:
 
 ```agda
-swap : ∀ {A : Set} -> BitMap A -> Bits -> A -> Pair (BitMap A) (Maybe A)
+swap : ∀ {A : Set} → BitMap A → Bits → A → Pair (BitMap A) (Maybe A)
 swap (Node val l r) E v = do
   let n = (Node (Some v) l r)
   n , val
@@ -250,20 +250,20 @@ module Base.String.hash where
 
 -- imports here
 
-hash : String -> Bits
+hash : String → Bits
 hash str =
   let words = (map to-nat (to-list str)) in
   to-bits (fxhash words)
 
   where
 
-  rotate-left : Nat -> Nat -> Nat -> Nat
+  rotate-left : Nat → Nat → Nat → Nat
   rotate-left n shift width =
     let lower = div n (2 exp (width - shift)) in
     let upper = (n * (2 exp shift)) % (2 exp width) in
     (upper + lower)
 
-  fxhash-step : Nat -> Nat -> Nat
+  fxhash-step : Nat → Nat → Nat
   fxhash-step hash char =
     let seed = 0x517cc1b727220a95 in
     let hash = rotate-left hash 5 64 in
@@ -272,7 +272,7 @@ hash str =
     let hash = hash % (2 exp 64) in
     hash
 
-  fxhash : List Nat -> Nat
+  fxhash : List Nat → Nat
   fxhash ns = foldl fxhash-step 0 ns
 ```
 
@@ -286,7 +286,7 @@ Should be:
 -- imports here
 
 -- Main hash function
-hash : String -> Bits
+hash : String → Bits
 hash str =
   let words = (map to-nat (to-list str)) in
   to-bits (fxhash words)
@@ -300,7 +300,7 @@ module Base.String.hash-rotate-left where
 -- imports here
 
 -- Helper function for left rotation
-hash-rotate-left : Nat -> Nat -> Nat -> Nat
+hash-rotate-left : Nat → Nat → Nat → Nat
 hash-rotate-left n shift width =
   let lower = div n (2 exp (width - shift)) in
   let upper = (n * (2 exp shift)) % (2 exp width) in
@@ -315,7 +315,7 @@ module Base.String.fxhash where
 -- imports here
 
 -- Helper function for a fxhash step
-fxhash-step : Nat -> Nat -> Nat
+fxhash-step : Nat → Nat → Nat
 fxhash-step hash char =
   let seed = 0x517cc1b727220a95 in
   let hash = hash-rotate-left hash 5 64 in
@@ -325,7 +325,7 @@ fxhash-step hash char =
   hash
 
 -- Main fxhash function
-fxhash : List Nat -> Nat
+fxhash : List Nat → Nat
 fxhash ns = foldl fxhash-step 0 ns
 ```
 
@@ -351,7 +351,7 @@ filter p (x ∷ xs) with p x
 Example:
 
 ```agda
-pad-length : Bits -> Bits -> Pair Bits Bits
+pad-length : Bits → Bits → Pair Bits Bits
 pad-length a b = do
   let len-a   = length a
   let len-b   = length b
@@ -362,7 +362,7 @@ pad-length a b = do
 Instead of:
 
 ```agda
-pad-length : Bits -> Bits -> Pair Bits Bits
+pad-length : Bits → Bits → Pair Bits Bits
 pad-length a b =
   let len-a = length a
       len-b = length b
