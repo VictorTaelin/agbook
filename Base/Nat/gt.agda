@@ -1,7 +1,7 @@
 module Base.Nat.gt where
 
-open import Base.Nat.Type
-open import Base.Bool.Type
+open import Base.Nat.Nat
+open import Base.Bool.Bool
 
 gt : Nat -> Nat -> Bool
 gt Zero     _        = False

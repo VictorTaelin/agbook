@@ -1,12 +1,12 @@
 module Base.Bits.Decode-utf8.decode-utf8-go where
 
 import Base.Char.from-nat as C
-open import Base.Bits.Type
+open import Base.Bits.Bits
 open import Base.Bits.append
 open import Base.Bits.reverse
 open import Base.Bits.to-char
-open import Base.Char.Type
-open import Base.List.Type
+open import Base.Char.Char
+open import Base.List.List
 
 -- The Unicode replacement character (U+FFFD) used for invalid sequences.
 utf8-replacement-character : Char

@@ -1,8 +1,8 @@
 module Base.Bits.div where
 
-open import Base.Bits.Type
+open import Base.Bits.Bits
 open import Base.Bits.to-nat
-open import Base.Nat.Type
+open import Base.Nat.Nat
 open import Base.Nat.div using () renaming (div to nat-div)
 open import Base.Bits.from-nat
 

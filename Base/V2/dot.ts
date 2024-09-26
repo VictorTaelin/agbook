@@ -1,7 +1,7 @@
-import { F64 } from '../../Base/F64/Type';
+import { F64 } from '../../Base/F64/F64';
 import { $add } from '../../Base/F64/add';
 import { $mul } from '../../Base/F64/mul';
-import { V2 } from '../../Base/V2/Type';
+import { V2 } from '../../Base/V2/V2';
 
 // Calculates the dot product of two V2 vectors.
 // - v1: The first V2 vector.

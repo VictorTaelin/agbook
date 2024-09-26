@@ -1,6 +1,6 @@
 module Base.Equal.apply where
 
-open import Base.Equal.Type
+open import Base.Equal.Equal
 
 -- Congruence property of equality:
 -- If two values are equal, then applying a function to both yields equal results.

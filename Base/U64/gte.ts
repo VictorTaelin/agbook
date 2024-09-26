@@ -1,5 +1,5 @@
-import { U64 } from '../../Base/U64/Type';
-import { Bool } from '../../Base/Bool/Type';
+import { U64 } from '../../Base/U64/U64';
+import { Bool } from '../../Base/Bool/Bool';
 import { $gte as nat_gte } from '../../Base/Nat/gte';
 import { $to_nat } from '../../Base/U64/to-nat';
 

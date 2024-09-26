@@ -1,5 +1,5 @@
-import { Nat, $Zero } from '../../Base/Nat/Type';
-import { String } from '../../Base/String/Type';
+import { Nat, $Zero } from '../../Base/Nat/Nat';
+import { String } from '../../Base/String/String';
 
 // Represents the state of a parser.
 export type State = {

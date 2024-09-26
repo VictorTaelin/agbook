@@ -1,7 +1,7 @@
 module Base.List.Omega.Monad.pure where
 
-open import Base.List.Type
-open import Base.List.Omega.Type
+open import Base.List.List
+open import Base.List.Omega.Omega
 
 -- Creates an Omega value containing a single element.
 -- - x: The element to be wrapped in an Omega.

@@ -1,8 +1,8 @@
 module Base.F64.from-u64 where
 
-open import Base.F64.Type
+open import Base.F64.F64
 open import Base.F64.from-nat
-open import Base.U64.Type
+open import Base.U64.U64
 open import Base.U64.to-nat
 
 -- Converts a U64 to a F64

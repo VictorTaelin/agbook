@@ -1,13 +1,13 @@
 module Base.Pair.Test.show where
 
-open import Base.Pair.Type
+open import Base.Pair.Pair
 open import Base.Pair.show
-open import Base.Nat.Type
+open import Base.Nat.Nat
 open import Base.Nat.show
-open import Base.Bool.Type
+open import Base.Bool.Bool
 open import Base.Bool.show
-open import Base.String.Type
-open import Base.Equal.Type
+open import Base.String.String
+open import Base.Equal.Equal
 
 test-show-nat-bool : show (1 , True) ≡ "(1, true)"
 test-show-nat-bool = refl

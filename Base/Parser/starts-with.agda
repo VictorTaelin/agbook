@@ -1,12 +1,12 @@
 module Base.Parser.starts-with where
 
 import Base.String.starts-with as String
-open import Base.Bool.Type
+open import Base.Bool.Bool
 open import Base.Parser.Reply
 open import Base.Parser.State
-open import Base.Parser.Type
-open import Base.Result.Type
-open import Base.String.Type
+open import Base.Parser.Parser
+open import Base.Result.Result
+open import Base.String.String
 
 -- Checks if the input starts with a given string.
 -- - 1st: The prefix string to check for.

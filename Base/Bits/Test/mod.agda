@@ -1,9 +1,9 @@
 module Base.Bits.Test.mod where
 
-open import Base.Bits.Type
+open import Base.Bits.Bits
 open import Base.Bits.mod
 open import Base.Bits.from-nat
-open import Base.Equal.Type
+open import Base.Equal.Equal
 
 test-mod-1 : (from-nat 5 % from-nat 3) ≡ from-nat 2
 test-mod-1 = refl

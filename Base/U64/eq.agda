@@ -1,8 +1,8 @@
 module Base.U64.eq where
 
-open import Base.U64.Type
-open import Base.Nat.Type
-open import Base.Bool.Type
+open import Base.U64.U64
+open import Base.Nat.Nat
+open import Base.Bool.Bool
 import Base.Nat.eq as Nat
 open import Base.U64.to-nat
 

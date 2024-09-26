@@ -1,8 +1,8 @@
 module Base.Bits.mod where
 
-open import Base.Bits.Type
+open import Base.Bits.Bits
 open import Base.Bits.to-nat
-open import Base.Nat.Type
+open import Base.Nat.Nat
 open import Base.Nat.mod using () renaming (mod to nat-mod)
 open import Base.Bits.from-nat
 

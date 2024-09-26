@@ -1,8 +1,8 @@
 module Bend.Fun.Pattern.map-children where
 
-open import Base.List.Type
+open import Base.List.List
 open import Base.List.map
-open import Bend.Fun.Pattern.Type
+open import Bend.Fun.Pattern.Pattern
 
 -- Folds over a Pattern, applying the given functions to each constructor.
 -- This allows for generic traversal and transformation of Pattern structures.

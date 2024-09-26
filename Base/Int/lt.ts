@@ -1,5 +1,5 @@
-import { Int } from '../../Base/Int/Type';
-import { Bool, $True, $False } from '../../Base/Bool/Type';
+import { Int } from '../../Base/Int/Int';
+import { Bool, $True, $False } from '../../Base/Bool/Bool';
 import { $compare } from '../../Base/Int/compare';
 
 // Less-than comparison for integers.

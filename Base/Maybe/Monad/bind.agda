@@ -1,6 +1,6 @@
 module Base.Maybe.Monad.bind where
 
-open import Base.Maybe.Type
+open import Base.Maybe.Maybe
 
 -- Applies a function to the value inside a Maybe, if it exists.
 -- - ma: The Maybe value to operate on.

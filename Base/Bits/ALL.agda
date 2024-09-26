@@ -3,7 +3,7 @@ module Base.Bits.ALL where
 -- open import Base.Bits.decode-utf8 public
 -- open import Base.Bits.encode-char-utf8 public
 -- open import Base.Bits.encode-utf8 public
-open import Base.Bits.Type public
+open import Base.Bits.Bits public
 open import Base.Bits.add public
 open import Base.Bits.and public
 open import Base.Bits.append public

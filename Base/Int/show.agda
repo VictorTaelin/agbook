@@ -1,9 +1,9 @@
 module Base.Int.show where
 
 import Base.Nat.show as Nat
-open import Base.Int.Type
-open import Base.Nat.Type
-open import Base.String.Type
+open import Base.Int.Int
+open import Base.Nat.Nat
+open import Base.String.String
 open import Base.String.append
 
 -- Converts an integer to its string representation.

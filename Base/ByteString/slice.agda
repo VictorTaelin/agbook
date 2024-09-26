@@ -1,11 +1,11 @@
 module Base.ByteString.slice where
 
-open import Base.ByteString.Type
+open import Base.ByteString.ByteString
 open import Base.ByteString.pack
 open import Base.ByteString.unpack
 open import Base.List.drop
 open import Base.List.take
-open import Base.Nat.Type
+open import Base.Nat.Nat
 open import Base.Nat.sub
 
 -- Extracts a portion of a ByteString.

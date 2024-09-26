@@ -2,11 +2,11 @@ module HVM2.Run.interact where
 
 open import Debug.Trace
 
-open import Base.Bool.Type
+open import Base.Bool.Bool
 open import Base.Function.case
-open import Base.Maybe.Type
-open import Base.Unit.Type
-open import HVM2.Redex.Type
+open import Base.Maybe.Maybe
+open import Base.Unit.Unit
+open import HVM2.Redex.Redex
 open import HVM2.Rule.anni
 open import HVM2.Rule.comm
 open import HVM2.Rule.eras
@@ -15,8 +15,8 @@ open import HVM2.Rule.void
 open import HVM2.Run.Monad.bind
 open import HVM2.Run.Monad.pure
 open import HVM2.Run.redex-pop
-open import HVM2.Run.Type
-open import HVM2.Term.Type
+open import HVM2.Run.Run
+open import HVM2.Term.Term
 
 interact : Run Bool
 interact = do

@@ -1,9 +1,9 @@
 module Base.String.join where
 
 open import Base.Bool.if
-open import Base.List.Type
+open import Base.List.List
 open import Base.List.foldr
-open import Base.String.Type
+open import Base.String.String
 open import Base.String.append
 open import Base.String.eq
 

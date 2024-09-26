@@ -3,11 +3,11 @@ module Base.Parser.Test.starts-with where
 open import Base.Parser.starts-with
 open import Base.Parser.State
 open import Base.Parser.Reply
-open import Base.Parser.Type
-open import Base.Result.Type
-open import Base.String.Type
-open import Base.Bool.Type
-open import Base.Equal.Type
+open import Base.Parser.Parser
+open import Base.Result.Result
+open import Base.String.String
+open import Base.Bool.Bool
+open import Base.Equal.Equal
 
 test-starts-with-true : (starts-with "hello") (MkState "hello world" 0) ≡ Done (MkReply (MkState "hello world" 0) True)
 test-starts-with-true = refl

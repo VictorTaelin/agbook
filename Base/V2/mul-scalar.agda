@@ -1,8 +1,8 @@
 module Base.V2.mul-scalar where
 
 import Base.F64.mul as F64
-open import Base.F64.Type
-open import Base.V2.Type
+open import Base.F64.F64
+open import Base.V2.V2
 
 -- Multiplies a V2 vector by a scalar.
 -- - 1st: The V2 vector to be multiplied.

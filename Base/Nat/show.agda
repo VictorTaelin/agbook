@@ -1,7 +1,7 @@
 module Base.Nat.show where
 
-open import Base.Nat.Type
-open import Base.String.Type
+open import Base.Nat.Nat
+open import Base.String.String
 
 primitive
   primShowNat : Nat -> String

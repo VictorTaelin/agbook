@@ -1,27 +1,27 @@
 module Bend.Parser.Fun.Test.parse-fn-def where
 
-open import Base.Parser.Type
+open import Base.Parser.Parser
 open import Base.Parser.Reply
 open import Base.Parser.State
 open import Base.Parser.Error
 open import Bend.Parser.Fun.parse-fn-def
-open import Bend.Fun.Rule.Type
-open import Bend.Fun.Term.Type
-open import Bend.Fun.Op.Type
-open import Bend.Fun.Pattern.Type
+open import Bend.Fun.Rule.Rule
+open import Bend.Fun.Term.Term
+open import Bend.Fun.Op.Op
+open import Bend.Fun.Pattern.Pattern
 open import Bend.Fun.Type.Type
 open import Bend.Fun.dsl
-open import Bend.Source.Type
+open import Bend.Source.Source
 open import Base.Function.case
-open import Base.Equal.Type
-open import Base.String.Type
-open import Base.Maybe.Type
-open import Base.Result.Type
-open import Base.List.Type
-open import Base.Pair.Type
-open import Base.Nat.Type
-open import Base.Bool.Type
-import Bend.Fun.FnDef.Type as FnDef'
+open import Base.Equal.Equal
+open import Base.String.String
+open import Base.Maybe.Maybe
+open import Base.Result.Result
+open import Base.List.List
+open import Base.Pair.Pair
+open import Base.Nat.Nat
+open import Base.Bool.Bool
+import Bend.Fun.FnDef.FnDef as FnDef'
 
 private
   open module FnDef = FnDef' Term

@@ -1,7 +1,7 @@
 module Base.List.drop where
 
-open import Base.List.Type
-open import Base.Nat.Type
+open import Base.List.List
+open import Base.Nat.Nat
 
 -- Drops the first n elements from a list.
 -- Returns the list without its first n elements.

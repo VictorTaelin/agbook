@@ -1,6 +1,6 @@
 module Base.List.concat-map where
 
-open import Base.List.Type
+open import Base.List.List
 open import Base.List.concat
 open import Base.List.map
 

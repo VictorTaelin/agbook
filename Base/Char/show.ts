@@ -1,5 +1,5 @@
-import { Char } from '../../Base/Char/Type';
-import { String } from '../../Base/String/Type';
+import { Char } from '../../Base/Char/Char';
+import { String } from '../../Base/String/String';
 import { $append } from '../../Base/String/append';
 import { $from_char } from '../../Base/String/from-char';
 

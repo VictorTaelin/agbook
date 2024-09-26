@@ -1,7 +1,7 @@
 module Base.List.drop-while where
 
-open import Base.Bool.Type
-open import Base.List.Type
+open import Base.Bool.Bool
+open import Base.List.List
 
 -- Drops elements from the front of the list as long as they satisfy the predicate.
 -- - fn: The predicate function.

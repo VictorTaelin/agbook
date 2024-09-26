@@ -1,7 +1,7 @@
 module Base.U64.show where
 
-open import Base.U64.Type
-open import Base.String.Type
+open import Base.U64.U64
+open import Base.String.String
 open import Base.String.append
 import Base.Nat.show as Nat
 open import Base.U64.to-nat

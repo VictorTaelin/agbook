@@ -1,0 +1,14 @@
+use Base/Bool/ as B/
+
+// Performs logical AND operation on two boolean values.
+// - a: The first boolean value.
+// - b: The second boolean value.
+// = True if both 'a' and 'b' are true, false otherwise.
+Base/Bool/and
+: ∀(a: B/Bool)
+  ∀(b: B/Bool)
+  B/Bool
+= λ{
+  #t: λb b
+  #f: λb #f{}
+}

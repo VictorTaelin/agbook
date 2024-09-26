@@ -1,4 +1,4 @@
-import { V2 } from '../../Base/V2/Type';
+import { V2 } from '../../Base/V2/V2';
 import { $div_scalar } from '../../Base/V2/div-scalar';
 import { $length } from '../../Base/V2/length';
 

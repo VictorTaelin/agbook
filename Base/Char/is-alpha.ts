@@ -1,5 +1,5 @@
-import { Char } from '../../Base/Char/Type';
-import { Bool } from '../../Base/Bool/Type';
+import { Char } from '../../Base/Char/Char';
+import { Bool } from '../../Base/Bool/Bool';
 
 // Checks if a character is alphabetic.
 // - c: The character to check.

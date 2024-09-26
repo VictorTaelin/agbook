@@ -1,30 +1,30 @@
 module UG.SM.register-action where
 
-open import UG.SM.Type
-open import UG.SM.Time.Type
-open import UG.SM.Tick.Type
+open import UG.SM.SM
+open import UG.SM.Time.Time
+open import UG.SM.Tick.Tick
 open import UG.SM.Time.time-to-tick
-open import UG.SM.StateLogs.Type
-open import UG.SM.ActionLogs.Type
+open import UG.SM.StateLogs.StateLogs
+open import UG.SM.ActionLogs.ActionLogs
 open import UG.SM.ActionLogs.add-action
 open import UG.SM.ActionLogs.get-actions
-open import UG.SM.TimedAction.Type
+open import UG.SM.TimedAction.TimedAction
 open import UG.SM.action-in-list
 open import UG.SM.update-genesis-tick
 open import UG.SM.update-cached-tick
 open import UG.SM.remove-future-states
 open import UG.SM.add-action-to-logs
 
-open import Base.Nat.Type
+open import Base.Nat.Nat
 open import Base.Nat.lt
 open import Base.Nat.eq
 open import Base.Nat.sub
-open import Base.List.Type
+open import Base.List.List
 open import Base.List.filter
-open import Base.Maybe.Type
-open import Base.String.Type
+open import Base.Maybe.Maybe
+open import Base.String.String
 open import Base.String.eq
-open import Base.Bool.Type
+open import Base.Bool.Bool
 open import Base.Bool.if
 open import Base.Bool.or
 

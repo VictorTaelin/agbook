@@ -1,9 +1,9 @@
-import { String } from '../../Base/String/Type';
+import { String } from '../../Base/String/String';
 import { $to_list } from '../../Base/String/to-list';
 import { $from_list } from '../../Base/String/from-list';
 import { $split_at as $list_split_at } from '../../Base/List/split-at';
-import { Nat } from '../../Base/Nat/Type';
-import { Pair, $Pair } from '../../Base/Pair/Type';
+import { Nat } from '../../Base/Nat/Nat';
+import { Pair, $Pair } from '../../Base/Pair/Pair';
 
 // Splits a string at the given index.
 // - n: The index at which to split the string.

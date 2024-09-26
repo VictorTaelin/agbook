@@ -1,9 +1,9 @@
 module Base.Bits.from-nat where
 
-open import Base.Bits.Type
+open import Base.Bits.Bits
 open import Base.Bits.normal
 open import Base.Bool.if
-open import Base.Nat.Type
+open import Base.Nat.Nat
 open import Base.Nat.div
 open import Base.Nat.eq
 open import Base.Nat.is-zero

@@ -2,11 +2,11 @@ module HVM2.Rule.anni where
 
 open import Debug.Trace
 
-open import Base.Unit.Type
-open import HVM2.Run.Type
+open import Base.Unit.Unit
+open import HVM2.Run.Run
 open import HVM2.Run.Monad.bind
 open import HVM2.Run.link
-open import HVM2.Term.Type
+open import HVM2.Term.Term
 
 -- Annihilation interaction
 anni : Term -> Term -> Term -> Term -> Run Unit

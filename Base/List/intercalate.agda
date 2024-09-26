@@ -1,6 +1,6 @@
 module Base.List.intercalate where
 
-open import Base.List.Type
+open import Base.List.List
 open import Base.List.append
 
 -- Intercalates a list between all lists in a list of lists.

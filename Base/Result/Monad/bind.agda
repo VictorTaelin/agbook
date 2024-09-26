@@ -1,6 +1,6 @@
 module Base.Result.Monad.bind where
 
-open import Base.Result.Type
+open import Base.Result.Result
 
 -- Applies a function to the value inside a Result, if it's successful.
 -- - ra: The Result value to operate on.

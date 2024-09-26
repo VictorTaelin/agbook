@@ -1,8 +1,8 @@
 module Base.V2.perpendicular where
 
-open import Base.F64.Type
+open import Base.F64.F64
 open import Base.F64.negate
-open import Base.V2.Type
+open import Base.V2.V2
 
 -- Calculates a vector perpendicular to the given V2 vector.
 -- - 1st: The input V2 vector.

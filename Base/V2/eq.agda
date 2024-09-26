@@ -1,10 +1,10 @@
 module Base.V2.eq where
 
 import Base.F64.eq as F64
-open import Base.Bool.Type
+open import Base.Bool.Bool
 open import Base.Bool.and
-open import Base.F64.Type
-open import Base.V2.Type
+open import Base.F64.F64
+open import Base.V2.V2
 
 -- Checks if two V2 vectors are equal.
 -- - 1st: The first V2 vector.

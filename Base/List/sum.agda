@@ -1,8 +1,8 @@
 module Base.List.sum where
 
-open import Base.List.Type
+open import Base.List.List
 open import Base.List.foldr
-open import Base.Nat.Type
+open import Base.Nat.Nat
 open import Base.Nat.add
 
 -- Calculates the sum of a list of natural numbers.

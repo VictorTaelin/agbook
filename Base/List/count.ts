@@ -1,6 +1,6 @@
-import { List } from '../../Base/List/Type';
+import { List } from '../../Base/List/List';
 import { Eq, $eq } from '../../Base/Trait/Eq';
-import { Nat, $Zero } from '../../Base/Nat/Type';
+import { Nat, $Zero } from '../../Base/Nat/Nat';
 import { $add } from '../../Base/Nat/add';
 
 export const $$count = <A>(eq_a: Eq<A>, x: A, xs: List<A>): Nat => {

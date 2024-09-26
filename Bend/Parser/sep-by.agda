@@ -1,11 +1,11 @@
 module Bend.Parser.sep-by where
 
 open import Base.List.reverse
-open import Base.String.Type
-open import Base.List.Type
-open import Base.Unit.Type
-open import Base.Nat.Type
-open import Base.Parser.Type
+open import Base.String.String
+open import Base.List.List
+open import Base.Unit.Unit
+open import Base.Nat.Nat
+open import Base.Parser.Parser
 open import Base.Parser.Monad.bind
 open import Base.Parser.Monad.pure
 open import Base.Parser.alternative

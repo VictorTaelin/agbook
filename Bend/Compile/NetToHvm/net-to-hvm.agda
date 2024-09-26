@@ -1,21 +1,21 @@
 module Bend.Compile.NetToHvm.net-to-hvm where
 
-open import Base.Result.Type
+open import Base.Result.Result
 open import Base.Result.Monad.bind
-open import Base.List.Type
-open import Base.Maybe.Type
+open import Base.List.List
+open import Base.Maybe.Maybe
 open import Base.Maybe.to-result
-open import Base.Nat.Type
-open import Base.Pair.Type
-open import Base.String.Type
-open import Bend.Net.Type renaming (Net to BNet)
+open import Base.Nat.Nat
+open import Base.Pair.Pair
+open import Base.String.String
+open import Bend.Net.Net renaming (Net to BNet)
 open import Bend.Net.get-port
 open import Bend.Net.net-root
-open import HVM2.Net.Type renaming (Net to HNet)
-open import HVM2.Redex.Type
+open import HVM2.Net.Net renaming (Net to HNet)
+open import HVM2.Redex.Redex
 open import Bend.Compile.NetToHvm.get-redexes
 open import Bend.Compile.NetToHvm.tree-to-hvm
-open import Bend.Compile.NetToHvm.State.Type
+open import Bend.Compile.NetToHvm.State.State
 open import Bend.Compile.NetToHvm.State.new renaming (new to state-new)
 
 -- Converts a Bend Net to an HVM Net.

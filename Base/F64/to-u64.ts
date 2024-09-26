@@ -1,6 +1,6 @@
-import { F64 } from '../../Base/F64/Type';
-import { Maybe, $Some, $None } from '../../Base/Maybe/Type';
-import { U64 } from '../../Base/U64/Type';
+import { F64 } from '../../Base/F64/F64';
+import { Maybe, $Some, $None } from '../../Base/Maybe/Maybe';
+import { U64 } from '../../Base/U64/U64';
 
 // Converts a float to its U64 representation.
 // - x: The float to convert

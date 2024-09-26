@@ -1,10 +1,10 @@
 module Base.JSON.parse where
 
-open import Base.JSON.Type
+open import Base.JSON.JSON
 open import Base.Parser.alternative
 open import Base.Parser.Monad.bind
 open import Base.Parser.skip-spaces
-open import Base.Parser.Type
+open import Base.Parser.Parser
 
 open import Base.JSON.parse-null
 open import Base.JSON.parse-bool
@@ -13,8 +13,8 @@ open import Base.JSON.parse-string renaming (parse-string to parse-jstring)
 open import Base.JSON.parse-array
 open import Base.JSON.parse-object
 
-open import Base.String.Type
-open import Base.Result.Type
+open import Base.String.String
+open import Base.Result.Result
 open import Base.Parser.Reply
 open import Base.Parser.Error
 

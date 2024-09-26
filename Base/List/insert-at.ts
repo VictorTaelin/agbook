@@ -1,5 +1,5 @@
-import { List, $Cons, $Nil } from '../../Base/List/Type';
-import { Nat, $Zero, $Succ } from '../../Base/Nat/Type';
+import { List, $Cons, $Nil } from '../../Base/List/List';
+import { Nat, $Zero, $Succ } from '../../Base/Nat/Nat';
 
 // Inserts an element at a specific index in a list.
 // If the index is out of bounds, the element is appended to the end of the list.

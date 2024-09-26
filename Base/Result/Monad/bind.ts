@@ -1,4 +1,4 @@
-import { Result, $Done, $Fail } from '../../../Base/Result/Type';
+import { Result, $Done, $Fail } from '../../../Base/Result/Result';
 
 // Applies a function to the value inside a Result, if it's successful.
 // - ra: The Result value to operate on.

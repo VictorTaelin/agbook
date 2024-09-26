@@ -1,4 +1,4 @@
-import { Bool } from '../../Base/Bool/Type';
+import { Bool } from '../../Base/Bool/Bool';
 
 // Checks if two boolean values are not equal.
 // - a: The first boolean value.

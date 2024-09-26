@@ -1,6 +1,6 @@
 module Base.List.append where
 
-open import Base.List.Type
+open import Base.List.List
 
 -- Appends two lists.
 -- Returns a new list containing all elements from both input lists.

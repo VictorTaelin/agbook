@@ -1,16 +1,16 @@
 module Bend.Parser.Fun.parse-fn-def where
 
 open import Base.Function.case
-open import Base.Bool.Type
+open import Base.Bool.Bool
 open import Base.Bool.if
-open import Base.Maybe.Type
-open import Base.List.Type
+open import Base.Maybe.Maybe
+open import Base.List.List
 open import Base.List.unzip
 open import Base.List.foldr
 open import Base.List.map
-open import Base.Pair.Type
-open import Base.String.Type
-open import Base.Parser.Type
+open import Base.Pair.Pair
+open import Base.String.String
+open import Base.Parser.Parser
 open import Base.Parser.Monad.bind
 open import Base.Parser.Monad.pure
 open import Base.Parser.get-index
@@ -26,11 +26,11 @@ open import Bend.Parser.Fun.parse-type-term
 open import Bend.Parser.Fun.parse-rule-lhs
 open import Bend.Parser.parse-keyword
 open import Bend.Fun.Type.Type
-open import Bend.Fun.Pattern.Type
-open import Bend.Fun.Term.Type using (Term)
+open import Bend.Fun.Pattern.Pattern
+open import Bend.Fun.Term.Term using (Term)
 open import Bend.Source.from-file-span
-import Bend.Fun.FnDef.Type as FnDef'
-import Bend.Fun.Rule.Type as Rule'
+import Bend.Fun.FnDef.FnDef as FnDef'
+import Bend.Fun.Rule.Rule as Rule'
 
 private
   open module FnDef = FnDef' Term

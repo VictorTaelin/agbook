@@ -1,9 +1,9 @@
 module Bend.Parser.consume-exactly where
 
-open import Base.Parser.Type
+open import Base.Parser.Parser
 open import Base.Parser.consume
-open import Base.String.Type
-open import Base.Unit.Type
+open import Base.String.String
+open import Base.Unit.Unit
 
 consume-exactly : String -> Parser Unit
 consume-exactly = consume

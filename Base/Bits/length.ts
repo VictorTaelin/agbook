@@ -1,5 +1,5 @@
-import { Bits } from '../../Base/Bits/Type';
-import { Nat, $Zero, $Succ } from '../../Base/Nat/Type';
+import { Bits } from '../../Base/Bits/Bits';
+import { Nat, $Zero, $Succ } from '../../Base/Nat/Nat';
 
 // Returns the length of a Bits structure, that is, how many bits it has.
 export const $$length = (bits: Bits): Nat => {

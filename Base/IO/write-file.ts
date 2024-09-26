@@ -1,6 +1,6 @@
-import { IO } from '../../Base/IO/Type';
-import { String } from '../../Base/String/Type';
-import { Unit, $unit } from '../../Base/Unit/Type';
+import { IO } from '../../Base/IO/IO';
+import { String } from '../../Base/String/String';
+import { Unit, $unit } from '../../Base/Unit/Unit';
 import * as fs from 'fs/promises';
 
 // Writes content to a file at the specified path.

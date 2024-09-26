@@ -1,5 +1,5 @@
-import { Nat } from '../../Base/Nat/Type';
-import { Bool } from '../../Base/Bool/Type';
+import { Nat } from '../../Base/Nat/Nat';
+import { Bool } from '../../Base/Bool/Bool';
 import { $or } from '../../Base/Bool/or';
 import { $eq } from '../../Base/Nat/eq';
 import { $lt } from '../../Base/Nat/lt';

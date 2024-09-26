@@ -1,7 +1,7 @@
 module Base.List.compare where
 
-open import Base.List.Type
-open import Base.Ordering.Type
+open import Base.List.List
+open import Base.Ordering.Ordering
 import Base.Trait.Ord as Ord
 
 -- Compares two lists lexicographically.

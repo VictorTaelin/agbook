@@ -1,14 +1,14 @@
 module Base.F64.Test.add where
 
-open import Base.F64.Type
+open import Base.F64.F64
 open import Base.F64.add
 open import Base.F64.lt
 open import Base.F64.sub
-open import Base.Bool.Type
+open import Base.Bool.Bool
 open import Base.Bool.if
 open import Base.Bool.and
-open import Base.Unit.Type
-open import Base.Empty.Type
+open import Base.Unit.Unit
+open import Base.Empty.Empty
 
 -- check if two floats are equal
 equal : F64 -> F64 -> Bool

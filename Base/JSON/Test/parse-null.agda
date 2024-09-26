@@ -1,15 +1,15 @@
 module Base.JSON.Test.parse-null where
 
-open import Base.JSON.Type
+open import Base.JSON.JSON
 open import Base.JSON.parse-null
-open import Base.Parser.Type
+open import Base.Parser.Parser
 open import Base.Parser.State
 open import Base.Parser.Reply
 open import Base.Parser.Error
-open import Base.Result.Type
-open import Base.String.Type
-open import Base.Nat.Type
-open import Base.Equal.Type
+open import Base.Result.Result
+open import Base.String.String
+open import Base.Nat.Nat
+open import Base.Equal.Equal
 
 test-parse-null-success : parse-null (MkState "null" 0) ≡ Done (MkReply (MkState "" 4) JNull)
 test-parse-null-success = refl

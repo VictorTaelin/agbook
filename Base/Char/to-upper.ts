@@ -1,4 +1,4 @@
-import { Char } from '../../Base/Char/Type';
+import { Char } from '../../Base/Char/Char';
 
 // Converts a character to its uppercase equivalent.
 // - char: The input character.

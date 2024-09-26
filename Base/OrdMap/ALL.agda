@@ -13,8 +13,8 @@ open import Base.OrdMap.intersect public
 open import Base.OrdMap.keys public
 open import Base.OrdMap.singleton public
 open import Base.OrdMap.to-list public
-open import Base.OrdMap.Type public
+open import Base.OrdMap.OrdMap public
 open import Base.OrdMap.union public
 open import Base.OrdMap.values public
 
-open import Base.OrdMap.Type public using (OrdMap)
+open import Base.OrdMap.OrdMap public using (OrdMap)

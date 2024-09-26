@@ -1,8 +1,8 @@
 module Base.V2.max where
 
 import Base.F64.max as F64
-open import Base.F64.Type
-open import Base.V2.Type
+open import Base.F64.F64
+open import Base.V2.V2
 
 -- Computes the component-wise maximum of two V2 vectors.
 -- - 1st: The first V2 vector.

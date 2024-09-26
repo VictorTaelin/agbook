@@ -1,7 +1,7 @@
 module Base.OrdMap.intersect where
 
 import Base.AVLTree.intersect as AVL
-open import Base.OrdMap.Type
+open import Base.OrdMap.OrdMap
 open import Base.Trait.Ord
 
 -- Computes the intersection of two OrdMaps.

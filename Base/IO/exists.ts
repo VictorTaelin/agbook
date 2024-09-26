@@ -1,6 +1,6 @@
-import { IO } from '../../Base/IO/Type';
-import { String } from '../../Base/String/Type';
-import { Bool } from '../../Base/Bool/Type';
+import { IO } from '../../Base/IO/IO';
+import { String } from '../../Base/String/String';
+import { Bool } from '../../Base/Bool/Bool';
 import { $is_file } from '../../Base/IO/is-file';
 import { $is_directory } from '../../Base/IO/is-directory';
 

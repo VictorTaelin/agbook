@@ -1,6 +1,6 @@
-import { Nat } from '../../Base/Nat/Type';
-import { Char } from '../../Base/Char/Type';
-import { Maybe } from '../../Base/Maybe/Type';
+import { Nat } from '../../Base/Nat/Nat';
+import { Char } from '../../Base/Char/Char';
+import { Maybe } from '../../Base/Maybe/Maybe';
 import { $is_digit } from '../../Base/Char/is-digit';
 import { $is_hex_digit } from '../../Base/Char/is-hex-digit';
 import { $digit_to_nat } from '../../Base/Char/digit-to-nat';

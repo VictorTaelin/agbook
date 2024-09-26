@@ -1,7 +1,7 @@
 module Base.DiffList.empty where
 
-open import Base.DiffList.Type
-open import Base.List.Type
+open import Base.DiffList.DiffList
+open import Base.List.List
 
 -- Creates a new empty DiffList.
 empty : ∀ {A : Set} -> DiffList A

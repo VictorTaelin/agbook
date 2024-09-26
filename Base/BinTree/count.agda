@@ -1,9 +1,9 @@
 module Base.BinTree.count where
 
-open import Base.BinTree.Type
-open import Base.Bool.Type
+open import Base.BinTree.BinTree
+open import Base.Bool.Bool
 open import Base.Bool.if
-open import Base.Nat.Type
+open import Base.Nat.Nat
 open import Base.Nat.add
 open import Base.Trait.Eq
 

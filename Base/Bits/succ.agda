@@ -1,6 +1,6 @@
 module Base.Bits.succ where
 
-open import Base.Bits.Type
+open import Base.Bits.Bits
 
 -- Increments a binary string by one, increasing its size if necessary.
 -- - bs: The input binary string.

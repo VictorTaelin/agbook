@@ -1,9 +1,9 @@
 module Base.Bits.Test.pred where
 
-open import Base.Bits.Type
+open import Base.Bits.Bits
 open import Base.Bits.pred
-open import Base.Equal.Type
-open import Base.Bool.Type
+open import Base.Equal.Equal
+open import Base.Bool.Bool
 
 test-pred-empty : pred E ≡ E
 test-pred-empty = refl

@@ -1,7 +1,7 @@
 module Base.Time.now where
 
-open import Base.Nat.Type
-open import Base.IO.Type
+open import Base.Nat.Nat
+open import Base.IO.IO
 
 -- Returns the current time as a natural number.
 -- The value represents the number of milliseconds elapsed since the Unix epoch

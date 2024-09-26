@@ -1,6 +1,6 @@
 module Base.Nat.half where
 
-open import Base.Nat.Type
+open import Base.Nat.Nat
 
 -- Calculates half of a natural number.
 -- - n: The number to halve.

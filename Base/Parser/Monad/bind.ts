@@ -1,7 +1,7 @@
-import { Parser } from '../../../Base/Parser/Type';
+import { Parser } from '../../../Base/Parser/Parser';
 import { State } from '../../../Base/Parser/State';
 import { Reply } from '../../../Base/Parser/Reply';
-import { Result, $Fail } from '../../../Base/Result/Type';
+import { Result, $Fail } from '../../../Base/Result/Result';
 import { Error } from '../../../Base/Parser/Error';
 
 // Binds two parsers together

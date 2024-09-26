@@ -1,4 +1,4 @@
-import { String } from '../../../Base/String/Type';
+import { String } from '../../../Base/String/String';
 import { $eq } from '../../../Base/String/eq';
 import { $neq } from '../../../Base/String/neq';
 import { Eq } from '../../../Base/Trait/Eq';

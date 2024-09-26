@@ -1,9 +1,9 @@
 module Base.BitMap.insert where
 
-open import Base.BitMap.Type
+open import Base.BitMap.BitMap
 open import Base.BitMap.set
-open import Base.Bits.Type
-open import Base.Pair.Type
+open import Base.Bits.Bits
+open import Base.Pair.Pair
 open import Base.Pair.get-fst
 open import Base.Pair.get-snd
 

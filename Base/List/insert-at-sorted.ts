@@ -1,5 +1,5 @@
-import { List, $Cons, $Nil } from '../../Base/List/Type';
-import { Bool, $True, $False } from '../../Base/Bool/Type';
+import { List, $Cons, $Nil } from '../../Base/List/List';
+import { Bool, $True, $False } from '../../Base/Bool/Bool';
 
 // Inserts an element into a sorted list, maintaining the sort order.
 // - leq: The less-than-or-equal comparison function.

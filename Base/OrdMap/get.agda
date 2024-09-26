@@ -1,9 +1,9 @@
 module Base.OrdMap.get where
 
 import Base.AVLTree.get as AVL
-open import Base.Maybe.Type
-open import Base.OrdMap.Type
-open import Base.Pair.Type
+open import Base.Maybe.Maybe
+open import Base.OrdMap.OrdMap
+open import Base.Pair.Pair
 open import Base.Trait.Ord
 
 -- Retrieves the value associated with a given key in the OrdMap.

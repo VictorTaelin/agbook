@@ -1,7 +1,7 @@
 module Base.Bits.to-nat where
 
-open import Base.Bits.Type
-open import Base.Nat.Type
+open import Base.Bits.Bits
+open import Base.Nat.Nat
 open import Base.Nat.add
 open import Base.Nat.mul
 

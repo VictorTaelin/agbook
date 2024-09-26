@@ -1,7 +1,7 @@
 module Base.Pair.neq where
 
-open import Base.Pair.Type
-open import Base.Bool.Type
+open import Base.Pair.Pair
+open import Base.Bool.Bool
 open import Base.Bool.not
 import Base.Pair.eq as Pair
 import Base.Trait.Eq as Eq

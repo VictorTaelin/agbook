@@ -1,4 +1,4 @@
-import { Sigma } from '../../Base/Pair/Type';
+import { Sigma } from '../../Base/Pair/Pair';
 
 // Gets the first element of a Sigma (dependent pair) type.
 // - pair: The input Sigma pair.

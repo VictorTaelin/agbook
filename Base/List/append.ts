@@ -1,4 +1,4 @@
-import { List, $Cons, $Nil } from '../../Base/List/Type';
+import { List, $Cons, $Nil } from '../../Base/List/List';
 
 // Appends two lists.
 // Returns a new list containing all elements from both input lists.

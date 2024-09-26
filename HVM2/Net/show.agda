@@ -2,13 +2,13 @@ module HVM2.Net.show where
 
 import HVM2.Redex.show as Redex
 import HVM2.Term.show as Term
-open import Base.List.Type
+open import Base.List.List
 open import Base.List.map
-open import Base.String.Type
+open import Base.String.String
 open import Base.String.append
 open import Base.String.join
-open import HVM2.Net.Type
-open import HVM2.Redex.Type
+open import HVM2.Net.Net
+open import HVM2.Redex.Redex
 
 -- Converts a Net to its string representation.
 -- - net: The Net to convert.

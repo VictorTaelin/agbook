@@ -1,11 +1,11 @@
 module Base.Maybe.Test.eq where
 
-open import Base.Maybe.Type
+open import Base.Maybe.Maybe
 open import Base.Maybe.eq
-open import Base.Nat.Type
+open import Base.Nat.Nat
 open import Base.Nat.eq
-open import Base.Bool.Type
-open import Base.Equal.Type
+open import Base.Bool.Bool
+open import Base.Equal.Equal
 
 test-eq-some-equal : ((Some 42) == (Some 42)) ≡ True
 test-eq-some-equal = refl

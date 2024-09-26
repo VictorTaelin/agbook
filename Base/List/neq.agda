@@ -1,7 +1,7 @@
 module Base.List.neq where
 
-open import Base.List.Type
-open import Base.Bool.Type
+open import Base.List.List
+open import Base.Bool.Bool
 open import Base.Bool.not
 import Base.Trait.Eq as Eq
 import Base.List.eq as List

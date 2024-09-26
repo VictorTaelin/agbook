@@ -1,5 +1,5 @@
-import { Bool } from '../../Base/Bool/Type';
-import { U64 } from '../../Base/U64/Type';
+import { Bool } from '../../Base/Bool/Bool';
+import { U64 } from '../../Base/U64/U64';
 import { $from_nat } from '../../Base/U64/from-nat';
 
 // Converts a Bool to a U64 number.

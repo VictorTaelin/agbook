@@ -1,5 +1,5 @@
-import { F64 } from '../../Base/F64/Type';
-import { Ordering, $EQ, $LT, $GT } from '../../Base/Ordering/Type';
+import { F64 } from '../../Base/F64/F64';
+import { Ordering, $EQ, $LT, $GT } from '../../Base/Ordering/Ordering';
 import { $eq } from '../../Base/F64/eq';
 import { $lt } from '../../Base/F64/lt';
 

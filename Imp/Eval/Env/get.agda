@@ -1,12 +1,12 @@
 module Imp.Eval.Env.get where
 
-open import Base.List.Type
-open import Base.Maybe.Type
+open import Base.List.List
+open import Base.Maybe.Maybe
 open import Base.OrdMap.get renaming (get to ordmap-get)
 open import Base.String.Trait.Ord
-open import Base.String.Type
-open import Base.U64.Type
-open import Imp.Eval.Env.Type
+open import Base.String.String
+open import Base.U64.U64
+open import Imp.Eval.Env.Env
 
 -- Get a variable's value in the top-most map.
 get : Env -> String -> Maybe U64

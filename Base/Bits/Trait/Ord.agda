@@ -1,6 +1,6 @@
 module Base.Bits.Trait.Ord where
 
-open import Base.Bits.Type
+open import Base.Bits.Bits
 import Base.Bits.compare as Bits
 import Base.Bits.lt as Bits
 import Base.Bits.gt as Bits

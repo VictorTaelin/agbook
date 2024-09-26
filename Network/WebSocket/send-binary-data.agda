@@ -1,9 +1,9 @@
 module Network.WebSocket.send-binary-data where
 
-open import Base.ByteString.Type
-open import Base.IO.Type
-open import Base.String.Type
-open import Base.Unit.Type
+open import Base.ByteString.ByteString
+open import Base.IO.IO
+open import Base.String.String
+open import Base.Unit.Unit
 open import Network.WebSocket.WSConnection
 
 -- Sends text data over a WebSocket connection.

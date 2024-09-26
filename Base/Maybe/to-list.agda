@@ -1,7 +1,7 @@
 module Base.Maybe.to-list where
 
-open import Base.Maybe.Type
-open import Base.List.Type
+open import Base.Maybe.Maybe
+open import Base.List.List
 
 -- Converts a Maybe value to a List.
 -- - ma: The Maybe value to convert.

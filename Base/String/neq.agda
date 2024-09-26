@@ -1,9 +1,9 @@
 module Base.String.neq where
 
 import Base.String.eq as String
-open import Base.Bool.Type
+open import Base.Bool.Bool
 open import Base.Bool.not
-open import Base.String.Type
+open import Base.String.String
 
 -- Checks if two strings are not equal.
 -- - 1st: The first string to compare.

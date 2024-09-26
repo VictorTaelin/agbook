@@ -1,8 +1,8 @@
 module Base.BinTree.all-equal where
 
-open import Base.BinTree.Type
+open import Base.BinTree.BinTree
 open import Base.BinTree.fold
-open import Base.Bool.Type
+open import Base.Bool.Bool
 open import Base.Bool.and
 open import Base.Trait.Eq
 

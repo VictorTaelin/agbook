@@ -1,6 +1,6 @@
 module Base.OrdSet.delete where
 
-open import Base.OrdSet.Type
+open import Base.OrdSet.OrdSet
 open import Base.Trait.Ord
 import Base.AVLTree.delete as AVL
 

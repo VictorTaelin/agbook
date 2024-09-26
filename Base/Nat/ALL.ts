@@ -2,7 +2,7 @@ export * from '../../Base/Nat/Trait/Add';
 export * from '../../Base/Nat/Trait/Eq';
 export * from '../../Base/Nat/Trait/Ord';
 export * from '../../Base/Nat/Trait/Show';
-export * from '../../Base/Nat/Type';
+export * from '../../Base/Nat/Nat';
 export * from '../../Base/Nat/add';
 export * from '../../Base/Nat/compare';
 export * from '../../Base/Nat/div';

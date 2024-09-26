@@ -1,6 +1,6 @@
-import { F64 } from '../../Base/F64/Type';
+import { F64 } from '../../Base/F64/F64';
 import { $div } from '../../Base/F64/div';
-import { V2, $MkV2 } from '../../Base/V2/Type';
+import { V2, $MkV2 } from '../../Base/V2/V2';
 
 // Divides a V2 vector by a scalar.
 // - v: The V2 vector to be divided.

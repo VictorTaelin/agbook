@@ -1,4 +1,4 @@
-import { String } from '../../Base/String/Type';
+import { String } from '../../Base/String/String';
 
 // Converts a string to its string representation.
 // This is essentially an identity function for strings.

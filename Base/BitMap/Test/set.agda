@@ -1,13 +1,13 @@
 module Base.BitMap.Test.set where
 
-open import Base.BitMap.Type
+open import Base.BitMap.BitMap
 open import Base.BitMap.set
 open import Base.BitMap.get
-open import Base.Bits.Type
-open import Base.Maybe.Type
-open import Base.Nat.Type
-open import Base.Bool.Type
-open import Base.Equal.Type
+open import Base.Bits.Bits
+open import Base.Maybe.Maybe
+open import Base.Nat.Nat
+open import Base.Bool.Bool
+open import Base.Equal.Equal
 
 test-set-empty-root : get (set Leaf E 1) E ≡ Some 1
 test-set-empty-root = refl

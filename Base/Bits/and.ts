@@ -1,4 +1,4 @@
-import { Bits, O, I, E } from '../../Base/Bits/Type';
+import { Bits, O, I, E } from '../../Base/Bits/Bits';
 
 // Performs bitwise AND operation on two Bits values.
 // - a: The 1st Bits value.

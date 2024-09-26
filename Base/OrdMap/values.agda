@@ -1,8 +1,8 @@
 module Base.OrdMap.values where
 
 import Base.AVLTree.values as AVL
-open import Base.List.Type
-open import Base.OrdMap.Type
+open import Base.List.List
+open import Base.OrdMap.OrdMap
 
 -- Extracts all values from an OrdMap.
 -- - map: The OrdMap to extract values from.

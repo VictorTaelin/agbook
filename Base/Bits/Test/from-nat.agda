@@ -1,9 +1,9 @@
 module Base.Bits.Test.from-nat where
 
-open import Base.Bits.Type
+open import Base.Bits.Bits
 open import Base.Bits.from-nat
-open import Base.Nat.Type
-open import Base.Equal.Type
+open import Base.Nat.Nat
+open import Base.Equal.Equal
 
 test-from-nat-zero : from-nat 0 ≡ E
 test-from-nat-zero = refl

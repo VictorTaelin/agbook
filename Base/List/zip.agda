@@ -1,8 +1,8 @@
 module Base.List.zip where
 
-open import Base.List.Type
+open import Base.List.List
 open import Base.List.zip-with
-open import Base.Pair.Type
+open import Base.Pair.Pair
 
 -- Zips two lists into a single list of pairs.
 -- - xs: The first input list.

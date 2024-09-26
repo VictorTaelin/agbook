@@ -1,11 +1,11 @@
-import { Bits } from '../../Base/Bits/Type';
+import { Bits } from '../../Base/Bits/Bits';
 import { $to_nat as $char_to_nat } from '../../Base/Char/to-nat';
-import { String } from '../../Base/String/Type';
+import { String } from '../../Base/String/String';
 import { $to_list } from '../../Base/String/to-list';
-import { List } from '../../Base/List/Type';
+import { List } from '../../Base/List/List';
 import { $map } from '../../Base/List/map';
 import { $foldl } from '../../Base/List/foldl';
-import { Nat } from '../../Base/Nat/Type';
+import { Nat } from '../../Base/Nat/Nat';
 import { $to_bits } from '../../Base/Nat/to-bits';
 import { $xor } from '../../Base/Nat/xor';
 import { $exp } from '../../Base/Nat/exp';

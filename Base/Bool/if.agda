@@ -1,6 +1,6 @@
 module Base.Bool.if where
 
-open import Base.Bool.Type
+open import Base.Bool.Bool
 
 infix 0 if_then_else_
 

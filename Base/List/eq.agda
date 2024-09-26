@@ -1,7 +1,7 @@
 module Base.List.eq where
 
-open import Base.List.Type
-open import Base.Bool.Type
+open import Base.List.List
+open import Base.Bool.Bool
 open import Base.Bool.and
 import Base.Trait.Eq as Eq
 

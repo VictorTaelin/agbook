@@ -1,4 +1,4 @@
-import { BinTree, $Node, $Leaf } from '../../Base/BinTree/Type';
+import { BinTree, $Node, $Leaf } from '../../Base/BinTree/BinTree';
 
 // Merges two trees using combining functions.
 // 1st: Function to handle cases where only the first tree has a value.

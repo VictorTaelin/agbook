@@ -1,9 +1,9 @@
 module Base.List.count where
 
-open import Base.List.Type
-open import Base.Equal.Type
+open import Base.List.List
+open import Base.Equal.Equal
 open import Base.Bool.if
-open import Base.Nat.Type
+open import Base.Nat.Nat
 open import Base.Nat.add
 open import Base.Trait.Eq
 

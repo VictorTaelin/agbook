@@ -1,5 +1,5 @@
-import { Bool, $True, $False } from '../../Base/Bool/Type';
-import { String } from '../../Base/String/Type';
+import { Bool, $True, $False } from '../../Base/Bool/Bool';
+import { String } from '../../Base/String/String';
 
 export const $$show = (b: Bool): String => {
   if (b) {

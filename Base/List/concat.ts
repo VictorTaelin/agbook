@@ -1,4 +1,4 @@
-import { List, $Nil } from '../../Base/List/Type';
+import { List, $Nil } from '../../Base/List/List';
 import { $foldr } from '../../Base/List/foldr';
 import { $append } from '../../Base/List/append';
 

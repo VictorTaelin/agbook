@@ -1,5 +1,5 @@
-import { List } from '../../Base/List/Type';
-import { Pair, $Pair } from '../../Base/Pair/Type';
+import { List } from '../../Base/List/List';
+import { Pair, $Pair } from '../../Base/Pair/Pair';
 import { $cartesian_product_with } from '../../Base/List/cartesian-product-with';
 
 // Returns the cartesian product of two lists.

@@ -1,9 +1,9 @@
 module Base.Bits.Test.length where
 
-open import Base.Bits.Type
+open import Base.Bits.Bits
 open import Base.Bits.length
-open import Base.Nat.Type
-open import Base.Equal.Type
+open import Base.Nat.Nat
+open import Base.Equal.Equal
 
 test-empty : length E ≡ 0
 test-empty = refl

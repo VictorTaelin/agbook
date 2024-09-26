@@ -1,6 +1,6 @@
-import { U64 } from '../../Base/U64/Type';
-import { Bits } from '../../Base/Bits/Type';
-import { Nat } from '../../Base/Nat/Type';
+import { U64 } from '../../Base/U64/U64';
+import { Bits } from '../../Base/Bits/Bits';
+import { Nat } from '../../Base/Nat/Nat';
 import { $to_bits } from '../../Base/U64/to-bits';
 import { $from_nat } from '../../Base/U64/from-nat';
 import { $or as $or_bits } from '../../Base/Bits/or';

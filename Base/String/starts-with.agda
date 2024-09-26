@@ -1,11 +1,11 @@
 module Base.String.starts-with where
 
 import Base.List.starts-with
-open import Base.Bool.Type
+open import Base.Bool.Bool
 open import Base.Char.Trait.Eq
-open import Base.Char.Type
-open import Base.List.Type
-open import Base.String.Type
+open import Base.Char.Char
+open import Base.List.List
+open import Base.String.String
 open import Base.String.to-list
 
 -- Checks if one string starts with another.

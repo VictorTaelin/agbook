@@ -1,6 +1,6 @@
 module Base.String.Trait.Monoid where
 
-open import Base.String.Type
+open import Base.String.String
 open import Base.String.append
 open import Base.Trait.Monoid
 

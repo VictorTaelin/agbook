@@ -1,7 +1,7 @@
 module Bend.Parser.is-name-char where
 
-open import Base.Char.Type
-open import Base.Bool.Type
+open import Base.Char.Char
+open import Base.Bool.Bool
 open import Base.Bool.or
 open import Base.Char.eq
 open import Base.Char.is-alpha

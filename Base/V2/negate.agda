@@ -1,8 +1,8 @@
 module Base.V2.negate where
 
 import Base.F64.negate as F64
-open import Base.F64.Type
-open import Base.V2.Type
+open import Base.F64.F64
+open import Base.V2.V2
 
 -- Negates a V2 vector.
 -- - 1st: The V2 vector to negate.

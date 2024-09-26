@@ -1,4 +1,4 @@
-import { Pair } from '../../Base/Pair/Type';
+import { Pair } from '../../Base/Pair/Pair';
 
 // Mutates the first element of a pair
 // - f: A function to apply to the first element

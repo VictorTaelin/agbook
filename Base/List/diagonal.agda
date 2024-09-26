@@ -1,6 +1,6 @@
 module Base.List.diagonal where
 
-open import Base.List.Type
+open import Base.List.List
 open import Base.List.append
 open import Base.List.foldr
 open import Base.List.zip-cons

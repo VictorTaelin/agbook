@@ -1,5 +1,5 @@
-import { Int } from '../../Base/Int/Type';
-import { String } from '../../Base/String/Type';
+import { Int } from '../../Base/Int/Int';
+import { String } from '../../Base/String/String';
 import { $show as $show_nat } from '../../Base/Nat/show';
 import { $append } from '../../Base/String/append';
 

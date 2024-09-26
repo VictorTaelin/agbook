@@ -1,9 +1,9 @@
 module Base.Bits.Test.div where
 
-open import Base.Bits.Type
+open import Base.Bits.Bits
 open import Base.Bits.div
-open import Base.Equal.Type
-open import Base.Unit.Type
+open import Base.Equal.Equal
+open import Base.Unit.Unit
 
 -- 0 / 1 = 0
 test-div-zero-one : (O E) / (I E) ≡ E

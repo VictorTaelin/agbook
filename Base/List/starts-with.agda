@@ -1,9 +1,9 @@
 module Base.List.starts-with where
 
 import Base.Trait.Eq as Eq
-open import Base.Bool.Type
+open import Base.Bool.Bool
 open import Base.Bool.and
-open import Base.List.Type
+open import Base.List.List
 open import Base.List.eq
 open import Base.List.length
 open import Base.List.take

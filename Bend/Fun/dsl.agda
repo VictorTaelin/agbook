@@ -1,32 +1,32 @@
 module Bend.Fun.dsl where
 
-open import Bend.Source.Type
-open import Bend.Source.SourceKind.Type
-open import Bend.Fun.Term.Type
-open import Bend.Fun.Pattern.Type as P
-open import Bend.Fun.FanKind.Type as Fan
-open import Bend.Fun.Op.Type
-open import Bend.Fun.Num.Type renaming (Num to Num')
+open import Bend.Source.Source
+open import Bend.Source.SourceKind.SourceKind
+open import Bend.Fun.Term.Term
+open import Bend.Fun.Pattern.Pattern as P
+open import Bend.Fun.FanKind.FanKind as Fan
+open import Bend.Fun.Op.Op
+open import Bend.Fun.Num.Num renaming (Num to Num')
 open import Base.Function.case
-open import Base.Maybe.Type
-open import Base.String.Type
+open import Base.Maybe.Maybe
+open import Base.String.String
 open import Base.String.append
-open import Base.List.Type renaming (List to List')
+open import Base.List.List renaming (List to List')
 open import Base.List.length
 open import Base.List.unzip
 open import Base.List.map
-open import Base.Pair.Type
-open import Base.Nat.Type
+open import Base.Pair.Pair
+open import Base.Nat.Nat
 open import Base.Nat.Trait.Show
 open import Base.Nat.sub
-open import Base.Int.Type
-open import Base.F64.Type
-open import Base.Bool.Type
+open import Base.Int.Int
+open import Base.F64.F64
+open import Base.Bool.Bool
 open import Base.Trait.Show
 import Bend.Fun.Type.Type as T
-import Bend.Fun.MatchRule.Type as MatchRule'
-import Bend.Fun.Rule.Type as Rule'
-import Bend.Fun.FnDef.Type as FnDef'
+import Bend.Fun.MatchRule.MatchRule as MatchRule'
+import Bend.Fun.Rule.Rule as Rule'
+import Bend.Fun.FnDef.FnDef as FnDef'
 
 private
   open module MatchRule = MatchRule' Term

@@ -1,6 +1,6 @@
 module Base.List.inits where
 
-open import Base.List.Type
+open import Base.List.List
 open import Base.List.map
 open import Base.List.singleton
 

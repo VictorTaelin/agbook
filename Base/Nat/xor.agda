@@ -1,6 +1,6 @@
 module Base.Nat.xor where
 
-open import Base.Nat.Type
+open import Base.Nat.Nat
 open import Base.Nat.to-bits
 open import Base.Bits.xor using () renaming (_^_ to _^'_)
 open import Base.Bits.to-nat

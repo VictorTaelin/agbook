@@ -1,5 +1,5 @@
 import { Ord } from '../../../Base/Trait/Ord';
-import { Int } from '../../../Base/Int/Type';
+import { Int } from '../../../Base/Int/Int';
 import { $compare } from '../../../Base/Int/compare';
 import { $lt } from '../../../Base/Int/lt';
 import { $gt } from '../../../Base/Int/gt';

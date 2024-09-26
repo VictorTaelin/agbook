@@ -1,13 +1,13 @@
 module Base.Buffer.new where
 
-open import Base.Buffer.Type
-open import Base.OrdMap.Type
+open import Base.Buffer.Buffer
+open import Base.OrdMap.OrdMap
 open import Base.OrdMap.insert
 open import Base.OrdMap.empty
-open import Base.Pair.Type
-open import Base.Nat.Type
+open import Base.Pair.Pair
+open import Base.Nat.Nat
 open import Base.Nat.to-u64
-open import Base.U64.Type
+open import Base.U64.U64
 open import Base.U64.Trait.Ord
 
 -- Creates a new Buffer with size `length` filled with zeros.

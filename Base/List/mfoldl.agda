@@ -1,6 +1,6 @@
 module Base.List.mfoldl where
 
-open import Base.List.Type
+open import Base.List.List
 open import Base.Trait.Monad
 
 -- Performs a monadic left fold over a list.

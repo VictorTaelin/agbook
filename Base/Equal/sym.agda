@@ -1,6 +1,6 @@
 module Base.Equal.sym where
 
-open import Base.Equal.Type
+open import Base.Equal.Equal
 
 -- Symmetry property of equality.
 -- If x is equal to y, then y is equal to x.

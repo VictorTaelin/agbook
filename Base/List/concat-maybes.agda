@@ -1,7 +1,7 @@
 module Base.List.concat-maybes where
 
-open import Base.Maybe.Type
-open import Base.List.Type
+open import Base.Maybe.Maybe
+open import Base.List.List
 open import Base.List.foldr
 
 -- Concatenates all of the `Some` values in a list of Maybe.

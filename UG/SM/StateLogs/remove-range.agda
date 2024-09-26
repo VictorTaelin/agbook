@@ -1,11 +1,11 @@
 module UG.SM.StateLogs.remove-range where
 
-open import UG.SM.StateLogs.Type
-open import UG.SM.Tick.Type
+open import UG.SM.StateLogs.StateLogs
+open import UG.SM.Tick.Tick
 
-open import Base.BitMap.Type
+open import Base.BitMap.BitMap
 open import Base.BitMap.del
-open import Base.Nat.Type
+open import Base.Nat.Nat
 open import Base.Nat.lt
 open import Base.Nat.to-bits
 open import Base.Bool.if

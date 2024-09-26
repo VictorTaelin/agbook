@@ -1,15 +1,15 @@
 module Bend.Parser.Fun.parse-pattern where
 
 open import Base.Function.case
-open import Base.Bool.Type
+open import Base.Bool.Bool
 open import Base.Bool.if
 open import Base.Char.to-nat
-open import Base.Maybe.Type
-open import Base.List.Type
-open import Bend.Fun.Num.Type renaming (Num to Num')
-open import Bend.Fun.Pattern.Type
-open import Bend.Fun.FanKind.Type
-open import Base.Parser.Type
+open import Base.Maybe.Maybe
+open import Base.List.List
+open import Bend.Fun.Num.Num renaming (Num to Num')
+open import Bend.Fun.Pattern.Pattern
+open import Bend.Fun.FanKind.FanKind
+open import Base.Parser.Parser
 open import Base.Parser.Monad.bind
 open import Base.Parser.Monad.pure
 open import Base.Parser.fail

@@ -1,24 +1,24 @@
 module Base.AVLTree.Test.fold where
 
-open import Base.AVLTree.Type
+open import Base.AVLTree.AVLTree
 open import Base.AVLTree.empty
 open import Base.AVLTree.fold
 open import Base.AVLTree.from-list
 open import Base.AVLTree.insert
-open import Base.Bool.Type
+open import Base.Bool.Bool
 open import Base.Bool.if
 open import Base.Bool.or
-open import Base.Equal.Type
-open import Base.List.Type
+open import Base.Equal.Equal
+open import Base.List.List
 open import Base.Nat.Trait.Eq
 open import Base.Nat.Trait.Ord
-open import Base.Nat.Type
+open import Base.Nat.Nat
 open import Base.Nat.add
-open import Base.Pair.Type
+open import Base.Pair.Pair
 open import Base.Pair.get-fst
 open import Base.Trait.Eq
 open import Base.Trait.Ord
-open import Base.Unit.Type
+open import Base.Unit.Unit
 
 -- Helper function to create a test tree
 test-tree : AVLTree Nat Unit

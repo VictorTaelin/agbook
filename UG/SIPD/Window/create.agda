@@ -1,7 +1,7 @@
 module UG.SIPD.Window.create where
 
-open import Base.IO.Type
-open import UG.SIPD.Window.Type
+open import Base.IO.IO
+open import UG.SIPD.Window.Window
 
 postulate create : IO Window
 

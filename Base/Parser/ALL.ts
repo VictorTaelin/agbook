@@ -3,7 +3,7 @@ export * from '../../Base/Parser/Monad/bind';
 export * from '../../Base/Parser/Monad/pure';
 export * from '../../Base/Parser/Reply';
 export * from '../../Base/Parser/State';
-export * from '../../Base/Parser/Type';
+export * from '../../Base/Parser/Parser';
 export * from '../../Base/Parser/advance-many';
 export * from '../../Base/Parser/advance-one';
 export * from '../../Base/Parser/alternative';

@@ -1,6 +1,6 @@
 module Base.Maybe.Trait.Eq where
 
-open import Base.Maybe.Type
+open import Base.Maybe.Maybe
 import Base.Maybe.eq as Maybe
 import Base.Maybe.neq as Maybe
 import Base.Trait.Eq as Eq

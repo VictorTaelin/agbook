@@ -1,4 +1,4 @@
-import { String } from '../../../Base/String/Type';
+import { String } from '../../../Base/String/String';
 import { Ord } from '../../../Base/Trait/Ord';
 import { $lt } from '../../../Base/String/lt';
 import { $lte } from '../../../Base/String/lte';

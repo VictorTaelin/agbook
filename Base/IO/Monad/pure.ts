@@ -1,4 +1,4 @@
-import { IO } from '../../../Base/IO/Type';
+import { IO } from '../../../Base/IO/IO';
 
 // Lifts a value into the IO monad.
 // - A: The type of the value being lifted.

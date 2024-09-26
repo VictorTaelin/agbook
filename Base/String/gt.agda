@@ -2,9 +2,9 @@ import Base.Char.Trait.Ord as CharOrd
 
 import Base.List.gt as List
 module Base.String.gt where
-open import Base.Bool.Type
-open import Base.Char.Type
-open import Base.String.Type
+open import Base.Bool.Bool
+open import Base.Char.Char
+open import Base.String.String
 open import Base.String.to-list
 
 -- Compares two strings to check if the first is greater than the second.

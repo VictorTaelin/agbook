@@ -1,6 +1,6 @@
 module Base.Equal.trans where
 
-open import Base.Equal.Type
+open import Base.Equal.Equal
 
 -- Transitivity property of equality.
 -- If x is equal to y and y is equal to z, then x is equal to z.

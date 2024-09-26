@@ -1,7 +1,7 @@
 module UG.Chat.Message.to-nat where
 
-open import Base.Nat.Type
-open import UG.Chat.Message.Type
+open import Base.Nat.Nat
+open import UG.Chat.Message.Message
 
 to-nat : Message -> Nat
 to-nat JOIN = 0

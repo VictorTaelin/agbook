@@ -1,20 +1,20 @@
 module Base.JSON.Test.parse-number where
 
-open import Base.JSON.Type
+open import Base.JSON.JSON
 open import Base.JSON.parse-number
-open import Base.Parser.Type
+open import Base.Parser.Parser
 open import Base.Parser.State
 open import Base.Parser.Reply
 open import Base.Parser.Error
-open import Base.Result.Type
-open import Base.String.Type
-open import Base.Nat.Type
-open import Base.Equal.Type
-open import Base.F64.Type
+open import Base.Result.Result
+open import Base.String.String
+open import Base.Nat.Nat
+open import Base.Equal.Equal
+open import Base.F64.F64
 open import Base.Function.case
-open import Base.Bool.Type
-open import Base.Unit.Type
-open import Base.Empty.Type
+open import Base.Bool.Bool
+open import Base.Unit.Unit
+open import Base.Empty.Empty
 
 -- Helper function to run the parser and extract the result
 run-parser : Parser JSON -> String -> Result JSON Error

@@ -1,6 +1,6 @@
 module Base.Maybe.run where
 
-open import Base.Maybe.Type
+open import Base.Maybe.Maybe
 
 -- Runs a Maybe monad, returning a default value if it is None.
 -- - d: The default value to return if ma is None.

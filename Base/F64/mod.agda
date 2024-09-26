@@ -3,7 +3,7 @@ module Base.F64.mod where
 open import Base.F64.div
 open import Base.F64.mul
 open import Base.F64.sub
-open import Base.F64.Type
+open import Base.F64.F64
 
 -- Computes the remainder of the division of x by y.
 -- - x: The dividend.

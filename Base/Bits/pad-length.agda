@@ -1,10 +1,10 @@
 module Base.Bits.pad-length where
 
-open import Base.Bits.Type
+open import Base.Bits.Bits
 open import Base.Bits.length
 open import Base.Bits.pad-zeros
-open import Base.Pair.Type
-open import Base.Nat.Type
+open import Base.Pair.Pair
+open import Base.Nat.Nat
 open import Base.Nat.max
 open import Base.Nat.sub
 

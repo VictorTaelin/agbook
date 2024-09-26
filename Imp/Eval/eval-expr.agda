@@ -5,13 +5,13 @@ import Base.Buffer.set as Buffer
 import Base.Maybe.to-result as Maybe
 import Imp.Eval.Env.get as Env
 open import Base.Function.case
-open import Base.Maybe.Type
-open import Base.Pair.Type
+open import Base.Maybe.Maybe
+open import Base.Pair.Pair
 open import Base.Result.Monad.bind
-open import Base.Result.Type
+open import Base.Result.Result
 open import Base.String.append
 open import Base.String.Trait.Ord
-open import Base.String.Type
+open import Base.String.String
 open import Base.Trait.Eq
 open import Base.Trait.Ord
 open import Base.U64.add
@@ -27,10 +27,10 @@ open import Base.U64.sub
 open import Base.U64.to-nat
 open import Base.U64.Trait.Eq
 open import Base.U64.Trait.Ord
-open import Base.U64.Type
-open import Imp.Eval.Env.Type
-open import Imp.Eval.Memory.Type
-open import Imp.Expr.Type
+open import Base.U64.U64
+open import Imp.Eval.Env.Env
+open import Imp.Eval.Memory.Memory
+open import Imp.Expr.Expr
 
 private
   EvalResult = Result (Pair Memory U64) String

@@ -1,7 +1,7 @@
 module Base.List.is-cons where
 
-open import Base.List.Type
-open import Base.Bool.Type
+open import Base.List.List
+open import Base.Bool.Bool
 
 -- Checks if a list is non-empty (cons).
 -- - xs: The list to check.

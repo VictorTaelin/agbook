@@ -1,16 +1,16 @@
 module Bend.Compile.BendToNet.Encoder.link-var where
 
 open import Base.Function.case
-open import Base.Maybe.Type
+open import Base.Maybe.Maybe
 open import Base.Maybe.Monad.bind
-open import Base.Pair.Type
-open import Base.String.Type
+open import Base.Pair.Pair
+open import Base.String.String
 open import Base.String.hash
 open import Base.BitMap.take renaming (take to map-take)
 open import Base.BitMap.set renaming (set to map-set)
-open import Bend.Compile.BendToNet.Encoder.Type
+open import Bend.Compile.BendToNet.Encoder.Encoder
 open import Bend.Net.link renaming (link to net-link)
-open import Bend.Net.Port.Type
+open import Bend.Net.Port.Port
 
 -- Adds one of the ports of a Bend variable to the Encoder.
 -- If the variable has already been seen, links the port to the other side.

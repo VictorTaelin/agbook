@@ -1,7 +1,7 @@
 module Base.Bits.lt where
 
-open import Base.Bits.Type
-open import Base.Bool.Type
+open import Base.Bits.Bits
+open import Base.Bool.Bool
 
 lt : Bits -> Bits -> Bool
 lt E     E     = False

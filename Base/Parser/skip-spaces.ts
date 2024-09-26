@@ -1,16 +1,16 @@
-import { Char } from '../../Base/Char/Type';
+import { Char } from '../../Base/Char/Char';
 import { $is_space } from '../../Base/Char/is-space';
-import { List } from '../../Base/List/Type';
+import { List } from '../../Base/List/List';
 import { $drop } from '../../Base/List/drop';
 import { $length } from '../../Base/List/length';
 import { $take_while } from '../../Base/List/take-while';
-import { Nat } from '../../Base/Nat/Type';
+import { Nat } from '../../Base/Nat/Nat';
 import { $add } from '../../Base/Nat/add';
 import { $MkReply } from '../../Base/Parser/Reply';
 import { State, $MkState } from '../../Base/Parser/State';
-import { Parser } from '../../Base/Parser/Type';
-import { $Done } from '../../Base/Result/Type';
-import { String } from '../../Base/String/Type';
+import { Parser } from '../../Base/Parser/Parser';
+import { $Done } from '../../Base/Result/Result';
+import { String } from '../../Base/String/String';
 import { $from_list } from '../../Base/String/from-list';
 import { $to_list } from '../../Base/String/to-list';
 

@@ -1,5 +1,5 @@
-import { BinTree } from '../../Base/BinTree/Type';
-import { Bool, $True } from '../../Base/Bool/Type';
+import { BinTree } from '../../Base/BinTree/BinTree';
+import { Bool, $True } from '../../Base/Bool/Bool';
 import { $and } from '../../Base/Bool/and';
 import { Eq, $eq } from '../../Base/Trait/Eq';
 import { $fold } from '../../Base/BinTree/fold';

@@ -3,7 +3,7 @@ module Base.U64.ALL where
 open import Base.U64.Trait.Eq public
 open import Base.U64.Trait.Ord public
 open import Base.U64.Trait.Show public
-open import Base.U64.Type public
+open import Base.U64.U64 public
 open import Base.U64.add public
 open import Base.U64.and public
 open import Base.U64.compare public

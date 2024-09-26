@@ -1,7 +1,7 @@
 module UG.SM.update-cached-tick where
 
-open import UG.SM.Type
-open import UG.SM.Tick.Type
+open import UG.SM.SM
+open import UG.SM.Tick.Tick
 
 open import Base.Bool.if
 open import Base.Nat.lt

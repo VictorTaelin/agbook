@@ -1,5 +1,5 @@
-import { F64 } from '../../Base/F64/Type';
-import { V2 } from '../../Base/V2/Type';
+import { F64 } from '../../Base/F64/F64';
+import { V2 } from '../../Base/V2/V2';
 import { $add } from '../../Base/V2/add';
 import { $mul_scalar } from '../../Base/V2/mul-scalar';
 import { $sub } from '../../Base/V2/sub';

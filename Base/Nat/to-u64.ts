@@ -1,5 +1,5 @@
-import { Nat } from '../../Base/Nat/Type';
-import { U64 } from '../../Base/U64/Type';
+import { Nat } from '../../Base/Nat/Nat';
+import { U64 } from '../../Base/U64/U64';
 
 // Converts a natural number to a 64-bit unsigned integer.
 // - n: The natural number to convert.

@@ -1,9 +1,9 @@
 module Base.AVLTree.to-list where
 
 open import Base.List.append
-open import Base.List.Type
-open import Base.Pair.Type
-open import Base.AVLTree.Type
+open import Base.List.List
+open import Base.Pair.Pair
+open import Base.AVLTree.AVLTree
 
 -- Converts an AVL tree to a sorted list.
 -- - tree: The AVL tree to convert.

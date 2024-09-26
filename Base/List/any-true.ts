@@ -1,6 +1,6 @@
-import { List } from '../../Base/List/Type';
+import { List } from '../../Base/List/List';
 import { $foldr } from '../../Base/List/foldr';
-import { Bool, $False } from '../../Base/Bool/Type';
+import { Bool, $False } from '../../Base/Bool/Bool';
 import { $or } from '../../Base/Bool/or';
 
 // Checks if any element of a list satisfies a given predicate.

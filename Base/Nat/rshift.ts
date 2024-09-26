@@ -1,4 +1,4 @@
-import { Nat } from '../../Base/Nat/Type';
+import { Nat } from '../../Base/Nat/Nat';
 import { $div } from '../../Base/Nat/div';
 import { $exp } from '../../Base/Nat/exp';
 

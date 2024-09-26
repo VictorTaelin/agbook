@@ -1,10 +1,10 @@
 module Base.String.head where
 
-open import Base.String.Type
+open import Base.String.String
 open import Base.String.to-list
-open import Base.Char.Type
-open import Base.Maybe.Type
-open import Base.List.Type
+open import Base.Char.Char
+open import Base.Maybe.Maybe
+open import Base.List.List
 
 -- Returns the first character of a string, if it exists.
 -- - 1st: The input string.

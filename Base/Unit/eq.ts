@@ -1,5 +1,5 @@
-import { Unit } from '../../Base/Unit/Type';
-import { Bool, True } from '../../Base/Bool/Type';
+import { Unit } from '../../Base/Unit/Unit';
+import { Bool, True } from '../../Base/Bool/Bool';
 
 // Checks if two Unit values are equal.
 // Always returns True since there's only one Unit value.

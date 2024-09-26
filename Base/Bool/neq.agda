@@ -1,6 +1,6 @@
 module Base.Bool.neq where
 
-open import Base.Bool.Type
+open import Base.Bool.Bool
 
 neq : Bool -> Bool -> Bool
 neq True  False = True

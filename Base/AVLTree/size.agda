@@ -1,8 +1,8 @@
 module Base.AVLTree.size where
 
-open import Base.Nat.Type
+open import Base.Nat.Nat
 open import Base.Nat.add
-open import Base.AVLTree.Type
+open import Base.AVLTree.AVLTree
 
 -- Calculates the size (number of nodes) of an AVL tree.
 -- - tree: The AVL tree to calculate the size of.

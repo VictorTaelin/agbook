@@ -1,8 +1,8 @@
 module Base.Bits.Test.reverse where
 
-open import Base.Bits.Type
+open import Base.Bits.Bits
 open import Base.Bits.reverse
-open import Base.Equal.Type
+open import Base.Equal.Equal
 
 test-reverse-empty : reverse E ≡ E
 test-reverse-empty = refl

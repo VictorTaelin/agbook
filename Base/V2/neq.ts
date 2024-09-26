@@ -1,9 +1,9 @@
-import { F64 } from '../../Base/F64/Type';
-import { Bool } from '../../Base/Bool/Type';
+import { F64 } from '../../Base/F64/F64';
+import { Bool } from '../../Base/Bool/Bool';
 import { $eq as float_eq } from '../../Base/F64/eq';
 import { $and } from '../../Base/Bool/and';
 import { $not } from '../../Base/Bool/not';
-import { V2 } from '../../Base/V2/Type';
+import { V2 } from '../../Base/V2/V2';
 
 // Checks if two V2 vectors are not equal.
 // - v1: The first V2 vector.

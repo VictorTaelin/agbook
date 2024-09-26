@@ -1,7 +1,7 @@
 import { BitMap, $Node, $Leaf } from './Type';
-import { Nat, $Zero, $Succ } from '../Nat/Type';
+import { Nat, $Zero, $Succ } from '../Nat/Nat';
 import { $add } from '../Nat/add';
-import { Maybe } from '../Maybe/Type';
+import { Maybe } from '../Maybe/Maybe';
 
 // Counts the number of elements in a BitMap.
 // - m: The BitMap to count elements from.

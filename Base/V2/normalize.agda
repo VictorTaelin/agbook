@@ -1,6 +1,6 @@
 module Base.V2.normalize where
 
-open import Base.V2.Type
+open import Base.V2.V2
 open import Base.V2.div-scalar
 open import Base.V2.length
 

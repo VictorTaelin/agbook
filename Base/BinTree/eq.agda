@@ -1,8 +1,8 @@
 module Base.BinTree.eq where
 
 import Base.Trait.Eq as Eq
-open import Base.BinTree.Type
-open import Base.Bool.Type
+open import Base.BinTree.BinTree
+open import Base.Bool.Bool
 open import Base.Bool.and
 
 -- Checks if two binary trees are equal.

@@ -1,20 +1,20 @@
 module Bend.Parser.list-like where
 
-open import Base.Parser.Type
+open import Base.Parser.Parser
 open import Base.Parser.Monad.bind
 open import Base.Parser.Monad.pure
 open import Base.Parser.alternative
 open import Bend.Parser.consume
 open import Bend.Parser.try-consume
 open import Bend.Parser.skip-trivia
-open import Base.Bool.Type
+open import Base.Bool.Bool
 open import Base.Bool.if
-open import Base.List.Type
+open import Base.List.List
 open import Base.List.reverse
-open import Base.Maybe.Type
-open import Base.Unit.Type
-open import Base.String.Type
-open import Base.Nat.Type
+open import Base.Maybe.Maybe
+open import Base.Unit.Unit
+open import Base.String.String
+open import Base.Nat.Nat
 open import Base.Function.case
 
 {-# TERMINATING #-}

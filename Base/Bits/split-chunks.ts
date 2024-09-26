@@ -1,6 +1,6 @@
-import { Nat } from '../../Base/Nat/Type';
-import { List, $Nil, $Cons } from '../../Base/List/Type';
-import { Bits, $E } from '../../Base/Bits/Type';
+import { Nat } from '../../Base/Nat/Nat';
+import { List, $Nil, $Cons } from '../../Base/List/List';
+import { Bits, $E } from '../../Base/Bits/Bits';
 import { $split_at } from '../../Base/Bits/split-at';
 
 // Collects Bits into a list of Bits, each with length `d`.

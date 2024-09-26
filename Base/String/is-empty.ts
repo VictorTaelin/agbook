@@ -1,7 +1,7 @@
-import { Bool, $True, $False } from '../../Base/Bool/Type';
-import { String } from '../../Base/String/Type';
-import { List } from '../../Base/List/Type';
-import { Char } from '../../Base/Char/Type';
+import { Bool, $True, $False } from '../../Base/Bool/Bool';
+import { String } from '../../Base/String/String';
+import { List } from '../../Base/List/List';
+import { Char } from '../../Base/Char/Char';
 import { $to_list } from '../../Base/String/to-list';
 
 export const $$is_empty = (s: String): Bool => {

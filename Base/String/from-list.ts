@@ -1,6 +1,6 @@
-import { List } from '../../Base/List/Type';
-import { Char } from '../../Base/Char/Type';
-import { String } from '../../Base/String/Type';
+import { List } from '../../Base/List/List';
+import { Char } from '../../Base/Char/Char';
+import { String } from '../../Base/String/String';
 
 // Converts a list of characters to a string.
 // - cs: The input list of characters.

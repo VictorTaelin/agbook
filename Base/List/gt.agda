@@ -1,7 +1,7 @@
 module Base.List.gt where
 
-open import Base.List.Type
-open import Base.Bool.Type
+open import Base.List.List
+open import Base.Bool.Bool
 import Base.Trait.Ord as Ord
 
 gt : ∀ {A : Set} -> {{O : Ord.Ord A}} -> List A -> List A -> Bool

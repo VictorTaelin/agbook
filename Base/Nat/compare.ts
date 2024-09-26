@@ -1,5 +1,5 @@
-import { Ordering, $LT, $EQ, $GT } from '../../Base/Ordering/Type';
-import { Nat } from '../../Base/Nat/Type';
+import { Ordering, $LT, $EQ, $GT } from '../../Base/Ordering/Ordering';
+import { Nat } from '../../Base/Nat/Nat';
 
 // Compares two natural numbers.
 // - m: The first natural number.

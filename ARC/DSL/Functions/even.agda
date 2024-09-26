@@ -1,7 +1,7 @@
 module ARC.DSL.Functions.even where
 
-open import ARC.DSL.Types.Integer.Type
-open import ARC.DSL.Types.Boolean.Type
+open import ARC.DSL.Types.Integer.Integer
+open import ARC.DSL.Types.Boolean.Boolean
 open import ARC.DSL.Types.Integer.Functions
 
 -- Checks if a Numerical value is even

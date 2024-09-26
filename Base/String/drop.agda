@@ -1,9 +1,9 @@
 module Base.String.drop where
 
 open import Base.Function.case
-open import Base.List.Type
-open import Base.Nat.Type
-open import Base.String.Type
+open import Base.List.List
+open import Base.Nat.Nat
+open import Base.String.String
 open import Base.String.from-list
 open import Base.String.to-list
 

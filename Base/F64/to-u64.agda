@@ -1,8 +1,8 @@
 module Base.F64.to-u64 where
 
-open import Base.F64.Type
-open import Base.Maybe.Type
-open import Base.U64.Type
+open import Base.F64.F64
+open import Base.Maybe.Maybe
+open import Base.U64.U64
 
 primitive primFloatToWord64 : F64 -> Maybe U64
 

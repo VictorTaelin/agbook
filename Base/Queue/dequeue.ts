@@ -1,7 +1,7 @@
-import { Queue, $MkQueue } from '../../Base/Queue/Type';
-import { List, $Cons, $Nil } from '../../Base/List/Type';
-import { Maybe, $Some, $None } from '../../Base/Maybe/Type';
-import { Pair, $Pair } from '../../Base/Pair/Type';
+import { Queue, $MkQueue } from '../../Base/Queue/Queue';
+import { List, $Cons, $Nil } from '../../Base/List/List';
+import { Maybe, $Some, $None } from '../../Base/Maybe/Maybe';
+import { Pair, $Pair } from '../../Base/Pair/Pair';
 import { $reverse } from '../../Base/List/reverse';
 
 export const $dequeue = <A>(queue: Queue<A>): Maybe<Pair<A, Queue<A>>> => {

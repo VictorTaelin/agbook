@@ -1,8 +1,8 @@
 module HVM2.Run.Monad.bind where
 
-open import Base.Pair.Type
-open import HVM2.Run.Type
-open import HVM2.Run.State.Type
+open import Base.Pair.Pair
+open import HVM2.Run.Run
+open import HVM2.Run.State.State
 
 -- Monadic bind for Run type
 bind : ∀ {A B : Set} -> Run A -> (A -> Run B) -> Run B

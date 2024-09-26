@@ -1,4 +1,4 @@
-import { F64 } from '../../Base/F64/Type';
+import { F64 } from '../../Base/F64/F64';
 
 // Exponentiation of floats.
 // - x: The base float.

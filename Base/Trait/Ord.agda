@@ -1,8 +1,8 @@
 module Base.Trait.Ord where
 
 open import Agda.Primitive
-open import Base.Bool.Type
-open import Base.Ordering.Type
+open import Base.Bool.Bool
+open import Base.Ordering.Ordering
 open import Base.Ordering.eq
 open import Base.Ordering.neq
 

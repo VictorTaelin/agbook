@@ -1,11 +1,11 @@
 module Base.Bits.Test.mul where
 
-open import Base.Bits.Type
+open import Base.Bits.Bits
 open import Base.Bits.mul
 open import Base.Bits.from-nat
 open import Base.Bits.to-nat
-open import Base.Nat.Type
-open import Base.Equal.Type
+open import Base.Nat.Nat
+open import Base.Equal.Equal
 
 test-mul-zero : (I (I E)) * E ≡ E
 test-mul-zero = refl

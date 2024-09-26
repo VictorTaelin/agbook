@@ -1,11 +1,11 @@
 module ARC.DSL.Functions.divide where
 
-open import ARC.DSL.Types.Numerical.Type
-open import ARC.DSL.Types.Integer.Type
-open import ARC.DSL.Types.Union.Type
-open import ARC.DSL.Types.Pair.Type
+open import ARC.DSL.Types.Numerical.Numerical
+open import ARC.DSL.Types.Integer.Integer
+open import ARC.DSL.Types.Union.Union
+open import ARC.DSL.Types.Pair.Pair
 import ARC.DSL.Types.Integer.Functions as I
-open import ARC.DSL.Types.IntegerPair.Type
+open import ARC.DSL.Types.IntegerPair.IntegerPair
 
 -- Division operation for Numerical types
 -- - a: The first Numerical value

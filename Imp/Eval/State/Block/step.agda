@@ -1,17 +1,17 @@
 module Imp.Eval.State.Block.step where
 
-open import Base.Buffer.Type
+open import Base.Buffer.Buffer
 open import Base.Function.case
-open import Base.Maybe.Type
-open import Base.Pair.Type
+open import Base.Maybe.Maybe
+open import Base.Pair.Pair
 open import Base.Queue.dequeue
 open import Base.Queue.enqueue
-open import Base.Queue.Type
+open import Base.Queue.Queue
 open import Base.Result.Monad.bind
-open import Base.Result.Type
-open import Base.String.Type
-open import Imp.Eval.Memory.Type
-open import Imp.Eval.State.Block.Type
+open import Base.Result.Result
+open import Base.String.String
+open import Imp.Eval.Memory.Memory
+open import Imp.Eval.State.Block.Block
 open import Imp.Eval.State.Thread.step renaming (step to step-thread)
 
 private

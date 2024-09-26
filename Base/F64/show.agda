@@ -1,7 +1,7 @@
 module Base.F64.show where
 
-open import Base.F64.Type
-open import Base.String.Type
+open import Base.F64.F64
+open import Base.String.String
 
 primitive primShowFloat : F64 -> String
 

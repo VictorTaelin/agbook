@@ -1,6 +1,6 @@
 module Base.Nat.pred where
 
-open import Base.Nat.Type
+open import Base.Nat.Nat
 
 -- Returns the predecessor of a natural number.
 -- - n: The input natural number.

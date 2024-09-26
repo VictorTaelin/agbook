@@ -1,4 +1,4 @@
-import { List } from '../../Base/List/Type';
+import { List } from '../../Base/List/List';
 import { $concat } from '../../Base/List/concat';
 import { $map } from '../../Base/List/map';
 

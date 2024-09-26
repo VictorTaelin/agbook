@@ -1,13 +1,13 @@
 module Base.F64.Test.eq where
 
-open import Base.F64.Type
+open import Base.F64.F64
 open import Base.F64.eq
 open import Base.F64.add
 open import Base.F64.lt
 open import Base.F64.sub
-open import Base.Bool.Type
+open import Base.Bool.Bool
 open import Base.Bool.and
-open import Base.Equal.Type
+open import Base.Equal.Equal
 
 equal : F64 -> F64 -> Bool
 equal x y = primFloatLess (primFloatMinus x y) 0.000001 

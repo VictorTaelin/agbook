@@ -1,15 +1,15 @@
 module UG.SM.get-initial-state where
 
-open import UG.SM.Type
-open import UG.SM.Game.Type
-open import UG.SM.Tick.Type
-open import UG.SM.StateLogs.Type
+open import UG.SM.SM
+open import UG.SM.Game.Game
+open import UG.SM.Tick.Tick
+open import UG.SM.StateLogs.StateLogs
 
 open import Base.Function.case using (case_of_)
 open import Base.BitMap.get
 open import Base.BitMap.set
 open import Base.Nat.to-bits
-open import Base.Maybe.Type
+open import Base.Maybe.Maybe
 
 -- get-initial-state: Helper function to get initial state
 -- mach: The machine containing state logs

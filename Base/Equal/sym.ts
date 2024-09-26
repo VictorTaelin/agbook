@@ -1,4 +1,4 @@
-import { Equal, $refl } from '../../Base/Equal/Type';
+import { Equal, $refl } from '../../Base/Equal/Equal';
 
 // Symmetry property of equality.
 // If x is equal to y, then y is equal to x.

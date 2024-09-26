@@ -1,12 +1,12 @@
 module Bend.Compile.NetToHvm.nets-to-hvm where
 
-open import Base.List.Type
-open import Base.Pair.Type
-open import Base.Result.Type
+open import Base.List.List
+open import Base.Pair.Pair
+open import Base.Result.Result
 open import Base.Result.Monad.bind
-open import Base.String.Type
-open import Bend.Net.Type renaming (Net to BNet)
-open import HVM2.Net.Type renaming (Net to HNet)
+open import Base.String.String
+open import Bend.Net.Net renaming (Net to BNet)
+open import HVM2.Net.Net renaming (Net to HNet)
 open import Bend.Compile.NetToHvm.net-to-hvm
 
 -- Converts a list of Bend Nets to a list of named HVM Nets.

@@ -1,6 +1,6 @@
-import { Bits } from '../../Base/Bits/Type';
+import { Bits } from '../../Base/Bits/Bits';
 import { $reverse } from '../../Base/Bits/reverse';
-import { String } from '../../Base/String/Type';
+import { String } from '../../Base/String/String';
 import { $append } from '../../Base/String/append';
 
 // Converts Bits to string with less significant values to the right.

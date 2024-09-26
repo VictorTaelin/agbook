@@ -1,7 +1,7 @@
 module Base.Ordering.neq where
 
-open import Base.Ordering.Type
-open import Base.Bool.Type
+open import Base.Ordering.Ordering
+open import Base.Bool.Bool
 
 neq : Ordering -> Ordering -> Bool
 neq LT LT = False

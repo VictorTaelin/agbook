@@ -1,6 +1,6 @@
 module Base.List.intersperse where
 
-open import Base.List.Type
+open import Base.List.List
 
 -- Intersperses a value between all other values of a list.
 -- - x: The value to intersperse.

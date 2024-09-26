@@ -1,6 +1,6 @@
-import { IO } from '../../Base/IO/Type';
-import { String } from '../../Base/String/Type';
-import { Bool } from '../../Base/Bool/Type';
+import { IO } from '../../Base/IO/IO';
+import { String } from '../../Base/String/String';
+import { Bool } from '../../Base/Bool/Bool';
 import * as fs from 'fs/promises';
 
 // Checks if a file exists at the given path.

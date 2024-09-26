@@ -1,4 +1,4 @@
-import { F64 } from '../../Base/F64/Type';
+import { F64 } from '../../Base/F64/F64';
 import { $if_then_else_ } from '../../Base/Bool/if';
 import { $lt } from '../../Base/F64/lt';
 

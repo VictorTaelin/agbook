@@ -3,17 +3,17 @@ module Bend.Parser.Fun.parse-book where
 open import Base.Bool.if
 open import Base.String.hash
 open import Base.BitMap.set renaming (set to map-set)
-open import Bend.Fun.Term.Type
-open import Base.Parser.Type
+open import Bend.Fun.Term.Term
+open import Base.Parser.Parser
 open import Base.Parser.Monad.bind
 open import Base.Parser.Monad.pure
 open import Base.Parser.is-eof
 open import Bend.Parser.skip-trivia
 open import Bend.Parser.Fun.parse-fn-def
-open import Bend.Parser.ParseBook.Type
+open import Bend.Parser.ParseBook.ParseBook
 open import Bend.Parser.ParseBook.TopLevel
 open import Bend.Parser.ParseBook.new renaming (new to new-book)
-import Bend.Fun.FnDef.Type as FnDef'
+import Bend.Fun.FnDef.FnDef as FnDef'
 
 private
   open module FnDef = FnDef' Term

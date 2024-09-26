@@ -1,4 +1,4 @@
-import { List, $Nil, $Cons } from '../../Base/List/Type';
+import { List, $Nil, $Cons } from '../../Base/List/List';
 import { $map } from '../../Base/List/map';
 import { $singleton } from '../../Base/List/singleton';
 

@@ -1,12 +1,12 @@
 module UG.Shape.pentagon where
 
 open import Base.F64.ALL
-open import Base.F64.Type
-open import Base.List.Type
+open import Base.F64.F64
+open import Base.List.List
 open import Base.List.append
 open import Base.List.map
-open import Base.V2.Type
-open import UG.Shape.Type
+open import Base.V2.V2
+open import UG.Shape.Shape
 
 -- Approximation of pi
 -- TODO: Replace with a more accurate representation if available

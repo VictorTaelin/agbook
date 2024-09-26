@@ -1,11 +1,11 @@
 module Bend.Parser.parse-keyword where
 
-open import Base.String.Type
+open import Base.String.String
 open import Base.String.append
-open import Base.Parser.Type
+open import Base.Parser.Parser
 open import Base.Parser.Monad.bind
 open import Base.Parser.fail
-open import Base.Unit.Type
+open import Base.Unit.Unit
 open import Base.Bool.if
 open import Bend.Parser.starts-with-keyword
 open import Bend.Parser.consume

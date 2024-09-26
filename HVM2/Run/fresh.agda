@@ -1,11 +1,11 @@
 module HVM2.Run.fresh where
 
-open import HVM2.Run.Type
-open import HVM2.Run.State.Type
-open import Base.Pair.Type
-open import Base.String.Type
+open import HVM2.Run.Run
+open import HVM2.Run.State.State
+open import Base.Pair.Pair
+open import Base.String.String
 open import Base.String.append
-open import Base.Nat.Type
+open import Base.Nat.Nat
 open import Base.Nat.add
 import Base.Nat.show as Nat
 

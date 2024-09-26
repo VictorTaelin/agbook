@@ -1,21 +1,21 @@
 module Bend.Compile.BendToNet.Encoder.encode-term where
 
-open import Base.Bits.Type
+open import Base.Bits.Bits
 open import Base.Function.case
-open import Base.List.Type
-open import Base.Maybe.Type
+open import Base.List.List
+open import Base.Maybe.Maybe
 open import Base.Maybe.to-result
-open import Base.Pair.Type
-open import Base.String.Type
+open import Base.Pair.Pair
+open import Base.String.String
 open import Base.String.append
-open import Base.Result.Type
+open import Base.Result.Result
 open import Base.Result.Monad.bind
-open import Bend.Fun.Pattern.Type using (Pattern)
-open import Bend.Fun.Term.Type using (Term)
-open import Bend.Net.Port.Type
-open import Bend.Net.NodeKind.Type using (NodeKind)
+open import Bend.Fun.Pattern.Pattern using (Pattern)
+open import Bend.Fun.Term.Term using (Term)
+open import Bend.Net.Port.Port
+open import Bend.Net.NodeKind.NodeKind using (NodeKind)
 open import Bend.Net.NodeKind.from-fan-kind
-open import Bend.Compile.BendToNet.Encoder.Type
+open import Bend.Compile.BendToNet.Encoder.Encoder
 open import Bend.Compile.BendToNet.Encoder.new-node
 open import Bend.Compile.BendToNet.Encoder.link
 open import Bend.Compile.BendToNet.Encoder.link-var

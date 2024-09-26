@@ -1,25 +1,25 @@
 module Bend.Parser.Fun.parse-term where
 
 open import Base.Function.case
-open import Base.Bool.Type
+open import Base.Bool.Bool
 open import Base.Bool.if
 open import Base.Bool.or
 open import Base.Char.is-digit
-open import Base.List.Type
+open import Base.List.List
 open import Base.List.foldl
 open import Base.List.unzip
 open import Base.List.reverse
-open import Base.String.Type
+open import Base.String.String
 open import Base.String.append
-open import Base.Maybe.Type
+open import Base.Maybe.Maybe
 open import Base.Maybe.maybe
-open import Base.Nat.Type
+open import Base.Nat.Nat
 open import Base.Nat.Trait.Show
-open import Base.Pair.Type
+open import Base.Pair.Pair
 open import Base.Trait.Show
-open import Bend.Fun.Term.Type renaming (List to List')
-open import Bend.Fun.FanKind.Type
-open import Base.Parser.Type
+open import Bend.Fun.Term.Term renaming (List to List')
+open import Bend.Fun.FanKind.FanKind
+open import Base.Parser.Parser
 open import Base.Parser.State
 open import Base.Parser.fail
 open import Base.Parser.Monad.bind
@@ -41,8 +41,8 @@ open import Bend.Parser.parse-oper
 open import Bend.Parser.list-like
 open import Bend.Parser.sep-by
 open import Bend.Parser.Fun.parse-pattern
-import Bend.Fun.Op.Type as Op
-import Bend.Fun.MatchRule.Type as MatchRule'
+import Bend.Fun.Op.Op as Op
+import Bend.Fun.MatchRule.MatchRule as MatchRule'
 
 private
   open module MatchRule = MatchRule' Term

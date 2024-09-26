@@ -1,9 +1,9 @@
 module Network.WebSocket.run-secure-client where
 
-open import Base.IO.Type
-open import Base.Int.Type
-open import Base.String.Type
-open import Base.Unit.Type
+open import Base.IO.IO
+open import Base.Int.Int
+open import Base.String.String
+open import Base.Unit.Unit
 open import Network.WebSocket.WSConnection
 
 -- Runs a secure WebSocket client connection.

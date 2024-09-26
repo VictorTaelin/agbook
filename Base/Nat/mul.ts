@@ -1,4 +1,4 @@
-import { Nat } from '../../Base/Nat/Type';
+import { Nat } from '../../Base/Nat/Nat';
 import { $add } from '../../Base/Nat/add';
 
 // Multiplication of nats.

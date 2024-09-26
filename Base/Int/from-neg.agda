@@ -1,7 +1,7 @@
 module Base.Int.from-neg where
 
-open import Base.Int.Type
-open import Base.Nat.Type
+open import Base.Int.Int
+open import Base.Nat.Nat
 
 -- Converts a negative natural number to an integer.
 -- - n: The natural number to convert.

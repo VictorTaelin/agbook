@@ -1,4 +1,4 @@
-import { Char } from '../../../Base/Char/Type';
+import { Char } from '../../../Base/Char/Char';
 import { $show as $char_show } from '../../../Base/Char/show';
 import { Show } from '../../../Base/Trait/Show';
 

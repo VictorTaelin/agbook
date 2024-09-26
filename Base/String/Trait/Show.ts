@@ -1,4 +1,4 @@
-import { String } from '../../../Base/String/Type';
+import { String } from '../../../Base/String/String';
 import { show as string_show } from '../../../Base/String/show';
 import { Show } from '../../../Base/Trait/Show';
 

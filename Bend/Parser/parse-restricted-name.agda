@@ -1,18 +1,18 @@
 module Bend.Parser.parse-restricted-name where
 
-open import Base.Char.Type
-open import Base.Bool.Type
+open import Base.Char.Char
+open import Base.Bool.Bool
 open import Base.Bool.if
-open import Base.String.Type
+open import Base.String.String
 open import Base.String.to-list
 open import Base.String.from-list
 open import Base.String.eq
 open import Base.String.starts-with
 open import Base.String.contains
 open import Base.String.append
-open import Base.Maybe.Type
-open import Base.Unit.Type
-open import Base.Parser.Type
+open import Base.Maybe.Maybe
+open import Base.Unit.Unit
+open import Base.Parser.Parser
 open import Base.Parser.State
 open import Base.Parser.consume
 open import Base.Parser.fail

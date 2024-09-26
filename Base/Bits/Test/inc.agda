@@ -1,9 +1,9 @@
 module Base.Bits.Test.inc where
 
-open import Base.Bits.Type
+open import Base.Bits.Bits
 open import Base.Bits.inc
-open import Base.Equal.Type
-open import Base.Bool.Type
+open import Base.Equal.Equal
+open import Base.Bool.Bool
 
 test-inc-empty : inc E ≡ E
 test-inc-empty = refl

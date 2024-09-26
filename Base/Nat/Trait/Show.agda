@@ -1,6 +1,6 @@
 module Base.Nat.Trait.Show where
 
-open import Base.Nat.Type
+open import Base.Nat.Nat
 import Base.Trait.Show as Show
 import Base.Nat.show as Nat
 

@@ -1,11 +1,11 @@
-import { Char } from '../../Base/Char/Type';
-import { List, $Nil, $Cons } from '../../Base/List/Type';
+import { Char } from '../../Base/Char/Char';
+import { List, $Nil, $Cons } from '../../Base/List/List';
 import { $bind, $seq } from '../../Base/Parser/Monad/bind';
 import { $pure } from '../../Base/Parser/Monad/pure';
-import { Parser } from '../../Base/Parser/Type';
+import { Parser } from '../../Base/Parser/Parser';
 import { $consume } from '../../Base/Parser/consume';
 import { $parse_char } from '../../Base/Parser/parse-char';
-import { String } from '../../Base/String/Type';
+import { String } from '../../Base/String/String';
 import { $from_list } from '../../Base/String/from-list';
 
 // Helper function to parse multiple characters

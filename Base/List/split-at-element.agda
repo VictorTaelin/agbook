@@ -1,8 +1,8 @@
 module Base.List.split-at-element where
 
-open import Base.List.Type
-open import Base.Pair.Type
-open import Base.Bool.Type
+open import Base.List.List
+open import Base.Pair.Pair
+open import Base.Bool.Bool
 open import Base.Function.case
 open import Base.List.split
 

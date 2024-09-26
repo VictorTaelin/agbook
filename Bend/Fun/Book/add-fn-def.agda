@@ -1,12 +1,12 @@
 module Bend.Fun.Book.add-fn-def where
 
-open import Bend.Fun.Book.Type
-open import Bend.Fun.Term.Type
+open import Bend.Fun.Book.Book
+open import Bend.Fun.Term.Term
 open import Base.BitMap.set
 open import Base.String.hash
 
 private
-  import Bend.Fun.FnDef.Type as FnDef'
+  import Bend.Fun.FnDef.FnDef as FnDef'
   open module FnDef = FnDef' Term
 
 -- Adds a new function definition to the Book.

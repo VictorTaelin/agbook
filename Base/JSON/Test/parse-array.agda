@@ -1,19 +1,19 @@
 module Base.JSON.Test.parse-array where
 
-open import Base.JSON.Type
+open import Base.JSON.JSON
 open import Base.JSON.parse-array
 open import Base.JSON.parse
-open import Base.Parser.Type
+open import Base.Parser.Parser
 open import Base.Parser.State
 open import Base.Parser.Reply
 open import Base.Parser.Error
-open import Base.Result.Type
-open import Base.String.Type
-open import Base.Nat.Type
-open import Base.Equal.Type
-open import Base.Bool.Type
-open import Base.List.Type
-open import Base.F64.Type
+open import Base.Result.Result
+open import Base.String.String
+open import Base.Nat.Nat
+open import Base.Equal.Equal
+open import Base.Bool.Bool
+open import Base.List.List
+open import Base.F64.F64
 
 test-parse-empty-array : parse-array parse-JSON (MkState "[]" 0) ≡ Done (MkReply (MkState "" 2) (JArray []))
 test-parse-empty-array = refl

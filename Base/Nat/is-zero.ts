@@ -1,5 +1,5 @@
-import { Nat } from '../../Base/Nat/Type';
-import { Bool, $True, $False } from '../../Base/Bool/Type';
+import { Nat } from '../../Base/Nat/Nat';
+import { Bool, $True, $False } from '../../Base/Bool/Bool';
 
 // Checks if a natural number is zero.
 // - n: The natural number to check.

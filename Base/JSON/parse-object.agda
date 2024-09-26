@@ -1,15 +1,15 @@
 module Base.JSON.parse-object where
 
-open import Base.JSON.Type
-open import Base.List.Type
-open import Base.Pair.Type
-open import Base.Parser.Type
+open import Base.JSON.JSON
+open import Base.List.List
+open import Base.Pair.Pair
+open import Base.Parser.Parser
 open import Base.Parser.Monad.bind
 open import Base.Parser.consume
 open import Base.Parser.Monad.pure
 open import Base.Parser.skip-spaces
 open import Base.Parser.alternative
-open import Base.String.Type
+open import Base.String.String
 open import Base.JSON.parse-string
 
 -- Parses a single key-value pair in a JSON object.

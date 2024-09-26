@@ -1,7 +1,7 @@
 module Base.Bits.pad-zeros where
 
-open import Base.Bits.Type
-open import Base.Nat.Type
+open import Base.Bits.Bits
+open import Base.Nat.Nat
 
 -- Pads Bits with insignificant zeroes to achieve a specific length.
 -- - n: The desired length of the resulting Bits.

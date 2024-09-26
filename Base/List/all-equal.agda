@@ -1,7 +1,7 @@
 module Base.List.all-equal where
 
-open import Base.List.Type
-open import Base.Bool.Type
+open import Base.List.List
+open import Base.Bool.Bool
 open import Base.Bool.and
 open import Base.Trait.Eq
 

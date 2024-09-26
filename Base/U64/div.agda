@@ -1,9 +1,9 @@
 module Base.U64.div where
 
-open import Base.U64.Type
+open import Base.U64.U64
 open import Base.U64.Trait.Ord
-open import Base.Bool.Type
-open import Base.Nat.Type
+open import Base.Bool.Bool
+open import Base.Nat.Nat
 open import Base.U64.if
 open import Base.U64.min
 open import Base.U64.from-bool

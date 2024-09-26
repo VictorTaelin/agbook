@@ -1,6 +1,6 @@
-import { Bits, $O, $I, $E } from '../../Base/Bits/Type';
+import { Bits, $O, $I, $E } from '../../Base/Bits/Bits';
 import { $normal } from '../../Base/Bits/normal';
-import { Nat } from '../../Base/Nat/Type';
+import { Nat } from '../../Base/Nat/Nat';
 import { $div } from '../../Base/Nat/div';
 import { $eq } from '../../Base/Nat/eq';
 import { $mod } from '../../Base/Nat/mod';

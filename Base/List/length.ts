@@ -1,5 +1,5 @@
-import { List } from '../../Base/List/Type';
-import { Nat, $Zero, $Succ } from '../../Base/Nat/Type';
+import { List } from '../../Base/List/List';
+import { Nat, $Zero, $Succ } from '../../Base/Nat/Nat';
 
 // Computes the length of a list.
 // - xs: The input list.

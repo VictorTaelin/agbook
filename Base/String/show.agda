@@ -1,6 +1,6 @@
 module Base.String.show where
 
-open import Base.String.Type
+open import Base.String.String
 
 primitive primShowString : String -> String
 

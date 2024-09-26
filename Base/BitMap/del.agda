@@ -1,9 +1,9 @@
 module Base.BitMap.del where
 
-open import Base.BitMap.Type
-open import Base.Bits.Type
-open import Base.Maybe.Type
-open import Base.BinTree.Type
+open import Base.BitMap.BitMap
+open import Base.Bits.Bits
+open import Base.Maybe.Maybe
+open import Base.BinTree.BinTree
 
 -- Removes a key-value pair from the BitMap.
 -- - m: The BitMap to remove from.

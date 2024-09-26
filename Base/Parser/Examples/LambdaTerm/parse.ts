@@ -1,14 +1,14 @@
-import { Maybe, $Some, $None } from '../../../../Base/Maybe/Type';
-import { Term, $Lam, $App, $Var } from '../../../../Base/Parser/Examples/LambdaTerm/Type';
+import { Maybe, $Some, $None } from '../../../../Base/Maybe/Maybe';
+import { Term, $Lam, $App, $Var } from '../../../../Base/Parser/Examples/LambdaTerm/LambdaTerm';
 import { $bind, bind } from '../../../../Base/Parser/Monad/bind';
 import { $pure } from '../../../../Base/Parser/Monad/pure';
 import { State } from '../../../../Base/Parser/State';
-import { Parser } from '../../../../Base/Parser/Type';
+import { Parser } from '../../../../Base/Parser/Parser';
 import { $consume } from '../../../../Base/Parser/consume';
 import { $parse_name } from '../../../../Base/Parser/parse-name';
 import { $peek_one } from '../../../../Base/Parser/peek-one';
 import { $skip_trivia } from '../../../../Base/Parser/skip-trivia';
-import { String } from '../../../../Base/String/Type';
+import { String } from '../../../../Base/String/String';
 
 export const $parse: Parser<Term> = 
   $bind($skip_trivia, () =>

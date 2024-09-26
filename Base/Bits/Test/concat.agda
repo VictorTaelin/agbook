@@ -1,9 +1,9 @@
 module Base.Bits.Test.concat where
 
-open import Base.Bits.Type
+open import Base.Bits.Bits
 open import Base.Bits.concat
-open import Base.List.Type
-open import Base.Equal.Type
+open import Base.List.List
+open import Base.Equal.Equal
 
 test-concat-empty : concat [] ≡ E
 test-concat-empty = refl

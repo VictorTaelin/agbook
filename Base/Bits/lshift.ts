@@ -1,5 +1,5 @@
-import { Bits, $O, $E } from '../../Base/Bits/Type';
-import { Nat } from '../../Base/Nat/Type';
+import { Bits, $O, $E } from '../../Base/Bits/Bits';
+import { Nat } from '../../Base/Nat/Nat';
 
 // Performs left shift operation on a Bits value.
 // - bits: The input Bits value.

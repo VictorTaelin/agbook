@@ -1,9 +1,9 @@
 module Bend.Fun.Book.contains-def where
 
-open import Bend.Fun.Book.Type
-open import Base.String.Type
+open import Bend.Fun.Book.Book
+open import Base.String.String
 open import Base.String.hash
-open import Base.Bool.Type
+open import Base.Bool.Bool
 open import Base.BitMap.contains as Map
 
 -- Checks if a Book contains a function definition with the given name.

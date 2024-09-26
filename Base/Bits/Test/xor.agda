@@ -1,8 +1,8 @@
 module Base.Bits.Test.xor where
 
-open import Base.Bits.Type
+open import Base.Bits.Bits
 open import Base.Bits.xor
-open import Base.Equal.Type
+open import Base.Equal.Equal
 
 test-xor-empty : E ^ E ≡ E
 test-xor-empty = refl

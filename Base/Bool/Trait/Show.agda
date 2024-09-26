@@ -1,6 +1,6 @@
 module Base.Bool.Trait.Show where
 
-open import Base.Bool.Type
+open import Base.Bool.Bool
 import Base.Bool.show as Bool
 open import Base.Trait.Show
 

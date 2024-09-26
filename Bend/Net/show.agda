@@ -1,17 +1,17 @@
 module Bend.Net.show where
 
-open import Base.String.Type
+open import Base.String.String
 open import Base.String.append
-open import Base.Nat.Type
+open import Base.Nat.Nat
 open import Base.Nat.Trait.Show
 open import Base.BitMap.to-list
-open import Base.Pair.Type
-open import Base.Bits.Type
+open import Base.Pair.Pair
+open import Base.Bits.Bits
 open import Base.Bits.to-nat
 open import Base.List.foldr
 open import Base.List.map
-open import Bend.Net.Type
-open import Bend.Net.Node.Type
+open import Bend.Net.Net
+open import Bend.Net.Node.Node
 open import Bend.Net.Node.show
 open import Base.Trait.Show
 

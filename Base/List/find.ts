@@ -1,6 +1,6 @@
-import { List, $Cons, $Nil } from '../../Base/List/Type';
-import { Maybe, $Some, $None } from '../../Base/Maybe/Type';
-import { Bool } from '../../Base/Bool/Type';
+import { List, $Cons, $Nil } from '../../Base/List/List';
+import { Maybe, $Some, $None } from '../../Base/Maybe/Maybe';
+import { Bool } from '../../Base/Bool/Bool';
 
 // Finds the first element in a list that satisfies a given predicate.
 // - pred: The predicate function to test elements.

@@ -1,6 +1,6 @@
-import { List, $Cons, $Nil } from '../../Base/List/Type';
-import { Nat, $Zero, $Succ } from '../../Base/Nat/Type';
-import { Maybe, $None, $Some } from '../../Base/Maybe/Type';
+import { List, $Cons, $Nil } from '../../Base/List/List';
+import { Nat, $Zero, $Succ } from '../../Base/Nat/Nat';
+import { Maybe, $None, $Some } from '../../Base/Maybe/Maybe';
 
 // Retrieves the element at the specified index in the list.
 // - xs: The input list.

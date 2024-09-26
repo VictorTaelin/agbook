@@ -1,6 +1,6 @@
 module Base.V2.ALL where
 
-open import Base.V2.Type public
+open import Base.V2.V2 public
 open import Base.V2.add public
 open import Base.V2.dist public
 open import Base.V2.div public

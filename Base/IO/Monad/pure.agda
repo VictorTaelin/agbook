@@ -1,6 +1,6 @@
 module Base.IO.Monad.pure where
 
-open import Base.IO.Type
+open import Base.IO.IO
 
 postulate pure : ∀ {A : Set} -> A -> IO A
 

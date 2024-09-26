@@ -1,7 +1,7 @@
 module Base.List.insert-at-sorted where
 
-open import Base.List.Type
-open import Base.Bool.Type
+open import Base.List.List
+open import Base.Bool.Bool
 
 -- Inserts an element into a sorted list, maintaining the sort order.
 -- - leq: The less-than-or-equal comparison function.

@@ -1,12 +1,12 @@
 module Base.BitMap.to-list where
 
-open import Base.Bits.Type
+open import Base.Bits.Bits
 open import Base.Bits.reverse
-open import Base.List.Type
+open import Base.List.List
 open import Base.List.append
-open import Base.BitMap.Type
-open import Base.Maybe.Type
-open import Base.Pair.Type
+open import Base.BitMap.BitMap
+open import Base.Maybe.Maybe
+open import Base.Pair.Pair
 
 -- Helper function to traverse the BitMap and accumulate pairs
 to-list-go : ∀ {A : Set} -> BitMap A -> Bits -> List (Pair Bits A)

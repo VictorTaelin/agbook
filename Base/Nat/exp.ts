@@ -1,4 +1,4 @@
-import { Nat } from '../../Base/Nat/Type';
+import { Nat } from '../../Base/Nat/Nat';
 import { $mul } from '../../Base/Nat/mul';
 
 // Exponentiation of nats.

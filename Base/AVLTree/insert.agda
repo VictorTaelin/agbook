@@ -1,16 +1,16 @@
 module Base.AVLTree.insert where
 
-open import Base.Bool.Type
+open import Base.Bool.Bool
 open import Base.Function.case
-open import Base.Ordering.Type
+open import Base.Ordering.Ordering
 open import Base.Pair.get-fst
-open import Base.Pair.Type
+open import Base.Pair.Pair
 open import Base.Trait.Ord
 open import Base.AVLTree.Balance.rotate-left
 open import Base.AVLTree.Balance.rotate-right
-open import Base.AVLTree.Balance.Type
+open import Base.AVLTree.Balance.Balance
 open import Base.AVLTree.empty
-open import Base.AVLTree.Type
+open import Base.AVLTree.AVLTree
 
 -- Inserts a value into an AVL tree, maintaining balance.
 -- - v: The pair key-value to insert.

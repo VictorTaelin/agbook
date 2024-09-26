@@ -1,6 +1,6 @@
 module ARC.DSL.Functions.flip where
 
-open import ARC.DSL.Types.Boolean.Type
+open import ARC.DSL.Types.Boolean.Boolean
 open import ARC.DSL.Types.Boolean.Functions
 
 -- Flips a Boolean value

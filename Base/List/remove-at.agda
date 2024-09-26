@@ -1,9 +1,9 @@
 module Base.List.remove-at where
 
-open import Base.List.Type
-open import Base.Nat.Type
+open import Base.List.List
+open import Base.Nat.Nat
 open import Base.Nat.lt
-open import Base.Maybe.Type
+open import Base.Maybe.Maybe
 open import Base.Bool.if
 
 -- Removes the element at the specified index from the list.

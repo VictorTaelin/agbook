@@ -1,4 +1,4 @@
-import { Nat, Zero } from '../../Base/Nat/Type';
+import { Nat, Zero } from '../../Base/Nat/Nat';
 
 // Helper function div-helper for Euclidean division.
 const $$div_helper = (k: Nat, m: Nat, n: Nat, j: Nat): Nat => {

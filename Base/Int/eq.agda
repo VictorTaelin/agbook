@@ -1,9 +1,9 @@
 module Base.Int.eq where
 
 import Base.Nat.eq as Nat
-open import Base.Bool.Type
-open import Base.Int.Type
-open import Base.Nat.Type
+open import Base.Bool.Bool
+open import Base.Int.Int
+open import Base.Nat.Nat
 
 -- Checks if two integers are equal.
 -- - x: The 1st integer.

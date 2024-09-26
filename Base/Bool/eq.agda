@@ -1,6 +1,6 @@
 module Base.Bool.eq where
 
-open import Base.Bool.Type
+open import Base.Bool.Bool
 
 eq : Bool -> Bool -> Bool
 eq True  True  = True

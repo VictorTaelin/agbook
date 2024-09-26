@@ -1,6 +1,6 @@
 module Base.Nat.add where
 
-open import Base.Nat.Type
+open import Base.Nat.Nat
 
 -- Addition of nats.
 -- - m: The 1st nat.

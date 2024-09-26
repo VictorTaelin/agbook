@@ -1,9 +1,9 @@
 module HVM1.Node.port-get where
 
-open import Base.Bits.Type
-open import Base.Nat.Type
-open import HVM1.Node.Type
-open import HVM1.Port.Type
+open import Base.Bits.Bits
+open import Base.Nat.Nat
+open import HVM1.Node.Node
+open import HVM1.Port.Port
 
 -- Gets the port of a node at a given slot.
 -- - node: The node to query.

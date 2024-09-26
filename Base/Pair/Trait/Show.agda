@@ -1,6 +1,6 @@
 module Base.Pair.Trait.Show where
 
-open import Base.Pair.Type
+open import Base.Pair.Pair
 import Base.Pair.show as Pair
 import Base.Trait.Show as Show
 

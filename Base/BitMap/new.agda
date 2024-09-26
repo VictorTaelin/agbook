@@ -1,7 +1,7 @@
 module Base.BitMap.new where
 
-open import Base.BitMap.Type
-open import Base.BinTree.Type
+open import Base.BitMap.BitMap
+open import Base.BinTree.BinTree
 
 -- Creates an empty BitMap.
 -- = An empty BitMap.

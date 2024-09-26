@@ -1,4 +1,4 @@
-import { List, $Nil, $Cons } from '../../Base/List/Type';
+import { List, $Nil, $Cons } from '../../Base/List/List';
 
 // Applies a function to each element of a list.
 // - fn: The function to be applied.

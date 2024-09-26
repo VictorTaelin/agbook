@@ -1,7 +1,7 @@
 module Base.U64.from-bool where
 
-open import Base.Bool.Type
-open import Base.U64.Type 
+open import Base.Bool.Bool
+open import Base.U64.U64 
 open import Base.U64.from-nat
 
 -- Converts a Bool to a U64 number.

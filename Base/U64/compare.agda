@@ -1,7 +1,7 @@
 module Base.U64.compare where
 
-open import Base.U64.Type
-open import Base.Ordering.Type
+open import Base.U64.U64
+open import Base.Ordering.Ordering
 open import Base.Bool.if
 import Base.U64.eq as U64
 import Base.U64.lt as U64

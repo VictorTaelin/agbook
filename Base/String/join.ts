@@ -1,5 +1,5 @@
-import { List } from '../../Base/List/Type';
-import { String } from '../../Base/String/Type';
+import { List } from '../../Base/List/List';
+import { String } from '../../Base/String/String';
 import { $foldr } from '../../Base/List/foldr';
 import { $append } from '../../Base/String/append';
 import { $eq } from '../../Base/String/eq';

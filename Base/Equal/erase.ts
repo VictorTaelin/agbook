@@ -1,4 +1,4 @@
-import { Equal } from '../../Base/Equal/Type';
+import { Equal } from '../../Base/Equal/Equal';
 
 // Erases the equality proof, returning a new equality proof.
 // This is a no-op in TypeScript since we don't have actual proof objects.

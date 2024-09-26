@@ -1,10 +1,10 @@
 module Base.List.is-asc where
 
-open import Base.Bool.Type
+open import Base.Bool.Bool
 open import Base.Bool.and
-open import Base.List.Type
+open import Base.List.List
 open import Base.List.foldr
-open import Base.Nat.Type
+open import Base.Nat.Nat
 open import Base.Nat.Trait.Ord
 open import Base.Trait.Ord
 

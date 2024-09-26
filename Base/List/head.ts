@@ -1,5 +1,5 @@
-import { List, $Cons, $Nil } from '../../Base/List/Type';
-import { Maybe, $None, $Some } from '../../Base/Maybe/Type';
+import { List, $Cons, $Nil } from '../../Base/List/List';
+import { Maybe, $None, $Some } from '../../Base/Maybe/Maybe';
 
 // Safely retrieves the first element of a list.
 // - xs: The input list.

@@ -1,7 +1,7 @@
 module Base.Unit.neq where
 
-open import Base.Bool.Type
-open import Base.Unit.Type
+open import Base.Bool.Bool
+open import Base.Unit.Unit
 
 -- Inequality check for Unit type.
 -- - x: The 1st Unit value.

@@ -1,7 +1,7 @@
 import { $not } from '../../Base/Bool/not';
 import { $or as bool_or } from '../../Base/Bool/or';
-import { Bool } from '../../Base/Bool/Type';
-import { F64 } from '../../Base/F64/Type';
+import { Bool } from '../../Base/Bool/Bool';
+import { F64 } from '../../Base/F64/F64';
 import { $eq } from '../../Base/F64/eq';
 
 // Performs a logical OR on two floats.

@@ -1,4 +1,4 @@
-import { Bool } from '../../Base/Bool/Type';
+import { Bool } from '../../Base/Bool/Bool';
 
 // Performs logical AND operation on two boolean values.
 // - a: The first boolean value.

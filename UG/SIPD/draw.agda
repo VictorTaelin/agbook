@@ -1,11 +1,11 @@
 module UG.SIPD.draw where
 
-open import Base.IO.Type
-open import Base.List.Type
-open import Base.Unit.Type
-open import UG.SIPD.Renderer.Type
-open import UG.SIPD.Window.Type
-open import UG.SIPD.State.Type
+open import Base.IO.IO
+open import Base.List.List
+open import Base.Unit.Unit
+open import UG.SIPD.Renderer.Renderer
+open import UG.SIPD.Window.Window
+open import UG.SIPD.State.State
 
 postulate draw : Window -> Renderer -> State -> IO Unit
 
@@ -15,7 +15,7 @@ postulate draw : Window -> Renderer -> State -> IO Unit
 {-# FOREIGN GHC
 import qualified SDL.Font as TTF
 import Foreign.C.Types (CInt)
-import MAlonzo.Code.UG.SIPD.State.Type (State(..))
+import MAlonzo.Code.UG.SIPD.State.State (State(..))
 import qualified Data.Text as T
 import System.Directory (getCurrentDirectory)
 import System.FilePath ((</>))

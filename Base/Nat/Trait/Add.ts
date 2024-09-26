@@ -1,4 +1,4 @@
-import { Nat } from '../../../Base/Nat/Type';
+import { Nat } from '../../../Base/Nat/Nat';
 import { Add, $make_add } from '../../../Base/Trait/Add';
 import { $add as nat_add } from '../../../Base/Nat/add';
 

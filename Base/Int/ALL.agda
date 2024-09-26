@@ -3,7 +3,7 @@ module Base.Int.ALL where
 open import Base.Int.Trait.Eq public
 open import Base.Int.Trait.Ord public
 open import Base.Int.Trait.Show public
-open import Base.Int.Type public
+open import Base.Int.Int public
 open import Base.Int.compare public
 open import Base.Int.eq public
 open import Base.Int.from-nat public

@@ -1,6 +1,6 @@
 module Base.List.Monad.bind where
 
-open import Base.List.Type
+open import Base.List.List
 open import Base.List.append
 
 -- The bind function for the List monad.

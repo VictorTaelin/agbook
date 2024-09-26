@@ -1,8 +1,8 @@
 module Base.String.replicate where
 
-open import Base.Char.Type
-open import Base.Nat.Type
-open import Base.String.Type
+open import Base.Char.Char
+open import Base.Nat.Nat
+open import Base.String.String
 open import Base.String.append
 open import Base.String.from-char
 

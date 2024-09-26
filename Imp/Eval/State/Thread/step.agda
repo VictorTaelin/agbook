@@ -7,22 +7,22 @@ import Imp.Eval.Env.pop as Env
 import Imp.Eval.Env.push as Env
 import Imp.Eval.Env.set as Env
 open import Base.Function.case
-open import Base.List.Type
-open import Base.Maybe.Type
-open import Base.Pair.Type
+open import Base.List.List
+open import Base.Maybe.Maybe
+open import Base.Pair.Pair
 open import Base.Result.Monad.bind
-open import Base.Result.Type
-open import Base.String.Type
+open import Base.Result.Result
+open import Base.String.String
 open import Base.U64.from-nat
 open import Base.U64.if
 open import Base.U64.to-nat
-open import Base.U64.Type
+open import Base.U64.U64
 open import Imp.Eval.eval-expr
-open import Imp.Eval.Frame.Type
-open import Imp.Eval.Memory.Type
-open import Imp.Eval.State.Thread.Type
-open import Imp.Expr.Type
-open import Imp.Stmt.Type
+open import Imp.Eval.Frame.Frame
+open import Imp.Eval.Memory.Memory
+open import Imp.Eval.State.Thread.Thread
+open import Imp.Expr.Expr
+open import Imp.Stmt.Stmt
 
 private
   StepResult = Result (Pair Memory (Maybe Thread)) String

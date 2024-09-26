@@ -1,7 +1,7 @@
 module Base.U64.lte where
 
-open import Base.U64.Type
-open import Base.Bool.Type
+open import Base.U64.U64
+open import Base.Bool.Bool
 import Base.Nat.lte as Nat
 open import Base.U64.to-nat
 

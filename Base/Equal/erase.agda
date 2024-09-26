@@ -1,6 +1,6 @@
 module Base.Equal.erase where
 
-open import Base.Equal.Type
+open import Base.Equal.Equal
 
 primitive primEraseEquality : ∀ {a} {A : Set a} {x y : A} -> x ≡ y -> x ≡ y
 

@@ -1,14 +1,14 @@
 module Bend.Compile.book-to-hvm where
 
-open import Base.List.Type
-open import Base.Pair.Type
-open import Base.Result.Type
+open import Base.List.List
+open import Base.Pair.Pair
+open import Base.Result.Result
 open import Base.Result.Monad.bind
-open import Base.String.Type
-open import Bend.Fun.Book.Type renaming (Book to BBook)
+open import Base.String.String
+open import Bend.Fun.Book.Book renaming (Book to BBook)
 open import Bend.Compile.BendToNet.book-to-nets
 open import Bend.Compile.NetToHvm.nets-to-hvm
-open import HVM2.Net.Type renaming (Net to HNet)
+open import HVM2.Net.Net renaming (Net to HNet)
 
 -- Converts a Bend Book to a list of HVM Nets.
 -- This function performs the following steps:

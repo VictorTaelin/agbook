@@ -1,6 +1,6 @@
 module Base.U64.mod where
 
-open import Base.U64.Type
+open import Base.U64.U64
 open import Base.U64.div
 open import Base.U64.mul
 open import Base.U64.sub

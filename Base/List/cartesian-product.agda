@@ -1,8 +1,8 @@
 module Base.List.cartesian-product where
 
-open import Base.List.Type
+open import Base.List.List
 open import Base.List.cartesian-product-with
-open import Base.Pair.Type
+open import Base.Pair.Pair
 
 -- Returns the cartesian product of two lists.
 -- - xs: The first input list.

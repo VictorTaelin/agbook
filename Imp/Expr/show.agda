@@ -2,9 +2,9 @@ module Imp.Expr.show where
 
 open import Base.Nat.show renaming (show to show-nat)
 open import Base.String.append
-open import Base.String.Type
+open import Base.String.String
 open import Base.U64.show renaming (show to show-u64)
-open import Imp.Expr.Type
+open import Imp.Expr.Expr
 
 -- Converts an Imp Expression to its string representation.
 show : Expr -> String

@@ -1,4 +1,4 @@
-import { Nat, Zero } from '../../Base/Nat/Type';
+import { Nat, Zero } from '../../Base/Nat/Nat';
 
 // Returns the predecessor of a natural number.
 // - n: The input natural number.

@@ -4,12 +4,12 @@ open import Base.Parser.parse-char
 open import Base.Parser.Error
 open import Base.Parser.State
 open import Base.Parser.Reply
-open import Base.Parser.Type
-open import Base.Result.Type
-open import Base.String.Type
-open import Base.Char.Type
-open import Base.Equal.Type
-open import Base.Nat.Type
+open import Base.Parser.Parser
+open import Base.Result.Result
+open import Base.String.String
+open import Base.Char.Char
+open import Base.Equal.Equal
+open import Base.Nat.Nat
 
 test-parse-char-normal : parse-char (MkState "abc" 0) ≡ Done (MkReply (MkState "bc" 1) 'a')
 test-parse-char-normal = refl

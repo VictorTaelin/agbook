@@ -1,8 +1,8 @@
-import { Bits } from '../../Base/Bits/Type';
-import { F64 } from '../../Base/F64/Type';
+import { Bits } from '../../Base/Bits/Bits';
+import { F64 } from '../../Base/F64/F64';
 import { $from_u64 } from '../../Base/F64/from-u64';
-import { Maybe, $Some, $None } from '../../Base/Maybe/Type';
-import { U64 } from '../../Base/U64/Type';
+import { Maybe, $Some, $None } from '../../Base/Maybe/Maybe';
+import { U64 } from '../../Base/U64/U64';
 import { $from_bits as u64_from_bits } from '../../Base/U64/from-bits';
 
 // Converts a bit representation to a F64

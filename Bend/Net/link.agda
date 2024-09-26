@@ -1,9 +1,9 @@
 module Bend.Net.link where
 
-open import Base.Maybe.Type
+open import Base.Maybe.Maybe
 open import Base.Maybe.Monad.bind
-open import Bend.Net.Type
-open import Bend.Net.Port.Type
+open import Bend.Net.Net
+open import Bend.Net.Port.Port
 open import Bend.Net.set-port
 
 link : Net -> Port -> Port -> Maybe Net

@@ -1,8 +1,8 @@
 module Base.Bits.show-rev where
 
-open import Base.Bits.Type
+open import Base.Bits.Bits
 open import Base.Bits.reverse
-open import Base.String.Type
+open import Base.String.String
 open import Base.String.append
 
 -- Converts Bits to string with less significant values to the right.

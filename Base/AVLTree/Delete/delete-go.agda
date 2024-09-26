@@ -1,16 +1,16 @@
 module Base.AVLTree.Delete.delete-go where
 
-open import Base.AVLTree.Balance.Type
+open import Base.AVLTree.Balance.Balance
 open import Base.AVLTree.Balance.rotate-left
 open import Base.AVLTree.Balance.rotate-right
-open import Base.AVLTree.Type
+open import Base.AVLTree.AVLTree
 open import Base.AVLTree.Delete.delete-maximum
 open import Base.AVLTree.empty
-open import Base.Bool.Type
+open import Base.Bool.Bool
 open import Base.Bool.not
-open import Base.Maybe.Type
-open import Base.Ordering.Type
-open import Base.Pair.Type
+open import Base.Maybe.Maybe
+open import Base.Ordering.Ordering
+open import Base.Pair.Pair
 open import Base.Pair.map
 open import Base.Pair.mut-snd
 open import Base.Trait.Ord

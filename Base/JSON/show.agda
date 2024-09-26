@@ -2,16 +2,16 @@ module Base.JSON.show where
 
 import Base.F64.show as F64
 import Base.String.show as String
-open import Base.Bool.Type
+open import Base.Bool.Bool
 open import Base.Bool.if
-open import Base.F64.Type
-open import Base.JSON.Type
-open import Base.List.Type
+open import Base.F64.F64
+open import Base.JSON.JSON
+open import Base.List.List
 open import Base.List.foldr
-open import Base.Pair.Type
+open import Base.Pair.Pair
 open import Base.Pair.get-fst
 open import Base.Pair.get-snd
-open import Base.String.Type
+open import Base.String.String
 open import Base.String.append
 open import Base.String.eq
 

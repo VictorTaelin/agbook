@@ -1,15 +1,15 @@
 module Bend.Fun.Type.show where
 
 open import Bend.Fun.Type.Type
-open import Base.String.Type
+open import Base.String.String
 open import Base.String.append
 open import Base.String.join
-open import Base.List.Type
+open import Base.List.List
 open import Base.List.map
 open import Base.List.intersperse
 open import Base.List.concat
 open import Base.Trait.Show
-open import Base.Bool.Type
+open import Base.Bool.Bool
 open import Base.Bool.if
 
 

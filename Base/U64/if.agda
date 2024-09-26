@@ -1,8 +1,8 @@
 module Base.U64.if where 
 
-open import Base.U64.Type 
-open import Base.Bool.Type 
-open import Base.Nat.Type
+open import Base.U64.U64 
+open import Base.Bool.Bool 
+open import Base.Nat.Nat
 open import Base.U64.to-nat
 
 infix 0 if_then_else_

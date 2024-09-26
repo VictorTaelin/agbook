@@ -1,5 +1,5 @@
-import { U64 } from '../../Base/U64/Type';
-import { String } from '../../Base/String/Type';
+import { U64 } from '../../Base/U64/U64';
+import { String } from '../../Base/String/String';
 import { $append } from '../../Base/String/append';
 import { $show as nat_show } from '../../Base/Nat/show';
 import { $to_nat } from '../../Base/U64/to-nat';

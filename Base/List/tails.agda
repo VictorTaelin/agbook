@@ -1,6 +1,6 @@
 module Base.List.tails where
 
-open import Base.List.Type
+open import Base.List.List
 open import Base.List.singleton
 
 -- Returns all final segments of a list, longest first.

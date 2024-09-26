@@ -1,8 +1,8 @@
-import { Nat, $Zero } from '../../Base/Nat/Type';
-import { String } from '../../Base/String/Type';
+import { Nat, $Zero } from '../../Base/Nat/Nat';
+import { String } from '../../Base/String/String';
 import { $to_list } from '../../Base/String/to-list';
 import { $from_list } from '../../Base/String/from-list';
-import { List, $Nil, $Cons } from '../../Base/List/Type';
+import { List, $Nil, $Cons } from '../../Base/List/List';
 import { $case_of_ } from '../../Base/Function/case';
 
 // Drops the first n characters from a string.

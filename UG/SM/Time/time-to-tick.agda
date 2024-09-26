@@ -1,10 +1,10 @@
 module UG.SM.Time.time-to-tick where
 
-open import UG.SM.Type
-open import UG.SM.Time.Type
-open import UG.SM.Tick.Type
+open import UG.SM.SM
+open import UG.SM.Time.Time
+open import UG.SM.Tick.Tick
 
-open import Base.Nat.Type
+open import Base.Nat.Nat
 open import Base.Nat.div
 open import Base.Nat.mul
 

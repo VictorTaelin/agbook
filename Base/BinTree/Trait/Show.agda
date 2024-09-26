@@ -2,7 +2,7 @@ module Base.BinTree.Trait.Show where
 
 import Base.BinTree.show as BinTree
 import Base.Trait.Show as Show
-open import Base.BinTree.Type
+open import Base.BinTree.BinTree
 
 -- Provides an instance of the Show trait for BinTree.
 -- This allows BinTree to be converted to a string representation.

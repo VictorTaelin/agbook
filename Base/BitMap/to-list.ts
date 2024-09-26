@@ -1,10 +1,10 @@
-import { Bits, $O, $I, $E } from '../Bits/Type';
+import { Bits, $O, $I, $E } from '../Bits/Bits';
 import { $reverse } from '../Bits/reverse';
-import { List, $Nil, $Cons } from '../List/Type';
+import { List, $Nil, $Cons } from '../List/List';
 import { $append } from '../List/append';
 import { BitMap, $Node, $Leaf } from './Type';
-import { Maybe } from '../Maybe/Type';
-import { Pair, $Pair } from '../Pair/Type';
+import { Maybe } from '../Maybe/Maybe';
+import { Pair, $Pair } from '../Pair/Pair';
 
 // Helper function to traverse the BitMap and accumulate pairs
 const to_list_helper = <A>(m: BitMap<A>, acc: Bits): List<Pair<Bits, A>> => {

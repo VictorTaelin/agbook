@@ -1,6 +1,6 @@
 module Base.IO.Monad.bind where
 
-open import Base.IO.Type
+open import Base.IO.IO
 
 postulate bind : ∀ {A B : Set} -> IO A -> (A -> IO B) -> IO B
 

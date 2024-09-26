@@ -1,7 +1,7 @@
 module Base.Nat.lte where
 
-open import Base.Nat.Type
-open import Base.Bool.Type
+open import Base.Nat.Nat
+open import Base.Bool.Bool
 open import Base.Bool.or
 open import Base.Nat.eq
 open import Base.Nat.lt

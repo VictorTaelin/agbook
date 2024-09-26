@@ -1,21 +1,21 @@
 module Bend.Parser.Test.skip-trivia where
 
-open import Base.Bool.Type
-open import Base.Char.Type
+open import Base.Bool.Bool
+open import Base.Char.Char
 open import Base.Char.is-space
-open import Base.Unit.Type
-open import Base.Result.Type
+open import Base.Unit.Unit
+open import Base.Result.Result
 open import Base.Parser.State
 open import Base.Parser.Reply
-open import Base.Parser.Type
+open import Base.Parser.Parser
 open import Base.Parser.Monad.bind
 open import Base.Parser.Monad.pure
 open import Base.Parser.alternative
 open import Base.Parser.starts-with
 open import Base.Parser.advance-many
-open import Base.String.Type
+open import Base.String.String
 open import Base.String.eq
-open import Base.Equal.Type
+open import Base.Equal.Equal
 open import Bend.Parser.skip-trivia
 
 -- Test cases

@@ -1,7 +1,7 @@
 module Base.Int.Trait.Ord where
 
 open import Base.Trait.Ord
-open import Base.Int.Type
+open import Base.Int.Int
 import Base.Int.compare as Int
 import Base.Int.lt as Int
 import Base.Int.gt as Int

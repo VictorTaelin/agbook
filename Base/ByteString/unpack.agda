@@ -1,8 +1,8 @@
 module Base.ByteString.unpack where
 
-open import Base.ByteString.Type
-open import Base.List.Type
-open import Base.Word8.Type
+open import Base.ByteString.ByteString
+open import Base.List.List
+open import Base.Word8.Word8
 
 postulate unpack : ByteString -> List Word8
 

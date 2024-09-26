@@ -1,5 +1,5 @@
-import { List, $Cons, $Nil } from '../../Base/List/Type';
-import { Nat, $Zero } from '../../Base/Nat/Type';
+import { List, $Cons, $Nil } from '../../Base/List/List';
+import { Nat, $Zero } from '../../Base/Nat/Nat';
 
 // Updates an element at a specific index in a list.
 // If the index is out of bounds, the original list is returned.

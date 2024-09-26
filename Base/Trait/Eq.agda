@@ -1,7 +1,7 @@
 module Base.Trait.Eq where
 
 open import Agda.Primitive
-open import Base.Bool.Type
+open import Base.Bool.Bool
 open import Base.Bool.not
 
 record Eq {a} (A : Set a) : Set (lsuc a) where

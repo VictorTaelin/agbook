@@ -1,7 +1,7 @@
 module Base.F64.min where
 
 open import Base.Bool.if
-open import Base.F64.Type
+open import Base.F64.F64
 open import Base.F64.lt
 
 -- Returns the minimum of two floats.

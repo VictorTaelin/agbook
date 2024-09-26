@@ -1,9 +1,9 @@
 module UG.Shape.triangle where
 
-open import Base.List.Type
+open import Base.List.List
 open import Base.List.append
-open import Base.V2.Type
-open import UG.Shape.Type
+open import Base.V2.V2
+open import UG.Shape.Shape
 
 -- Creates a triangular Shape defined by three vertices.
 -- - v1: The first vertex of the triangle (V2).

@@ -1,5 +1,5 @@
-import { Char } from '../../Base/Char/Type';
-import { Nat } from '../../Base/Nat/Type';
+import { Char } from '../../Base/Char/Char';
+import { Nat } from '../../Base/Nat/Nat';
 
 // Converts a natural number to its corresponding character.
 // - n: The natural number to convert.

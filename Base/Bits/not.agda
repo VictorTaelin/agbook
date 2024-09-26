@@ -1,6 +1,6 @@
 module Base.Bits.not where
 
-open import Base.Bits.Type
+open import Base.Bits.Bits
 
 -- Performs bitwise NOT operation on a Bits value.
 -- - bits: The input Bits value.

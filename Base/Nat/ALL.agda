@@ -5,7 +5,7 @@ open import Base.Nat.Trait.Eq public
 open import Base.Nat.Trait.Ord public
 open import Base.Nat.Trait.Ord public
 open import Base.Nat.Trait.Show public
-open import Base.Nat.Type public
+open import Base.Nat.Nat public
 open import Base.Nat.add public
 open import Base.Nat.compare public
 open import Base.Nat.div public

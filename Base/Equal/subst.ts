@@ -1,4 +1,4 @@
-import { Equal } from '../../Base/Equal/Type';
+import { Equal } from '../../Base/Equal/Equal';
 
 // Substitution property of equality:
 // If x is equal to y, then a predicate P holding for x also holds for y.

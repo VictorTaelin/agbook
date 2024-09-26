@@ -1,12 +1,12 @@
 module UG.SM.ActionLogs.get-actions where
 
-open import Base.List.Type
+open import Base.List.List
 open import Base.BitMap.get
 open import Base.Nat.to-bits
-open import Base.Maybe.Type
+open import Base.Maybe.Maybe
 
-open import UG.SM.Tick.Type
-open import UG.SM.ActionLogs.Type
+open import UG.SM.Tick.Tick
+open import UG.SM.ActionLogs.ActionLogs
 
 -- Retrieves the list of actions for a specific tick from the ActionLogs.
 -- If no actions exist for the given tick, returns an empty list.

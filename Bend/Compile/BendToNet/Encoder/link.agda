@@ -1,10 +1,10 @@
 module Bend.Compile.BendToNet.Encoder.link where
 
-open import Base.Maybe.Type
+open import Base.Maybe.Maybe
 open import Base.Maybe.Monad.bind
-open import Bend.Compile.BendToNet.Encoder.Type
+open import Bend.Compile.BendToNet.Encoder.Encoder
 open import Bend.Net.link renaming (link to net-link)
-open import Bend.Net.Port.Type
+open import Bend.Net.Port.Port
 
 -- Links two ports in the Encoder's net
 -- - enc: The current Encoder state

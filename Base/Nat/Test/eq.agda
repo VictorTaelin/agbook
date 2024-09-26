@@ -1,9 +1,9 @@
 module Base.Nat.Test.eq where
 
-open import Base.Nat.Type
+open import Base.Nat.Nat
 open import Base.Nat.eq
-open import Base.Bool.Type
-open import Base.Equal.Type
+open import Base.Bool.Bool
+open import Base.Equal.Equal
 
 test-eq-same : (42 == 42) ≡ True
 test-eq-same = refl

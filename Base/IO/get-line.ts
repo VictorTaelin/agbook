@@ -1,6 +1,6 @@
 import * as readline from 'readline';
-import { IO } from '../../Base/IO/Type';
-import { String } from '../../Base/String/Type';
+import { IO } from '../../Base/IO/IO';
+import { String } from '../../Base/String/String';
 
 // Reads a line of input from the console.
 // = An IO action that, when executed, resolves to the input string.

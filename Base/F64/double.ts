@@ -1,4 +1,4 @@
-import { F64 } from '../../Base/F64/Type';
+import { F64 } from '../../Base/F64/F64';
 import { $add } from '../../Base/F64/add';
 
 // Doubles a float.

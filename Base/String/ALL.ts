@@ -2,7 +2,7 @@ export * from '../../Base/String/Trait/Eq';
 export * from '../../Base/String/Trait/Monoid';
 export * from '../../Base/String/Trait/Ord';
 export * from '../../Base/String/Trait/Show';
-export * from '../../Base/String/Type';
+export * from '../../Base/String/String';
 export * from '../../Base/String/append';
 export * from '../../Base/String/drop';
 export * from '../../Base/String/eq';

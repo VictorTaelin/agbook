@@ -1,6 +1,6 @@
 module Base.Pair.map where
 
-open import Base.Pair.Type
+open import Base.Pair.Pair
 
 map : ∀ {a b c d} {A : Set a} {B : A -> Set b} {C : Set c} {D : C -> Set d}
       -> (f : A -> C)

@@ -1,5 +1,5 @@
-import { List, $Nil, $Cons } from '../../Base/List/Type';
-import { Nat, $Zero } from '../../Base/Nat/Type';
+import { List, $Nil, $Cons } from '../../Base/List/List';
+import { Nat, $Zero } from '../../Base/Nat/Nat';
 
 // Generates a list by iterating a function over an initial value.
 // - f: The function to be applied repeatedly.

@@ -1,8 +1,8 @@
 module Base.Char.hex-to-nat where
 
-open import Base.Char.Type
-open import Base.Nat.Type
-open import Base.Maybe.Type
+open import Base.Char.Char
+open import Base.Nat.Nat
+open import Base.Maybe.Maybe
 open import Base.Char.digit-to-nat
 
 -- Converts a hexadecimal character to its corresponding natural number

@@ -1,4 +1,4 @@
-import { Maybe, $None, $Some } from '../../Maybe/Type';
+import { Maybe, $None, $Some } from '../../Maybe/Maybe';
 
 // Applies a function to the value inside a Maybe, if it exists.
 // - ma: The Maybe value to operate on.

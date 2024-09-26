@@ -1,6 +1,6 @@
 export * from '../../Base/Bool/Trait/Eq';
 export * from '../../Base/Bool/Trait/Show';
-export * from '../../Base/Bool/Type';
+export * from '../../Base/Bool/Bool';
 export * from '../../Base/Bool/and';
 export * from '../../Base/Bool/not';
 export * from '../../Base/Bool/or';

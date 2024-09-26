@@ -1,10 +1,10 @@
 module Base.OrdSet.singleton where
 
 import Base.AVLTree.singleton as AVL
-open import Base.OrdSet.Type
-open import Base.Pair.Type
+open import Base.OrdSet.OrdSet
+open import Base.Pair.Pair
 open import Base.Trait.Ord
-open import Base.Unit.Type
+open import Base.Unit.Unit
 
 -- Creates an OrdSet containing a single element.
 -- - V: The type of the element.

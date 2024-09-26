@@ -1,8 +1,8 @@
 module Base.Bits.Test.not where
 
-open import Base.Bits.Type
+open import Base.Bits.Bits
 open import Base.Bits.not
-open import Base.Equal.Type
+open import Base.Equal.Equal
 
 test-not-empty : not E ≡ E
 test-not-empty = refl

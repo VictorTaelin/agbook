@@ -1,12 +1,12 @@
 module Base.List.Test.eq where
 
-open import Base.List.Type
+open import Base.List.List
 open import Base.List.eq
-open import Base.Nat.Type
+open import Base.Nat.Nat
 open import Base.Nat.eq
-open import Base.Bool.Type
+open import Base.Bool.Bool
 open import Base.Bool.eq
-open import Base.Equal.Type
+open import Base.Equal.Equal
 
 test-eq-different-lists : ((1 :: 2 :: 3 :: []) == (1 :: 2 :: 4 :: [])) ≡ False
 test-eq-different-lists = refl

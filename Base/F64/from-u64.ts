@@ -1,6 +1,6 @@
-import { F64 } from '../../Base/F64/Type';
-import { U64 } from '../../Base/U64/Type';
-import { Nat } from '../../Base/Nat/Type';
+import { F64 } from '../../Base/F64/F64';
+import { U64 } from '../../Base/U64/U64';
+import { Nat } from '../../Base/Nat/Nat';
 import { $to_nat } from '../../Base/U64/to-nat';
 
 // Converts a U64 to a F64

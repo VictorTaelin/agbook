@@ -1,7 +1,7 @@
 module Base.Char.is-digit where
 
-open import Base.Char.Type
-open import Base.Bool.Type
+open import Base.Char.Char
+open import Base.Bool.Bool
 
 primitive
   primIsDigit : Char -> Bool

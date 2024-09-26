@@ -1,6 +1,6 @@
-import { Char } from '../../Base/Char/Type';
-import { Nat } from '../../Base/Nat/Type';
-import { Maybe, Some, None } from '../../Base/Maybe/Type';
+import { Char } from '../../Base/Char/Char';
+import { Nat } from '../../Base/Nat/Nat';
+import { Maybe, Some, None } from '../../Base/Maybe/Maybe';
 import { $digit_to_nat } from '../../Base/Char/digit-to-nat';
 
 // Converts a hexadecimal character to its corresponding natural number

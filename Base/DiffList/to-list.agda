@@ -1,7 +1,7 @@
 module Base.DiffList.to-list where
 
-open import Base.DiffList.Type
-open import Base.List.Type
+open import Base.DiffList.DiffList
+open import Base.List.List
 
 -- Converts a DiffList to a List.
 -- - xs: The DiffList to convert.

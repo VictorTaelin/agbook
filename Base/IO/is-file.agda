@@ -1,8 +1,8 @@
 module Base.IO.is-file where
 
-open import Base.IO.Type
-open import Base.String.Type
-open import Base.Bool.Type
+open import Base.IO.IO
+open import Base.String.String
+open import Base.Bool.Bool
 
 postulate
   is-file : String -> IO Bool

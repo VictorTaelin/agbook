@@ -1,7 +1,7 @@
 module Base.Maybe.to-bool where
 
-open import Base.Maybe.Type
-open import Base.Bool.Type
+open import Base.Maybe.Maybe
+open import Base.Bool.Bool
 
 -- Converts a Maybe value to a Bool.
 -- - ma: The Maybe value to convert.

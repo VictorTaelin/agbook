@@ -1,6 +1,6 @@
 module Base.ByteString.tail where
 
-open import Base.ByteString.Type
+open import Base.ByteString.ByteString
 
 postulate tail : ByteString -> ByteString
 

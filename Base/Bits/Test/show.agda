@@ -1,9 +1,9 @@
 module Base.Bits.Test.show where
 
-open import Base.Bits.Type
+open import Base.Bits.Bits
 open import Base.Bits.show
-open import Base.String.Type
-open import Base.Equal.Type
+open import Base.String.String
+open import Base.Equal.Equal
 
 test-empty : show E ≡ "e"
 test-empty = refl

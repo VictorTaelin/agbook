@@ -1,7 +1,7 @@
 module Base.JSON.parse-number where
 
-open import Base.JSON.Type
-open import Base.Parser.Type
+open import Base.JSON.JSON
+open import Base.Parser.Parser
 open import Base.Parser.Monad.bind
 open import Base.Parser.consume
 open import Base.Parser.Monad.pure
@@ -15,11 +15,11 @@ open import Base.F64.mul renaming (_*_ to _f*_)
 open import Base.F64.exp renaming (_^_ to _f^_)
 open import Base.Function.case
 open import Base.String.append
-open import Base.String.Type
+open import Base.String.String
 open import Base.String.eq
-open import Base.Bool.Type
-open import Base.Maybe.Type
-open import Base.Nat.Type
+open import Base.Bool.Bool
+open import Base.Maybe.Maybe
+open import Base.Nat.Nat
 open import Base.Nat.exp
 
 is-empty : String -> Bool

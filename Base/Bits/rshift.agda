@@ -1,7 +1,7 @@
 module Base.Bits.rshift where
 
-open import Base.Bits.Type
-open import Base.Nat.Type
+open import Base.Bits.Bits
+open import Base.Nat.Nat
 
 -- Performs right shift operation on a Bits value.
 -- - bits: The input Bits value.

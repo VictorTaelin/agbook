@@ -1,4 +1,4 @@
-import { List, $Cons, $Nil } from '../../Base/List/Type';
+import { List, $Cons, $Nil } from '../../Base/List/List';
 import { Eq } from '../../Base/Trait/Eq';
 import { $contains } from '../../Base/List/contains';
 import { $filter } from '../../Base/List/filter';

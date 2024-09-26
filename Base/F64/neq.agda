@@ -1,7 +1,7 @@
 module Base.F64.neq where
 
-open import Base.F64.Type
-open import Base.Bool.Type
+open import Base.F64.F64
+open import Base.Bool.Bool
 open import Base.Bool.not
 import Base.F64.eq as F64
 

@@ -1,7 +1,7 @@
 module Base.Bits.neq where
 
-open import Base.Bits.Type
-open import Base.Bool.Type
+open import Base.Bits.Bits
+open import Base.Bool.Bool
 open import Base.Bool.not
 import Base.Bits.eq as Bits
 

@@ -1,14 +1,14 @@
 module UG.SM.ActionLogs.add-action where
 
-open import UG.SM.Tick.Type
-open import UG.SM.ActionLogs.Type
+open import UG.SM.Tick.Tick
+open import UG.SM.ActionLogs.ActionLogs
 
-open import Base.BitMap.Type
-open import Base.List.Type
+open import Base.BitMap.BitMap
+open import Base.List.List
 open import Base.BitMap.get
 open import Base.BitMap.set
 open import Base.Nat.to-bits
-open import Base.Maybe.Type
+open import Base.Maybe.Maybe
 open import Base.List.append
 
 -- Adds an action to the ActionLogs at a specific tick.

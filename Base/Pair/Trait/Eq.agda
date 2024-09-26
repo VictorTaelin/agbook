@@ -1,6 +1,6 @@
 module Base.Pair.Trait.Eq where
 
-open import Base.Pair.Type
+open import Base.Pair.Pair
 import Base.Pair.eq as Pair
 import Base.Pair.neq as Pair
 import Base.Trait.Eq as Eq

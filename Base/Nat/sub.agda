@@ -1,6 +1,6 @@
 module Base.Nat.sub where
 
-open import Base.Nat.Type
+open import Base.Nat.Nat
 
 -- Subtracts one nat from another.
 -- - m: The number to subtract from.

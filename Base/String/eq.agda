@@ -1,7 +1,7 @@
 module Base.String.eq where
 
-open import Base.String.Type
-open import Base.Bool.Type
+open import Base.String.String
+open import Base.Bool.Bool
 
 primitive
   primStringEquality : String -> String -> Bool

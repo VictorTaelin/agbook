@@ -1,6 +1,6 @@
 module Base.List.map where
 
-open import Base.List.Type
+open import Base.List.List
 
 -- Applies a function to each element of a list.
 -- - fn: The function to be applied.

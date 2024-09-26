@@ -1,9 +1,9 @@
 module Imp.Notation where
 
-open import Imp.Expr.Type
-open import Imp.Stmt.Type
-open import Base.Nat.Type
-open import Base.String.Type
+open import Imp.Expr.Expr
+open import Imp.Stmt.Stmt
+open import Base.Nat.Nat
+open import Base.String.String
 
 --------------------------------------------------
 -- Expressions

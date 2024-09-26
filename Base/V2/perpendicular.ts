@@ -1,6 +1,6 @@
-import { F64 } from '../../Base/F64/Type';
+import { F64 } from '../../Base/F64/F64';
 import { $negate } from '../../Base/F64/negate';
-import { V2, $MkV2 } from '../../Base/V2/Type';
+import { V2, $MkV2 } from '../../Base/V2/V2';
 
 // Calculates a vector perpendicular to the given V2 vector.
 // - v: The V2 vector.

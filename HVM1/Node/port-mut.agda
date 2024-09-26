@@ -2,21 +2,21 @@ module HVM1.Node.port-mut where
 
 -- NOTE: do *NOT* fix the style of this file
 
-open import Base.Bits.Type
-open import Base.Nat.Type
-open import Base.Unit.Type
-open import Base.Maybe.Type
+open import Base.Bits.Bits
+open import Base.Nat.Nat
+open import Base.Unit.Unit
+open import Base.Maybe.Maybe
 open import Base.Function.case
-open import HVM1.Net.Type
-open import HVM1.Node.Type
+open import HVM1.Net.Net
+open import HVM1.Node.Node
 open import HVM1.Node.port-get
 open import HVM1.Node.port-set
-open import HVM1.Port.Type
-open import HVM1.Run.State.Type
-open import HVM1.Run.Type
+open import HVM1.Port.Port
+open import HVM1.Run.State.State
+open import HVM1.Run.Run
 open import HVM1.Run.Monad.bind
 open import HVM1.Run.state-mut
-import Base.BitMap.Type as M
+import Base.BitMap.BitMap as M
 import Base.BitMap.get as M
 import Base.BitMap.set as M
 

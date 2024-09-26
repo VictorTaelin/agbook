@@ -1,11 +1,11 @@
 module UG.Shape.square where
 
 import Base.F64.ALL as F64
-open import Base.F64.Type
-open import Base.List.Type
+open import Base.F64.F64
+open import Base.List.List
 open import Base.List.append
-open import Base.V2.Type
-open import UG.Shape.Type
+open import Base.V2.V2
+open import UG.Shape.Shape
 
 -- Creates a square Shape centered at a given point with a specified side length.
 -- - center: The center point of the square (V2).

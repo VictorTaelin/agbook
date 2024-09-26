@@ -1,8 +1,8 @@
 module Base.List.all-true where
 
-open import Base.List.Type
+open import Base.List.List
 open import Base.List.foldr
-open import Base.Bool.Type
+open import Base.Bool.Bool
 open import Base.Bool.and
 
 -- Checks if all elements of a list satisfy a given predicate.

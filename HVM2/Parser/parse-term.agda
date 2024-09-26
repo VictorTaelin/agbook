@@ -9,10 +9,10 @@ open import Base.Parser.Monad.bind
 open import Base.Parser.Monad.pure
 open import Base.Parser.skip-trivia
 open import Base.Parser.parse-name
-open import Base.Parser.Type
-open import Base.String.Type
+open import Base.Parser.Parser
+open import Base.String.String
 open import Base.Parser.consume
-open import HVM2.Term.Type
+open import HVM2.Term.Term
 
 parse-term : Parser Term
 parse-term = do

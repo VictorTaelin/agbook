@@ -1,7 +1,7 @@
 module Base.Nat.to-bits where
 
-open import Base.Nat.Type
-open import Base.Bits.Type
+open import Base.Nat.Nat
+open import Base.Bits.Bits
 open import Base.Nat.div
 open import Base.Nat.mod
 open import Base.Nat.eq

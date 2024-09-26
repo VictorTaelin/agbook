@@ -1,17 +1,17 @@
 module Bend.Compile.BendToNet.Encoder.encode-pat where
 
-open import Base.List.Type
+open import Base.List.List
 open import Base.List.map
-open import Base.Maybe.Type
+open import Base.Maybe.Maybe
 open import Base.Maybe.Monad.bind
-open import Base.Pair.Type
-open import Base.String.Type
+open import Base.Pair.Pair
+open import Base.String.String
 open import Base.String.append
-open import Bend.Fun.Pattern.Type
-open import Bend.Net.Port.Type
-open import Bend.Net.NodeKind.Type
+open import Bend.Fun.Pattern.Pattern
+open import Bend.Net.Port.Port
+open import Bend.Net.NodeKind.NodeKind
 open import Bend.Net.NodeKind.from-fan-kind
-open import Bend.Compile.BendToNet.Encoder.Type
+open import Bend.Compile.BendToNet.Encoder.Encoder
 open import Bend.Compile.BendToNet.Encoder.link
 open import Bend.Compile.BendToNet.Encoder.link-var
 open import Bend.Compile.BendToNet.Encoder.new-node

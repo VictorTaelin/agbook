@@ -1,8 +1,8 @@
 module Base.List.unzip where
 
-open import Base.List.Type
+open import Base.List.List
 open import Base.List.unzip-with
-open import Base.Pair.Type
+open import Base.Pair.Pair
 
 -- Unzips a list of pairs into two separate lists.
 -- - xs: The input list of pairs to unzip.

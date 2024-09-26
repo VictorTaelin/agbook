@@ -1,6 +1,6 @@
 module Base.Parser.Examples.LambdaTerm.new where
 
-open import Base.String.Type
+open import Base.String.String
 open import Base.Parser.State
 
 new : String -> State

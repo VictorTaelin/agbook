@@ -1,4 +1,4 @@
-import { V2, $MkV2 } from '../../Base/V2/Type';
+import { V2, $MkV2 } from '../../Base/V2/V2';
 import { $max as F64$max } from '../../Base/F64/max';
 
 export const $max = (v1: V2, v2: V2): V2 => {

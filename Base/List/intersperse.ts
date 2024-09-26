@@ -1,4 +1,4 @@
-import { List, $Nil, $Cons } from '../../Base/List/Type';
+import { List, $Nil, $Cons } from '../../Base/List/List';
 
 // Intersperses a value between all other values of a list.
 // - x: The value to intersperse.

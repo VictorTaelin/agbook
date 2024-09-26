@@ -1,5 +1,5 @@
-import { U64 } from '../../Base/U64/Type';
-import { Bool } from '../../Base/Bool/Type';
+import { U64 } from '../../Base/U64/U64';
+import { Bool } from '../../Base/Bool/Bool';
 import { $not } from '../../Base/Bool/not';
 import { $eq as u64_eq } from '../../Base/U64/eq';
 

@@ -1,25 +1,25 @@
 module Bend.Compile.BendToNet.book-to-nets where
 
 open import Base.Function.case
-open import Base.List.Type
+open import Base.List.List
 open import Base.List.head
 open import Base.List.unzip
 open import Base.BitMap.to-list renaming (to-list to map-to-list)
 open import Base.Maybe.to-result
-open import Base.Pair.Type
-open import Base.Result.Type
+open import Base.Pair.Pair
+open import Base.Result.Result
 open import Base.Result.Monad.bind
-open import Base.String.Type
+open import Base.String.String
 open import Base.String.append
 open import Bend.Compile.BendToNet.Encoder.new renaming (new to new-encoder)
 open import Bend.Compile.BendToNet.Encoder.encode-term
-open import Bend.Compile.BendToNet.Encoder.Type
-open import Bend.Fun.Book.Type using (Book)
-open import Bend.Fun.Term.Type using (Term)
-open import Bend.Net.Type using (Net)
+open import Bend.Compile.BendToNet.Encoder.Encoder
+open import Bend.Fun.Book.Book using (Book)
+open import Bend.Fun.Term.Term using (Term)
+open import Bend.Net.Net using (Net)
 open import Bend.Net.net-root
-import Bend.Fun.FnDef.Type as FnDef'
-import Bend.Fun.Rule.Type as Rule'
+import Bend.Fun.FnDef.FnDef as FnDef'
+import Bend.Fun.Rule.Rule as Rule'
 
 private
   open module FnDef = FnDef' Term

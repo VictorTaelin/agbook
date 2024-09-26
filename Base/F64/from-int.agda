@@ -1,7 +1,7 @@
 module Base.F64.from-int where
 
-open import Base.F64.Type
-open import Base.Int.Type
+open import Base.F64.F64
+open import Base.Int.Int
 
 primitive primIntToFloat : Int -> F64
 

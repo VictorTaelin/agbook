@@ -1,4 +1,4 @@
-import { U64 } from '../../Base/U64/Type';
+import { U64 } from '../../Base/U64/U64';
 import { OrdU64 } from '../../Base/U64/Trait/Ord';
 import { $if_then_else_ } from '../../Base/U64/if';
 import { $from_bool } from '../../Base/U64/from-bool';

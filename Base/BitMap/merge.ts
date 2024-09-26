@@ -1,7 +1,7 @@
 import { $merge as $tree_merge } from '../../Base/BinTree/merge';
 import { $id } from '../Function/id';
 import { BitMap } from './Type';
-import { Maybe } from '../Maybe/Type';
+import { Maybe } from '../Maybe/Maybe';
 
 // Merges two Maps, giving priority to values in the second BitMap when there are conflicts.
 // - m1: The first BitMap to merge.

@@ -4,14 +4,14 @@ open import Debug.Trace
 
 import HVM2.Net.show as Net
 import HVM2.Term.show as Term
-open import Base.Bits.Type
-open import Base.IO.Type
+open import Base.Bits.Bits
+open import Base.IO.IO
 open import Base.IO.print
-open import Base.List.Type
-open import Base.Unit.Type
-open import HVM2.Net.Type
-open import HVM2.Redex.Type
-open import HVM2.Run.Type
+open import Base.List.List
+open import Base.Unit.Unit
+open import HVM2.Net.Net
+open import HVM2.Redex.Redex
+open import HVM2.Run.Run
 open import HVM2.Run.Monad.bind
 open import HVM2.Run.boot
 open import HVM2.Run.fresh
@@ -21,8 +21,8 @@ open import HVM2.Run.normalize
 open import HVM2.Run.Monad.pure
 open import HVM2.Run.run
 open import HVM2.Run.state-set
-open import HVM2.Run.State.Type
-open import HVM2.Term.Type
+open import HVM2.Run.State.State
+open import HVM2.Term.Term
 
 -- Creates a demo net
 test : Run Term

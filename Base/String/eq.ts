@@ -1,5 +1,5 @@
-import { String } from '../../Base/String/Type';
-import { Bool } from '../../Base/Bool/Type';
+import { String } from '../../Base/String/String';
+import { Bool } from '../../Base/Bool/Bool';
 
 // Checks if two strings are equal.
 // - a: The first string.

@@ -1,6 +1,6 @@
 module Base.Maybe.Trait.Show where
 
-open import Base.Maybe.Type
+open import Base.Maybe.Maybe
 import Base.Maybe.show as Maybe
 import Base.Trait.Show as Show
 

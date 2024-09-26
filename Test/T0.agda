@@ -1,16 +1,16 @@
 module Test.T0 where
 
-open import Base.Bits.Type
-open import Base.BitMap.Type
+open import Base.Bits.Bits
+open import Base.BitMap.BitMap
 open import Base.BitMap.get
 open import Base.BitMap.new
 open import Base.BitMap.set
 open import Base.BitMap.show
-open import Base.Maybe.Type
-open import Base.Nat.Type
+open import Base.Maybe.Maybe
+open import Base.Nat.Nat
 open import Base.Nat.add
 
-open import Base.String.Type
+open import Base.String.String
 
 main : Maybe Nat
 main =

@@ -1,29 +1,29 @@
 module Bend.Compile.Test.book-to-hvm where
 
-open import Base.Equal.Type
-open import Base.Bool.Type
-open import Base.List.Type
+open import Base.Equal.Equal
+open import Base.Bool.Bool
+open import Base.List.List
 open import Base.BitMap.new renaming (new to map-new)
 open import Base.BitMap.set renaming (set to map-set)
-open import Base.Maybe.Type
+open import Base.Maybe.Maybe
 open import Base.Nat.to-bits renaming (to-bits to tb)
-open import Base.Pair.Type
-open import Base.Result.Type
-open import Base.String.Type
+open import Base.Pair.Pair
+open import Base.Result.Result
+open import Base.String.String
 open import Base.String.hash
-open import Bend.Fun.Book.Type
-open import Bend.Fun.Term.Type using () renaming (Term to BTerm)
+open import Bend.Fun.Book.Book
+open import Bend.Fun.Term.Term using () renaming (Term to BTerm)
 open import Bend.Fun.Type.Type using (Type)
-open import Bend.Source.Type
-open import Bend.Source.SourceKind.Type
-open import HVM2.Net.Type
-open import HVM2.Redex.Type
+open import Bend.Source.Source
+open import Bend.Source.SourceKind.SourceKind
+open import HVM2.Net.Net
+open import HVM2.Redex.Redex
 open import HVM2.Net.show renaming (show to show-net)
-open import HVM2.Term.Type using () renaming (Term to H)
+open import HVM2.Term.Term using () renaming (Term to H)
 open import Bend.Compile.book-to-hvm
 open import Bend.Fun.dsl
-import Bend.Fun.FnDef.Type as Def'
-import Bend.Fun.Rule.Type as Rule'
+import Bend.Fun.FnDef.FnDef as Def'
+import Bend.Fun.Rule.Rule as Rule'
 
 private
   open module Def = Def' BTerm

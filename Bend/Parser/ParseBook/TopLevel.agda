@@ -1,7 +1,7 @@
 module Bend.Parser.ParseBook.TopLevel where
 
-open import Bend.Fun.Term.Type
-import Bend.Fun.FnDef.Type as FnDef'
+open import Bend.Fun.Term.Term
+import Bend.Fun.FnDef.FnDef as FnDef'
 
 private
   open module FnDef = FnDef' Term

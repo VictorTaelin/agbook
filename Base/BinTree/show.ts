@@ -1,5 +1,5 @@
-import { BinTree } from '../../Base/BinTree/Type';
-import { String } from '../../Base/String/Type';
+import { BinTree } from '../../Base/BinTree/BinTree';
+import { String } from '../../Base/String/String';
 import { $append } from '../../Base/String/append';
 import { Show } from '../../Base/Trait/Show';
 

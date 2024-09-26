@@ -1,7 +1,7 @@
 module Base.Ordering.eq where
 
-open import Base.Ordering.Type
-open import Base.Bool.Type
+open import Base.Ordering.Ordering
+open import Base.Bool.Bool
 
 eq : Ordering -> Ordering -> Bool
 eq LT LT = True

@@ -1,7 +1,7 @@
 module Base.Trait.Show where
 
 open import Agda.Primitive
-open import Base.String.Type
+open import Base.String.String
 
 record Show {a} (A : Set a) : Set (lsuc a) where
   field to-string : A -> String

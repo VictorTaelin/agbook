@@ -1,7 +1,7 @@
 module Concurrent.Channel.new where
 
-open import Base.IO.Type
-open import Concurrent.Channel.Type
+open import Base.IO.IO
+open import Concurrent.Channel.Channel
 
 -- Creates a new channel for asynchronous communication.
 -- A: The type of values that will be communicated through the channel.

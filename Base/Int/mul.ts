@@ -1,5 +1,5 @@
-import { Int, $Pos, $NegSuc } from '../../Base/Int/Type';
-import { Nat, $Succ } from '../../Base/Nat/Type';
+import { Int, $Pos, $NegSuc } from '../../Base/Int/Int';
+import { Nat, $Succ } from '../../Base/Nat/Nat';
 import { $mul as $nat_mul } from '../../Base/Nat/mul';
 import { $add } from '../../Base/Nat/add';
 

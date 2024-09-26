@@ -2,7 +2,7 @@ module Base.Bool.ALL where
 
 open import Base.Bool.Trait.Eq public
 open import Base.Bool.Trait.Show public
-open import Base.Bool.Type public
+open import Base.Bool.Bool public
 open import Base.Bool.and public
 open import Base.Bool.not public
 open import Base.Bool.or public

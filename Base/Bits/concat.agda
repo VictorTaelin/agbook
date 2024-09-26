@@ -1,7 +1,7 @@
 module Base.Bits.concat where
 
-open import Base.Bits.Type
-open import Base.List.Type
+open import Base.Bits.Bits
+open import Base.List.List
 
 -- Concatenation of a list of Bits into a single Bits value.
 -- - xs: The list of Bits to concatenate.

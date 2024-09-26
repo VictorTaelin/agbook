@@ -1,4 +1,4 @@
-import { Bool } from '../../../Base/Bool/Type';
+import { Bool } from '../../../Base/Bool/Bool';
 import { $show as bool_show } from '../../../Base/Bool/show';
 import { Show } from '../../../Base/Trait/Show';
 

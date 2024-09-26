@@ -1,6 +1,6 @@
 module Base.U64.Trait.Ord where
 
-open import Base.U64.Type
+open import Base.U64.U64
 import Base.U64.compare as U64
 import Base.U64.lt as U64
 import Base.U64.lte as U64

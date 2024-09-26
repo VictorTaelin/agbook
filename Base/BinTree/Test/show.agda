@@ -1,11 +1,11 @@
 module Base.BinTree.Test.show where
 
 open import Base.BinTree.Trait.Show
-open import Base.BinTree.Type
-open import Base.Equal.Type
+open import Base.BinTree.BinTree
+open import Base.Equal.Equal
 open import Base.Nat.Trait.Show
-open import Base.Nat.Type
-open import Base.String.Type
+open import Base.Nat.Nat
+open import Base.String.String
 open import Base.Trait.Show
 
 test-show-leaf-nat : show (Leaf {A = Nat}) ≡ "_"

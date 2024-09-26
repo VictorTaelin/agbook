@@ -1,5 +1,5 @@
-import { F64 } from '../../Base/F64/Type';
-import { Bool } from '../../Base/Bool/Type';
+import { F64 } from '../../Base/F64/F64';
+import { Bool } from '../../Base/Bool/Bool';
 import { $not } from '../../Base/Bool/not';
 import { $eq } from '../../Base/F64/eq';
 

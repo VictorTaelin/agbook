@@ -1,13 +1,13 @@
 module Base.ByteString.write-f64-as-nat where
 
-open import Base.ByteString.Type
+open import Base.ByteString.ByteString
 open import Base.ByteString.write-u48
-open import Base.Nat.Type
-open import Base.F64.Type
+open import Base.Nat.Nat
+open import Base.F64.F64
 open import Base.Int.to-nat
-open import Base.Int.Type
+open import Base.Int.Int
 open import Base.F64.floor
-open import Base.Maybe.Type
+open import Base.Maybe.Maybe
 
 handle-maybe : Maybe Int -> Int
 handle-maybe (Some x) = x

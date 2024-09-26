@@ -1,7 +1,7 @@
 module Base.AVLTree.Balance.eq where
 
-open import Base.AVLTree.Balance.Type
-open import Base.Bool.Type
+open import Base.AVLTree.Balance.Balance
+open import Base.Bool.Bool
 open import Base.Trait.Eq public
 open import Base.Trait.Eq public
 

@@ -1,6 +1,6 @@
 import { BitMap, $Node, $Leaf } from './Type';
-import { Bits, $E, $O, $I } from '../Bits/Type';
-import { Maybe, $Some, $None } from '../Maybe/Type';
+import { Bits, $E, $O, $I } from '../Bits/Bits';
+import { Maybe, $Some, $None } from '../Maybe/Maybe';
 
 // Inserts a key-value pair into the BitMap.
 // - m: The BitMap to insert into.

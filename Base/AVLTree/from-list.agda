@@ -1,12 +1,12 @@
 module Base.AVLTree.from-list where
 
 open import Base.List.foldr
-open import Base.List.Type
-open import Base.Pair.Type
+open import Base.List.List
+open import Base.Pair.Pair
 open import Base.Trait.Ord
 open import Base.AVLTree.empty
 open import Base.AVLTree.insert
-open import Base.AVLTree.Type
+open import Base.AVLTree.AVLTree
 
 -- Constructs an AVL tree from a list of elements.
 -- - xs: The input list of elements.

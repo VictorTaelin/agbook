@@ -1,8 +1,8 @@
 module Base.List.find where
 
-open import Base.List.Type
-open import Base.Maybe.Type
-open import Base.Bool.Type
+open import Base.List.List
+open import Base.Maybe.Maybe
+open import Base.Bool.Bool
 
 -- Finds the first element in a list that satisfies a given predicate.
 -- - pred: The predicate function to test elements.

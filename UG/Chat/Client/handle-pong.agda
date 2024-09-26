@@ -1,20 +1,20 @@
 module UG.Chat.Client.handle-pong where
 
-open import Base.ByteString.Type
+open import Base.ByteString.ByteString
 open import Base.ByteString.read-u48
 open import Base.IO.Monad.bind
 open import Base.IO.Monad.pure
-open import Base.IO.Type
-open import Base.Nat.Type
+open import Base.IO.IO
+open import Base.Nat.Nat
 open import Base.Nat.sub
 open import Base.Nat.add
 open import Base.Nat.div
 open import Base.Nat.lt
 open import Base.Bool.if
 open import Base.Time.now
-open import Base.U64.Type
+open import Base.U64.U64
 open import Base.U64.from-nat
-open import UG.Chat.Client.Type
+open import UG.Chat.Client.Client
 open import UG.Chat.Client.sync-time
 
 -- Handles the PONG message from the server

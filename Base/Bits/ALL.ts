@@ -1,4 +1,4 @@
-export * from '../../Base/Bits/Type';
+export * from '../../Base/Bits/Bits';
 export * from '../../Base/Bits/add';
 export * from '../../Base/Bits/and';
 export * from '../../Base/Bits/append';

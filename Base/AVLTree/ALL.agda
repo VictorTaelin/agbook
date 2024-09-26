@@ -3,7 +3,7 @@ module Base.AVLTree.ALL where
 open import Base.AVLTree.Balance.eq public
 open import Base.AVLTree.Balance.rotate-left public
 open import Base.AVLTree.Balance.rotate-right public
-open import Base.AVLTree.Balance.Type public
+open import Base.AVLTree.Balance.Balance public
 open import Base.AVLTree.delete public
 open import Base.AVLTree.delete-maximum public
 open import Base.AVLTree.difference public
@@ -22,6 +22,6 @@ open import Base.AVLTree.minimum public
 open import Base.AVLTree.singleton public
 open import Base.AVLTree.size public
 open import Base.AVLTree.to-list public
-open import Base.AVLTree.Type public
+open import Base.AVLTree.AVLTree public
 open import Base.AVLTree.union public
 open import Base.AVLTree.values public

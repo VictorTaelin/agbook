@@ -1,6 +1,6 @@
 import { BitMap, $Node, $Leaf } from './Type';
-import { Bits, $E, $O, $I } from '../Bits/Type';
-import { Maybe, $None } from '../Maybe/Type';
+import { Bits, $E, $O, $I } from '../Bits/Bits';
+import { Maybe, $None } from '../Maybe/Maybe';
 
 // Removes a key-value pair from the BitMap.
 // - m: The BitMap to remove from.

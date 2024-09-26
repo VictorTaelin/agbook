@@ -1,13 +1,13 @@
 module Bend.Parser.parse-oper where
 
-open import Base.Parser.Type
+open import Base.Parser.Parser
 open import Base.Parser.Monad.bind
 open import Base.Parser.Monad.pure
 open import Base.Parser.fail
 open import Base.Parser.alternative
-open import Base.String.Type
+open import Base.String.String
 open import Bend.Parser.consume
-open import Bend.Fun.Op.Type
+open import Bend.Fun.Op.Op
 
 parse-oper : Parser Op
 parse-oper =

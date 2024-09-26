@@ -1,16 +1,16 @@
 module Base.JSON.Test.parse-bool where
 
-open import Base.JSON.Type
+open import Base.JSON.JSON
 open import Base.JSON.parse-bool
-open import Base.Parser.Type
+open import Base.Parser.Parser
 open import Base.Parser.State
 open import Base.Parser.Reply
 open import Base.Parser.Error
-open import Base.Result.Type
-open import Base.String.Type
-open import Base.Nat.Type
-open import Base.Equal.Type
-open import Base.Bool.Type
+open import Base.Result.Result
+open import Base.String.String
+open import Base.Nat.Nat
+open import Base.Equal.Equal
+open import Base.Bool.Bool
 
 test-parse-bool-true : parse-bool (MkState "true" 0) ≡ Done (MkReply (MkState "" 4) (JBool True))
 test-parse-bool-true = refl

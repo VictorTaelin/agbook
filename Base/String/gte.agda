@@ -1,9 +1,9 @@
 module Base.String.gte where
 
-open import Base.String.Type
+open import Base.String.String
 open import Base.String.to-list
-open import Base.Bool.Type
-open import Base.Char.Type
+open import Base.Bool.Bool
+open import Base.Char.Char
 import Base.List.gte as List
 import Base.Char.Trait.Ord as CharOrd
 

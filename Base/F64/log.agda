@@ -1,6 +1,6 @@
 module Base.F64.log where
 
-open import Base.F64.Type
+open import Base.F64.F64
 
 primitive primFloatLog : F64 -> F64
 

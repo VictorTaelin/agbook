@@ -1,10 +1,10 @@
 module Base.AVLTree.union where
 
-open import Base.Pair.Type
+open import Base.Pair.Pair
 open import Base.Trait.Ord
 open import Base.AVLTree.fold
 open import Base.AVLTree.insert
-open import Base.AVLTree.Type
+open import Base.AVLTree.AVLTree
 
 -- Computes the union of two AVL trees.
 -- - t1: The first AVL tree.

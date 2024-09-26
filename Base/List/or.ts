@@ -1,5 +1,5 @@
-import { List } from '../../Base/List/Type';
-import { Bool, $False } from '../../Base/Bool/Type';
+import { List } from '../../Base/List/List';
+import { Bool, $False } from '../../Base/Bool/Bool';
 import { $foldr } from '../../Base/List/foldr';
 import { $or as bool_or } from '../../Base/Bool/or';
 

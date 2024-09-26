@@ -1,9 +1,9 @@
 module Base.ByteString.pack where
 
-open import Base.ByteString.Type
-open import Base.List.Type
-open import Base.String.Type
-open import Base.Word8.Type
+open import Base.ByteString.ByteString
+open import Base.List.List
+open import Base.String.String
+open import Base.Word8.Word8
 
 postulate pack : List Word8 -> ByteString
 

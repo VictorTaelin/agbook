@@ -1,7 +1,7 @@
 module Base.List.insert-at where
 
-open import Base.List.Type
-open import Base.Nat.Type
+open import Base.List.List
+open import Base.Nat.Nat
 
 -- Inserts an element at a specific index in a list.
 -- If the index is out of bounds, the element is appended to the end of the list.

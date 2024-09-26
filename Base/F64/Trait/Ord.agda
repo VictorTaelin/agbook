@@ -1,6 +1,6 @@
 module Base.F64.Trait.Ord where
 
-open import Base.F64.Type
+open import Base.F64.F64
 import Base.F64.compare as F64
 import Base.F64.lt as F64
 import Base.F64.gt as F64

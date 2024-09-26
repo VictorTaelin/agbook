@@ -1,6 +1,6 @@
 module Base.String.Trait.Show where
 
-open import Base.String.Type
+open import Base.String.String
 import Base.String.show as String
 import Base.Trait.Show as Show
 

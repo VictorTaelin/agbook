@@ -1,6 +1,6 @@
 module Base.Bits.add where
 
-open import Base.Bits.Type
+open import Base.Bits.Bits
 open import Base.Bits.inc
 
 -- Performs addition of two Bits values.

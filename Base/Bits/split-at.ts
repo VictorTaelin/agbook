@@ -1,6 +1,6 @@
-import { Nat } from '../../Base/Nat/Type';
-import { Pair, $Pair } from '../../Base/Pair/Type';
-import { Bits, $O, $I, $E } from '../../Base/Bits/Type';
+import { Nat } from '../../Base/Nat/Nat';
+import { Pair, $Pair } from '../../Base/Pair/Pair';
+import { Bits, $O, $I, $E } from '../../Base/Bits/Bits';
 import { $pad_zeros } from '../../Base/Bits/pad-zeros';
 
 // Collects the first `m` bits of `bits` into the `fst` and the rest into the `snd`.

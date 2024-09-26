@@ -1,6 +1,6 @@
 module Base.Bits.inc where
 
-open import Base.Bits.Type
+open import Base.Bits.Bits
 
 -- Increments a binary string by one. Keeps the same length.
 -- - bs: The input binary string.

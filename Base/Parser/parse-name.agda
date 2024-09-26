@@ -2,19 +2,19 @@ module Base.Parser.parse-name where
 
 import Base.Char.eq as Char
 import Base.String.eq as String
-open import Base.Bool.Type
+open import Base.Bool.Bool
 open import Base.Bool.if
 open import Base.Bool.or
-open import Base.Char.Type
+open import Base.Char.Char
 open import Base.Char.is-alpha
 open import Base.Char.is-digit
 open import Base.Function.case
 open import Base.Parser.Monad.bind
 open import Base.Parser.Monad.pure
-open import Base.Parser.Type
+open import Base.Parser.Parser
 open import Base.Parser.fail
 open import Base.Parser.take-while
-open import Base.String.Type
+open import Base.String.String
 open import Base.String.append
 
 -- Checks if a character is valid for a name.

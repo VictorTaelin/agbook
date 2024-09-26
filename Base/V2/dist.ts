@@ -1,6 +1,6 @@
-import { F64 } from '../../Base/F64/Type';
+import { F64 } from '../../Base/F64/F64';
 import { $sqrt } from '../../Base/F64/sqrt';
-import { V2 } from '../../Base/V2/Type';
+import { V2 } from '../../Base/V2/V2';
 import { $sqr_dist } from '../../Base/V2/sqr-dist';
 
 // Calculates the Euclidean distance between two V2 vectors.

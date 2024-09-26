@@ -1,4 +1,4 @@
-import { Bool } from '../../Base/Bool/Type';
+import { Bool } from '../../Base/Bool/Bool';
 
 // Negates a Boolean value.
 // - b: The input Boolean value.

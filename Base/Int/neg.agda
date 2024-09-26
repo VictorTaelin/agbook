@@ -1,7 +1,7 @@
 module Base.Int.neg where
 
-open import Base.Int.Type
-open import Base.Nat.Type
+open import Base.Int.Int
+open import Base.Nat.Nat
 open import Base.Nat.sub
 
 -- Negates an integer.

@@ -1,9 +1,9 @@
 module Base.OrdSet.fold where
 
 import Base.AVLTree.fold as AVL
-open import Base.OrdSet.Type
-open import Base.Pair.Type
-open import Base.Unit.Type
+open import Base.OrdSet.OrdSet
+open import Base.Pair.Pair
+open import Base.Unit.Unit
 
 -- Performs a fold operation over an OrdSet.
 -- - f: The combining function.

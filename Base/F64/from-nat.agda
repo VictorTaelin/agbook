@@ -1,7 +1,7 @@
 module Base.F64.from-nat where
 
-open import Base.F64.Type
-open import Base.Nat.Type
+open import Base.F64.F64
+open import Base.Nat.Nat
 
 primitive primNatToFloat : Nat -> F64
 

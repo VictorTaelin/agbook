@@ -1,10 +1,10 @@
 module Bend.Parser.first-with-guard where
 
-open import Base.Bool.Type
+open import Base.Bool.Bool
 open import Base.Bool.if
-open import Base.List.Type
-open import Base.Pair.Type
-open import Base.Parser.Type
+open import Base.List.List
+open import Base.Pair.Pair
+open import Base.Parser.Parser
 open import Base.Parser.Monad.bind
 
 first-with-guard : ∀ {A : Set} -> List (Pair (Parser Bool) (Parser A)) -> Parser A -> Parser A

@@ -1,8 +1,8 @@
 module Base.Bits.Test.or where
 
-open import Base.Bits.Type
+open import Base.Bits.Bits
 open import Base.Bits.or
-open import Base.Equal.Type
+open import Base.Equal.Equal
 
 test-empty : E || E ≡ E
 test-empty = refl

@@ -1,6 +1,6 @@
 module Bend.Parser.ParseBook.new where
 
-open import Bend.Parser.ParseBook.Type
+open import Bend.Parser.ParseBook.ParseBook
 open import Base.BitMap.new renaming (new to map-new)
 
 new : ParseBook

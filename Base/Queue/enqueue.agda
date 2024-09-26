@@ -1,7 +1,7 @@
 module Base.Queue.enqueue where
 
-open import Base.List.Type
-open import Base.Queue.Type
+open import Base.List.List
+open import Base.Queue.Queue
 
 -- Adds an element to the end of a queue.
 -- - 1st: The queue to which the element will be added.

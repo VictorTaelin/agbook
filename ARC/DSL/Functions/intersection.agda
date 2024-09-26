@@ -1,6 +1,6 @@
 module ARC.DSL.Functions.intersection where
 
-open import ARC.DSL.Types.OrdSet.Type
+open import ARC.DSL.Types.OrdSet.OrdSet
 import Base.OrdSet.intersect as S
 
 open import Base.Trait.Ord

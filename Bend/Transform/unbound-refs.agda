@@ -1,21 +1,21 @@
 module Bend.Transform.unbound-refs where
 
 open import Base.Bool.if
-open import Base.List.Type renaming (List to List')
+open import Base.List.List renaming (List to List')
 open import Base.List.mfoldl
-open import Base.Maybe.Type
-open import Base.Result.Type
+open import Base.Maybe.Maybe
+open import Base.Result.Result
 open import Base.Result.Trait.Monad
-open import Base.String.Type
+open import Base.String.String
 open import Base.String.append
-open import Base.Unit.Type
-open import Bend.Fun.Book.Type
+open import Base.Unit.Unit
+open import Bend.Fun.Book.Book
 open import Bend.Fun.Book.contains-def
-open import Bend.Fun.Term.Type
+open import Bend.Fun.Term.Term
 open import Bend.Fun.Term.children
 import Base.BitMap.values as BitMap
-import Bend.Fun.FnDef.Type as FnDef'
-import Bend.Fun.Rule.Type as Rule'
+import Bend.Fun.FnDef.FnDef as FnDef'
+import Bend.Fun.Rule.Rule as Rule'
 
 private
   open module FnDef = FnDef' Term

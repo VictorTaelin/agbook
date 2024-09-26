@@ -1,5 +1,5 @@
-import { Bits, $O, $I, $E } from '../../Base/Bits/Type';
-import { Nat, $Zero, $Succ } from '../../Base/Nat/Type';
+import { Bits, $O, $I, $E } from '../../Base/Bits/Bits';
+import { Nat, $Zero, $Succ } from '../../Base/Nat/Nat';
 
 // Takes the first n bits from a Bits structure.
 // If n is greater than the length of the Bits, returns the entire Bits structure.

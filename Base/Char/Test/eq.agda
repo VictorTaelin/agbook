@@ -1,9 +1,9 @@
 module Base.Char.Test.eq where
 
-open import Base.Char.Type
+open import Base.Char.Char
 open import Base.Char.eq
-open import Base.Bool.Type
-open import Base.Equal.Type
+open import Base.Bool.Bool
+open import Base.Equal.Equal
 
 test-eq-a-a : ('a' == 'a') ≡ True
 test-eq-a-a = refl

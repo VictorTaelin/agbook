@@ -1,4 +1,4 @@
-import { String } from '../../Base/String/Type';
+import { String } from '../../Base/String/String';
 
 // Concatenates two strings.
 // - s1: The first string.

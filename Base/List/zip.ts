@@ -1,5 +1,5 @@
-import { List } from '../../Base/List/Type';
-import { Pair } from '../../Base/Pair/Type';
+import { List } from '../../Base/List/List';
+import { Pair } from '../../Base/Pair/Pair';
 import { $zip_with, zip_with } from '../../Base/List/zip-with';
 
 // Zips two lists into a single list of pairs.

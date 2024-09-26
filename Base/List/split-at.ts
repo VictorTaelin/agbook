@@ -1,6 +1,6 @@
-import { List } from '../../Base/List/Type';
-import { Nat } from '../../Base/Nat/Type';
-import { Pair, $Pair } from '../../Base/Pair/Type';
+import { List } from '../../Base/List/List';
+import { Nat } from '../../Base/Nat/Nat';
+import { Pair, $Pair } from '../../Base/Pair/Pair';
 import { $take } from '../../Base/List/take';
 import { $drop } from '../../Base/List/drop';
 

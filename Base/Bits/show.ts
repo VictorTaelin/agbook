@@ -1,5 +1,5 @@
-import { Bits } from '../../Base/Bits/Type';
-import { String } from '../../Base/String/Type';
+import { Bits } from '../../Base/Bits/Bits';
+import { String } from '../../Base/String/String';
 import { $append } from '../../Base/String/append';
 
 export const $show = (b: Bits): String => {

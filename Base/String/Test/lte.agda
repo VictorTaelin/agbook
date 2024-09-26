@@ -1,9 +1,9 @@
 module Base.String.Test.lte where
 
-open import Base.String.Type
+open import Base.String.String
 open import Base.String.lte
-open import Base.Equal.Type
-open import Base.Bool.Type
+open import Base.Equal.Equal
+open import Base.Bool.Bool
 
 -- Test case 1: Empty strings
 test-lte-empty : (lte "" "") ≡ True

@@ -1,9 +1,9 @@
 module Base.Bits.split-chunks where
 
-open import Base.Nat.Type
-open import Base.List.Type
-open import Base.Pair.Type
-open import Base.Bits.Type
+open import Base.Nat.Nat
+open import Base.List.List
+open import Base.Pair.Pair
+open import Base.Bits.Bits
 open import Base.Bits.split-at
 
 -- Collects Bits into a list of Bits, each with length `d`.

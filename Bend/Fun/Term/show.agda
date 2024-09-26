@@ -1,24 +1,24 @@
 module Bend.Fun.Term.show where
 
-open import Bend.Fun.Term.Type
-open import Bend.Fun.Num.Type renaming (Num to Num')
-open import Bend.Fun.FanKind.Type
-open import Base.String.Type
+open import Bend.Fun.Term.Term
+open import Bend.Fun.Num.Num renaming (Num to Num')
+open import Bend.Fun.FanKind.FanKind
+open import Base.String.String
 open import Base.String.append
 open import Base.String.join
-open import Base.Pair.Type
-open import Base.Nat.Type
-open import Base.List.Type renaming (List to List')
+open import Base.Pair.Pair
+open import Base.Nat.Nat
+open import Base.List.List renaming (List to List')
 open import Base.List.map
 open import Base.List.zip
-open import Base.Maybe.Type
+open import Base.Maybe.Maybe
 open import Base.Trait.Show
 open import Base.Nat.Trait.Show
 open import Bend.Fun.show-bind
 open import Bend.Fun.Op.show
 open import Bend.Fun.Num.show
 open import Bend.Fun.Pattern.show
-import Bend.Fun.FnDef.Type as FnDef'
+import Bend.Fun.FnDef.FnDef as FnDef'
 import Bend.Fun.FnDef.show as FDShow'
 import Bend.Fun.MatchRule.show as MRShow'
 

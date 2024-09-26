@@ -1,4 +1,4 @@
-import { IO } from '../../../Base/IO/Type';
+import { IO } from '../../../Base/IO/IO';
 
 // Bind operation for IO
 // - ma: The first IO action to be performed

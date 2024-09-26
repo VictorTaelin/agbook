@@ -1,8 +1,8 @@
 module UG.SIPD.Renderer.create where
 
-open import Base.IO.Type
-open import UG.SIPD.Renderer.Type
-open import UG.SIPD.Window.Type
+open import Base.IO.IO
+open import UG.SIPD.Renderer.Renderer
+open import UG.SIPD.Window.Window
 
 postulate create : Window -> IO Renderer
 

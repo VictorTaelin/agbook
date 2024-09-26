@@ -1,7 +1,7 @@
 module Base.Pair.show where
 
-open import Base.Pair.Type
-open import Base.String.Type
+open import Base.Pair.Pair
+open import Base.String.String
 open import Base.String.append
 import Base.Trait.Show as Show
 

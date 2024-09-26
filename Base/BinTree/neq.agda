@@ -2,8 +2,8 @@ module Base.BinTree.neq where
 
 import Base.BinTree.eq as BinTree
 import Base.Trait.Eq as Eq
-open import Base.BinTree.Type
-open import Base.Bool.Type
+open import Base.BinTree.BinTree
+open import Base.Bool.Bool
 open import Base.Bool.not
 
 -- Checks if two binary trees are not equal.

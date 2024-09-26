@@ -3,17 +3,17 @@ module HVM2.Run.State.show where
 import HVM2.Net.show as Net
 import HVM2.Term.show as Term
 import Base.OrdMap.to-list as OrdMap
-open import Base.Bits.Type
-open import Base.List.Type
+open import Base.Bits.Bits
+open import Base.List.List
 open import Base.List.map
-open import Base.Pair.Type
+open import Base.Pair.Pair
 open import Base.Pair.get-fst
 open import Base.Pair.get-snd
-open import Base.String.Type
+open import Base.String.String
 open import Base.String.append
 open import Base.String.join
-open import HVM2.Run.State.Type
-open import HVM2.Term.Type
+open import HVM2.Run.State.State
+open import HVM2.Term.Term
 
 -- Converts a substitution (Pair Bits Term) to its string representation.
 show-subst : Pair String Term -> String

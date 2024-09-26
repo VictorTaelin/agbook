@@ -1,6 +1,6 @@
 module Base.U64.sub where
 
-open import Base.U64.Type
+open import Base.U64.U64
 open import Base.Nat.sub renaming (_-_ to _n-_; sub to nsub)
 open import Base.Nat.add
 open import Base.U64.to-nat

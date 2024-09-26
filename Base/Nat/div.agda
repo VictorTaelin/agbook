@@ -1,6 +1,6 @@
 module Base.Nat.div where
 
-open import Base.Nat.Type
+open import Base.Nat.Nat
 open import Base.Nat.sub
 open import Base.Nat.lt
 open import Base.Bool.if

@@ -1,7 +1,7 @@
 module Base.IO.get-line where
 
-open import Base.IO.Type
-open import Base.String.Type
+open import Base.IO.IO
+open import Base.String.String
 
 postulate get-line : IO String
 

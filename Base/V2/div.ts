@@ -1,4 +1,4 @@
-import { V2, $MkV2 } from '../../Base/V2/Type';
+import { V2, $MkV2 } from '../../Base/V2/V2';
 import { $div as float_div } from '../../Base/F64/div';
 
 // Divides one V2 vector by another.

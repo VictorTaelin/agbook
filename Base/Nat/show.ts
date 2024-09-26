@@ -1,5 +1,5 @@
-import { Nat } from '../../Base/Nat/Type';
-import { String } from '../../Base/String/Type';
+import { Nat } from '../../Base/Nat/Nat';
+import { String } from '../../Base/String/String';
 
 // Converts a Nat (BigInt) to its string representation.
 export const $show = (n: Nat): String => n.toString();

@@ -1,6 +1,6 @@
 module Base.Equal.right where
 
-open import Base.Equal.Type
+open import Base.Equal.Equal
 open import Base.Equal.sym
 open import Base.Equal.trans
 

@@ -1,6 +1,6 @@
 module Base.F64.div where
 
-open import Base.F64.Type
+open import Base.F64.F64
 
 primitive primFloatDiv : F64 -> F64 -> F64
 

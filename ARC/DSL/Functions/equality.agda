@@ -1,6 +1,6 @@
 module ARC.DSL.Functions.equality where
 
-open import ARC.DSL.Types.Boolean.Type
+open import ARC.DSL.Types.Boolean.Boolean
 open import Base.Trait.Eq
 
 -- Checks if two values of the same type are equal.

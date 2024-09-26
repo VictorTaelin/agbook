@@ -1,13 +1,13 @@
 module Bend.Fun.Term.children where
 
-open import Bend.Fun.Term.Type
-open import Base.List.Type renaming (List to List')
+open import Bend.Fun.Term.Term
+open import Base.List.List renaming (List to List')
 open import Base.List.append
 open import Base.List.concat
 open import Base.List.map
-open import Base.Maybe.Type
-import Bend.Fun.MatchRule.Type as MatchRule'
-import Bend.Fun.FnDef.Type as FnDef'
+open import Base.Maybe.Maybe
+import Bend.Fun.MatchRule.MatchRule as MatchRule'
+import Bend.Fun.FnDef.FnDef as FnDef'
 
 private
   open module MatchRule = MatchRule' Term

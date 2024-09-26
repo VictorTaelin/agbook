@@ -1,5 +1,5 @@
-import { Maybe } from '../../Base/Maybe/Type';
-import { Bool, $True, $False } from '../../Base/Bool/Type';
+import { Maybe } from '../../Base/Maybe/Maybe';
+import { Bool, $True, $False } from '../../Base/Bool/Bool';
 import { Eq } from '../../Base/Trait/Eq';
 
 export const $eq = <A>(eq_a: Eq<A>) => (a: Maybe<A>, b: Maybe<A>): Bool => {

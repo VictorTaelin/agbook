@@ -2,10 +2,10 @@ module Bend.Transform.subst where
 
 open import Base.Function.case
 open import Base.Bool.if
-open import Base.String.Type
+open import Base.String.String
 open import Base.String.eq
 open import Base.List.any-true
-open import Bend.Fun.Term.Type
+open import Bend.Fun.Term.Term
 open import Bend.Fun.Term.map-children-with-binds
 
 -- Substitutes occurrences of a variable with a given term

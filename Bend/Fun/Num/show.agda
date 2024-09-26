@@ -1,11 +1,11 @@
 module Bend.Fun.Num.show where
 
-open import Bend.Fun.Num.Type renaming (Num to Num')
-open import Base.String.Type
+open import Bend.Fun.Num.Num renaming (Num to Num')
+open import Base.String.String
 open import Base.String.append
-open import Base.Nat.Type
+open import Base.Nat.Nat
 open import Base.Nat.Trait.Show
-open import Base.Int.Type
+open import Base.Int.Int
 open import Base.F64.Trait.Show
 open import Base.Trait.Show
 

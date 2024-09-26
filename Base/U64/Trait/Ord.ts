@@ -1,4 +1,4 @@
-import { U64 } from '../../../Base/U64/Type';
+import { U64 } from '../../../Base/U64/U64';
 import { Ord } from '../../../Base/Trait/Ord';
 import { $compare } from '../../../Base/U64/compare';
 import { $lt } from '../../../Base/U64/lt';

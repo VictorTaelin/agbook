@@ -1,5 +1,5 @@
-import { List } from '../../Base/List/Type';
-import { Bool, $True } from '../../Base/Bool/Type';
+import { List } from '../../Base/List/List';
+import { Bool, $True } from '../../Base/Bool/Bool';
 import { $and } from '../../Base/Bool/and';
 import { Eq, $eq } from '../../Base/Trait/Eq';
 

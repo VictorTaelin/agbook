@@ -1,10 +1,10 @@
 module ARC.DSL.Functions.invert where
 
-open import ARC.DSL.Types.Numerical.Type
-open import ARC.DSL.Types.Integer.Type
+open import ARC.DSL.Types.Numerical.Numerical
+open import ARC.DSL.Types.Integer.Integer
 open import ARC.DSL.Types.Integer.Functions
-open import ARC.DSL.Types.Union.Type
-open import ARC.DSL.Types.Pair.Type
+open import ARC.DSL.Types.Union.Union
+open import ARC.DSL.Types.Pair.Pair
 
 -- Inverts a Numerical value
 -- - n: The Numerical value to invert

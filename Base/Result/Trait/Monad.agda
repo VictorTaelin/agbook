@@ -1,6 +1,6 @@
 module Base.Result.Trait.Monad where
 
-open import Base.Result.Type
+open import Base.Result.Result
 open import Base.Trait.Monad
 import Base.Result.Monad.bind as Result
 

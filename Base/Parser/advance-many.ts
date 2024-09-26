@@ -1,14 +1,14 @@
-import { Char } from '../../Base/Char/Type';
-import { List } from '../../Base/List/Type';
+import { Char } from '../../Base/Char/Char';
+import { List } from '../../Base/List/List';
 import { $drop } from '../../Base/List/drop';
 import { $take } from '../../Base/List/take';
-import { Maybe, $Some } from '../../Base/Maybe/Type';
-import { Nat } from '../../Base/Nat/Type';
+import { Maybe, $Some } from '../../Base/Maybe/Maybe';
+import { Nat } from '../../Base/Nat/Nat';
 import { $MkReply } from '../../Base/Parser/Reply';
 import { State, $MkState } from '../../Base/Parser/State';
-import { Parser } from '../../Base/Parser/Type';
-import { $Done } from '../../Base/Result/Type';
-import { String } from '../../Base/String/Type';
+import { Parser } from '../../Base/Parser/Parser';
+import { $Done } from '../../Base/Result/Result';
+import { String } from '../../Base/String/String';
 import { $from_list } from '../../Base/String/from-list';
 import { $to_list } from '../../Base/String/to-list';
 

@@ -1,10 +1,10 @@
 module Base.Bits.Test.lshift where
 
-open import Base.Bits.Type
+open import Base.Bits.Bits
 open import Base.Bits.lshift
 open import Base.Bits.from-nat
-open import Base.Nat.Type
-open import Base.Equal.Type
+open import Base.Nat.Nat
+open import Base.Equal.Equal
 
 test-lshift-zero : (E << 3) ≡ E
 test-lshift-zero = refl

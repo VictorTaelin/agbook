@@ -1,31 +1,31 @@
 module UG.SM.Main where
 
-open import UG.SM.Type
-open import UG.SM.Game.Type
+open import UG.SM.SM
+open import UG.SM.Game.Game
 open import UG.SM.new-mach
 open import UG.SM.register-action
 open import UG.SM.compute
-open import UG.SM.Time.Type
-open import UG.SM.TimedAction.Type
+open import UG.SM.Time.Time
+open import UG.SM.TimedAction.TimedAction
 open import UG.SM.Time.time-to-tick
 
-open import Base.Nat.Type
+open import Base.Nat.Nat
 open import Base.Nat.show
-open import Base.Bool.Type
-open import Base.String.Type
+open import Base.Bool.Bool
+open import Base.String.String
 open import Base.IO.Monad.bind
 open import Base.String.append
-open import Base.IO.Type
+open import Base.IO.IO
 open import Base.IO.print
-open import Base.Unit.Type
-open import Base.Maybe.Type
-open import Base.List.Type
+open import Base.Unit.Unit
+open import Base.Maybe.Maybe
+open import Base.List.List
 
-open import Base.BitMap.Type
+open import Base.BitMap.BitMap
 open import Base.BitMap.new
 open import Base.BitMap.set
 open import Base.BitMap.count
-open import Base.Bits.Type
+open import Base.Bits.Bits
 
 -- Simple game state
 data GameState : Set where

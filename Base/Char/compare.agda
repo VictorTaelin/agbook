@@ -1,8 +1,8 @@
 module Base.Char.compare where
 
-open import Base.Char.Type
+open import Base.Char.Char
 open import Base.Char.to-nat
-open import Base.Ordering.Type
+open import Base.Ordering.Ordering
 import Base.Nat.compare as Nat
 
 -- Compares two characters.

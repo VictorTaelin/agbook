@@ -1,5 +1,5 @@
-import { Ordering, $LT, $EQ, $GT } from '../../Base/Ordering/Type';
-import { Int } from '../../Base/Int/Type';
+import { Ordering, $LT, $EQ, $GT } from '../../Base/Ordering/Ordering';
+import { Int } from '../../Base/Int/Int';
 import { $compare as compare_nat } from '../../Base/Nat/compare';
 
 // Compares two integers.

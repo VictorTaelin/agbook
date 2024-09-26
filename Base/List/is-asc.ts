@@ -1,8 +1,8 @@
-import { Bool, $True } from '../../Base/Bool/Type';
+import { Bool, $True } from '../../Base/Bool/Bool';
 import { $and } from '../../Base/Bool/and';
-import { List } from '../../Base/List/Type';
+import { List } from '../../Base/List/List';
 import { $foldr } from '../../Base/List/foldr';
-import { Nat } from '../../Base/Nat/Type';
+import { Nat } from '../../Base/Nat/Nat';
 import { OrdNat } from '../../Base/Nat/Trait/Ord';
 
 // Checks if a list of Nats is in ascending order.

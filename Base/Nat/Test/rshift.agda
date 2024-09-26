@@ -1,19 +1,19 @@
 module Base.Nat.Test.rshift where
 
-open import Base.Nat.Type
+open import Base.Nat.Nat
 open import Base.Nat.eq
 open import Base.Nat.exp
 import Base.Nat.rshift as N
 open import Base.Nat.to-bits
-open import Base.Bits.Type
+open import Base.Bits.Bits
 import Base.Bits.rshift as B
 open import Base.Bits.to-nat
-open import Base.Bool.Type
-open import Base.List.Type
+open import Base.Bool.Bool
+open import Base.List.List
 open import Base.List.and
 open import Base.List.map
-open import Base.Pair.Type
-open import Base.Equal.Type 
+open import Base.Pair.Pair
+open import Base.Equal.Equal 
 
 -- Test case type
 TestCase : Set

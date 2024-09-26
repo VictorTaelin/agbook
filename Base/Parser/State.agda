@@ -1,7 +1,7 @@
 module Base.Parser.State where
 
-open import Base.Nat.Type
-open import Base.String.Type
+open import Base.Nat.Nat
+open import Base.String.String
 
 -- Represents the state of a parser.
 -- - input: The remaining input text to be consumed.

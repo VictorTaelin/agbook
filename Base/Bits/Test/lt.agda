@@ -1,10 +1,10 @@
 module Base.Bits.Test.lt where
 
-open import Base.Bits.Type
+open import Base.Bits.Bits
 open import Base.Bits.lt
 open import Base.Bits.from-nat
-open import Base.Equal.Type
-open import Base.Bool.Type
+open import Base.Equal.Equal
+open import Base.Bool.Bool
 
 test-empty-not-lt : (E < E) ≡ False
 test-empty-not-lt = refl

@@ -1,5 +1,5 @@
-import { List, $Nil, $Cons } from '../../Base/List/Type';
-import { Nat, $Zero, $Succ } from '../../Base/Nat/Type';
+import { List, $Nil, $Cons } from '../../Base/List/List';
+import { Nat, $Zero, $Succ } from '../../Base/Nat/Nat';
 
 // Takes the first n elements from a list.
 // If n is greater than the length of the list, returns the entire list.

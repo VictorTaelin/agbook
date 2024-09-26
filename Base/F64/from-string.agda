@@ -1,27 +1,27 @@
 module Base.F64.from-string where
 
 import Base.F64.add as F64
-open import Base.Bool.Type
+open import Base.Bool.Bool
 open import Base.Bool.if
-open import Base.Char.Type
+open import Base.Char.Char
 open import Base.Char.digit-to-nat
 open import Base.Char.eq
-open import Base.F64.Type
+open import Base.F64.F64
 open import Base.F64.from-int
 open import Base.F64.negate
 open import Base.Function.case
-open import Base.Int.Type
-open import Base.List.Type
+open import Base.Int.Int
+open import Base.List.List
 open import Base.List.length
 open import Base.List.map
 open import Base.List.split-at-element
-open import Base.Maybe.Type
-open import Base.Nat.Type
+open import Base.Maybe.Maybe
+open import Base.Nat.Nat
 open import Base.Nat.add
 open import Base.Nat.exp
 open import Base.Nat.mul
-open import Base.Pair.Type
-open import Base.String.Type
+open import Base.Pair.Pair
+open import Base.String.String
 open import Base.String.drop
 open import Base.String.to-list
 

@@ -1,6 +1,6 @@
 module Base.F64.ALL where
 
-open import Base.F64.Type public
+open import Base.F64.F64 public
 open import Base.F64.acos public
 open import Base.F64.add public
 open import Base.F64.and public

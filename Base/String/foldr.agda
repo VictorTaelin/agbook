@@ -1,9 +1,9 @@
 module Base.String.foldr where
 
 import Base.List.foldr as List
-open import Base.Char.Type
-open import Base.List.Type
-open import Base.String.Type
+open import Base.Char.Char
+open import Base.List.List
+open import Base.String.String
 open import Base.String.to-list
 
 -- Performs a right fold over a string.

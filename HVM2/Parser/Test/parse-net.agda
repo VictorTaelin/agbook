@@ -1,16 +1,16 @@
 module HVM2.Parser.Test.parse-net where
 
-open import Base.Equal.Type
-open import Base.List.Type
-open import Base.Maybe.Type
+open import Base.Equal.Equal
+open import Base.List.List
+open import Base.Maybe.Maybe
 open import Base.Parser.Reply
 open import Base.Parser.State
-open import Base.String.Type
-open import HVM2.Net.Type
+open import Base.String.String
+open import HVM2.Net.Net
 open import HVM2.Parser.parse-net
-open import HVM2.Redex.Type
-open import HVM2.Term.Type
-open import Base.Result.Type
+open import HVM2.Redex.Redex
+open import HVM2.Term.Term
+open import Base.Result.Result
 
 _ : parse-net (new-parser-state "r & ({x0 x1} (x0 x1)) ~ {(x2 x3) {x2 x3}}") ≡
   Done (MkReply

@@ -1,6 +1,6 @@
 module Base.String.append where
 
-open import Base.String.Type
+open import Base.String.String
 
 primitive primStringAppend : String -> String -> String
 

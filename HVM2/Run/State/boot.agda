@@ -1,11 +1,11 @@
 module HVM2.Run.State.boot where
 
-open import Base.OrdMap.Type
+open import Base.OrdMap.OrdMap
 open import Base.OrdMap.empty
-open import Base.String.Type
-open import HVM2.Net.Type
-open import HVM2.Run.State.Type
-open import HVM2.Term.Type
+open import Base.String.String
+open import HVM2.Net.Net
+open import HVM2.Run.State.State
+open import HVM2.Term.Term
 
 -- Creates a fresh state given a net.
 -- - net: The initial net for the state.

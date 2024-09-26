@@ -1,12 +1,12 @@
 module Base.BitMap.Examples.mutation where
 
-open import Base.BitMap.Type
+open import Base.BitMap.BitMap
 open import Base.BitMap.empty
 open import Base.BitMap.set
-open import Base.Bits.Type
+open import Base.Bits.Bits
 open import Base.Bits.from-nat
-open import Base.Nat.Type
-open import Base.String.Type
+open import Base.Nat.Nat
+open import Base.String.String
 
 -- Example of mutation with pure maps
 -- Creates a BitMap of Nat to String and adds key-value pairs

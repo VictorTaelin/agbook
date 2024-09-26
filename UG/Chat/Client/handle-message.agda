@@ -8,15 +8,15 @@ open import Base.ByteString.drop
 open import Base.ByteString.head
 open import Base.IO.Monad.bind
 open import Base.IO.Monad.pure
-open import Base.IO.Type
-open import Base.Nat.Type
-open import Base.ByteString.Type
-open import Base.Unit.Type
+open import Base.IO.IO
+open import Base.Nat.Nat
+open import Base.ByteString.ByteString
+open import Base.Unit.Unit
 open import Base.Word8.from-nat
 import Base.Word8.to-nat as Word8
 open import Network.WebSocket.send-binary-data
-open import UG.Chat.Client.Type
-open import UG.Chat.Message.Type
+open import UG.Chat.Client.Client
+open import UG.Chat.Message.Message
 open import UG.Chat.Message.to-nat
 open import UG.Chat.Client.handle-pong
 

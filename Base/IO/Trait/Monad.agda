@@ -2,7 +2,7 @@ module Base.IO.Trait.Monad where
 
 open import Base.IO.Monad.bind
 open import Base.IO.Monad.pure
-open import Base.IO.Type
+open import Base.IO.IO
 open import Base.Trait.Monad
 
 instance

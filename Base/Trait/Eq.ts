@@ -1,4 +1,4 @@
-import { Bool } from '../../Base/Bool/Type';
+import { Bool } from '../../Base/Bool/Bool';
 import { $not } from '../../Base/Bool/not';
 
 export interface Eq<A> {

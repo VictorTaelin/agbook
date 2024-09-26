@@ -1,10 +1,10 @@
 module Base.AVLTree.get where
 
-open import Base.Maybe.Type
-open import Base.Ordering.Type
-open import Base.Pair.Type
+open import Base.Maybe.Maybe
+open import Base.Ordering.Ordering
+open import Base.Pair.Pair
 open import Base.Trait.Ord
-open import Base.AVLTree.Type
+open import Base.AVLTree.AVLTree
 
 -- Retrieves a value associated with a key from the AVL tree.
 -- - key: The key to search for.

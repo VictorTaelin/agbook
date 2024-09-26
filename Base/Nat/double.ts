@@ -1,4 +1,4 @@
-import { Nat, Zero, Succ } from '../../Base/Nat/Type';
+import { Nat, Zero, Succ } from '../../Base/Nat/Nat';
 
 // Doubles a nat.
 // - n: The number to double.

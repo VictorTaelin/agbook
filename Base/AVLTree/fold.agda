@@ -1,7 +1,7 @@
 module Base.AVLTree.fold where
 
-open import Base.Pair.Type
-open import Base.AVLTree.Type
+open import Base.Pair.Pair
+open import Base.AVLTree.AVLTree
 
 -- Performs a fold operation over an AVL tree.
 -- - f: The combining function.

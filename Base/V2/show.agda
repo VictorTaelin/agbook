@@ -1,9 +1,9 @@
 module Base.V2.show where
 
 import Base.F64.show as F64
-open import Base.String.Type
+open import Base.String.String
 open import Base.String.append
-open import Base.V2.Type
+open import Base.V2.V2
 
 -- Converts a V2 vector to its string representation.
 -- - 1st: The V2 vector to be converted.

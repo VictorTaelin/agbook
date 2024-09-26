@@ -1,7 +1,7 @@
 module Base.F64.eq where
 
-open import Base.Bool.Type
-open import Base.F64.Type
+open import Base.Bool.Bool
+open import Base.F64.F64
 
 primitive primFloatEquality : F64 -> F64 -> Bool
 

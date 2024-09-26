@@ -1,4 +1,4 @@
-import { U64 } from '../../Base/U64/Type';
+import { U64 } from '../../Base/U64/U64';
 import { $div } from '../../Base/U64/div';
 import { $mul } from '../../Base/U64/mul';
 import { $sub } from '../../Base/U64/sub';

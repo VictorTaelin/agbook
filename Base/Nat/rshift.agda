@@ -1,6 +1,6 @@
 module Base.Nat.rshift where
 
-open import Base.Nat.Type
+open import Base.Nat.Nat
 open import Base.Nat.div
 open import Base.Nat.mul
 open import Base.Nat.exp

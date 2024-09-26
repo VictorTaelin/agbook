@@ -1,13 +1,13 @@
 module Base.BitMap.Test.contains where
 
-open import Base.BitMap.Type
+open import Base.BitMap.BitMap
 open import Base.BitMap.contains
 open import Base.BitMap.empty
 open import Base.BitMap.set
-open import Base.Bits.Type
-open import Base.Bool.Type
-open import Base.Equal.Type
-open import Base.Nat.Type
+open import Base.Bits.Bits
+open import Base.Bool.Bool
+open import Base.Equal.Equal
+open import Base.Nat.Nat
 
 test-case : ∀ {A : Set} -> BitMap A -> Bits -> Bool -> Set
 test-case m k expected = contains m k ≡ expected

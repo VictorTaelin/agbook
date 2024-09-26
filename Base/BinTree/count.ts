@@ -1,7 +1,7 @@
-import { BinTree } from '../../Base/BinTree/Type';
-import { Bool } from '../../Base/Bool/Type';
+import { BinTree } from '../../Base/BinTree/BinTree';
+import { Bool } from '../../Base/Bool/Bool';
 import { $if_then_else_ } from '../../Base/Bool/if';
-import { Nat, $Zero } from '../../Base/Nat/Type';
+import { Nat, $Zero } from '../../Base/Nat/Nat';
 import { $add } from '../../Base/Nat/add';
 import { Eq, $eq } from '../../Base/Trait/Eq';
 

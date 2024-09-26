@@ -1,6 +1,6 @@
-import { F64 } from '../../Base/F64/Type';
+import { F64 } from '../../Base/F64/F64';
 import { $mul } from '../../Base/F64/mul';
-import { V2, $MkV2 } from '../../Base/V2/Type';
+import { V2, $MkV2 } from '../../Base/V2/V2';
 
 // Multiplies a V2 vector by a scalar.
 // - v: The V2 vector to be multiplied.

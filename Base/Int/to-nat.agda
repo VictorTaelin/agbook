@@ -1,7 +1,7 @@
 module Base.Int.to-nat where
 
-open import Base.Int.Type
-open import Base.Nat.Type
+open import Base.Int.Int
+open import Base.Nat.Nat
 open import Base.Nat.add
 
 -- Converts an integer to a natural number.

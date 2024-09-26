@@ -1,10 +1,10 @@
 module Bend.Transform.unbound-vars where
 
 open import Base.Function.case
-open import Base.Bool.Type
+open import Base.Bool.Bool
 open import Base.Bool.if
 open import Base.Bool.and
-open import Base.List.Type
+open import Base.List.List
 open import Base.List.any-true
 open import Base.List.map
 open import Base.List.reverse
@@ -12,26 +12,26 @@ open import Base.List.find
 open import Base.List.mfoldl
 open import Base.List.foldr
 open import Base.List.concat
-open import Base.Maybe.Type
-open import Base.Nat.Type
+open import Base.Maybe.Maybe
+open import Base.Nat.Nat
 open import Base.Nat.add
 open import Base.Nat.Trait.Eq
-open import Base.Pair.Type
-open import Base.String.Type
+open import Base.Pair.Pair
+open import Base.String.String
 open import Base.String.Trait.Eq
 open import Base.String.hash
 open import Base.String.append
-open import Base.BitMap.Type
-open import Base.Pair.Type
-open import Base.Result.Type
+open import Base.BitMap.BitMap
+open import Base.Pair.Pair
+open import Base.Result.Result
 open import Base.Result.Trait.Monad
 open import Base.Trait.Monad
 open import Base.Trait.Eq
-open import Base.Unit.Type
-open import Bend.Fun.Book.Type
-open import Bend.Fun.Term.Type renaming (List to List')
+open import Base.Unit.Unit
+open import Bend.Fun.Book.Book
+open import Bend.Fun.Term.Term renaming (List to List')
 open import Bend.Fun.Term.children-with-binds
-open import Bend.Fun.Pattern.Type
+open import Bend.Fun.Pattern.Pattern
 import Base.Maybe.to-bool as Maybe
 import Base.BitMap.new as BitMap
 import Base.BitMap.values as BitMap
@@ -40,9 +40,9 @@ import Base.BitMap.get as BitMap
 import Base.List.append as List
 import Bend.Fun.Pattern.binds as Pat
 import Bend.Fun.Pattern.unscoped-binds as Pat
-import Bend.Fun.FnDef.Type as FnDef'
-import Bend.Fun.Rule.Type as Rule'
-import Bend.Fun.MatchRule.Type as MatchRule'
+import Bend.Fun.FnDef.FnDef as FnDef'
+import Bend.Fun.Rule.Rule as Rule'
+import Bend.Fun.MatchRule.MatchRule as MatchRule'
 
 private
   open module FnDef = FnDef' Term

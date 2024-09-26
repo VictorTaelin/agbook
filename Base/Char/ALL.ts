@@ -1,4 +1,4 @@
-export * from '../../Base/Char/Type';
+export * from '../../Base/Char/Char';
 export * from '../../Base/Char/digit-to-nat';
 export * from '../../Base/Char/eq';
 export * from '../../Base/Char/from-nat';

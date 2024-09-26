@@ -1,12 +1,12 @@
 module Imp.Stmt.show where
 
 open import Base.Nat.add
-open import Base.Nat.Type
+open import Base.Nat.Nat
 open import Base.String.append
 open import Base.String.join
-open import Base.String.Type
+open import Base.String.String
 open import Imp.Expr.show renaming (show to show-expr)
-open import Imp.Stmt.Type
+open import Imp.Stmt.Stmt
 
 -- Converts an Imp Expression to its string representation.
 show : Stmt -> String

@@ -1,10 +1,10 @@
 module Bend.Fun.Pattern.binds where
 
-open import Base.List.Type
+open import Base.List.List
 open import Base.List.concat-map
-open import Base.String.Type
-open import Base.Maybe.Type
-open import Bend.Fun.Pattern.Type
+open import Base.String.String
+open import Base.Maybe.Maybe
+open import Bend.Fun.Pattern.Pattern
 
 -- Extracts all bound variable names from a Pattern.
 -- - pat: The pattern to extract bindings from.

@@ -1,9 +1,9 @@
 module Base.String.Test.to-nat-base where
 
-open import Base.String.Type
-open import Base.Nat.Type
-open import Base.Maybe.Type
-open import Base.Equal.Type
+open import Base.String.String
+open import Base.Nat.Nat
+open import Base.Maybe.Maybe
+open import Base.Equal.Equal
 open import Base.String.to-nat-base
 
 -- Test case for base 10, valid input

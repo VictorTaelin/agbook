@@ -1,6 +1,6 @@
-import { U64 } from '../../Base/U64/Type';
-import { Bool } from '../../Base/Bool/Type';
-import { Nat } from '../../Base/Nat/Type';
+import { U64 } from '../../Base/U64/U64';
+import { Bool } from '../../Base/Bool/Bool';
+import { Nat } from '../../Base/Nat/Nat';
 import { $to_nat } from '../../Base/U64/to-nat';
 
 // Conditional expression for U64.

@@ -1,8 +1,8 @@
 module ARC.DSL.Functions.repeat where
 
-open import ARC.DSL.Types.Integer.Type
+open import ARC.DSL.Types.Integer.Integer
 open import ARC.DSL.Types.Integer.Functions as I
-open import ARC.DSL.Types.List.Type
+open import ARC.DSL.Types.List.List
 import ARC.DSL.Types.List.Functions as L
 
 -- Repeats an element a specified number of times.

@@ -5,7 +5,7 @@ open import Base.Parser.Monad.bind public
 open import Base.Parser.Monad.pure public
 open import Base.Parser.Reply public
 open import Base.Parser.State public
-open import Base.Parser.Type public
+open import Base.Parser.Parser public
 open import Base.Parser.advance-many public
 open import Base.Parser.advance-one public
 open import Base.Parser.alternative public

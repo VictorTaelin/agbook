@@ -1,15 +1,15 @@
 module HVM1.Net.link where
 
-open import HVM1.Net.Type
-open import HVM1.Port.Type
-open import HVM1.Node.Type
+open import HVM1.Net.Net
+open import HVM1.Port.Port
+open import HVM1.Node.Node
 open import HVM1.Node.port-set
-open import Base.Maybe.Type
+open import Base.Maybe.Maybe
 open import Base.Maybe.Monad.bind
 open import Base.Maybe.run
-open import Base.Pair.Type
-open import Base.Equal.Type
-import Base.BitMap.Type as M
+open import Base.Pair.Pair
+open import Base.Equal.Equal
+import Base.BitMap.BitMap as M
 import Base.BitMap.get as M
 import Base.BitMap.set as M
 

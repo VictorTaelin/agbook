@@ -3,12 +3,12 @@ module Base.Parser.Test.advance-many where
 open import Base.Parser.advance-many
 open import Base.Parser.State
 open import Base.Parser.Reply
-open import Base.Parser.Type
-open import Base.Result.Type
-open import Base.String.Type
-open import Base.Nat.Type
-open import Base.Maybe.Type
-open import Base.Equal.Type
+open import Base.Parser.Parser
+open import Base.Result.Result
+open import Base.String.String
+open import Base.Nat.Nat
+open import Base.Maybe.Maybe
+open import Base.Equal.Equal
 
 test-advance-many-valid : (advance-many 3) (MkState "abcdef" 0) ≡ Done (MkReply (MkState "def" 3) (Some "abc"))
 test-advance-many-valid = refl

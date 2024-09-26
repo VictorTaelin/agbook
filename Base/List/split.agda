@@ -1,8 +1,8 @@
 module Base.List.split where
 
-open import Base.List.Type
-open import Base.Bool.Type
-open import Base.Pair.Type
+open import Base.List.List
+open import Base.Bool.Bool
+open import Base.Pair.Pair
 open import Base.Function.case
 
 -- Splits a list at the first element that satisfies the given predicate.

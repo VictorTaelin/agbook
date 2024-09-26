@@ -1,4 +1,4 @@
-import { U64 } from '../../Base/U64/Type';
+import { U64 } from '../../Base/U64/U64';
 import { $sub as $nat_sub } from '../../Base/Nat/sub';
 import { $add as $nat_add } from '../../Base/Nat/add';
 import { $to_nat } from '../../Base/U64/to-nat';

@@ -1,5 +1,5 @@
-import { Nat } from '../../Base/Nat/Type';
-import { String } from '../../Base/String/Type';
+import { Nat } from '../../Base/Nat/Nat';
+import { String } from '../../Base/String/String';
 
 // Represents a parser error with an index and an error message.
 // - index: The position in the input where the error occurred.

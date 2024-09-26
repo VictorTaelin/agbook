@@ -1,5 +1,5 @@
-import { String } from '../../Base/String/Type';
-import { Nat } from '../../Base/Nat/Type';
+import { String } from '../../Base/String/String';
+import { Nat } from '../../Base/Nat/Nat';
 import { $to_list } from '../../Base/String/to-list';
 import { $length as length_list } from '../../Base/List/length';
 

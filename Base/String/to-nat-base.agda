@@ -1,14 +1,14 @@
 module Base.String.to-nat-base where
 
-open import Base.Char.Type
+open import Base.Char.Char
 open import Base.Char.to-digit
 open import Base.Function.case
-open import Base.List.Type
-open import Base.Maybe.Type
-open import Base.Nat.Type
+open import Base.List.List
+open import Base.Maybe.Maybe
+open import Base.Nat.Nat
 open import Base.Nat.add
 open import Base.Nat.mul
-open import Base.String.Type
+open import Base.String.String
 open import Base.String.to-list
 
 -- Converts a string to a natural number in the given base.

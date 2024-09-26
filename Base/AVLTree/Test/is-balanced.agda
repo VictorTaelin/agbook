@@ -1,12 +1,12 @@
 module Base.AVLTree.Test.is-balanced where
 
-open import Base.AVLTree.Balance.Type
-open import Base.AVLTree.Type
+open import Base.AVLTree.Balance.Balance
+open import Base.AVLTree.AVLTree
 open import Base.AVLTree.height
-open import Base.Bool.Type
+open import Base.Bool.Bool
 open import Base.Bool.if
-open import Base.Maybe.Type
-open import Base.Nat.Type
+open import Base.Maybe.Maybe
+open import Base.Nat.Nat
 open import Base.Nat.eq
 open import Base.Nat.sub
 

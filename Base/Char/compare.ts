@@ -1,6 +1,6 @@
-import { Char } from '../../Base/Char/Type';
+import { Char } from '../../Base/Char/Char';
 import { $to_nat } from '../../Base/Char/to-nat';
-import { Ordering } from '../../Base/Ordering/Type';
+import { Ordering } from '../../Base/Ordering/Ordering';
 import { $compare as nat_compare } from '../../Base/Nat/compare';
 
 // Compares two characters.

@@ -1,4 +1,4 @@
-import { Nat } from '../../Base/Nat/Type';
+import { Nat } from '../../Base/Nat/Nat';
 import { $if_then_else_ } from '../../Base/Bool/if';
 import { OrdNat } from '../../Base/Nat/Trait/Ord';
 import { $gte } from '../../Base/Trait/Ord';

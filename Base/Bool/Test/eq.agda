@@ -1,8 +1,8 @@
 module Base.Bool.Test.eq where
 
-open import Base.Bool.Type
+open import Base.Bool.Bool
 open import Base.Bool.eq
-open import Base.Equal.Type
+open import Base.Equal.Equal
 
 test-eq-true-true : (True == True) ≡ True
 test-eq-true-true = refl

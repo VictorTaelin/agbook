@@ -1,8 +1,8 @@
 module Base.OrdSet.contains where
 
 import Base.AVLTree.has-key as AVL
-open import Base.Bool.Type
-open import Base.OrdSet.Type
+open import Base.Bool.Bool
+open import Base.OrdSet.OrdSet
 open import Base.Trait.Ord
 
 -- Checks if an element is present in the OrdSet.

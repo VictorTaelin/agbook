@@ -1,7 +1,7 @@
-import { U64 } from '../../Base/U64/Type';
-import { Bits } from '../../Base/Bits/Type';
-import { Nat, $Zero } from '../../Base/Nat/Type';
-import { Maybe, $Some, $None } from '../../Base/Maybe/Type';
+import { U64 } from '../../Base/U64/U64';
+import { Bits } from '../../Base/Bits/Bits';
+import { Nat, $Zero } from '../../Base/Nat/Nat';
+import { Maybe, $Some, $None } from '../../Base/Maybe/Maybe';
 import { $double } from '../../Base/Nat/double';
 import { $from_nat } from '../../Base/U64/from-nat';
 

@@ -1,7 +1,7 @@
 module Base.ByteString.show where
 
-open import Base.ByteString.Type
-open import Base.String.Type
+open import Base.ByteString.ByteString
+open import Base.String.String
 
 postulate show : ByteString -> String
 

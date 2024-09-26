@@ -1,4 +1,4 @@
-import { List, $Cons, $Nil } from '../../Base/List/Type';
+import { List, $Cons, $Nil } from '../../Base/List/List';
 
 export interface Monoid<A> {
   memp: A;

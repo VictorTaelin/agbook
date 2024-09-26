@@ -1,7 +1,7 @@
 module Base.Maybe.eq where
 
-open import Base.Maybe.Type
-open import Base.Bool.Type
+open import Base.Maybe.Maybe
+open import Base.Bool.Bool
 import Base.Trait.Eq as Eq
 
 eq : ∀ {A : Set} -> {{EqA : Eq.Eq A}} -> Maybe A -> Maybe A -> Bool

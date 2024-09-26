@@ -1,4 +1,4 @@
-import { Equal } from '../../Base/Equal/Type';
+import { Equal } from '../../Base/Equal/Equal';
 import { $sym } from '../../Base/Equal/sym';
 import { $trans } from '../../Base/Equal/trans';
 

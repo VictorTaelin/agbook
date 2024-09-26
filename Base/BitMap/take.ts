@@ -1,7 +1,7 @@
 import { BitMap, $Node, $Leaf } from './Type';
-import { Bits, $E, $O, $I } from '../Bits/Type';
-import { Maybe, $None, $Some } from '../Maybe/Type';
-import { Pair, $Pair } from '../Pair/Type';
+import { Bits, $E, $O, $I } from '../Bits/Bits';
+import { Maybe, $None, $Some } from '../Maybe/Maybe';
+import { Pair, $Pair } from '../Pair/Pair';
 
 // Retrieves and removes a value from the BitMap given a key.
 // - m: The BitMap to search in and remove from.

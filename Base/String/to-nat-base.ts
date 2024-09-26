@@ -1,8 +1,8 @@
-import { Nat } from '../../Base/Nat/Type';
-import { String } from '../../Base/String/Type';
-import { Char } from '../../Base/Char/Type';
-import { Maybe, Some, None } from '../../Base/Maybe/Type';
-import { List, $Nil, $Cons } from '../../Base/List/Type';
+import { Nat } from '../../Base/Nat/Nat';
+import { String } from '../../Base/String/String';
+import { Char } from '../../Base/Char/Char';
+import { Maybe, Some, None } from '../../Base/Maybe/Maybe';
+import { List, $Nil, $Cons } from '../../Base/List/List';
 import { $to_list } from '../../Base/String/to-list';
 import { $add } from '../../Base/Nat/add';
 import { $mul } from '../../Base/Nat/mul';

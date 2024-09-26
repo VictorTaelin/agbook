@@ -1,4 +1,4 @@
-import { Bits, $O, $I, $E } from '../../Base/Bits/Type';
+import { Bits, $O, $I, $E } from '../../Base/Bits/Bits';
 
 // Normalizes a Bits representation by removing trailing zeros from the right side.
 // - bits: The input Bits value to normalize.

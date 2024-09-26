@@ -1,5 +1,5 @@
-import { U64 } from '../../Base/U64/Type';
-import { Nat } from '../../Base/Nat/Type';
+import { U64 } from '../../Base/U64/U64';
+import { Nat } from '../../Base/Nat/Nat';
 
 // Converts a U64 to a Nat.
 export const $to_nat = (x: U64): Nat => {

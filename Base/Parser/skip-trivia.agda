@@ -2,25 +2,25 @@
 
 module Base.Parser.skip-trivia where
 
-open import Base.Bool.Type
+open import Base.Bool.Bool
 open import Base.Bool.if
 open import Base.Bool.not
-open import Base.Char.Type
+open import Base.Char.Char
 open import Base.Char.eq
 open import Base.Char.is-space
-open import Base.List.Type
+open import Base.List.List
 open import Base.List.drop
 open import Base.List.length
 open import Base.List.take-while
-open import Base.Maybe.Type
-open import Base.Nat.Type
+open import Base.Maybe.Maybe
+open import Base.Nat.Nat
 open import Base.Nat.add
-open import Base.Pair.Type
+open import Base.Pair.Pair
 open import Base.Parser.Reply
 open import Base.Parser.State
-open import Base.Parser.Type
-open import Base.Result.Type
-open import Base.String.Type
+open import Base.Parser.Parser
+open import Base.Result.Result
+open import Base.String.String
 open import Base.String.from-list
 open import Base.String.to-list
 

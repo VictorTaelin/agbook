@@ -1,7 +1,7 @@
 module Base.OrdSet.intersect where
 
 import Base.AVLTree.intersect as AVL
-open import Base.OrdSet.Type
+open import Base.OrdSet.OrdSet
 open import Base.Trait.Ord
 
 -- Computes the intersection of two OrdSets.

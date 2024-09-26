@@ -1,4 +1,4 @@
-import { Nat, Zero } from '../../Base/Nat/Type';
+import { Nat, Zero } from '../../Base/Nat/Nat';
 
 // Subtracts one nat from another.
 // - m: The number to subtract from.

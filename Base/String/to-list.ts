@@ -1,6 +1,6 @@
-import { String } from '../../Base/String/Type';
-import { Char } from '../../Base/Char/Type';
-import { List, $Nil, $Cons } from '../../Base/List/Type';
+import { String } from '../../Base/String/String';
+import { Char } from '../../Base/Char/Char';
+import { List, $Nil, $Cons } from '../../Base/List/List';
 
 // Converts a string to a list of characters.
 // - s: The input string.

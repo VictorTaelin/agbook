@@ -1,10 +1,10 @@
 module Base.Queue.dequeue where
 
-open import Base.List.Type
+open import Base.List.List
 open import Base.List.reverse
-open import Base.Maybe.Type
-open import Base.Pair.Type
-open import Base.Queue.Type
+open import Base.Maybe.Maybe
+open import Base.Pair.Pair
+open import Base.Queue.Queue
 
 -- Removes and returns the first element from a queue.
 -- - 1st: The queue to dequeue from.

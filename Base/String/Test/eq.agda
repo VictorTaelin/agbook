@@ -1,9 +1,9 @@
 module Base.String.Test.eq where
 
-open import Base.String.Type
+open import Base.String.String
 open import Base.String.eq
-open import Base.Bool.Type
-open import Base.Equal.Type
+open import Base.Bool.Bool
+open import Base.Equal.Equal
 
 test-eq-same-string : ("hello" == "hello") ≡ True
 test-eq-same-string = refl

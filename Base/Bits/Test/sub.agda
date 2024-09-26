@@ -1,10 +1,10 @@
 module Base.Bits.Test.sub where
 
-open import Base.Bits.Type
+open import Base.Bits.Bits
 open import Base.Bits.sub
 open import Base.Bits.from-nat
 open import Base.Bits.to-nat
-open import Base.Equal.Type
+open import Base.Equal.Equal
 
 test-sub-zero-zero : (E - E) ≡ E
 test-sub-zero-zero = refl

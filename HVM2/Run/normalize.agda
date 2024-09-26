@@ -1,11 +1,11 @@
 module HVM2.Run.normalize where
 
-open import Base.Bool.Type
+open import Base.Bool.Bool
 open import Base.Bool.if
-open import Base.Maybe.Type
-open import Base.Unit.Type
-open import HVM2.Redex.Type
-open import HVM2.Run.Type
+open import Base.Maybe.Maybe
+open import Base.Unit.Unit
+open import HVM2.Redex.Redex
+open import HVM2.Run.Run
 open import HVM2.Run.Monad.bind
 open import HVM2.Run.interact
 open import HVM2.Run.redex-pop

@@ -1,4 +1,4 @@
-import { List, $Cons, $Nil } from '../../../Base/List/Type';
+import { List, $Cons, $Nil } from '../../../Base/List/List';
 import { $append } from '../../../Base/List/append';
 
 // The bind function for the List monad.

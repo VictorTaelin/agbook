@@ -1,23 +1,23 @@
 module Base.AVLTree.Test.difference where
 
-open import Base.AVLTree.Type
+open import Base.AVLTree.AVLTree
 open import Base.AVLTree.difference
 open import Base.AVLTree.empty
 open import Base.AVLTree.insert
 open import Base.AVLTree.from-list
 open import Base.AVLTree.to-list
 open import Base.AVLTree.Test.is-balanced
-open import Base.Equal.Type
-open import Base.Nat.Type
+open import Base.Equal.Equal
+open import Base.Nat.Nat
 open import Base.Nat.Trait.Eq
 open import Base.Nat.Trait.Ord
-open import Base.List.Type
+open import Base.List.List
 open import Base.List.Trait.Eq
-open import Base.Bool.Type
+open import Base.Bool.Bool
 open import Base.Bool.and
-open import Base.Unit.Type
+open import Base.Unit.Unit
 open import Base.Unit.Trait.Eq
-open import Base.Pair.Type
+open import Base.Pair.Pair
 open import Base.Pair.Trait.Eq
 open import Base.Trait.Eq
 

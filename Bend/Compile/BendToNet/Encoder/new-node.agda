@@ -1,10 +1,10 @@
 module Bend.Compile.BendToNet.Encoder.new-node where
 
-open import Base.Nat.Type
-open import Base.Pair.Type
-open import Bend.Compile.BendToNet.Encoder.Type
+open import Base.Nat.Nat
+open import Base.Pair.Pair
+open import Bend.Compile.BendToNet.Encoder.Encoder
 open import Bend.Net.new-node renaming (new-node to net-new-node)
-open import Bend.Net.NodeKind.Type
+open import Bend.Net.NodeKind.NodeKind
 
 -- Creates a fresh new node in the Encoder's net
 -- - kind: The NodeKind of the new node

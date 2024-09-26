@@ -1,14 +1,14 @@
 module Base.BitMap.Test.swap where
 
-open import Base.BitMap.Type
+open import Base.BitMap.BitMap
 open import Base.BitMap.new
 open import Base.BitMap.swap
-open import Base.Bits.Type
-open import Base.Maybe.Type
-open import Base.BinTree.Type
-open import Base.Pair.Type
-open import Base.Equal.Type
-open import Base.Nat.Type
+open import Base.Bits.Bits
+open import Base.Maybe.Maybe
+open import Base.BinTree.BinTree
+open import Base.Pair.Pair
+open import Base.Equal.Equal
+open import Base.Nat.Nat
 
 test-swap-empty : (swap {Nat} new E 42) ≡ (Node (Some 42) Leaf Leaf , None)
 test-swap-empty = refl

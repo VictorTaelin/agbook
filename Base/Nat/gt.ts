@@ -1,5 +1,5 @@
-import { Nat } from '../../Base/Nat/Type';
-import { Bool, True, False } from '../../Base/Bool/Type';
+import { Nat } from '../../Base/Nat/Nat';
+import { Bool, True, False } from '../../Base/Bool/Bool';
 
 export const $$gt = (x: Nat, y: Nat): Bool => {
   if (x === 0n) {

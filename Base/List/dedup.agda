@@ -1,11 +1,11 @@
 module Base.List.dedup where
 
-open import Base.Bool.Type
-open import Base.List.Type
+open import Base.Bool.Bool
+open import Base.List.List
 open import Base.OrdSet.contains
 open import Base.OrdSet.empty
 open import Base.OrdSet.insert
-open import Base.OrdSet.Type
+open import Base.OrdSet.OrdSet
 open import Base.Trait.Ord
 
 -- Removes duplicates from a list using an OrdSet.

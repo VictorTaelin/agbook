@@ -1,14 +1,14 @@
 module Base.Pair.Test.eq where
 
-open import Base.Pair.Type
+open import Base.Pair.Pair
 open import Base.Pair.eq
-open import Base.Nat.Type
+open import Base.Nat.Nat
 open import Base.Nat.eq
-open import Base.Bool.Type
+open import Base.Bool.Bool
 open import Base.Bool.eq
-open import Base.Char.Type
+open import Base.Char.Char
 open import Base.Char.eq
-open import Base.Equal.Type
+open import Base.Equal.Equal
 
 test-eq-same-pair : ((1 , True) == (1 , True)) ≡ True
 test-eq-same-pair = refl

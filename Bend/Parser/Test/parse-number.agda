@@ -2,14 +2,14 @@ module Bend.Parser.Test.parse-number where
 
 open import Base.Int.from-nat
 open import Base.Int.from-neg
-open import Base.Equal.Type
-open import Base.Maybe.Type
+open import Base.Equal.Equal
+open import Base.Maybe.Maybe
 open import Base.Parser.State
-open import Base.Result.Type
+open import Base.Result.Result
 open import Base.Parser.Reply
 open import Base.Parser.Error
 open import Bend.Parser.parse-number
-open import Bend.Fun.Num.Type
+open import Bend.Fun.Num.Num
 
 -- Successful parsing tests
 

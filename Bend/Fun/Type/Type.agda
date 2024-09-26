@@ -1,7 +1,7 @@
 module Bend.Fun.Type.Type where
 
-open import Base.List.Type
-open import Base.String.Type
+open import Base.List.List
+open import Base.String.String
 
 -- Types of terms and functions in Bend.
 data Type : Set where

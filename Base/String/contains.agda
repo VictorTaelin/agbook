@@ -1,7 +1,7 @@
 module Base.String.contains where
 
-open import Base.Bool.Type
-open import Base.String.Type
+open import Base.Bool.Bool
+open import Base.String.String
 open import Base.String.starts-with
 open import Base.String.drop
 

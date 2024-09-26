@@ -1,4 +1,4 @@
-import { List, $Nil, $Cons } from '../../Base/List/Type';
+import { List, $Nil, $Cons } from '../../Base/List/List';
 import { $append } from '../../Base/List/append';
 import { $foldr } from '../../Base/List/foldr';
 import { $zip_cons } from '../../Base/List/zip-cons';

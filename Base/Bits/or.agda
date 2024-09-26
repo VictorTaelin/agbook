@@ -1,6 +1,6 @@
 module Base.Bits.or where
 
-open import Base.Bits.Type
+open import Base.Bits.Bits
 
 -- Performs bitwise OR operation on two Bits values.
 -- - a: The 1st Bits value.

@@ -1,9 +1,9 @@
 module Base.Bits.Test.eq where
 
-open import Base.Bits.Type
+open import Base.Bits.Bits
 open import Base.Bits.eq
-open import Base.Equal.Type
-open import Base.Bool.Type
+open import Base.Equal.Equal
+open import Base.Bool.Bool
 
 test-eq-empty-empty : (E == E) ≡ True
 test-eq-empty-empty = refl

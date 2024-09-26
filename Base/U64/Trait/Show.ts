@@ -1,4 +1,4 @@
-import { U64 } from '../../../Base/U64/Type';
+import { U64 } from '../../../Base/U64/U64';
 import { $show as u64_show } from '../../../Base/U64/show';
 import { Show, $make_show } from '../../../Base/Trait/Show';
 

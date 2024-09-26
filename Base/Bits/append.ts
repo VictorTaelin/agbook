@@ -1,4 +1,4 @@
-import { Bits, O, I, E } from '../../Base/Bits/Type';
+import { Bits, O, I, E } from '../../Base/Bits/Bits';
 
 // Appends two Bits values.
 // - as: The 1st Bits value.

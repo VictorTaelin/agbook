@@ -1,4 +1,4 @@
-import { Char } from '../../../Base/Char/Type';
+import { Char } from '../../../Base/Char/Char';
 import { Ord } from '../../../Base/Trait/Ord';
 import { $compare } from '../../../Base/Char/compare';
 import { $lt } from '../../../Base/Char/lt';

@@ -1,8 +1,8 @@
-import { Bits } from '../../Base/Bits/Type';
+import { Bits } from '../../Base/Bits/Bits';
 import { $length } from '../../Base/Bits/length';
 import { $pad_zeros } from '../../Base/Bits/pad-zeros';
-import { Pair, $Pair } from '../../Base/Pair/Type';
-import { Nat } from '../../Base/Nat/Type';
+import { Pair, $Pair } from '../../Base/Pair/Pair';
+import { Nat } from '../../Base/Nat/Nat';
 import { $max } from '../../Base/Nat/max';
 
 // Ensures two Bits values have the same length by padding with leading zeros.

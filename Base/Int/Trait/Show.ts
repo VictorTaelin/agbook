@@ -1,4 +1,4 @@
-import { Int } from '../../../Base/Int/Type';
+import { Int } from '../../../Base/Int/Int';
 import { $show as $show_int } from '../../../Base/Int/show';
 import { Show, $make_show } from '../../../Base/Trait/Show';
 

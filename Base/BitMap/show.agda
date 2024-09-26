@@ -1,10 +1,10 @@
 module Base.BitMap.show where
 
-open import Base.BitMap.Type
-open import Base.Maybe.Type
-open import Base.String.Type
+open import Base.BitMap.BitMap
+open import Base.Maybe.Maybe
+open import Base.String.String
 open import Base.String.append
-open import Base.BinTree.Type
+open import Base.BinTree.BinTree
 
 show : ∀ {A : Set} -> (A -> String) -> BitMap A -> String
 show f Leaf                = "_"

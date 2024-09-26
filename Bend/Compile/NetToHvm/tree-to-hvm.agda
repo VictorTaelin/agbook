@@ -2,29 +2,29 @@ module Bend.Compile.NetToHvm.tree-to-hvm where
 
 open import Base.Bool.if
 open import Base.Function.case
-open import Base.BitMap.Type
+open import Base.BitMap.BitMap
 open import Base.BitMap.get renaming (get to map-get)
 open import Base.BitMap.set renaming (set to map-set)
-open import Base.Maybe.Type
+open import Base.Maybe.Maybe
 open import Base.Maybe.to-result
-open import Base.Nat.Type
+open import Base.Nat.Nat
 open import Base.Nat.eq
 open import Base.Nat.to-bits
-open import Base.Pair.Type
-open import Base.Result.Type
+open import Base.Pair.Pair
+open import Base.Result.Result
 open import Base.Result.Monad.bind
-open import Base.String.Type
-open import Bend.Net.Type renaming (Net to BNet)
+open import Base.String.String
+open import Bend.Net.Net renaming (Net to BNet)
 open import Bend.Net.get-node
 open import Bend.Net.get-port
-open import Bend.Net.Node.Type
-open import Bend.Net.NodeKind.Type
-open import Bend.Net.Port.Type
+open import Bend.Net.Node.Node
+open import Bend.Net.NodeKind.NodeKind
+open import Bend.Net.Port.Port
 open import Bend.Net.Port.to-bits renaming (to-bits to port-to-bits)
 open import Bend.nat-to-name
-open import HVM2.Net.Type renaming (Net to HNet)
-open import HVM2.Term.Type renaming (Term to HTerm)
-open import Bend.Compile.NetToHvm.State.Type
+open import HVM2.Net.Net renaming (Net to HNet)
+open import HVM2.Term.Term renaming (Term to HTerm)
+open import Bend.Compile.NetToHvm.State.State
 
 mutual
 

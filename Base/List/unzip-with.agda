@@ -1,7 +1,7 @@
 module Base.List.unzip-with where
 
-open import Base.List.Type
-open import Base.Pair.Type
+open import Base.List.List
+open import Base.Pair.Pair
 
 -- Unzips a list with a given function that generates a pair of lists.
 -- - f: The function to apply to each element, generating a pair.

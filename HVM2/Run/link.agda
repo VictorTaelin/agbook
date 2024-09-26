@@ -5,16 +5,16 @@ open import Base.String.append
 import HVM2.Term.show as Term
 
 open import Base.Function.case
-open import Base.String.Type
-open import Base.Maybe.Type
-open import Base.Unit.Type
-open import HVM2.Run.Type
+open import Base.String.String
+open import Base.Maybe.Maybe
+open import Base.Unit.Unit
+open import HVM2.Run.Run
 open import HVM2.Run.Monad.bind
 open import HVM2.Run.Monad.pure
 open import HVM2.Run.redex-push
 open import HVM2.Run.subst-swap
 open import HVM2.Run.subst-take
-open import HVM2.Term.Type
+open import HVM2.Term.Term
 
 mutual
   -- Links two terms

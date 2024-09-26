@@ -1,9 +1,9 @@
 module Base.U64.from-bits where
 
-open import Base.U64.Type
-open import Base.Bits.Type
-open import Base.Nat.Type
-open import Base.Maybe.Type
+open import Base.U64.U64
+open import Base.Bits.Bits
+open import Base.Nat.Nat
+open import Base.Maybe.Maybe
 open import Base.Nat.double
 open import Base.U64.from-nat
 

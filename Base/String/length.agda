@@ -1,9 +1,9 @@
 module Base.String.length where
 
-open import Base.String.Type
+open import Base.String.String
 open import Base.String.to-list
 open import Base.List.length renaming (length to length')
-open import Base.Nat.Type
+open import Base.Nat.Nat
 
 -- Computes the length of a string.
 -- - 1st: The input string.

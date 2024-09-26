@@ -1,4 +1,4 @@
-import { F64 } from '../../Base/F64/Type';
+import { F64 } from '../../Base/F64/F64';
 
 // Computes the square root of a float.
 // Returns NaN for negative numbers.

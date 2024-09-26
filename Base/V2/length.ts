@@ -1,8 +1,8 @@
-import { F64 } from '../../Base/F64/Type';
+import { F64 } from '../../Base/F64/F64';
 import { $add } from '../../Base/F64/add';
 import { $mul } from '../../Base/F64/mul';
 import { $sqrt } from '../../Base/F64/sqrt';
-import { V2 } from '../../Base/V2/Type';
+import { V2 } from '../../Base/V2/V2';
 
 // Calculates the length (magnitude) of a V2 vector.
 // - v: The V2 vector.

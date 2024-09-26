@@ -1,10 +1,10 @@
 module Base.F64.Test.show where
 
-open import Base.F64.Type
+open import Base.F64.F64
 open import Base.F64.show
 open import Base.F64.div
-open import Base.String.Type
-open import Base.Equal.Type
+open import Base.String.String
+open import Base.Equal.Equal
 
 test-show-pi : show 3.14 ≡ "3.14"
 test-show-pi = refl

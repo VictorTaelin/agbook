@@ -1,6 +1,6 @@
 module Base.Bits.normal where
 
-open import Base.Bits.Type
+open import Base.Bits.Bits
 
 -- Normalizes a Bits representation by removing trailing zeros from the right side.
 -- - bits: The input Bits value to normalize.

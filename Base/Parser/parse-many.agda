@@ -1,14 +1,14 @@
 module Base.Parser.parse-many where
 
 open import Base.Function.case
-open import Base.List.Type
+open import Base.List.List
 open import Base.List.reverse
 open import Base.Parser.Monad.bind
 open import Base.Parser.Monad.pure
 open import Base.Parser.Reply
 open import Base.Parser.State
-open import Base.Parser.Type
-open import Base.Result.Type
+open import Base.Parser.Parser
+open import Base.Result.Result
 
 -- Parses as many occurrences of the given parser as possible.
 -- - 1st: The parser to be repeatedly applied.

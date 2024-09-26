@@ -1,6 +1,6 @@
 module Base.Char.ALL where
 
-open import Base.Char.Type public
+open import Base.Char.Char public
 open import Base.Char.digit-to-nat public
 open import Base.Char.eq public
 open import Base.Char.from-nat public

@@ -1,6 +1,6 @@
 module Base.Nat.mod where
 
-open import Base.Nat.Type
+open import Base.Nat.Nat
 open import Base.Nat.sub
 
 -- Helper function for modulo operation

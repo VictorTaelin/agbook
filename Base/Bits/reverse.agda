@@ -1,6 +1,6 @@
 module Base.Bits.reverse where
 
-open import Base.Bits.Type
+open import Base.Bits.Bits
 
 -- Reverses the order of bits in a binary string.
 -- - bits: The input binary string.

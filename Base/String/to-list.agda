@@ -1,8 +1,8 @@
 module Base.String.to-list where
 
-open import Base.Char.Type
-open import Base.List.Type
-open import Base.String.Type
+open import Base.Char.Char
+open import Base.List.List
+open import Base.String.String
 
 primitive primStringToList : String -> List Char
 

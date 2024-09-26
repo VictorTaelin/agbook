@@ -1,12 +1,11 @@
-module Base.Maybe.maybe where
+module Base.Maybe.Maybe where
 
-open import Base.Maybe.Type
+-- A type representing an optional value.
+-- - A: The type of the value that may or may not be present.
+-- - None: Represents the absence of a value.
+-- - Some: Represents the presence of a value.
+data Maybe {a} (A : Set a) : Set a where
+  None : Maybe A
+  Some : (value : A) -> Maybe A
 
--- Applies a function to the value inside a Maybe if it exists, otherwise returns a default value.
--- - default: The value to return if the Maybe is None.
--- - fn: The function to apply to the value inside the Maybe if it exists.
--- - ma: The Maybe value to operate on.
--- = Either the default value (if ma is None) or the result of applying fn to the value inside ma.
-maybe : ∀ {A B : Set} -> B -> (A -> B) -> Maybe A -> B
-maybe default fn None     = default
-maybe default fn (Some x) = fn x
+{-# BUILTIN MAYBE Maybe #-}

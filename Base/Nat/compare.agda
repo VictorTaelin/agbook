@@ -1,7 +1,7 @@
 module Base.Nat.compare where
 
-open import Base.Ordering.Type
-open import Base.Nat.Type
+open import Base.Ordering.Ordering
+open import Base.Nat.Nat
 
 -- Compares two natural numbers.
 -- - m: The first natural number.

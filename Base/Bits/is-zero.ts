@@ -1,5 +1,5 @@
-import { Bits } from '../../Base/Bits/Type';
-import { Bool, $True, $False } from '../../Base/Bool/Type';
+import { Bits } from '../../Base/Bits/Bits';
+import { Bool, $True, $False } from '../../Base/Bool/Bool';
 import { $and } from '../../Base/Bool/and';
 
 // Checks if a number in bits is zero or empty.

@@ -1,5 +1,5 @@
 module Base.Either.ALL where
 
-open import Base.Either.Type public
+open import Base.Either.Either public
 
-open Base.Either.Type public using (Either; lft; rgt)
+open Base.Either.Either public using (Either; lft; rgt)

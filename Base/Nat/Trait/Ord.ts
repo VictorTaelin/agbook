@@ -1,4 +1,4 @@
-import { Nat } from '../../../Base/Nat/Type';
+import { Nat } from '../../../Base/Nat/Nat';
 import { Ord } from '../../../Base/Trait/Ord';
 import { $lt } from '../../../Base/Nat/lt';
 import { $lte } from '../../../Base/Nat/lte';

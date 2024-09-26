@@ -1,4 +1,4 @@
-import { Bool } from '../../Base/Bool/Type';
+import { Bool } from '../../Base/Bool/Bool';
 
 // Performs logical XOR operation on two bools.
 // - a: The 1st bool.

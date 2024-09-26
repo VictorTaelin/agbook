@@ -1,7 +1,7 @@
 module Base.Bits.show where
 
-open import Base.Bits.Type
-open import Base.String.Type
+open import Base.Bits.Bits
+open import Base.String.String
 open import Base.String.append
 
 show : Bits -> String

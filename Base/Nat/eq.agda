@@ -1,7 +1,7 @@
 module Base.Nat.eq where
 
-open import Base.Nat.Type
-open import Base.Bool.Type
+open import Base.Nat.Nat
+open import Base.Bool.Bool
 
 eq : Nat -> Nat -> Bool
 eq Zero     Zero     = True

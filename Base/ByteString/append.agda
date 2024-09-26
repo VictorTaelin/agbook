@@ -1,6 +1,6 @@
 module Base.ByteString.append where
 
-open import Base.ByteString.Type
+open import Base.ByteString.ByteString
 
 -- Concatenates two ByteStrings.
 -- - bs1: The 1st ByteString.

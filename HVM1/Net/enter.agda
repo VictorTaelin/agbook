@@ -1,13 +1,13 @@
 module HVM1.Net.enter where
 
-open import HVM1.Net.Type
-open import HVM1.Port.Type
-open import HVM1.Node.Type
+open import HVM1.Net.Net
+open import HVM1.Port.Port
+open import HVM1.Node.Node
 open import HVM1.Node.port-get
-open import Base.Maybe.Type
+open import Base.Maybe.Maybe
 open import Base.Maybe.Monad.bind
 open import Base.Maybe.run
-import Base.BitMap.Type as M
+import Base.BitMap.BitMap as M
 import Base.BitMap.get as M
 
 -- Enters a port in the Net, returning the connected port.

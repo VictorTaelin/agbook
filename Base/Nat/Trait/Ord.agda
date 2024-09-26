@@ -1,6 +1,6 @@
 module Base.Nat.Trait.Ord where
 
-open import Base.Nat.Type
+open import Base.Nat.Nat
 import Base.Trait.Ord as Ord
 import Base.Nat.lt as Nat
 import Base.Nat.lte as Nat

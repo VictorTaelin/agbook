@@ -1,7 +1,7 @@
 module Base.Maybe.neq where
 
-open import Base.Maybe.Type
-open import Base.Bool.Type
+open import Base.Maybe.Maybe
+open import Base.Bool.Bool
 open import Base.Bool.not
 import Base.Maybe.eq as Maybe
 import Base.Trait.Eq as Eq

@@ -1,7 +1,7 @@
 module Base.Bits.eq where
 
-open import Base.Bits.Type
-open import Base.Bool.Type
+open import Base.Bits.Bits
+open import Base.Bool.Bool
 
 eq : Bits -> Bits -> Bool
 eq E     E     = True

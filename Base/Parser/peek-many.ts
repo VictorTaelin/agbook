@@ -1,16 +1,16 @@
 import { $if_then_else_ } from '../../Base/Bool/if';
-import { Char } from '../../Base/Char/Type';
-import { List } from '../../Base/List/Type';
+import { Char } from '../../Base/Char/Char';
+import { List } from '../../Base/List/List';
 import { $length } from '../../Base/List/length';
 import { $take } from '../../Base/List/take';
-import { Maybe, $Some, $None } from '../../Base/Maybe/Type';
-import { Nat } from '../../Base/Nat/Type';
+import { Maybe, $Some, $None } from '../../Base/Maybe/Maybe';
+import { Nat } from '../../Base/Nat/Nat';
 import { $eq } from '../../Base/Nat/eq';
 import { $MkReply } from '../../Base/Parser/Reply';
 import { State } from '../../Base/Parser/State';
-import { Parser } from '../../Base/Parser/Type';
-import { $Done } from '../../Base/Result/Type';
-import { String } from '../../Base/String/Type';
+import { Parser } from '../../Base/Parser/Parser';
+import { $Done } from '../../Base/Result/Result';
+import { String } from '../../Base/String/String';
 import { $from_list } from '../../Base/String/from-list';
 import { $to_list } from '../../Base/String/to-list';
 

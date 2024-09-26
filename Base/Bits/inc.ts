@@ -1,4 +1,4 @@
-import { Bits, O, I, E } from '../../Base/Bits/Type';
+import { Bits, O, I, E } from '../../Base/Bits/Bits';
 
 // Increments a binary string by one. Keeps the same length.
 // - bs: The input binary string.

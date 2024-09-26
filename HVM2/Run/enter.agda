@@ -1,12 +1,12 @@
 module HVM2.Run.enter where
 
 open import Base.Function.case
-open import Base.Maybe.Type
-open import HVM2.Run.Type
+open import Base.Maybe.Maybe
+open import HVM2.Run.Run
 open import HVM2.Run.Monad.bind
 open import HVM2.Run.Monad.pure
 open import HVM2.Run.subst-take
-open import HVM2.Term.Type
+open import HVM2.Term.Term
 
 -- Recursively enters variables until reaching a
 -- non-var term or a variable with no substitution

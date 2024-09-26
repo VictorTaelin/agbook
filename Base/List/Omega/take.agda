@@ -1,8 +1,8 @@
 module Base.List.Omega.take where
 
-open import Base.List.Type
-open import Base.List.Omega.Type
-open import Base.Nat.Type
+open import Base.List.List
+open import Base.List.Omega.Omega
+open import Base.Nat.Nat
 
 -- Takes the first n elements from an Omega list.
 -- - n: The number of elements to take.

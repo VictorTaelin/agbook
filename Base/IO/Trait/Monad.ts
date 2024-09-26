@@ -1,4 +1,4 @@
-import { IO } from '../../../Base/IO/Type';
+import { IO } from '../../../Base/IO/IO';
 import { Monad } from '../../../Base/Trait/Monad';
 import { $bind } from '../../../Base/IO/Monad/bind';
 import { $pure } from '../../../Base/IO/Monad/pure';

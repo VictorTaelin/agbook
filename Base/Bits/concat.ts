@@ -1,5 +1,5 @@
-import { List, $Cons, $Nil } from '../../Base/List/Type';
-import { Bits, $O, $I, $E } from '../../Base/Bits/Type';
+import { List, $Cons, $Nil } from '../../Base/List/List';
+import { Bits, $O, $I, $E } from '../../Base/Bits/Bits';
 
 // Converts a list of Bits in to a single Bits.
 // Least significant bits should be to the left of the list.

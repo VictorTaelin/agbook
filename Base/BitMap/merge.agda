@@ -1,8 +1,8 @@
 module Base.BitMap.merge where
 
 import Base.BinTree.merge as BinTree
-open import Base.BitMap.Type
-open import Base.Maybe.Type
+open import Base.BitMap.BitMap
+open import Base.Maybe.Maybe
 
 -- Merges two BitMaps, favoring the second BitMap when both have a value.
 -- - m1: The 1st BitMap.

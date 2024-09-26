@@ -1,18 +1,18 @@
 module Base.Bits.encode-char-utf8 where
 
-open import Base.Char.Type
-open import Base.Bits.Type
+open import Base.Char.Char
+open import Base.Bits.Bits
 open import Base.Bits.from-char
 open import Base.Bits.append
 open import Base.Bits.from-nat
 open import Base.Bits.to-nat
 open import Base.Bits.split-at
 open import Base.Bits.pad-zeros
-open import Base.Bool.Type
+open import Base.Bool.Bool
 open import Base.Bool.if
-open import Base.Nat.Type
+open import Base.Nat.Nat
 open import Base.Nat.Trait.Ord
-open import Base.Pair.Type
+open import Base.Pair.Pair
 open import Base.Trait.Ord
 
 -- Encodes a character into its UTF-8 representation as Bits.

@@ -1,9 +1,9 @@
 module Base.F64.and where
 
 import Base.Bool.and as Bool
-open import Base.Bool.Type
+open import Base.Bool.Bool
 open import Base.Bool.not
-open import Base.F64.Type
+open import Base.F64.F64
 open import Base.F64.eq
 
 -- Performs logical AND on two floats.

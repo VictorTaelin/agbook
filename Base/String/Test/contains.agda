@@ -1,9 +1,9 @@
 module Base.String.Test.contains where
 
-open import Base.String.Type
+open import Base.String.String
 open import Base.String.contains
-open import Base.Bool.Type
-open import Base.Equal.Type
+open import Base.Bool.Bool
+open import Base.Equal.Equal
 
 -- Contains tests
 _ : contains "hello world" "hello" ≡ True

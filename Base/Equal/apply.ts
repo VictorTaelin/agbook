@@ -1,4 +1,4 @@
-import { Equal, $refl } from '../../Base/Equal/Type';
+import { Equal, $refl } from '../../Base/Equal/Equal';
 
 // Congruence property of equality:
 // If two values are equal, then applying a function to both yields equal results.

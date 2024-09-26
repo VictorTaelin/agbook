@@ -1,9 +1,9 @@
 module Base.Int.compare where
 
-open import Base.Ordering.Type
-open import Base.Nat.Type
+open import Base.Ordering.Ordering
+open import Base.Nat.Nat
 open import Base.Nat.compare renaming (compare to compare-nat)
-open import Base.Int.Type
+open import Base.Int.Int
 
 -- Compares two natural numbers.
 -- - m: The first natural number.

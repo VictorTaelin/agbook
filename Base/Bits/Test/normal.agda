@@ -1,8 +1,8 @@
 module Base.Bits.Test.normal where
 
-open import Base.Bits.Type
+open import Base.Bits.Bits
 open import Base.Bits.normal
-open import Base.Equal.Type
+open import Base.Equal.Equal
 
 test-normal-empty : normal E ≡ E
 test-normal-empty = refl

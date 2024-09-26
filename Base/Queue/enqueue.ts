@@ -1,5 +1,5 @@
-import { Queue, $MkQueue } from '../../Base/Queue/Type';
-import { List, $Cons } from '../../Base/List/Type';
+import { Queue, $MkQueue } from '../../Base/Queue/Queue';
+import { List, $Cons } from '../../Base/List/List';
 
 export const $enqueue = <A>(queue: Queue<A>, a: A): Queue<A> => {
   return $MkQueue(queue.front, $Cons(a, queue.back));

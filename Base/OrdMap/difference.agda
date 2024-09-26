@@ -1,7 +1,7 @@
 module Base.OrdMap.difference where
 
 import Base.AVLTree.difference as AVL
-open import Base.OrdMap.Type
+open import Base.OrdMap.OrdMap
 open import Base.Trait.Ord
 
 -- Computes the difference between two OrdMaps.

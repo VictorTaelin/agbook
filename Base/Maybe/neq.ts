@@ -1,5 +1,5 @@
-import { Maybe } from '../../Base/Maybe/Type';
-import { Bool } from '../../Base/Bool/Type';
+import { Maybe } from '../../Base/Maybe/Maybe';
+import { Bool } from '../../Base/Bool/Bool';
 import { not } from '../../Base/Bool/not';
 import { Eq } from '../../Base/Trait/Eq';
 import { $eq as $maybe_eq } from '../../Base/Maybe/eq';

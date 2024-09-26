@@ -1,6 +1,6 @@
 module Base.List.Monad.pure where
 
-open import Base.List.Type
+open import Base.List.List
 
 -- The pure function for the List monad.
 -- Wraps a single element in a list.

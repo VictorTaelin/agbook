@@ -1,5 +1,5 @@
-import { Int } from '../../Base/Int/Type';
-import { Bool } from '../../Base/Bool/Type';
+import { Int } from '../../Base/Int/Int';
+import { Bool } from '../../Base/Bool/Bool';
 import { $eq as $nat_eq } from '../../Base/Nat/eq';
 
 // Checks if two integers are equal.

@@ -1,5 +1,5 @@
-import { U64 } from '../../Base/U64/Type';
-import { Bits } from '../../Base/Bits/Type';
+import { U64 } from '../../Base/U64/U64';
+import { Bits } from '../../Base/Bits/Bits';
 import { $to_nat } from '../../Base/Bits/to-nat';
 import { $not as $not_bits } from '../../Base/Bits/not';
 import { $to_bits } from '../../Base/U64/to-bits';

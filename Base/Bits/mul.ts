@@ -1,4 +1,4 @@
-import { Bits, O, I, E } from '../../Base/Bits/Type';
+import { Bits, O, I, E } from '../../Base/Bits/Bits';
 import { $add } from '../../Base/Bits/add';
 
 // Performs multiplication of two Bits values.

@@ -1,8 +1,8 @@
 module Base.Bits.Test.dec where
 
-open import Base.Bits.Type
+open import Base.Bits.Bits
 open import Base.Bits.dec
-open import Base.Equal.Type
+open import Base.Equal.Equal
 
 test-dec-zero : dec (O E) ≡ (I E)
 test-dec-zero = refl

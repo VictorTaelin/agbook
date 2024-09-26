@@ -1,19 +1,19 @@
-open import Bend.Fun.Term.Type using (Term)
+open import Bend.Fun.Term.Term using (Term)
 open import Base.Trait.Show
 
 module Bend.Fun.FnDef.show (TShow : Show Term) where
 
 open import Bend.Fun.Type.show
 open import Bend.Fun.Pattern.show
-open import Base.String.Type
+open import Base.String.String
 open import Base.String.append
 open import Base.String.join
-open import Base.List.Type
+open import Base.List.List
 open import Base.List.map
 open import Base.List.is-nil
 open import Base.Bool.if
-import Bend.Fun.FnDef.Type as FnDef'
-import Bend.Fun.Rule.Type as Rule'
+import Bend.Fun.FnDef.FnDef as FnDef'
+import Bend.Fun.Rule.Rule as Rule'
 
 private
   open module FnDef = FnDef' Term

@@ -1,5 +1,5 @@
-import { String } from '../../Base/String/Type';
-import { Bool } from '../../Base/Bool/Type';
+import { String } from '../../Base/String/String';
+import { Bool } from '../../Base/Bool/Bool';
 import { $to_list } from '../../Base/String/to-list';
 import { $gte as $list_gte } from '../../Base/List/gte';
 import { OrdChar } from '../../Base/Char/Trait/Ord';

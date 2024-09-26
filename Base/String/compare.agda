@@ -1,10 +1,10 @@
 module Base.String.compare where
 
-open import Base.String.Type
+open import Base.String.String
 import Base.String.eq as String
 import Base.String.lt as String
-open import Base.Ordering.Type
-open import Base.Bool.Type
+open import Base.Ordering.Ordering
+open import Base.Bool.Bool
 open import Base.Bool.if
 
 -- Compares two strings lexicographically.

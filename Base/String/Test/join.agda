@@ -1,11 +1,11 @@
 module Base.String.Test.join where
 
-open import Base.String.Type
+open import Base.String.String
 open import Base.String.join
-open import Base.List.Type
-open import Base.Equal.Type
+open import Base.List.List
+open import Base.Equal.Equal
 open import Debug.Trace
-open import Base.Bool.Type
+open import Base.Bool.Bool
 open import Base.Bool.show
 open import Base.String.append
 

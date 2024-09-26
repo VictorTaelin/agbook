@@ -1,4 +1,4 @@
-import { Equal, $refl } from '../../Base/Equal/Type';
+import { Equal, $refl } from '../../Base/Equal/Equal';
 
 // Transitivity property of equality.
 // If x is equal to y and y is equal to z, then x is equal to z.

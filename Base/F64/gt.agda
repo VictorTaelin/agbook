@@ -1,7 +1,7 @@
 module Base.F64.gt where
 
-open import Base.Bool.Type
-open import Base.F64.Type
+open import Base.Bool.Bool
+open import Base.F64.F64
 open import Base.F64.lt
 
 gt : F64 -> F64 -> Bool

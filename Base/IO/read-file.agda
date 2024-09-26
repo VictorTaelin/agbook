@@ -1,7 +1,7 @@
 module Base.IO.read-file where
 
-open import Base.String.Type
-open import Base.IO.Type
+open import Base.String.String
+open import Base.IO.IO
 
 postulate
   read-file    : String -> IO String

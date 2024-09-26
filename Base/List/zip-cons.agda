@@ -1,6 +1,6 @@
 module Base.List.zip-cons where
 
-open import Base.List.Type
+open import Base.List.List
 open import Base.List.map
 
 -- Helper function to implement zip-cons.

@@ -1,29 +1,29 @@
 module Bend.Transform.resolve-refs where
 
 open import Base.Function.case
-open import Base.Bool.Type
+open import Base.Bool.Bool
 open import Base.Bool.if
 open import Base.Bool.not
 open import Base.Bool.and
-open import Base.List.Type
+open import Base.List.List
 open import Base.List.foldr
 open import Base.List.map
-open import Base.Maybe.Type
-open import Base.String.Type
+open import Base.Maybe.Maybe
+open import Base.String.String
 open import Base.String.hash
-open import Base.BitMap.Type
+open import Base.BitMap.BitMap
 open import Base.BitMap.contains
 open import Base.BitMap.set
-open import Base.Pair.Type
-open import Bend.Fun.Book.Type
+open import Base.Pair.Pair
+open import Bend.Fun.Book.Book
 open import Bend.Fun.Book.contains-def
-open import Bend.Fun.Term.Type renaming (List to List')
+open import Bend.Fun.Term.Term renaming (List to List')
 open import Bend.Fun.Term.map-children-with-binds
-open import Bend.Fun.Pattern.Type
+open import Bend.Fun.Pattern.Pattern
 import Base.BinTree.fold as BinTree
 import Base.BitMap.new as BitMap
-import Bend.Fun.FnDef.Type as FnDef'
-import Bend.Fun.Rule.Type as Rule'
+import Bend.Fun.FnDef.FnDef as FnDef'
+import Bend.Fun.Rule.Rule as Rule'
 
 private
   open module FnDef = FnDef' Term

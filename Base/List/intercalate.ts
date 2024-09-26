@@ -1,4 +1,4 @@
-import { List, $Cons, $Nil } from '../../Base/List/Type';
+import { List, $Cons, $Nil } from '../../Base/List/List';
 import { $append } from '../../Base/List/append';
 
 // Intercalates a list between all lists in a list of lists.

@@ -1,4 +1,4 @@
-import { Pair } from '../../Base/Pair/Type';
+import { Pair } from '../../Base/Pair/Pair';
 
 export const $mut_snd = <A, B, C>(f: (b: B) => C, pair: Pair<A, B>): Pair<A, C> => {
   const [x, y] = pair;

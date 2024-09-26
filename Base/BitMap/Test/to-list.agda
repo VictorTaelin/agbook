@@ -1,15 +1,15 @@
 module Base.BitMap.Test.to-list where
 
-open import Base.BitMap.Type
+open import Base.BitMap.BitMap
 open import Base.BitMap.to-list
 open import Base.BitMap.empty
 open import Base.BitMap.set
-open import Base.List.Type
-open import Base.Pair.Type
-open import Base.Bits.Type
-open import Base.Equal.Type
-open import Base.Bool.Type
-open import Base.Maybe.Type
+open import Base.List.List
+open import Base.Pair.Pair
+open import Base.Bits.Bits
+open import Base.Equal.Equal
+open import Base.Bool.Bool
+open import Base.Maybe.Maybe
 
 -- Test: Empty map should result in an empty list
 test-empty-map : to-list empty ≡ []

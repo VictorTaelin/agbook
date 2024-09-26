@@ -1,7 +1,7 @@
 module Base.V2.div where
 
 import Base.F64.div as F64
-open import Base.V2.Type
+open import Base.V2.V2
 
 -- Divides one V2 vector by another component-wise.
 -- - 1st: The dividend V2 vector.

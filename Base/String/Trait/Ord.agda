@@ -1,6 +1,6 @@
 module Base.String.Trait.Ord where
 
-open import Base.String.Type
+open import Base.String.String
 import Base.String.lt as String
 import Base.String.lte as String
 import Base.String.gt as String

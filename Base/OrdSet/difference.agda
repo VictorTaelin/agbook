@@ -1,7 +1,7 @@
 module Base.OrdSet.difference where
 
 import Base.AVLTree.difference as AVL
-open import Base.OrdSet.Type
+open import Base.OrdSet.OrdSet
 open import Base.Trait.Ord
 
 -- Computes the difference between two OrdSets.

@@ -1,6 +1,6 @@
 module Base.F64.sub where
 
-open import Base.F64.Type
+open import Base.F64.F64
 
 primitive primFloatMinus : F64 -> F64 -> F64
 

@@ -1,10 +1,10 @@
 import { BitMap } from './Type';
 import { $empty } from './empty';
 import { $set } from './set';
-import { List } from '../List/Type';
+import { List } from '../List/List';
 import { $foldr } from '../List/foldr';
-import { Pair } from '../Pair/Type';
-import { Bits } from '../Bits/Type';
+import { Pair } from '../Pair/Pair';
+import { Bits } from '../Bits/Bits';
 
 // Converts a list of key-value pairs to a BitMap.
 // - pairs: A list of key-value pairs.

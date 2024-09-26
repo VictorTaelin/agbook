@@ -3,17 +3,17 @@
 module Base.Parser.Examples.LambdaTerm.parse where
 
 open import Base.Function.case
-open import Base.Maybe.Type
-open import Base.Parser.Examples.LambdaTerm.Type
+open import Base.Maybe.Maybe
+open import Base.Parser.Examples.LambdaTerm.LambdaTerm
 open import Base.Parser.Monad.bind
 open import Base.Parser.Monad.pure
 open import Base.Parser.State
-open import Base.Parser.Type
+open import Base.Parser.Parser
 open import Base.Parser.consume
 open import Base.Parser.parse-name
 open import Base.Parser.peek-one
 open import Base.Parser.skip-trivia
-open import Base.String.Type
+open import Base.String.String
 
 parse : Parser Term
 parse = do

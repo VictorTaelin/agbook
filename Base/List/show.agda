@@ -1,7 +1,7 @@
 module Base.List.show where
 
-open import Base.List.Type
-open import Base.String.Type
+open import Base.List.List
+open import Base.String.String
 open import Base.String.append
 import Base.Trait.Show as Show
 

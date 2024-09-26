@@ -1,4 +1,4 @@
-import { BinTree } from '../../Base/BinTree/Type';
+import { BinTree } from '../../Base/BinTree/BinTree';
 
 // Performs a fold operation on a binary tree.
 // 1st: Function to apply to each node.

@@ -1,5 +1,5 @@
-import { Nat } from '../../Base/Nat/Type';
-import { Bool } from '../../Base/Bool/Type';
+import { Nat } from '../../Base/Nat/Nat';
+import { Bool } from '../../Base/Bool/Bool';
 
 export const $$neq = (m: Nat, n: Nat): Bool => {
   if (m === 0n) {

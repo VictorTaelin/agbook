@@ -1,10 +1,10 @@
 module Base.BitMap.contains where
 
-open import Base.BitMap.Type
-open import Base.Bits.Type
-open import Base.Bool.Type
-open import Base.Maybe.Type
-open import Base.BinTree.Type
+open import Base.BitMap.BitMap
+open import Base.Bits.Bits
+open import Base.Bool.Bool
+open import Base.Maybe.Maybe
+open import Base.BinTree.BinTree
 
 -- Checks if a key exists in the BitMap.
 -- - m: The BitMap to search in.

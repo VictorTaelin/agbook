@@ -1,10 +1,10 @@
 module Bend.Net.Node.set where
 
-open import Base.Maybe.Type
-open import Base.Nat.Type
-open import Bend.Net.Node.Type
-open import Bend.Net.Port.Type
-open import Bend.Net.NodeKind.Type
+open import Base.Maybe.Maybe
+open import Base.Nat.Nat
+open import Bend.Net.Node.Node
+open import Bend.Net.Port.Port
+open import Bend.Net.NodeKind.NodeKind
 
 set : Node -> Nat -> Port -> Maybe Node
 set node 0 port = Some (record node { main = port })

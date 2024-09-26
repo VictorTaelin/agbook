@@ -1,6 +1,6 @@
 import { BitMap, $Node, $Leaf } from './Type';
-import { Maybe } from '../Maybe/Type';
-import { String } from '../String/Type';
+import { Maybe } from '../Maybe/Maybe';
+import { String } from '../String/String';
 import { $append } from '../String/append';
 
 export const $show = <A>(f: (a: A) => String, map: BitMap<A>): String => {

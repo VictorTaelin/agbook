@@ -1,13 +1,13 @@
 module Imp.Test.show where
 
-import Imp.Expr.Type as Expr'
-open import Imp.Stmt.Type
+import Imp.Expr.Expr as Expr'
+open import Imp.Stmt.Stmt
 open import Imp.Notation
 open import Imp.Stmt.show as Stmt
-open import Base.Nat.Type
-open import Base.U64.Type
-open import Base.List.Type
-open import Base.Equal.Type
+open import Base.Nat.Nat
+open import Base.U64.U64
+open import Base.List.List
+open import Base.Equal.Equal
 
 private
   open module Expr = Expr' Stmt

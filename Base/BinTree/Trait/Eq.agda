@@ -3,7 +3,7 @@ module Base.BinTree.Trait.Eq where
 import Base.BinTree.eq as BinTree
 import Base.BinTree.neq as BinTree
 import Base.Trait.Eq as Eq
-open import Base.BinTree.Type
+open import Base.BinTree.BinTree
 
 -- Provides an instance of the Eq trait for BinTree.
 -- This allows BinTree to be used with equality operations.

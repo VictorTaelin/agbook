@@ -1,7 +1,7 @@
 module Base.List.length where
 
-open import Base.List.Type
-open import Base.Nat.Type
+open import Base.List.List
+open import Base.Nat.Nat
 
 -- Computes the length of a list.
 -- - xs: The input list.

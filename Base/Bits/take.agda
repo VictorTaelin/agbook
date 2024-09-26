@@ -1,7 +1,7 @@
 module Base.Bits.take where
 
-open import Base.Bits.Type
-open import Base.Nat.Type
+open import Base.Bits.Bits
+open import Base.Nat.Nat
 
 -- Takes the first n bits from a Bits structure.
 -- If n is greater than the length of the Bits, returns the entire Bits structure.

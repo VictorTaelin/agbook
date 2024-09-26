@@ -1,12 +1,12 @@
 module HVM2.Rule.comm where
 
-open import Base.Unit.Type
-open import HVM2.Run.Type
+open import Base.Unit.Unit
+open import HVM2.Run.Run
 open import HVM2.Run.Monad.bind
 open import HVM2.Run.fresh
 open import HVM2.Run.link
 open import HVM2.Run.Monad.pure
-open import HVM2.Term.Type
+open import HVM2.Term.Term
 
 -- Commutation interaction
 comm : Term -> Term -> Term -> Term -> Run Unit

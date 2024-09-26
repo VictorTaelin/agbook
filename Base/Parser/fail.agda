@@ -2,9 +2,9 @@ module Base.Parser.fail where
 
 open import Base.Parser.Error
 open import Base.Parser.State
-open import Base.Parser.Type
-open import Base.Result.Type
-open import Base.String.Type
+open import Base.Parser.Parser
+open import Base.Result.Result
+open import Base.String.String
 
 -- Creates a failing parser with the given error message.
 -- - 1st: The error message as a String.

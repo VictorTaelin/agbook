@@ -1,21 +1,21 @@
-import { Bool } from '../../Base/Bool/Type';
-import { Char } from '../../Base/Char/Type';
+import { Bool } from '../../Base/Bool/Bool';
+import { Char } from '../../Base/Char/Char';
 import { $case_of_ } from '../../Base/Function/case';
-import { List } from '../../Base/List/Type';
+import { List } from '../../Base/List/List';
 import { $length } from '../../Base/List/length';
-import { Maybe } from '../../Base/Maybe/Type';
-import { Nat } from '../../Base/Nat/Type';
+import { Maybe } from '../../Base/Maybe/Maybe';
+import { Nat } from '../../Base/Nat/Nat';
 import { $MkError } from '../../Base/Parser/Error';
 import { $MkReply } from '../../Base/Parser/Reply';
 import { State, $MkState } from '../../Base/Parser/State';
-import { Parser } from '../../Base/Parser/Type';
-import { $Done, $Fail } from '../../Base/Result/Type';
-import { String } from '../../Base/String/Type';
+import { Parser } from '../../Base/Parser/Parser';
+import { $Done, $Fail } from '../../Base/Result/Result';
+import { String } from '../../Base/String/String';
 import { $append } from '../../Base/String/append';
 import { $drop } from '../../Base/String/drop';
 import { $starts_with } from '../../Base/String/starts-with';
 import { $to_list } from '../../Base/String/to-list';
-import { Unit, $unit } from '../../Base/Unit/Type';
+import { Unit, $unit } from '../../Base/Unit/Unit';
 
 // Tries to consume a specific string from the input.
 // Returns unit if successful.

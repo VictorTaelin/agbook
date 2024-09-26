@@ -1,4 +1,4 @@
-import { List, $Nil, $Cons } from '../../Base/List/Type';
+import { List, $Nil, $Cons } from '../../Base/List/List';
 import { $map } from '../../Base/List/map';
 
 // Helper function to implement zip-cons.

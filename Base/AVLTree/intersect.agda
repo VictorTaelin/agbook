@@ -1,17 +1,17 @@
 module Base.AVLTree.intersect where
 
-open import Base.Bool.Type
-open import Base.Maybe.Type
+open import Base.Bool.Bool
+open import Base.Maybe.Maybe
 open import Base.Pair.get-fst
 open import Base.Pair.get-snd
-open import Base.Pair.Type
+open import Base.Pair.Pair
 open import Base.Trait.Ord
 open import Base.AVLTree.empty
 open import Base.AVLTree.fold
 open import Base.AVLTree.get
 open import Base.AVLTree.has-key
 open import Base.AVLTree.insert
-open import Base.AVLTree.Type
+open import Base.AVLTree.AVLTree
 
 -- Computes the intersection of two AVL trees.
 -- - t₁: The first AVL tree.

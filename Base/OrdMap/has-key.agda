@@ -1,11 +1,11 @@
 module Base.OrdMap.has-key where
 
 import Base.AVLTree.has-key as AVL
-open import Base.Bool.Type
-open import Base.OrdMap.Type
-open import Base.Pair.Type
+open import Base.Bool.Bool
+open import Base.OrdMap.OrdMap
+open import Base.Pair.Pair
 open import Base.Trait.Ord
-open import Base.AVLTree.Type
+open import Base.AVLTree.AVLTree
 
 -- Checks if a key exists in the OrdMap.
 -- - key: The key to search for.

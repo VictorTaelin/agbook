@@ -1,9 +1,9 @@
 module Base.AVLTree.difference where
 
-open import Base.Bool.Type
-open import Base.Pair.Type
+open import Base.Bool.Bool
+open import Base.Pair.Pair
 open import Base.Trait.Ord
-open import Base.AVLTree.Type
+open import Base.AVLTree.AVLTree
 open import Base.AVLTree.empty
 open import Base.AVLTree.fold
 open import Base.AVLTree.has-key

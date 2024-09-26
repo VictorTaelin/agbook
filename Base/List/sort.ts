@@ -1,5 +1,5 @@
-import { List } from '../../Base/List/Type';
-import { Bool } from '../../Base/Bool/Type';
+import { List } from '../../Base/List/List';
+import { Bool } from '../../Base/Bool/Bool';
 import { $insertion_sort } from '../../Base/List/insertion-sort';
 
 // Sorts a list in ascending order.

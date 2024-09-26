@@ -1,7 +1,7 @@
-import { U64 } from '../../Base/U64/Type';
+import { U64 } from '../../Base/U64/U64';
 import { OrdU64 } from '../../Base/U64/Trait/Ord';
-import { Bool } from '../../Base/Bool/Type';
-import { Nat } from '../../Base/Nat/Type';
+import { Bool } from '../../Base/Bool/Bool';
+import { Nat } from '../../Base/Nat/Nat';
 import { $if_then_else_ } from '../../Base/U64/if';
 import { $min } from '../../Base/U64/min';
 import { $from_bool } from '../../Base/U64/from-bool';

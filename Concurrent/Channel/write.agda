@@ -1,8 +1,8 @@
 module Concurrent.Channel.write where
 
-open import Base.IO.Type
-open import Base.Unit.Type
-open import Concurrent.Channel.Type
+open import Base.IO.IO
+open import Base.Unit.Unit
+open import Concurrent.Channel.Channel
 
 -- Writes a value to a channel for asynchronous communication.
 -- - channel: The Channel to which the value will be written.

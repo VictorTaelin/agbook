@@ -1,14 +1,14 @@
 module Base.Bits.Test.pad-length where
 
-open import Base.Bits.Type
+open import Base.Bits.Bits
 open import Base.Bits.pad-length
 open import Base.Bits.length
 open import Base.Bits.from-nat
-open import Base.Pair.Type
+open import Base.Pair.Pair
 open import Base.Pair.get-fst
 open import Base.Pair.get-snd
-open import Base.Equal.Type
-open import Base.Nat.Type
+open import Base.Equal.Equal
+open import Base.Nat.Nat
 
 test-pad-empty : pad-length E E ≡ (E , E)
 test-pad-empty = refl

@@ -1,28 +1,28 @@
 module Bend.Fun.Term.Test.show where
 
 open import Bend.Fun.Type.Type using () renaming (Type to Ty)
-open import Bend.Fun.Term.Type
+open import Bend.Fun.Term.Term
 open import Bend.Fun.Term.show
-open import Bend.Fun.Pattern.Type
-open import Bend.Fun.FanKind.Type
-open import Bend.Fun.Op.Type
-open import Bend.Fun.Num.Type renaming (Num to Num')
-open import Bend.Source.Type
-open import Bend.Source.SourceKind.Type using (SourceKind)
-open import Base.String.Type
+open import Bend.Fun.Pattern.Pattern
+open import Bend.Fun.FanKind.FanKind
+open import Bend.Fun.Op.Op
+open import Bend.Fun.Num.Num renaming (Num to Num')
+open import Bend.Source.Source
+open import Bend.Source.SourceKind.SourceKind using (SourceKind)
+open import Base.String.String
 open import Base.String.eq
 open import Base.String.append
-open import Base.List.Type renaming (List to List')
-open import Base.Maybe.Type
-open import Base.Bool.Type
-open import Base.Nat.Type
-open import Base.Equal.Type
+open import Base.List.List renaming (List to List')
+open import Base.Maybe.Maybe
+open import Base.Bool.Bool
+open import Base.Nat.Nat
+open import Base.Equal.Equal
 open import Base.Trait.Show
-open import Base.Pair.Type
+open import Base.Pair.Pair
 
-import Bend.Fun.MatchRule.Type as MatchRule'
-import Bend.Fun.FnDef.Type as FnDef'
-import Bend.Fun.Rule.Type as Rule'
+import Bend.Fun.MatchRule.MatchRule as MatchRule'
+import Bend.Fun.FnDef.FnDef as FnDef'
+import Bend.Fun.Rule.Rule as Rule'
 
 private
   open module MatchRule = MatchRule' Term

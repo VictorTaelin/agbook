@@ -1,9 +1,9 @@
 module Base.List.quicksort where
 
-open import Base.List.Type
+open import Base.List.List
 open import Base.List.append
 open import Base.List.filter
-open import Base.Nat.Type
+open import Base.Nat.Nat
 open import Base.Nat.gt
 open import Base.Nat.lt
 

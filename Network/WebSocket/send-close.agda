@@ -1,8 +1,8 @@
 module Network.WebSocket.send-close where
 
-open import Base.IO.Type
-open import Base.String.Type
-open import Base.Unit.Type
+open import Base.IO.IO
+open import Base.String.String
+open import Base.Unit.Unit
 open import Network.WebSocket.WSConnection
 
 -- Sends a close message to a WebSocket connection.

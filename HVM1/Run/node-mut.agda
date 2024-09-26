@@ -1,11 +1,11 @@
 module HVM1.Run.node-mut where
 
-open import Base.Bits.Type
+open import Base.Bits.Bits
 open import Base.Function.case
-open import Base.Maybe.Type
-open import Base.Unit.Type
-open import HVM1.Node.Type
-open import HVM1.Run.Type
+open import Base.Maybe.Maybe
+open import Base.Unit.Unit
+open import HVM1.Node.Node
+open import HVM1.Run.Run
 open import HVM1.Run.Monad.bind
 open import HVM1.Run.Monad.pure
 open import HVM1.Run.node-get

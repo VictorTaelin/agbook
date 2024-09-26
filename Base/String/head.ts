@@ -1,6 +1,6 @@
-import { String } from '../../Base/String/Type';
-import { Char } from '../../Base/Char/Type';
-import { Maybe, None, Some } from '../../Base/Maybe/Type';
+import { String } from '../../Base/String/String';
+import { Char } from '../../Base/Char/Char';
+import { Maybe, None, Some } from '../../Base/Maybe/Maybe';
 
 // Retrieves the first character of a string.
 // - s: The input string.

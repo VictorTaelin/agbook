@@ -1,7 +1,7 @@
 module Base.DiffList.snoc where
 
-open import Base.DiffList.Type
-open import Base.List.Type
+open import Base.DiffList.DiffList
+open import Base.List.List
 
 -- Adds an element to the end of a DiffList.
 -- - x: The element to add.

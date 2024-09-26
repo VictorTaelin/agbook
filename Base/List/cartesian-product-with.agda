@@ -1,9 +1,9 @@
 module Base.List.cartesian-product-with where
 
-open import Base.List.Type
+open import Base.List.List
 open import Base.List.map
 open import Base.List.append
-open import Base.Pair.Type
+open import Base.Pair.Pair
 
 -- Returns the cartesian product of two lists, applying a given function to each pair.
 -- - f: The function to apply to each pair of elements.

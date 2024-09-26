@@ -1,7 +1,7 @@
-import { Char } from '../../Base/Char/Type';
-import { Maybe, $None, $Some } from '../../Base/Maybe/Type';
-import { Sigma, $Sigma } from '../../Base/Pair/Type';
-import { String } from '../../Base/String/Type';
+import { Char } from '../../Base/Char/Char';
+import { Maybe, $None, $Some } from '../../Base/Maybe/Maybe';
+import { Sigma, $Sigma } from '../../Base/Pair/Pair';
+import { String } from '../../Base/String/String';
 
 // Deconstructs a string into its first character and the rest.
 // - s: The input string.

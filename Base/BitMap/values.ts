@@ -1,7 +1,7 @@
 import { BitMap, $Node, $Leaf } from './Type';
-import { List, $Cons, $Nil } from '../List/Type';
+import { List, $Cons, $Nil } from '../List/List';
 import { $append } from '../List/append';
-import { Maybe } from '../Maybe/Type';
+import { Maybe } from '../Maybe/Maybe';
 
 // Converts a BitMap to a List of the stored values.
 // None values are skipped.

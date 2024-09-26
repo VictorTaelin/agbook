@@ -1,6 +1,6 @@
 module Base.Bits.append where
 
-open import Base.Bits.Type
+open import Base.Bits.Bits
 
 -- Appends two Bits values.
 -- - as: The 1st Bits value.

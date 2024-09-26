@@ -1,6 +1,6 @@
-import { List } from '../../Base/List/Type';
-import { Bool } from '../../Base/Bool/Type';
-import { Pair } from '../../Base/Pair/Type';
+import { List } from '../../Base/List/List';
+import { Bool } from '../../Base/Bool/Bool';
+import { Pair } from '../../Base/Pair/Pair';
 import { $split, split } from '../../Base/List/split';
 
 // Splits a list at the first occurrence of the given element, removing that element.

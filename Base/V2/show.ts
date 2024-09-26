@@ -1,7 +1,7 @@
 import { $show as $float_show } from '../../Base/F64/show';
-import { String } from '../../Base/String/Type';
+import { String } from '../../Base/String/String';
 import { $append } from '../../Base/String/append';
-import { V2 } from '../../Base/V2/Type';
+import { V2 } from '../../Base/V2/V2';
 
 export const $show = (v: V2): String => {
   return $append(

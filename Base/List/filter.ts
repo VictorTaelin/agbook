@@ -1,5 +1,5 @@
-import { List, $Cons, $Nil } from '../../Base/List/Type';
-import { Bool, $True, $False } from '../../Base/Bool/Type';
+import { List, $Cons, $Nil } from '../../Base/List/List';
+import { Bool, $True, $False } from '../../Base/Bool/Bool';
 
 // Filters a list based on a predicate function.
 // - fn: The function used to test each element.

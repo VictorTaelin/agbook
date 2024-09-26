@@ -1,5 +1,5 @@
-import { Bool, $True } from '../../Base/Bool/Type';
-import { List, $Cons, $Nil } from '../../Base/List/Type';
+import { Bool, $True } from '../../Base/Bool/Bool';
+import { List, $Cons, $Nil } from '../../Base/List/List';
 
 // Drops elements from the front of the list as long as they satisfy the predicate.
 // - fn: The predicate function.

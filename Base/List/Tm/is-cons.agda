@@ -1,9 +1,9 @@
 module Base.List.Tm.is-cons where
 
-open import Base.List.Type
+open import Base.List.List
 open import Base.List.is-cons
-open import Base.Bool.Type
-open import Base.Equal.Type
+open import Base.Bool.Bool
+open import Base.Equal.Equal
 
 -- Proof that is-cons returns False for an empty list
 is-cons-empty : ∀ {A : Set} -> is-cons {A} [] ≡ False

@@ -1,13 +1,13 @@
 module Bend.Parser.Fun.parse-rule where
 
 open import Base.Function.case
-open import Base.Bool.Type
+open import Base.Bool.Bool
 open import Base.Bool.if
-open import Base.List.Type
-open import Base.Maybe.Type
-open import Base.Pair.Type
-open import Base.String.Type
-open import Base.Parser.Type
+open import Base.List.List
+open import Base.Maybe.Maybe
+open import Base.Pair.Pair
+open import Base.String.String
+open import Base.Parser.Parser
 open import Base.Parser.Monad.bind
 open import Base.Parser.Monad.pure
 open import Base.Parser.alternative
@@ -19,8 +19,8 @@ open import Bend.Parser.parse-keyword
 open import Bend.Parser.parse-top-level-name
 open import Bend.Parser.Fun.parse-pattern
 open import Bend.Parser.Fun.parse-term
-open import Bend.Fun.Term.Type
-import Bend.Fun.Rule.Type as Rule'
+open import Bend.Fun.Term.Term
+import Bend.Fun.Rule.Rule as Rule'
 
 private
   open module Rule = Rule' Term

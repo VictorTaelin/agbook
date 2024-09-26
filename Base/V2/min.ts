@@ -1,4 +1,4 @@
-import { V2, $MkV2 } from '../../Base/V2/Type';
+import { V2, $MkV2 } from '../../Base/V2/V2';
 import { $min as F64$min } from '../../Base/F64/min';
 
 export const $min = (v1: V2, v2: V2): V2 => {

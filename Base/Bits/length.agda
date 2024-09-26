@@ -1,7 +1,7 @@
 module Base.Bits.length where
 
-open import Base.Bits.Type
-open import Base.Nat.Type
+open import Base.Bits.Bits
+open import Base.Nat.Nat
 
 -- Returns the length of a Bits structure, that is, how many bits it has.
 length : Bits -> Nat

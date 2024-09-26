@@ -1,6 +1,6 @@
-import { Bits, $E } from '../../Base/Bits/Type';
+import { Bits, $E } from '../../Base/Bits/Bits';
 import { $to_u64 } from '../../Base/F64/to-u64';
-import { F64 } from '../../Base/F64/Type';
+import { F64 } from '../../Base/F64/F64';
 import { $to_bits as $u64_to_bits } from '../../Base/U64/to-bits';
 
 // Converts a float to its bit representation as Bits.

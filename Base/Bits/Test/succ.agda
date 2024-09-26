@@ -1,9 +1,9 @@
 module Base.Bits.Test.succ where
 
-open import Base.Bits.Type
+open import Base.Bits.Bits
 open import Base.Bits.succ
-open import Base.Bool.Type
-open import Base.Equal.Type
+open import Base.Bool.Bool
+open import Base.Equal.Equal
 
 test-succ-empty : succ E ≡ I E
 test-succ-empty = refl

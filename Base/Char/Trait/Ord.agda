@@ -1,6 +1,6 @@
 module Base.Char.Trait.Ord where
 
-open import Base.Char.Type
+open import Base.Char.Char
 import Base.Char.compare as Char
 import Base.Char.lt as Char
 import Base.Char.gt as Char

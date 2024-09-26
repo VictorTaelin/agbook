@@ -1,8 +1,8 @@
 module Base.AVLTree.maximum where
 
-open import Base.Maybe.Type
-open import Base.Pair.Type
-open import Base.AVLTree.Type
+open import Base.Maybe.Maybe
+open import Base.Pair.Pair
+open import Base.AVLTree.AVLTree
 
 -- Retrieves the maximum key-value pair from an AVL tree.
 -- - tree: The AVL tree to search in.

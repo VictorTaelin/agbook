@@ -1,5 +1,5 @@
-import { Maybe } from '../../Base/Maybe/Type';
-import { Result, $Done, $Fail } from '../../Base/Result/Type';
+import { Maybe } from '../../Base/Maybe/Maybe';
+import { Result, $Done, $Fail } from '../../Base/Result/Result';
 
 export const $to_result = <A, B>(maybe: Maybe<A>, default_error: B): Result<A, B> => {
   switch (maybe.$) {

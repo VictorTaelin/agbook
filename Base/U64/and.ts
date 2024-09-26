@@ -1,4 +1,4 @@
-import { U64 } from '../../Base/U64/Type';
+import { U64 } from '../../Base/U64/U64';
 import { $to_bits } from '../../Base/U64/to-bits';
 import { $and as $andB } from '../../Base/Bits/and';
 import { $to_nat } from '../../Base/Bits/to-nat';

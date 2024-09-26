@@ -1,13 +1,13 @@
 module Base.Bits.encode-utf8 where
 
-open import Base.List.Type
+open import Base.List.List
 open import Base.List.reverse
 open import Base.List.map
-open import Base.Char.Type
+open import Base.Char.Char
 open import Base.Bits.encode-char-utf8
-open import Base.String.Type
+open import Base.String.String
 open import Base.String.to-list
-open import Base.Bits.Type
+open import Base.Bits.Bits
 open import Base.Bits.concat
 
 -- Encodes a string into its UTF-8 representation as Bits.

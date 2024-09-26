@@ -1,5 +1,5 @@
-import { List, $Cons, $Nil } from '../../Base/List/Type';
-import { Pair } from '../../Base/Pair/Type';
+import { List, $Cons, $Nil } from '../../Base/List/List';
+import { Pair } from '../../Base/Pair/Pair';
 
 // Unzips a list with a given function that generates a pair of lists.
 // - f: The function to apply to each element, generating a pair.

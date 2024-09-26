@@ -1,6 +1,6 @@
-import { String } from '../../Base/String/Type';
-import { IO } from '../../Base/IO/Type';
-import { Unit, $unit } from '../../Base/Unit/Type';
+import { String } from '../../Base/String/String';
+import { IO } from '../../Base/IO/IO';
+import { Unit, $unit } from '../../Base/Unit/Unit';
 import * as fs from 'fs/promises';
 
 // Appends content to a file.

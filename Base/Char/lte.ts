@@ -1,5 +1,5 @@
-import { Char } from '../../Base/Char/Type';
-import { Bool } from '../../Base/Bool/Type';
+import { Char } from '../../Base/Char/Char';
+import { Bool } from '../../Base/Bool/Bool';
 import { $to_nat } from '../../Base/Char/to-nat';
 import { $lte as nat_lte } from '../../Base/Nat/lte';
 

@@ -1,7 +1,7 @@
 module Base.List.insertion-sort where
 
-open import Base.List.Type
-open import Base.Bool.Type
+open import Base.List.List
+open import Base.Bool.Bool
 open import Base.List.insert-at-sorted
 
 -- Sorts a list in ascending order using insertion sort.

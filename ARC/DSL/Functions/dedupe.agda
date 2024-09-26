@@ -1,6 +1,6 @@
 module ARC.DSL.Functions.dedupe where
 
-open import ARC.DSL.Types.List.Type
+open import ARC.DSL.Types.List.List
 import ARC.DSL.Types.List.Functions as L
 open import Base.Trait.Ord
 

@@ -1,4 +1,4 @@
-import { Sigma, $Sigma } from '../../Base/Pair/Type';
+import { Sigma, $Sigma } from '../../Base/Pair/Pair';
 
 export const $map = <A, B, C, D>(
   f: (x: A) => C,

@@ -1,8 +1,8 @@
 module Concurrent.Channel.read where
 
-open import Concurrent.Channel.Type
-open import Base.IO.Type
-open import Base.Maybe.Type
+open import Concurrent.Channel.Channel
+open import Base.IO.IO
+open import Base.Maybe.Maybe
 
 -- Reads a value from a channel.
 -- - channel: The Channel from which to read a value.

@@ -1,6 +1,6 @@
 module Base.Nat.exp where
 
-open import Base.Nat.Type
+open import Base.Nat.Nat
 open import Base.Nat.add
 open import Base.Nat.mul
 

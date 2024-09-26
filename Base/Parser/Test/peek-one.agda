@@ -3,12 +3,12 @@ module Base.Parser.Test.peek-one where
 open import Base.Parser.peek-one
 open import Base.Parser.State
 open import Base.Parser.Reply
-open import Base.Parser.Type
-open import Base.Result.Type
-open import Base.String.Type
-open import Base.Char.Type
-open import Base.Maybe.Type
-open import Base.Equal.Type
+open import Base.Parser.Parser
+open import Base.Result.Result
+open import Base.String.String
+open import Base.Char.Char
+open import Base.Maybe.Maybe
+open import Base.Equal.Equal
 
 test-peek-one-non-empty : peek-one (MkState "abc" 0) ≡ Done (MkReply (MkState "abc" 0) (Some 'a'))
 test-peek-one-non-empty = refl

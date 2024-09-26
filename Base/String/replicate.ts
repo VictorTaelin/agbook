@@ -1,6 +1,6 @@
-import { Nat, $Zero } from '../../Base/Nat/Type';
-import { Char } from '../../Base/Char/Type';
-import { String } from '../../Base/String/Type';
+import { Nat, $Zero } from '../../Base/Nat/Nat';
+import { Char } from '../../Base/Char/Char';
+import { String } from '../../Base/String/String';
 import { $from_char } from '../../Base/String/from-char';
 import { $append } from '../../Base/String/append';
 

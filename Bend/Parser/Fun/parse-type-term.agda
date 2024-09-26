@@ -1,13 +1,13 @@
 module Bend.Parser.Fun.parse-type-term where
 
 open import Base.Function.case
-open import Base.Bool.Type
+open import Base.Bool.Bool
 open import Base.Bool.if
-open import Base.Maybe.Type
-open import Base.List.Type
-open import Base.String.Type
+open import Base.Maybe.Maybe
+open import Base.List.List
+open import Base.String.String
 open import Bend.Fun.Type.Type
-open import Base.Parser.Type
+open import Base.Parser.Parser
 open import Base.Parser.Monad.bind
 open import Base.Parser.Monad.pure
 open import Base.Parser.alternative

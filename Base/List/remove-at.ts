@@ -1,5 +1,5 @@
-import { List, $Cons, $Nil } from '../../Base/List/Type';
-import { Nat, $Zero } from '../../Base/Nat/Type';
+import { List, $Cons, $Nil } from '../../Base/List/List';
+import { Nat, $Zero } from '../../Base/Nat/Nat';
 
 // Removes the element at the specified index from the list.
 // If the index is out of bounds, returns the original list.

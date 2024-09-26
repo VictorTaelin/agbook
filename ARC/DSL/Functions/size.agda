@@ -1,10 +1,10 @@
 module ARC.DSL.Functions.size where
 
-open import ARC.DSL.Types.Container.Type
-open import ARC.DSL.Types.Integer.Type
-open import ARC.DSL.Types.List.Type
+open import ARC.DSL.Types.Container.Container
+open import ARC.DSL.Types.Integer.Integer
+open import ARC.DSL.Types.List.List
 import ARC.DSL.Types.List.Functions as L
-open import ARC.DSL.Types.OrdSet.Type
+open import ARC.DSL.Types.OrdSet.OrdSet
 import ARC.DSL.Types.OrdSet.Functions as S
 
 -- Calculates the size (cardinality) of a Container.

@@ -1,6 +1,6 @@
 module Base.List.Trait.Show where
 
-open import Base.List.Type
+open import Base.List.List
 import Base.List.show as List
 import Base.Trait.Show as Show
 

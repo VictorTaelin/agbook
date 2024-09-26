@@ -1,8 +1,8 @@
 module UG.SM.add-action-to-logs where
 
-open import UG.SM.Type
-open import UG.SM.Tick.Type
-open import UG.SM.ActionLogs.Type
+open import UG.SM.SM
+open import UG.SM.Tick.Tick
+open import UG.SM.ActionLogs.ActionLogs
 open import UG.SM.ActionLogs.add-action
 
 -- mach: The machine state to update

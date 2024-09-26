@@ -1,4 +1,4 @@
-import { Nat, Zero } from '../../Base/Nat/Type';
+import { Nat, Zero } from '../../Base/Nat/Nat';
 
 // Calculates half of a natural number.
 // - n: The number to halve.

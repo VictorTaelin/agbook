@@ -1,6 +1,6 @@
 module Base.U64.double where
 
-open import Base.U64.Type
+open import Base.U64.U64
 open import Base.U64.add
 
 -- Doubles a given U64 number

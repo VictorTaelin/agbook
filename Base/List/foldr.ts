@@ -1,4 +1,4 @@
-import { List } from '../../Base/List/Type';
+import { List } from '../../Base/List/List';
 
 // Performs a right fold over a list.
 // - f: The combining function.

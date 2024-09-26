@@ -1,8 +1,8 @@
-import { F64 } from '../../Base/F64/Type';
+import { F64 } from '../../Base/F64/F64';
 import { $add } from '../../Base/F64/add';
 import { $mul } from '../../Base/F64/mul';
 import { $sub } from '../../Base/F64/sub';
-import { V2 } from '../../Base/V2/Type';
+import { V2 } from '../../Base/V2/V2';
 
 // Calculates the squared distance between two V2 vectors.
 // - v1: The first V2 vector.

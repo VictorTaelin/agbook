@@ -1,40 +1,40 @@
 module Bend.Transform.linearize-vars where
 
-open import Base.BitMap.Type
+open import Base.BitMap.BitMap
 open import Base.BitMap.empty
 open import Base.BitMap.get
 open import Base.BitMap.set
 open import Base.Bool.if
 open import Base.Function.case
-open import Base.List.Type renaming (List to List')
+open import Base.List.List renaming (List to List')
 open import Base.List.map
 open import Base.List.foldr
-open import Base.Maybe.Type
-open import Base.Nat.Type
+open import Base.Maybe.Maybe
+open import Base.Nat.Nat
 open import Base.Nat.Trait.Eq
 open import Base.Nat.gt
 open import Base.Nat.show
 open import Base.Nat.range
-open import Base.Pair.Type
-open import Base.Result.Type
-open import Base.String.Type
+open import Base.Pair.Pair
+open import Base.Result.Result
+open import Base.String.String
 open import Base.String.append
 open import Base.String.hash
 open import Base.Trait.Eq
-open import Bend.Fun.Book.Type
-open import Bend.Fun.FanKind.Type
-open import Bend.Fun.Term.Type
+open import Bend.Fun.Book.Book
+open import Bend.Fun.FanKind.FanKind
+open import Bend.Fun.Term.Term
 open import Bend.Fun.Term.map-children-with-state
 open import Bend.Fun.Term.map-child-binds
-open import Bend.Fun.Pattern.Type
+open import Bend.Fun.Pattern.Pattern
 open import Bend.Fun.Pattern.map-binds
 open import Bend.Transform.subst
 open import Bend.nat-to-name
 import Base.BitMap.to-list as BitMap
 import Base.BitMap.from-list as BitMap
 import Bend.Fun.Pattern.binds as Pat
-import Bend.Fun.Rule.Type as Rule'
-import Bend.Fun.FnDef.Type as FnDef'
+import Bend.Fun.Rule.Rule as Rule'
+import Bend.Fun.FnDef.FnDef as FnDef'
 
 private
   open module Rule = Rule' Term

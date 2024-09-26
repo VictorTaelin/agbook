@@ -1,11 +1,11 @@
 module Base.String.hash where
 
-open import Base.Bits.Type
+open import Base.Bits.Bits
 open import Base.Char.to-nat
-open import Base.List.Type
+open import Base.List.List
 open import Base.List.foldl
 open import Base.List.map
-open import Base.Nat.Type
+open import Base.Nat.Nat
 open import Base.Nat.add
 open import Base.Nat.div
 open import Base.Nat.exp using () renaming (exp to _exp_)
@@ -14,7 +14,7 @@ open import Base.Nat.mul
 open import Base.Nat.sub
 open import Base.Nat.to-bits
 open import Base.Nat.xor using () renaming (xor to _xor_)
-open import Base.String.Type
+open import Base.String.String
 open import Base.String.to-list
 
 -- Computes a hash value for a given string using FxHash64 algorithm.

@@ -1,9 +1,9 @@
 module Base.String.split-at where
 
 open import Base.List.split-at renaming (split-at to split-at')
-open import Base.Nat.Type
-open import Base.Pair.Type
-open import Base.String.Type
+open import Base.Nat.Nat
+open import Base.Pair.Pair
+open import Base.String.String
 open import Base.String.from-list
 open import Base.String.to-list
 

@@ -1,4 +1,4 @@
-import { Nat, Zero } from '../../Base/Nat/Type';
+import { Nat, Zero } from '../../Base/Nat/Nat';
 
 // Helper function for modulo operation
 // - k: Accumulator for the remainder

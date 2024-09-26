@@ -1,6 +1,6 @@
 module Base.List.singleton where
 
-open import Base.List.Type
+open import Base.List.List
 
 -- Creates a list containing a single element.
 -- - x: The element to be placed in the list.

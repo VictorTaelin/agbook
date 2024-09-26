@@ -1,6 +1,6 @@
-import { Char } from '../../Base/Char/Type';
-import { Nat } from '../../Base/Nat/Type';
-import { Maybe, Some, None } from '../../Base/Maybe/Type';
+import { Char } from '../../Base/Char/Char';
+import { Nat } from '../../Base/Nat/Nat';
+import { Maybe, Some, None } from '../../Base/Maybe/Maybe';
 
 // Converts a digit character to its corresponding natural number
 export const $digit_to_nat = (c: Char): Maybe<Nat> => {

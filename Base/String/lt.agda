@@ -2,9 +2,9 @@ module Base.String.lt where
 
 import Base.Char.Trait.Ord as CharOrd
 import Base.List.lt as List
-open import Base.Bool.Type
-open import Base.Char.Type
-open import Base.String.Type
+open import Base.Bool.Bool
+open import Base.Char.Char
+open import Base.String.String
 open import Base.String.to-list
 
 -- Compares two strings lexicographically.

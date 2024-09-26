@@ -2,39 +2,39 @@ module Bend.Parser.parse-number where
 
 open import Base.Function.case
 open import Base.Function.id
-open import Base.Bool.Type
+open import Base.Bool.Bool
 open import Base.Bool.and
 open import Base.Bool.if
-open import Base.Char.Type
+open import Base.Char.Char
 open import Base.Char.Trait.Eq
-open import Base.List.Type
+open import Base.List.List
 open import Base.List.filter
-open import Base.Maybe.Type
+open import Base.Maybe.Maybe
 open import Base.Maybe.maybe
-open import Base.F64.Type
+open import Base.F64.F64
 open import Base.F64.div
 import Base.F64.from-nat as F64
 import Base.F64.from-int as F64
 open import Base.F64.mul renaming (_*_ to _f*_)
 open import Base.F64.add renaming (_+_ to _f+_)
-open import Base.Int.Type
+open import Base.Int.Int
 open import Base.Int.from-neg
 open import Base.Int.from-nat
 open import Base.Int.Trait.Ord
 open import Base.Int.mul renaming (_*_ to _i*_)
-open import Base.Nat.Type
+open import Base.Nat.Nat
 open import Base.Nat.Trait.Ord
 open import Base.Nat.exp
-open import Base.String.Type
+open import Base.String.String
 open import Base.String.to-list
 open import Base.String.append
 open import Base.String.length
 open import Base.String.from-list
 open import Base.String.to-nat-base
-open import Base.Pair.Type
+open import Base.Pair.Pair
 open import Base.Trait.Ord
 open import Base.Trait.Eq
-open import Base.Parser.Type
+open import Base.Parser.Parser
 open import Base.Parser.State
 open import Base.Parser.take-while
 open import Base.Parser.Monad.bind
@@ -44,11 +44,11 @@ open import Base.Parser.advance-one
 open import Base.Parser.advance-many
 open import Base.Parser.peek-one
 open import Base.Parser.peek-many
-open import Base.Result.Type
+open import Base.Result.Result
 open import Bend.Parser.consume-exactly
 open import Bend.Parser.try-consume-exactly
 open import Bend.Parser.is-digit-radix
-open import Bend.Fun.Num.Type
+open import Bend.Fun.Num.Num
 
 parse-number : Parser Num
 parse-number = do

@@ -1,6 +1,6 @@
 module Base.Bits.dec where
 
-open import Base.Bits.Type
+open import Base.Bits.Bits
 
 -- Decrements a binary string by one. Keeps the same length.
 -- - bs: The input binary string.

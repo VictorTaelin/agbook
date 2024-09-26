@@ -1,8 +1,8 @@
 module HVM2.Term.show where
 
-open import Base.String.Type
+open import Base.String.String
 open import Base.String.append
-open import HVM2.Term.Type
+open import HVM2.Term.Term
 
 -- Converts a Term to its string representation.
 -- - term: The Term to convert.

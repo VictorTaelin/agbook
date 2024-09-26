@@ -1,7 +1,7 @@
 module Base.List.take where
 
-open import Base.List.Type
-open import Base.Nat.Type
+open import Base.List.List
+open import Base.Nat.Nat
 
 -- Takes the first n elements from a list.
 -- If n is greater than the length of the list, returns the entire list.

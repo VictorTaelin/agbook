@@ -1,5 +1,5 @@
-import { List, $Nil, $Cons } from '../../Base/List/Type';
-import { Nat, $Zero } from '../../Base/Nat/Type';
+import { List, $Nil, $Cons } from '../../Base/List/List';
+import { Nat, $Zero } from '../../Base/Nat/Nat';
 
 // Replicates a value n times to create a list.
 // - n: The number of times to replicate the value.

@@ -1,13 +1,13 @@
 module Base.BitMap.Test.get where
 
-open import Base.BitMap.Type
+open import Base.BitMap.BitMap
 open import Base.BitMap.get
 open import Base.BitMap.empty
 open import Base.BitMap.set
-open import Base.Bits.Type
-open import Base.Nat.Type
-open import Base.Maybe.Type
-open import Base.Equal.Type
+open import Base.Bits.Bits
+open import Base.Nat.Nat
+open import Base.Maybe.Maybe
+open import Base.Equal.Equal
 
 test-get-empty : get empty E ≡ None
 test-get-empty = refl

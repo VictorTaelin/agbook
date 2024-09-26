@@ -1,9 +1,9 @@
 module Bend.Parser.Test.is-name-char where
 
 open import Bend.Parser.is-name-char
-open import Base.Char.Type
-open import Base.Bool.Type
-open import Base.Equal.Type
+open import Base.Char.Char
+open import Base.Bool.Bool
+open import Base.Equal.Equal
 open import Base.String.from-char
 
 -- Test valid name characters

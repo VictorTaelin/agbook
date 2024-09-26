@@ -1,8 +1,8 @@
 module Base.JSON.parse-null where
 
-open import Base.JSON.Type
+open import Base.JSON.JSON
 open import Base.Parser.Monad.bind
-open import Base.Parser.Type
+open import Base.Parser.Parser
 open import Base.Parser.consume
 open import Base.Parser.Monad.pure
 open import Base.Parser.skip-spaces

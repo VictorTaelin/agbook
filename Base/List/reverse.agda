@@ -1,6 +1,6 @@
 module Base.List.reverse where
 
-open import Base.List.Type
+open import Base.List.List
 open import Base.List.foldl
 
 -- Reverses a list.

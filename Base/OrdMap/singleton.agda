@@ -1,8 +1,8 @@
 module Base.OrdMap.singleton where
 
 import Base.AVLTree.singleton as AVL
-open import Base.OrdMap.Type
-open import Base.Pair.Type
+open import Base.OrdMap.OrdMap
+open import Base.Pair.Pair
 open import Base.Trait.Ord
 
 -- Creates an OrdMap containing a single key-value pair.

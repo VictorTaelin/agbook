@@ -1,8 +1,8 @@
 module Base.Bits.split-at where
 
-open import Base.Nat.Type
-open import Base.Pair.Type
-open import Base.Bits.Type
+open import Base.Nat.Nat
+open import Base.Pair.Pair
+open import Base.Bits.Bits
 open import Base.Bits.pad-zeros
 
 -- Collects the first `m` bits of `bits` into the `fst` and the rest into the `snd`.

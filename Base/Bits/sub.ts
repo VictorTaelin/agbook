@@ -1,4 +1,4 @@
-import { Bits, $O, $I, $E } from '../../Base/Bits/Type';
+import { Bits, $O, $I, $E } from '../../Base/Bits/Bits';
 import { $dec } from '../../Base/Bits/dec';
 
 // Performs subtraction of two Bits values.

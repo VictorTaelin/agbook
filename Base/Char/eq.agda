@@ -1,7 +1,7 @@
 module Base.Char.eq where
 
-open import Base.Char.Type
-open import Base.Bool.Type
+open import Base.Char.Char
+open import Base.Bool.Bool
 
 primitive
   primCharEquality : Char -> Char -> Bool

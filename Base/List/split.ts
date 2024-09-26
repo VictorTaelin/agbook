@@ -1,6 +1,6 @@
-import { List, $Cons, $Nil } from '../../Base/List/Type';
-import { Bool, $True, $False } from '../../Base/Bool/Type';
-import { Pair, $Pair } from '../../Base/Pair/Type';
+import { List, $Cons, $Nil } from '../../Base/List/List';
+import { Bool, $True, $False } from '../../Base/Bool/Bool';
+import { Pair, $Pair } from '../../Base/Pair/Pair';
 import { $case_of_ } from '../../Base/Function/case';
 
 // Splits a list at the first element that satisfies the given predicate.

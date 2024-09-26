@@ -1,13 +1,13 @@
 module Bend.Net.new-node where
 
 open import Base.Nat.to-bits
-open import Base.Nat.Type
-open import Base.Pair.Type
+open import Base.Nat.Nat
+open import Base.Pair.Pair
 open import Base.BitMap.set
-open import Bend.Net.Type
-open import Bend.Net.Node.Type
-open import Bend.Net.NodeKind.Type
-open import Bend.Net.Port.Type
+open import Bend.Net.Net
+open import Bend.Net.Node.Node
+open import Bend.Net.NodeKind.NodeKind
+open import Bend.Net.Port.Port
 
 new-node : NodeKind -> Net -> (Pair Nat Net)
 new-node kind (MkNet nodes len name) =

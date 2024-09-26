@@ -1,7 +1,7 @@
 import { Eq } from '../../Base/Trait/Eq';
-import { Bool } from '../../Base/Bool/Type';
+import { Bool } from '../../Base/Bool/Bool';
 import { $and } from '../../Base/Bool/and';
-import { List } from '../../Base/List/Type';
+import { List } from '../../Base/List/List';
 import { $eq as $list_eq } from '../../Base/List/eq';
 import { $length } from '../../Base/List/length';
 import { $take } from '../../Base/List/take';

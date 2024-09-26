@@ -1,8 +1,8 @@
 module Base.BinTree.show where
 
 import Base.Trait.Show as Show
-open import Base.BinTree.Type
-open import Base.String.Type
+open import Base.BinTree.BinTree
+open import Base.String.String
 open import Base.String.append
 
 -- Converts a binary tree to a string representation.

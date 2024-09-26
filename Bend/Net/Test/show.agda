@@ -1,18 +1,18 @@
 module Bend.Net.Test.show where
 
-open import Base.String.Type
+open import Base.String.String
 open import Base.String.eq
-open import Base.Equal.Type
-open import Base.BitMap.Type
+open import Base.Equal.Equal
+open import Base.BitMap.BitMap
 open import Base.BitMap.empty
 open import Base.BitMap.set
-open import Base.Nat.Type
+open import Base.Nat.Nat
 open import Base.Bits.from-nat
 open import Base.Trait.Show
-open import Bend.Net.Type
-open import Bend.Net.Node.Type
-open import Bend.Net.Port.Type
-open import Bend.Net.NodeKind.Type
+open import Bend.Net.Net
+open import Bend.Net.Node.Node
+open import Bend.Net.Port.Port
+open import Bend.Net.NodeKind.NodeKind
 open import Bend.Net.show
 
 test-show-empty-net : show (MkNet empty 0 "EmptyNet") ≡ "@EmptyNet =\n"

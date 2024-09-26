@@ -1,5 +1,5 @@
-import { Bits, $O, $I, $E } from '../../Base/Bits/Type';
-import { Nat, $Zero, $Succ } from '../../Base/Nat/Type';
+import { Bits, $O, $I, $E } from '../../Base/Bits/Bits';
+import { Nat, $Zero, $Succ } from '../../Base/Nat/Nat';
 
 // Pads Bits with insignificant zeroes to achieve a specific length.
 // - n: The desired length of the resulting Bits.

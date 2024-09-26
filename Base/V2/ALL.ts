@@ -1,4 +1,4 @@
-export * from '../../Base/V2/Type';
+export * from '../../Base/V2/V2';
 export * from '../../Base/V2/add';
 export * from '../../Base/V2/dist';
 export * from '../../Base/V2/div';

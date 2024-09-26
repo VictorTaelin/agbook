@@ -1,7 +1,7 @@
 module ARC.DSL.Functions.greater where
 
-open import ARC.DSL.Types.Integer.Type
-open import ARC.DSL.Types.Boolean.Type
+open import ARC.DSL.Types.Integer.Integer
+open import ARC.DSL.Types.Boolean.Boolean
 import ARC.DSL.Types.Integer.Functions as I
 
 -- Compares two integers and returns True if the first is greater than the second.

@@ -1,8 +1,8 @@
 module Base.String.Test.show where
 
-open import Base.String.Type
+open import Base.String.String
 open import Base.String.show
-open import Base.Equal.Type
+open import Base.Equal.Equal
 
 test-show-non-empty-string : show "hello" ≡ "\"hello\""
 test-show-non-empty-string = refl

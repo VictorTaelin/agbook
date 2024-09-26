@@ -1,4 +1,4 @@
-import { Bits, $O, $I, $E } from '../../Base/Bits/Type';
+import { Bits, $O, $I, $E } from '../../Base/Bits/Bits';
 
 // Performs bitwise NOT operation on a Bits value.
 // - bits: The input Bits value.

@@ -1,10 +1,10 @@
 module Base.OrdMap.delete where
 
 import Base.AVLTree.delete as T
-open import Base.OrdMap.Type
-open import Base.Pair.Type
+open import Base.OrdMap.OrdMap
+open import Base.Pair.Pair
 open import Base.Trait.Ord
-open import Base.AVLTree.Type
+open import Base.AVLTree.AVLTree
 
 -- Deletes a key-value pair from an OrdMap.
 -- This function is a wrapper around the AVL tree delete operation.

@@ -1,4 +1,4 @@
-import { F64 } from '../../Base/F64/Type';
+import { F64 } from '../../Base/F64/F64';
 
 // Returns the natural logarithm of a floating point number.
 // - x: The floating point number.

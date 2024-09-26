@@ -1,5 +1,5 @@
-import { Char } from '../../Base/Char/Type';
-import { Nat } from '../../Base/Nat/Type';
+import { Char } from '../../Base/Char/Char';
+import { Nat } from '../../Base/Nat/Nat';
 
 // Converts a character to its Unicode code point.
 // - c: The input character.

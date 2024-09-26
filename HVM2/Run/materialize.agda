@@ -1,11 +1,11 @@
 module HVM2.Run.materialize where
 
 open import Base.Function.case
-open import HVM2.Run.Type
+open import HVM2.Run.Run
 open import HVM2.Run.Monad.bind
 open import HVM2.Run.enter
 open import HVM2.Run.Monad.pure
-open import HVM2.Term.Type
+open import HVM2.Term.Term
 
 -- Recursively materializes a term by resolving variables
 -- - term: The term to materialize

@@ -1,6 +1,6 @@
 module Base.List.Trait.Ord where
 
-open import Base.List.Type
+open import Base.List.List
 import Base.List.lt as List
 import Base.List.gt as List
 import Base.List.lte as List

@@ -1,6 +1,6 @@
 module Base.JSON.ALL where
 
-open import Base.JSON.Type public
+open import Base.JSON.JSON public
 open import Base.JSON.parse public
 open import Base.JSON.parse-array public
 open import Base.JSON.parse-bool public

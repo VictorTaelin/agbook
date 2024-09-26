@@ -1,10 +1,10 @@
-import { Char } from '../../Base/Char/Type';
-import { Maybe, $None, $Some } from '../../Base/Maybe/Type';
-import { $Succ } from '../../Base/Nat/Type';
+import { Char } from '../../Base/Char/Char';
+import { Maybe, $None, $Some } from '../../Base/Maybe/Maybe';
+import { $Succ } from '../../Base/Nat/Nat';
 import { $MkReply } from '../../Base/Parser/Reply';
 import { State, $MkState } from '../../Base/Parser/State';
-import { Parser } from '../../Base/Parser/Type';
-import { $Done } from '../../Base/Result/Type';
+import { Parser } from '../../Base/Parser/Parser';
+import { $Done } from '../../Base/Result/Result';
 import { $uncons } from '../../Base/String/uncons';
 
 // Advances the parser by one character, consuming it.

@@ -1,5 +1,5 @@
-import { Char } from '../../Base/Char/Type';
-import { Bool } from '../../Base/Bool/Type';
+import { Char } from '../../Base/Char/Char';
+import { Bool } from '../../Base/Bool/Bool';
 
 // Checks if a character is a hexadecimal digit.
 export const $is_hex_digit = (c: Char): Bool => {

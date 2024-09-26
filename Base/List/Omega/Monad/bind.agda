@@ -1,9 +1,9 @@
 module Base.List.Omega.Monad.bind where
 
-open import Base.List.Type
+open import Base.List.List
 open import Base.List.map
 open import Base.List.diagonal
-open import Base.List.Omega.Type
+open import Base.List.Omega.Omega
 
 -- Binds an Omega value with a function that returns an Omega.
 -- - omega: The input Omega value.

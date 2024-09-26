@@ -1,8 +1,8 @@
 module Base.AVLTree.height where
 
 open import Base.Nat.max
-open import Base.Nat.Type
-open import Base.AVLTree.Type
+open import Base.Nat.Nat
+open import Base.AVLTree.AVLTree
 
 -- Calculates the height of an AVL tree.
 -- - tree: The AVL tree to calculate the height of.

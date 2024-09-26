@@ -1,6 +1,6 @@
 module Base.F64.half where
 
-open import Base.F64.Type
+open import Base.F64.F64
 open import Base.F64.div
 
 -- Halves the given float.

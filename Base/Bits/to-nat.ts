@@ -1,5 +1,5 @@
-import { Bits } from '../../Base/Bits/Type';
-import { Nat, $Zero } from '../../Base/Nat/Type';
+import { Bits } from '../../Base/Bits/Bits';
+import { Nat, $Zero } from '../../Base/Nat/Nat';
 import { $add } from '../../Base/Nat/add';
 import { $mul } from '../../Base/Nat/mul';
 

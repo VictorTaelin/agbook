@@ -1,6 +1,6 @@
 module Base.BinTree.fold where
 
-open import Base.BinTree.Type
+open import Base.BinTree.BinTree
 
 -- Performs a fold operation on a binary tree.
 -- 1st: Function to apply to each node.

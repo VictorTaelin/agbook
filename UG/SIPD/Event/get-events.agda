@@ -1,14 +1,14 @@
 module UG.SIPD.Event.get-events where
 
-open import Base.IO.Type
-open import Base.List.Type
-open import UG.SIPD.Event.Type
+open import Base.IO.IO
+open import Base.List.List
+open import UG.SIPD.Event.Event
 
 postulate get-events : IO (List Event)
 
 {-# FOREIGN GHC import qualified SDL as SDL #-}
 {-# FOREIGN GHC 
-import MAlonzo.Code.UG.SIPD.Event.Type
+import MAlonzo.Code.UG.SIPD.Event.Event
 import MAlonzo.Code.UG.SIPD.Event.Click
 import qualified Data.Text as T
 

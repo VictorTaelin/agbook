@@ -1,5 +1,5 @@
-import { F64 } from '../../Base/F64/Type';
-import { Bool } from '../../Base/Bool/Type';
+import { F64 } from '../../Base/F64/F64';
+import { Bool } from '../../Base/Bool/Bool';
 
 // Compares two F64 values for less than relationship.
 // - a: The first F64 value.

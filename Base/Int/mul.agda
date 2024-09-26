@@ -1,7 +1,7 @@
 module Base.Int.mul where
 
-open import Base.Int.Type
-open import Base.Nat.Type
+open import Base.Int.Int
+open import Base.Nat.Nat
 open import Base.Nat.mul using () renaming (_*_ to _n*_)
 open import Base.Nat.add
 

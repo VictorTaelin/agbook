@@ -1,25 +1,25 @@
-import { Bool, $True, $False } from '../../Base/Bool/Type';
+import { Bool, $True, $False } from '../../Base/Bool/Bool';
 import { $if_then_else_ } from '../../Base/Bool/if';
-import { Char } from '../../Base/Char/Type';
+import { Char } from '../../Base/Char/Char';
 import { $eq } from '../../Base/Char/eq';
 import { $digit_to_nat } from '../../Base/Char/digit-to-nat';
-import { F64 } from '../../Base/F64/Type';
+import { F64 } from '../../Base/F64/F64';
 import { $add } from '../../Base/F64/add';
 import { $negate } from '../../Base/F64/negate';
-import { Int } from '../../Base/Int/Type';
+import { Int } from '../../Base/Int/Int';
 import { $length } from '../../Base/List/length';
 import { $map } from '../../Base/List/map';
 import { $split_at_element } from '../../Base/List/split-at-element';
-import { List, $Nil, $Cons } from '../../Base/List/Type';
-import { Maybe, $None, $Some } from '../../Base/Maybe/Type';
-import { Nat, $Zero } from '../../Base/Nat/Type';
+import { List, $Nil, $Cons } from '../../Base/List/List';
+import { Maybe, $None, $Some } from '../../Base/Maybe/Maybe';
+import { Nat, $Zero } from '../../Base/Nat/Nat';
 import { $mul } from '../../Base/Nat/mul';
 import { $add as nat_add } from '../../Base/Nat/add';
 import { $exp } from '../../Base/Nat/exp';
-import { Pair } from '../../Base/Pair/Type';
+import { Pair } from '../../Base/Pair/Pair';
 import { $drop } from '../../Base/String/drop';
 import { $to_list } from '../../Base/String/to-list';
-import { String } from '../../Base/String/Type';
+import { String } from '../../Base/String/String';
 
 const digits_to_nat = (chars: List<Char>): List<Maybe<Nat>> => $map($digit_to_nat, chars);
 

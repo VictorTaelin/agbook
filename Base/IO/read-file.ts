@@ -1,5 +1,5 @@
-import { String } from '../../Base/String/Type';
-import { IO } from '../../Base/IO/Type';
+import { String } from '../../Base/String/String';
+import { IO } from '../../Base/IO/IO';
 import * as fs from 'fs/promises';
 
 // Reads a file and returns its contents as a string.

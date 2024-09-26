@@ -1,4 +1,4 @@
-import { Bits } from '../../Base/Bits/Type';
+import { Bits } from '../../Base/Bits/Bits';
 import { $to_nat } from '../../Base/Bits/to-nat';
 import { $from_nat } from '../../Base/Bits/from-nat';
 import { $mod as $nat_mod } from '../../Base/Nat/mod';

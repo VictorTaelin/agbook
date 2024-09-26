@@ -1,6 +1,6 @@
 module Base.Bits.pred where
 
-open import Base.Bits.Type
+open import Base.Bits.Bits
 
 -- Decrements a binary string by one, potentially reducing its size.
 -- - bs: The input binary string.

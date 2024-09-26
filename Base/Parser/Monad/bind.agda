@@ -1,9 +1,9 @@
 module Base.Parser.Monad.bind where
 
-open import Base.Parser.Type
+open import Base.Parser.Parser
 open import Base.Parser.State
 open import Base.Parser.Reply
-open import Base.Result.Type
+open import Base.Result.Result
 open import Base.Function.case
 
 -- Binds two parsers together

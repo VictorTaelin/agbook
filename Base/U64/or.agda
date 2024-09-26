@@ -1,10 +1,10 @@
 module Base.U64.or where 
 
-open import Base.U64.Type
-open import Base.Bits.Type
+open import Base.U64.U64
+open import Base.Bits.Bits
 open import Base.Bits.to-nat
 open import Base.Bits.or renaming (or to orB; _||_ to _||b_)
-open import Base.Nat.Type
+open import Base.Nat.Nat
 open import Base.U64.to-bits
 open import Base.U64.from-nat
 

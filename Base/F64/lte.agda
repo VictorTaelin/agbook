@@ -1,7 +1,7 @@
 module Base.F64.lte where
 
-open import Base.F64.Type
-open import Base.Bool.Type
+open import Base.F64.F64
+open import Base.Bool.Bool
 open import Base.Bool.not
 open import Base.F64.lt
 

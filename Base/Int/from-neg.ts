@@ -1,5 +1,5 @@
-import { Int, $Pos, $NegSuc } from '../../Base/Int/Type';
-import { Nat, $Zero } from '../../Base/Nat/Type';
+import { Int, $Pos, $NegSuc } from '../../Base/Int/Int';
+import { Nat, $Zero } from '../../Base/Nat/Nat';
 
 // Converts a negative natural number to an integer.
 // - n: The natural number to convert.

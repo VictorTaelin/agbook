@@ -1,6 +1,6 @@
 module Base.BitMap.ALL where
 
-open import Base.BitMap.Type public
+open import Base.BitMap.BitMap public
 open import Base.BitMap.contains public
 open import Base.BitMap.count public
 open import Base.BitMap.del public

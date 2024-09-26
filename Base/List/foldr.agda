@@ -1,6 +1,6 @@
 module Base.List.foldr where
 
-open import Base.List.Type
+open import Base.List.List
 
 -- Performs a right fold over a list.
 -- - f: The combining function.

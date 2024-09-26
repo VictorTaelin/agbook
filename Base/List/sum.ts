@@ -1,6 +1,6 @@
-import { List } from '../../Base/List/Type';
+import { List } from '../../Base/List/List';
 import { $foldr } from '../../Base/List/foldr';
-import { Nat, $Zero } from '../../Base/Nat/Type';
+import { Nat, $Zero } from '../../Base/Nat/Nat';
 import { $add } from '../../Base/Nat/add';
 
 // Calculates the sum of a list of natural numbers.

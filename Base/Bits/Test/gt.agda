@@ -1,9 +1,9 @@
 module Base.Bits.Test.gt where
 
-open import Base.Bits.Type
+open import Base.Bits.Bits
 open import Base.Bits.gt
-open import Base.Bool.Type
-open import Base.Equal.Type
+open import Base.Bool.Bool
+open import Base.Equal.Equal
 
 test-gt-empty-empty : (E > E) ≡ False
 test-gt-empty-empty = refl

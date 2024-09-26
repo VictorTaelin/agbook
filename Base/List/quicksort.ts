@@ -1,5 +1,5 @@
-import { List, $Cons, $Nil } from '../../Base/List/Type';
-import { Nat } from '../../Base/Nat/Type';
+import { List, $Cons, $Nil } from '../../Base/List/List';
+import { Nat } from '../../Base/Nat/Nat';
 import { $append } from '../../Base/List/append';
 import { $filter } from '../../Base/List/filter';
 import { OrdNat } from '../../Base/Nat/Trait/Ord';

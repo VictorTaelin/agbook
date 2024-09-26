@@ -1,6 +1,6 @@
 module ARC.DSL.Functions.difference where
 
-open import ARC.DSL.Types.OrdSet.Type
+open import ARC.DSL.Types.OrdSet.OrdSet
 import ARC.DSL.Types.OrdSet.Functions as S
 
 open import Base.Trait.Ord

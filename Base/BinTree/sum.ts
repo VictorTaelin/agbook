@@ -1,5 +1,5 @@
-import { BinTree } from '../../Base/BinTree/Type';
-import { Nat, Zero } from '../../Base/Nat/Type';
+import { BinTree } from '../../Base/BinTree/BinTree';
+import { Nat, Zero } from '../../Base/Nat/Nat';
 import { $add } from '../../Base/Nat/add';
 
 // Calculates the sum of all values in a tree of natural numbers.

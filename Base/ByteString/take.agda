@@ -1,7 +1,7 @@
 module Base.ByteString.take where
 
-open import Base.ByteString.Type
-open import Base.Nat.Type
+open import Base.ByteString.ByteString
+open import Base.Nat.Nat
 
 postulate take : Nat -> ByteString -> ByteString
 

@@ -1,5 +1,5 @@
-import { List } from '../../Base/List/Type';
-import { Pair } from '../../Base/Pair/Type';
+import { List } from '../../Base/List/List';
+import { Pair } from '../../Base/Pair/Pair';
 import { $unzip_with, unzip_with } from '../../Base/List/unzip-with';
 
 // Unzips a list of pairs into two separate lists.

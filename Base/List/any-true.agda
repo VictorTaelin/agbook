@@ -1,8 +1,8 @@
 module Base.List.any-true where
 
-open import Base.List.Type
+open import Base.List.List
 open import Base.List.foldr
-open import Base.Bool.Type
+open import Base.Bool.Bool
 open import Base.Bool.or
 
 -- Checks if any element of a list satisfies a given predicate.

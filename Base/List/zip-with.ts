@@ -1,4 +1,4 @@
-import { List, $Cons, $Nil } from '../../Base/List/Type';
+import { List, $Cons, $Nil } from '../../Base/List/List';
 
 // Zips two lists into a single list using a combining function.
 // - f: The function to combine elements from both lists.

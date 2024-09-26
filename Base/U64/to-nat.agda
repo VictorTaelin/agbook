@@ -1,7 +1,7 @@
 module Base.U64.to-nat where
 
-open import Base.U64.Type
-open import Base.Nat.Type
+open import Base.U64.U64
+open import Base.Nat.Nat
 
 primitive
   primWord64ToNat : U64 -> Nat

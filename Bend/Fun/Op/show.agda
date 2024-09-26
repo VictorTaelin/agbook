@@ -1,7 +1,7 @@
 module Bend.Fun.Op.show where
 
-open import Bend.Fun.Op.Type
-open import Base.String.Type
+open import Bend.Fun.Op.Op
+open import Base.String.String
 open import Base.Trait.Show
 
 instance

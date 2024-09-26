@@ -1,5 +1,5 @@
-import { Ordering } from '../../Base/Ordering/Type';
-import { Bool } from '../../Base/Bool/Type';
+import { Ordering } from '../../Base/Ordering/Ordering';
+import { Bool } from '../../Base/Bool/Bool';
 
 export const $neq = (a: Ordering, b: Ordering): Bool => {
   switch (a.$) {

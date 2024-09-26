@@ -1,5 +1,5 @@
-import { Char } from '../../Base/Char/Type';
-import { Parser } from '../../Base/Parser/Type';
+import { Char } from '../../Base/Char/Char';
+import { Parser } from '../../Base/Parser/Parser';
 import { $bind, $seq } from '../../Base/Parser/Monad/bind';
 import { $pure } from '../../Base/Parser/Monad/pure';
 import { $consume } from '../../Base/Parser/consume';

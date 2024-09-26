@@ -1,11 +1,11 @@
 module Base.Bits.Test.and where
 
-open import Base.Bits.Type
+open import Base.Bits.Bits
 open import Base.Bits.and
 open import Base.Bool.if
-open import Base.Unit.Type
-open import Base.Empty.Type
-open import Base.Equal.Type
+open import Base.Unit.Unit
+open import Base.Empty.Empty
+open import Base.Equal.Equal
 
 test-and-empty-empty : (E && E) ≡ E
 test-and-empty-empty = refl

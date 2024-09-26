@@ -1,7 +1,7 @@
 import { BitMap, $Node, $Leaf } from './Type';
-import { Bits, $O, $I, $E } from '../Bits/Type';
-import { Maybe, $Some, $None } from '../Maybe/Type';
-import { Pair, $Pair } from '../Pair/Type';
+import { Bits, $O, $I, $E } from '../Bits/Bits';
+import { Maybe, $Some, $None } from '../Maybe/Maybe';
+import { Pair, $Pair } from '../Pair/Pair';
 
 // Swaps a value in the BitMap for a new value, returning the old value if it existed.
 // - m: The BitMap to swap in.

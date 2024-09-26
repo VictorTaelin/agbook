@@ -1,4 +1,4 @@
-import { Pair } from '../../Base/Pair/Type';
+import { Pair } from '../../Base/Pair/Pair';
 
 // Sets the second element of a pair to a new value.
 // - z: The new value for the second element.

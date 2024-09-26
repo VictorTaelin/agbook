@@ -1,5 +1,5 @@
-import { U64 } from '../../Base/U64/Type';
-import { Bits } from '../../Base/Bits/Type';
+import { U64 } from '../../Base/U64/U64';
+import { Bits } from '../../Base/Bits/Bits';
 import { $xor as $xorB } from '../../Base/Bits/xor';
 import { $to_bits } from '../../Base/U64/to-bits';
 import { $to_nat } from '../../Base/Bits/to-nat';

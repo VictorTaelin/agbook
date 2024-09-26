@@ -1,5 +1,5 @@
-import { List } from '../../Base/List/Type';
-import { Bool, $True, $False } from '../../Base/Bool/Type';
+import { List } from '../../Base/List/List';
+import { Bool, $True, $False } from '../../Base/Bool/Bool';
 import { Eq } from '../../Base/Trait/Eq';
 
 // Checks if an element is contained in the list.

@@ -1,9 +1,9 @@
 module Base.String.uncons where
 
-open import Base.Char.Type
-open import Base.Maybe.Type
-open import Base.Pair.Type
-open import Base.String.Type
+open import Base.Char.Char
+open import Base.Maybe.Maybe
+open import Base.Pair.Pair
+open import Base.String.String
 
 primitive
   primStringUncons : String -> Maybe (Σ Char (λ _ -> String))

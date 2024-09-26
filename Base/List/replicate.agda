@@ -1,7 +1,7 @@
 module Base.List.replicate where
 
-open import Base.List.Type
-open import Base.Nat.Type
+open import Base.List.List
+open import Base.Nat.Nat
 
 -- Replicates a value n times to create a list.
 -- - n: The number of times to replicate the value.

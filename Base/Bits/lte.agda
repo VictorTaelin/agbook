@@ -1,7 +1,7 @@
 module Base.Bits.lte where
 
-open import Base.Bits.Type
-open import Base.Bool.Type
+open import Base.Bits.Bits
+open import Base.Bool.Bool
 open import Base.Bits.lt
 open import Base.Bool.not
 

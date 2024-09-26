@@ -1,9 +1,9 @@
 module Base.Int.Test.from-neg where
 
-open import Base.Int.Type
+open import Base.Int.Int
 open import Base.Int.from-neg
-open import Base.Nat.Type
-open import Base.Equal.Type
+open import Base.Nat.Nat
+open import Base.Equal.Equal
 
 _ : from-neg Zero ≡ Pos Zero
 _ = refl

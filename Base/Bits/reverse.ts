@@ -1,4 +1,4 @@
-import { Bits, $O, $I, $E } from '../../Base/Bits/Type';
+import { Bits, $O, $I, $E } from '../../Base/Bits/Bits';
 
 // Reverses the order of bits in a binary string.
 // - bits: The input binary string.

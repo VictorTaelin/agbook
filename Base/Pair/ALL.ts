@@ -1,4 +1,4 @@
-export * from '../../Base/Pair/Type';
+export * from '../../Base/Pair/Pair';
 export * from '../../Base/Pair/get-fst';
 export * from '../../Base/Pair/get-snd';
 export * from '../../Base/Pair/map';

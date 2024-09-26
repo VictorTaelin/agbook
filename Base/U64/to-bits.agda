@@ -1,8 +1,8 @@
 module Base.U64.to-bits where
 
-open import Base.U64.Type
-open import Base.Bits.Type
-open import Base.Nat.Type
+open import Base.U64.U64
+open import Base.Bits.Bits
+open import Base.Nat.Nat
 open import Base.Nat.to-bits renaming (to-bits to to-bits-nat) 
 open import Base.U64.to-nat
 

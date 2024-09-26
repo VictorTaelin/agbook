@@ -1,5 +1,5 @@
-import { Bool } from '../../Base/Bool/Type';
-import { Ordering, $LT, $GT } from '../../Base/Ordering/Type';
+import { Bool } from '../../Base/Bool/Bool';
+import { Ordering, $LT, $GT } from '../../Base/Ordering/Ordering';
 import { $eq } from '../../Base/Ordering/eq';
 import { $neq } from '../../Base/Ordering/neq';
 

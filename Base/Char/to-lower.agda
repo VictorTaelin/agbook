@@ -1,6 +1,6 @@
 module Base.Char.to-lower where
 
-open import Base.Char.Type
+open import Base.Char.Char
 
 primitive
   primToLower : Char -> Char

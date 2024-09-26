@@ -1,6 +1,6 @@
 module Base.U64.mul where
 
-open import Base.U64.Type
+open import Base.U64.U64
 open import Base.Nat.mul renaming (_*_ to _n*_; mul to nmul)
 open import Base.U64.to-nat
 open import Base.U64.from-nat

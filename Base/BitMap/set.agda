@@ -1,11 +1,11 @@
 module Base.BitMap.set where
 
-open import Base.BitMap.Type
-open import Base.Bits.Type
-open import Base.Bool.Type
+open import Base.BitMap.BitMap
+open import Base.Bits.Bits
+open import Base.Bool.Bool
 open import Base.Bool.if
-open import Base.Maybe.Type
-open import Base.BinTree.Type
+open import Base.Maybe.Maybe
+open import Base.BinTree.BinTree
 
 -- Inserts a key-value pair into the BitMap.
 -- - m: The BitMap to insert into.

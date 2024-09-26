@@ -1,7 +1,7 @@
 module Base.U64.neq where
 
-open import Base.U64.Type
-open import Base.Bool.Type
+open import Base.U64.U64
+open import Base.Bool.Bool
 open import Base.Bool.not
 import Base.U64.eq as U64
 

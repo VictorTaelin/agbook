@@ -1,5 +1,5 @@
-import { Maybe } from '../../Base/Maybe/Type';
-import { List, $Cons, $Nil } from '../../Base/List/Type';
+import { Maybe } from '../../Base/Maybe/Maybe';
+import { List, $Cons, $Nil } from '../../Base/List/List';
 import { $foldr } from '../../Base/List/foldr';
 
 // Concatenates all of the `Some` values in a list of Maybe.

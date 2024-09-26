@@ -1,6 +1,6 @@
 module Base.Bits.mul where
 
-open import Base.Bits.Type
+open import Base.Bits.Bits
 open import Base.Bits.add
 
 -- Performs multiplication of two Bits values.

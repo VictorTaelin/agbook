@@ -1,8 +1,8 @@
 import { BitMap, $Node, $Leaf } from './Type';
-import { Bits, $O, $I, $E } from '../Bits/Type';
-import { Maybe, $Some, $None } from '../Maybe/Type';
-import { BinTree } from '../BinTree/Type';
-import { Bool, $True, $False } from '../Bool/Type';
+import { Bits, $O, $I, $E } from '../Bits/Bits';
+import { Maybe, $Some, $None } from '../Maybe/Maybe';
+import { BinTree } from '../BinTree/BinTree';
+import { Bool, $True, $False } from '../Bool/Bool';
 
 // Checks if a key exists in the BitMap.
 // - m: The BitMap to search in.

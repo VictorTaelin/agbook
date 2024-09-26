@@ -1,9 +1,9 @@
 module Base.OrdSet.maximum where
 
 import Base.AVLTree.maximum as AVL
-open import Base.Maybe.Type
-open import Base.OrdSet.Type
-open import Base.Pair.Type
+open import Base.Maybe.Maybe
+open import Base.OrdSet.OrdSet
+open import Base.Pair.Pair
 
 -- Retrieves the maximum element from an OrdSet.
 -- - set: The OrdSet to search in.

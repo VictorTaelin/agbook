@@ -1,5 +1,5 @@
-import { List, $Cons, $Nil } from '../../Base/List/Type';
-import { String } from '../../Base/String/Type';
+import { List, $Cons, $Nil } from '../../Base/List/List';
+import { String } from '../../Base/String/String';
 import { $append } from '../../Base/String/append';
 import { Show } from '../../Base/Trait/Show';
 

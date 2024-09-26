@@ -1,6 +1,6 @@
 module Base.Equal.ALL where
 
-open import Base.Equal.Type public
+open import Base.Equal.Equal public
 open import Base.Equal.apply public
 open import Base.Equal.left public
 open import Base.Equal.right public

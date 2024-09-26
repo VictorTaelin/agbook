@@ -1,4 +1,4 @@
-import { V2, $MkV2 } from '../../Base/V2/Type';
+import { V2, $MkV2 } from '../../Base/V2/V2';
 import { $sub as float_sub } from '../../Base/F64/sub';
 
 // Subtracts one V2 vector from another.

@@ -1,28 +1,28 @@
 module Base.AVLTree.Test.delete-maximum where
 
-open import Base.AVLTree.Balance.Type
+open import Base.AVLTree.Balance.Balance
 open import Base.AVLTree.Test.is-balanced
-open import Base.AVLTree.Type
+open import Base.AVLTree.AVLTree
 open import Base.AVLTree.delete-maximum
 open import Base.AVLTree.empty
 open import Base.AVLTree.insert
 open import Base.AVLTree.to-list
-open import Base.Bool.Type
+open import Base.Bool.Bool
 open import Base.Bool.and
 open import Base.Bool.or
-open import Base.Equal.Type
-open import Base.List.Type
+open import Base.Equal.Equal
+open import Base.List.List
 open import Base.List.eq
-open import Base.Maybe.Type
+open import Base.Maybe.Maybe
 open import Base.Nat.Trait.Eq
 open import Base.Nat.Trait.Ord
-open import Base.Nat.Type
+open import Base.Nat.Nat
 open import Base.Nat.lt
-open import Base.Pair.Type
+open import Base.Pair.Pair
 open import Base.Pair.get-fst
 open import Base.Pair.get-snd
 open import Base.Trait.Ord
-open import Base.Unit.Type
+open import Base.Unit.Unit
 
 -- Helper function to create a test tree
 create-test-tree : AVLTree Nat Unit

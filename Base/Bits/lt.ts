@@ -1,5 +1,5 @@
-import { Bits } from '../../Base/Bits/Type';
-import { Bool, True, False } from '../../Base/Bool/Type';
+import { Bits } from '../../Base/Bits/Bits';
+import { Bool, True, False } from '../../Base/Bool/Bool';
 
 export const $lt = (a: Bits, b: Bits): Bool => {
   switch (a.$) {

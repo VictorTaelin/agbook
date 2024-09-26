@@ -1,6 +1,6 @@
 module Base.Bits.xor where
 
-open import Base.Bits.Type
+open import Base.Bits.Bits
 
 -- Performs bitwise XOR operation on two Bits values.
 -- - a: The 1st Bits value.

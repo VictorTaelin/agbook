@@ -1,4 +1,4 @@
-import { Maybe } from '../../Base/Maybe/Type';
+import { Maybe } from '../../Base/Maybe/Maybe';
 
 // Runs a Maybe monad, returning a default value if it is None.
 // - d: The default value to return if ma is None.

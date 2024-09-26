@@ -1,7 +1,7 @@
 module Bend.Fun.Pattern.children where
 
-open import Base.List.Type
-open import Bend.Fun.Pattern.Type
+open import Base.List.List
+open import Bend.Fun.Pattern.Pattern
 
 children : Pattern -> List Pattern
 children (Var _) = []

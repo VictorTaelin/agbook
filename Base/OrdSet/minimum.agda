@@ -1,9 +1,9 @@
 module Base.OrdSet.minimum where
 
 import Base.AVLTree.minimum as AVL
-open import Base.Maybe.Type
-open import Base.OrdSet.Type
-open import Base.Pair.Type
+open import Base.Maybe.Maybe
+open import Base.OrdSet.OrdSet
+open import Base.Pair.Pair
 
 -- Retrieves the minimum element from an OrdSet.
 -- - set: The OrdSet to search in.

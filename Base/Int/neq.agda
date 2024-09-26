@@ -1,8 +1,8 @@
 module Base.Int.neq where
 
-open import Base.Int.Type
+open import Base.Int.Int
 open import Base.Int.eq
-open import Base.Bool.Type
+open import Base.Bool.Bool
 open import Base.Bool.not
 
 -- Checks if two integers are not equal.

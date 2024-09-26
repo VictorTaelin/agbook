@@ -1,10 +1,10 @@
 module Base.Nat.range where
 
-open import Base.Bool.Type
-open import Base.Nat.Type
+open import Base.Bool.Bool
+open import Base.Nat.Nat
 open import Base.Nat.lt
 open import Base.Nat.sub
-open import Base.List.Type
+open import Base.List.List
 
 -- Generates a list of natural numbers from start (inclusive) to end (exclusive).
 -- - start: The first number in the range.

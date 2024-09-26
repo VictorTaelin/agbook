@@ -13,7 +13,7 @@ open import Base.OrdSet.minimum public
 open import Base.OrdSet.singleton public
 open import Base.OrdSet.size public
 open import Base.OrdSet.to-list public
-open import Base.OrdSet.Type public
+open import Base.OrdSet.OrdSet public
 open import Base.OrdSet.union public
 
-open import Base.OrdSet.Type public using (OrdSet)
+open import Base.OrdSet.OrdSet public using (OrdSet)

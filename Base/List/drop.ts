@@ -1,5 +1,5 @@
-import { List, $Nil, $Cons } from '../../Base/List/Type';
-import { Nat, $Zero, $Succ } from '../../Base/Nat/Type';
+import { List, $Nil, $Cons } from '../../Base/List/List';
+import { Nat, $Zero, $Succ } from '../../Base/Nat/Nat';
 
 // Drops the first n elements from a list.
 // Returns the list without its first n elements.

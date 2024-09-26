@@ -1,7 +1,7 @@
 module Base.V2.sub where
 
 import Base.F64.sub as F64
-open import Base.V2.Type
+open import Base.V2.V2
 
 -- Subtracts one V2 vector from another.
 -- - 1st: The first V2 vector (minuend).

@@ -1,4 +1,4 @@
-export * from '../../Base/F64/Type';
+export * from '../../Base/F64/F64';
 export * from '../../Base/F64/add';
 export * from '../../Base/F64/and';
 export * from '../../Base/F64/div';

@@ -1,6 +1,6 @@
 module Base.F64.negate where
 
-open import Base.F64.Type
+open import Base.F64.F64
 
 primitive primFloatNegate : F64 -> F64
 

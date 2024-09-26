@@ -1,11 +1,11 @@
 module UG.SM.remove-future-states where
 
-open import UG.SM.Type
-open import UG.SM.Tick.Type
-open import UG.SM.StateLogs.Type
+open import UG.SM.SM
+open import UG.SM.Tick.Tick
+open import UG.SM.StateLogs.StateLogs
 open import UG.SM.StateLogs.remove-range
 
-open import Base.Nat.Type
+open import Base.Nat.Nat
 open import Base.Nat.add
 
 -- mach : The machine state to update

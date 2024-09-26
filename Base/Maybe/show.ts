@@ -1,5 +1,5 @@
-import { Maybe } from '../../Base/Maybe/Type';
-import { String } from '../../Base/String/Type';
+import { Maybe } from '../../Base/Maybe/Maybe';
+import { String } from '../../Base/String/String';
 import { $append } from '../../Base/String/append';
 import { Show } from '../../Base/Trait/Show';
 

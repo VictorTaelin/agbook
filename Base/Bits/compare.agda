@@ -2,9 +2,9 @@ module Base.Bits.compare where
 
 import Base.Bits.eq as Bits
 import Base.Bits.lt as Bits
-open import Base.Bits.Type
-open import Base.Bool.Type
-open import Base.Ordering.Type
+open import Base.Bits.Bits
+open import Base.Bool.Bool
+open import Base.Ordering.Ordering
 
 -- Comparison of bits.
 -- - x: The 1st Bits value.

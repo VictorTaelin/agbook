@@ -1,5 +1,5 @@
-import { String } from '../../Base/String/Type';
-import { Ordering, $EQ, $LT, $GT } from '../../Base/Ordering/Type';
+import { String } from '../../Base/String/String';
+import { Ordering, $EQ, $LT, $GT } from '../../Base/Ordering/Ordering';
 import { $eq } from '../../Base/String/eq';
 import { $lt } from '../../Base/String/lt';
 import { $if_then_else_ } from '../../Base/Bool/if';

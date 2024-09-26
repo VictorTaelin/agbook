@@ -1,5 +1,5 @@
-import { List } from '../../Base/List/Type';
-import { Bool, $True } from '../../Base/Bool/Type';
+import { List } from '../../Base/List/List';
+import { Bool, $True } from '../../Base/Bool/Bool';
 import { $foldr } from '../../Base/List/foldr';
 import { $and as bool_and } from '../../Base/Bool/and';
 

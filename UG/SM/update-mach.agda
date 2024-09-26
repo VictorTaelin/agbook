@@ -1,8 +1,8 @@
 module UG.SM.update-mach where
 
-open import UG.SM.Type
-open import UG.SM.Tick.Type
-open import UG.SM.StateLogs.Type
+open import UG.SM.SM
+open import UG.SM.Tick.Tick
+open import UG.SM.StateLogs.StateLogs
 
 open import Base.Nat.max
 open import Base.BitMap.set

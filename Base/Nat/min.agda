@@ -1,6 +1,6 @@
 module Base.Nat.min where
 
-open import Base.Nat.Type
+open import Base.Nat.Nat
 open import Base.Bool.if
 open import Base.Nat.Trait.Ord
 open import Base.Trait.Ord

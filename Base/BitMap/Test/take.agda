@@ -1,15 +1,15 @@
 module Base.BitMap.Test.take where
 
-open import Base.BitMap.Type
+open import Base.BitMap.BitMap
 open import Base.BitMap.take
 open import Base.BitMap.set
 open import Base.BitMap.new
-open import Base.Bits.Type
-open import Base.Maybe.Type
-open import Base.Pair.Type
-open import Base.Equal.Type
-open import Base.Nat.Type
-open import Base.String.Type
+open import Base.Bits.Bits
+open import Base.Maybe.Maybe
+open import Base.Pair.Pair
+open import Base.Equal.Equal
+open import Base.Nat.Nat
+open import Base.String.String
 open import Base.Pair.get-fst
 open import Base.Pair.get-snd
 

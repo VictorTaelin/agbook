@@ -1,6 +1,6 @@
 module Base.U64.min where 
 
-open import Base.U64.Type
+open import Base.U64.U64
 open import Base.U64.Trait.Ord
 open import Base.U64.if
 open import Base.U64.from-bool

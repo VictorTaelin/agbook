@@ -1,4 +1,4 @@
-import { Bool } from '../../../Base/Bool/Type';
+import { Bool } from '../../../Base/Bool/Bool';
 import { $eq as bool_eq } from '../../../Base/Bool/eq';
 import { $neq as bool_neq } from '../../../Base/Bool/neq';
 import { Eq } from '../../../Base/Trait/Eq';

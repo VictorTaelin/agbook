@@ -5,13 +5,13 @@ import Base.Word8.to-nat as Word8
 open import Base.Bits.concat
 open import Base.Bits.normal
 open import Base.Bits.pad-zeros
-open import Base.ByteString.Type
+open import Base.ByteString.ByteString
 open import Base.ByteString.pack
 open import Base.ByteString.unpack
 open import Base.List.drop
 open import Base.List.map
 open import Base.List.take
-open import Base.Nat.Type
+open import Base.Nat.Nat
 open import Base.Nat.to-bits
 
 -- Reads a 48-bit unsigned integer from a ByteString at a given position.

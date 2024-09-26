@@ -1,5 +1,5 @@
-import { Int } from '../../Base/Int/Type';
-import { Nat, $Zero } from '../../Base/Nat/Type';
+import { Int } from '../../Base/Int/Int';
+import { Nat, $Zero } from '../../Base/Nat/Nat';
 
 // Converts an integer to a natural number.
 // - i: The integer to convert.

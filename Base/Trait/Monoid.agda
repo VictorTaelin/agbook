@@ -1,6 +1,6 @@
 module Base.Trait.Monoid where
 
-open import Base.List.Type
+open import Base.List.List
 
 record Monoid (A : Set) : Set where
   field

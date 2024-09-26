@@ -1,10 +1,10 @@
 module Base.BitMap.take where
 
-open import Base.BitMap.Type
-open import Base.Bits.Type
-open import Base.Maybe.Type
-open import Base.BinTree.Type
-open import Base.Pair.Type
+open import Base.BitMap.BitMap
+open import Base.Bits.Bits
+open import Base.Maybe.Maybe
+open import Base.BinTree.BinTree
+open import Base.Pair.Pair
 
 -- Retrieves and removes a value from the BitMap given a key.
 -- - m: The BitMap to search in and remove from.

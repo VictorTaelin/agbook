@@ -1,6 +1,6 @@
 module Base.List.zip-with where
 
-open import Base.List.Type
+open import Base.List.List
 
 -- Zips two lists into a single list using a combining function.
 -- - f: The function to combine elements from both lists.

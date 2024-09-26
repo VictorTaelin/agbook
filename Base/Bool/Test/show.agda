@@ -1,9 +1,9 @@
 module Base.Bool.Test.show where
 
-open import Base.Bool.Type
+open import Base.Bool.Bool
 open import Base.Bool.show
-open import Base.String.Type
-open import Base.Equal.Type
+open import Base.String.String
+open import Base.Equal.Equal
 
 test-show-true : show True ≡ "true"
 test-show-true = refl

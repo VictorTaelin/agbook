@@ -1,20 +1,20 @@
 module Bend.Fun.Term.map-child-binds where
 
-open import Bend.Fun.Term.Type
-open import Base.List.Type renaming (List to List')
+open import Bend.Fun.Term.Term
+open import Base.List.List renaming (List to List')
 open import Base.List.append
 open import Base.List.concat-maybes
 open import Base.List.map
 open import Base.List.reverse
 open import Base.List.split-at
 open import Base.List.zip
-open import Base.Pair.Type
-open import Base.String.Type
-open import Base.Maybe.Type
+open import Base.Pair.Pair
+open import Base.String.String
+open import Base.Maybe.Maybe
 open import Bend.Fun.Pattern.map-binds
 import Base.Maybe.to-list as Maybe
-import Bend.Fun.MatchRule.Type as MatchRule'
-import Bend.Fun.FnDef.Type as FnDef'
+import Bend.Fun.MatchRule.MatchRule as MatchRule'
+import Bend.Fun.FnDef.FnDef as FnDef'
 
 private
   open module MatchRule = MatchRule' Term

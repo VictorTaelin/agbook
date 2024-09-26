@@ -1,6 +1,6 @@
 module Base.F64.exp where
 
-open import Base.F64.Type
+open import Base.F64.F64
 
 primitive primFloatPow : F64 -> F64 -> F64
 

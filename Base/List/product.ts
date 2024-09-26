@@ -1,5 +1,5 @@
-import { List } from '../../Base/List/Type';
-import { Nat } from '../../Base/Nat/Type';
+import { List } from '../../Base/List/List';
+import { Nat } from '../../Base/Nat/Nat';
 import { $foldr } from '../../Base/List/foldr';
 import { $mul } from '../../Base/Nat/mul';
 

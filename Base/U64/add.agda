@@ -1,7 +1,7 @@
 module Base.U64.add where
 
 import Base.Nat.add as Nat
-open import Base.U64.Type
+open import Base.U64.U64
 open import Base.U64.from-nat
 open import Base.U64.to-nat
 

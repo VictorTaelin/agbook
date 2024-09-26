@@ -1,6 +1,6 @@
 module Base.Char.to-upper where
 
-open import Base.Char.Type
+open import Base.Char.Char
 
 primitive
   primToUpper : Char -> Char

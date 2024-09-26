@@ -1,10 +1,10 @@
 module Base.AVLTree.has-key where
 
-open import Base.Bool.Type
-open import Base.Ordering.Type
-open import Base.Pair.Type
+open import Base.Bool.Bool
+open import Base.Ordering.Ordering
+open import Base.Pair.Pair
 open import Base.Trait.Ord
-open import Base.AVLTree.Type
+open import Base.AVLTree.AVLTree
 
 -- Checks if a key exists in the AVL tree.
 -- - key: The key to search for.

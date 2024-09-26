@@ -1,4 +1,4 @@
-import { U64 } from '../../Base/U64/Type';
+import { U64 } from '../../Base/U64/U64';
 import { $add } from '../../Base/U64/add';
 
 // Doubles a given U64 number

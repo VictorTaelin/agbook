@@ -1,6 +1,6 @@
 module Base.Nat.double where
 
-open import Base.Nat.Type
+open import Base.Nat.Nat
 
 -- Doubles a nat.
 -- - n: The number to double.

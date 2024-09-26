@@ -1,7 +1,7 @@
 module Base.List.iterate where
 
-open import Base.List.Type
-open import Base.Nat.Type
+open import Base.List.List
+open import Base.Nat.Nat
 
 -- Generates a list by iterating a function over an initial value.
 -- - f: The function to be applied repeatedly.

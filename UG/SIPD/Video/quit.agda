@@ -1,7 +1,7 @@
 module UG.SIPD.Video.quit where
 
-open import Base.IO.Type
-open import Base.Unit.Type
+open import Base.IO.IO
+open import Base.Unit.Unit
 
 postulate quit : IO Unit
 

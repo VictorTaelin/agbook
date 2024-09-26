@@ -1,9 +1,9 @@
 module ARC.DSL.Functions.combine where
 
-open import ARC.DSL.Types.Container.Type
-open import ARC.DSL.Types.List.Type
+open import ARC.DSL.Types.Container.Container
+open import ARC.DSL.Types.List.List
 import ARC.DSL.Types.List.Functions as L
-open import ARC.DSL.Types.OrdSet.Type
+open import ARC.DSL.Types.OrdSet.OrdSet
 import ARC.DSL.Types.OrdSet.Functions as S
 
 open import Base.Trait.Ord

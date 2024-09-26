@@ -1,5 +1,5 @@
-import { U64 } from '../../Base/U64/Type';
-import { Ordering, $LT, $EQ, $GT } from '../../Base/Ordering/Type';
+import { U64 } from '../../Base/U64/U64';
+import { Ordering, $LT, $EQ, $GT } from '../../Base/Ordering/Ordering';
 import { $if_then_else_ } from '../../Base/Bool/if';
 import { $eq } from '../../Base/U64/eq';
 import { $lt } from '../../Base/U64/lt';

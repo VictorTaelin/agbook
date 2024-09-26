@@ -1,6 +1,6 @@
 module Base.F64.sin where
 
-open import Base.F64.Type
+open import Base.F64.F64
 
 primitive primFloatSin : F64 -> F64
 

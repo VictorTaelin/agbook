@@ -1,9 +1,9 @@
 module ARC.DSL.Functions.double where
 
-open import ARC.DSL.Types.Numerical.Type
-open import ARC.DSL.Types.Union.Type
-open import ARC.DSL.Types.Pair.Type
-open import ARC.DSL.Types.Integer.Type
+open import ARC.DSL.Types.Numerical.Numerical
+open import ARC.DSL.Types.Union.Union
+open import ARC.DSL.Types.Pair.Pair
+open import ARC.DSL.Types.Integer.Integer
 import ARC.DSL.Types.Integer.Functions as I
 
 -- Doubles a Numerical value

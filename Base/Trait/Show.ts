@@ -1,4 +1,4 @@
-import { String } from '../../Base/String/Type';
+import { String } from '../../Base/String/String';
 
 // Record representing the Show trait
 export type Show<A> = {

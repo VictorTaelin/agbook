@@ -1,7 +1,7 @@
 module Base.Bits.is-zero where
 
-open import Base.Bits.Type
-open import Base.Bool.Type
+open import Base.Bits.Bits
+open import Base.Bool.Bool
 open import Base.Bool.and
 
 -- Checks if a number in bits is zero or empty.

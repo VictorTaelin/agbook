@@ -1,6 +1,6 @@
 module Base.Bits.Trait.Show where
 
-open import Base.Bits.Type
+open import Base.Bits.Bits
 import Base.Bits.show as Bits
 open import Base.Trait.Show
 

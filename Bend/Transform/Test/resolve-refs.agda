@@ -1,37 +1,37 @@
 module Bend.Transform.Test.resolve-refs where
 
 open import Base.Function.case
-open import Base.Bool.Type
+open import Base.Bool.Bool
 open import Base.Bool.eq
-open import Base.Nat.Type
+open import Base.Nat.Nat
 open import Base.Nat.eq
-open import Base.List.Type
+open import Base.List.List
 open import Base.List.eq
-open import Base.String.Type
+open import Base.String.String
 open import Base.String.eq
-open import Base.Result.Type
-open import Base.Equal.Type
-open import Base.Parser.Type
+open import Base.Result.Result
+open import Base.Equal.Equal
+open import Base.Parser.Parser
 open import Base.Parser.State
 open import Base.Parser.Reply
 open import Base.Parser.Error
-open import Base.BitMap.Type
+open import Base.BitMap.BitMap
 open import Base.BitMap.set
-open import Base.Pair.Type
+open import Base.Pair.Pair
 open import Bend.Parser.Fun.parse-term
 open import Bend.Transform.resolve-refs
-open import Bend.Fun.Num.Type
+open import Bend.Fun.Num.Num
 open import Bend.Fun.Type.Type
-open import Bend.Fun.Term.Type renaming (Num to Num')
+open import Bend.Fun.Term.Term renaming (Num to Num')
 open import Bend.Fun.Term.show
-open import Bend.Fun.Book.Type
+open import Bend.Fun.Book.Book
 open import Bend.Fun.Book.add-fn-def
 open import Bend.Fun.dsl
 import Bend.Source.from-file-span as Source
 import Bend.Fun.Book.new as Book
 import Base.BitMap.new as Map
-import Bend.Fun.Pattern.Type as Pat
-import Bend.Fun.FnDef.Type as FnDef'
+import Bend.Fun.Pattern.Pattern as Pat
+import Bend.Fun.FnDef.FnDef as FnDef'
 
 private
   open module FnDef = FnDef' Term

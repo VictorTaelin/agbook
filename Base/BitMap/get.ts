@@ -1,7 +1,7 @@
 import { BitMap } from './Type';
-import { Maybe, $None } from '../Maybe/Type';
-import { BinTree } from '../BinTree/Type';
-import { Bits } from '../Bits/Type';
+import { Maybe, $None } from '../Maybe/Maybe';
+import { BinTree } from '../BinTree/BinTree';
+import { Bits } from '../Bits/Bits';
 
 // Retrieves a value from the BitMap given a key.
 // - m: The BitMap to search in.

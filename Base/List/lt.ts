@@ -1,5 +1,5 @@
-import { List, $Cons, $Nil } from '../../Base/List/Type';
-import { Bool, $True, $False } from '../../Base/Bool/Type';
+import { List, $Cons, $Nil } from '../../Base/List/List';
+import { Bool, $True, $False } from '../../Base/Bool/Bool';
 import { Ord, $lt as $ord_lt, $gt as $ord_gt } from '../../Base/Trait/Ord';
 
 export const $lt = <A>(O: Ord<A>, xs: List<A>, ys: List<A>): Bool => {

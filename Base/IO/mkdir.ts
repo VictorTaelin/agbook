@@ -1,7 +1,7 @@
 import * as fs from 'fs/promises';
-import { IO } from '../../Base/IO/Type';
-import { String } from '../../Base/String/Type';
-import { Unit, $unit } from '../../Base/Unit/Type';
+import { IO } from '../../Base/IO/IO';
+import { String } from '../../Base/String/String';
+import { Unit, $unit } from '../../Base/Unit/Unit';
 
 // Creates a directory with the given name.
 // - path: The path of the directory to create.

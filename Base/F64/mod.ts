@@ -1,4 +1,4 @@
-import { F64 } from '../../Base/F64/Type';
+import { F64 } from '../../Base/F64/F64';
 import { $div } from '../../Base/F64/div';
 import { $mul } from '../../Base/F64/mul';
 import { $sub } from '../../Base/F64/sub';
