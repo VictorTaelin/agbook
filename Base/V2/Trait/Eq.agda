@@ -6,6 +6,7 @@ import Base.V2.neq as V2
 import Base.Trait.Eq as Eq
 
 instance
-  EqV2 : Eq.Eq V2 V2.eq
-  EqV2 = Eq.make-eq V2.neq
+  EqV2 : Eq.Eq V2
+  EqV2 = Eq.make-eq V2.eq V2.neq
+
 
