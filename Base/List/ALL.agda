@@ -21,6 +21,7 @@ open import Base.List.drop public
 open import Base.List.drop-while public
 open import Base.List.empty public
 open import Base.List.eq public
+open import Base.List.frequency public
 open import Base.List.filter public
 open import Base.List.find public
 open import Base.List.foldl public
