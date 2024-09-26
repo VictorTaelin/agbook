@@ -10,6 +10,7 @@ open import Base.List.any-true public
 open import Base.List.append public
 open import Base.List.cartesian-product public
 open import Base.List.cartesian-product-with public
+open import Base.List.compare public
 open import Base.List.concat public
 open import Base.List.concat-map public
 open import Base.List.concat-maybes public
