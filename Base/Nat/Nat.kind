@@ -1,0 +1,9 @@
+use Base/Nat/ as N/
+
+// Represents natural numbers.
+// - Zero: The zero natural number.
+// - Succ: The successor of a natural number.
+Base/Nat/Nat : * = #[]{
+  #zero{} : N/Nat
+  #succ{ pred: N/Nat } : N/Nat
+}

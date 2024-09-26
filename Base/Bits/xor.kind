@@ -1,0 +1,23 @@
+use Base/Bits/ as B/
+
+// Performs bitwise XOR operation on two Bits values.
+// - a: The 1st Bits value.
+// - b: The 2nd Bits value.
+// = A new Bits value representing the bitwise XOR of a and b.
+Base/Bits/xor
+: ∀(a: B/Bits)
+  ∀(b: B/Bits)
+  B/Bits
+= λ{
+  #e: λb b
+  #o: λ{
+    #e: λa.tail #o{a.tail}
+    #o: λa.tail λb.tail #o{(Base/Bits/xor a.tail b.tail)}
+    #i: λa.tail λb.tail #i{(Base/Bits/xor a.tail b.tail)}
+  }
+  #i: λ{
+    #e: λa.tail #i{a.tail}
+    #o: λa.tail λb.tail #i{(Base/Bits/xor a.tail b.tail)}
+    #i: λa.tail λb.tail #o{(Base/Bits/xor a.tail b.tail)}
+  }
+}

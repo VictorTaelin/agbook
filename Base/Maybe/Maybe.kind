@@ -1,0 +1,12 @@
+use Base/Maybe/ as M/
+
+// Represents an optional value.
+// - None: Represents the absence of a value.
+// - Some: Represents the presence of a value.
+Base/Maybe/Maybe
+: ∀(A: *)
+  *
+= λA #[]{
+  #none{} : (M/Maybe A)
+  #some{ value:A } : (M/Maybe A)
+}

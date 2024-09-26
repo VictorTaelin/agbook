@@ -1,7 +1,9 @@
+use Base/Bool/ as B/
+
 // Represents a Boolean value.
 // - True: Represents logical truth.
 // - False: Represents logical falsehood.
 Base/Bool/Bool : * = #[]{
-  #t{} : Base/Bool/Bool
-  #f{} : Base/Bool/Bool
+  #t{} : B/Bool
+  #f{} : B/Bool
 }

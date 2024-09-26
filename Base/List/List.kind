@@ -1,0 +1,12 @@
+use Base/List/ as L/
+
+// A polymorphic List with two constructors:
+// - cons: Appends an element to a list.
+// - nil: The empty list.
+Base/List/List
+: ∀(A: *)
+  *
+= λA #[]{
+  #nil{} : (L/List A)
+  #cons{ head:A tail:(L/List A) } : (L/List A)
+}
