@@ -3,7 +3,7 @@
 # Ensure the script exits if any command fails
 set -e
 
-OK_OUTPUT=$'Checked.\nNo output'
+OK_OUTPUT=$'Checked.'
 
 # Function to check a single Agda file
 check_file() {
