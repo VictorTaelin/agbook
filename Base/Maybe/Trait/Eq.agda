@@ -7,7 +7,4 @@ import Base.Trait.Eq as Eq
 
 instance
   EqMaybe : ∀ {A : Set} -> {{EqA : Eq.Eq A}} -> Eq.Eq (Maybe A)
-  EqMaybe {{EqA}} = record
-    { eq = Maybe.eq {{EqA}}
-    ; neq = Maybe.neq {{EqA}}
-    }
+  EqMaybe {{EqA}} = Eq.make-eq Maybe.eq Maybe.neq

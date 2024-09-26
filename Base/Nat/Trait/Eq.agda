@@ -7,7 +7,4 @@ import Base.Nat.neq as Nat
 
 instance
   EqNat : Eq.Eq Nat
-  EqNat = record
-    { eq = Nat.eq
-    ; neq = Nat.neq
-    }
+  EqNat = Eq.make-eq Nat.eq Nat.neq
