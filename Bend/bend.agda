@@ -1,4 +1,4 @@
-module Bend.Main where
+module Bend.bend where
 
 open import Base.Function.case
 open import Base.IO.IO
