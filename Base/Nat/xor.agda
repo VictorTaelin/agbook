@@ -2,11 +2,11 @@ module Base.Nat.xor where
 
 open import Base.Nat.Nat
 open import Base.Nat.to-bits
-open import Base.Bits.xor using () renaming (_^_ to _^'_)
+import Base.Bits.xor as Bits
 open import Base.Bits.to-nat
 
 xor : Nat -> Nat -> Nat
-xor a b = to-nat ((to-bits a) ^' (to-bits b))
+xor a b = to-nat ((to-bits a) Bits.^ (to-bits b))
 
 _^_ : Nat -> Nat -> Nat
 _^_ = xor
