@@ -16,6 +16,7 @@ open import Base.String.from-list
 -- - 1st: The current character.
 -- - 2nd: The rest of the characters (recursively parsed).
 -- = A list of characters representing the parsed string content.
+{-# TERMINATING #-} -- FIXME!
 parse-chars : Parser (List Char)
 parse-chars = do
   c <- parse-char

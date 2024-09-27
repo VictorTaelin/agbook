@@ -31,7 +31,7 @@ private
   open module MRShow = MRShow' ShowTerm
 
 instance
-  {-# TERMINATING #-}
+  {-# TERMINATING #-} -- FIXME!
   ShowTerm = record { to-string = show-term }
     where mutual
       show-with : List' (Maybe String) -> List' Term -> String

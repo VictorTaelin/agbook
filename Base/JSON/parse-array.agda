@@ -9,6 +9,7 @@ open import Base.Parser.Monad.pure
 open import Base.Parser.skip-spaces
 open import Base.Parser.alternative
 
+{-# TERMINATING #-} -- FIXME!
 parse-elements : Parser JSON -> Parser (List JSON)
 parse-elements parseJSON = 
   (parse-non-empty parseJSON) <|> (pure [])

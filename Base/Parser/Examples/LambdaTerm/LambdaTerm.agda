@@ -1,5 +1,3 @@
-{-# OPTIONS --no-termination-check #-}
-
 module Base.Parser.Examples.LambdaTerm.LambdaTerm where
 
 open import Base.String.String

@@ -11,7 +11,7 @@ open import Imp.Eval.State.Grid.step as Grid
 
 -- Runs a grid until there is no more work to be done and
 -- returns the global memory.
-{-# NON_TERMINATING #-}
+{-# NON_TERMINATING #-} -- FIXME!
 run : Grid → Result Buffer String
 
 run grid@(MkGrid global blocks) = do

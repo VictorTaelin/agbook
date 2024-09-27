@@ -24,7 +24,7 @@ open import Bend.Parser.parse-var-name
 open import Bend.Parser.parse-restricted-name
 open import Bend.Parser.parse-number
 
-{-# TERMINATING #-}
+{-# TERMINATING #-} -- FIXME!
 parse-pattern : Parser Pattern
 parse-pattern = do
   skip-trivia

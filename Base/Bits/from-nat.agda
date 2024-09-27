@@ -13,7 +13,7 @@ open import Base.Nat.mod
 -- The rightmost bit is the least significant.
 -- - n: The natural number to convert.
 -- = The Bits representation of the natural number, normalized.
-{-# TERMINATING #-}
+{-# TERMINATING #-} -- FIXME!
 from-nat : Nat -> Bits
 from-nat Zero = E
 from-nat n    = normal (go n (λ x -> x)) where

@@ -18,11 +18,11 @@ open import Base.Result.Result
 open import Base.Parser.Reply
 open import Base.Parser.Error
 
-mutual
-  parse-JSON : Parser JSON
-  parse-JSON = do
-    skip-spaces
-    parse-null  <|> parse-bool <|> parse-number <|> parse-jstring <|> parse-array parse-JSON <|> parse-object parse-JSON 
+{-# TERMINATING #-} -- FIXME!
+parse-JSON : Parser JSON
+parse-JSON = do
+  skip-spaces
+  parse-null <|> parse-bool <|> parse-number <|> parse-jstring <|> parse-array parse-JSON <|> parse-object parse-JSON
 
 {-# COMPILE JS parse-JSON = undefined #-}
 

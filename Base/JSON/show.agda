@@ -16,6 +16,7 @@ open import Base.String.append
 open import Base.String.eq
 
 -- FIXME: use String.join instead
+{-# TERMINATING #-} -- FIXME!
 show : JSON -> String
 show JNull         = "null"
 show (JBool True)  = "true"

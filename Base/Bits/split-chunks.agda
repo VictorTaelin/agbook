@@ -7,7 +7,7 @@ open import Base.Bits.Bits
 open import Base.Bits.split-at
 
 -- Collects Bits into a list of Bits, each with length `d`.
-{-# TERMINATING #-}
+{-# TERMINATING #-} -- FIXME!
 split-chunks : Nat -> Bits -> List Bits
 split-chunks 0 _ = []
 split-chunks d E = []
