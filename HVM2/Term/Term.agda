@@ -5,5 +5,5 @@ open import Base.String.String
 data Term : Set where
   Var : (nm : String) -> Term
   Era : Term
-  Con : (p1 : Term) -> (p2 : Term) -> Term
-  Dup : (p1 : Term) -> (p2 : Term) -> Term
+  Con : forall (p1 p2 : Term) -> Term
+  Dup : forall (p1 p2 : Term) -> Term

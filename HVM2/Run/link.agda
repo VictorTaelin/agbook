@@ -19,11 +19,9 @@ open import HVM2.Term.Term
 mutual
   -- Links two terms
   link : Term -> Term -> Run Unit
-  link a b = trace ("link " ++ Term.show a ++ " ~ " ++ Term.show b) (link' a b) where
-    link' : Term -> Term -> Run Unit
-    link' (Var x) b       = subst x b
-    link' a       (Var y) = subst y a
-    link' a       b       = redex-push a b
+  link (Var x) b       = subst x b
+  link a       (Var y) = subst y a
+  link a       b       = redex-push a b
 
   -- Substitutes a variable with a term
   subst : String -> Term -> Run Unit

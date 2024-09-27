@@ -3,6 +3,7 @@ module HVM2.Run.interact where
 open import Debug.Trace
 
 open import Base.Bool.Bool
+open import Base.String.append
 open import Base.Function.case
 open import Base.Maybe.Maybe
 open import Base.Unit.Unit
@@ -15,7 +16,9 @@ open import HVM2.Rule.void
 open import HVM2.Run.Monad.bind
 open import HVM2.Run.Monad.pure
 open import HVM2.Run.redex-pop
+open import HVM2.Run.state-get
 open import HVM2.Run.Run
+open import HVM2.Run.State.show
 open import HVM2.Term.Term
 
 interact : Run Bool
