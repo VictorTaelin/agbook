@@ -245,8 +245,8 @@ mutual
     (pred , x :: xs , gen , scope)
 
 -- Apply unique names to a Book
-unique-names-book : Book -> Book
-unique-names-book (MkBook defs) = do
+unique-names : Book -> Book
+unique-names (MkBook defs) = do
   let defs = foldr (λ (key , def) defs -> do
                       let def = record def { rules = unique-names-rules 0 (FnDef.rules def) }
                       (key , def) :: defs)
