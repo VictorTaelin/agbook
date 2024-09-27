@@ -14,7 +14,7 @@ open import Base.Bool.if
 
 
 instance
-  {-# TERMINATING #-}
+  {-# TERMINATING #-} -- FIXME!
   ShowType : Show Type
   ShowType = record { to-string = show-type }
     where

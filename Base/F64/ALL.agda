@@ -1,6 +1,9 @@
 module Base.F64.ALL where
 
 open import Base.F64.F64 public
+open import Base.F64.Trait.Eq public
+open import Base.F64.Trait.Ord public
+open import Base.F64.Trait.Show public
 open import Base.F64.acos public
 open import Base.F64.add public
 open import Base.F64.and public
@@ -13,6 +16,7 @@ open import Base.F64.div public
 open import Base.F64.double public
 open import Base.F64.eq public
 open import Base.F64.exp public
+open import Base.F64.floor public
 open import Base.F64.from-bits public
 open import Base.F64.from-int public
 open import Base.F64.from-nat public

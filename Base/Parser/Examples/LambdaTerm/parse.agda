@@ -1,5 +1,3 @@
-{-# OPTIONS --no-termination-check #-}
-
 module Base.Parser.Examples.LambdaTerm.parse where
 
 open import Base.Function.case
@@ -15,6 +13,7 @@ open import Base.Parser.peek-one
 open import Base.Parser.skip-trivia
 open import Base.String.String
 
+{-# TERMINATING #-} -- FIXME!
 parse : Parser Term
 parse = do
   skip-trivia

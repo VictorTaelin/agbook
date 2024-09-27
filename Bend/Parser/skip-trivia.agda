@@ -1,5 +1,3 @@
-{-# OPTIONS --no-termination-check #-}
-
 module Bend.Parser.skip-trivia where
 
 open import Base.Function.case
@@ -38,6 +36,7 @@ skip-single-line-comment = do
     else (pure unit)
 
 -- Skips a multi-line comment
+{-# TERMINATING #-} -- FIXME!
 skip-multi-line-comment : Nat -> Parser Unit
 skip-multi-line-comment depth = do
   is-comment <- starts-with "#{"
@@ -65,6 +64,7 @@ skip-multi-line-comment depth = do
     res
 
 -- Skips all trivia (whitespace and comments)
+{-# TERMINATING #-} -- FIXME!
 skip-trivia : Parser Unit
 skip-trivia = do
   c <- peek-one

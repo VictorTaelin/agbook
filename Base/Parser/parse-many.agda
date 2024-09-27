@@ -13,6 +13,7 @@ open import Base.Result.Result
 -- Parses as many occurrences of the given parser as possible.
 -- - 1st: The parser to be repeatedly applied.
 -- = A parser that returns a list of all successfully parsed elements.
+{-# TERMINATING #-} -- FIXME!
 parse-many : ∀ {A : Set} -> Parser A -> Parser (List A)
 parse-many p = parse-many-go p []
   where

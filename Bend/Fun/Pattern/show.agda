@@ -14,7 +14,7 @@ open import Bend.Fun.FanKind.FanKind
 open import Bend.Fun.show-bind
 
 instance
-  {-# TERMINATING #-}
+  {-# TERMINATING #-} -- FIXME!
   ShowPattern : Show Pattern
   ShowPattern = record { to-string = show-pattern }
     where

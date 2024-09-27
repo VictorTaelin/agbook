@@ -13,7 +13,7 @@ open import Bend.Parser.skip-trivia
 open import Bend.Parser.consume
 open import Bend.Parser.try-consume
 
-{-# TERMINATING #-}
+{-# TERMINATING #-} -- FIXME!
 -- Parses a list of elements separated by a specified separator.
 -- Accepts an optional trailing separator.
 -- - el: Parser for the elements.

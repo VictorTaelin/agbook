@@ -1,5 +1,3 @@
-{-# OPTIONS --no-termination-check #-}
-
 module Base.Parser.skip-trivia where
 
 open import Base.Bool.Bool
@@ -35,6 +33,7 @@ is-comment _                 = False
 
 mutual
   -- Helper function to handle comment skipping
+  {-# TERMINATING #-} -- FIXME!
   skip-comment : Nat -> List Char -> Pair Nat (List Char)
   skip-comment acc cs = do
     let com-len = length (take-while (λ c -> not (is-newline c)) cs)
@@ -44,6 +43,7 @@ mutual
 
   -- Auxiliary function for skip-trivia
   -- Accumulates the number of skipped characters
+  {-# TERMINATING #-} -- FIXME!
   skip-trivia-go : Nat -> List Char -> Pair Nat (List Char)
   skip-trivia-go acc []        = acc , []
   skip-trivia-go acc (c :: cs) = 

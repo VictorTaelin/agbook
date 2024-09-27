@@ -23,6 +23,7 @@ parse-pair parseJSON = do
   pure (key , value)
 
 -- Parses a list of key-value pairs in a JSON object.
+{-# TERMINATING #-} -- FIXME!
 parse-pairs : Parser JSON -> Parser (List (Pair String JSON))
 parse-pairs parseJSON = parse-pair parseJSON >>= λ first ->
   (do

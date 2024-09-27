@@ -10,7 +10,7 @@ open import Base.Bool.if
 -- Helper function for to_bits that handles the recursive case.
 -- - n: The remaining part of the natural number to convert.
 -- = The binary representation of the number as Bits.
-{-# TERMINATING #-}
+{-# TERMINATING #-} -- FIXME!
 to-bits-helper : Nat -> Bits
 to-bits-helper Zero = O E
 to-bits-helper (Succ n) =

@@ -49,7 +49,7 @@ private
 -- that the thread is running under. The modified global/shared is returned.
 -- A `Maybe Thread` is also returned in case there is more work to be done
 -- by the thread.
-{-# NON_TERMINATING #-}
+{-# NON_TERMINATING #-} -- FIXME!
 step : Memory → (bid : U64) → (state : Thread) → StepResult
 
 -- If we are at the end of a sequence of statements, and we are at the "root"

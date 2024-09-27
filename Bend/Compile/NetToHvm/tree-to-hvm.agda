@@ -33,7 +33,7 @@ mutual
   -- - node-id: The id of the root node of the tree.
   -- - state: Compilation state with found variables and remaining gas.
   -- = A pair of the compiled term and the new compilation state.
-  {-# TERMINATING #-}
+  {-# TERMINATING #-} -- FIXME!
   tree-to-hvm : BNet -> Nat -> State -> Result (Pair HTerm State) String
   -- We know that we should visit each node only once,
   -- so we can set a max number of nodes to visit.

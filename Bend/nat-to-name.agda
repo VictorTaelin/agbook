@@ -14,7 +14,7 @@ open import Base.String.String
 open import Base.String.from-list
 
 
-{-# TERMINATING #-}
+{-# TERMINATING #-} -- FIXME!
 -- Converts a natural number into a unique name.
 -- - n: The number to convert.
 -- = A unique string representation of the number, using only lowercase ascii characters.

@@ -3,265 +3,105 @@ module Base.ALL where
 -- Namespaced Modules
 -- ------------------
 
-module Bool where
-  open import Base.Bool.ALL public
+import Base.Bool.ALL
+module Bool = Base.Bool.ALL
+open Bool using (Bool ; True ; False) hiding (module Bool) public
 
-module Char where
-  open import Base.Char.ALL public
+import Base.Char.ALL
+module Char = Base.Char.ALL
+open Char using (Char) public
 
-module String where
-  open import Base.String.ALL public
+import Base.String.ALL
+module String = Base.String.ALL
+open String using (String) public
 
-module Nat where
-  open import Base.Nat.ALL public
+import Base.Nat.ALL
+module Nat = Base.Nat.ALL
+open Nat using (Nat ; Zero ; Succ) hiding (module Nat) public
 
-module Int where
-  open import Base.Int.ALL public
+import Base.Int.ALL
+module Int = Base.Int.ALL
+open Int using (Int ; Pos ; NegSuc) hiding (module Int) public
 
-module F64 where
-  open import Base.F64.ALL public
+import Base.F64.ALL
+module F64 = Base.F64.ALL
+open F64 using (F64) public
 
-module U64 where
-  open import Base.U64.ALL public
+import Base.U64.ALL
+module U64 = Base.U64.ALL
+open U64 using (U64) public
 
-module List where
-  open import Base.List.ALL public
+import Base.List.ALL
+module List = Base.List.ALL
+open List using (List ; [] ; _::_) hiding (module List) public
 
-module Pair where
-  open import Base.Pair.ALL public
+import Base.Pair.ALL
+module Pair = Base.Pair.ALL
+open Pair using (Sigma ; Σ ; Pair ; _,_) public
 
-module Maybe where
-  open import Base.Maybe.ALL public
+import Base.Maybe.ALL
+module Maybe = Base.Maybe.ALL
+open Maybe using (Maybe ; None ; Some) hiding (module Maybe) public
 
-module Result where
-  open import Base.Result.ALL public
+import Base.Result.ALL
+module Result = Base.Result.ALL
+open Result using (Result ; Done ; Fail) hiding (module Result) public
 
--- module JSON where
-  -- open import Base.JSON.ALL public
+import Base.JSON.ALL
+module JSON = Base.JSON.ALL
+open JSON using (JSON ; JNull ; JBool ; JNumber ; JString ; JArray ; JObject) hiding (module JSON) public
 
-module Bits where
-  open import Base.Bits.ALL public
+import Base.Bits.ALL
+module Bits = Base.Bits.ALL
+open Bits using (Bits ; O ; I ; E) hiding (module Bits) public
 
-module Empty where
-  open import Base.Empty.ALL public
+import Base.Empty.ALL
+module Empty = Base.Empty.ALL
+open Empty using (Empty) hiding (module Empty) public
 
-module Equal where
-  open import Base.Equal.ALL public
+import Base.Equal.ALL
+module Equal = Base.Equal.ALL
+open Equal using (_≡_ ; refl) public
 
-module Function where
-  open import Base.Function.ALL public
+import Base.Function.ALL
+module Function = Base.Function.ALL
 
-module IO where
-  open import Base.IO.ALL public
+import Base.IO.ALL
+module IO = Base.IO.ALL
+open IO using (IO) public
 
-module BitMap where
-  open import Base.BitMap.ALL public
+import Base.BitMap.ALL
+module BitMap = Base.BitMap.ALL
+open BitMap using (BitMap) public
 
-module Ordering where
-  open import Base.Ordering.ALL public
+import Base.Ordering.ALL
+module Ordering = Base.Ordering.ALL
+open Ordering using (Ordering ; LT ; EQ ; GT) hiding (module Ordering) public
 
-module Parser where
-  open import Base.Parser.ALL public
+import Base.Parser.ALL
+module Parser = Base.Parser.ALL
+open Parser using (Parser) public
 
-module Queue where
-  open import Base.Queue.ALL public
+import Base.Queue.ALL
+module Queue = Base.Queue.ALL
+open Queue using (Queue ; MkQueue) hiding (module Queue) public
 
-module BinTree where
-  open import Base.BinTree.ALL public
+import Base.BinTree.ALL
+module BinTree = Base.BinTree.ALL
+open BinTree using (BinTree ; Node ; Leaf) hiding (module BinTree) public
 
-module Unit where
-  open import Base.Unit.ALL public
+import Base.Unit.ALL
+module Unit = Base.Unit.ALL
+open Unit using (Unit ; unit) hiding (module Unit) public
 
-module V2 where
-  open import Base.V2.ALL public
+import Base.V2.ALL
+module V2 = Base.V2.ALL
 
-module AVLTree where
-  open import Base.AVLTree.ALL public
+import Base.AVLTree.ALL
+module AVLTree = Base.AVLTree.ALL
+open AVLTree using (AVLTree ; Leaf ; Node) hiding (module AVLTree) public
 
 -- Traits
 -- ------
 
-open import Base.Trait.Add public
-open import Base.Trait.Eq public
-open import Base.Trait.Monad public
-open import Base.Trait.Monoid public
-open import Base.Trait.Ord public
-open import Base.Trait.Show public
-
--- Types and Constructors
--- ----------------------
--- FIXME: can we re-export types and constructors in a way that avoids the type
--- prefix (i.e., Bool instead of Bool.Bool), and without re-defining them
-
-Bool : Set
-Bool = Bool.Bool
-
-True : Bool
-True = Bool.True
-
-False : Bool
-False = Bool.False
-
-Char : Set
-Char = Char.Char
-
-String : Set
-String = String.String
-
-Nat : Set
-Nat = Nat.Nat
-
-Zero : Nat
-Zero = Nat.Zero
-
-Succ : Nat -> Nat
-Succ = Nat.Succ
-
-Int : Set
-Int = Int.Int
-
-Pos : Nat -> Int
-Pos = Int.Pos
-
-NegSuc : Nat -> Int
-NegSuc = Int.NegSuc
-
-F64 : Set
-F64 = F64.F64
-
-U64 : Set
-U64 = U64.U64
-
-List : ∀ {a} -> Set a -> Set a
-List = List.List
-
-[] : ∀ {a} {A : Set a} -> List A
-[] = List.[]
-
-_::_ : ∀ {a} {A : Set a} -> A -> List A -> List A
-_::_ = List._::_
-infixr 5 _::_
-
-Sigma : ∀ {a b} (A : Set a) (B : A -> Set b) -> Set (a Agda.Primitive.⊔ b)
-Sigma = Pair.Sigma
-
-Σ : ∀ {a b} (A : Set a) (B : A -> Set b) -> Set (a Agda.Primitive.⊔ b)
-Σ = Pair.Σ
-
-Pair : ∀ {a b} -> Set a -> Set b -> Set (a Agda.Primitive.⊔ b)
-Pair = Pair.Pair
-
-_,_ : ∀ {a b} {A : Set a} {B : A -> Set b} -> (x : A) -> B x -> Sigma A B
-_,_ = Pair._,_
-infixr 4 _,_
-
-Maybe : ∀ {a} -> Set a -> Set a
-Maybe = Maybe.Maybe
-
-None : ∀ {a} {A : Set a} -> Maybe A
-None = Maybe.None
-
-Some : ∀ {a} {A : Set a} -> A -> Maybe A
-Some = Maybe.Some
-
-Result : Set -> Set -> Set
-Result = Result.Result
-
-Done : ∀ {A E} -> A -> Result A E
-Done = Result.Done
-
-Fail : ∀ {A E} -> E -> Result A E
-Fail = Result.Fail
-
--- JSON : Set
--- JSON = JSON.JSON
-
--- JNull : JSON
--- JNull = JSON.JNull
-
--- JBool : Bool -> JSON
--- JBool = JSON.JBool
-
--- JNumber : F64 -> JSON
--- JNumber = JSON.JNumber
-
--- JString : String -> JSON
--- JString = JSON.JString
-
--- JArray : List JSON -> JSON
--- JArray = JSON.JArray
-
--- JObject : List (Pair String JSON) -> JSON
--- JObject = JSON.JObject
-
-Bits : Set
-Bits = Bits.Bits
-
-O : Bits -> Bits
-O = Bits.O
-
-I : Bits -> Bits
-I = Bits.I
-
-E : Bits
-E = Bits.E
-
-Empty : Set
-Empty = Empty.Empty
-
-_≡_ : ∀ {a} {A : Set a} -> A -> A -> Set a
-_≡_ = Equal._≡_
-
-refl : ∀ {a} {A : Set a} {x : A} -> x ≡ x
-refl = Equal.refl
-
-IO : Set -> Set
-IO = IO.IO
-
-BitMap : Set -> Set
-BitMap = BitMap.BitMap
-
-Ordering : Set
-Ordering = Ordering.Ordering
-
-LT : Ordering
-LT = Ordering.LT
-
-EQ : Ordering
-EQ = Ordering.EQ
-
-GT : Ordering
-GT = Ordering.GT
-
-Parser : Set -> Set
-Parser = Parser.Parser
-
-Queue : ∀ {a} -> Set a -> Set a
-Queue = Queue.Queue
-
-MkQueue : ∀ {a} {A : Set a} -> List A -> List A -> Queue A
-MkQueue = Queue.MkQueue
-
-BinTree : Set -> Set
-BinTree = BinTree.BinTree
-
-Node : ∀ {A} -> A -> BinTree A -> BinTree A -> BinTree A
-Node = BinTree.Node
-
-Leaf : ∀ {A} -> BinTree A
-Leaf = BinTree.Leaf
-
-Unit : Set
-Unit = Unit.Unit
-
-unit : Unit
-unit = Unit.unit
-
--- AVLTree : Set -> Set -> Set
--- AVLTree = AVL.AVL
-
--- AVLLeaf : ∀ {A B} -> AVLTree A B
--- AVLLeaf = AVL.Leaf
-
--- AVLNode : ∀ {A B} -> Pair A B -> AVL.Balance -> AVLTree A B -> AVLTree A B -> AVLTree A B
--- AVLNode = AVL.Node
+open import Base.Trait.ALL public

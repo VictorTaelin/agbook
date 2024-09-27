@@ -17,7 +17,7 @@ open import Base.String.String
 open import Base.Nat.Nat
 open import Base.Function.case
 
-{-# TERMINATING #-}
+{-# TERMINATING #-} -- FIXME!
 -- Parses a list-like structure with possibly trailing separators.
 -- Skips trivia between elements.
 -- - parser: Function to parse a single element.

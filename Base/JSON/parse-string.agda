@@ -71,6 +71,7 @@ parse-string-char =
       else pure c
 
 -- Parses the contents of a JSON string
+{-# TERMINATING #-} -- FIXME!
 parse-string-contents : Parser (List Char)
 parse-string-contents =
   (parse-string-char >>= λ c ->
