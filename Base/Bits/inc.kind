@@ -1,0 +1,13 @@
+use Base/Bits/ as BS/
+
+// Increments a binary string by one. Keeps the same length.
+// - bs: The input binary string.
+// = The incremented binary string.
+BS/inc
+: ∀(bs: BS/Bits)
+  BS/Bits
+= λ{
+  #E: #E{}
+  #O: λbs.tail #I{bs.tail}
+  #I: λbs.tail #O{(BS/inc bs.tail)}
+}

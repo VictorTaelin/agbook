@@ -9,11 +9,11 @@ import Base.Trait.Ord as Ord
 -- - xs: The first list.
 -- - ys: The second list.
 -- = LT if xs < ys, EQ if xs = ys, GT if xs > ys.
-compare : ∀ {A : Set} -> (A -> A -> Ordering) -> List A -> List A -> Ordering
-compare cmp []        []        = EQ
-compare cmp []        (_ :: _)  = LT
-compare cmp (_ :: _)  []        = GT
-compare cmp (x :: xs) (y :: ys) with cmp x y
+compare : ∀ {A : Set} {{_ : Ord.Ord A}} -> List A -> List A -> Ordering
+compare []        []        = EQ
+compare []        (_ :: _)  = LT
+compare (_ :: _)  []        = GT
+compare (x :: xs) (y :: ys) with Ord.compare x y
 ... | LT = LT
 ... | GT = GT
-... | EQ = compare cmp xs ys
+... | EQ = compare xs ys

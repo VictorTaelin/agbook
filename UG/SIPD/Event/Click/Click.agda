@@ -1,4 +1,4 @@
-module UG.SIPD.Event.Click where
+module UG.SIPD.Event.Click.Click where
 
 data Click : Set where
   LeftButton : Click

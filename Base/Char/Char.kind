@@ -1,0 +1,5 @@
+use Base/Char/ as C/
+
+C/Char
+: *
+= U32

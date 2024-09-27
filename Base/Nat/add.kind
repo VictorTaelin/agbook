@@ -4,11 +4,11 @@ use Base/Nat/ as N/
 // - m: The 1st nat.
 // - n: The 2nd nat.
 // = The sum of m and n.
-Base/Nat/add
+N/add
 : ∀(m: N/Nat)
   ∀(n: N/Nat)
   N/Nat
 = λ{
-  #zero: λn n
-  #succ: λm.pred λn #succ{(Base/Nat/add m.pred n)}
+  #Zero: λn n
+  #Succ: λm.pred λn #Succ{(N/add m.pred n)}
 }

@@ -12,7 +12,7 @@ open import ARC.DSL.Types.IntegerPair.IntegerPair
 -- - b: The second Numerical value
 -- = a * b
 multiply : Numerical -> Numerical -> Numerical
-multiply (lft x)         (lft y)         = lft (I.mul x y)
-multiply (lft x)         (rgt (y0 , y1)) = rgt (I.mul x y0  , I.mul x y1)
-multiply (rgt (x0 , x1)) (lft y)         = rgt (I.mul x0 y  , I.mul x1 y)
-multiply (rgt (x0 , x1)) (rgt (y0 , y1)) = rgt (I.mul x0 y0 , I.mul x1 y1)
+multiply (Lft x)         (Lft y)         = Lft (I.mul x y)
+multiply (Lft x)         (Rgt (y0 , y1)) = Rgt (I.mul x y0  , I.mul x y1)
+multiply (Rgt (x0 , x1)) (Lft y)         = Rgt (I.mul x0 y  , I.mul x1 y)
+multiply (Rgt (x0 , x1)) (Rgt (y0 , y1)) = Rgt (I.mul x0 y0 , I.mul x1 y1)

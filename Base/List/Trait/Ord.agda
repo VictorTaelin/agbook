@@ -11,7 +11,7 @@ import Base.Trait.Ord as Ord
 instance
   OrdList : ∀ {A : Set} -> {{O : Ord.Ord A}} -> Ord.Ord (List A)
   OrdList {{O}} = record
-    { compare = List.compare (Ord.compare {{O}})
+    { compare = List.compare {{O}}
     ; lt = List.lt
     ; gt = List.gt
     ; lte = List.lte

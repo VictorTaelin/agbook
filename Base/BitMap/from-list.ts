@@ -1,4 +1,4 @@
-import { BitMap } from './Type';
+import { BitMap } from './BitMap';
 import { $empty } from './empty';
 import { $set } from './set';
 import { List } from '../List/List';

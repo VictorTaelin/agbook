@@ -10,5 +10,5 @@ import ARC.DSL.Types.Integer.Functions as I
 -- - x: The Numerical value to double
 -- = 2 * x
 double : Numerical → Numerical
-double (lft n)       = lft (I.mul 2 n)
-double (rgt (n , m)) = rgt (I.mul 2 n , I.mul 2 m)
+double (Lft n)       = Lft (I.mul 2 n)
+double (Rgt (n , m)) = Rgt (I.mul 2 n , I.mul 2 m)

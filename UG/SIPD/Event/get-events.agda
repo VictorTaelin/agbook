@@ -9,7 +9,7 @@ postulate get-events : IO (List Event)
 {-# FOREIGN GHC import qualified SDL as SDL #-}
 {-# FOREIGN GHC 
 import MAlonzo.Code.UG.SIPD.Event.Event
-import MAlonzo.Code.UG.SIPD.Event.Click
+import MAlonzo.Code.UG.SIPD.Event.Click.Click
 import qualified Data.Text as T
 
 convertEvent :: SDL.Event -> AgdaEvent

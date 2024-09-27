@@ -1,9 +1,8 @@
 import { IO } from '../../../Base/IO/IO';
 
-// Lifts a value into the IO monad.
-// - A: The type of the value being lifted.
-// - x: The value to lift into IO.
-// = An IO action that will produce the value x.
+// Lifts a pure value into the IO monad.
+// 1st: The value to lift.
+// = An IO action that returns the given value.
 export const $pure = <A>(x: A): IO<A> => () => Promise.resolve(x);
 export const  pure = <A>(x: A): IO<A> => $pure(x);
 

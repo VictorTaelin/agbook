@@ -10,5 +10,5 @@ open import ARC.DSL.Types.Pair.Pair
 -- - n: The Numerical value to invert
 -- = The inverted Numerical value
 invert : Numerical → Numerical
-invert (lft x)         = lft (neg x)
-invert (rgt (x0 , x1)) = rgt (neg x0 , neg x1)
+invert (Lft x)         = Lft (neg x)
+invert (Rgt (x0 , x1)) = Rgt (neg x0 , neg x1)

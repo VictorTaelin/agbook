@@ -3,11 +3,8 @@ module Base.Bits.Trait.Eq where
 open import Base.Bits.Bits
 import Base.Bits.eq as Bits
 import Base.Bits.neq as Bits
-open import Base.Trait.Eq
+import Base.Trait.Eq as Eq
 
 instance
-  EqBits : Eq Bits
-  EqBits = record
-    { eq = Bits.eq
-    ; neq = Bits.neq
-    }
+  EqBits : Eq.Eq Bits
+  EqBits = Eq.make-eq Bits.eq Bits.neq

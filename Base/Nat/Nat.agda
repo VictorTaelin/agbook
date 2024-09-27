@@ -1,10 +1,10 @@
 module Base.Nat.Nat where
 
--- A natural number with two constructors:
--- - Zero : Represents the number zero.
--- - Succ : Represents the successor of a natural number.
+-- Represents nats.
+-- - Zero: The zero nat.
+-- - Succ: The successor of a nat.
 data Nat : Set where
   Zero : Nat
-  Succ : (pred : Nat) -> Nat
+  Succ : Nat → Nat
 
 {-# BUILTIN NATURAL Nat #-}

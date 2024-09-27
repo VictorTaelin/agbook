@@ -1,4 +1,4 @@
-import { BitMap, $Node, $Leaf } from './Type';
+import { BitMap, $Node, $Leaf } from './BitMap';
 import { Bits, $E, $O, $I } from '../Bits/Bits';
 import { Maybe, $None, $Some } from '../Maybe/Maybe';
 import { Pair, $Pair } from '../Pair/Pair';

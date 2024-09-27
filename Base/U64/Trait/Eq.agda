@@ -7,7 +7,4 @@ import Base.Trait.Eq as Eq
 
 instance
   EqU64 : Eq.Eq U64
-  EqU64 = record
-    { eq = U64.eq
-    ; neq = U64.neq
-    }
+  EqU64 = Eq.make-eq U64.eq U64.neq

@@ -7,7 +7,4 @@ import Base.Trait.Eq as Eq
 
 instance
   EqInt : Eq.Eq Int
-  EqInt = record
-    { eq = Int.eq
-    ; neq = Int.neq
-    }
+  EqInt = Eq.make-eq Int.eq Int.neq

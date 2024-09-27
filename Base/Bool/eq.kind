@@ -1,0 +1,20 @@
+use Base/Bool/ as B/
+
+// Checks if two boolean values are equal.
+// - a: The first boolean value.
+// - b: The second boolean value.
+// = True if both values are equal, False otherwise.
+B/eq
+: ∀(a: B/Bool)
+  ∀(b: B/Bool)
+  B/Bool
+= λ{
+  #True: λ{
+    #True: #True{}
+    #False: #False{}
+  }
+  #False: λ{
+    #True: #False{}
+    #False: #True{}
+  }
+}

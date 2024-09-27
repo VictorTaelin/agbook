@@ -34,19 +34,19 @@ ok input index expected = Done (MkReply (MkState input index) expected)
 
 -- Simple function definition
 _ : parse "f x = x" ≡
-    ok "" 7 (def "f" :' t'any checked False := 
+    ok "" 7 (def "f" :' t'any checked False :=
               ((rule (p'"x" :: []) := v'"x") :: []))
 _ = refl
 
 -- Function with explicit type signature
 _ : parse "f (x: u24) : u24 = (+ x 1)" ≡
-    ok "" 26 (def "f" :' (t'u24 ->' t'u24) checked True := 
+    ok "" 26 (def "f" :' (t'u24 ->' t'u24) checked True :=
                 ((rule (p'"x" :: []) := (+ (v'"x") (#u 1))) :: []))
 _ = refl
 
 -- Function with multiple arguments
 _ : parse "add x y = (+ x y)" ≡
-    ok "" 17 (def "add" :' t'any checked False := 
+    ok "" 17 (def "add" :' t'any checked False :=
                 ((rule (p'"x" :: p'"y" :: []) := (+ (v'"x") (v'"y"))) :: []))
 _ = refl
 
@@ -61,7 +61,7 @@ _ = refl
 
 -- Unchecked function
 _ : parse "unchecked f x = x" ≡
-    ok "" 17 (def "f" :' t'any checked False := 
+    ok "" 17 (def "f" :' t'any checked False :=
               ((rule (p'"x" :: []) := v'"x") :: []))
 _ = refl
 

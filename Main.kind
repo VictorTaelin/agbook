@@ -1,1 +1,6 @@
-Main : _0 = Base/Bool/and
+use Base/Bits/ as BS/
+use Base/Nat/ as N/
+
+Main
+: N/Nat
+= (N/add #Succ{#Succ{#Zero{}}} #Succ{#Zero{}})

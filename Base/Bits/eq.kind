@@ -1,0 +1,28 @@
+use Base/Bits/ as BS/
+use Base/Bool/ as B/
+
+// Checks if two Bits values are equal.
+// - a: The 1st Bits value.
+// - b: The 2nd Bits value.
+// = True if a and b are equal, False otherwise.
+BS/eq
+: ∀(a: BS/Bits)
+  ∀(b: BS/Bits)
+  B/Bool
+= λ{
+  #E: λ{
+    #E: #True{}
+    #O: λb.tail #False{}
+    #I: λb.tail #False{}
+  }
+  #O: λ{
+    #E: λa.tail #False{}
+    #O: λa.tail λb.tail (Base/Bits/eq a.tail b.tail)
+    #I: λa.tail λb.tail #False{}
+  }
+  #I: λ{
+    #E: λa.tail #False{}
+    #O: λa.tail λb.tail #False{}
+    #I: λa.tail λb.tail (Base/Bits/eq a.tail b.tail)
+  }
+}

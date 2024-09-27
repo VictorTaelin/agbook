@@ -8,8 +8,8 @@ open import Agda.Primitive using (_⊔_)
 data Either {a b} (A : Set a) (B : Set b) : Set (a ⊔ b) where
   -- Constructs a left value.
   -- - x: A value of type A.
-  lft : A → Either A B
+  Lft : A → Either A B
   
   -- Constructs a right value.
   -- - y: A value of type B.
-  rgt : B → Either A B
+  Rgt : B → Either A B

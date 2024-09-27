@@ -1,0 +1,15 @@
+use Base/Bits/ as BS/
+
+// Appends two Bits values.
+// - as: The 1st Bits value.
+// - bs: The 2nd Bits value.
+// = A new Bits value representing the concatenation of as and bs.
+BS/append
+: ∀(as: BS/Bits)
+  ∀(bs: BS/Bits)
+  BS/Bits
+= λ{
+  #E: λbs bs
+  #O: λas.tail λbs #O{(BS/append as.tail bs)}
+  #I: λas.tail λbs #I{(BS/append as.tail bs)}
+}

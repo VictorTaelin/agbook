@@ -10,6 +10,7 @@ open import Base.List.any-true public
 open import Base.List.append public
 open import Base.List.cartesian-product public
 open import Base.List.cartesian-product-with public
+open import Base.List.compare public
 open import Base.List.concat public
 open import Base.List.concat-map public
 open import Base.List.concat-maybes public
@@ -21,6 +22,7 @@ open import Base.List.drop public
 open import Base.List.drop-while public
 open import Base.List.empty public
 open import Base.List.eq public
+open import Base.List.frequency public
 open import Base.List.filter public
 open import Base.List.find public
 open import Base.List.foldl public
@@ -42,6 +44,7 @@ open import Base.List.lookup public
 open import Base.List.map public
 open import Base.List.mfoldl public
 open import Base.List.or public
+open import Base.List.ord public
 open import Base.List.product public
 open import Base.List.quicksort public
 open import Base.List.remove-at public

@@ -1,0 +1,14 @@
+use Base/Nat/ as N/
+
+// Multiplication of nats.
+// - m: The 1st nat.
+// - n: The 2nd nat.
+// = The product of m and n.
+N/mul
+: ∀(m: N/Nat)
+  ∀(n: N/Nat)
+  N/Nat
+= λ{
+  #Zero: λn #Zero{}
+  #Succ: λm.pred λn (N/add n (N/mul m.pred n))
+}

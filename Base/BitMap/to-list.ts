@@ -2,7 +2,7 @@ import { Bits, $O, $I, $E } from '../Bits/Bits';
 import { $reverse } from '../Bits/reverse';
 import { List, $Nil, $Cons } from '../List/List';
 import { $append } from '../List/append';
-import { BitMap, $Node, $Leaf } from './Type';
+import { BitMap, $Node, $Leaf } from './BitMap';
 import { Maybe } from '../Maybe/Maybe';
 import { Pair, $Pair } from '../Pair/Pair';
 

@@ -3,7 +3,7 @@ import { IO } from '../../Base/IO/IO';
 import * as fs from 'fs/promises';
 
 // Reads a file and returns its contents as a string.
-// - path: The path to the file to be read.
+// - 1st: The path to the file to be read.
 // = An IO action that, when executed, will return the contents of the file as a string.
 export const $read_file = (path: String): IO<String> => {
   return () => fs.readFile(path, 'utf8');

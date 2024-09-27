@@ -7,7 +7,4 @@ import Base.Trait.Eq as Eq
 
 instance
   EqList : ∀ {A : Set} {{EqA : Eq.Eq A}} -> Eq.Eq (List A)
-  EqList {{EqA}} = record
-    { eq = List.eq
-    ; neq = List.neq
-    }
+  EqList {{EqA}} = Eq.make-eq List.eq List.neq

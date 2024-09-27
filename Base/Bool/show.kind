@@ -1,0 +1,13 @@
+use Base/Bool/ as B/
+use Base/String/ as S/
+
+// Converts a Bool to its string representation.
+// - b: The Bool value to convert.
+// = A string representation of the Bool value.
+B/show
+: ∀(b: B/Bool)
+  S/String
+= λ{
+  #True: "true"
+  #False: "false"
+}

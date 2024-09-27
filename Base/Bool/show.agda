@@ -6,7 +6,3 @@ open import Base.String.String
 show : Bool -> String
 show True  = "true"
 show False = "false"
-
-{-# COMPILE JS show = function(b) {
-  return b ? "true" : "false";
-} #-}

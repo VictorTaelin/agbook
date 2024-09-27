@@ -3,7 +3,7 @@ import { String } from '../../Base/String/String';
 import { Unit, $unit } from '../../Base/Unit/Unit';
 
 // Prints a string to the console.
-// - s: The string to be printed.
+// - 1st: The string to be printed.
 // = An IO action that prints the string and returns Unit.
 export const $print = (s: String): IO<Unit> => {
   return () => {

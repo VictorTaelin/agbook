@@ -6,12 +6,13 @@ open import Base.List.List
 open import Base.BitMap.new renaming (new to map-new)
 open import Base.BitMap.set renaming (set to map-set)
 open import Base.Maybe.Maybe
-open import Base.Nat.to-bits renaming (to-bits to tb)
 open import Base.Pair.Pair
 open import Base.Result.Result
 open import Base.String.String
 open import Base.String.hash
 open import Bend.Fun.Book.Book
+open import Bend.Fun.Book.add-fn-def
+import Bend.Fun.Book.new as Book
 open import Bend.Fun.Term.Term using () renaming (Term to BTerm)
 open import Bend.Fun.Type.Type using (Type)
 open import Bend.Source.Source
@@ -21,6 +22,7 @@ open import HVM2.Redex.Redex
 open import HVM2.Net.show renaming (show to show-net)
 open import HVM2.Term.Term using () renaming (Term to H)
 open import Bend.Compile.book-to-hvm
+open import Bend.nat-to-name renaming (nat-to-name to nam)
 open import Bend.Fun.dsl
 import Bend.Fun.FnDef.FnDef as Def'
 import Bend.Fun.Rule.Rule as Rule'
@@ -32,7 +34,7 @@ private
 compile-term : BTerm -> Result (List (Pair String Net)) String
 compile-term term = do
   let main = MkFnDef "main" Type.Any False ((MkRule [] term) :: []) (MkSource None None Generated)
-  let book = MkBook (map-set map-new (hash "main") main)
+  let book = add-fn-def Book.new main
   book-to-hvm book
 
 make-result : List Redex -> H -> Result (List (Pair String Net)) String
@@ -44,7 +46,7 @@ test-id :
   let term = λ' (p' "x") (v' "x") in
   (compile-term term)
   ≡
-  let root = H.Con (H.Var (tb 0)) (H.Var (tb 0)) in
+  let root = H.Con (H.Var (nam 0)) (H.Var (nam 0)) in
   make-result [] root
 test-id = refl
 
@@ -54,7 +56,7 @@ test-self-app :
   let term = λ' (p'dup (p' "x1" :: p' "x2" :: [])) (v' "x1" $ v' "x2") in
   (compile-term term)
   ≡
-  let root = H.Con (H.Dup (H.Con (H.Var (tb 0)) (H.Var (tb 1))) (H.Var (tb 0))) (H.Var (tb 1)) in
+  let root = H.Con (H.Dup (H.Con (H.Var (nam 0)) (H.Var (nam 1))) (H.Var (nam 0))) (H.Var (nam 1)) in
   make-result [] root
 test-self-app = refl
 
@@ -65,8 +67,8 @@ test-let-var :
   let term = let' p' "a" := λ' (p' "x") (v' "x") in' (v' "a") in
   (compile-term term)
   ≡
-  let rbag = MkRedex (H.Con (H.Var (tb 1)) (H.Var (tb 1))) (H.Var (tb 0)) :: [] in
-  let root = H.Var (tb 0) in
+  let rbag = MkRedex (H.Con (H.Var (nam 1)) (H.Var (nam 1))) (H.Var (nam 0)) :: [] in
+  let root = H.Var (nam 0) in
   make-result rbag root
 test-let-var = refl
 
@@ -77,7 +79,7 @@ test-unscoped-var-no-shadow :
   (compile-term term)
   ≡
   let rbag = [] in
-  let root = H.Con (H.Con (H.Con (H.Con (H.Var (tb 0)) (H.Var (tb 1))) (H.Con (H.Var (tb 1)) (H.Var (tb 0)))) (H.Var (tb 2))) (H.Var (tb 2)) in
+  let root = H.Con (H.Con (H.Con (H.Con (H.Var (nam 0)) (H.Var (nam 1))) (H.Con (H.Var (nam 1)) (H.Var (nam 0)))) (H.Var (nam 2))) (H.Var (nam 2)) in
   make-result rbag root
 test-unscoped-var-no-shadow = refl
 
@@ -89,8 +91,8 @@ test-nested-let-pat :
   let term = let' (p'tup ((p'dup (p' "x1" :: p'* :: [])) :: p'* :: [])) := (tup (*' :: *' :: [])) in' v' "x1" in
   (compile-term term)
   ≡
-  let rbag = MkRedex (H.Con H.Era H.Era) (H.Var (tb 1)) :: MkRedex (H.Con (H.Dup (H.Var (tb 0)) H.Era) H.Era) (H.Var (tb 1)) :: [] in
-  let root = H.Var (tb 0) in
+  let rbag = MkRedex (H.Con H.Era H.Era) (H.Var (nam 1)) :: MkRedex (H.Con (H.Dup (H.Var (nam 0)) H.Era) H.Era) (H.Var (nam 1)) :: [] in
+  let root = H.Var (nam 0) in
   make-result rbag root
 test-nested-let-pat = refl
 
@@ -101,8 +103,8 @@ test-nested-let-simple :
   let term = λ' (p' "x") (let' (p' "a") := (let' (p' "b") := (v' "x") in' (v' "b")) in' (v' "a")) in
   (compile-term term)
   ≡
-  let rbag = MkRedex (H.Var (tb 1)) (H.Var (tb 0)) :: [] in
-  let root = H.Con (H.Var (tb 0)) (H.Var (tb 1)) in
+  let rbag = MkRedex (H.Var (nam 1)) (H.Var (nam 0)) :: [] in
+  let root = H.Con (H.Var (nam 0)) (H.Var (nam 1)) in
   make-result rbag root
 test-nested-let-simple = refl
 
@@ -120,9 +122,9 @@ test-complex-nested-let :
   in
   (compile-term term)
   ≡
-  let root = (H.Con (H.Con (H.Var (tb 0)) (H.Var (tb 1))) (H.Con H.Era (H.Var (tb 2))))
-      rbag = MkRedex (H.Dup (H.Var (tb 3)) H.Era) (H.Var (tb 1)) ::
-             MkRedex (H.Var (tb 2)) (H.Con (H.Var (tb 0)) (H.Var (tb 3))) :: []
+  let root = (H.Con (H.Con (H.Var (nam 0)) (H.Var (nam 1))) (H.Con H.Era (H.Var (nam 2))))
+      rbag = MkRedex (H.Dup (H.Var (nam 3)) H.Era) (H.Var (nam 1)) ::
+             MkRedex (H.Var (nam 2)) (H.Con (H.Var (nam 0)) (H.Var (nam 3))) :: []
   in
   make-result rbag root
 test-complex-nested-let = refl
