@@ -22,6 +22,7 @@ open import Base.U64.max public
 open import Base.U64.min public
 open import Base.U64.mod public
 open import Base.U64.mul public
+open import Base.U64.neq public
 open import Base.U64.not public
 open import Base.U64.or public
 open import Base.U64.show public

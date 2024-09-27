@@ -1,6 +1,10 @@
 module Base.Char.ALL where
 
 open import Base.Char.Char public
+open import Base.Char.Trait.Eq public
+open import Base.Char.Trait.Ord public
+open import Base.Char.Trait.Show public
+open import Base.Char.compare public
 open import Base.Char.digit-to-nat public
 open import Base.Char.eq public
 open import Base.Char.from-nat public
@@ -17,7 +21,7 @@ open import Base.Char.is-print public
 open import Base.Char.is-space public
 open import Base.Char.lt public
 open import Base.Char.lte public
-open import Base.Char.Trait.Ord public
+open import Base.Char.neq public
 open import Base.Char.show public
 open import Base.Char.to-digit public
 open import Base.Char.to-lower public
