@@ -6,6 +6,6 @@ open import Base.Bits.Bits
 -- - bs: The input binary string.
 -- = The incremented binary string.
 inc : Bits -> Bits
-inc E      = E
+inc E      = I E
 inc (O bs) = I bs
 inc (I bs) = O (inc bs)

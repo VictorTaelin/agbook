@@ -1,19 +1,27 @@
 module Base.Bits.sub where
 
 open import Base.Bits.Bits
-open import Base.Bits.dec
+open import Base.Bits.show
+open import Base.Equal.Equal
+open import Base.Bits.to-nat
+open import Base.Bits.from-nat
 
--- Performs subtraction of two Bits values.
--- - a: The 1st Bits value (minuend).
--- - b: The 2nd Bits value (subtrahend).
--- = A new Bits value representing the difference of a and b.
+
+-- Função auxiliar para lidar com o empréstimo
+-- Essa função ajusta a subtração quando ocorre um empréstimo.
+borrow : Bits -> Bits
+borrow E       = E
+borrow (I bs)  = O bs           -- Quando temos 1, mudamos para 0 sem empréstimo
+borrow (O bs)  = I (borrow bs)  -- Quando temos 0, emprestamos e ajustamos os bits à esquerda
+
+-- Função de subtração binária
 sub : Bits -> Bits -> Bits
-sub E     _     = E
-sub a     E     = a
-sub (O a) (O b) = O (sub a b)
-sub (O a) (I b) = I (dec (sub a b))
-sub (I a) (O b) = I (sub a b)
-sub (I a) (I b) = O (sub a b)
+sub E y = y                
+sub x E = x                  
+sub (O x) (O y) = O (sub x y) 
+sub (I x) (O y) = I (sub x y)
+sub (O x) (I y) = O (sub (borrow x) y) 
+sub (I x) (I y) = O (sub x y)
 
 -- Infix operator for Bits subtraction
 _-_ : Bits -> Bits -> Bits
