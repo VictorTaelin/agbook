@@ -16,9 +16,9 @@ open import UG.Chat.Message.Message
 open import UG.Chat.Message.Message
 open import UG.Chat.Message.to-nat
 
-join-room : Client -> Nat -> ByteString
-join-room client room = do
+join-room : Nat -> ByteString
+join-room room = do
   let message-type = from-nat (to-nat JOIN)
   let buffer = cons message-type (pack-string "")
-  let b = write-u48 buffer 1 room
-  b
+  let buffer = write-u48 buffer 1 room
+  buffer
