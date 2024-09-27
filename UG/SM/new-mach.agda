@@ -1,13 +1,12 @@
 module UG.SM.new-mach where
 
-open import UG.SM.SM
-open import UG.SM.Tick.Tick
-open import UG.SM.StateLogs.StateLogs
-open import UG.SM.ActionLogs.ActionLogs
-
-open import Base.Nat.Nat
 open import Base.BitMap.new
 open import Base.Bool.Bool
+open import Base.Nat.Nat
+open import UG.SM.ActionLogs.ActionLogs
+open import UG.SM.SM
+open import UG.SM.StateLogs.StateLogs
+open import UG.SM.Tick.Tick
 
 -- Creates a new Mach (state machine) with the given ticks per second and action equality function.
 -- - ticks_per_second: The number of ticks per second for this machine.
@@ -22,3 +21,4 @@ new-mach ticks-per-second action_eq = record
   ; action-logs = new
   ; action-eq = action_eq
   }
+
