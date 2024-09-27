@@ -1,16 +1,16 @@
 module UG.Chat.Client.handle-pong where
 
+open import Base.Bool.if
 open import Base.ByteString.ByteString
 open import Base.ByteString.read-u48
+open import Base.IO.IO
 open import Base.IO.Monad.bind
 open import Base.IO.Monad.pure
-open import Base.IO.IO
 open import Base.Nat.Nat
-open import Base.Nat.sub
 open import Base.Nat.add
 open import Base.Nat.div
 open import Base.Nat.lt
-open import Base.Bool.if
+open import Base.Nat.sub
 open import Base.Time.now
 open import Base.U64.U64
 open import Base.U64.from-nat
