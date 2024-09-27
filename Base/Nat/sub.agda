@@ -14,4 +14,4 @@ sub (Succ m) (Succ n) = sub m n
 _-_ : Nat -> Nat -> Nat
 _-_ = sub
 
-{-# BUILTIN NATMINUS _-_ #-}
+{-# BUILTIN NATMINUS sub #-}

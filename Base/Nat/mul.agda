@@ -14,4 +14,4 @@ mul (Succ m) n = add n (mul m n)
 _*_ : Nat -> Nat -> Nat
 _*_ = mul
 
-{-# BUILTIN NATTIMES _*_ #-}
+{-# BUILTIN NATTIMES mul #-}

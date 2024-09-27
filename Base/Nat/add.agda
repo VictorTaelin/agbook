@@ -13,4 +13,4 @@ add (Succ m) n = Succ (add m n)
 _+_ : Nat → Nat → Nat
 _+_ = add
 
-{-# BUILTIN NATPLUS _+_ #-}
+{-# BUILTIN NATPLUS add #-}

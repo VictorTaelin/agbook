@@ -36,3 +36,7 @@ div-helper k m (Succ n) (Succ j) = div-helper k m n j
 div : Nat -> Nat -> Nat
 div m 0 = 0  -- Division by zero returns zero.
 div m (Succ n) = div-helper 0 n m n
+
+_/_ : Nat → Nat → Nat
+_/_ = div
+
