@@ -5,7 +5,7 @@ MAKEFLAGS += --no-builtin-rules --no-builtin-variables
 .PHONY : all clean
 
 all :
-	agda --no-termination-check Main.agda
+	agda Main.agda
 
 clean :
 	find . -name '*agdai' -delete
