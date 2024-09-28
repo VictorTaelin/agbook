@@ -1,9 +1,7 @@
 module Base.Nat.div where
 
-open import Base.Nat.Nat
-open import Base.Nat.sub
-open import Base.Nat.lt
 open import Base.Bool.if
+open import Base.Nat.Nat
 
 -- Helper function  div-helper  for Euclidean division.
 ---------------------------------------------------------------------------
@@ -22,20 +20,20 @@ open import Base.Bool.if
 --
 -- Under the precondition j ≤ m, the invariant is
 --
---   div-helper k m n j = k + (n + m - j) div (1 + m)
-div-helper : Nat -> Nat -> Nat -> Nat -> Nat
-div-helper k m  Zero    j      = k
-div-helper k m (Succ n)  Zero   = div-helper (Succ k) m n m
+--   div-helper k m n j = (k + (n + m - j)) / (1 + m)
+div-helper : Nat → Nat → Nat → Nat → Nat
+div-helper k m Zero     j        = k
+div-helper k m (Succ n) Zero     = div-helper (Succ k) m n m
 div-helper k m (Succ n) (Succ j) = div-helper k m n j
 {-# BUILTIN NATDIVSUCAUX div-helper #-}
 
 -- Integer division of nats.
 -- - m: The dividend.
--- - n: The divisor (must be non-zero).
+-- - n: The divisor.
 -- = The quotient of m divided by n.
-div : Nat -> Nat -> Nat
-div m 0 = 0  -- Division by zero returns zero.
-div m (Succ n) = div-helper 0 n m n
+div : Nat → Nat → Nat
+div m Zero     = Zero  -- Division by zero returns zero.
+div m (Succ n) = div-helper Zero n m n
 
 _/_ : Nat → Nat → Nat
 _/_ = div

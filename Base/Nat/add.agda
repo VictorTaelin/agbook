@@ -9,10 +9,9 @@ open import Base.Nat.Nat
 add : Nat → Nat → Nat
 add Zero     n = n
 add (Succ m) n = Succ (add m n)
+{-# BUILTIN NATPLUS add #-}
 
 _+_ : Nat → Nat → Nat
 _+_ = add
-
-{-# BUILTIN NATPLUS add #-}
 
 infixl 6 _+_
