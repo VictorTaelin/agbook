@@ -15,7 +15,7 @@ open import UG.SM.Tick.Tick
 new-mach : ∀ {S A : Set} -> Nat -> (A -> A -> Bool) -> Mach S A
 new-mach ticks-per-second action_eq = record
   { ticks-per-second = ticks-per-second
-  ; genesis-tick = 100000  -- Representing the earliest possible tick
+  ; genesis-tick = 17275437050500000000000000000000000000  -- Representing the earliest possible tick
   ; cached-tick = 0   -- Representing no cached tick
   ; state-logs = new
   ; action-logs = new
