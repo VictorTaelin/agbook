@@ -16,4 +16,4 @@ rshift n shift = div n (2 ** shift)
 _>>_ : Nat -> Nat -> Nat
 _>>_ = rshift
 
-infixl 8 _>>_
+infixl 5 _>>_
