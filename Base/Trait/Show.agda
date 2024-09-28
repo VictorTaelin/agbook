@@ -4,14 +4,10 @@ open import Agda.Primitive
 open import Base.String.String
 
 record Show {a} (A : Set a) : Set (lsuc a) where
-  field to-string : A -> String
+  constructor MkShow
+  field
+    to-string : A -> String
+
+  show = to-string
 
 open Show {{...}} public
-
-show : ∀ {a} {A : Set a} {{showA : Show A}} -> A -> String
-show {{showA}} x = to-string {{showA}} x
-
-make-show : ∀ {a} {A : Set a} -> (A -> String) -> Show A
-make-show show-impl = record
-  { to-string = show-impl
-  }

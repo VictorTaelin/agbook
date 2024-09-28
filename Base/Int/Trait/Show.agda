@@ -5,5 +5,5 @@ open import Base.Int.Int
 open import Base.Trait.Show
 
 instance
-  Show-Int : Show Int
-  Show-Int = make-show Int.show
+  ShowInt : Show Int
+  ShowInt = MkShow Int.show

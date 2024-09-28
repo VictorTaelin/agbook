@@ -1,9 +1,9 @@
 module Base.Nat.Trait.Show where
 
 open import Base.Nat.Nat
-import Base.Trait.Show as Show
 import Base.Nat.show as Nat
+open import Base.Trait.Show
 
 instance
-  ShowNat : Show.Show Nat
-  ShowNat = record { to-string = Nat.show }
+  ShowNat : Show Nat
+  ShowNat = MkShow Nat.show

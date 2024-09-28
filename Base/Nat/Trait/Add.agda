@@ -1,9 +1,9 @@
 module Base.Nat.Trait.Add where
 
 open import Base.Nat.Nat
-open import Base.Trait.Add
 import Base.Nat.add as Nat
+open import Base.Trait.Add
 
 instance
   AddNat : Add Nat
-  AddNat = make-add Nat.add
+  AddNat = MkAdd Nat.add
