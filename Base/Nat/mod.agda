@@ -28,4 +28,4 @@ mod n (Succ m) = mod-aux Zero m n m
 _%_ : Nat -> Nat -> Nat
 _%_ = mod
 
-infix 7 _%_
+infixl 7 _%_

@@ -14,3 +14,5 @@ _+_ : Nat → Nat → Nat
 _+_ = add
 
 {-# BUILTIN NATPLUS add #-}
+
+infixl 6 _+_

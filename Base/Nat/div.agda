@@ -40,3 +40,4 @@ div m (Succ n) = div-helper 0 n m n
 _/_ : Nat → Nat → Nat
 _/_ = div
 
+infixl 7 _/_

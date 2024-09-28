@@ -15,3 +15,5 @@ _*_ : Nat -> Nat -> Nat
 _*_ = mul
 
 {-# BUILTIN NATTIMES mul #-}
+
+infixl 7 _*_

@@ -15,3 +15,5 @@ _-_ : Nat -> Nat -> Nat
 _-_ = sub
 
 {-# BUILTIN NATMINUS sub #-}
+
+infixl 6 _-_
