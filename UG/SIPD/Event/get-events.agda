@@ -37,11 +37,10 @@ convertEvent (SDL.Event _ (SDL.MouseButtonEvent mouseButtonEvent)) =
        (SDL.ButtonLeft, SDL.Pressed)  -> Just $ MouseClick ALeftButton (fromIntegral x) (fromIntegral y)
        (SDL.ButtonRight, SDL.Pressed) -> Just $ MouseClick ARightButton (fromIntegral x) (fromIntegral y)
        _                              -> Nothing
-convertEvent (SDL.Event _ (SDL.MouseMotionEvent motionEvent)) =
-  let SDL.P (SDL.V2 x y) = SDL.mouseMotionEventPos motionEvent
-  in Just $ MouseMove (fromIntegral x) (fromIntegral y)
+-- convertEvent (SDL.Event _ (SDL.MouseMotionEvent motionEvent)) =
+--  let SDL.P (SDL.V2 x y) = SDL.mouseMotionEventPos motionEvent
+--  in Just $ MouseMove (fromIntegral x) (fromIntegral y)
 convertEvent _ = Nothing
-
 #-}
 
 {-# COMPILE GHC get-events = do
@@ -50,3 +49,4 @@ convertEvent _ = Nothing
     return $ catMaybes $ map convertEvent sdlEvents
   }
 #-}
+

@@ -34,10 +34,8 @@ open import Base.IO.Monad.pure
 open import Base.IO.IO
 open import Base.IO.print
 open import Base.Int.Int
-open import Base.JSON.JSON
-open import Base.JSON.parse
-open import Base.JSON.show renaming (show to jshow)
 open import Base.List.List
+import Base.List.head as List
 open import Base.List.foldl
 open import Base.List.foldr
 open import Base.List.map
@@ -159,12 +157,20 @@ show-ev maybe-ev with maybe-ev
 handle-bs-result : ByteString -> (Mach State Event) -> Client -> IO (Pair (Mach State Event) Client)
 handle-bs-result bs mach client with to-nat (head bs)
 ... | 3 = do -- DATA
-  let time = read-u48 bs 1
-  let room = read-u48 bs 7
+  let room = read-u48 bs 1
+  print ("ROOM: " ++ show room)
+  time-now <- now
+  print ("NOW: " ++ show time-now)
+  let time = read-u48 bs 7
+  print ("TIME: " ++ show time)
   let msg = drop bs 13
   let event = Event.deserialize msg
-  --show-ev event
-  let new-sm = register-event event 1 mach
+  print ("SM GEN: " ++ (show (Mach.genesis-tick mach)))
+  print ("SM CACH: " ++ (show (Mach.cached-tick mach)))
+  show-ev event
+  let new-sm = register-event event time mach
+  print ("SM GEN: " ++ (show (Mach.genesis-tick new-sm)))
+  print ("SM CACH: " ++ (show (Mach.cached-tick new-sm)))
   pure (new-sm , client)
 ... | 6 = do
   new-client <- Client.handle-pong client bs
@@ -194,32 +200,31 @@ create-valid-events (x :: xs) with x
 register-events : Mach State Event -> List Event -> Channel ByteString -> IO (Mach State Event)
 register-events mach events client-channel = do
   time <- now 
-  let t = time
   let encoded-events = map Event.serialize events
   let valid-events = create-valid-events encoded-events
   
   foldl (λ acc ev -> acc >>= λ _ -> Channel.write client-channel ev) (pure unit) valid-events
 
-  let timed-actions = map (time-action t) events
-  let final-mach = foldl (λ acc-mach action -> register-action acc-mach action) mach timed-actions
-  pure final-mach
+  --let timed-actions = map (time-action time) events
+  --let final-mach = foldl (λ acc-mach action -> register-action acc-mach action) mach timed-actions
+  --pure final-mach
+  pure mach
 
-loop : (Mach State Event) -> Window -> Renderer -> State -> (Channel ByteString -> Client -> IO (Pair (Mach State Event) Client)) -> Channel ByteString -> Channel ByteString -> Client -> IO State
+loop : (Mach State Event) -> Window -> Renderer -> State -> (Mach State Event -> Channel ByteString -> Client -> IO (Pair (Mach State Event) Client)) -> Channel ByteString -> Channel ByteString -> Client -> IO State
 loop mach window renderer state process-message channel client-channel client = do
 
   events <- get-events
 
-  registered-mach <- register-events mach events client-channel
+  reg-mach <- register-events mach events client-channel
 
   time-now <- now
+  
+  (proc-mach , client) <- process-message reg-mach channel client
+  (newState , computed-mach) <- compute proc-mach game time-now
 
-  (new-mach , new-client) <- process-message channel client
+  draw window renderer newState
 
-  -- let (newState , computed-mach) <- compute registered-mach game time-now
-  let (newState , computed-mach) = (state , registered-mach)
-
-  draw window renderer state
-  loop computed-mach window renderer newState (λ chan client -> process-message chan client) channel client-channel client
+  loop computed-mach window renderer newState (λ mach chan client -> process-message mach chan client) channel client-channel client
 
 main : IO Unit
 main = do
@@ -241,8 +246,12 @@ main = do
 
   window <- Window.create 
   renderer <- Renderer.create window 
+  
+  t <- now
+  let join = time-action t click-event
+  let ini-mach = register-action initial-mach join
 
-  loop initial-mach window renderer initialState (λ chan client -> process-messages initial-mach chan client) chan client-chan client
+  loop ini-mach window renderer initialState (λ mach chan client -> process-messages mach chan client) chan client-chan client
 
   quit
 
