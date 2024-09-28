@@ -20,9 +20,25 @@ import Base.Bool.ALL
 module Bool = Base.Bool.ALL
 open Bool using (Bool ; True ; False) hiding (module Bool) public
 
+import Base.Buffer.ALL
+module Buffer = Base.Buffer.ALL
+open Buffer using (Buffer ; MkBuffer) hiding (module Buffer) public
+
+import Base.ByteString.ALL
+module ByteString = Base.ByteString.ALL
+open ByteString using (ByteString) public
+
 import Base.Char.ALL
 module Char = Base.Char.ALL
 open Char using (Char) public
+
+import Base.DiffList.ALL
+module DiffList = Base.DiffList.ALL
+open DiffList using (DiffList) public
+
+import Base.Either.ALL
+module Either = Base.Either.ALL
+open Either using (Either ; Lft ; Rgt) hiding (module Either) public
 
 import Base.Empty.ALL
 module Empty = Base.Empty.ALL
@@ -68,6 +84,14 @@ import Base.Ordering.ALL
 module Ordering = Base.Ordering.ALL
 open Ordering using (Ordering ; LT ; EQ ; GT) hiding (module Ordering) public
 
+import Base.OrdMap.ALL
+module OrdMap = Base.OrdMap.ALL
+open OrdMap using (OrdMap) public
+
+import Base.OrdSet.ALL
+module OrdSet = Base.OrdSet.ALL
+open OrdSet using (OrdSet) public
+
 import Base.Pair.ALL
 module Pair = Base.Pair.ALL
 open Pair using (Sigma ; Σ ; Pair ; _,_) public
@@ -88,6 +112,10 @@ import Base.String.ALL
 module String = Base.String.ALL
 open String using (String) public
 
+import Base.Time.ALL
+module Time = Base.Time.ALL
+open Time using () public
+
 import Base.Trait.ALL
 module Trait = Base.Trait.ALL
 open Trait public
@@ -102,4 +130,8 @@ open Unit using (Unit ; unit) hiding (module Unit) public
 
 import Base.V2.ALL
 module V2 = Base.V2.ALL
-open V2 public using (V2 ; MkV2) hiding (module V2) public
+open V2 using (V2 ; MkV2) hiding (module V2) public
+
+import Base.Word8.ALL
+module Word8 = Base.Word8.ALL
+open Word8 using (Word8) public
