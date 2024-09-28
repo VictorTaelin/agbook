@@ -117,7 +117,7 @@ open import Base.Example.function1 public
 open import Base.Example.function2 public
 
 -- Re-export the main type and its constructors
-open Base.Example.Type public using (ExampleType; Constructor1; Constructor2)
+open Base.Example.Type public using (ExampleType ; Constructor1 ; Constructor2)
 ```
 
 This structure allows other modules to import all functionality from a folder by simply importing its ALL module:
@@ -185,7 +185,7 @@ infixl 7 _*_
 ### Unicode and Operators
 
 - Use Unicode for ∀, λ, ≡, and Σ.
-- Use Unicode arrow (`→`) instead of standard arrow (`->`).
+- Use Unicode arrows (`→`, `←`) instead of ASCII arrows (`->`, `<-`).
 - Minimize operator use, except for common ones like arithmetic and bitwise operators.
 
 Arithmetic operators: `_+_` (add), `_-_` (sub), `_*_` (mul), `_\_` (div), `_%_` (mod), `_**_` (exp).
@@ -204,7 +204,7 @@ Bitwise operators: `_&_` (and), `_|_` (or), `_^_` (xor), `_~_` (not), `_<<_` (le
 ### Large Functions
 
 - When a function is very large, especially in cases where different branches can become confusing, it is helpful to **leave a blank line between cases**. This improves readability and visually separates the different conditions.
-- Continue using `do` ... `let` to maintain the style consistency.
+- Continue using `do`...`let` to maintain the style consistency.
 
 Example:
 
@@ -334,15 +334,15 @@ fxhash ns = foldl fxhash-step 0 ns
 
 The native `with` syntax is preferred over the use of `case_of_` from the `Function` module. The `|` should not be aligned with the `with` statement, i.e.
 ```agda
-filter p (x ∷ xs) with p x
-... | true  = x ∷ filter p xs
+filter p (x :: xs) with p x
+... | true  = x :: filter p xs
 ... | false = filter p xs
 ```
 instead of
 ```agda
-filter p (x ∷ xs) with p x
-...                  | true  = x ∷ filter p xs
-...                  | false = filter p xs
+filter p (x :: xs) with p x
+...                | true  = x :: filter p xs
+...                | false = filter p xs
 ```
 
 
