@@ -9,7 +9,7 @@ open import Base.Bool.and
 -- 1st: The first tree to compare.
 -- 2nd: The second tree to compare.
 -- = True if the trees are equal, False otherwise.
-eq : ∀ {A : Set} -> {{EqA : Eq.Eq A}} -> BinTree A -> BinTree A -> Bool
+eq : ∀ {A : Set} → {{EqA : Eq.Eq A}} → BinTree A → BinTree A → Bool
 eq {{EqA}} Leaf            Leaf            = True
 eq {{EqA}} (Node ax al ar) (Node bx bl br) = do
   let eq1 = (eq {{EqA}} al bl)
@@ -18,7 +18,7 @@ eq {{EqA}} (Node ax al ar) (Node bx bl br) = do
 eq {{EqA}} _               _               = False
 
 -- Infix operator for tree equality.
-_==_ : ∀ {A : Set} -> {{EqA : Eq.Eq A}} -> BinTree A -> BinTree A -> Bool
+_==_ : ∀ {A : Set} → {{EqA : Eq.Eq A}} → BinTree A → BinTree A → Bool
 _==_ = eq
 
 infix 4 _==_

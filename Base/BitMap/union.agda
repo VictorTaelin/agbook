@@ -13,5 +13,5 @@ open import Base.Pair.Pair
 -- - m2: The 2nd BitMap.
 -- = A new BitMap containing all key-value pairs from both input Maps,
 --   with values from m1 taking precedence when keys conflict.
-union : ∀ {A : Set} -> BitMap A -> BitMap A -> BitMap A
-union m1 m2 = foldr (λ (k , v) acc -> set acc k v) m2 (to-list m1)
+union : ∀ {A : Set} → BitMap A → BitMap A → BitMap A
+union m1 m2 = foldr (λ (k , v) acc → set acc k v) m2 (to-list m1)

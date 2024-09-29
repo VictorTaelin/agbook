@@ -11,7 +11,7 @@ open import Base.Pair.Pair
 -- Performs a left rotation on an AVL tree to fix an imbalance of +2.
 -- - tree: The AVL tree to rotate.
 -- = A pair containing the rotated AVL tree and a boolean indicating if the height of the root stayed the same.
-rotate-left : ∀ {K V : Set} -> AVLTree K V -> Pair (AVLTree K V) Bool
+rotate-left : ∀ {K V : Set} → AVLTree K V → Pair (AVLTree K V) Bool
 rotate-left (Node v1 +one l (Node v2 +one rl rr))
   = Node v2 zero (Node v1 zero l rl) rr , False
 

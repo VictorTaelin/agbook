@@ -17,9 +17,9 @@ open import Base.AVLTree.AVLTree
 --    2. The new AVL tree with the maximum element removed.
 --    3. A boolean indicating whether the height of the tree decreased.
 delete-maximum :
-  ∀ {K V : Set} ->
-  {{_ : Ord K}} ->
-  AVLTree K V ->
+  ∀ {K V : Set} →
+  {{_ : Ord K}} →
+  AVLTree K V →
   Pair (Maybe (Pair K V)) (Pair (AVLTree K V) Bool)
 delete-maximum Leaf = None , empty , False
 delete-maximum (Node v    _       l Leaf)  = Some v , l , True

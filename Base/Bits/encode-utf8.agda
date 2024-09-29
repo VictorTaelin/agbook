@@ -13,7 +13,7 @@ open import Base.Bits.concat
 -- Encodes a string into its UTF-8 representation as Bits.
 -- - str: The input string to encode.
 -- = A Bits value representing the UTF-8 encoding of the entire string.
-encode-utf8 : String -> Bits
+encode-utf8 : String → Bits
 encode-utf8 str = do
   let char-list = to-list str
   let encoded-chars = map encode-char-utf8 char-list

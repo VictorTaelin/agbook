@@ -9,7 +9,7 @@ open import Base.AVLTree.AVLTree
 -- Extracts all values from an AVL tree.
 -- - tree: The AVL tree to extract values from.
 -- = A list containing all values from the tree.
-values : ∀ {K V : Set} -> AVLTree K V -> List V
+values : ∀ {K V : Set} → AVLTree K V → List V
 values Leaf = []
 values (Node (k , v) _ left right) =
   values left ++ (v :: values right)

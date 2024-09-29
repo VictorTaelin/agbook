@@ -9,5 +9,5 @@ open import Base.Maybe.Maybe
 -- - m2: The 2nd BitMap.
 -- = A new BitMap containing values from both input BitMaps,
 --   with values from m2 taking precedence when keys conflict.
-merge : ∀ {A : Set} -> BitMap A -> BitMap A -> BitMap A
-merge = BinTree.merge (λ x -> x) (λ x -> x) (λ _ y -> y)
+merge : ∀ {A : Set} → BitMap A → BitMap A → BitMap A
+merge = BinTree.merge (λ x → x) (λ x → x) (λ _ y → y)

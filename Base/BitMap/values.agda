@@ -9,7 +9,7 @@ open import Base.Maybe.Maybe
 -- None values are skipped.
 -- - m: The input BitMap.
 -- = A list with the values stored in the BitMap.
-values : ∀ {A : Set} -> BitMap A -> List A
+values : ∀ {A : Set} → BitMap A → List A
 values (Node None     l r) = values l ++ values r
 values (Node (Some v) l r) = v :: (values l ++ values r)
 values Leaf                = []

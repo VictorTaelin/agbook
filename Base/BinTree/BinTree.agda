@@ -4,5 +4,5 @@ module Base.BinTree.BinTree where
 -- - Node: Contains a value and two subtrees.
 -- - Leaf: Represents an empty tree.
 data BinTree (A : Set) : Set where
-  Node : (val : A) -> (lft : BinTree A) -> (rgt : BinTree A) -> BinTree A
+  Node : (val : A) → (lft : BinTree A) → (rgt : BinTree A) → BinTree A
   Leaf : BinTree A

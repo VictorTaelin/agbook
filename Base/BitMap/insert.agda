@@ -11,5 +11,5 @@ open import Base.Pair.get-snd
 -- - pair: The key-value pair to insert.
 -- - m: The BitMap to insert the key-value pair into.
 -- = A new BitMap containing the key-value pair.
-insert : ∀ {A : Set} -> Pair Bits A -> BitMap A -> BitMap A
+insert : ∀ {A : Set} → Pair Bits A → BitMap A → BitMap A
 insert pair m = set m (fst pair) (snd pair)
