@@ -13,6 +13,6 @@ open import Base.AVLTree.AVLTree
 has-key : ∀ {K V : Set} → {{_ : Ord K}} → K → AVLTree K V → Bool
 has-key _   Leaf = False
 has-key key (Node (curr-key , _) _ left right) with compare key curr-key
-... | LT → has-key key left
-... | EQ → True
-... | GT → has-key key right
+... | LT = has-key key left
+... | EQ = True
+... | GT = has-key key right
