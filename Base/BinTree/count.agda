@@ -11,6 +11,6 @@ open import Base.Trait.Eq
 -- 1st: The value to count.
 -- 2nd: The binary tree to search.
 -- = The number of occurrences of the given value in the tree.
-count : ∀ {A : Set} {{EqA : Eq A}} -> A -> BinTree A -> Nat
+count : ∀ {A : Set} {{EqA : Eq A}} → A → BinTree A → Nat
 count _ Leaf         = Zero
 count x (Node y l r) = (if x == y then 1 else 0) + (count x l + count x r)

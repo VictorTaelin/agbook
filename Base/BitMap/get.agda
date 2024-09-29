@@ -9,7 +9,7 @@ open import Base.BinTree.BinTree
 -- - m: The BitMap to search in.
 -- - k: The Bits key to look up.
 -- = The value associated with the key, wrapped in Maybe.
-get : ∀ {A : Set} -> BitMap A -> Bits -> Maybe A
+get : ∀ {A : Set} → BitMap A → Bits → Maybe A
 get (Node val _ _) E     = val
 get (Node _   l _) (O k) = get l k
 get (Node _   _ r) (I k) = get r k

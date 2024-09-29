@@ -7,7 +7,7 @@ open import Base.List.List
 -- - xs: The list of Bits to concatenate.
 -- - The least significant bits are positioned to the left of the list.
 -- = The result is a single Bits value.
-concat : List Bits -> Bits
+concat : List Bits → Bits
 concat []             = E
 concat (E :: xs)      = concat xs
 concat (O bits :: xs) = O (concat (bits :: xs))

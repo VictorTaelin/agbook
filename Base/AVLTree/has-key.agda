@@ -10,9 +10,9 @@ open import Base.AVLTree.AVLTree
 -- - key: The key to search for.
 -- - tree: The AVL tree to search in.
 -- = True if the key is found, False otherwise.
-has-key : ∀ {K V : Set} -> {{_ : Ord K}} -> K -> AVLTree K V -> Bool
+has-key : ∀ {K V : Set} → {{_ : Ord K}} → K → AVLTree K V → Bool
 has-key _   Leaf = False
 has-key key (Node (curr-key , _) _ left right) with compare key curr-key
-... | LT = has-key key left
-... | EQ = True
-... | GT = has-key key right
+... | LT → has-key key left
+... | EQ → True
+... | GT → has-key key right

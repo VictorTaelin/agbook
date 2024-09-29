@@ -12,7 +12,7 @@ open import Base.BinTree.BinTree
 -- - k: The Bits key to insert.
 -- - v: The value to associate with the key.
 -- = A new BitMap with the key-value pair inserted.
-set : ∀ {A : Set} -> BitMap A -> Bits -> A -> BitMap A
+set : ∀ {A : Set} → BitMap A → Bits → A → BitMap A
 set (Node val l r) E     v = Node (Some v) l r
 set (Node val l r) (O k) v = Node val (set l k v) r
 set (Node val l r) (I k) v = Node val l (set r k v)

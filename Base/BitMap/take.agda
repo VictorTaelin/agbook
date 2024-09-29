@@ -10,7 +10,7 @@ open import Base.Pair.Pair
 -- - m: The BitMap to search in and remove from.
 -- - k: The Bits key to look up and remove.
 -- = A pair containing the new BitMap and the value associated with the key (wrapped in Maybe).
-take : ∀ {A : Set} -> BitMap A -> Bits -> Pair (BitMap A) (Maybe A)
+take : ∀ {A : Set} → BitMap A → Bits → Pair (BitMap A) (Maybe A)
 take (Node val lft rgt) E = do
   let n = (Node None lft rgt)
   n , val

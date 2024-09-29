@@ -13,7 +13,7 @@ open import Base.AVLTree.insert
 -- - t1: The first AVL tree.
 -- - t2: The second AVL tree.
 -- = A new AVL tree containing elements from t1 that are not present in t2.
-difference : ∀ {K V : Set} {{_ : Ord K}} -> AVLTree K V -> AVLTree K V -> AVLTree K V
+difference : ∀ {K V : Set} {{_ : Ord K}} → AVLTree K V → AVLTree K V → AVLTree K V
 difference t1 t2 = fold (go t2) empty t1 where
   go : ∀ {K V : Set} {{_ : Ord K}} → AVLTree K V → Pair K V → AVLTree K V → AVLTree K V
   go exclude (k , v) acc with has-key k exclude
@@ -24,7 +24,7 @@ difference t1 t2 = fold (go t2) empty t1 where
 -- - t₁: The first AVL tree.
 -- - t₂: The second AVL tree.
 -- = A new AVL tree containing elements from t₁ that are not present in t₂.
-_∖_ : ∀ {K V : Set} -> {{_ : Ord K}} -> AVLTree K V -> AVLTree K V -> AVLTree K V
+_∖_ : ∀ {K V : Set} → {{_ : Ord K}} → AVLTree K V → AVLTree K V → AVLTree K V
 _∖_ = difference
 
 infixr 6 _∖_

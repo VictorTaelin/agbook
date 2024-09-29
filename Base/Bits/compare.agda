@@ -13,7 +13,7 @@ open import Base.Ordering.Ordering
 --   - EQ if x is equal to y.
 --   - LT if x is less than y.
 --   - GT if x is greater than y.
-compare : Bits -> Bits -> Ordering
+compare : Bits → Bits → Ordering
 compare x y with Bits.eq x y | Bits.lt x y
 ... | True  | _     = EQ
 ... | False | True  = LT

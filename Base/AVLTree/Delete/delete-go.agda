@@ -16,7 +16,7 @@ open import Base.Pair.mut-snd
 open import Base.Trait.Ord
 
 -- returns True if the height decreased
-delete-go : ∀ {K V : Set} -> {{_ : Ord K}} -> K -> AVLTree K V -> Pair (AVLTree K V) Bool
+delete-go : ∀ {K V : Set} → {{_ : Ord K}} → K → AVLTree K V → Pair (AVLTree K V) Bool
 
 delete-go _ Leaf = empty , False
 
@@ -29,7 +29,7 @@ delete-go k (Node (curr-key , curr-val) balance left right) with compare k curr-
 ...       | Some got | False | _ = Node got balance other right , False
 ...       | Some got | True | -one = Node got zero other right , True
 ...       | Some got | True | zero = Node got +one other right , False
-...       | Some got | True | +one = map (λ x -> x) (λ _ -> not) (rotate-left (Node got +one other right))
+...       | Some got | True | +one = map (λ x → x) (λ _ → not) (rotate-left (Node got +one other right))
 delete-go k (Node (curr-key , curr-val) balance left right) | LT with delete-go k left
 ... | (other , is-smaller) with is-smaller | balance
 ...   | False | _ = Node (curr-key , curr-val) balance other right , False

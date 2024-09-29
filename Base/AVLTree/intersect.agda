@@ -17,7 +17,7 @@ open import Base.AVLTree.AVLTree
 -- - t₁: The first AVL tree.
 -- - t₂: The second AVL tree.
 -- = A new AVL tree containing only the key-value pairs present in both input trees.
-intersect : ∀ {K V : Set} {{_ : Ord K}} -> AVLTree K V -> AVLTree K V -> AVLTree K V
+intersect : ∀ {K V : Set} {{_ : Ord K}} → AVLTree K V → AVLTree K V → AVLTree K V
 intersect t1 t2 = fold (go t2) empty t1 where
   go : ∀ {K V : Set} {{_ : Ord K}} → AVLTree K V → Pair K V → AVLTree K V → AVLTree K V
   go include (k , v) acc with has-key k include
@@ -28,7 +28,7 @@ intersect t1 t2 = fold (go t2) empty t1 where
 -- - t₁: The first AVL tree.
 -- - t₂: The second AVL tree.
 -- = A new AVL tree containing only the key-value pairs present in both input trees.
-_∩_ : ∀ {K V : Set} -> {{_ : Ord K}} -> AVLTree K V -> AVLTree K V -> AVLTree K V
+_∩_ : ∀ {K V : Set} → {{_ : Ord K}} → AVLTree K V → AVLTree K V → AVLTree K V
 _∩_ = intersect
 
 infixr 6 _∩_
