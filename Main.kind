@@ -1,7 +1,1 @@
-use Base/Bits/ as BS/
-use Base/List/ as L/
-use Base/Nat/ as N/
-
-Main
-: (L/List N/Nat)
-= #Cons{ head: #Zero{} tail: #Nil{} }
+Main : Base/Nat/Nat = #Zero{}
