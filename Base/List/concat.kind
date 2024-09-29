@@ -1,0 +1,12 @@
+use Base/List/ as L/
+
+// Concatenates a list of lists into a single list.
+// - A: The type of elements in the inner lists.
+// - xss: The input list of lists.
+// = A new list containing all elements from all inner lists.
+L/concat
+: ∀(A: *)
+  ∀(xss: (L/List (L/List A)))
+  (L/List A)
+= λA λxss
+  (L/foldr _ (L/List A) (L/append _) #Nil{} xss)

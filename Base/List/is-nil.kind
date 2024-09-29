@@ -1,0 +1,15 @@
+use Base/List/ as L/
+use Base/Bool/ as B/
+
+// Checks if a list is empty (nil).
+// - A: The type of elements in the list.
+// - xs: The list to check.
+// = True if the list is empty, False otherwise.
+L/is-nil
+: ∀(A: *)
+  ∀(xs: (L/List A))
+  B/Bool
+= λA λ{
+  #Nil: #True{}
+  #Cons: λxs.head λxs.tail #False{}
+}

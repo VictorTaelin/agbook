@@ -1,0 +1,17 @@
+use Base/List/ as L/
+
+// Appends two lists.
+// - A: The type of elements in the lists.
+// - xs: The first list.
+// - ys: The second list.
+// = A new list containing all elements from both input lists.
+L/append
+: ∀(A: *)
+  ∀(xs: (L/List A))
+  ∀(ys: (L/List A))
+  (L/List A)
+= λA λ{
+  #Nil: λys ys
+  #Cons: λxs.head λxs.tail λys
+    #Cons{xs.head (L/append _ xs.tail ys)}
+}

@@ -1,0 +1,22 @@
+use Base/List/ as L/
+use Base/Maybe/ as M/
+use Base/Bool/ as B/
+
+// Finds the first element in a list that satisfies a given predicate.
+// - A: The type of elements in the list.
+// - pred: The predicate function to test elements.
+// - xs: The input list to search.
+// = Some x if an element x satisfying the predicate is found,
+//   None if no such element exists in the list.
+L/find
+: ∀(A: *)
+  ∀(pred: ∀(a: A) B/Bool)
+  ∀(xs: (L/List A))
+  (M/Maybe A)
+= λA λpred λ{
+  #Nil: #None{}
+  #Cons: λxs.head λxs.tail
+    (B/if _ (pred xs.head)
+      (#Some{xs.head})
+      (L/find _ pred xs.tail))
+}

@@ -1,0 +1,15 @@
+use Base/List/ as L/
+use Base/Bool/ as B/
+
+// Checks if a list is non-empty (cons).
+// - A: The type of elements in the list.
+// - xs: The list to check.
+// = True if the list is non-empty, False otherwise.
+L/is-cons
+: ∀(A: *)
+  ∀(xs: (L/List A))
+  B/Bool
+= λA λ{
+  #Nil: #False{}
+  #Cons: λxs.head λxs.tail #True{}
+}

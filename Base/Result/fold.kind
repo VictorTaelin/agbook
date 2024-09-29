@@ -1,0 +1,23 @@
+use Base/Result/ as R/
+
+// Folds over a Result value.
+// - A: The type of the successful result.
+// - B: The type of the folded result.
+// - E: The type of the error.
+// - done: The function to apply to the value if the Result is Done.
+// - fail: The function to apply to the error if the Result is Fail.
+// - ra: The Result value to fold over.
+// = Either the result of applying 'done' to the value (if Done) or
+//   the result of applying 'fail' to the error (if Fail).
+R/fold
+: ∀(A: *)
+  ∀(B: *)
+  ∀(E: *)
+  ∀(done: ∀(a: A) B)
+  ∀(fail: ∀(e: E) B)
+  ∀(ra: (R/Result A E))
+  B
+= λA λB λE λdone λfail λ{
+  #Done: λra.value (done ra.value)
+  #Fail: λra.error (fail ra.error)
+}

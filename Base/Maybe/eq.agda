@@ -1,8 +1,8 @@
 module Base.Maybe.eq where
 
-open import Base.Maybe.Maybe
-open import Base.Bool.Bool
 import Base.Trait.Eq as Eq
+open import Base.Bool.Bool
+open import Base.Maybe.Maybe
 
 eq : ∀ {A : Set} -> {{EqA : Eq.Eq A}} -> Maybe A -> Maybe A -> Bool
 eq {{EqA}} None     None     = True

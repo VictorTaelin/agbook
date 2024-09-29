@@ -1,0 +1,20 @@
+use Base/List/ as L/
+use Base/Bool/ as B/
+
+// Filters a list based on a predicate function.
+// - A: The type of elements in the list.
+// - fn: The function used to test each element.
+// - xs: The input list.
+// = A new list containing only elements that satisfy the predicate.
+L/filter
+: ∀(A: *)
+  ∀(fn: ∀(a: A) B/Bool)
+  ∀(xs: (L/List A))
+  (L/List A)
+= λA λfn λ{
+  #Nil: #Nil{}
+  #Cons: λxs.head λxs.tail
+    (B/if _ (fn xs.head)
+      (#Cons{ xs.head (L/filter _ fn xs.tail) })
+      (L/filter _ fn xs.tail))
+}

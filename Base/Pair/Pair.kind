@@ -1,0 +1,37 @@
+use Base/Pair/ as P/
+
+// Dependent pair type (Sigma type)
+P/Sigma
+: ∀(A: *)
+  ∀(B: ∀(a: A) *)
+  *
+= λA λB #[]{
+  #Pair{ fst:A snd:(B fst) } : (P/Sigma A B)
+}
+
+// Accessor for the fst field
+P/Sigma/fst
+: ∀(A: *)
+  ∀(B: ∀(a: A) *)
+  ∀(pair: (P/Sigma A B))
+  A
+= λA λB λ{
+  #Pair: λpair.fst λpair.snd pair.fst
+}
+
+// Accessor for the snd field
+P/Sigma/snd
+: ∀(A: *)
+  ∀(B: ∀(a: A) *)
+  ∀(pair: (P/Sigma A B))
+  (B (P/Sigma/fst A B pair))
+= λA λB λ{
+  #Pair: λpair.fst λpair.snd pair.snd
+}
+
+// Simple pair type
+P/Pair
+: ∀(A: *)
+  ∀(B: *)
+  *
+= λA λB (P/Sigma A (λx B))

@@ -1,0 +1,16 @@
+use Base/Nat/ as N/
+use Base/List/ as L/
+use Base/Bool/ as B/
+
+// Generates a list of natural numbers from start (inclusive) to end (exclusive).
+// - start: The first number in the range.
+// - end: The number after the last number in the range.
+// = A list of natural numbers from start to (end - 1).
+N/range
+: ∀(start: N/Nat)
+  ∀(end: N/Nat)
+  (L/List N/Nat)
+= λstart λend
+  (B/if _ (N/lt start end)
+    (#Cons{start (N/range (#Succ{pred: start}) end)})
+    #Nil{})

@@ -1,0 +1,28 @@
+use Base/Maybe/ as M/
+use Base/Bool/ as B/
+use Base/Trait/ as T/
+
+// Checks if two Maybe values are equal.
+// - A: The type of the value inside Maybe.
+// - e: The Eq instance for type A.
+// - x: The first Maybe value.
+// - y: The second Maybe value.
+// = True if x and y are equal, False otherwise.
+M/eq
+: ∀(A: *)
+  ∀(e: (T/Eq A))
+  ∀(x: (M/Maybe A))
+  ∀(y: (M/Maybe A))
+  B/Bool
+= λA λe λ{
+  #None: λ{
+    #None: #True{}
+    #Some: λy.value #False{}
+  }
+  #Some: λx.value λ{
+    #None: #False{}
+    #Some: λy.value
+      use x = T/Eq
+      (T/Eq/eq _ e x.value y.value)
+  }
+}
