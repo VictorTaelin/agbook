@@ -1,0 +1,12 @@
+use Base/Nat/ as N/
+use Base/Bool/ as B/
+
+// Checks if two nats are not equal.
+// - m: The 1st nat.
+// - n: The 2nd nat.
+// = True if m and n are not equal, False otherwise.
+N/neq
+: ∀(m: N/Nat)
+  ∀(n: N/Nat)
+  B/Bool
+= λm λn (B/not (N/eq m n))

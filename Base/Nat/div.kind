@@ -1,0 +1,15 @@
+use Base/Nat/ as N/
+use Base/Bool/ as B/
+
+// Integer division of nats.
+// - m: The dividend.
+// - n: The divisor.
+// = The quotient of m divided by n.
+N/div
+: ∀(m: N/Nat)
+  ∀(n: N/Nat)
+  N/Nat
+= λm λ{
+  #Zero: #Zero{}  // Division by zero returns zero.
+  #Succ: λn.pred (N/div/go n.pred m n.pred #Zero{})
+}

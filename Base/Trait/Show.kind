@@ -1,0 +1,29 @@
+use Base/String/ as S/
+
+// Represents the Show trait for a type A
+Base/Trait/Show
+: ∀(A: *)
+  *
+= λA #[]{
+  #Show{
+    to_string: ∀(x: A) S/String
+  } : (Base/Trait/Show A)
+}
+
+// Accessor for the to_string field
+Base/Trait/Show/to_string
+: ∀(A: *)
+  ∀(s: (Base/Trait/Show A))
+  ∀(x: A)
+  S/String
+= λA λ{
+  #Show: λs.to_string λx (s.to_string x)
+}
+
+// Alias for to_string
+Base/Trait/Show/show
+: ∀(A: *)
+  ∀(s: (Base/Trait/Show A))
+  ∀(x: A)
+  S/String
+= Base/Trait/Show/to_string

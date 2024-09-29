@@ -1,0 +1,17 @@
+use Base/Nat/ as N/
+
+// Subtracts one nat from another.
+// - m: The number to subtract from.
+// - n: The number to subtract.
+// = The result of m - n, or zero if n > m.
+N/sub
+: ∀(m: N/Nat)
+  ∀(n: N/Nat)
+  N/Nat
+= λ{
+  #Zero: λn #Zero{}
+  #Succ: λm.pred λ{
+    #Zero: #Succ{m.pred}
+    #Succ: λn.pred (N/sub m.pred n.pred)
+  }
+}

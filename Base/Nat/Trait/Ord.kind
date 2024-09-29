@@ -1,0 +1,7 @@
+use Base/Nat/ as N/
+use Base/Trait/ as T/
+
+// Instance of Ord trait for Nat
+N/Trait/Ord : (T/Ord N/Nat) = 
+  use x = T/Ord
+  (T/Ord/derive _ N/compare)

@@ -1,0 +1,13 @@
+use Base/Nat/ as N/
+use Base/Bool/ as B/
+
+// Checks if a natural number is zero.
+// - n: The natural number to check.
+// = True if n is zero, False otherwise.
+N/is-zero
+: ∀(n: N/Nat)
+  B/Bool
+= λ{
+  #Zero: #True{}
+  #Succ: λn.pred #False{}
+}

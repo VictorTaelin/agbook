@@ -1,0 +1,12 @@
+use Base/Nat/ as N/
+use Base/Bool/ as B/
+
+// Checks if one nat is less than or equal to another.
+// - m: The first nat.
+// - n: The second nat.
+// = True if m is less than or equal to n, False otherwise.
+N/lte
+: ∀(m: N/Nat)
+  ∀(n: N/Nat)
+  B/Bool
+= λm λn (B/or (N/lt m n) (N/eq m n))

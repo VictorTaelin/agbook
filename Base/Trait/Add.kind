@@ -1,0 +1,22 @@
+use Base/Trait/ as T/
+
+// Represents the Add trait for a type A
+T/Add
+: ∀(A: *)
+  *
+= λA #[]{
+  #MkAdd{
+    add: ∀(x: A) ∀(y: A) A
+  } : (T/Add A)
+}
+
+// Accessor for the add field
+T/Add/add
+: ∀(A: *)
+  ∀(add: (T/Add A))
+  ∀(x: A)
+  ∀(y: A)
+  A
+= λA λ{
+  #MkAdd: λadd.add λx λy (add.add x y)
+}

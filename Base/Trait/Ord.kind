@@ -1,0 +1,85 @@
+use Base/Trait/ as T/
+use Base/Ordering/ as O/
+use Base/Bool/ as B/
+
+// Represents the Ord trait for a type A
+T/Ord
+: ∀(A: *)
+  *
+= λA #[]{
+  #Ord{
+    compare: ∀(x: A) ∀(y: A) O/Ordering
+    lt: ∀(x: A) ∀(y: A) B/Bool
+    gt: ∀(x: A) ∀(y: A) B/Bool
+    lte: ∀(x: A) ∀(y: A) B/Bool
+    gte: ∀(x: A) ∀(y: A) B/Bool
+  } : (T/Ord A)
+}
+
+// Accessor for the compare field
+T/Ord/compare
+: ∀(A: *)
+  ∀(o: (T/Ord A))
+  ∀(x: A)
+  ∀(y: A)
+  O/Ordering
+= λA λ{
+  #Ord: λo.compare λo.lt λo.gt λo.lte λo.gte λx λy (o.compare x y)
+}
+
+// Accessor for the lt field
+T/Ord/lt
+: ∀(A: *)
+  ∀(o: (T/Ord A))
+  ∀(x: A)
+  ∀(y: A)
+  B/Bool
+= λA λ{
+  #Ord: λo.compare λo.lt λo.gt λo.lte λo.gte λx λy (o.lt x y)
+}
+
+// Accessor for the gt field
+T/Ord/gt
+: ∀(A: *)
+  ∀(o: (T/Ord A))
+  ∀(x: A)
+  ∀(y: A)
+  B/Bool
+= λA λ{
+  #Ord: λo.compare λo.lt λo.gt λo.lte λo.gte λx λy (o.gt x y)
+}
+
+// Accessor for the lte field
+T/Ord/lte
+: ∀(A: *)
+  ∀(o: (T/Ord A))
+  ∀(x: A)
+  ∀(y: A)
+  B/Bool
+= λA λ{
+  #Ord: λo.compare λo.lt λo.gt λo.lte λo.gte λx λy (o.lte x y)
+}
+
+// Accessor for the gte field
+T/Ord/gte
+: ∀(A: *)
+  ∀(o: (T/Ord A))
+  ∀(x: A)
+  ∀(y: A)
+  B/Bool
+= λA λ{
+  #Ord: λo.compare λo.lt λo.gt λo.lte λo.gte λx λy (o.gte x y)
+}
+
+// Derives an Ord instance from a compare function
+T/Ord/derive
+: ∀(A: *)
+  ∀(compare: ∀(x: A) ∀(y: A) O/Ordering)
+  (T/Ord A)
+= λA λcompare #Ord{
+  compare: compare
+  lt: λx λy (O/eq (compare x y) #LT{})
+  gt: λx λy (O/eq (compare x y) #GT{})
+  lte: λx λy (O/neq (compare x y) #GT{})
+  gte: λx λy (O/neq (compare x y) #LT{})
+}

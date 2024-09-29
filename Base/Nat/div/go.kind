@@ -1,0 +1,35 @@
+use Base/Nat/ as N/
+use Base/Bool/ as B/
+
+// NOTE: in the Kind version, we've moved 'k' to the last argument, for better linearity.
+
+// Helper function 'go' for Euclidean division.
+//
+// go computes n / (1+m) via iteration on n.
+//
+//   n div (suc m) = go m n m 0
+//
+// The state of the iterator has two accumulator variables:
+//
+//   k: The quotient, returned once n=0. Initialized to 0.
+//
+//   j: A counter, initialized to the divisor m, decreased on each iteration step.
+//      Once it reaches 0, the quotient k is increased and j reset to m,
+//      starting the next countdown.
+//
+// Under the precondition j ≤ m, the invariant is
+//
+//   go m n j k = (k + (n + m - j)) / (1 + m)
+N/div/go
+: ∀(m: N/Nat)
+  ∀(n: N/Nat)
+  ∀(j: N/Nat)
+  ∀(k: N/Nat)
+  N/Nat
+= λm λ{
+  #Zero: λj λk k
+  #Succ: λn.pred λ{
+    #Zero: λk (N/div/go m n.pred m (#Succ{k}))
+    #Succ: λj.pred λk (N/div/go m n.pred j.pred k)
+  }
+}

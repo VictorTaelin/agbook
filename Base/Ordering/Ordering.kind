@@ -1,0 +1,11 @@
+use Base/Ordering/ as O/
+
+// Represents the result of comparing two values.
+// - LT: Less than
+// - EQ: Equal to
+// - GT: Greater than
+O/Ordering : * = #[]{
+  #LT{} : O/Ordering
+  #EQ{} : O/Ordering
+  #GT{} : O/Ordering
+}

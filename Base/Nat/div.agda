@@ -2,30 +2,7 @@ module Base.Nat.div where
 
 open import Base.Bool.if
 open import Base.Nat.Nat
-
--- Helper function  div-helper  for Euclidean division.
----------------------------------------------------------------------------
---
--- div-helper computes n / 1+m via iteration on n.
---
---   n div (suc m) = div-helper 0 m n m
---
--- The state of the iterator has two accumulator variables:
---
---   k: The quotient, returned once n=0.  Initialized to 0.
---
---   j: A counter, initialized to the divisor m, decreased on each iteration step.
---      Once it reaches 0, the quotient k is increased and j reset to m,
---      starting the next countdown.
---
--- Under the precondition j ≤ m, the invariant is
---
---   div-helper k m n j = (k + (n + m - j)) / (1 + m)
-div-helper : Nat → Nat → Nat → Nat → Nat
-div-helper k m Zero     j        = k
-div-helper k m (Succ n) Zero     = div-helper (Succ k) m n m
-div-helper k m (Succ n) (Succ j) = div-helper k m n j
-{-# BUILTIN NATDIVSUCAUX div-helper #-}
+open import Base.Nat.div.go
 
 -- Integer division of nats.
 -- - m: The dividend.
@@ -33,7 +10,7 @@ div-helper k m (Succ n) (Succ j) = div-helper k m n j
 -- = The quotient of m divided by n.
 div : Nat → Nat → Nat
 div m Zero     = Zero  -- Division by zero returns zero.
-div m (Succ n) = div-helper Zero n m n
+div m (Succ n) = go Zero n m n
 
 _/_ : Nat → Nat → Nat
 _/_ = div

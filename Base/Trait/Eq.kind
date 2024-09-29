@@ -1,0 +1,45 @@
+use Base/Trait/ as T/
+use Base/Bool/ as B/
+
+// Represents the Eq trait for a type A
+T/Eq
+: ∀(A: *)
+  *
+= λA #[]{
+  #Eq{
+    eq: ∀(x: A) ∀(y: A) B/Bool
+    neq: ∀(x: A) ∀(y: A) B/Bool
+  } : (T/Eq A)
+}
+
+// Accessor for the eq field
+T/Eq/eq
+: ∀(A: *)
+  ∀(e: (T/Eq A))
+  ∀(x: A)
+  ∀(y: A)
+  B/Bool
+= λA λ{
+  #Eq: λe.eq λe.neq λx λy (e.eq x y)
+}
+
+// Accessor for the neq field
+T/Eq/neq
+: ∀(A: *)
+  ∀(e: (T/Eq A))
+  ∀(x: A)
+  ∀(y: A)
+  B/Bool
+= λA λ{
+  #Eq: λe.eq λe.neq λx λy (e.neq x y)
+}
+
+// Derives an Eq instance from an equality function
+T/Eq/derive
+: ∀(A: *)
+  ∀(eq: ∀(x: A) ∀(y: A) B/Bool)
+  (T/Eq A)
+= λA λeq #Eq{
+  eq: eq
+  neq: λx λy (B/not (eq x y))
+}

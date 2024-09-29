@@ -1,0 +1,13 @@
+use Base/Nat/ as N/
+use Base/Bool/ as B/
+
+// Returns the minimum of two natural numbers.
+// - m: The first natural number.
+// - n: The second natural number.
+// = The smaller of m and n.
+N/min
+: ∀(m: N/Nat)
+  ∀(n: N/Nat)
+  N/Nat
+= λm λn
+  (B/if _ (N/lte m n) m n)

@@ -1,0 +1,21 @@
+use Base/Nat/ as N/
+use Base/Ordering/ as O/
+
+// Compares two natural numbers.
+// - m: The first natural number.
+// - n: The second natural number.
+// = LT if m < n, EQ if m = n, GT if m > n.
+N/compare
+: ∀(m: N/Nat)
+  ∀(n: N/Nat)
+  O/Ordering
+= λ{
+  #Zero: λ{
+    #Zero: #EQ{}
+    #Succ: λn.pred #LT{}
+  }
+  #Succ: λm.pred λ{
+    #Zero: #GT{}
+    #Succ: λn.pred (N/compare m.pred n.pred)
+  }
+}

@@ -1,0 +1,28 @@
+use Base/Ordering/ as O/
+use Base/Bool/ as B/
+
+// Checks if two Ordering values are equal.
+// - a: The first Ordering value.
+// - b: The second Ordering value.
+// = True if a and b are equal, False otherwise.
+O/eq
+: ∀(a: O/Ordering)
+  ∀(b: O/Ordering)
+  B/Bool
+= λ{
+  #LT: λ{
+    #LT: #True{}
+    #EQ: #False{}
+    #GT: #False{}
+  }
+  #EQ: λ{
+    #LT: #False{}
+    #EQ: #True{}
+    #GT: #False{}
+  }
+  #GT: λ{
+    #LT: #False{}
+    #EQ: #False{}
+    #GT: #True{}
+  }
+}
