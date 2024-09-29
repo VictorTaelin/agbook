@@ -9,11 +9,12 @@ open import Base.Nat.exp
 -- - n: The input natural number.
 -- - shift: The number of positions to shift right.
 -- = A new natural number representing the right-shifted result.
-rshift : Nat -> Nat -> Nat
+-- FIXME: use COMPILE pragmas for rshift.
+rshift : Nat → Nat → Nat
 rshift n shift = div n (2 ** shift)
 
 -- Infix operator for right shift
-_>>_ : Nat -> Nat -> Nat
+_>>_ : Nat → Nat → Nat
 _>>_ = rshift
 
-infixl 8 _>>_
+infixl 5 _>>_

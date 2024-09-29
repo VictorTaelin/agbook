@@ -1,14 +1,15 @@
 module Base.Nat.neq where
 
-open import Base.Nat.Nat
 open import Base.Bool.Bool
+open import Base.Bool.not
+open import Base.Nat.Nat
+open import Base.Nat.eq
 
-neq : Nat -> Nat -> Bool
-neq Zero     (Succ _) = True
-neq (Succ _) Zero     = True
-neq Zero     Zero     = False
-neq (Succ m) (Succ n) = neq m n
+-- FIXME: maybe use COMPILE pragmas for neq.
+neq : Nat → Nat → Bool
+neq m n = ! (m == n)
+
+_!=_ : Nat → Nat → Bool
+_!=_ = neq
 
 infix 4 _!=_
-_!=_ : Nat -> Nat -> Bool
-_!=_ = neq

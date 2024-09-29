@@ -6,12 +6,13 @@ open import Base.Nat.Nat
 -- - m: The number to subtract from.
 -- - n: The number to subtract.
 -- = The result of m - n, or zero if n > m.
-sub : Nat -> Nat -> Nat
+sub : Nat → Nat → Nat
 sub m        Zero     = m
-sub Zero     _        = Zero
+sub Zero     (Succ n) = Zero
 sub (Succ m) (Succ n) = sub m n
+{-# BUILTIN NATMINUS sub #-}
 
-_-_ : Nat -> Nat -> Nat
+_-_ : Nat → Nat → Nat
 _-_ = sub
 
-{-# BUILTIN NATMINUS sub #-}
+infixl 6 _-_

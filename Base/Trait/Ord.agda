@@ -7,34 +7,26 @@ open import Base.Ordering.eq
 open import Base.Ordering.neq
 
 record Ord {a} (A : Set a) : Set (lsuc a) where
+  constructor MkOrd
   field
-    compare : A -> A -> Ordering
-    lt : A -> A -> Bool
-    gt : A -> A -> Bool
-    lte : A -> A -> Bool
-    gte : A -> A -> Bool
+    compare : A → A → Ordering
+    lt      : A → A → Bool
+    gt      : A → A → Bool
+    lte     : A → A → Bool
+    gte     : A → A → Bool
+
+  _<_  = lt
+  _>_  = gt
+  _<=_ = lte
+  _>=_ = gte
+
+  infix 4 _<_ _>_ _<=_ _>=_
 
 open Ord {{...}} public
 
-infix 4 _<_ _>_ _<=_ _>=_
-
-_<_ : ∀ {a} {A : Set a} {{ordA : Ord A}} -> A -> A -> Bool
-_<_ {{ordA}} = lt {{ordA}}
-
-_>_ : ∀ {a} {A : Set a} {{ordA : Ord A}} -> A -> A -> Bool
-_>_ {{ordA}} = gt {{ordA}}
-
-_<=_ : ∀ {a} {A : Set a} {{ordA : Ord A}} -> A -> A -> Bool
-_<=_ {{ordA}} = lte {{ordA}}
-
-_>=_ : ∀ {a} {A : Set a} {{ordA : Ord A}} -> A -> A -> Bool
-_>=_ {{ordA}} = gte {{ordA}}
-
-make-ord : ∀ {a} {A : Set a} -> (A -> A -> Ordering) -> Ord A
-make-ord compare-impl = record
-  { compare = compare-impl
-  ; lt = λ x y -> compare-impl x y == LT
-  ; gt = λ x y -> compare-impl x y == GT
-  ; lte = λ x y -> compare-impl x y != GT
-  ; gte = λ x y -> compare-impl x y != LT
-  }
+derive-ord : ∀ {a} {A : Set a} → (A → A → Ordering) → Ord A
+derive-ord compare = MkOrd compare
+  (λ x y → compare x y == LT)
+  (λ x y → compare x y == GT)
+  (λ x y → compare x y != GT)
+  (λ x y → compare x y != LT)

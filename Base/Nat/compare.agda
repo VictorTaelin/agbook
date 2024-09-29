@@ -1,13 +1,13 @@
 module Base.Nat.compare where
 
-open import Base.Ordering.Ordering
 open import Base.Nat.Nat
+open import Base.Ordering.Ordering
 
 -- Compares two natural numbers.
 -- - m: The first natural number.
 -- - n: The second natural number.
 -- = LT if m < n, EQ if m = n, GT if m > n.
-compare : Nat -> Nat -> Ordering
+compare : Nat → Nat → Ordering
 compare Zero     Zero     = EQ
 compare Zero     (Succ _) = LT
 compare (Succ _) Zero     = GT
