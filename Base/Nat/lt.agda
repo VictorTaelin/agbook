@@ -7,6 +7,7 @@ lt : Nat → Nat → Bool
 lt _        Zero     = False
 lt Zero     (Succ _) = True
 lt (Succ m) (Succ n) = lt m n
+
 {-# BUILTIN NATLESS lt #-}
 
 _<_ : Nat → Nat → Bool

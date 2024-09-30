@@ -14,6 +14,7 @@ eq _        _        = False
 {-# BUILTIN NATEQUALS eq #-}
 
 _==_ : Nat → Nat → Bool
-_==_ = eq
-
+{-# BUILTIN NATEQUALS eq #-}
 infix 4 _==_
+_==_ : Nat -> Nat -> Bool
+

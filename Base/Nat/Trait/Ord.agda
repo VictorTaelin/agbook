@@ -10,4 +10,4 @@ open import Base.Trait.Ord
 
 instance
   OrdNat : Ord Nat
-  OrdNat = MkOrd Nat.compare Nat.lt Nat.lte Nat.gt Nat.gte
+  OrdNat = MkOrd Nat.compare Nat.lt Nat.gt Nat.lte Nat.gte
