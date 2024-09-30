@@ -11,7 +11,7 @@ open import HVM2.Run.Run
 open import HVM2.Term.Term
 
 -- Retrieves a substitution from the subst map without removing it
-subst-take : String -> Run (Maybe Term)
-subst-take key = λ state -> do
+subst-take : String → Run (Maybe Term)
+subst-take key = λ state → do
   let maybe-term = OrdMap.get key (State.subs state)
   state , maybe-term

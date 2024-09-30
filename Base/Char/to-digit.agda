@@ -13,7 +13,7 @@ open import Base.Nat.eq
 open import Base.Bool.and
 
 -- Converts a single character to its numeric value in the given base
-to-digit : Nat -> Char -> Maybe Nat
+to-digit : Nat → Char → Maybe Nat
 to-digit base c = 
   if is-digit c then
     digit-to-nat c

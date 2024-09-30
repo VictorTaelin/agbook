@@ -12,7 +12,7 @@ open import UG.SM.Tick.Tick
 -- - logs: The ActionLogs to retrieve actions from.
 -- - t: The tick for which to retrieve actions.
 -- = The list of actions for the specified tick, or an empty list if none exist.
-get-actions : ∀ {A : Set} -> ActionLogs A -> Tick -> List A
+get-actions : ∀ {A : Set} → ActionLogs A → Tick → List A
 get-actions logs t with get logs (to-bits t)
 ... | None         = []
 ... | Some actions = actions

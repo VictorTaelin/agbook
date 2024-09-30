@@ -24,7 +24,7 @@ open import UG.Chat.Message.Message
 --   3. Return a pair containing:
 --      - The updated Client record.
 --      - The PING message as a ByteString, ready to be sent to the server.
-sync-time : Client -> IO (Pair Client ByteString)
+sync-time : Client → IO (Pair Client ByteString)
 sync-time client = do
   let message-type = Word8.from-nat (Message.to-nat PING)
   let empty = pack-string ""

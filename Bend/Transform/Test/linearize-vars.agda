@@ -27,14 +27,14 @@ open import Bend.Fun.Term.show
 open import Bend.Fun.Book.Book
 open import Bend.Fun.dsl
 
-parse : String -> Result (Reply Term) Error
+parse : String → Result (Reply Term) Error
 parse input = parse-term (new-parser-state input)
 
-test-linearize-vars : String -> Term
+test-linearize-vars : String → Term
 test-linearize-vars input =
   case parse input of λ where
-    (Done (MkReply _ parsed-term)) -> snd (linearize-vars-term empty parsed-term)
-    _ -> Era
+    (Done (MkReply _ parsed-term)) → snd (linearize-vars-term empty parsed-term)
+    _ → Era
 
 -- Simple variable reference (no change expected)
 _ : (test-linearize-vars "x") ≡ v' "x"

@@ -33,8 +33,8 @@ parse-unicode-escape = do
   digits <- take-while is-hex-digit
   consume "}"
   case to-nat-base 16 digits of λ where
-    (Some n) -> pure (from-nat n)
-    None     -> fail "Invalid hexadecimal number in Unicode escape"
+    (Some n) → pure (from-nat n)
+    None     → fail "Invalid hexadecimal number in Unicode escape"
 
 -- Parses an escape sequence.
 -- - 1st: Advances the parser by one character.
@@ -44,17 +44,17 @@ parse-escape-sequence : Parser Char
 parse-escape-sequence = do
   mc <- advance-one
   case mc of λ where
-    (Some c) -> 
+    (Some c) → 
       case c of λ where
-        'n'  -> pure '\n'
-        'r'  -> pure '\r'
-        't'  -> pure '\t'
-        '\\' -> pure '\\'
-        '\'' -> pure '\''
-        '"'  -> pure '"'
-        'u'  -> parse-unicode-escape
-        _    -> fail ("Invalid escape character: " ++ from-char c)
-    None -> fail "Unexpected end of input in escape sequence"
+        'n'  → pure '\n'
+        'r'  → pure '\r'
+        't'  → pure '\t'
+        '\\' → pure '\\'
+        '\'' → pure '\''
+        '"'  → pure '"'
+        'u'  → parse-unicode-escape
+        _    → fail ("Invalid escape character: " ++ from-char c)
+    None → fail "Unexpected end of input in escape sequence"
 
 -- Parses a single character, including escape sequences.
 -- - 1st: Advances the parser by one character.
@@ -64,5 +64,5 @@ parse-char : Parser Char
 parse-char = do
   mc <- advance-one
   case mc of λ where
-    (Some c) -> if (_==_ c '\\') then parse-escape-sequence else pure c
-    None     -> fail "Unexpected end of input"
+    (Some c) → if (_==_ c '\\') then parse-escape-sequence else pure c
+    None     → fail "Unexpected end of input"

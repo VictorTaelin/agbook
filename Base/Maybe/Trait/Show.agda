@@ -5,5 +5,5 @@ import Base.Maybe.show as Maybe
 import Base.Trait.Show as Show
 
 instance
-  ShowMaybe : ∀ {A : Set} -> {{ShowA : Show.Show A}} -> Show.Show (Maybe A)
+  ShowMaybe : ∀ {A : Set} → {{ShowA : Show.Show A}} → Show.Show (Maybe A)
   ShowMaybe {{ShowA}} = record { to-string = Maybe.show {{ShowA}} }

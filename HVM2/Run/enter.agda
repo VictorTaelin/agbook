@@ -10,10 +10,10 @@ open import HVM2.Term.Term
 
 -- Recursively enters variables until reaching a
 -- non-var term or a variable with no substitution
-enter : Term -> Run Term
+enter : Term → Run Term
 enter (Var x) = do
   subst <- subst-take x
   case subst of λ where
-    None        -> pure (Var x)
-    (Some term) -> enter term
+    None        → pure (Var x)
+    (Some term) → enter term
 enter term = pure term

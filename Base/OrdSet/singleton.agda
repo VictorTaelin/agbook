@@ -11,5 +11,5 @@ open import Base.Unit.Unit
 -- - Ord V: An instance of the Ord typeclass for the element type.
 -- - value: The element to be added to the set.
 -- = A new OrdSet containing only the given element.
-singleton : ∀ {V : Set} -> {{_ : Ord V}} -> V -> OrdSet V
+singleton : ∀ {V : Set} → {{_ : Ord V}} → V → OrdSet V
 singleton value = AVL.singleton (value , unit)

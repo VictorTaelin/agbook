@@ -11,11 +11,11 @@ open import Base.V2.V2
 -- - 1st: The first V2 vector.
 -- - 2nd: The second V2 vector.
 -- = True if the vectors are not equal, False otherwise.
-neq : V2 -> V2 -> Bool
+neq : V2 → V2 → Bool
 neq (MkV2 x1 y1) (MkV2 x2 y2) = not ((x1 F64.== x2) && (y1 F64.== y2))
 
 -- Infix operator for vector inequality.
-_!=_ : V2 -> V2 -> Bool
+_!=_ : V2 → V2 → Bool
 _!=_ = neq
 
 infix 4 _!=_

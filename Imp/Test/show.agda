@@ -11,10 +11,10 @@ open import Base.Equal.Equal
 
 private
   open module Expr = Expr' Stmt
-  from-nat : Nat -> Expr
+  from-nat : Nat → Expr
   from-nat n = Num (primWord64FromNat n)
 
-fib : Expr -> Stmt
+fib : Expr → Stmt
 fib n = do
   local ("a" :: "b" :: [])
 

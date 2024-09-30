@@ -12,7 +12,7 @@ open import HVM1.Run.Monad.bind
 open import HVM1.Run.Monad.pure
 open import HVM1.Run.state-get
 
-node-get : Bits -> Run (Maybe Node)
+node-get : Bits → Run (Maybe Node)
 node-get addr = do
   state <- state-get
   pure (M.get (Net.net (State.net state)) addr)

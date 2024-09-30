@@ -27,7 +27,7 @@ open import Base.Function.case
 -- - hard-sep: If the separator is mandatory or optional
 -- - min-els: Minimum number of elements required.
 -- Returns a list of parsed elements.
-list-like : ∀ {A : Set} -> Parser A -> String -> String -> String -> Bool -> Nat -> Parser (List A)
+list-like : ∀ {A : Set} → Parser A → String → String → String → Bool → Nat → Parser (List A)
 list-like p start end sep hard-sep min-els = do
   consume start
   skip-trivia
@@ -40,7 +40,7 @@ list-like p start end sep hard-sep min-els = do
   where
 
   -- Parse elements with optional separators
-  parse-soft : {A : Set} -> Parser A -> String -> String -> List A -> Nat -> Parser (List A)
+  parse-soft : {A : Set} → Parser A → String → String → List A → Nat → Parser (List A)
   parse-soft p end sep acc 0 = do
     (consume end >> pure acc) <|> (do
       skip-trivia
@@ -54,7 +54,7 @@ list-like p start end sep hard-sep min-els = do
     parse-soft p end sep (element :: acc) n
 
   -- Parse elements with mandatory separators
-  parse-hard : {A : Set} -> Parser A -> String -> String -> List A -> Nat -> Parser (List A)
+  parse-hard : {A : Set} → Parser A → String → String → List A → Nat → Parser (List A)
   parse-hard p end sep acc (Succ (Succ n)) = do
     skip-trivia
     element <- p

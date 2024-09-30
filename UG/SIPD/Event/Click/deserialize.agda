@@ -11,7 +11,7 @@ open import UG.SIPD.Event.Click.Click
 -- - w: The Word8 to deserialize.
 -- = Some Click if the input is valid (0 for LeftButton, 1 for RightButton),
 --   or None if the input is invalid.
-deserialize : Word8 -> Maybe Click
+deserialize : Word8 → Maybe Click
 deserialize w with (to-nat w)
 ... | 0 = Some LeftButton
 ... | 1 = Some RightButton

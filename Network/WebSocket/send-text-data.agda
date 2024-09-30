@@ -9,8 +9,8 @@ open import Network.WebSocket.WSConnection
 -- - conn: The WebSocket connection to send data through.
 -- - msg: The text message to be sent.
 -- = An asynchronous operation that sends the text data and returns nothing.
-postulate send-text-data : WSConnection -> String -> IO Unit
+postulate send-text-data : WSConnection → String → IO Unit
 
 {-# FOREIGN GHC import qualified Network.WebSockets as WS #-}
 
-{-# COMPILE GHC send-text-data = \conn msg -> WS.sendTextData conn msg #-}
+{-# COMPILE GHC send-text-data = \conn msg → WS.sendTextData conn msg #-}

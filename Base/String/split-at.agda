@@ -12,7 +12,7 @@ open import Base.String.to-list
 -- - 2nd: The input string.
 -- = A pair of strings, where the first string contains the characters before the index,
 --   and the second string contains the characters from the index onwards.
-split-at : Nat -> String -> Pair String String
+split-at : Nat → String → Pair String String
 split-at n s = do
   let chars       = to-list s
   let (fst , snd) = split-at' n chars

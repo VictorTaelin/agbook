@@ -15,7 +15,7 @@ utf8-replacement-character = C.from-nat 0xfffd
 -- function to process the list of 8-bit chunks.
 -- bits: List of 8-bit chunks to process.
 -- = List of decoded characters.
-decode-utf8-go : List Bits -> List Char
+decode-utf8-go : List Bits → List Char
 decode-utf8-go bits with bits
 -- End of string
 ... | [] = []

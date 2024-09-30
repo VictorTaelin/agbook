@@ -36,18 +36,18 @@ import Bend.Fun.FnDef.FnDef as FnDef'
 private
   open module FnDef = FnDef' Term
 
-parse : String -> Result (Reply Term) Error
+parse : String → Result (Reply Term) Error
 parse input = parse-term (new-parser-state input)
 
-test-resolve-refs : String -> Term
+test-resolve-refs : String → Term
 test-resolve-refs input =
   case parse input of λ where
-    (Done (MkReply _ parsed-term)) -> do
+    (Done (MkReply _ parsed-term)) → do
       let book = Book.new
       let book = add-fn-def book (MkFnDef "A" Any True [] (Source.from-file-span 0 0))
       let book = add-fn-def book (MkFnDef "B" Any True [] (Source.from-file-span 0 0))
       resolve-refs-term book Map.new parsed-term
-    _ -> Era
+    _ → Era
 
 -- Simple variable reference
 _ : (test-resolve-refs "x") ≡ v' "x"

@@ -13,7 +13,7 @@ open import Base.Bool.if
 -- = EQ if the strings are equal, 
 --   LT if the first string is less than the second,
 --   GT if the first string is greater than the second.
-compare : String -> String -> Ordering
+compare : String → String → Ordering
 compare s1 s2 with String.eq s1 s2 
 ... | True = EQ
 ... | _ with String.lt s1 s2 

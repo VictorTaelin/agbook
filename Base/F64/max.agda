@@ -8,5 +8,5 @@ open import Base.F64.lt
 -- - x: The 1st float.
 -- - y: The 2nd float.
 -- = The larger of x and y.
-max : F64 -> F64 -> F64
+max : F64 → F64 → F64
 max x y = if lt x y then y else x

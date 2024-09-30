@@ -9,5 +9,5 @@ open import Base.V2.sqr-dist
 -- - 1st: The first V2 vector.
 -- - 2nd: The second V2 vector.
 -- = The distance between the two vectors.
-dist : V2 -> V2 -> F64
+dist : V2 → V2 → F64
 dist v1 v2 = sqrt (sqr-dist v1 v2)

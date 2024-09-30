@@ -11,11 +11,11 @@ open import HVM1.Run.Monad.pure
 open import HVM1.Run.node-get
 open import HVM1.Run.node-set
 
-node-mut : Bits -> (Node -> Node) -> Run (Maybe Unit)
+node-mut : Bits → (Node → Node) → Run (Maybe Unit)
 node-mut addr f = do
   m-node <- node-get addr
   case m-node of λ where
-    (Some node) -> do
+    (Some node) → do
       node-set addr (f node)
       pure (Some unit)
-    None -> pure None
+    None → pure None

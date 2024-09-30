@@ -26,10 +26,10 @@ import Bend.Fun.FnDef.FnDef as FnDef'
 private
   open module FnDef = FnDef' Term
 
-parse : String -> Result (Reply FnDef) Error
+parse : String → Result (Reply FnDef) Error
 parse input = parse-fn-def (MkState input 0)
 
-ok : String -> Nat -> FnDef -> Result (Reply FnDef) Error
+ok : String → Nat → FnDef → Result (Reply FnDef) Error
 ok input index expected = Done (MkReply (MkState input index) expected)
 
 -- Simple function definition
@@ -40,7 +40,7 @@ _ = refl
 
 -- Function with explicit type signature
 _ : parse "f (x: u24) : u24 = (+ x 1)" ≡
-    ok "" 26 (def "f" :' (t'u24 ->' t'u24) checked True :=
+    ok "" 26 (def "f" :' (t'u24 →' t'u24) checked True :=
                 ((rule (p'"x" :: []) := (+ (v'"x") (#u 1))) :: []))
 _ = refl
 

@@ -21,7 +21,7 @@ open import UG.Chat.Client.sync-time
 -- - client: The current client state
 -- - data: The received ByteString data
 -- = An IO action that returns the updated client state
-handle-pong : Client -> ByteString -> IO Client
+handle-pong : Client → ByteString → IO Client
 handle-pong client msg = do
   receive-time <- now
   let server-time = read-u48 msg 1

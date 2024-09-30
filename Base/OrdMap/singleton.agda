@@ -11,5 +11,5 @@ open import Base.Trait.Ord
 -- - Ord K: An instance of the Ord typeclass for the key type.
 -- - key-value: The key-value pair for the single entry.
 -- = A new OrdMap containing only the given key-value pair.
-singleton : ∀ {K V : Set} -> {{_ : Ord K}} -> Pair K V -> OrdMap K V
+singleton : ∀ {K V : Set} → {{_ : Ord K}} → Pair K V → OrdMap K V
 singleton = AVL.singleton

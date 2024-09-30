@@ -24,7 +24,7 @@ open import Bend.Parser.parse-keyword
 parse-type-term : Parser Type
 parse-type-term = do
   left <- parse-type-atom
-  is-arr <- try-consume "->"
+  is-arr <- try-consume "→"
   if is-arr then (do
       right <- parse-type-term
       pure (Arr left right))
@@ -82,20 +82,20 @@ parse-type-term = do
     skip-trivia
     one <- peek-one
     case one of λ where
-      (Some ')') -> do
+      (Some ')') → do
         consume ")"
         pure head
-      (Some ',') -> parse-tuple head
-      _ -> parse-constructor head
+      (Some ',') → parse-tuple head
+      _ → parse-constructor head
 
-  parse-tuple : Type -> Parser Type
+  parse-tuple : Type → Parser Type
   parse-tuple head = do
     consume ","
     tail <- sep-by parse-type-term "," 1
     consume ")"
     pure (Tup (head :: tail))
 
-  parse-constructor : Type -> Parser Type
+  parse-constructor : Type → Parser Type
   parse-constructor (Var nam) = do
     args <- list-like parse-type-term "" ")" "" False 1
     pure (Ctr nam args)

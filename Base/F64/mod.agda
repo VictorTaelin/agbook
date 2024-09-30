@@ -9,10 +9,10 @@ open import Base.F64.F64
 -- - x: The dividend.
 -- - y: The divisor.
 -- = The remainder of x/y.
-mod : F64 -> F64 -> F64
+mod : F64 → F64 → F64
 mod x y = sub x (mul (div x y) y)
 
 -- Infix version of mod
 infix 7 _%_
-_%_ : F64 -> F64 -> F64
+_%_ : F64 → F64 → F64
 _%_ = mod

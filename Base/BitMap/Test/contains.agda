@@ -9,7 +9,7 @@ open import Base.Bool.Bool
 open import Base.Equal.Equal
 open import Base.Nat.Nat
 
-test-case : ∀ {A : Set} -> BitMap A -> Bits -> Bool -> Set
+test-case : ∀ {A : Set} → BitMap A → Bits → Bool → Set
 test-case m k expected = contains m k ≡ expected
 
 test-empty : contains empty E ≡ False

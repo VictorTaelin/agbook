@@ -28,16 +28,16 @@ open import Bend.Fun.Term.show
 open import Bend.Fun.Book.Book
 open import Bend.Fun.Book.new
 
-parse : String -> Result (Reply Term) Error
+parse : String → Result (Reply Term) Error
 parse input = parse-term (new-parser-state input)
 
-test-unique-names : String -> String
+test-unique-names : String → String
 test-unique-names input =
   case parse input of λ where
-    (Done (MkReply _ parsed-term)) -> do
+    (Done (MkReply _ parsed-term)) → do
       let (result , _) = unique-names-term 0 empty parsed-term
       show result
-    _ -> ""
+    _ → ""
 
 -- Simple variable reference (no change expected)
 _ : (test-unique-names "x") ≡ "x"

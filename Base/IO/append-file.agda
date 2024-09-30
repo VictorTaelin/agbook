@@ -8,7 +8,7 @@ open import Base.Unit.Unit
 -- 1st: The path of the file to append to.
 -- 2nd: The content to append.
 -- = An IO action that appends the content to the file.
-postulate append-file  : String -> String -> IO Unit
+postulate append-file  : String → String → IO Unit
 
 {-# FOREIGN GHC import qualified Data.Text    as T   #-}
 {-# FOREIGN GHC import qualified Data.Text.IO as TIO #-}

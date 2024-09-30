@@ -34,15 +34,15 @@ private
   -- - scope: The current scope
   -- - names: The list of names to add
   -- = A new scope with the added names
-  add-bnd : BitMap String -> List String -> BitMap String
-  add-bnd scope names = foldr (λ name acc -> set acc (hash name) name) scope names
+  add-bnd : BitMap String → List String → BitMap String
+  add-bnd scope names = foldr (λ name acc → set acc (hash name) name) scope names
 
 -- Resolves references in a Term
 -- - book: The Book containing all definitions
 -- - scope: The current scope
 -- - term: The Term to resolve references in
 -- = A new Term with resolved references
-resolve-refs-term : Book -> BitMap String -> Term -> Term
+resolve-refs-term : Book → BitMap String → Term → Term
 resolve-refs-term book scope (Var nam) = do
   if (not (contains scope (hash nam))) && (contains-def book nam)
     then Ref nam
@@ -54,14 +54,14 @@ resolve-refs-term book scope term = do
 -- Resolves references in an entire Book
 -- - book: The Book to resolve references in
 -- = A new Book with resolved references
-resolve-refs : Book -> Book
+resolve-refs : Book → Book
 resolve-refs book =
   let map-defs val lft rgt = (Node (case val of λ where
-      (Some def) -> Some (record def {
+      (Some def) → Some (record def {
         rules = (map
-          (λ rule -> record rule { body = resolve-refs-term book BitMap.new (Rule.body rule) })
+          (λ rule → record rule { body = resolve-refs-term book BitMap.new (Rule.body rule) })
           (FnDef.rules def)) })
-      None -> None) lft rgt) in
+      None → None) lft rgt) in
 
   record book {
     defs = BinTree.fold map-defs Leaf (Book.defs book)

@@ -9,7 +9,7 @@ open import Base.Bool.Bool
 open import Base.Bool.and
 open import Base.Equal.Equal
 
-equal : F64 -> F64 -> Bool
+equal : F64 → F64 → Bool
 equal x y = primFloatLess (primFloatMinus x y) 0.000001 
          && primFloatLess (primFloatMinus y x) 0.000001
 

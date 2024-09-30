@@ -19,13 +19,13 @@ open import Bend.Net.Port.Port
 -- - name: The name of the variable
 -- - up: The port to link the variable to
 -- = An updated Encoder or None on error
-link-var : Encoder -> String -> Port -> Maybe Encoder
+link-var : Encoder → String → Port → Maybe Encoder
 link-var (MkEncoder net vars) name up =
   let (vars , port) = map-take vars (hash name) in
   case port of λ where
-    (Some port) -> do
+    (Some port) → do
       net <- net-link net port up
       Some (MkEncoder net vars)
-    None -> do
+    None → do
       let vars = map-set vars (hash name) up
       Some (MkEncoder net vars)

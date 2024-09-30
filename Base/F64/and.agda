@@ -10,10 +10,10 @@ open import Base.F64.eq
 -- - x: The 1st float.
 -- - y: The 2nd float.
 -- = true if both x and y are true.
-and : F64 -> F64 -> Bool
+and : F64 → F64 → Bool
 and x y = Bool.and (not (eq 0.0 x)) (not (eq 0.0 y))
 
 -- The infix version of and.
 infixl 6 _&&_
-_&&_ : F64 -> F64 -> Bool
+_&&_ : F64 → F64 → Bool
 _&&_ = and

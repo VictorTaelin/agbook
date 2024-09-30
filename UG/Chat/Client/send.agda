@@ -19,7 +19,7 @@ open import UG.Chat.Message.Message
 -- - room: The room ID to send the message to.
 -- - msg: The message content as a ByteString.
 -- = Returns a ByteString containing the POST message type, room ID, and message content.
-send : Nat -> ByteString -> ByteString
+send : Nat → ByteString → ByteString
 send room msg = do
   let message-type = Word8.from-nat (Message.to-nat POST)
   let buffer = cons message-type (pack-string "")

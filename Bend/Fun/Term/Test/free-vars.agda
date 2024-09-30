@@ -13,12 +13,12 @@ open import Bend.Fun.Term.Term renaming (List to List')
 open import Bend.Fun.Term.free-vars
 open import Bend.Parser.Fun.parse-term
 
-parse : String -> Term
+parse : String → Term
 parse input = case (parse-term (new-parser-state input)) of λ where
-  (Done (MkReply _ term)) -> term
-  (Fail err) -> Era
+  (Done (MkReply _ term)) → term
+  (Fail err) → Era
 
-test : String -> List String
+test : String → List String
 test x = free-vars (parse x)
 
 -- Simple variable reference

@@ -7,5 +7,5 @@ open import Base.BinTree.BinTree
 -- Provides an instance of the Show trait for BinTree.
 -- This allows BinTree to be converted to a string representation.
 instance
-  ShowTree : ∀ {A : Set} {{ShowA : Show.Show A}} -> Show.Show (BinTree A)
+  ShowTree : ∀ {A : Set} {{ShowA : Show.Show A}} → Show.Show (BinTree A)
   ShowTree {{ShowA}} = record { to-string = BinTree.show }

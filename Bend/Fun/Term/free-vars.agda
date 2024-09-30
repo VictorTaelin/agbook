@@ -25,13 +25,13 @@ open import Bend.Fun.Term.children-with-binds
 free-vars : Term → List String
 free-vars term = dedup (go term empty)
   where
-    go : Term -> BitMap Unit → List String
+    go : Term → BitMap Unit → List String
     go (Var nam) scope with (contains scope (hash nam))
     ... | True = []
     ... | False = nam :: []
     go term scope = do
       let cs = children-with-binds term
       let add-scope bnd scope = do
-        let bnd = map (λ b -> (hash b) , unit) bnd
+        let bnd = map (λ b → (hash b) , unit) bnd
         union (from-list bnd) scope
-      concat (map (λ (bnd , child) -> go child (add-scope bnd scope)) cs)
+      concat (map (λ (bnd , child) → go child (add-scope bnd scope)) cs)

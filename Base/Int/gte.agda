@@ -9,7 +9,7 @@ open import Base.Bool.Bool
 -- - x: The 1st integer.
 -- - y: The 2nd integer.
 -- = True if x is greater than or equal to y, False otherwise.
-gte : Int -> Int -> Bool
+gte : Int → Int → Bool
 gte a b with compare a b
 ... | LT = False
 ... | EQ = True

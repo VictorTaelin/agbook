@@ -21,8 +21,8 @@ parse-chars : Parser (List Char)
 parse-chars = do
   c <- parse-char
   case c of λ where
-    '"' -> pure []
-    _   -> do
+    '"' → pure []
+    _   → do
       cs <- parse-chars
       pure (c :: cs)
 

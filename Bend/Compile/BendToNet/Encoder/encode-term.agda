@@ -27,7 +27,7 @@ open import Bend.Compile.BendToNet.Encoder.encode-num
 -- - term: The Term to be encoded
 -- - up: The upstream Port to connect the encoded term to
 -- = The Encoder with the nodes from the compiled term or None on error
-encode-term : Encoder -> Term -> Port -> Result Encoder String
+encode-term : Encoder → Term → Port → Result Encoder String
 
 encode-term enc (Term.Var name) up = do
   enc <- to-result (link-var enc name up) "link var fail"
@@ -64,7 +64,7 @@ encode-term enc (Term.App fun arg) up = do
 encode-term enc (Term.Fan kind args) up = do
   go enc (from-fan-kind kind) args up
   where
-    go : Encoder -> NodeKind -> List Term -> Port -> Result Encoder String
+    go : Encoder → NodeKind → List Term → Port → Result Encoder String
     go enc kind [] up = Fail "fan empty"
     go enc kind (x :: []) up = encode-term enc x up
     go enc kind (x :: xs) up = do

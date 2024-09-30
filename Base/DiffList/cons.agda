@@ -7,5 +7,5 @@ open import Base.List.List
 -- - x: The element to add.
 -- - xs: The DiffList to add the element to.
 -- = A new DiffList with x added to the front.
-cons : ∀ {A : Set} -> A -> DiffList A -> DiffList A
-cons x xs = λ tail -> x :: (xs tail)
+cons : ∀ {A : Set} → A → DiffList A → DiffList A
+cons x xs = λ tail → x :: (xs tail)

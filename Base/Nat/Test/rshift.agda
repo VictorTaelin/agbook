@@ -24,7 +24,7 @@ test-cases : List TestCase
 test-cases = (120 , 2) :: (65550 , 3) :: (16 , 1) :: (7 , 1) :: (0 , 4) :: (32 , 1) :: (2 ** 32 , 8) :: []
 
 -- Perform the test for a single case
-test-rshift : TestCase -> Bool
+test-rshift : TestCase → Bool
 test-rshift (n , shift) =
   let nat-result = n N.>> shift
       bits-result = to-nat ((to-bits n) B.>> shift)

@@ -11,7 +11,7 @@ open import UG.Shape.Shape
 -- - center: The center point of the square (V2).
 -- - side-length: The length of each side of the square (F64).
 -- = A Shape representing the square.
-square : V2 -> F64 -> Shape
+square : V2 → F64 → Shape
 square center side-length = do
   let half-side = side-length F64./ 2.0
   let top-left     = MkV2 (0.0 F64.- half-side) half-side

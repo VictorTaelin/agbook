@@ -7,7 +7,7 @@ open import Base.Unit.Unit
 -- Deletes a file at the given path.
 -- 1st: The path of the file to delete.
 -- = An IO action that deletes the file.
-postulate delete-file : String -> IO Unit
+postulate delete-file : String → IO Unit
 
 {-# FOREIGN GHC import qualified System.Directory #-}
 {-# FOREIGN GHC import qualified Data.Text as T #-}

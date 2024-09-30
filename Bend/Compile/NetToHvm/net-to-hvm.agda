@@ -21,7 +21,7 @@ open import Bend.Compile.NetToHvm.State.new renaming (new to state-new)
 -- Converts a Bend Net to an HVM Net.
 -- - net: The Bend Net to convert.
 -- = The converted HVM Net or an error message.
-net-to-hvm : BNet -> Result HNet String
+net-to-hvm : BNet → Result HNet String
 net-to-hvm net = do
   let redexes = get-redexes net
   let state = state-new (BNet.len net)
@@ -36,7 +36,7 @@ net-to-hvm net = do
   -- - redexes: List of redex pairs to process.
   -- - state: Current compilation state.
   -- = The list of HVM Redexes or an error message.
-  go : List (Pair Nat Nat) -> State -> Result (List Redex) String
+  go : List (Pair Nat Nat) → State → Result (List Redex) String
   go [] state = Done []
   go ((a , b) :: redexes) state = do
     (a , state) <- tree-to-hvm net a state

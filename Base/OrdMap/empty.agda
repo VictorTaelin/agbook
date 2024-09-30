@@ -5,5 +5,5 @@ open import Base.OrdMap.OrdMap
 
 -- Creates an empty OrdMap.
 -- = An empty OrdMap.
-empty : ∀ {K V : Set} -> OrdMap K V
+empty : ∀ {K V : Set} → OrdMap K V
 empty = AVL.empty

@@ -9,5 +9,5 @@ open import Base.AVLTree.AVLTree
 -- - V: The type of values associated with the keys.
 -- The underlying implementation uses an AVL tree for efficient
 -- insertion, deletion, and lookup operations.
-OrdMap : (K V : Set) -> Set
+OrdMap : (K V : Set) → Set
 OrdMap K V = AVLTree K V

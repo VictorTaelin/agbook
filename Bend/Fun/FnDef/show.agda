@@ -23,11 +23,11 @@ instance
   ShowFnDef : Show FnDef
   ShowFnDef = record { to-string = show-fn-def }
     where
-      show-rule : String -> Rule -> String
+      show-rule : String → Rule → String
       show-rule fname (MkRule pats body) =
         "(" ++ fname ++ (if is-nil pats then "" else " " ++ join " " (map show pats)) ++ ")" ++ " = " ++ show {{TShow}} body
 
-      show-fn-def : FnDef -> String
+      show-fn-def : FnDef → String
       show-fn-def (MkFnDef name type check rules src) =
         (if check then "" else "unchecked ") ++ name ++ " : " ++ show type ++ "\n" ++
         join "\n" (map (show-rule name) rules)

@@ -29,14 +29,14 @@ parse-book = go new-book
     def <- parse-fn-def
     pure (TopLevel.FunDef def)
 
-  add-top-level : TopLevel -> ParseBook -> Parser ParseBook
+  add-top-level : TopLevel → ParseBook → Parser ParseBook
   add-top-level (TopLevel.FunDef def) book = do
     -- TODO: Check for repeats
     let defs = ParseBook.fun-defs book
     let defs = map-set defs (hash (FnDef.name def)) def
     pure record book { fun-defs = defs }
 
-  go : ParseBook -> Parser ParseBook
+  go : ParseBook → Parser ParseBook
   go book = do
     skip-trivia
     eof <- is-eof

@@ -9,6 +9,6 @@ open import Base.U64.U64
 open import Imp.Eval.Env.Env
 
 -- Get a variable's value in the top-most map.
-get : Env -> String -> Maybe U64
+get : Env → String → Maybe U64
 get []       _ = None
 get (m :: _) k = ordmap-get k m

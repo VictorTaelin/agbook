@@ -18,17 +18,17 @@ open import HVM2.Term.Term
 
 mutual
   -- Links two terms
-  link : Term -> Term -> Run Unit
+  link : Term → Term → Run Unit
   link (Var x) b       = subst x b
   link a       (Var y) = subst y a
   link a       b       = redex-push a b
 
   -- Substitutes a variable with a term
-  subst : String -> Term -> Run Unit
+  subst : String → Term → Run Unit
   subst x b = do
     old-val <- subst-swap x b
     case old-val of λ where
-      None        -> pure unit
-      (Some term) -> do
+      None        → pure unit
+      (Some term) → do
         subst-take x
         link term b

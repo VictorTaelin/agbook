@@ -6,4 +6,4 @@ open import Base.Pair.Pair
 
 -- Gets the current state
 get : Run State
-get = λ state -> state , state
+get = λ state → state , state

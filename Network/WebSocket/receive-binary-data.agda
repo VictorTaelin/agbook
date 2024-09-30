@@ -10,9 +10,9 @@ open import Network.WebSocket.WSConnection
 -- - conn: The WebSocket connection to receive data from.
 -- = A Maybe ByteString containing the received data, or None if the operation times out.
 --   The timeout is set to 100 milliseconds.
-postulate receive-binary-data : WSConnection -> IO (Maybe ByteString)
+postulate receive-binary-data : WSConnection → IO (Maybe ByteString)
 
 {-# FOREIGN GHC import qualified Network.WebSockets as WS #-}
 {-# FOREIGN GHC import qualified System.Timeout as ST #-}
 
-{-# COMPILE GHC receive-binary-data = \conn -> ST.timeout (fromIntegral 100) (WS.receiveData conn) #-}
+{-# COMPILE GHC receive-binary-data = \conn → ST.timeout (fromIntegral 100) (WS.receiveData conn) #-}

@@ -20,7 +20,7 @@ open import UG.Chat.Message.Message
 -- - client: The client ID (not used in the current implementation).
 -- - room: The room ID to exit from.
 -- = Returns a ByteString containing the EXIT message type and the room ID.
-exit-room : Nat -> ByteString
+exit-room : Nat → ByteString
 exit-room client room = do
   let message-type = Word8.from-nat (Message.to-nat EXIT)
   let buffer = cons message-type (pack-string "")

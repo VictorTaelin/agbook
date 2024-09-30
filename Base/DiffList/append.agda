@@ -8,5 +8,5 @@ open import Base.List.append using (_++_)
 -- - xs: The first DiffList.
 -- - ys: The second DiffList.
 -- = A new DiffList containing all elements from xs and ys.
-append : ∀ {A : Set} -> DiffList A -> DiffList A -> DiffList A
-append xs ys = λ tail -> (xs (ys tail))
+append : ∀ {A : Set} → DiffList A → DiffList A → DiffList A
+append xs ys = λ tail → (xs (ys tail))

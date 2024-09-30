@@ -5,5 +5,5 @@ open import Base.Unit.Unit
 open import HVM1.Run.State.State
 open import HVM1.Run.Run
 
-state-set : State -> Run Unit
-state-set new-state = λ _ -> (new-state , unit)
+state-set : State → Run Unit
+state-set new-state = λ _ → (new-state , unit)

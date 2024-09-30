@@ -8,5 +8,5 @@ open import HVM2.Redex.Redex
 -- Converts a Redex to its string representation.
 -- - redex: The Redex to convert.
 -- = A string representation of the Redex.
-show : Redex -> String
+show : Redex → String
 show redex = Term.show (Redex.lft redex) ++ " ~ " ++ Term.show (Redex.rgt redex)

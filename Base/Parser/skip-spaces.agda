@@ -21,7 +21,7 @@ open import Base.String.to-list
 -- - 1st: The parser state.
 -- = A Reply containing the updated state and the number of spaces skipped.
 skip-spaces : Parser Nat
-skip-spaces = λ s -> do
+skip-spaces = λ s → do
   let input     = State.input s
   let chars     = to-list input
   let skipped   = take-while is-space chars

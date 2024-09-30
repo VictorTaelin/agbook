@@ -16,5 +16,5 @@ record State : Set where
 -- Creates a new State with the given input and initial index of zero.
 -- - 1st: The input string to be parsed.
 -- = A new State with the given input and index set to zero.
-new-parser-state : String -> State
+new-parser-state : String → State
 new-parser-state input = MkState input Zero

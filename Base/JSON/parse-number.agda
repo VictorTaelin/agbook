@@ -22,7 +22,7 @@ open import Base.Maybe.Maybe
 open import Base.Nat.Nat
 open import Base.Nat.exp
 
-is-empty : String -> Bool
+is-empty : String → Bool
 is-empty s = s == ""
 
 -- Parses a JSON number value.
@@ -50,12 +50,12 @@ parse-number = do
 
   let base-num-str = sign ++ int-part ++ frac-part
   case is-empty int-part of λ where
-    True -> fail "Invalid number: no digits in integer part"
-    False -> case from-string base-num-str of λ where
-      (Some base-num) -> 
+    True → fail "Invalid number: no digits in integer part"
+    False → case from-string base-num-str of λ where
+      (Some base-num) → 
         case exp-part of λ where
-          "" -> pure (JNumber base-num)
-          _ -> case from-string exp-part of λ where
-            (Some exp-num) -> pure (JNumber (base-num f* (10.0 f^ exp-num)))
-            None -> fail ("Invalid exponent: " ++ exp-part)
-      None -> fail ("Invalid number: " ++ base-num-str)
+          "" → pure (JNumber base-num)
+          _ → case from-string exp-part of λ where
+            (Some exp-num) → pure (JNumber (base-num f* (10.0 f^ exp-num)))
+            None → fail ("Invalid exponent: " ++ exp-part)
+      None → fail ("Invalid number: " ++ base-num-str)

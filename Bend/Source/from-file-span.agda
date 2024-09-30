@@ -6,5 +6,5 @@ open import Bend.Source.Source
 open import Bend.Source.SourceKind.SourceKind
 
 -- TODO: Stub
-from-file-span : Nat -> Nat -> Source
+from-file-span : Nat → Nat → Source
 from-file-span start end = MkSource None None SourceKind.Generated

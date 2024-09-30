@@ -13,7 +13,7 @@ open import Base.Nat.eq
 -- - prefix: The potential prefix list.
 -- - xs: The list to check against.
 -- = True if xs starts with prefix, False otherwise.
-starts-with : ∀ {A : Set} -> {{EqA : Eq.Eq A}} -> List A -> List A -> Bool
+starts-with : ∀ {A : Set} → {{EqA : Eq.Eq A}} → List A → List A → Bool
 starts-with prefix xs = do
   let prefix-length = length prefix
   let xs-prefix     = take prefix-length xs

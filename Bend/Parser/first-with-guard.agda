@@ -7,7 +7,7 @@ open import Base.Pair.Pair
 open import Base.Parser.Parser
 open import Base.Parser.Monad.bind
 
-first-with-guard : ∀ {A : Set} -> List (Pair (Parser Bool) (Parser A)) -> Parser A -> Parser A
+first-with-guard : ∀ {A : Set} → List (Pair (Parser Bool) (Parser A)) → Parser A → Parser A
 first-with-guard ((guard , p) :: ps) dflt = do
   is-guard <- guard
   if is-guard

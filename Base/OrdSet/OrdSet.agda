@@ -8,5 +8,5 @@ open import Base.Unit.Unit
 -- - V: The type of elements in the set.
 -- The underlying implementation uses an AVL tree for efficient
 -- insertion, deletion, and lookup operations.
-OrdSet : (V : Set) -> Set
+OrdSet : (V : Set) → Set
 OrdSet V = AVLTree V Unit

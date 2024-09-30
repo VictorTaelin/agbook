@@ -12,5 +12,5 @@ open import Base.Equal.trans
 -- - r: Proof that x is equal to a.
 -- - s: Proof that x is equal to b.
 -- = Proof that a is equal to b.
-right : ∀ {a} {A : Set a} {x a b : A} -> x ≡ a -> x ≡ b -> a ≡ b
+right : ∀ {a} {A : Set a} {x a b : A} → x ≡ a → x ≡ b → a ≡ b
 right r s = trans (sym r) s

@@ -8,5 +8,5 @@ open import Base.F64.lt
 -- - x: The 1st float.
 -- - y: The 2nd float.
 -- = The smaller of x and y.
-min : F64 -> F64 -> F64
+min : F64 → F64 → F64
 min x y = if lt x y then x else y

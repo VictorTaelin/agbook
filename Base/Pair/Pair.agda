@@ -3,7 +3,7 @@ module Base.Pair.Pair where
 open import Agda.Primitive
 
 -- Dependent pair type (Sigma type)
-record Sigma {a b} (A : Set a) (B : A -> Set b) : Set (a ⊔ b) where
+record Sigma {a b} (A : Set a) (B : A → Set b) : Set (a ⊔ b) where
   constructor _,_
   field
     fst : A
@@ -19,5 +19,5 @@ infixr 4 _,_
 Σ = Sigma
 
 -- Simple pair type
-Pair : ∀ {a b} (A : Set a) (B : Set b) -> Set (a ⊔ b)
-Pair A B = Sigma A (λ _ -> B)
+Pair : ∀ {a b} (A : Set a) (B : Set b) → Set (a ⊔ b)
+Pair A B = Sigma A (λ _ → B)

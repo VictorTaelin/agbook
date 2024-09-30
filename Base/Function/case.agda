@@ -7,7 +7,7 @@ infix 0 case_returning_of_
 -- - x: The value to match against.
 -- - f: The function to apply to x.
 -- = The result of applying f to x.
-case_of_ : ∀ {A B : Set} -> A -> (A -> B) -> B
+case_of_ : ∀ {A B : Set} → A → (A → B) → B
 case x of f = f x
 
 -- Case expressions with explicit return type.
@@ -15,7 +15,7 @@ case x of f = f x
 -- - B: The return type, which may depend on x.
 -- - f: The function to apply to x.
 -- = The result of applying f to x.
-case_returning_of_ : ∀ {A : Set} {B : A -> Set} -> (x : A) -> (B : A -> Set) -> ((x : A) -> B x) -> B x
+case_returning_of_ : ∀ {A : Set} {B : A → Set} → (x : A) → (B : A → Set) → ((x : A) → B x) → B x
 case x returning B of f = f x
 
 -- NOTE: Avoid using this. Prefer Agda's 'with' instead.

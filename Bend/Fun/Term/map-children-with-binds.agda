@@ -44,25 +44,25 @@ map-children-with-binds f (Def def nxt)      = Def def (f [] nxt)
 map-children-with-binds f Era                = Era
 
 map-children-with-binds f (Mat bnd arg with-bnd with-arg arms) = do
-  Mat bnd (f [] arg) with-bnd (map (λ arg -> f [] arg) with-arg)
-    (map (λ rule -> record rule {
+  Mat bnd (f [] arg) with-bnd (map (λ arg → f [] arg) with-arg)
+    (map (λ rule → record rule {
         bod = f (concat-maybes ((bnd :: []) ++ with-bnd ++ (MatchRule.bnd rule))) (MatchRule.bod rule) })
       arms)
 
 map-children-with-binds f (Swt bnd arg with-bnd with-arg pred arms) = do
   let pred' , nums = split-at 1 (reverse arms)
-  let pred' = map (λ arm -> (f (concat-maybes (bnd :: [] ++ with-bnd ++ pred :: [])) arm)) pred'
-  let nums  = map (λ arm -> (f (concat-maybes (bnd :: [] ++ with-bnd)) arm)) pred'
-  Swt bnd (f [] arg) with-bnd (map (λ arg -> f [] arg) with-arg) pred (reverse (pred' ++ nums))
+  let pred' = map (λ arm → (f (concat-maybes (bnd :: [] ++ with-bnd ++ pred :: [])) arm)) pred'
+  let nums  = map (λ arm → (f (concat-maybes (bnd :: [] ++ with-bnd)) arm)) pred'
+  Swt bnd (f [] arg) with-bnd (map (λ arg → f [] arg) with-arg) pred (reverse (pred' ++ nums))
 
 map-children-with-binds f (Fold bnd arg with-bnd with-arg arms) = do
-  Fold bnd (f [] arg) with-bnd (map (λ arg -> f [] arg) with-arg)
-    (map (λ rule -> record rule {
+  Fold bnd (f [] arg) with-bnd (map (λ arg → f [] arg) with-arg)
+    (map (λ rule → record rule {
         bod = f (concat-maybes ((bnd :: []) ++ with-bnd ++ (MatchRule.bnd rule))) (MatchRule.bod rule) })
       arms)
 
 map-children-with-binds f (Bend bnd arg cond step base) = do
-  Bend bnd (map (λ arg -> f [] arg) arg)
+  Bend bnd (map (λ arg → f [] arg) arg)
     (f (concat-maybes bnd) cond)
     (f (concat-maybes bnd) step)
     (f (concat-maybes bnd) base)

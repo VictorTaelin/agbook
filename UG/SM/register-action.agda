@@ -30,7 +30,7 @@ open import UG.SM.update-genesis-tick
 -- mach: The current state machine.
 -- timedAction: The action to be registered, containing the action and its associated time.
 -- = Returns an updated state machine with the new action registered.
-register-action : ∀ {S A : Set} -> Mach S A -> TimedAction A -> Mach S A
+register-action : ∀ {S A : Set} → Mach S A → TimedAction A → Mach S A
 register-action mach (record { action = action ; time = time }) = do
   let tick = time-to-tick mach time
   let mach = update-genesis-tick mach tick

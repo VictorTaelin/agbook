@@ -11,5 +11,5 @@ open import Base.String.to-list
 -- - 2nd: The initial value (for the empty string case).
 -- - 3rd: The string to fold over.
 -- = The result of folding the string.
-foldr : ∀ {A : Set} -> (Char -> A -> A) -> A -> String -> A
+foldr : ∀ {A : Set} → (Char → A → A) → A → String → A
 foldr f z s = List.foldr f z (to-list s)

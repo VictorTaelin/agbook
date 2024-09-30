@@ -7,6 +7,6 @@ open import Base.Nat.Nat
 -- - n: The number of times to replicate the value.
 -- - x: The value to replicate.
 -- = A list consisting of n repetitions of x.
-replicate : ∀ {A : Set} -> Nat -> A -> List A
+replicate : ∀ {A : Set} → Nat → A → List A
 replicate Zero     x = []
 replicate (Succ n) x = x :: replicate n x

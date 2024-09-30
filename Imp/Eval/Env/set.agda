@@ -10,6 +10,6 @@ open import Base.U64.U64
 open import Imp.Eval.Env.Env
 
 -- Set a variable's value in the top-most map.
-set : Env -> String -> U64 -> Env
+set : Env → String → U64 → Env
 set []       _ _ = []
 set (m :: r) k v = ((ordmap-insert (k , v) m) :: r)

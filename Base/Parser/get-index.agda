@@ -11,4 +11,4 @@ open import Base.Result.Result
 -- - 1st: The parser state.
 -- = A Reply containing the current state and the current index.
 get-index : Parser Nat
-get-index = λ s -> Done (MkReply s (State.index s))
+get-index = λ s → Done (MkReply s (State.index s))

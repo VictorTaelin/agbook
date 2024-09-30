@@ -31,8 +31,8 @@ parse-hex-digit : Parser Nat
 parse-hex-digit = do
   c <- parse-char
   case hex-to-nat c of λ where
-    (Some n) -> pure n
-    None     -> fail "Invalid hexadecimal digit"
+    (Some n) → pure n
+    None     → fail "Invalid hexadecimal digit"
 
 -- Parse four hexadecimal digits
 parse-four-hex-digits : Parser Nat
@@ -48,18 +48,18 @@ parse-escape : Parser Char
 parse-escape = do
   consume "\\"
   (parse-char >>= λ where
-    '"'  -> pure '"'
-    '\\' -> pure '\\'
-    '/'  -> pure '/'
-    'b'  -> pure '\b'
-    'f'  -> pure '\f'
-    'n'  -> pure '\n'
-    'r'  -> pure '\r'
-    't'  -> pure '\t'
-    'u'  -> do
+    '"'  → pure '"'
+    '\\' → pure '\\'
+    '/'  → pure '/'
+    'b'  → pure '\b'
+    'f'  → pure '\f'
+    'n'  → pure '\n'
+    'r'  → pure '\r'
+    't'  → pure '\t'
+    'u'  → do
       code <- parse-four-hex-digits
       pure (from-nat code)
-    _    -> fail "Invalid escape sequence")
+    _    → fail "Invalid escape sequence")
 
 -- Parses a single character in a JSON string
 parse-string-char : Parser Char
@@ -74,8 +74,8 @@ parse-string-char =
 {-# TERMINATING #-} -- FIXME!
 parse-string-contents : Parser (List Char)
 parse-string-contents =
-  (parse-string-char >>= λ c ->
-   parse-string-contents >>= λ cs ->
+  (parse-string-char >>= λ c →
+   parse-string-contents >>= λ cs →
    pure (c :: cs))
   <|> pure []
 

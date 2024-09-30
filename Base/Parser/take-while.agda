@@ -19,8 +19,8 @@ open import Base.String.to-list
 -- Consumes characters from the input as long as they satisfy the given predicate.
 -- - 1st: A function that takes a Char and returns a Bool, used as the predicate.
 -- = A Parser that returns a String containing the consumed characters.
-take-while : (Char -> Bool) -> Parser String
-take-while pred = λ s -> do
+take-while : (Char → Bool) → Parser String
+take-while pred = λ s → do
   let input     = State.input s
   let chars     = to-list input
   let consumed  = List.take-while pred chars

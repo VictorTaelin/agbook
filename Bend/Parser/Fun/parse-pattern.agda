@@ -55,9 +55,9 @@ parse-pattern = do
   parse-pat-num = do
     num <- parse-number
     case num of λ where
-      (U24 n) -> pure (Num n)
-      (I24 n) -> fail "Only unsigned integers are supported in pattern matching"
-      (F24 n) -> fail "Only unsigned integers are supported in pattern matching"
+      (U24 n) → pure (Num n)
+      (I24 n) → fail "Only unsigned integers are supported in pattern matching"
+      (F24 n) → fail "Only unsigned integers are supported in pattern matching"
 
   parse-pat-lst : Parser Pattern
   parse-pat-lst = do
@@ -74,12 +74,12 @@ parse-pattern = do
     els <- list-like parse-pattern "{" "}" "," False 2
     pure (Fan FanKind.Dup els)
 
-  parse-tup : Pattern -> Parser Pattern
+  parse-tup : Pattern → Parser Pattern
   parse-tup head = do
     tail <- list-like parse-pattern "" ")" "," True 1
     pure (Fan FanKind.Tup (head :: tail))
 
-  parse-ctr : Pattern -> Parser Pattern
+  parse-ctr : Pattern → Parser Pattern
   parse-ctr (Var (Some name)) = do
     args <- list-like parse-pattern "" ")" "" False 0
     pure (Ctr name args)

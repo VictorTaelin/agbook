@@ -10,7 +10,7 @@ open import Base.BitMap.new renaming (new to map-new)
 open import Base.String.String
 
 -- Creates a new flattened num-indexed net, with root represented by a deadlocked node.
-new : String -> Net
+new : String → Net
 new name =
   let root = MkNode (MkPort 0 2) (MkPort 0 1) (MkPort 0 0) NodeKind.Rot in
   let map = map-set map-new (nat-to-bits 0) root in

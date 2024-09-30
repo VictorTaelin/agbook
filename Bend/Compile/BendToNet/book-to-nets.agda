@@ -28,7 +28,7 @@ private
 -- Converts all definitions in a book to a list of flat nets
 -- - book: The Book containing function definitions
 -- = A List of Nets with the compiled definitions or an error message
-book-to-nets : Book -> Result (List Net) String
+book-to-nets : Book → Result (List Net) String
 book-to-nets book =
   let (_ , defs) = unzip (map-to-list (Book.defs book)) in
   defs-to-nets defs
@@ -37,7 +37,7 @@ book-to-nets book =
   -- Converts a single function definition to a Net
   -- - def: The FnDef (function definition) to convert
   -- = The function compiled to a Net or an error message
-  def-to-net : FnDef -> Result Net String
+  def-to-net : FnDef → Result Net String
   def-to-net (MkFnDef name type check rules src) = do
       rule <- to-result (head rules) ("No rules found for " ++ name)
       enc <- encode-term (new-encoder name) (Rule.body rule) net-root
@@ -47,7 +47,7 @@ book-to-nets book =
   -- - defs: The list of FnDef (function definitions) to process
   -- = A List of compiled Nets or an error message
   -- TODO: This could just be a foldM
-  defs-to-nets : List FnDef -> Result (List Net) String
+  defs-to-nets : List FnDef → Result (List Net) String
   defs-to-nets [] = Done []
   defs-to-nets (def :: defs) = do
     net <- def-to-net def

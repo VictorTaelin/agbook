@@ -20,14 +20,14 @@ open import Bend.Parser.try-consume
 -- - sep: String separator.
 -- - min-els: Minimum number of elements required.
 -- = A parser that produces a list of parsed elements.
-sep-by : ∀ {A : Set} -> Parser A -> String -> Nat -> Parser (List A)
+sep-by : ∀ {A : Set} → Parser A → String → Nat → Parser (List A)
 sep-by el sep min-els = do
   els <- go el sep min-els []
   pure (reverse els)
 
   where
 
-  go : ∀ {A : Set} -> Parser A -> String -> Nat -> List A -> Parser (List A)
+  go : ∀ {A : Set} → Parser A → String → Nat → List A → Parser (List A)
 
   go el sep (Succ (Succ n)) acc = do
     skip-trivia

@@ -13,14 +13,14 @@ open import Bend.Fun.Term.map-children-with-binds
 -- - to: The term to substitute in place of the variable
 -- - term: The term to perform substitution on
 -- = A new term with substitutions applied
-subst : String -> Term -> Term -> Term
+subst : String → Term → Term → Term
 subst from to term = do
   let t' = map-children-with-binds 
-            (λ binds child -> 
+            (λ binds child → 
               if (any-true (eq from) binds)
               then child
               else subst from to child)
             term
   case t' of λ where
-    (Var nam) -> if (eq nam from) then to else Var nam
-    _ -> t'
+    (Var nam) → if (eq nam from) then to else Var nam
+    _ → t'

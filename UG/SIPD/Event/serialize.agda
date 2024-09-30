@@ -26,7 +26,7 @@ open import UG.SIPD.Event.Event
 -- - True is serialized as [1], False as [0].
 -- - b: The Bool to serialize.
 -- = A ByteString representation of the Bool.
-serialize-bool : Bool -> ByteString
+serialize-bool : Bool → ByteString
 serialize-bool True  = cons (from-nat 1) (pack-string "")
 serialize-bool False = cons (from-nat 0) (pack-string "")
 
@@ -37,7 +37,7 @@ serialize-bool False = cons (from-nat 0) (pack-string "")
 -- - 2 for MouseMove
 -- - event: The Event to serialize.
 -- = Some ByteString containing the serialized event if successful, None otherwise.
-serialize : Event -> Maybe ByteString
+serialize : Event → Maybe ByteString
 serialize (KeyEvent s b) = do
   packed-string <- pack-string-fixed s 1
   let bool-byte = serialize-bool b

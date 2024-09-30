@@ -7,7 +7,7 @@ open import Base.Nat.Nat
 -- - n: The natural number to convert.
 -- = The corresponding negative integer representation.
 --   Note: Zero is treated as a positive number (Pos Zero).
-from-neg : Nat -> Int
+from-neg : Nat → Int
 from-neg Zero     = Pos Zero
 from-neg (Succ n) = NegSuc n
 

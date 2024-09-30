@@ -10,5 +10,5 @@ open import Base.Unit.Unit
 -- - z: The initial value (for the empty set case).
 -- - set: The OrdSet to fold over.
 -- = The result of folding the set.
-fold : ∀ {V A : Set} -> (V -> A -> A) -> A -> OrdSet V -> A
-fold f z set = AVL.fold (λ p acc -> f (fst p) acc) z set
+fold : ∀ {V A : Set} → (V → A → A) → A → OrdSet V → A
+fold f z set = AVL.fold (λ p acc → f (fst p) acc) z set

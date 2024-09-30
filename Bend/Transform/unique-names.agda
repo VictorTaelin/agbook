@@ -38,10 +38,10 @@ private
   Scope = BitMap (List String)
 
   -- Generate a new unique name and increment the counter
-  fresh : Nat -> Pair String Nat
+  fresh : Nat → Pair String Nat
   fresh count = (nat-to-name count , (Succ count))
 
-  push-scope : List (Maybe String) -> Nat -> Scope -> (Pair Nat Scope)
+  push-scope : List (Maybe String) → Nat → Scope → (Pair Nat Scope)
   push-scope ((Some name) :: xs) count scope = do
     let (nam , count) = fresh count
     let nams = Maybe.fold [] id (BitMap.get scope (hash name))
@@ -50,45 +50,45 @@ private
   push-scope (None :: xs) count scope = push-scope xs count scope
   push-scope []           count scope = (count , scope)
 
-  push-pattern : Pattern -> Nat -> Scope -> (Pair Nat Scope)
+  push-pattern : Pattern → Nat → Scope → (Pair Nat Scope)
   push-pattern pat gen scope = push-scope (map Some (Pattern.binds pat)) gen scope
 
-  pop-scope : Maybe String -> Scope -> Pair (Maybe String) Scope
+  pop-scope : Maybe String → Scope → Pair (Maybe String) Scope
   pop-scope (Some nam) scope with (BitMap.get scope (hash nam))
   ... | (Some (nam' :: nams)) = (Some nam' , BitMap.set scope (hash nam) nams)
   ... | _                     = (Some nam  , scope)  -- This case should be unreachable
   pop-scope None scope = (None , scope)
 
-  pop-list : List (Maybe String) -> Scope -> Pair (List (Maybe String)) Scope
-  pop-list bnds scope = foldr (λ bnd (bnds , scope) -> do
+  pop-list : List (Maybe String) → Scope → Pair (List (Maybe String)) Scope
+  pop-list bnds scope = foldr (λ bnd (bnds , scope) → do
                                 let bnd  , scope = pop-scope bnd scope
                                 (bnd :: bnds , scope))
                               ([] , scope) bnds
 
-  pop-pattern : Pattern -> Scope -> Pair Pattern Scope
+  pop-pattern : Pattern → Scope → Pair Pattern Scope
 
   pop-pattern (Var (Some name)) scope = do
     case BitMap.get scope (hash name) of λ where
-      (Some (nam :: nams)) -> (Var (Some nam) , BitMap.set scope (hash name) nams)
-      _                    -> (Var (Some name) , scope)
+      (Some (nam :: nams)) → (Var (Some nam) , BitMap.set scope (hash name) nams)
+      _                    → (Var (Some name) , scope)
 
   pop-pattern (Var None) scope = do
     (Var None , scope)
 
   pop-pattern (Fan kind pats) scope = do
-    let (pats , scope) = foldr (λ pat (pats , sc) -> do
+    let (pats , scope) = foldr (λ pat (pats , sc) → do
                                   let (pat , sc) = pop-pattern pat sc
                                   (pat :: pats , sc))
                                 ([] , scope) pats
     (Fan kind pats , scope)
   pop-pattern (Ctr name pats) scope = do
-    let (pats , scope) = foldr (λ pat (pats , sc) -> do
+    let (pats , scope) = foldr (λ pat (pats , sc) → do
                                   let (pat , sc) = pop-pattern pat sc
                                   (pat :: pats , sc))
                                 ([] , scope) pats
     (Ctr name pats , scope)
   pop-pattern (Lst pats) scope = do
-    let (pats , scope) = foldr (λ pat (pats , sc) -> do
+    let (pats , scope) = foldr (λ pat (pats , sc) → do
                                   let (pat , sc) = pop-pattern pat sc
                                   (pat :: pats , sc))
                                 ([] , scope) pats
@@ -100,7 +100,7 @@ private
   pop-pattern (Str str) scope = do
     (Str str , scope)
 
-  use-var : String -> Scope -> String
+  use-var : String → Scope → String
   use-var nam scope with (BitMap.get scope (hash nam))
   ... | (Some (nam :: ns)) = nam
   ... | _                  = nam  -- Unbound variable case.
@@ -110,7 +110,7 @@ private
 mutual
 
   -- Apply unique names to a term
-  unique-names-term : Nat -> Scope -> Term -> Pair Term (Pair Nat Scope)
+  unique-names-term : Nat → Scope → Term → Pair Term (Pair Nat Scope)
   unique-names-term gen scope (Var nam) = do
     let nam = use-var nam scope
     (Var nam , gen , scope)
@@ -207,7 +207,7 @@ mutual
   unique-names-term gen scope term = (term , gen , scope)
 
   -- Apply unique names to a list of terms
-  unique-names-list : Nat -> Scope -> List Term -> Pair (List Term) (Pair Nat Scope)
+  unique-names-list : Nat → Scope → List Term → Pair (List Term) (Pair Nat Scope)
   unique-names-list gen scope [] = do
     ([] , gen , scope)
   unique-names-list gen scope (t :: ts) = do
@@ -216,7 +216,7 @@ mutual
     (t :: ts , gen , scope)
 
   -- Apply unique names to a list of match rules
-  unique-names-match : Nat -> Scope -> List MatchRule -> Pair (List MatchRule) (Pair Nat Scope)
+  unique-names-match : Nat → Scope → List MatchRule → Pair (List MatchRule) (Pair Nat Scope)
   unique-names-match gen scope []            = do
     ([] , gen , scope)
   unique-names-match gen scope (arm :: arms) = do
@@ -227,8 +227,8 @@ mutual
     let (arms , gen , scope) = unique-names-match gen scope arms
     (arm :: arms , gen , scope)
 
-  unique-names-swt : Nat -> Scope -> Maybe String -> List Term
-    -> Pair (Maybe String) (Pair (List Term) (Pair Nat Scope))
+  unique-names-swt : Nat → Scope → Maybe String → List Term
+    → Pair (Maybe String) (Pair (List Term) (Pair Nat Scope))
 
   unique-names-swt gen scope pred []        = do
     (pred , [] , gen , scope)   -- This case should be unreachable
@@ -245,9 +245,9 @@ mutual
     (pred , x :: xs , gen , scope)
 
 -- Apply unique names to a Book
-unique-names : Book -> Book
+unique-names : Book → Book
 unique-names (MkBook defs) = do
-  let defs = foldr (λ (key , def) defs -> do
+  let defs = foldr (λ (key , def) defs → do
                       let def = record def { rules = unique-names-rules 0 (FnDef.rules def) }
                       (key , def) :: defs)
                     [] (to-list defs)
@@ -255,13 +255,13 @@ unique-names (MkBook defs) = do
 
   where
 
-  unique-names-rules : Nat -> List Rule -> List Rule
+  unique-names-rules : Nat → List Rule → List Rule
   unique-names-rules gen []                       = []
   unique-names-rules gen (MkRule pats bod :: rules) = do
     let scope               = BitMap.empty
     let (gen , scope)       = push-scope (map Some (concat (map Pattern.binds pats))) gen scope
     let (bod , gen , scope) = unique-names-term gen scope bod
-    let (pats , scope)      = foldr (λ pat (pats , scope) -> do
+    let (pats , scope)      = foldr (λ pat (pats , scope) → do
                                       let (pat , scope) = pop-pattern pat scope
                                       (pat :: pats , scope))
                                     ([] , scope) pats

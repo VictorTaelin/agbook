@@ -19,7 +19,7 @@ open import Bend.Net.Node.Node
 open import Bend.Net.Port.Port
 
 -- Returns the redexes of the net as pairs of node indices
-get-redexes : Net -> List (Pair Nat Nat)
+get-redexes : Net → List (Pair Nat Nat)
 get-redexes net =
   let redexes = check-nodes (to-list (Net.nodes net)) map-new in
   map-values redexes
@@ -27,7 +27,7 @@ get-redexes net =
 
   -- Check each node in the net: if it's part of a redex, add it to
   -- the map, using the smaller node id as the key.
-  check-nodes : List (Pair Bits Node) -> BitMap (Pair Nat Nat) -> BitMap (Pair Nat Nat)
+  check-nodes : List (Pair Bits Node) → BitMap (Pair Nat Nat) → BitMap (Pair Nat Nat)
   check-nodes [] map = map
   check-nodes ((key-a , node-a) :: nodes) map =
     let port-b = Node.main node-a in

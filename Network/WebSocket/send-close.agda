@@ -14,4 +14,4 @@ postulate send-close : WSConnection → String → IO Unit
 {-# FOREIGN GHC import qualified Base.Text as T #-}
 {-# FOREIGN GHC import qualified Network.WebSockets as WS #-}
 
-{-# COMPILE GHC send-close = \conn msg -> WS.sendClose conn msg #-}
+{-# COMPILE GHC send-close = \conn msg → WS.sendClose conn msg #-}

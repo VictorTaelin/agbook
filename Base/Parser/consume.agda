@@ -23,12 +23,12 @@ open import Base.Unit.Unit
 -- Attempts to consume a specific string from the input.
 -- - 1st: The target string to consume.
 -- = A Parser that returns unit if successful, or fails if the target string is not found at the current position.
-consume : String -> Parser Unit
-consume target = λ str ->
+consume : String → Parser Unit
+consume target = λ str →
   case starts-with (State.input str) target of λ where
-    True -> do
+    True → do
       let new-index = add (State.index str) (length (to-list target))
       let new-input = drop (length (to-list target)) (State.input str)
       Done (MkReply (MkState new-input new-index) unit)
-    False ->
+    False →
       Fail (MkError (State.index str) ("Expected " ++ target))

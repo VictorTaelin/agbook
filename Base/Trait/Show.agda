@@ -6,7 +6,7 @@ open import Base.String.String
 record Show {a} (A : Set a) : Set (lsuc a) where
   constructor MkShow
   field
-    to-string : A -> String
+    to-string : A → String
 
   show = to-string
 

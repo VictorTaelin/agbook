@@ -13,4 +13,4 @@ open import Base.String.head
 -- - 1st: The current parser state.
 -- = A Reply containing the current state and the next character (if any).
 peek-one : Parser (Maybe Char)
-peek-one = λ s -> Done (MkReply s (head (State.input s)))
+peek-one = λ s → Done (MkReply s (head (State.input s)))

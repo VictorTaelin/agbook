@@ -18,7 +18,7 @@ open import Base.String.to-list
 -- - str: The input string to pack.
 -- - length: The desired length of the resulting ByteString.
 -- = Some ByteString if successful, None if the input string is empty.
-pack-string-fixed : String -> Nat -> Maybe ByteString
+pack-string-fixed : String → Nat → Maybe ByteString
 pack-string-fixed str length = do
   let fixed-str = take length (to-list str)
   maybe-str <- head fixed-str

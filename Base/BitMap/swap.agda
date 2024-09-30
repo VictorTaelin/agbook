@@ -11,7 +11,7 @@ open import Base.BinTree.BinTree
 -- - k: The Bits key to swap.
 -- - v: The new value to insert.
 -- = A pair containing the new BitMap and the old value associated with the key (wrapped in Maybe).
-swap : ∀ {A : Set} -> BitMap A -> Bits -> A -> Pair (BitMap A) (Maybe A)
+swap : ∀ {A : Set} → BitMap A → Bits → A → Pair (BitMap A) (Maybe A)
 swap (Node val l r) E v = do 
   let n = (Node (Some v) l r) 
   n , val

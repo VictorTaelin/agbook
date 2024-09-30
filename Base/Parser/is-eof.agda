@@ -12,7 +12,7 @@ open import Base.String.is-empty
 -- - 1st: The parser state.
 -- = A Reply containing a Bool: True if at the end of input, False otherwise.
 is-eof : Parser Bool
-is-eof = λ s -> do
+is-eof = λ s → do
   let input  = State.input s
   let result = is-empty input
   Done (MkReply s result)

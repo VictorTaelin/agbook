@@ -6,7 +6,7 @@ open import Base.ByteString.ByteString
 -- - bs1: The 1st ByteString.
 -- - bs2: The 2nd ByteString.
 -- = A new ByteString containing all bytes from bs1 followed by all bytes from bs2.
-postulate append : ByteString -> ByteString -> ByteString
+postulate append : ByteString → ByteString → ByteString
 
 {-# FOREIGN GHC import qualified Data.ByteString as BS #-}
 {-# COMPILE GHC append = BS.append #-}
@@ -15,7 +15,7 @@ postulate append : ByteString -> ByteString -> ByteString
 -- - bs1: The 1st ByteString.
 -- - bs2: The 2nd ByteString.
 -- = A new ByteString containing all bytes from bs1 followed by all bytes from bs2.
-_++_ : ByteString -> ByteString -> ByteString
+_++_ : ByteString → ByteString → ByteString
 _++_ = append
 
 infixr 5 _++_

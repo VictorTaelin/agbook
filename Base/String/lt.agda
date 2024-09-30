@@ -11,11 +11,11 @@ open import Base.String.to-list
 -- - 1st: The first string to compare.
 -- - 2nd: The second string to compare.
 -- = True if the first string is lexicographically less than the second, False otherwise.
-lt : String -> String -> Bool
+lt : String → String → Bool
 lt s1 s2 = List.lt {{CharOrd.OrdChar}} (to-list s1) (to-list s2)
 
 -- Infix operator for lt.
-_<_ : String -> String -> Bool
+_<_ : String → String → Bool
 _<_ = lt
 
 infix 4 _<_

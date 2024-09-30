@@ -25,11 +25,11 @@ import Bend.Fun.Rule.Rule as Rule'
 private
   open module Rule = Rule' Term
 
-parse-rule : (Maybe String) -> Parser (Pair String Rule)
+parse-rule : (Maybe String) → Parser (Pair String Rule)
 parse-rule expected = do
   let p-nam = case expected of λ where
-    (Some name) -> parse-keyword name >> pure name
-    None -> parse-top-level-name
+    (Some name) → parse-keyword name >> pure name
+    None → parse-top-level-name
   has-parens <- try-consume "("
   name , pats <- if has-parens
     then (do

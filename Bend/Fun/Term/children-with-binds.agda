@@ -43,24 +43,24 @@ children-with-binds (Use nam val nxt) = ([] , val) :: (Maybe.to-list nam , nxt) 
 
 children-with-binds (Mat bnd arg with-bnd with-arg arms) = do
   (([] , arg) :: []) ++
-    (map (λ arg -> ([] , arg)) with-arg) ++
-    (map (λ rule -> concat-maybes (bnd :: [] ++ with-bnd ++ MatchRule.bnd rule) , MatchRule.bod rule) arms)
+    (map (λ arg → ([] , arg)) with-arg) ++
+    (map (λ rule → concat-maybes (bnd :: [] ++ with-bnd ++ MatchRule.bnd rule) , MatchRule.bod rule) arms)
 
 children-with-binds (Swt bnd arg with-bnd with-arg pred arms) = do
   let pred' , nums = split-at 1 (reverse arms)
   let nums = reverse nums
   (([] , arg) :: []) ++
-    (map (λ arg -> ([] , arg)) with-arg) ++
-    (map (λ arm -> concat-maybes (bnd :: [] ++ with-bnd) , arm) nums) ++
-    (map (λ arm -> concat-maybes (bnd :: [] ++ with-bnd ++ pred :: []) , arm) pred')
+    (map (λ arg → ([] , arg)) with-arg) ++
+    (map (λ arm → concat-maybes (bnd :: [] ++ with-bnd) , arm) nums) ++
+    (map (λ arm → concat-maybes (bnd :: [] ++ with-bnd ++ pred :: []) , arm) pred')
 
 children-with-binds (Fold bnd arg with-bnd with-arg arms) = do
   (([] , arg) :: []) ++
-    (map (λ arg -> ([] , arg)) with-arg) ++
-    (map (λ rule -> concat-maybes (bnd :: [] ++ with-bnd ++ MatchRule.bnd rule) , MatchRule.bod rule) arms)
+    (map (λ arg → ([] , arg)) with-arg) ++
+    (map (λ rule → concat-maybes (bnd :: [] ++ with-bnd ++ MatchRule.bnd rule) , MatchRule.bod rule) arms)
 
 children-with-binds (Bend bnd arg cond step base) = do
-  (map (λ arg -> ([] , arg)) arg) ++
+  (map (λ arg → ([] , arg)) arg) ++
     ((concat-maybes bnd) , cond) ::
     ((concat-maybes bnd) , step) ::
     ((concat-maybes bnd) , base) :: []

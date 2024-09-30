@@ -17,11 +17,11 @@ open import Base.String.eq
 
 -- FIXME: use String.join instead
 {-# TERMINATING #-} -- FIXME!
-show : JSON -> String
+show : JSON → String
 show JNull         = "null"
 show (JBool True)  = "true"
 show (JBool False) = "false"
 show (JNumber n)   = F64.show n
 show (JString s)   = String.show s
-show (JArray arr)  = "[" ++ (foldr (λ elem acc -> (if eq acc "" then "" else acc ++ ", ") ++ show elem) "" arr) ++ "]"
-show (JObject obj) = "{" ++ (foldr (λ pair acc -> (if eq acc "" then "" else acc ++ ", ") ++ String.show (get-fst pair) ++ ": " ++ show (get-snd pair)) "" obj) ++ "}"
+show (JArray arr)  = "[" ++ (foldr (λ elem acc → (if eq acc "" then "" else acc ++ ", ") ++ show elem) "" arr) ++ "]"
+show (JObject obj) = "{" ++ (foldr (λ pair acc → (if eq acc "" then "" else acc ++ ", ") ++ String.show (get-fst pair) ++ ": " ++ show (get-snd pair)) "" obj) ++ "}"

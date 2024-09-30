@@ -18,7 +18,7 @@ instance
   ShowPattern : Show Pattern
   ShowPattern = record { to-string = show-pattern }
     where
-      show-pattern : Pattern -> String
+      show-pattern : Pattern → String
       show-pattern (Var nam) = show-bind nam
       show-pattern (Chn nam) = "$" ++ nam
       show-pattern (Fan FanKind.Tup els) = "(" ++ (join ", " (map show els)) ++ ")"

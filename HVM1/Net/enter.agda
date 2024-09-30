@@ -14,7 +14,7 @@ import Base.BitMap.get as M
 -- - net: The Net to traverse.
 -- - port: The Port to enter from.
 -- = The connected Port, or the original Port if not found.
-enter : Net -> Port -> Port
+enter : Net → Port → Port
 enter (MkNet net) port = run port (do
   node <- M.get net (Port.addr port)
   Some (port-get node (Port.slot port)))

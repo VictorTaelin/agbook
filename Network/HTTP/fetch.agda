@@ -3,7 +3,7 @@ module Network.HTTP.fetch where
 open import Base.IO.IO
 open import Base.String.String
 
-postulate fetch : String -> String -> String -> IO String
+postulate fetch : String → String → String → IO String
 
 {-# FOREIGN GHC
 import qualified Network.HTTP.Simple as HTTP
@@ -13,7 +13,7 @@ import qualified Data.Text.Encoding as TE
 import Control.Exception (try)
 import Data.Function ((&))
 
-fetch :: T.Text -> T.Text -> T.Text -> IO T.Text
+fetch :: T.Text → T.Text → T.Text → IO T.Text
 fetch url method bodyData = do
     let request = HTTP.parseRequest_ (T.unpack url)
                 & HTTP.setRequestMethod (TE.encodeUtf8 method)
@@ -22,8 +22,8 @@ fetch url method bodyData = do
 
     result <- try $ HTTP.httpLBS request
     case result of
-        Left e -> return $ T.pack "Error: " <> T.pack (show (e :: HTTP.HttpException))
-        Right response -> return $ TE.decodeUtf8 $ LBS.toStrict $ HTTP.getResponseBody response
+        Left e → return $ T.pack "Error: " <> T.pack (show (e :: HTTP.HttpException))
+        Right response → return $ TE.decodeUtf8 $ LBS.toStrict $ HTTP.getResponseBody response
 
 #-}
 

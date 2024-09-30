@@ -9,7 +9,7 @@ open import HVM2.Run.Monad.pure
 open import HVM2.Term.Term
 
 -- Commutation interaction
-comm : Term -> Term -> Term -> Term -> Run Unit
+comm : Term → Term → Term → Term → Run Unit
 comm a1 a2 b1 b2 = do
   v0 <- fresh
   v1 <- fresh

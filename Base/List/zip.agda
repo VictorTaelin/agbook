@@ -8,5 +8,5 @@ open import Base.Pair.Pair
 -- - xs: The first input list.
 -- - ys: The second input list.
 -- = A new list where each element is a pair of corresponding elements from xs and ys.
-zip : ∀ {A B : Set} -> List A -> List B -> List (Pair A B)
+zip : ∀ {A B : Set} → List A → List B → List (Pair A B)
 zip = zip-with _,_

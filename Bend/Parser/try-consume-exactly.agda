@@ -8,6 +8,6 @@ open import Bend.Parser.consume-exactly
 open import Base.Bool.Bool
 open import Base.String.String
 
-try-consume-exactly : String -> Parser Bool
+try-consume-exactly : String → Parser Bool
 try-consume-exactly target = do
   (consume-exactly target >> (pure True)) <|> (pure False)

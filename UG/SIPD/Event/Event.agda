@@ -6,9 +6,9 @@ open import Base.String.String
 open import UG.SIPD.Event.Click.Click
 
 data Event : Set where
-  KeyEvent : String -> Bool -> Event
-  MouseClick : Click -> F64 → F64 → Event
-  MouseMove : F64 -> F64 -> Event 
+  KeyEvent : String → Bool → Event
+  MouseClick : Click → F64 → F64 → Event
+  MouseMove : F64 → F64 → Event 
 
 
 {-# FOREIGN GHC

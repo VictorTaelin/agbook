@@ -25,7 +25,7 @@ open import UG.Chat.Message.to-nat
 -- - bs: The received ByteString message.
 -- - handle-data-message: A function to handle DATA messages.
 -- = An IO action that returns the updated client state after processing the message.
-handle-message : Client -> ByteString -> (Client -> Nat -> Nat -> ByteString -> IO Client) -> IO Client
+handle-message : Client → ByteString → (Client → Nat → Nat → ByteString → IO Client) → IO Client
 handle-message client bs handle-data-message with Word8.to-nat (head bs)
 ... | 3 = do  -- DATA
   let room = read-u48 bs 1

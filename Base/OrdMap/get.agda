@@ -15,5 +15,5 @@ open import Base.Trait.Ord
 -- = Maybe V, where:
 --   - Some v if the key is found with associated value v
 --   - None if the key is not found in the map
-get : ∀ {K V : Set} -> {{_ : Ord K}} -> K -> OrdMap K V -> Maybe V
+get : ∀ {K V : Set} → {{_ : Ord K}} → K → OrdMap K V → Maybe V
 get = AVL.get

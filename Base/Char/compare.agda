@@ -9,5 +9,5 @@ import Base.Nat.compare as Nat
 -- - x: The first character.
 -- - y: The second character.
 -- = LT if x < y, EQ if x = y, GT if x > y.
-compare : Char -> Char -> Ordering
+compare : Char → Char → Ordering
 compare x y = Nat.compare (to-nat x) (to-nat y)

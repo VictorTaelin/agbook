@@ -21,7 +21,7 @@ test-rshift-eight-by-three = refl
 test-rshift-fifteen-by-four : (I (I (I (I E))) >> 4) ≡ E
 test-rshift-fifteen-by-four = refl
 
-test-rshift-by-zero : (bits : Bits) -> (bits >> 0) ≡ bits
+test-rshift-by-zero : (bits : Bits) → (bits >> 0) ≡ bits
 test-rshift-by-zero bits = refl
 
 test-rshift-from-nat : (from-nat 42 >> 2) ≡ from-nat 10

@@ -30,14 +30,14 @@ skip-single-line-comment = do
   if is-comment
     then (do
       advance-one
-      take-while (λ c -> c != '\n')
+      take-while (λ c → c != '\n')
       advance-one
       pure unit)
     else (pure unit)
 
 -- Skips a multi-line comment
 {-# TERMINATING #-} -- FIXME!
-skip-multi-line-comment : Nat -> Parser Unit
+skip-multi-line-comment : Nat → Parser Unit
 skip-multi-line-comment depth = do
   is-comment <- starts-with "#{"
   if is-comment
@@ -47,7 +47,7 @@ skip-multi-line-comment depth = do
     else pure unit
   where
 
-  skip-to-comment-end : Nat -> Parser Unit
+  skip-to-comment-end : Nat → Parser Unit
   skip-to-comment-end 0 = pure unit
   skip-to-comment-end d = do
     is-start <- starts-with "#{"
@@ -69,7 +69,7 @@ skip-trivia : Parser Unit
 skip-trivia = do
   c <- peek-one
   case c of λ where
-    (Some c) ->
+    (Some c) →
       if is-space c then (do
         advance-one
         skip-trivia)
@@ -78,4 +78,4 @@ skip-trivia = do
         skip-single-line-comment
         skip-trivia)
       else pure unit
-    None -> pure unit
+    None → pure unit

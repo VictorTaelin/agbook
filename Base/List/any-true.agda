@@ -9,5 +9,5 @@ open import Base.Bool.or
 -- - p: The predicate function to apply to each element.
 -- - xs: The input list.
 -- = True if any element satisfies the predicate, False otherwise.
-any-true : ∀ {A : Set} -> (A -> Bool) -> List A -> Bool
-any-true p = foldr (λ x acc -> p x || acc) False
+any-true : ∀ {A : Set} → (A → Bool) → List A → Bool
+any-true p = foldr (λ x acc → p x || acc) False

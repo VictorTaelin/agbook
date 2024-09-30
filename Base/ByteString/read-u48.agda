@@ -22,7 +22,7 @@ open import Base.Nat.to-bits
 -- - bs: The input ByteString to read from.
 -- - pos: The starting position (in bytes) from where to read the 48-bit value.
 -- = The natural number representation of the 48-bit value read from the ByteString in big-endian order.
-read-u48 : ByteString -> Nat -> Nat
+read-u48 : ByteString → Nat → Nat
 read-u48 bs pos = do
   let bytes = reverse (take 6 (drop pos (unpack bs)))
   let bits = concat (map (λ x → pad-zeros 8 (normal (to-bits (Word8.to-nat x)))) bytes)

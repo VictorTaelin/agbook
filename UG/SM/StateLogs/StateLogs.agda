@@ -6,5 +6,5 @@ open import Base.BitMap.BitMap
 open import Base.Nat.Nat
 
 -- Maps from bit indices to States
-StateLogs : Set -> Set
+StateLogs : Set → Set
 StateLogs S = BitMap S

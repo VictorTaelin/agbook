@@ -16,7 +16,7 @@ open import Bend.Compile.NetToHvm.net-to-hvm
 --     - The name of the original Bend Net
 --     - The converted HVM Net
 --   - An error message if any conversion fails
-nets-to-hvm : List BNet -> Result (List (Pair String HNet)) String
+nets-to-hvm : List BNet → Result (List (Pair String HNet)) String
 nets-to-hvm [] = Done []
 nets-to-hvm (net :: nets) = do
   let name = BNet.name net

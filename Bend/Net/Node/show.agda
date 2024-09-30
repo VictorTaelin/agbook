@@ -15,7 +15,7 @@ instance
   ShowNode : Show Node
   ShowNode = record { to-string = show-node }
     where
-      show-node : Node -> String
+      show-node : Node → String
       show-node (MkNode main aux1 aux2 kind) =
         "[" ++ show  kind ++ " " ++
         show main ++ " " ++

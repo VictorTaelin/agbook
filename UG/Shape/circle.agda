@@ -8,5 +8,5 @@ open import UG.Shape.Shape
 -- - center: The center point of the circle (V2).
 -- - radius: The radius of the circle (F64).
 -- = A Shape representing the circle.
-circle : V2 -> F64 -> Shape
+circle : V2 → F64 → Shape
 circle center radius = Circle center radius

@@ -3,7 +3,7 @@ module Main where
 open import Base.ALL
 
 {-# NON_TERMINATING #-} -- FIXME!
-loop : Nat -> IO Unit
+loop : Nat → IO Unit
 loop i = do
   IO.print ("Hello " <> show i)
   loop (i + 1)

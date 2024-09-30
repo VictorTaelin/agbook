@@ -12,8 +12,8 @@ open import HVM1.Run.Run
 open import HVM1.Run.Monad.bind
 open import HVM1.Run.state-mut
 
-node-set : Bits -> Node -> Run Unit
-node-set addr node = state-mut λ state -> do
+node-set : Bits → Node → Run Unit
+node-set addr node = state-mut λ state → do
   let net = State.net state
   let net = MkNet (M.set (Net.net net) addr node)
   record state { net = net }

@@ -21,7 +21,7 @@ open import UG.SIPD.Event.Event
 -- Deserializes a Word8 into a Bool.
 -- - w: The Word8 to deserialize.
 -- = Some True if w is 1, Some False if w is 0, None otherwise.
-deserialize-bool : Word8 -> Maybe Bool
+deserialize-bool : Word8 → Maybe Bool
 deserialize-bool w with (to-nat w)
 ... | 0 = Some False
 ... | 1 = Some True
@@ -30,7 +30,7 @@ deserialize-bool w with (to-nat w)
 -- Deserializes a ByteString into a KeyEvent.
 -- - bs: The ByteString to deserialize.
 -- = Some KeyEvent if successful, None otherwise.
-deserialize-key-event : ByteString -> Maybe Event
+deserialize-key-event : ByteString → Maybe Event
 deserialize-key-event bs = do
   char <- read-char bs 1
   let key = from-char char
@@ -41,7 +41,7 @@ deserialize-key-event bs = do
 -- Deserializes a ByteString into a MouseClick event.
 -- - bs: The ByteString to deserialize.
 -- = Some MouseClick if successful, None otherwise.
-deserialize-mouse-click : ByteString -> Maybe Event
+deserialize-mouse-click : ByteString → Maybe Event
 deserialize-mouse-click bs = do
   let click-byte = BS.head (BS.tail bs)
   let x = read-f64 bs 2
@@ -52,7 +52,7 @@ deserialize-mouse-click bs = do
 -- Deserializes a ByteString into a MouseMove event.
 -- - bs: The ByteString to deserialize.
 -- = Some MouseMove if successful, None otherwise.
-deserialize-mouse-move : ByteString -> Maybe Event
+deserialize-mouse-move : ByteString → Maybe Event
 deserialize-mouse-move bs = do
   let x = read-f64 bs 1
   let y = read-f64 bs 7
@@ -61,7 +61,7 @@ deserialize-mouse-move bs = do
 -- Deserializes a ByteString into an Event.
 -- - bs: The ByteString to deserialize.
 -- = Some Event if successful, None otherwise.
-deserialize-helper : ByteString -> Maybe Event
+deserialize-helper : ByteString → Maybe Event
 deserialize-helper bs with (to-nat (BS.head bs))
 ... | 0 = deserialize-key-event bs
 ... | 1 = deserialize-mouse-click bs
@@ -71,7 +71,7 @@ deserialize-helper bs with (to-nat (BS.head bs))
 -- Deserializes a ByteString into an Event, checking for empty ByteString first.
 -- - bs: The ByteString to deserialize.
 -- = Some Event if successful, None if empty or deserialization fails.
-deserialize : ByteString -> Maybe Event
+deserialize : ByteString → Maybe Event
 deserialize bs with (is-empty bs)
 ... | True  = None
 ... | False = deserialize-helper bs

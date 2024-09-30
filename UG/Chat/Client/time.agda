@@ -11,7 +11,7 @@ open import UG.Chat.Client.Client
 -- - client: The Client record containing the server time offset.
 -- = An IO action that, when executed, will return the current server time as a Nat.
 --   The returned time is in milliseconds since the Unix epoch, adjusted for the server offset.
-time : Client -> IO Nat
+time : Client → IO Nat
 time client = do
   current-time <- now
   let offset = Client.server-time-offset client

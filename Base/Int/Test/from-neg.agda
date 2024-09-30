@@ -14,5 +14,5 @@ _ = refl
 _ : -2 ≡ from-neg 2
 _ = refl
 
-test : (n : Nat) -> (from-neg (Succ n) ≡ NegSuc n)
+test : (n : Nat) → (from-neg (Succ n) ≡ NegSuc n)
 test p = refl

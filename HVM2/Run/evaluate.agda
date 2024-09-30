@@ -13,7 +13,7 @@ open import HVM2.Run.State.boot
 open import Base.Pair.Pair
 
 -- Normalizes a Net into a Term
-evaluate : Net -> Term
+evaluate : Net → Term
 evaluate net =
   let
     result : Run Term

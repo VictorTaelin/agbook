@@ -9,7 +9,7 @@ open import Base.Int.Int
 -- - m: The first natural number.
 -- - n: The second natural number.
 -- = LT if m < n, EQ if m = n, GT if m > n.
-compare : Int -> Int -> Ordering
+compare : Int → Int → Ordering
 compare (Pos m) (Pos n) = compare-nat m n
 compare (NegSuc m) (NegSuc n) with compare-nat m n
 ... | LT = GT

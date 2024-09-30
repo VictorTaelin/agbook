@@ -19,11 +19,11 @@ instance
   ShowNet : Show Net
   ShowNet = record { to-string = show-net }
     where
-      show-net : Net -> String
+      show-net : Net → String
       show-net (MkNet nodes len name) =
         let nodes = foldr append "" (map show-node-entry (to-list nodes)) in
         "@" ++ name ++ " =\n" ++ nodes
         where
-          show-node-entry : (Pair Bits Node) -> String
+          show-node-entry : (Pair Bits Node) → String
           show-node-entry (id , node) =
             show (to-nat id) ++ ": " ++ show node ++ "\n"

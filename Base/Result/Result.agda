@@ -5,5 +5,5 @@ module Base.Result.Result where
 -- - 2nd: The type of the error.
 -- = A value that either contains the successful result or the error.
 data Result (A : Set) (E : Set) : Set where
-  Done : A -> Result A E
-  Fail : E -> Result A E
+  Done : A → Result A E
+  Fail : E → Result A E

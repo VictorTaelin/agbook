@@ -7,7 +7,7 @@ open import Base.U64.show renaming (show to show-u64)
 open import Imp.Expr.Expr
 
 -- Converts an Imp Expression to its string representation.
-show : Expr -> String
+show : Expr → String
 
 show (Var v) = v
 show (Num n) = show-u64 n

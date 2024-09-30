@@ -10,6 +10,6 @@ open import Base.Nat.Nat
 -- - n: The number of bytes to drop.
 -- - bs: The input ByteString.
 -- = A new ByteString with the first n bytes removed.
-drop : ByteString -> Nat -> ByteString
+drop : ByteString → Nat → ByteString
 drop bs n = pack (List.drop n (unpack bs))
 

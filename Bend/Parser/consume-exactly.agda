@@ -5,5 +5,5 @@ open import Base.Parser.consume
 open import Base.String.String
 open import Base.Unit.Unit
 
-consume-exactly : String -> Parser Unit
+consume-exactly : String → Parser Unit
 consume-exactly = consume

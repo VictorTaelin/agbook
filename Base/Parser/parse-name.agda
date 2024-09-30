@@ -20,7 +20,7 @@ open import Base.String.append
 -- Checks if a character is valid for a name.
 -- - 1st: The character to check.
 -- = A boolean indicating whether the character is valid for a name (alphanumeric, underscore, hyphen, or dot).
-is-name-char : Char -> Bool
+is-name-char : Char → Bool
 is-name-char c = is-alpha c || is-digit c || (c Char.== '_') || (c Char.== '-') || (c Char.== '.')
 
 -- Parses a name from the input.

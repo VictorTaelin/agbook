@@ -34,7 +34,7 @@ private
   dummy-rule : Rule
   dummy-rule = MkRule [] (Var "dummy")
 
-  dummy-fn-def : String -> FnDef
+  dummy-fn-def : String → FnDef
   dummy-fn-def name = MkFnDef name (Ty.Var "Type") True (dummy-rule :: []) dummy-source
 
   dummy-book : Book

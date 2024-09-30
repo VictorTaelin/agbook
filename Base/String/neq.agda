@@ -9,11 +9,11 @@ open import Base.String.String
 -- - 1st: The first string to compare.
 -- - 2nd: The second string to compare.
 -- = A boolean value: true if the strings are not equal, false otherwise.
-neq : String -> String -> Bool
+neq : String → String → Bool
 neq x y = not (String.eq x y)
 
 -- Infix operator for string inequality.
-_!=_ : String -> String -> Bool
+_!=_ : String → String → Bool
 _!=_ = neq
 
 infix 4 _!=_

@@ -11,7 +11,7 @@ open import UG.SIPD.Event.Event
 -- Converts an Event to its string representation.
 -- - event: The Event to convert.
 -- = A string representation of the Event.
-show : Event -> String
+show : Event → String
 show (KeyEvent key pressed) = 
   "KeyEvent " ++ key ++ " " ++ (if pressed then "True" else "False")
 show (MouseClick click x y) = 

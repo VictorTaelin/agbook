@@ -9,17 +9,17 @@ open import Imp.Expr.show renaming (show to show-expr)
 open import Imp.Stmt.Stmt
 
 -- Converts an Imp Expression to its string representation.
-show : Stmt -> String
+show : Stmt → String
 
 show = show-indent 0 where
 
   -- Indent 2 * n spaces
-  indent : Nat -> String
+  indent : Nat → String
   indent Zero     = ""
   indent (Succ n) = "  " ++ (indent n)
 
   -- Converts an Imp Expression to its string representation at a given indent level.
-  show-indent : Nat -> Stmt -> String
+  show-indent : Nat → Stmt → String
   show-indent i (Locals vs) = (indent i) ++ "local " ++ (join ", " vs)
   show-indent i (LSet v e) = (indent i) ++ v ++ " = " ++ (show-expr e)
   show-indent i (SSet n e) = (indent i) ++ "atomic_set(shared[" ++ (show-expr n) ++ "], " ++ (show-expr e) ++ ")"

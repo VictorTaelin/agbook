@@ -51,7 +51,7 @@ map-child-binds f (Use nam val nxt)  = Use (f nam (nxt :: [])) val nxt
 map-child-binds f (Mat bnd arg with-bnd with-arg arms) =
   Mat (f bnd (map MatchRule.bod arms))
       arg
-      (map (λ b -> f b (map MatchRule.bod arms)) with-bnd)
+      (map (λ b → f b (map MatchRule.bod arms)) with-bnd)
       with-arg
       (map (λ rule → record rule {
         bnd = (map (λ b → f b (MatchRule.bod rule :: [])) (MatchRule.bnd rule))
@@ -60,7 +60,7 @@ map-child-binds f (Mat bnd arg with-bnd with-arg arms) =
 map-child-binds f (Swt bnd arg with-bnd with-arg pred arms) =
   Swt (f bnd arms)
       arg
-      (map (λ b -> f b arms) with-bnd)
+      (map (λ b → f b arms) with-bnd)
       with-arg
       pred
       arms
@@ -68,14 +68,14 @@ map-child-binds f (Swt bnd arg with-bnd with-arg pred arms) =
 map-child-binds f (Fold bnd arg with-bnd with-arg arms) =
   Fold (f bnd (map MatchRule.bod arms))
       arg
-      (map (λ b -> f b (map MatchRule.bod arms)) with-bnd)
+      (map (λ b → f b (map MatchRule.bod arms)) with-bnd)
       with-arg
       (map (λ rule → record rule {
         bnd = map (λ b → f b (MatchRule.bod rule :: [])) (MatchRule.bnd rule)
       }) arms)
 
 map-child-binds f (Bend bnd arg cond step base) =
-  Bend (map (λ b -> f b (cond :: step :: base :: [])) bnd)
+  Bend (map (λ b → f b (cond :: step :: base :: [])) bnd)
       arg
       cond
       step

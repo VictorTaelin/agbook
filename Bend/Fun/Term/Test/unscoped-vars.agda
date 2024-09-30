@@ -13,12 +13,12 @@ open import Bend.Fun.Term.Term renaming (List to List')
 open import Bend.Fun.Term.unscoped-vars
 open import Bend.Parser.Fun.parse-term
 
-parse : String -> Term
+parse : String → Term
 parse input = case (parse-term (new-parser-state input)) of λ where
-  (Done (MkReply _ term)) -> term
-  (Fail err) -> Era
+  (Done (MkReply _ term)) → term
+  (Fail err) → Era
 
-test : String -> Pair (List String) (List String)
+test : String → Pair (List String) (List String)
 test x = unscoped-vars (parse x)
 
 -- Simple variable reference

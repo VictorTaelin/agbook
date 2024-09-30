@@ -17,7 +17,7 @@ open import UG.SM.Tick.Tick
 -- = Returns a pair containing:
 --   - The initial state of type S
 --   - A boolean indicating whether the game's init state was used (True) or a stored state was found (False)
-get-initial-state : ∀ {S A : Set} -> Mach S A -> Game S A -> Tick -> Pair S Bool
+get-initial-state : ∀ {S A : Set} → Mach S A → Game S A → Tick → Pair S Bool
 get-initial-state mach game ini-t with get (Mach.state-logs mach) (to-bits ini-t)
 ... | Some state = (state , False)
 ... | None       = (Game.init game , True)

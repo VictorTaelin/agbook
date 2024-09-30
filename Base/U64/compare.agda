@@ -6,7 +6,7 @@ open import Base.Bool.if
 import Base.U64.eq as U64
 import Base.U64.lt as U64
 
-compare : U64 -> U64 -> Ordering
+compare : U64 → U64 → Ordering
 compare x y = 
   if (U64.eq x y) then
     EQ

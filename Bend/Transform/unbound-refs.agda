@@ -21,18 +21,18 @@ private
   open module FnDef = FnDef' Term
   open module Rule = Rule' Term
 
-unbound-refs-term : Book -> Term -> Result Unit String
+unbound-refs-term : Book → Term → Result Unit String
 unbound-refs-term book (Ref nam) =
   if (contains-def book nam)
   then Done unit
   else Fail ("Unbound reference '" ++ nam ++ "'")
 unbound-refs-term book term = do
-  mfoldl (λ _ child -> unbound-refs-term book child) unit (children term)
+  mfoldl (λ _ child → unbound-refs-term book child) unit (children term)
 
 -- Main function to check unbound references in a book
 unbound-refs : Book → Result Unit String
 unbound-refs book = do
   let defs = BitMap.values (Book.defs book)
-  mfoldl (λ _ def ->
-    mfoldl (λ _ rule -> unbound-refs-term book (Rule.body rule)) unit (FnDef.rules def))
+  mfoldl (λ _ def →
+    mfoldl (λ _ rule → unbound-refs-term book (Rule.body rule)) unit (FnDef.rules def))
     unit defs

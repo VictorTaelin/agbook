@@ -44,16 +44,16 @@ parse-fn-def = do
         (parse-keyword "checked" >> pure True) <|>
         (parse-keyword "unchecked" >> pure False) <|>
         pure dflt
-  sig <- (parse-def-sig >>= (λ x -> pure (Some x))) <|> pure None
+  sig <- (parse-def-sig >>= (λ x → pure (Some x))) <|> pure None
   case sig of λ where
-    (Some (name , args , typ)) -> do
+    (Some (name , args , typ)) → do
       check <- p-check True
       is-single-rule <- try-consume "="
       if is-single-rule
         then (do
           -- Single rule with signature
           body <- parse-term
-          let pats = map (λ nam -> Pattern.Var (Some nam)) args
+          let pats = map (λ nam → Pattern.Var (Some nam)) args
           let rules = MkRule pats body :: []
           end-idx <- get-index
           let source = from-file-span ini-idx end-idx
@@ -64,7 +64,7 @@ parse-fn-def = do
           end-idx <- get-index
           let source = from-file-span ini-idx end-idx
           pure (MkFnDef name typ check rules source)
-    None -> do
+    None → do
       -- No signature, parse rules directly
       check <- p-check False
       name , pats <- parse-rule-lhs None
@@ -107,7 +107,7 @@ parse-fn-def = do
     let typ = foldr Arr ret arg-types
     pure (name , args , typ)
 
-  parse-rules : String -> Parser (List Rule)
+  parse-rules : String → Parser (List Rule)
   parse-rules name = do
     let p-rule = do
       name , pats <- parse-rule-lhs (Some name)

@@ -77,7 +77,7 @@ parse-term = do
   parse-name-or-era : Parser (Maybe String)
   parse-name-or-era =
     (consume "*" >> pure None) <|>
-    (parse-var-name >>= λ nam -> pure (Some nam))
+    (parse-var-name >>= λ nam → pure (Some nam))
 
   parse-lambda : Parser Term
   parse-lambda = do
@@ -86,12 +86,12 @@ parse-term = do
     bod <- parse-term
     pure (Lam pat bod)
 
-  parse-tup : Term -> Parser Term
+  parse-tup : Term → Parser Term
   parse-tup head = do
     tail <- list-like parse-term "" ")" "," True 1
     pure (Fan FanKind.Tup (head :: tail))
 
-  parse-app : Term -> Parser Term
+  parse-app : Term → Parser Term
   parse-app head = do
     tail <- list-like parse-term "" ")" "" False 0
     let term = foldl App head tail
@@ -100,18 +100,18 @@ parse-term = do
   parse-parens : Parser Term
   parse-parens = do
     consume "("
-    opr <- (parse-oper >>= λ opr -> pure (Some opr)) <|> pure None
+    opr <- (parse-oper >>= λ opr → pure (Some opr)) <|> pure None
     is-tup <- try-consume ","
     case opr , is-tup of λ where
       -- (*, ...) is a tuple
-      (Some Op.Mul , True)  -> parse-tup Era
-      (Some _      , True)  -> fail "Expected term"
-      (Some opr    , False) -> do
+      (Some Op.Mul , True)  → parse-tup Era
+      (Some _      , True)  → fail "Expected term"
+      (Some opr    , False) → do
         fst <- parse-term
         snd <- parse-term
         consume ")"
         pure (Oper opr fst snd)
-      (None        , _)     -> do
+      (None        , _)     → do
         head <- parse-term
         is-tup <- try-consume ","
         if is-tup
@@ -179,12 +179,12 @@ parse-term = do
     arg <- parse-term
     has-bnd <- try-consume "="
     case (arg , has-bnd) of λ where
-      (Var bnd , True) -> do
+      (Var bnd , True) → do
         arg <- parse-term
         pure (Some bnd , arg)
-      (Var bnd , False) -> pure (Some bnd , arg)
-      (_ , True) -> fail "Expected argument name"
-      (_ , False) -> pure (Some "%arg" , arg)
+      (Var bnd , False) → pure (Some bnd , arg)
+      (_ , True) → fail "Expected argument name"
+      (_ , False) → pure (Some "%arg" , arg)
 
   parse-match-with : Parser (List (Pair (Maybe String) Term))
   parse-match-with = do
@@ -211,7 +211,7 @@ parse-term = do
     arms <- list-like parse-match-arm "{" "}" ";" False 1
     pure (Mat bnd arg with-bnd with-arg arms)
 
-  parse-switch-arms : Nat -> List Term -> Parser (Pair Nat (List Term))
+  parse-switch-arms : Nat → List Term → Parser (Pair Nat (List Term))
   parse-switch-arms n acc = do
     try-consume "|"
     let pred = do
@@ -238,7 +238,7 @@ parse-term = do
     (pred , arms) <- parse-switch-arms 0 []
     consume "}"
     let arms = reverse arms
-    let pred = fold None (λ bnd -> Some (bnd ++ "-" ++ (show pred))) bnd
+    let pred = fold None (λ bnd → Some (bnd ++ "-" ++ (show pred))) bnd
     pure (Swt bnd arg with-bnd with-arg pred arms)
 
   parse-fold : Parser Term
@@ -288,10 +288,10 @@ parse-term = do
   parse-num-or-var = do
     head <- peek-one
     case head of λ where
-      (Some c) ->  if is-digit c then (do
+      (Some c) →  if is-digit c then (do
                     num <- parse-number
                     pure (Num num))
                   else do
                     var <- parse-var-name
                     pure (Var var)
-      None -> fail "Expected term"
+      None → fail "Expected term"

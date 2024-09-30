@@ -11,7 +11,7 @@ open import ARC.DSL.Types.IntegerPair.IntegerPair
 -- - a: The first Numerical value
 -- - b: The second Numerical value
 -- = a / b
-divide : Numerical -> Numerical -> Numerical
+divide : Numerical → Numerical → Numerical
 divide (Lft x)         (Lft y)         = Lft (I.div x y)
 divide (Lft x)         (Rgt (y0 , y1)) = Rgt (I.div x y0  , I.div x y1)
 divide (Rgt (x0 , x1)) (Lft y)         = Rgt (I.div x0 y  , I.div x1 y)

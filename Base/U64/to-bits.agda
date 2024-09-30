@@ -9,5 +9,5 @@ open import Base.U64.to-nat
 -- Converts a U64 number to its binary representation.
 -- - n: The U64 number to convert.
 -- = The binary representation of the number as Bits.
-to-bits : U64 -> Bits
+to-bits : U64 → Bits
 to-bits n = to-bits-nat (to-nat n)

@@ -8,7 +8,7 @@ open import Base.Unit.Unit
 -- 1st: The path of the file to write to.
 -- 2nd: The content to write.
 -- = IO action that writes the content to the file.
-postulate write-file : String -> String -> IO Unit
+postulate write-file : String → String → IO Unit
 
 {-# FOREIGN GHC import qualified Data.Text    as T   #-}
 {-# FOREIGN GHC import qualified Data.Text.IO as TIO    #-}

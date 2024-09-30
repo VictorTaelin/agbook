@@ -11,12 +11,12 @@ open import Base.Unit.Unit
 open import Base.Empty.Empty
 
 -- check if two floats are equal
-equal : F64 -> F64 -> Bool
+equal : F64 → F64 → Bool
 equal x y = primFloatLess (primFloatMinus x y) 0.000001 
          && primFloatLess (primFloatMinus y x) 0.000001
 
 -- Test case
-test-case : F64 -> F64 -> F64 -> Set
+test-case : F64 → F64 → F64 → Set
 test-case a b expected =
     if equal (add a b) expected 
     then Unit 

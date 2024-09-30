@@ -10,6 +10,6 @@ open import Base.String.from-char
 -- - n: The number of times to replicate the character.
 -- - c: The character to replicate.
 -- = A string consisting of n repetitions of c.
-replicate : Nat -> Char -> String
+replicate : Nat → Char → String
 replicate Zero _ = ""
 replicate (Succ n) c = append (from-char c) (replicate n c)

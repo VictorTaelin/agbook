@@ -8,5 +8,5 @@ open import Base.V2.V2
 -- - Circle: a circle with a center point and radius.
 -- - Polygon: a polygon defined by a vector of vertices.
 data Shape : Set where
-  Circle  : V2 -> F64 -> Shape
-  Polygon :  List V2 -> Shape
+  Circle  : V2 → F64 → Shape
+  Polygon :  List V2 → Shape

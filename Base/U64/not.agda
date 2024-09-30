@@ -11,9 +11,9 @@ open import Base.U64.from-nat
 -- Performs bitwise NOT operation on a U64 value.
 -- - x: The U64 value to be negated.
 -- = The result of bitwise NOT on x.
-not : U64 -> U64
+not : U64 → U64
 not x = from-nat (to-nat (notB (to-bits x)))
 
 infix 9 ~_
-~_ : U64 -> U64
+~_ : U64 → U64
 ~_ = not

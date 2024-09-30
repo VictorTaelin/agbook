@@ -11,6 +11,6 @@ open import Base.Word8.from-nat
 -- The first byte represents the button type:
 -- 0 for LeftButton, 1 for RightButton.
 -- The rest of the ByteString is empty (represented by an empty string).
-serialize : Click -> ByteString
+serialize : Click → ByteString
 serialize LeftButton  = cons (from-nat 0) (pack-string "")
 serialize RightButton = cons (from-nat 1) (pack-string "")

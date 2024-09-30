@@ -18,7 +18,7 @@ open import UG.Chat.Message.Message
 -- Constructs a ByteString message for joining a chat room.
 -- - room: The room ID to join.
 -- = Returns a ByteString containing the JOIN message type and the room ID.
-join-room : Nat -> ByteString
+join-room : Nat → ByteString
 join-room room = do
   let message-type = Word8.from-nat (Message.to-nat JOIN)
   let buffer = cons message-type (pack-string "")

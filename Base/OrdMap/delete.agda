@@ -13,5 +13,5 @@ open import Base.AVLTree.AVLTree
 -- - key: The key to be deleted from the OrdMap.
 -- - map: The OrdMap to delete from.
 -- = A new OrdMap with the specified key-value pair removed (if it existed).
-delete : ∀ {K V : Set} -> {{_ : Ord K}} -> K -> OrdMap K V -> OrdMap K V
+delete : ∀ {K V : Set} → {{_ : Ord K}} → K → OrdMap K V → OrdMap K V
 delete = T.delete

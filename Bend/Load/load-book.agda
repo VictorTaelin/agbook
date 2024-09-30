@@ -19,19 +19,19 @@ open import Bend.Parser.Fun.parse-book
 -- Converts a ParseBook to a Book
 -- TODO: This is a temporary hack to get the book to compile.
 --       We'll replace this by the actual resolution and import system.
-parse-book-to-book : ParseBook -> Book
+parse-book-to-book : ParseBook → Book
 parse-book-to-book pb = record { defs = ParseBook.fun-defs pb }
 
 -- Loads a book from a file
 -- - path: The path to the file containing the book
 -- = An IO action that results in either a Book or an error message
-load-book : String -> IO (Result Book String)
+load-book : String → IO (Result Book String)
 load-book path = do
   content <- read-file path
   let parse-result = parse-book (new-parser-state content)
   pure (case parse-result of λ
-    { (Done (MkReply _ book)) ->
+    { (Done (MkReply _ book)) →
         Done (parse-book-to-book book)
-    ; (Fail (MkError idx err)) ->
+    ; (Fail (MkError idx err)) →
         Fail ("Failed to parse book at index " ++ show idx ++ ":\n  " ++ err)
     })

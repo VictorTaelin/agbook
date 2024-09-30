@@ -13,5 +13,5 @@ open import Base.Nat.sub
 -- - init: The starting index of the slice.
 -- - end: The ending index of the slice (exclusive).
 -- = A new ByteString containing the specified slice.
-slice : ByteString -> Nat -> Nat -> ByteString
+slice : ByteString → Nat → Nat → ByteString
 slice bs init end = pack (take (end - init) (drop init (unpack bs)))

@@ -10,6 +10,6 @@ import HVM2.Net.Net as HVM2
 
 -- Compiles a Bend Book in core form to HVM and applies all the
 -- inet-level transformations.
-to-hvm : Bend.Book -> Result (List (Pair String HVM2.Net)) String
+to-hvm : Bend.Book → Result (List (Pair String HVM2.Net)) String
 to-hvm book = do
   book-to-hvm book

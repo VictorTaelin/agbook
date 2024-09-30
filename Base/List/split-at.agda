@@ -10,5 +10,5 @@ open import Base.List.drop
 -- - n: The index at which to split the list.
 -- - xs: The input list.
 -- = A pair of lists: the first n elements and the rest.
-split-at : ∀ {A : Set} -> Nat -> List A -> Pair (List A) (List A)
+split-at : ∀ {A : Set} → Nat → List A → Pair (List A) (List A)
 split-at n xs = (take n xs , drop n xs)

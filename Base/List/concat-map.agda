@@ -8,5 +8,5 @@ open import Base.List.map
 -- - f: The function that maps elements to lists.
 -- - xs: The input list.
 -- = A new list containing all elements from the lists produced by f.
-concat-map : ∀ {A B : Set} -> (A -> List B) -> List A -> List B
+concat-map : ∀ {A B : Set} → (A → List B) → List A → List B
 concat-map f xs = concat (map f xs)

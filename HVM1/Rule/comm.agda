@@ -11,7 +11,7 @@ open import HVM1.Run.node-set
 open import HVM1.Run.link
 open import HVM1.Node.Node
 
-comm : Bits -> Port -> Port -> Port -> Bits -> Port -> Port -> Port -> Run Unit
+comm : Bits → Port → Port → Port → Bits → Port → Port → Port → Run Unit
 comm ak a0 a1 a2 bk b0 b1 b2 = do
   A1 <- fresh
   A2 <- fresh

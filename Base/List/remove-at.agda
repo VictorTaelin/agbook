@@ -11,7 +11,7 @@ open import Base.Bool.if
 -- - n: The index of the element to remove.
 -- - xs: The input list.
 -- = A new list with the element at index n removed, or the original list if n is out of bounds.
-remove-at : ∀ {A : Set} -> List A -> Nat -> List A
+remove-at : ∀ {A : Set} → List A → Nat → List A
 remove-at []        _        = []
 remove-at (_ :: xs) Zero     = xs
 remove-at (x :: xs) (Succ n) = x :: remove-at xs n

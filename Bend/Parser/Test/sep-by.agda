@@ -21,7 +21,7 @@ open import Bend.Parser.parse-var-name
 open import Bend.Parser.sep-by
 open import Bend.Parser.skip-trivia
 
-parse : {A : Set} -> Parser A -> String -> Result (Reply A) Error
+parse : {A : Set} → Parser A → String → Result (Reply A) Error
 parse p input = p (new-parser-state input)
 
 sep-by-parser : Parser (List String)

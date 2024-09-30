@@ -18,17 +18,17 @@ open import Base.String.from-list
 -- Converts a natural number into a unique name.
 -- - n: The number to convert.
 -- = A unique string representation of the number, using only lowercase ascii characters.
-nat-to-name : Nat -> String
+nat-to-name : Nat → String
 nat-to-name n = from-list (letter-list n)
 
   where
 
-  letter : Nat -> Char
+  letter : Nat → Char
   letter n = from-nat (n + (to-nat 'a'))
 
-  letter-list' : Nat -> List Char -> List Char
+  letter-list' : Nat → List Char → List Char
   letter-list' 0 acc = acc
   letter-list' (Succ n) acc = letter-list' (div n 26) (letter (n % 26) :: acc)
 
-  letter-list : Nat -> List Char
+  letter-list : Nat → List Char
   letter-list n = letter-list' (div n 26) (letter (n % 26) :: [])

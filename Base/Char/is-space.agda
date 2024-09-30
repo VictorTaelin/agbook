@@ -4,7 +4,7 @@ open import Base.Char.Char
 open import Base.Bool.Bool
 
 primitive
-  primIsSpace : Char -> Bool
+  primIsSpace : Char → Bool
 
-is-space : Char -> Bool
+is-space : Char → Bool
 is-space = primIsSpace

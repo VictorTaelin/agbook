@@ -11,7 +11,7 @@ open import ARC.DSL.Types.IntegerPair.IntegerPair
 -- - a: The first Numerical value
 -- - b: The second Numerical value
 -- = The sum of a and b
-add : Numerical -> Numerical -> Numerical
+add : Numerical → Numerical → Numerical
 add (Lft x)         (Lft y)         = Lft (I.add x y)
 add (Lft x)         (Rgt (y0 , y1)) = Rgt (I.add x y0  , I.add x y1)
 add (Rgt (x0 , x1)) (Lft y)         = Rgt (I.add x0 y  , I.add x1 y)

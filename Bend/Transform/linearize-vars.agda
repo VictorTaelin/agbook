@@ -45,7 +45,7 @@ private
 -- - name: The original variable name.
 -- - uses: The number of times the variable is used.
 -- = The new name, possibly with a use count appended.
-dup-name : String -> Nat -> String
+dup-name : String → Nat → String
 dup-name name uses = if uses == 1 then name else name ++ "_" ++ show uses
 
 -- Retrieves the number of uses for a given variable name from the BitMap.
@@ -53,28 +53,28 @@ dup-name name uses = if uses == 1 then name else name ++ "_" ++ show uses
 -- - name: The name of the variable to look up.
 -- - var-uses: The BitMap containing variable use counts.
 -- = The number of uses for the given variable.
-get-var-uses : Maybe String -> BitMap Nat -> Nat
+get-var-uses : Maybe String → BitMap Nat → Nat
 get-var-uses None _ = 0
 get-var-uses (Some name) var-uses =
   case get var-uses (hash name) of λ where
-    (Some count) -> count
-    None         -> 0
+    (Some count) → count
+    None         → 0
 
 -- Creates a duplicate pattern for variables used multiple times.
 -- The pattern is a Fan of Dup kind with variables named name_1, name_2, etc.
 -- - name: The original variable name.
 -- - uses: The number of times the variable is used.
 -- = A Fan pattern with duplicated variables.
-duplicate-pat : String -> Nat -> Pattern
+duplicate-pat : String → Nat → Pattern
 duplicate-pat name uses =
-  Fan FanKind.Dup (map (λ i -> Var (Some (dup-name name i))) (range 1 (Succ uses)))
+  Fan FanKind.Dup (map (λ i → Var (Some (dup-name name i))) (range 1 (Succ uses)))
 
 -- Main function to linearize variables in a term.
 -- It transforms the term to ensure each variable is used at most once.
 -- - term: The term to linearize.
 -- - var-uses: A BitMap tracking variable use counts.
 -- = The linearized term.
-linearize-vars-term : BitMap Nat -> Term -> (Pair (BitMap Nat) Term)
+linearize-vars-term : BitMap Nat → Term → (Pair (BitMap Nat) Term)
 
 -- Let terms with just a variable get inlined
 linearize-vars-term var-uses (Let (Var (Some nam)) val nxt) = do
@@ -82,9 +82,9 @@ linearize-vars-term var-uses (Let (Var (Some nam)) val nxt) = do
   let uses           = get-var-uses (Some nam) var-uses
   let var-uses , val = linearize-vars-term var-uses val
   let term           = case uses of λ where
-    0 -> Let (Var None) val nxt
-    1 -> subst nam val nxt
-    _ -> Let (duplicate-pat nam uses) val nxt
+    0 → Let (Var None) val nxt
+    1 → subst nam val nxt
+    _ → Let (duplicate-pat nam uses) val nxt
   (var-uses , term)
 
 -- Count var uses and update the name to the duplication
@@ -99,7 +99,7 @@ linearize-vars-term var-uses term = do
   -- linearize the children
   let var-uses , term = map-children-with-state linearize-vars-term var-uses term
   -- erase unused bindings
-  let term = map-child-binds (λ bind _ -> erase-unused-bind bind var-uses) term
+  let term = map-child-binds (λ bind _ → erase-unused-bind bind var-uses) term
   -- add duplications of bindings
   let term = duplicate-term term var-uses
   var-uses , term
@@ -110,7 +110,7 @@ linearize-vars-term var-uses term = do
   -- - bind: The binding to check.
   -- - var-uses: The BitMap containing variable use counts.
   -- = The binding if used, None otherwise.
-  erase-unused-bind : Maybe String -> BitMap Nat -> Maybe String
+  erase-unused-bind : Maybe String → BitMap Nat → Maybe String
   erase-unused-bind bind var-uses = if (get-var-uses bind var-uses) == 0 then None else bind
 
   -- Adds duplication bindings for variables used multiple times
@@ -118,9 +118,9 @@ linearize-vars-term var-uses term = do
   -- - nxt: The term to wrap with Let expressions for duplicated variables.
   -- - var-uses: The BitMap containing variable use counts.
   -- = The term with added duplications for multiply-used variables.
-  duplicate-binds : List' String -> Term -> BitMap Nat -> Term
+  duplicate-binds : List' String → Term → BitMap Nat → Term
   duplicate-binds bnd nxt var-uses =
-    foldr (λ bnd nxt -> do
+    foldr (λ bnd nxt → do
             let uses = get-var-uses (Some bnd) var-uses
             if uses > 1
               then Let (duplicate-pat bnd uses) (Var bnd) nxt
@@ -131,7 +131,7 @@ linearize-vars-term var-uses term = do
   -- - term: The term to potentially duplicate.
   -- - var-uses: The BitMap containing variable use counts.
   -- = The term with duplications applied if necessary.
-  duplicate-term : Term -> BitMap Nat -> Term
+  duplicate-term : Term → BitMap Nat → Term
   duplicate-term (Lam pat bod) var-uses = do
     let bod = duplicate-binds (Pat.binds pat) bod var-uses
     Lam pat bod
@@ -144,11 +144,11 @@ linearize-vars-term var-uses term = do
 -- Applies linearize-vars-term to all functions in the book
 -- - book: The Book to linearize.
 -- = A new Book with linearized variables in all functions.
-linearize-vars : Book -> Book
+linearize-vars : Book → Book
 linearize-vars book = do
   let map-body body = snd (linearize-vars-term empty body)
   let map-rule rule = record rule { body = map-body (Rule.body rule) }
   let map-def def   = record def { rules = map map-rule (FnDef.rules def) }
   let defs          = (BitMap.to-list (Book.defs book))
-  let defs          = map (λ (key , def) -> (key , map-def def)) defs
+  let defs          = map (λ (key , def) → (key , map-def def)) defs
   record { defs = BitMap.from-list defs }

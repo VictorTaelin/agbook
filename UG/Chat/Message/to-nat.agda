@@ -7,7 +7,7 @@ open import UG.Chat.Message.Message
 -- This function is useful for serializing Message types for network communication.
 -- - msg: The Message to convert.
 -- = The natural number representation of the Message.
-to-nat : Message -> Nat
+to-nat : Message → Nat
 to-nat JOIN = 0
 to-nat EXIT = 1
 to-nat POST = 2

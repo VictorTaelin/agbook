@@ -14,7 +14,7 @@ open import Base.Word8.to-nat
 -- - bs: The input ByteString.
 -- - pos: The position from which to read the character.
 -- = The character at the specified position, or None if the position is out of bounds.
-read-char : ByteString -> Nat -> Maybe Char
+read-char : ByteString → Nat → Maybe Char
 read-char bs pos with head (unpack (slice bs pos (Succ pos)))
 ... | None    = None
 ... | Some n  = Some (from-nat (to-nat n))

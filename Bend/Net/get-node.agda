@@ -9,7 +9,7 @@ open import Base.Pair.Pair
 open import Bend.Net.Net
 open import Bend.Net.Node.Node
 
-get-node : Net -> Nat -> Maybe (Pair Node Net)
+get-node : Net → Nat → Maybe (Pair Node Net)
 get-node (MkNet nodes len name) node-id = do
   let key = nat-to-bits node-id
   a <- map-get nodes key

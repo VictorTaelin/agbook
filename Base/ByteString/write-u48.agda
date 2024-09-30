@@ -24,7 +24,7 @@ open import Base.Word8.Word8
 -- - pos: The position (in bytes) where the 48-bit value should be written.
 -- - value: The 48-bit unsigned integer to write (as a Nat).
 -- = A new ByteString with the 48-bit value written at the specified position in big-endian order.
-write-u48 : ByteString -> Nat -> Nat -> ByteString
+write-u48 : ByteString → Nat → Nat → ByteString
 write-u48 bs pos value = do
   let original = unpack bs
   let bits = pad-zeros 48 (to-bits value)

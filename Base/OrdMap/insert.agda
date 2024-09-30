@@ -14,6 +14,6 @@ open import Base.AVLTree.AVLTree
 -- - pair: The key-value pair to be inserted into the OrdMap.
 -- - map: The OrdMap to insert into.
 -- = A new OrdMap with the specified key-value pair inserted or updated.
-insert : ∀ {K V : Set} -> {{_ : Ord K}} ->
-         Pair K V -> OrdMap K V -> OrdMap K V
+insert : ∀ {K V : Set} → {{_ : Ord K}} →
+         Pair K V → OrdMap K V → OrdMap K V
 insert = AVL.insert

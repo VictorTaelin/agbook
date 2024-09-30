@@ -10,7 +10,7 @@ open import Base.Bool.if
 open import Bend.Parser.starts-with-keyword
 open import Bend.Parser.consume
 
-parse-keyword : String -> Parser Unit
+parse-keyword : String → Parser Unit
 parse-keyword keyword = do
   is-kw <- starts-with-keyword keyword
   if is-kw then 

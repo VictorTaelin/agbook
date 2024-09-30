@@ -5,5 +5,5 @@ open import ARC.DSL.Types.OrdSet.OrdSet
 open import ARC.DSL.Types.Pair.Pair
 
 data Container (A : Set) : Set where
-  ListC : List A -> Container A
-  SetC  : OrdSet A -> Container A
+  ListC : List A → Container A
+  SetC  : OrdSet A → Container A

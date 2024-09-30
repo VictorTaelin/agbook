@@ -10,5 +10,5 @@ open import Base.AVLTree.AVLTree
 -- Converts a list of key-value pairs to an OrdMap.
 -- - pairs: A list of key-value pairs.
 -- = An OrdMap containing all the key-value pairs from the input list.
-from-list : ∀ {K V : Set} -> {{_ : Ord K}} -> List (Pair K V) -> OrdMap K V
+from-list : ∀ {K V : Set} → {{_ : Ord K}} → List (Pair K V) → OrdMap K V
 from-list = T.from-list
