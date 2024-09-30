@@ -6,8 +6,6 @@ open import Base.String.String
 open import Bend.Fun.FanKind.FanKind
 open import Bend.Fun.Pattern.Pattern
 open import Bend.Fun.Op.Op
-open import Bend.Source.Source
-open import Bend.Source.TextSpan.TextSpan
 open import Base.List.List renaming (List to List')
 open import Bend.Fun.Num.Num renaming (Num to Num')
 import Bend.Fun.MatchRule.MatchRule as MatchRule'

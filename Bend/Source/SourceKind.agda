@@ -1,4 +1,4 @@
-module Bend.Source.SourceKind.SourceKind where
+module Bend.Source.SourceKind where
 
 -- Origin of a source code element
 data SourceKind : Set where

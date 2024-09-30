@@ -1,4 +1,4 @@
-module Bend.Source.TextLocation.TextLocation where
+module Bend.Source.TextLocation where
 
 open import Base.Nat.Nat
 
