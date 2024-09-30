@@ -16,6 +16,9 @@ import UG.Chat.Client.join-room as Client
 import UG.Chat.Client.sync-time as Client
 import UG.Chat.Client.handle-pong as Client
 import UG.Chat.Message.to-nat as Message
+open import UG.Shape.square
+open import Base.V2.V2
+open import UG.Shape.Shape
 open import UG.Chat.Client.Client
 open import Base.Bool.Bool
 open import Base.Bool.if
@@ -78,6 +81,7 @@ open import UG.SIPD.State.init
 open import UG.SIPD.Video.quit
 open import UG.SIPD.Window.Window
 open import UG.SIPD.draw
+open import UG.SIPD.draw-shape
 open import UG.SM.Game.Game
 open import UG.SM.Time.time-to-tick
 open import UG.SM.TimedAction.TimedAction
@@ -212,6 +216,9 @@ register-events mach events client-channel = do
   --pure final-mach
   pure mach
 
+s : Shape
+s = square (MkV2 200.0 150.0) 100.0
+
 loop : (Mach State Event) → Window → Renderer → State → (Mach State Event → Channel ByteString → Client → IO (Pair (Mach State Event) Client)) → Channel ByteString → Channel ByteString → Client → IO State
 loop mach window renderer state process-message channel client-channel client = do
 
@@ -225,6 +232,8 @@ loop mach window renderer state process-message channel client-channel client = 
   (newState , computed-mach) <- compute proc-mach game time-now
 
   draw window renderer newState
+
+  draw-shape renderer s
 
   loop computed-mach window renderer newState (λ mach chan client → process-message mach chan client) channel client-channel client
 
