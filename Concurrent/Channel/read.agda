@@ -11,4 +11,4 @@ postulate read : ∀ {A : Set} → Channel A → IO (Maybe A)
 
 {-# FOREIGN GHC import qualified Control.Concurrent as CC #-}
 {-# FOREIGN GHC import qualified System.Timeout as ST #-}
-{-# COMPILE GHC read = \_ chan → ST.timeout (fromIntegral 100) (CC.readChan chan) #-}
+{-# COMPILE GHC read = \_ chan -> ST.timeout (fromIntegral 100) (CC.readChan chan) #-}

@@ -12,4 +12,4 @@ postulate receive-data : WSConnection → IO String
 {-# FOREIGN GHC import qualified Network.WebSockets as WS #-}
 {-# FOREIGN GHC import qualified Base.Text as T #-}
 
-{-# COMPILE GHC receive-data = \conn → (WS.receiveBase conn) #-}
+{-# COMPILE GHC receive-data = \conn -> (WS.receiveBase conn) #-}

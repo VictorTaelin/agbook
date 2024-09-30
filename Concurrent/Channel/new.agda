@@ -9,4 +9,4 @@ open import Concurrent.Channel.Channel
 postulate new : ∀ {A : Set} → IO (Channel A)
 
 {-# FOREIGN GHC import qualified Control.Concurrent as CC #-}
-{-# COMPILE GHC new = \_ → CC.newChan #-}
+{-# COMPILE GHC new = \_ -> CC.newChan #-}

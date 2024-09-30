@@ -14,8 +14,8 @@ record Game (S A : Set) : Set where
 {-# FOREIGN GHC
 data Game s a = MkGame
   { init :: s
-  , when :: a → s → s
-  , tick :: s → s
+  , when :: a -> s -> s
+  , tick :: s -> s
   }
 #-}
 

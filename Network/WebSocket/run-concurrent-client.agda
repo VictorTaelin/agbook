@@ -19,6 +19,6 @@ postulate run-concurrent-client : String → Int → String → (WSConnection �
 {-# FOREIGN GHC import qualified Data.Text as T #-}
 {-# FOREIGN GHC import qualified Network.WebSockets as WS #-}
 
-{-# COMPILE GHC run-concurrent-client = \host port path handler → do
+{-# COMPILE GHC run-concurrent-client = \host port path handler -> do
     void $ CC.forkIO $ WS.runClient (T.unpack host) (fromIntegral port) (T.unpack path) handler
 #-}

@@ -7,4 +7,4 @@ open import Base.IO.IO
 -- = An IO action that returns the given value.
 postulate pure : ∀ {A : Set} → A → IO A
 
-{-# COMPILE GHC pure = \_ → return #-}
+{-# COMPILE GHC pure = \_ -> return #-}

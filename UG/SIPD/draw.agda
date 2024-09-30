@@ -20,7 +20,7 @@ import qualified Data.Text as T
 import System.Directory (getCurrentDirectory)
 import System.FilePath ((</>))
 
-renderText :: SDL.Renderer → String → SDL.Point SDL.V2 CInt → IO ()
+renderText :: SDL.Renderer -> String -> SDL.Point SDL.V2 CInt -> IO ()
 renderText renderer text (SDL.P (SDL.V2 x y)) = do
   currentDir <- getCurrentDirectory
   let fontPath = currentDir </> "AntonSC-Regular.ttf"
@@ -34,13 +34,13 @@ renderText renderer text (SDL.P (SDL.V2 x y)) = do
   SDL.destroyTexture texture
   TTF.free font
 
-render :: SDL.Renderer → State → IO ()
+render :: SDL.Renderer -> State -> IO ()
 render renderer state = do
   SDL.rendererDrawColor renderer SDL.$= SDL.V4 0 0 0 255  -- Black color for text
   renderText renderer ("Clicks: " ++ show (clickCount state)) (SDL.P (SDL.V2 10 10))
 #-}
 
-{-# COMPILE GHC draw = \window renderer state → do
+{-# COMPILE GHC draw = \window renderer state -> do
   {
     SDL.rendererDrawColor renderer SDL.$= SDL.V4 255 255 255 255 ;
     SDL.clear renderer ; 
