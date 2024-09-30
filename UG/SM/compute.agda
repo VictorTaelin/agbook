@@ -51,8 +51,6 @@ compute-helper mach game state current-tick end-tick with current-tick == end-ti
   let state-with-actions = foldr (Game.when game) state actions
   let next-state = Game.tick game state-with-actions
   let updated-mach = update-mach mach current-tick state
-  print ("TICK: " ++ (show current-tick))
-  print ("END TICK: " ++ (show end-tick))
   compute-helper updated-mach game next-state next-tick end-tick
  
 -- Computes the state of the game at a given time.
@@ -66,7 +64,6 @@ compute mach game time = do
   let (state , is-initial) = get-initial-state mach game (Mach.cached-tick mach)
   let start-tick = if is-initial then Mach.genesis-tick mach else Mach.cached-tick mach
   let diff = end-t - start-tick
-  print ("DIFF: " ++ show (diff))
   if diff > 1000000
     then pure (state , mach)
     else compute-helper mach game state start-tick end-t
