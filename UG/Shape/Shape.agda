@@ -9,4 +9,14 @@ open import Base.V2.V2
 -- - Polygon: a polygon defined by a vector of vertices.
 data Shape : Set where
   Circle  : V2 → F64 → Shape
-  Polygon :  List V2 → Shape
+  Polygon : List V2 → Shape
+
+{-# FOREIGN GHC
+import qualified Data.Vector as V
+import MAlonzo.Code.Base.V2.V2 (V2(..))
+
+data Shape = Circle V2 Double
+           | Polygon [V2]
+#-}
+
+{-# COMPILE GHC Shape = data Shape (Circle | Polygon) #-}
