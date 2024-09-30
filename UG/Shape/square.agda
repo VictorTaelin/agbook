@@ -12,11 +12,10 @@ open import UG.Shape.Shape
 -- - side-length: The length of each side of the square (F64).
 -- = A Shape representing the square.
 square : V2 → F64 → Shape
-square center side-length = do
-  let half-side = side-length F64./ 2.0
-  let top-left     = MkV2 (0.0 F64.- half-side) half-side
-  let top-right    = MkV2 half-side half-side
-  let bottom-right = MkV2 half-side (0.0 F64.- half-side)
-  let bottom-left  = MkV2 (0.0 F64.- half-side) (0.0 F64.- half-side)
-
-  Polygon (top-left :: top-right :: bottom-right :: bottom-left :: [])
+square center side-length = 
+  let half-side = F64.div side-length 2.0
+      top-left     = MkV2 (F64.sub (V2.x center) half-side) (F64.add (V2.y center) half-side)
+      top-right    = MkV2 (F64.add (V2.x center) half-side) (F64.add (V2.y center) half-side)
+      bottom-right = MkV2 (F64.add (V2.x center) half-side) (F64.sub (V2.y center) half-side)
+      bottom-left  = MkV2 (F64.sub (V2.x center) half-side) (F64.sub (V2.y center) half-side)
+  in Polygon (top-left :: top-right :: bottom-right :: bottom-left :: [])
