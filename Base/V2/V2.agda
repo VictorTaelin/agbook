@@ -11,3 +11,11 @@ record V2 : Set where
   field
     x : F64
     y : F64
+
+{-# FOREIGN GHC
+import qualified Data.Vector as V
+
+data V2 = MkV2 { x :: Double , y :: Double }
+#-}
+
+{-# COMPILE GHC V2 = data V2 (MkV2) #-}
