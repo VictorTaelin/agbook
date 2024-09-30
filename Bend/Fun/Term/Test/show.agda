@@ -8,7 +8,7 @@ open import Bend.Fun.FanKind.FanKind
 open import Bend.Fun.Op.Op
 open import Bend.Fun.Num.Num renaming (Num to Num')
 open import Bend.Source.Source
-open import Bend.Source.SourceKind.SourceKind using (SourceKind)
+open import Bend.Source.SourceKind
 open import Base.String.String
 open import Base.String.eq
 open import Base.String.append

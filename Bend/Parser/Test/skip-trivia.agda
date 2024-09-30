@@ -19,7 +19,7 @@ open import Base.Equal.Equal
 open import Bend.Parser.skip-trivia
 
 -- Test cases
-_ : skip-trivia (MkState "   code" 0) ≡ 
+_ : skip-trivia (MkState "   code" 0) ≡
     Done (MkReply (MkState "code" 3) unit)
 _ = refl
 
@@ -27,14 +27,14 @@ _ : skip-trivia (MkState "   # This is a comment\n  #{This is a\nmulti-line comm
     ≡ Done (MkReply (MkState "code" 60) unit)
 _ = refl
 
-_ : skip-trivia (MkState "code" 0) ≡ 
+_ : skip-trivia (MkState "code" 0) ≡
     Done (MkReply (MkState "code" 0) unit)
 _ = refl
 
-_ : skip-trivia (MkState "  # Comment\n  code" 0) ≡ 
+_ : skip-trivia (MkState "  # Comment\n  code" 0) ≡
     Done (MkReply (MkState "code" 14) unit)
 _ = refl
 
-_ : skip-trivia (MkState "#{Nested #{comments#} are #} handled" 0) ≡ 
+_ : skip-trivia (MkState "#{Nested #{comments#} are #} handled" 0) ≡
     Done (MkReply (MkState "handled" 29) unit)
 _ = refl

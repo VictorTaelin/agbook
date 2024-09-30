@@ -3,23 +3,19 @@ module Bend.Compile.Test.book-to-hvm where
 open import Base.Equal.Equal
 open import Base.Bool.Bool
 open import Base.List.List
-open import Base.BitMap.new renaming (new to map-new)
-open import Base.BitMap.set renaming (set to map-set)
 open import Base.Maybe.Maybe
 open import Base.Pair.Pair
 open import Base.Result.Result
 open import Base.String.String
-open import Base.String.hash
 open import Bend.Fun.Book.Book
 open import Bend.Fun.Book.add-fn-def
 import Bend.Fun.Book.new as Book
 open import Bend.Fun.Term.Term using () renaming (Term to BTerm)
 open import Bend.Fun.Type.Type using (Type)
 open import Bend.Source.Source
-open import Bend.Source.SourceKind.SourceKind
+open import Bend.Source.SourceKind
 open import HVM2.Net.Net
-open import HVM2.Redex.Redex
-open import HVM2.Net.show renaming (show to show-net)
+open import HVM2.Redex.Redex  
 open import HVM2.Term.Term using () renaming (Term to H)
 open import Bend.Compile.book-to-hvm
 open import Bend.nat-to-name renaming (nat-to-name to nam)

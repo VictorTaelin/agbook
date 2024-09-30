@@ -4,11 +4,13 @@ open import Base.Function.case
 open import Base.List.List
 open import Base.List.head
 open import Base.List.unzip
+open import Base.List.mmap
 open import Base.BitMap.to-list renaming (to-list to map-to-list)
 open import Base.Maybe.to-result
 open import Base.Pair.Pair
 open import Base.Result.Result
 open import Base.Result.Monad.bind
+open import Base.Result.Trait.Monad
 open import Base.String.String
 open import Base.String.append
 open import Bend.Compile.BendToNet.Encoder.new renaming (new to new-encoder)
@@ -29,9 +31,10 @@ private
 -- - book: The Book containing function definitions
 -- = A List of Nets with the compiled definitions or an error message
 book-to-nets : Book → Result (List Net) String
-book-to-nets book =
-  let (_ , defs) = unzip (map-to-list (Book.defs book)) in
-  defs-to-nets defs
+book-to-nets book = do
+  -- TODO: HVM native functions
+  let (_ , defs) = unzip (map-to-list (Book.defs book))
+  mmap def-to-net defs
   where
 
   -- Converts a single function definition to a Net
@@ -39,17 +42,6 @@ book-to-nets book =
   -- = The function compiled to a Net or an error message
   def-to-net : FnDef → Result Net String
   def-to-net (MkFnDef name type check rules src) = do
-      rule <- to-result (head rules) ("No rules found for " ++ name)
-      enc <- encode-term (new-encoder name) (Rule.body rule) net-root
-      Done (Encoder.net enc)
-
-  -- Recursively processes a list of function definitions into Nets
-  -- - defs: The list of FnDef (function definitions) to process
-  -- = A List of compiled Nets or an error message
-  -- TODO: This could just be a foldM
-  defs-to-nets : List FnDef → Result (List Net) String
-  defs-to-nets [] = Done []
-  defs-to-nets (def :: defs) = do
-    net <- def-to-net def
-    nets <- defs-to-nets defs
-    (Done (net :: nets))
+    rule <- to-result (head rules) ("No rules found for " ++ name)
+    enc  <- encode-term (new-encoder name) (Rule.body rule) net-root
+    Done (Encoder.net enc)

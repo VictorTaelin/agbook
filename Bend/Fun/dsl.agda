@@ -1,7 +1,7 @@
 module Bend.Fun.dsl where
 
 open import Bend.Source.Source
-open import Bend.Source.SourceKind.SourceKind
+open import Bend.Source.SourceKind
 open import Bend.Fun.Term.Term
 open import Bend.Fun.Pattern.Pattern as P
 open import Bend.Fun.FanKind.FanKind as Fan

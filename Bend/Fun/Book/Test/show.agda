@@ -8,7 +8,7 @@ open import Bend.Fun.Term.show
 open import Bend.Fun.FnDef.show
 open import Bend.Fun.Type.Type using () renaming (Type to Ty)
 open import Bend.Source.Source
-open import Bend.Source.SourceKind.SourceKind
+open import Bend.Source.SourceKind
 open import Base.BitMap.BitMap
 open import Base.BitMap.from-list
 open import Base.Maybe.Maybe
