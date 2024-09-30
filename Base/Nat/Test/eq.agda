@@ -2,6 +2,7 @@ module Base.Nat.Test.eq where
 
 open import Base.Nat.Nat
 open import Base.Nat.eq
+open import Base.Nat.neq
 open import Base.Bool.Bool
 open import Base.Equal.Equal
 
