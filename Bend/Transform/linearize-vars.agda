@@ -145,10 +145,10 @@ linearize-vars-term var-uses term = do
 -- - book: The Book to linearize.
 -- = A new Book with linearized variables in all functions.
 linearize-vars : Book → Book
-linearize-vars book = do
+linearize-vars (MkBook defs adts ctrs) = do
   let map-body body = snd (linearize-vars-term empty body)
   let map-rule rule = record rule { body = map-body (Rule.body rule) }
   let map-def def   = record def { rules = map map-rule (FnDef.rules def) }
-  let defs          = (BitMap.to-list (Book.defs book))
+  let defs          = (BitMap.to-list defs)
   let defs          = map (λ (key , def) → (key , map-def def)) defs
-  record { defs = BitMap.from-list defs }
+  (MkBook (BitMap.from-list defs) adts ctrs)

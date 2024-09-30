@@ -15,5 +15,5 @@ private
 -- - fn-def: The function definition to add.
 -- = A new Book with the added function definition.
 add-fn-def : Book → FnDef → Book
-add-fn-def (MkBook defs) fn-def =
-  MkBook (set defs (hash (FnDef.name fn-def)) fn-def)
+add-fn-def (MkBook defs ctrs adts) fn-def =
+  MkBook (set defs (hash (FnDef.name fn-def)) fn-def) ctrs adts

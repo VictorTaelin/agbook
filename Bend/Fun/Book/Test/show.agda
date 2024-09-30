@@ -41,12 +41,13 @@ private
   dummy-book = MkBook (from-list
     ((hash "func1" , dummy-fn-def "func1") ::
      (hash "func2" , dummy-fn-def "func2") :: []))
+     (from-list []) (from-list [])
 
 test-empty-book : show book-new ≡ ""
 test-empty-book = refl
 
 test-single-function-book :
-  show (MkBook (from-list ((hash "func" , dummy-fn-def "func") :: [])))
+  show (MkBook (from-list ((hash "func" , dummy-fn-def "func") :: [])) (from-list []) (from-list []))
   ≡
   "func : Type\n(func) = dummy"
 test-single-function-book = refl

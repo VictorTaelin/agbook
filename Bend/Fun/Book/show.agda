@@ -27,7 +27,7 @@ instance
   ShowBook = record { to-string = show-book }
     where
       show-book : Book → String
-      show-book (MkBook defs) =
-        let def-list = map snd (to-list defs)
-            sorted-defs = sort (λ x y → (FnDef.name x) <= (FnDef.name y)) def-list
-        in join "\n\n" (map show sorted-defs)
+      show-book (MkBook defs _ctrs _adts) = do
+        let def-list    = map snd (to-list defs)
+        let sorted-defs = sort (λ x y → (FnDef.name x) <= (FnDef.name y)) def-list
+        join "\n\n" (map show sorted-defs)

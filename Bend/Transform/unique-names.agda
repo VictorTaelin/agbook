@@ -246,12 +246,12 @@ mutual
 
 -- Apply unique names to a Book
 unique-names : Book → Book
-unique-names (MkBook defs) = do
+unique-names (MkBook defs adts ctrs) = do
   let defs = foldr (λ (key , def) defs → do
                       let def = record def { rules = unique-names-rules 0 (FnDef.rules def) }
                       (key , def) :: defs)
                     [] (to-list defs)
-  MkBook (from-list defs)
+  MkBook (from-list defs) adts ctrs
 
   where
 

@@ -11,4 +11,4 @@ open import Base.BitMap.contains as Map
 -- - name: The name of the function to look for.
 -- = True if the Book contains a function definition with the given name, False otherwise.
 contains-def : Book → String → Bool
-contains-def (MkBook defs) name = Map.contains defs (hash name)
+contains-def (MkBook defs _ _) name = Map.contains defs (hash name)

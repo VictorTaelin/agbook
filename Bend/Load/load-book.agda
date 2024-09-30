@@ -1,5 +1,6 @@
 module Bend.Load.load-book where
 
+open import Base.BitMap.new renaming (new to map-new)
 open import Base.Function.case
 open import Base.IO.IO
 open import Base.IO.Monad.bind
@@ -20,7 +21,8 @@ open import Bend.Parser.Fun.parse-book
 -- TODO: This is a temporary hack to get the book to compile.
 --       We'll replace this by the actual resolution and import system.
 parse-book-to-book : ParseBook → Book
-parse-book-to-book pb = record { defs = ParseBook.fun-defs pb }
+-- TODO: Add ctrs and adts
+parse-book-to-book (MkParseBook defs) = MkBook defs map-new map-new
 
 -- Loads a book from a file
 -- - path: The path to the file containing the book

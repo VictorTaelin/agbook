@@ -11,4 +11,4 @@ private
 -- Creates a new empty Book.
 -- = An empty Book with no function definitions.
 new : Book
-new = MkBook map-new
+new = MkBook map-new map-new map-new
