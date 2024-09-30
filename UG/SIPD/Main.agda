@@ -1,5 +1,7 @@
 module UG.SIPD.Main where
 
+open import Base.Nat.min
+open import UG.SM.Time.time-to-tick
 import Concurrent.Channel.new as Channel
 import Concurrent.Channel.read as Channel
 import Concurrent.Channel.write as Channel
@@ -226,6 +228,13 @@ loop mach window renderer state process-message channel client-channel client = 
 
   loop computed-mach window renderer newState (λ mach chan client → process-message mach chan client) channel client-channel client
 
+handle-join : Maybe ByteString -> Channel ByteString -> IO Unit
+handle-join maybe-event channel with maybe-event
+... | Some event = do
+  Channel.write channel event
+... | None = do
+  pure unit
+
 main : IO Unit
 main = do
 -- ws://server.uwu.games
@@ -249,7 +258,18 @@ main = do
   
   t <- now
   let join = time-action t click-event
+  let serialized = Event.serialize click-event
+  _ <- handle-join serialized client-chan
+  
   let ini-mach = register-action initial-mach join
+  let t-tick = time-to-tick ini-mach t
+  print ("GENESIS: " ++ show (Mach.genesis-tick ini-mach))
+  print ("NOW TICK: " ++ show t-tick)
+  let genesis = Mach.genesis-tick ini-mach
+  let min-gen-now = min t-tick genesis
+  print ("MIN: " ++ show min-gen-now)
+  print ("GENESIS: " ++ show (Mach.genesis-tick ini-mach))
+  print ("CACHED: " ++ show (Mach.cached-tick ini-mach))
 
   loop ini-mach window renderer initialState (λ mach chan client → process-messages mach chan client) chan client-chan client
 
