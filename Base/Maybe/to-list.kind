@@ -2,12 +2,12 @@ use Base/Maybe/ as M/
 use Base/List/ as L/
 
 // Converts a Maybe value to a List.
-// - A: The type of the value inside Maybe.
-// - ma: The Maybe value to convert.
+// - 1st: The type of the value inside Maybe.
+// - 2nd: The Maybe value to convert.
 // = An empty list if the input is None, or a singleton list containing the value if it's Some.
 M/to-list
 : ∀(A: *)
-  ∀(ma: (M/Maybe A))
+  ∀(m: (M/Maybe A))
   (L/List A)
 = λA λ{
   #None: #Nil{}

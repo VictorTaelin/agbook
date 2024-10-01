@@ -1,0 +1,11 @@
+use Base/Maybe/ as M/
+
+// Wraps a value in a Maybe context.
+// - 1st: The type of the value
+// - 2nd: The value to be wrapped.
+// = A Maybe value containing x.
+M/pure
+: ∀(A: *)
+  ∀(value: A)
+  (M/Maybe A)
+= λA λvalue #Some{value}

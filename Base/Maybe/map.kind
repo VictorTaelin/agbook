@@ -1,0 +1,18 @@
+use Base/Maybe/ as M/
+
+// Applies a function to the value inside a Maybe, if it exists
+// - 1st: The type of the input value
+// - 2nd: The type of the output value
+// - 3rd: The input Maybe value
+// - 4th: The function to apply to the value if it exists
+// = A new Maybe value with the function applied to the inner value, if it exists
+M/map
+: ∀(A: *)
+  ∀(B: *)
+  ∀(f: ∀(x: A) B)
+  ∀(m: (M/Maybe A))
+  (M/Maybe B)
+= λA λB λf λ{
+    #None: #None{}
+    #Some: λm.value #Some{f m.value}
+  }

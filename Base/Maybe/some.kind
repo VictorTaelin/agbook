@@ -1,0 +1,11 @@
+use Base/Maybe/ as M/
+
+// Constructs a Some value, representing the presence of a value
+// - 1st: The type of the value
+// - 2nd: The value to wrap in Some
+// = A Maybe value containing the given value
+Maybe/Some
+: ∀(A: *)
+  ∀(value: A)
+  (Maybe A)
+= λA λvalue #Some{value}

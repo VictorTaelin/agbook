@@ -3,11 +3,11 @@ use Base/Bool/ as B/
 use Base/Trait/ as T/
 
 // Checks if two Maybe values are not equal.
-// - A: The type of the value inside Maybe.
-// - e: The Eq instance for type A.
-// - x: The first Maybe value.
-// - y: The second Maybe value.
-// = True if x and y are not equal, False otherwise.
+// - 1st: The type of the value inside Maybe.
+// - 2nd: The Eq instance for type 1st.
+// - 3rd: The first Maybe value.
+// - 4th: The second Maybe value.
+// = True if 3rd and 4th are not equal, False otherwise.
 M/neq
 : ∀(A: *)
   ∀(e: (T/Eq A))
