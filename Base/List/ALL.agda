@@ -65,13 +65,16 @@ open import Base.List.singleton public
 open import Base.List.sort public
 open import Base.List.split-at-element public
 open import Base.List.split-at public
-open import Base.List.split public
+open import Base.List.split-chunks public
+open import Base.List.split-first public
+open import Base.List.split-last public
 open import Base.List.starts-with public
 open import Base.List.sum public
 open import Base.List.tail public
 open import Base.List.tails public
 open import Base.List.take-while public
 open import Base.List.take public
+open import Base.List.unsnoc public
 open import Base.List.unzip-with public
 open import Base.List.unzip public
 open import Base.List.update-at public
