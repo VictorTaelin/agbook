@@ -7,5 +7,8 @@ MAKEFLAGS += --no-builtin-rules --no-builtin-variables
 all :
 	agda Main.agda
 
+bend :
+	agda-compile Bend/bend.agda
+
 clean :
 	find . -name '*agdai' -delete
