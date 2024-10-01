@@ -61,8 +61,7 @@ compute-helper mach game state current-tick end-tick with current-tick == end-ti
 compute : ∀ {S A : Set} → Mach S A → Game S A → Time → IO (Pair S (Mach S A))
 compute mach game time = do
   let end-t = time-to-tick mach time
-  let (state , is-initial) = get-initial-state mach game (Mach.cached-tick mach)
-  let start-tick = if is-initial then Mach.genesis-tick mach else Mach.cached-tick mach
+  let (state , start-tick) = get-initial-state mach game
   let diff = end-t - start-tick
   if diff > 1000000
     then pure (state , mach)

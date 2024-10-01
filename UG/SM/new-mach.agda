@@ -2,6 +2,7 @@ module UG.SM.new-mach where
 
 open import Base.BitMap.new
 open import Base.Bool.Bool
+open import Base.Maybe.Maybe
 open import Base.Nat.Nat
 open import UG.SM.ActionLogs.ActionLogs
 open import UG.SM.SM
@@ -17,7 +18,7 @@ new-mach ticks-per-second action_eq = record
   { ticks-per-second = ticks-per-second
   ; genesis-tick = 10000000000000000000000000000000  -- Representing the earliest possible tick
   ; cached-tick = 0   -- Representing no cached tick
-  ; state-logs = new
+  ; state-logs = None
   ; action-logs = new
   ; action-eq = action_eq
   }

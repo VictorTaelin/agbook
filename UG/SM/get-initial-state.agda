@@ -10,14 +10,15 @@ open import UG.SM.SM
 open import UG.SM.StateLogs.StateLogs
 open import UG.SM.Tick.Tick
 
--- Retrieves the initial state for a given tick, or uses the game's initial state if not found.
+-- Retrieves the initial state and tick for computation.
 -- - mach: The state machine containing state logs.
 -- - game: The game object with an init function for default state.
--- - ini-t: The initial tick to look up in the state logs.
 -- = Returns a pair containing:
 --   - The initial state of type S
---   - A boolean indicating whether the game's init state was used (True) or a stored state was found (False)
-get-initial-state : ∀ {S A : Set} → Mach S A → Game S A → Tick → Pair S Bool
-get-initial-state mach game ini-t with get (Mach.state-logs mach) (to-bits ini-t)
-... | Some state = (state , False)
-... | None       = (Game.init game , True)
+--   - The initial tick to start computation from
+-- Note: If state logs exist, it returns the most recent logged state and its tick.
+--       Otherwise, it returns the game's initial state and the machine's genesis tick.
+get-initial-state : ∀ {S A : Set} → Mach S A → Game S A → Pair S Tick
+get-initial-state mach game with (Mach.state-logs mach)
+... | Some node = (StateNode.state node , StateNode.tick node)
+... | None       = (Game.init game , Mach.genesis-tick mach)
