@@ -80,37 +80,11 @@ parse-fn-def = do
       pure (MkFnDef name Type.Any check (rule :: rules) source)
 
   where
-
-  parse-def-sig-arg : Parser (Pair String Type)
-  parse-def-sig-arg = do
-    has-parens <- try-consume "("
-    if has-parens then (do
-        name <- parse-restricted-name "function argument"
-        typ <- (consume ":" >> parse-type-term) <|> pure Any
-        consume ")"
-        pure (name , typ))
-      else do
-        name <- parse-restricted-name "function argument"
-        pure (name , Any)
-
-  parse-def-sig : Parser (Pair String (Pair (List String) Type))
-  parse-def-sig = do
-    has-parens <- try-consume "("
-    name , args , ret <- if has-parens then (do
-        name <- parse-top-level-name
-        args <- list-like parse-def-sig-arg "" ")" "" False 0
-        consume ":"
-        typ <- parse-type-term
-        pure (name , args , typ))
-      else do
-        name <- parse-top-level-name
-        args <- list-like parse-def-sig-arg "" ":" "" False 0
-        typ <- parse-type-term
-        pure (name , args , typ)
-    let args , arg-types = unzip args
-    let typ = foldr Arr ret arg-types
-    pure (name , args , typ)
-
+  
+  -- Parses multiple rules for a function.
+  -- This is used for function definitions with multiple pattern-matching rules.
+  -- - name: The expected name of the function being defined.
+  -- = A list of pattern matching rules.
   parse-rules : String → Parser (List Rule)
   parse-rules name = do
     let p-rule = do

@@ -27,12 +27,12 @@ open import Bend.Parser.is-name-char
 parse-restricted-name : String → Parser String
 parse-restricted-name kind = do
   name <- take-while is-name-char
-  let res = if name == "" then 
-              fail ("Expected " ++ kind ++ " name") 
-            else if contains "__" name then 
-              fail (kind ++ " names are not allowed to contain \"__\".")
-            else if starts-with "//" name then 
-              fail (kind ++ " names are not allowed to start with \"//\".")
-            else 
+  let res = if name == "" then
+              fail ("Expected " ++ kind ++ " name")
+            else if contains "__" name then
+              fail ("Names are not allowed to contain \"__\".")
+            else if starts-with "//" name then
+              fail ("Names are not allowed to start with \"//\".")
+            else
               pure name
   res

@@ -22,7 +22,7 @@ open import Bend.Parser.Fun.parse-book
 --       We'll replace this by the actual resolution and import system.
 parse-book-to-book : ParseBook → Book
 -- TODO: Add ctrs and adts
-parse-book-to-book (MkParseBook defs) = MkBook defs map-new map-new
+parse-book-to-book (MkParseBook defs adts ctrs) = MkBook defs adts ctrs
 
 -- Loads a book from a file
 -- - path: The path to the file containing the book
