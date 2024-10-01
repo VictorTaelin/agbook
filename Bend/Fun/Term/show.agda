@@ -61,7 +61,7 @@ instance
       show-term (Num val) = show val
       show-term (Str val) = "\"" ++ val ++ "\""
       show-term (List els) = "[" ++ join ", " (map show els) ++ "]"
-      show-term (Oper opr fst snd) = "(" ++ show fst ++ " " ++ show opr ++ " " ++ show snd ++ ")"
+      show-term (Oper opr fst snd) = "(" ++ show opr ++ " " ++ show fst ++ " " ++ show snd ++ ")"
       show-term (Mat bnd arg with-bnd with-arg arms) =
         "match " ++ show-bind bnd ++ " = " ++ show arg ++ " " ++
         show-with with-bnd with-arg ++ "{ " ++ join "; " (map show arms) ++ " }"

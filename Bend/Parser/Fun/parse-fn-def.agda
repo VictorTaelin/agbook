@@ -19,16 +19,15 @@ open import Bend.Parser.consume
 open import Bend.Parser.try-consume
 open import Bend.Parser.list-like
 open import Bend.Parser.skip-trivia
-open import Bend.Parser.parse-top-level-name
-open import Bend.Parser.parse-restricted-name
-open import Bend.Parser.Fun.parse-term
-open import Bend.Parser.Fun.parse-type-term
+open import Bend.Parser.Fun.parse-def-sig
 open import Bend.Parser.Fun.parse-rule-lhs
+open import Bend.Parser.Fun.parse-term
 open import Bend.Parser.parse-keyword
 open import Bend.Fun.Type.Type
 open import Bend.Fun.Pattern.Pattern
 open import Bend.Fun.Term.Term using (Term)
 open import Bend.Source.from-file-span
+import Base.Parser.map as Parser
 import Bend.Fun.FnDef.FnDef as FnDef'
 import Bend.Fun.Rule.Rule as Rule'
 
@@ -48,7 +47,7 @@ parse-fn-def = do
         (parse-keyword "checked" >> pure True) <|>
         (parse-keyword "unchecked" >> pure False) <|>
         pure dflt
-  sig <- (parse-def-sig >>= (λ x → pure (Some x))) <|> pure None
+  sig <- (Parser.map Some parse-def-sig) <|> pure None
   case sig of λ where
     (Some (name , args , typ)) → do
       check <- p-check True
@@ -56,31 +55,31 @@ parse-fn-def = do
       if is-single-rule
         then (do
           -- Single rule with signature
-          body <- parse-term
-          let pats = map (λ nam → Pattern.Var (Some nam)) args
-          let rules = MkRule pats body :: []
-          end-idx <- get-index
+          body      <- parse-term
+          let pats   = map (λ nam → Pattern.Var (Some nam)) args
+          let rules  = MkRule pats body :: []
+          end-idx   <- get-index
           let source = from-file-span ini-idx end-idx
           pure (MkFnDef name typ check rules source))
         else do
           -- Multiple rules with signature
-          rules <- parse-rules name
-          end-idx <- get-index
+          rules     <- parse-rules name
+          end-idx   <- get-index
           let source = from-file-span ini-idx end-idx
           pure (MkFnDef name typ check rules source)
     None → do
       -- No signature, parse rules directly
-      check <- p-check False
+      check       <- p-check False
       name , pats <- parse-rule-lhs None
-      body <- parse-term
-      let rule = MkRule pats body
-      rules <- parse-rules name
-      end-idx <- get-index
-      let source = from-file-span ini-idx end-idx
+      body        <- parse-term
+      let rule     = MkRule pats body
+      rules       <- parse-rules name
+      end-idx     <- get-index
+      let source   = from-file-span ini-idx end-idx
       pure (MkFnDef name Type.Any check (rule :: rules) source)
 
   where
-  
+
   -- Parses multiple rules for a function.
   -- This is used for function definitions with multiple pattern-matching rules.
   -- - name: The expected name of the function being defined.
