@@ -23,7 +23,7 @@ import System.FilePath ((</>))
 renderText :: SDL.Renderer -> String -> SDL.Point SDL.V2 CInt -> IO ()
 renderText renderer text (SDL.P (SDL.V2 x y)) = do
   currentDir <- getCurrentDirectory
-  let fontPath = currentDir </> "AntonSC-Regular.ttf"
+  let fontPath = currentDir </> "UG" </> "assets" </> "AntonSC-Regular.ttf"
   font <- TTF.load fontPath 24 
   surface <- TTF.solid font (SDL.V4 0 0 0 255) (T.pack text)   -- Black
   texture <- SDL.createTextureFromSurface renderer surface
