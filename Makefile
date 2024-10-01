@@ -12,3 +12,4 @@ bend :
 
 clean :
 	find . -name '*agdai' -delete
+	rm -r .build
