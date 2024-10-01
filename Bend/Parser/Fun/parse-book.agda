@@ -1,7 +1,12 @@
 module Bend.Parser.Fun.parse-book where
 
 open import Base.BitMap.union
+open import Base.Bool.Bool
 open import Base.Bool.if
+open import Base.Bool.or
+open import Base.Char.eq
+open import Base.Function.case
+open import Base.Maybe.Maybe
 open import Base.List.List
 open import Base.List.foldr
 open import Base.Pair.Pair
@@ -18,16 +23,18 @@ open import Base.Parser.Monad.pure
 open import Base.Parser.fail
 open import Base.Parser.is-eof
 open import Base.Parser.map
+open import Base.Parser.peek-one
 open import Base.Parser.starts-with
 
-open import Bend.Parser.first-with-guard
-open import Bend.Parser.skip-trivia
-open import Bend.Parser.starts-with-keyword
 open import Bend.Parser.Fun.parse-fn-def
 open import Bend.Parser.Fun.parse-adt
 open import Bend.Parser.ParseBook.ParseBook
 open import Bend.Parser.ParseBook.TopLevel
 open import Bend.Parser.ParseBook.new renaming (new to new-book)
+open import Bend.Parser.first-with-guard
+open import Bend.Parser.is-name-char
+open import Bend.Parser.skip-trivia
+open import Bend.Parser.starts-with-keyword
 
 private
   open module FnDef = FnDef' Term
@@ -40,6 +47,13 @@ parse-book = go new-book
 
   where
 
+  starts-with-fndef : Parser Bool
+  starts-with-fndef = do
+    char <- peek-one
+    case char of λ where
+      (Some c) -> pure ((is-name-char c) || (c == '('))
+      _        -> pure False
+
   -- Parses a single top-level definition.
   parse-top-level : Parser TopLevel
   parse-top-level = do
@@ -48,9 +62,8 @@ parse-book = go new-book
          (starts-with-keyword "type"   , (map TopLevel.TypeDef parse-adt))
       :: (starts-with-keyword "object" , (fail "not implemented"))
       :: (starts-with-keyword "hvm"    , (fail "not implemented"))
-      :: [] )                            (map TopLevel.FunDef parse-fn-def)
-    def <- parse-fn-def
-    pure (TopLevel.FunDef def)
+      :: (starts-with-fndef            , (map TopLevel.FunDef parse-fn-def))
+      :: []) (fail "Expected top-level definition")
 
   -- Adds a parsed top-level definition to the book.
   -- Updates the right fields in the book based on the type of the definition.

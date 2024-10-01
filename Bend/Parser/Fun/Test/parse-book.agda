@@ -19,7 +19,7 @@ open import Base.Trait.Show
 parse-and-show : String → String
 parse-and-show input =
   case parse-book (MkState input 0) of λ where
-    (Done (MkReply _ book)) → show (MkBook (ParseBook.fun-defs book))
+    (Done (MkReply _ book)) → show (MkBook (ParseBook.fun-defs book) (ParseBook.adts book) (ParseBook.ctrs book))
     (Fail (MkError _ err)) → "Parse failed: " ++ err
 
 -- Empty input
@@ -40,4 +40,7 @@ _ = refl
 
 -- Error
 _ : parse-and-show "a" ≡ "Parse failed: Expected pattern"
+_ = refl
+
+_ : parse-and-show "'foo = 1\nbar = 2\n" ≡ "Parse failed: Expected top-level definition"
 _ = refl
