@@ -13,7 +13,9 @@ jobs:
       issues: write
       contents: read
 
-    runs-on: self-hosted, macOS
+    runs-on: 
+      - self-hosted
+      - macOS
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
