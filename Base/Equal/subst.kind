@@ -1,0 +1,22 @@
+use Base/Equal/ as E/
+
+// Substitution property of equality.
+// If x is equal to y, then a predicate P holding for x also holds for y.
+// 1st: The type of the values being compared.
+// 2nd: The predicate.
+// 3rd: The 1st value.
+// 4th: The 2nd value.
+// 5th: Proof that 3rd is equal to 4th.
+// 6th: Proof that 2nd holds for 3rd.
+// = Proof that 2nd holds for 4th.
+E/subst
+: ∀(A: *)
+  ∀(P: ∀(z: A) *)
+  ∀(x: A)
+  ∀(y: A)
+  ∀(e: (E/Equal A x y))
+  ∀(p: (P x))
+  (P y)
+= λA λP λx λy λ{
+  #Refl: λp p
+}

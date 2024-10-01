@@ -1,7 +1,10 @@
 use Base/Equal/ as E/
 
 // Equality type for Kind.
-// Reflexivity: proof that x is equal to itself.
+// 1st: The type of the elements being compared.
+// 2nd: The first element.
+// 3rd: The second element.
+// = A type representing the proof of equality between 2nd and 3rd.
 E/Equal
 : ∀(A: *)
   ∀(x: A)
