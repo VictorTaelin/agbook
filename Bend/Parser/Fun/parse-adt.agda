@@ -91,7 +91,7 @@ parse-adt = do
           fields   <- list-like parse-field "" ")" "" False 0
           let type  = foldr Type.Arr
                             (Type.Ctr type-name (List.map Type.Var type-vars))
-                            (List.map CtrField.type fields)
+                            (List.map CtrField.typ fields)
           pure (MkCtr name type fields))
         else do
           name    <- parse-restricted-name "datatype constructor"

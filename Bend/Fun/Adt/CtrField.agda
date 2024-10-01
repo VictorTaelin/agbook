@@ -7,6 +7,6 @@ open import Bend.Fun.Type.Type
 record CtrField : Set where
   constructor MkCtrField
   field
-    name : String
-    rec  : Bool
-    type : Type
+    nam : String
+    rec : Bool
+    typ : Type
