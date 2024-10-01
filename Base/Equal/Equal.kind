@@ -1,0 +1,12 @@
+use Base/Equal/ as E/
+
+// Equality type for Kind.
+// Reflexivity: proof that x is equal to itself.
+E/Equal
+: ∀(A: *)
+  ∀(x: A)
+  ∀(y: A)
+  *
+= λA λx λy #[y]{
+  #Refl{} : (E/Equal A x x)
+}

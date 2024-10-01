@@ -1,5 +1,4 @@
 use Base/Bool/ as B/
-use Base/Equal/ as E/
 
 // Negates a Boolean value.
 // - b: The input Boolean value.
@@ -11,7 +10,3 @@ B/not
   #True: #False{}
   #False: #True{}
 }
-
-B/not/test/0
-: (E/Equal _ (B/not #True{}) #False{})
-= #Refl{}

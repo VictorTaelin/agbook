@@ -14,7 +14,6 @@ L/filter
 = λA λfn λ{
   #Nil: #Nil{}
   #Cons: λxs.head λxs.tail
-    (B/if _ (fn xs.head)
-      (#Cons{ xs.head (L/filter _ fn xs.tail) })
-      (L/filter _ fn xs.tail))
+    let tail = (L/filter _ fn xs.tail)
+    (B/if _ (fn xs.head) (#Cons{xs.head tail}) tail)
 }

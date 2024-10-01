@@ -3,7 +3,7 @@ use Base/Bool/ as B/
 // Performs logical OR operation on two bools.
 // - a: The 1st bool.
 // - b: The 2nd bool.
-// = True if either a or b is true.
+// = True if either 'a' or 'b' is true, False otherwise.
 B/or
 : ∀(a: B/Bool)
   ∀(b: B/Bool)

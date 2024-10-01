@@ -1,0 +1,19 @@
+use Base/List/ as L/
+use Base/Maybe/ as M/
+
+// Safely retrieves the last element of a list.
+// - A: The type of elements in the list.
+// - xs: The input list.
+// = Some x if the list is non-empty (where x is the last element),
+//   None if the list is empty.
+L/last
+: ∀(A: *)
+  ∀(xs: (L/List A))
+  (M/Maybe A)
+= λA λ{
+  #Nil: #None{}
+  #Cons: λxs.head λ{
+    #Nil: #Some{xs.head}
+    #Cons: λxs.tail.head λxs.tail.tail (L/last _ (#Cons{xs.tail.head xs.tail.tail}))
+  }
+}

@@ -1,0 +1,31 @@
+module Base.Parser.bind- where
+
+open import Base.Parser.Monad.bind
+open import Base.Parser.State
+open import Base.Parser.Reply
+open import Base.Parser.Parser
+open import Base.Result.Result
+open import Base.String.String
+open import Base.String.replicate
+open import Base.Nat.Nat
+open import Base.Equal.Equal
+open import Base.Parser.Monad.pure
+
+-- Definir parsers simples para testar
+parser1 : Parser Nat
+parser1 = λ s → Done (MkReply s 5)
+
+parser2 : Nat → Parser String
+parser2 n = λ s → Done (MkReply s (replicate n 'a'))
+
+test-bind : (bind parser1 parser2) (MkState "abc" 0) ≡ Done (MkReply (MkState "abc" 0) "aaaaa")
+test-bind = refl
+
+test-bind-operator : (parser1 >>= parser2) (MkState "abc" 0) ≡ Done (MkReply (MkState "abc" 0) "aaaaa")
+test-bind-operator = refl
+
+test-seq : (seq parser1 (pure "hello")) (MkState "abc" 0) ≡ Done (MkReply (MkState "abc" 0) "hello")
+test-seq = refl
+
+test-seq-operator : (parser1 >> pure "hello") (MkState "abc" 0) ≡ Done (MkReply (MkState "abc" 0) "hello")
+test-seq-operator = refl
