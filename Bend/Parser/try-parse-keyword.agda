@@ -8,7 +8,7 @@ open import Base.Parser.fail
 open import Base.Bool.Bool
 open import Base.Bool.if
 open import Bend.Parser.starts-with-keyword
-open import Bend.Parser.consume
+open import Bend.Parser.consume-exactly
 
 -- Tries to parse a Bend keyword: a name followed by a non-name character.
 -- - keyword: The keyword to parse.
@@ -17,4 +17,6 @@ open import Bend.Parser.consume
 try-parse-keyword : String → Parser Bool
 try-parse-keyword keyword = do
   is-kw <- starts-with-keyword keyword
-  if is-kw then consume keyword >> pure True else pure False
+  if is-kw
+    then consume-exactly keyword >> pure True
+    else pure False
