@@ -1,1 +1,6 @@
-Main : Base/Nat/Nat = #Zero{}
+use Base/Equal/ as E/
+use Base/Bool/ as B/
+
+Main
+: (E/Equal B/Bool #True{} ((B/not (B/not #False{}))))
+= #Refl{}
