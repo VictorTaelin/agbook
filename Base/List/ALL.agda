@@ -53,6 +53,7 @@ open import Base.List.lookup public
 open import Base.List.lt public
 open import Base.List.lte public
 open import Base.List.map public
+open import Base.List.match public
 open import Base.List.mfoldl public
 open import Base.List.mmap public
 open import Base.List.neq public

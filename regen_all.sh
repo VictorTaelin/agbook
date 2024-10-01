@@ -25,7 +25,8 @@ do
       -not -path "*.tmp*" \
       -not -path "*/Examples/*" \
       -not -path "*/Omega/*" \
-      -not -path "*/Test/*" |
+      -not -path "*/Test/*" \
+      -not -path "*-.agda" | # remove tests
     while read -r file
   do
     # Remove extension from file path.
