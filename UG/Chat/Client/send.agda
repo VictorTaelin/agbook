@@ -11,8 +11,8 @@ open import Base.IO.IO
 open import Base.IO.Monad.bind
 open import Base.IO.Monad.pure
 open import Base.Nat.Nat
+open import Base.Network.WebSocket.send-binary-data
 open import Base.Unit.Unit
-open import Network.WebSocket.send-binary-data
 open import UG.Chat.Message.Message
 
 -- Constructs a ByteString message for sending a POST message to a chat room.

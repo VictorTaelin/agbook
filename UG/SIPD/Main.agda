@@ -1,25 +1,20 @@
 module UG.SIPD.Main where
 
-open import Base.Nat.min
-open import UG.SM.Time.time-to-tick
-import Concurrent.Channel.new as Channel
-import Concurrent.Channel.read as Channel
-import Concurrent.Channel.write as Channel
+import Base.Concurrent.Channel.new as Channel
+import Base.Concurrent.Channel.read as Channel
+import Base.Concurrent.Channel.write as Channel
+import Base.List.head as List
+import UG.Chat.Client.handle-pong as Client
+import UG.Chat.Client.join-room as Client
+import UG.Chat.Client.send as Client
+import UG.Chat.Client.sync-time as Client
+import UG.Chat.Message.to-nat as Message
 import UG.SIPD.Event.deserialize as Event
 import UG.SIPD.Event.serialize as Event
 import UG.SIPD.Event.show as Event
 import UG.SIPD.Renderer.create as Renderer
 import UG.SIPD.Video.init as Video
 import UG.SIPD.Window.create as Window
-import UG.Chat.Client.send as Client
-import UG.Chat.Client.join-room as Client
-import UG.Chat.Client.sync-time as Client
-import UG.Chat.Client.handle-pong as Client
-import UG.Chat.Message.to-nat as Message
-open import UG.Shape.square
-open import Base.V2.V2
-open import UG.Shape.Shape
-open import UG.Chat.Client.Client
 open import Base.Bool.Bool
 open import Base.Bool.if
 open import Base.ByteString.ByteString
@@ -32,29 +27,35 @@ open import Base.ByteString.read-u48
 open import Base.ByteString.show renaming (show to bshow)
 open import Base.ByteString.tail
 open import Base.ByteString.unpack
+open import Base.Concurrent.Channel.Channel
 open import Base.F64.F64
 open import Base.Function.case
+open import Base.IO.IO
 open import Base.IO.Monad.bind
 open import Base.IO.Monad.pure
-open import Base.IO.IO
 open import Base.IO.print
 open import Base.Int.Int
 open import Base.List.List
-import Base.List.head as List
 open import Base.List.foldl
 open import Base.List.foldr
+open import Base.List.length
 open import Base.List.map
 open import Base.List.reverse
 open import Base.List.take
-open import Base.List.length
 open import Base.Maybe.Maybe
 open import Base.Nat.Nat
-open import Base.Nat.gt
 open import Base.Nat.add
-open import Base.Nat.sub
 open import Base.Nat.div
+open import Base.Nat.gt
+open import Base.Nat.min
 open import Base.Nat.mul
 open import Base.Nat.show
+open import Base.Nat.sub
+open import Base.Network.WebSocket.WSConnection
+open import Base.Network.WebSocket.receive-binary-data
+open import Base.Network.WebSocket.receive-data
+open import Base.Network.WebSocket.run-concurrent-client
+open import Base.Network.WebSocket.send-binary-data
 open import Base.Pair.Pair
 open import Base.Parser.Error
 open import Base.Parser.Reply
@@ -63,15 +64,11 @@ open import Base.String.String
 open import Base.String.append
 open import Base.Time.now
 open import Base.Unit.Unit
+open import Base.V2.V2
 open import Base.Word8.Word8
 open import Base.Word8.from-nat
 open import Base.Word8.to-nat
-open import Concurrent.Channel.Channel
-open import Network.WebSocket.WSConnection
-open import Network.WebSocket.receive-binary-data
-open import Network.WebSocket.send-binary-data
-open import Network.WebSocket.receive-data
-open import Network.WebSocket.run-concurrent-client
+open import UG.Chat.Client.Client
 open import UG.SIPD.Event.Click.Click
 open import UG.SIPD.Event.Event
 open import UG.SIPD.Event.get-events
@@ -82,14 +79,17 @@ open import UG.SIPD.Video.quit
 open import UG.SIPD.Window.Window
 open import UG.SIPD.draw
 open import UG.SIPD.draw-shape
+open import UG.SM.ActionLogs.get-actions
 open import UG.SM.Game.Game
+open import UG.SM.SM
+open import UG.SM.Time.time-to-tick
 open import UG.SM.Time.time-to-tick
 open import UG.SM.TimedAction.TimedAction
-open import UG.SM.SM
 open import UG.SM.compute
 open import UG.SM.new-mach
 open import UG.SM.register-action
-open import UG.SM.ActionLogs.get-actions
+open import UG.Shape.Shape
+open import UG.Shape.square
 
 initialState : State
 initialState = init

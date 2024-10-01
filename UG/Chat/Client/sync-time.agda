@@ -8,10 +8,10 @@ open import Base.ByteString.pack-string
 open import Base.IO.IO
 open import Base.IO.Monad.bind
 open import Base.IO.Monad.pure
+open import Base.Network.WebSocket.send-binary-data
 open import Base.Pair.Pair
 open import Base.Time.now
 open import Base.Unit.Unit
-open import Network.WebSocket.send-binary-data
 open import UG.Chat.Client.Client
 open import UG.Chat.Message.Message
 

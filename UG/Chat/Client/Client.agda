@@ -2,8 +2,8 @@ module UG.Chat.Client.Client where
 
 open import Base.BitMap.BitMap
 open import Base.Nat.Nat
+open import Base.Network.WebSocket.WSConnection
 open import Base.String.String
-open import Network.WebSocket.WSConnection
 
 record Client : Set where
   field
