@@ -25,6 +25,8 @@ open import Bend.Parser.parse-restricted-name
 open import Bend.Parser.parse-number
 
 {-# TERMINATING #-} -- FIXME!
+-- Parses a Fun syntax variable binding / pattern matching pattern.
+-- = The parsed pattern.
 parse-pattern : Parser Pattern
 parse-pattern = do
   skip-trivia

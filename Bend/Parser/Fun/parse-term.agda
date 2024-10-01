@@ -32,7 +32,6 @@ open import Bend.Parser.consume
 open import Bend.Parser.try-consume
 open import Bend.Parser.first-with-guard
 open import Bend.Parser.skip-trivia
-open import Bend.Parser.starts-with-keyword
 open import Bend.Parser.parse-restricted-name
 open import Bend.Parser.parse-var-name
 open import Bend.Parser.parse-number
@@ -47,6 +46,8 @@ import Bend.Fun.MatchRule.MatchRule as MatchRule'
 private
   open module MatchRule = MatchRule' Term
 
+-- Parses a Fun syntax term.
+-- = The parsed term.
 parse-term : Parser Term
 parse-term = do
   skip-trivia
@@ -55,22 +56,22 @@ parse-term = do
     is-at <- starts-with "@"
     pure (is-lam || is-at)
   first-with-guard (
-          (starts-with-lam , parse-lambda)
-        :: (starts-with "(" , parse-parens)
-        :: (starts-with "{" , parse-sup)
-        :: (starts-with "[" , parse-list)
-        :: (starts-with "\"" , parse-str-term)
-        :: (starts-with "let" , parse-let)
-        :: (starts-with "use" , parse-use)
-        :: (starts-with "ask" , parse-ask)
-        :: (starts-with "match" , parse-match)
-        :: (starts-with "switch" , parse-switch)
-        :: (starts-with "fold" , parse-fold)
-        :: (starts-with "bend" , parse-bend)
-        :: (starts-with "open" , parse-open)
-        :: (starts-with "$" , parse-link)
-        :: (starts-with "*" , pure Era)
-        :: []) parse-num-or-var
+      (starts-with-lam       , parse-lambda)
+    :: (starts-with "("      , parse-parens)
+    :: (starts-with "{"      , parse-sup)
+    :: (starts-with "["      , parse-list)
+    :: (starts-with "\""     , parse-str-term)
+    :: (starts-with "let"    , parse-let)
+    :: (starts-with "use"    , parse-use)
+    :: (starts-with "ask"    , parse-ask)
+    :: (starts-with "match"  , parse-match)
+    :: (starts-with "switch" , parse-switch)
+    :: (starts-with "fold"   , parse-fold)
+    :: (starts-with "bend"   , parse-bend)
+    :: (starts-with "open"   , parse-open)
+    :: (starts-with "$"      , parse-link)
+    :: (starts-with "*"      , pure Era)
+    :: [])                     parse-num-or-var
 
   where
 

@@ -22,10 +22,9 @@ open import Base.Parser.Monad.pure
 open import Base.Parser.Monad.bind
 open import Bend.Parser.is-name-char
 
--- Checks if the input starts with the given keyword.
--- Returns True if the input starts with the keyword and is followed by a non-name character.
--- Returns False otherwise.
--- Does not consume any input.
+-- Checks if the input starts with the given keyword (a name followed by a non-name character).
+-- = True if the input starts with the keyword, False otherwise.
+--   Does not consume any input.
 starts-with-keyword : String → Parser Bool
 starts-with-keyword keyword = do
   prefix <- peek-many (Succ (length keyword))

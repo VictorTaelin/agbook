@@ -5,7 +5,7 @@ open import Base.List.List
 open import Base.String.String
 open import Base.List.map
 
--- | Retrieves the command-line arguments passed to the program.
+-- Retrieves the command-line arguments passed to the program.
 -- = Returns an IO action that, when executed, will return
 --   a List of Strings representing the command-line arguments.
 postulate get-args : IO (List String)

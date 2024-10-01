@@ -36,6 +36,10 @@ private
   open module FnDef = FnDef' Term
   open module Rule = Rule' Term
 
+-- Parses a Fun syntax function definition.
+-- Handles both single-rule and multi-rule function definitions,
+-- with or without type signatures.
+-- = A new FnDef with the parsed function definition.
 parse-fn-def : Parser FnDef
 parse-fn-def = do
   skip-trivia

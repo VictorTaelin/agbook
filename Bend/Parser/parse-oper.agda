@@ -9,6 +9,8 @@ open import Base.String.String
 open import Bend.Parser.consume
 open import Bend.Fun.Op.Op
 
+-- Parses a Bend numeric operator.
+-- = The parsed operator.
 parse-oper : Parser Op
 parse-oper =
   ((consume "+")  >> (pure Add)) <|>

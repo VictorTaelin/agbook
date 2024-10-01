@@ -10,6 +10,10 @@ open import Base.Bool.if
 open import Bend.Parser.starts-with-keyword
 open import Bend.Parser.consume
 
+-- Tries to parse a Bend keyword: a name followed by a non-name character.
+-- - keyword: The keyword to parse.
+-- = True if the keyword was parsed, False otherwise.
+--   Does not consume any input in the case of failure.
 try-parse-keyword : String → Parser Bool
 try-parse-keyword keyword = do
   is-kw <- starts-with-keyword keyword

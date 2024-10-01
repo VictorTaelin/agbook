@@ -50,6 +50,7 @@ open import Bend.Parser.try-consume-exactly
 open import Bend.Parser.is-digit-radix
 open import Bend.Fun.Num.Num
 
+-- Parses a Bend number literal.
 parse-number : Parser Num
 parse-number = do
   sign      <- parse-sign

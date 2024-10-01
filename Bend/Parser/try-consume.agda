@@ -9,6 +9,10 @@ open import Bend.Parser.consume-exactly
 open import Base.Bool.Bool
 open import Base.String.String
 
+-- Tries to consume the given string from the input after first skipping trivia.
+-- - target: The string to be consumed from the input.
+-- = True if the target was consumed, False otherwise.
+--   Does not consume any input in the case of failure.
 try-consume : String → Parser Bool
 try-consume target = do
   skip-trivia

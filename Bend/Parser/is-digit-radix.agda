@@ -8,11 +8,11 @@ open import Base.Nat.Nat
 open import Base.Bool.Bool
 open import Base.Bool.or
 
--- | Checks if a character is a valid digit for the given radix.
+-- Checks if a character is a valid digit for the given radix.
+-- Accepts underscores for any radix.
 -- - radix: The numeric base (2 for binary, 10 for decimal, 16 for hexadecimal).
 -- - c: The character to check.
 -- = True if the character is a valid digit for the given radix, False otherwise.
--- = Accepts underscores for any radix.
 is-digit-radix : Nat → Char → Bool
 is-digit-radix _ '_' = True
 is-digit-radix 16 c  = is-hex-digit c

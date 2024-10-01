@@ -19,6 +19,8 @@ open import Bend.Parser.parse-keyword
 open import Bend.Parser.parse-top-level-name
 open import Bend.Parser.Fun.parse-pattern
 
+-- Parses the left-hand side of a pattern-matching rule.
+-- = The name of the function and a list of patterns.
 parse-rule-lhs : (Maybe String) → Parser (Pair String (List Pattern))
 parse-rule-lhs expected = do
   let p-nam = case expected of λ where
