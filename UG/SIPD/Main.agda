@@ -78,7 +78,6 @@ open import UG.SIPD.State.init
 open import UG.SIPD.Video.quit
 open import UG.SIPD.Window.Window
 open import UG.SIPD.draw
-open import UG.SIPD.draw-shape
 open import UG.SM.ActionLogs.get-actions
 open import UG.SM.Game.Game
 open import UG.SM.SM
@@ -216,9 +215,6 @@ register-events mach events client-channel = do
   --pure final-mach
   pure mach
 
-s : Shape
-s = square (MkV2 200.0 150.0) 100.0
-
 loop : (Mach State Event) → Window → Renderer → State → (Mach State Event → Channel ByteString → Client → IO (Pair (Mach State Event) Client)) → Channel ByteString → Channel ByteString → Client → IO State
 loop mach window renderer state process-message channel client-channel client = do
 
@@ -231,9 +227,7 @@ loop mach window renderer state process-message channel client-channel client = 
   (proc-mach , client) <- process-message reg-mach channel client
   (newState , computed-mach) <- compute proc-mach game time-now
 
-  draw window renderer newState
-
-  draw-shape renderer s
+  draw renderer newState
 
   loop computed-mach window renderer newState (λ mach chan client → process-message mach chan client) channel client-channel client
 
@@ -272,13 +266,8 @@ main = do
   
   let ini-mach = register-action initial-mach join
   let t-tick = time-to-tick ini-mach t
-  print ("GENESIS: " ++ show (Mach.genesis-tick ini-mach))
-  print ("NOW TICK: " ++ show t-tick)
   let genesis = Mach.genesis-tick ini-mach
   let min-gen-now = min t-tick genesis
-  print ("MIN: " ++ show min-gen-now)
-  print ("GENESIS: " ++ show (Mach.genesis-tick ini-mach))
-  print ("CACHED: " ++ show (Mach.cached-tick ini-mach))
 
   loop ini-mach window renderer initialState (λ mach chan client → process-messages mach chan client) chan client-chan client
 
