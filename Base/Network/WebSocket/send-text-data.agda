@@ -1,9 +1,9 @@
-module Network.WebSocket.send-text-data where
+module Base.Network.WebSocket.send-text-data where
 
 open import Base.IO.IO
+open import Base.Network.WebSocket.WSConnection
 open import Base.String.String
 open import Base.Unit.Unit
-open import Network.WebSocket.WSConnection
 
 -- Sends text data over a WebSocket connection.
 -- - conn: The WebSocket connection to send data through.

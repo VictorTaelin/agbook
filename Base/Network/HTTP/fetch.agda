@@ -1,4 +1,4 @@
-module Network.HTTP.fetch where
+module Base.Network.HTTP.fetch where
 
 open import Base.IO.IO
 open import Base.String.String

@@ -1,4 +1,4 @@
-module Network.WebSocket.WSConnection where
+module Base.Network.WebSocket.WSConnection where
 
 -- Represents a WebSocket connection.
 -- This type is used for interacting with WebSocket connections in Agda.

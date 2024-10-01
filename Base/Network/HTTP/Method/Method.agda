@@ -1,4 +1,4 @@
-module Network.HTTP.Method.Method where
+module Base.Network.HTTP.Method.Method where
 
 data Method : Set where
   GET     : Method

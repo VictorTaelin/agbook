@@ -1,10 +1,10 @@
-module Network.WebSocket.receive-binary-data where
+module Base.Network.WebSocket.receive-binary-data where
 
 open import Base.ByteString.ByteString
 open import Base.IO.IO
 open import Base.Maybe.Maybe
+open import Base.Network.WebSocket.WSConnection
 open import Base.String.String
-open import Network.WebSocket.WSConnection
 
 -- Receives binary data from a WebSocket connection with a timeout.
 -- - conn: The WebSocket connection to receive data from.

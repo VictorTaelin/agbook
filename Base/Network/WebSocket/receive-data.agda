@@ -1,8 +1,8 @@
-module Network.WebSocket.receive-data where
+module Base.Network.WebSocket.receive-data where
 
 open import Base.IO.IO
+open import Base.Network.WebSocket.WSConnection
 open import Base.String.String
-open import Network.WebSocket.WSConnection
 
 -- Receives data from a WebSocket connection.
 -- - conn: The WebSocket connection to receive data from.

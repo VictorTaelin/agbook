@@ -1,10 +1,10 @@
-module Network.WebSocket.run-client where
+module Base.Network.WebSocket.run-client where
 
 open import Base.IO.IO
 open import Base.Int.Int
+open import Base.Network.WebSocket.WSConnection
 open import Base.String.String
 open import Base.Unit.Unit
-open import Network.WebSocket.WSConnection
 
 -- Runs a WebSocket client application.
 -- - host: The hostname of the WebSocket server to connect to.

@@ -1,10 +1,10 @@
-module Network.WebSocket.run-secure-client where
+module Base.Network.WebSocket.run-secure-client where
 
 open import Base.IO.IO
 open import Base.Int.Int
+open import Base.Network.WebSocket.WSConnection
 open import Base.String.String
 open import Base.Unit.Unit
-open import Network.WebSocket.WSConnection
 
 -- Runs a secure WebSocket client connection.
 -- Connects to a secure WebSocket server and executes the provided application.
