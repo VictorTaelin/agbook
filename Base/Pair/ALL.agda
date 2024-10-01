@@ -13,3 +13,4 @@ open import Base.Pair.neq public
 open import Base.Pair.set-fst public
 open import Base.Pair.set-snd public
 open import Base.Pair.show public
+open import Base.Pair.to-list public

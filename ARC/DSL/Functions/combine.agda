@@ -12,8 +12,13 @@ open import Base.Trait.Ord
 -- - c1: The first Container.
 -- - c2: The second Container.
 -- = A new Container that contains all elements from both input Containers.
-combine : ∀ {A : Set} {{_ : Ord A}} → Container A → Container A → Container A
-combine (ListC l1) (ListC l2) = ListC (l1 L.++ l2)
-combine (ListC l1) (SetC s2)  = ListC (l1 L.++ (S.to-list s2))
-combine (SetC s1)  (ListC l2) = SetC  (s1 S.∪  (S.from-list l2))
-combine (SetC s1)  (SetC s2)  = SetC  (s1 S.∪  s2)
+combine : ∀ {A} {{_ : Ord A}} → Container A → Container A → Container A
+combine (AsList l1) (AsList l2) = AsList (l1 L.++ l2)
+combine (AsList l1) (AsOSet s2) = AsList (l1 L.++ (O.to-list s2))
+combine (AsList l1) (AsPair p2) = AsList (l1 L.++ (P.to-list p2))
+combine (AsOSet s1) (AsList l2) = AsOSet (s1 O.∪ (O.from-list l2))
+combine (AsOSet s1) (AsOSet s2) = AsOSet (s1 O.∪ s2)
+combine (AsOSet s1) (AsPair p2) = AsOSet (s1 O.∪ (O.from-list (P.to-list p2)))
+combine (AsPair p1) (AsList l2) = AsList ((P.to-list p1) L.++ l2)
+combine (AsPair p1) (AsOSet s2) = AsList ((P.to-list p1) L.++ (O.to-list s2))
+combine (AsPair p1) (AsPair p2) = AsList ((P.to-list p1) L.++ (P.to-list p2))

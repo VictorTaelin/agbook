@@ -19,8 +19,8 @@ open import Base.AVLTree.maximum
 -- - container: The input Container.
 -- = The most common item in the Container, or default if the Container is empty.
 mostcommon : ∀ {A : Set} {{_ : Ord A}} → A → Container A → A
-mostcommon default (ListC xs) with maximum (invert (L.frequency xs))
+mostcommon default (AsList xs) with maximum (invert (L.frequency xs))
 ... | Some (freq , v) = v
 ... | None            = default
 -- elements of a set can only appear once
-mostcommon default (SetC  xs) = default
+mostcommon default (AsOSet  xs) = default

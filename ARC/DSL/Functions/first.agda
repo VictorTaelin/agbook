@@ -13,8 +13,8 @@ open import Base.Maybe.Maybe
 -- - container: The Container to extract the first element from.
 -- = The first element of the Container, or the default value if empty.
 first : ∀ {A : Set} → A → Container A → A
-first default (ListC [])       = default
-first default (ListC (x :: _)) = x
-first default (SetC s) with S.minimum s
+first default (AsList [])       = default
+first default (AsList (x :: _)) = x
+first default (AsOSet s) with S.minimum s
 ... | Some x = x
 ... | None   = default

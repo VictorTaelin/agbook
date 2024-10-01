@@ -19,8 +19,8 @@ open import Base.AVLTree.minimum
 -- - container: The input Container.
 -- = The least common item in the Container, or default if the Container is empty.
 leastcommon : ∀ {A : Set} {{_ : Ord A}} → A → Container A → A
-leastcommon default (ListC xs) with minimum (invert (L.frequency xs))
+leastcommon default (AsList xs) with minimum (invert (L.frequency xs))
 ... | Some (freq , v) = v
 ... | None            = default
 -- elements of a set can only appear once
-leastcommon default (SetC  xs) = default
+leastcommon default (AsOSet  xs) = default

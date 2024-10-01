@@ -1,4 +1,4 @@
-module ARC.DSL.Functions.mostcolor where
+module ARC.DSL.Functions.leastcolor where
 
 open import ARC.DSL.Types.Element.Element
 open import ARC.DSL.Types.Integer.Integer
@@ -12,9 +12,9 @@ open import ARC.DSL.Types.OrdSet.OrdSet
 import ARC.DSL.Types.OrdSet.Functions as S
 open import ARC.DSL.Types.List.List
 import ARC.DSL.Types.List.Functions as L
-open import ARC.DSL.Functions.mostcommon
+open import ARC.DSL.Functions.leastcommon
 open import Base.Trait.Ord
 
-mostcolor : Element → Integer
-mostcolor (Lft cells) = mostcommon 0 (AsList (L.map (λ (x , y) → x) (S.to-list cells)))
-mostcolor (Rgt grid)  = mostcommon 0 (AsList (L.concat grid))
+leastcolor : Element → Integer
+leastcolor (Lft cells) = leastcommon 0 (AsList (L.map (λ (x , y) → x) (S.to-list cells)))
+leastcolor (Rgt grid)  = leastcommon 0 (AsList (L.concat grid))
