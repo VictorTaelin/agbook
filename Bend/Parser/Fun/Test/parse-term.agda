@@ -81,7 +81,7 @@ _ : parse "(== x 1)" ≡ ok "" 8 ((== (v' "x") (#u 1)))
 _ = refl
 
 -- Match expression
-_ : parse "match x { | Some: y | None: z }" ≡ 
+_ : parse "match x { | Some: y | None: z }" ≡
     ok "" 31 (match' (n' "x") := (v' "x") with' [] in' ((n' "Some" , v' "y") :: (n' "None", v' "z") :: []))
 _ = refl
 
@@ -97,7 +97,7 @@ _ : parse "fold x { | Nil : y | Cons : (f h t) }" ≡
 _ = refl
 
 -- Bend expression
-_ : parse "bend x=0, y=1 { when (< x 10): ((+ x 1), (* y 2)) else: (x, y) }" ≡ 
+_ : parse "bend x=0, y=1 { when (< x 10): ((+ x 1), (* y 2)) else: (x, y) }" ≡
     ok "" 64 (bend' ((n' "x", #u 0) :: (n' "y", #u 1) :: [])
       when' (< (v' "x") (#u 10))
       step' (tup (+  (v' "x") (#u 1) :: * (v' "y") (#u 2) :: []))
@@ -110,6 +110,10 @@ _ = refl
 
 -- Link expression
 _ : parse "$x" ≡ ok "" 2 (v'$ "x")
+_ = refl
+
+-- Era expression
+_ : parse "*" ≡ ok "" 1 (Era)
 _ = refl
 
 -- Invalid input

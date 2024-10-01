@@ -70,7 +70,7 @@ parse-term = do
     :: (starts-with "bend"   , parse-bend)
     :: (starts-with "open"   , parse-open)
     :: (starts-with "$"      , parse-link)
-    :: (starts-with "*"      , pure Era)
+    :: (starts-with "*"      , parse-era)
     :: [])                     parse-num-or-var
 
   where
@@ -284,6 +284,11 @@ parse-term = do
     consume "$"
     nam <- parse-restricted-name "unscoped variable"
     pure (Link nam)
+
+  parse-era : Parser Term
+  parse-era = do
+    consume "*"
+    pure Era
 
   parse-num-or-var : Parser Term
   parse-num-or-var = do
