@@ -1,14 +1,14 @@
-name: Check Agda Files
+name: Check Kind Files
 
 on:
 
   schedule:
-    # Runs twice a day at 08:00 and 18:00 BRT
-    - cron: '0 11,21 * * *'
+    # Runs four times a day at 08:00, 14:00, 18:00 and 22:00 BRT
+    - cron: '0 11,17,21,1 * * *'
   workflow_dispatch: # Allows manual triggering
 
 jobs:
-  check-all-agda: 
+  check-all-kind: 
     permissions:
       issues: write
       contents: read
@@ -22,26 +22,19 @@ jobs:
         run: |
           echo "PATH=$PATH:/usr/local/bin:/home/runner/.local/bin" >> $GITHUB_ENV
 
-      - name: Verify Agda and agda-cli installations
-        run: |
-          agda --version
-          which agda-cli
-
-      - name: Run Agda checks
-        id: check_agda
+      - name: Check Kind Files
+        id: check_kind
         run: | 
-          OK_OUTPUT=$'Checked.\nNo output'
-
           strip_ansi() {
             sed 's/\x1b\[[0-9;]*m//g'
           }
 
           check_file() {
             file="$1"	
-            output=$(agda-cli check "$file" 2>&1 | strip_ansi)
-            if [ "$output" = "$OK_OUTPUT" ]; then
+            output=$(kind check "$file" 2>&1 | strip_ansi)
+            if [[ $output = *"✓"* ]]; then
               echo "Checked $file: OK"
-            else
+            elif [[ $output == *"ERROR:"* || $output == *"PARSER_ERROR:"* ]]; then
               echo -e "Checking: $file ERR"
               echo "$output"
               {
@@ -50,16 +43,19 @@ jobs:
                 echo ""
               } >> error_output.log
               echo "errors_found=true" >> $GITHUB_ENV
+            else
+              echo "Unexpected output for: $file"
+              echo "$output"
+              echo "errors_found=true" >> $GITHUB_ENV
             fi 
           }
           export -f check_file
           export -f strip_ansi
-          export OK_OUTPUT
 
           > error_output.log
 
-          find "./Base" -name "*.agda" -not -path "*.tmp*" -not -path "*/Test/*" -print0 | \
-            parallel -0 -j 12 check_file
+          find "./Base" -name "*.kind" -not -path "*/Test/*" -print0 | \
+            parallel -0 -j+0 check_file
 
           if [ -s error_output.log ]; then
             echo "error_output<<EOF" >> $GITHUB_OUTPUT
@@ -68,7 +64,7 @@ jobs:
           fi
         timeout-minutes: 10
             
-      - name: Handle Agda check results
+      - name: Handle Kind check results
         uses: actions/github-script@v6
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
@@ -83,7 +79,7 @@ jobs:
               labels: 'errors,automated'
             });
             const existingIssue = issues.find(issue => 
-              issue.title === "Agda Check Errors (Auto-generated)" && 
+              issue.title === "Kind Check Errors (Auto-generated)" && 
               issue.user.login === 'github-actions[bot]'
             );
 
@@ -91,7 +87,7 @@ jobs:
               let issueContent = fs.readFileSync('error_output.log', 'utf8');
 
               // Format content for better readability
-              issueContent = "# Agda Check Errors\n\n" + issueContent.split('\n').map(line => {
+              issueContent = "# Kind Check Errors\n\n" + issueContent.split('\n').map(line => {
                 if (line.startsWith('Checking:')) {
                   return `## ${line}`;
                 } else if (line.startsWith('Error:')) {
@@ -108,7 +104,7 @@ jobs:
                   owner: context.repo.owner,
                   repo: context.repo.repo,
                   issue_number: existingIssue.number,
-                  title: "Agda Check Errors (Auto-generated)",
+                  title: "Kind Check Errors (Auto-generated)",
                   body: issueContent,
                   labels: ['errors', 'automated']
                 });
@@ -116,7 +112,7 @@ jobs:
                 await github.rest.issues.create({
                   owner: context.repo.owner,
                   repo: context.repo.repo,
-                  title: "Agda Check Errors (Auto-generated)",
+                  title: "Kind Check Errors (Auto-generated)",
                   body: issueContent,
                   labels: ['errors', 'automated']
                 });
@@ -136,7 +132,7 @@ jobs:
         if: env.errors_found == 'true'
         uses: actions/upload-artifact@v3
         with:
-          name: agda-check-output
+          name: kind-check-output
           path: error_output.log
 
       - name: Clean up
