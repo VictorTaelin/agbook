@@ -1,6 +1,6 @@
-module Concurrent.Channel.read where
+module Base.Concurrent.Channel.read where
 
-open import Concurrent.Channel.Channel
+open import Base.Concurrent.Channel.Channel
 open import Base.IO.IO
 open import Base.Maybe.Maybe
 

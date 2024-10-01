@@ -1,4 +1,4 @@
-module Concurrent.Channel.Channel where
+module Base.Concurrent.Channel.Channel where
 
 -- Represents a channel for asynchronous communication between threads.
 postulate Channel : Set → Set
