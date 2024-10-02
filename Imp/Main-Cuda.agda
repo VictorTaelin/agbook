@@ -24,7 +24,9 @@ code = do
   "i" := gid
   global[ gid ]= gid
 
-  if gid < # 2 then return # 0 else noop
+  if gid < # 2
+    then return # 0
+    else noop
 
   while ($"i" < # 256) go do
     "i" += gid
