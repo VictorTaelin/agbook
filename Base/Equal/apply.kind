@@ -1,0 +1,22 @@
+use Base/Equal/ as E/
+
+// Congruence property of equality.
+// If two values are equal, then applying a function to both yields equal results.
+// 1st: The type of the input values.
+// 2nd: The type of the output values after applying the function.
+// 3rd: The function to apply.
+// 4th: The first value.
+// 5th: The second value.
+// 6th: Proof that 4th is equal to 5th.
+// = Proof that (3rd 4th) is equal to (3rd 5th).
+E/apply
+: ∀(A: *)
+  ∀(B: *)
+  ∀(f: ∀(x: A) B)
+  ∀(x: A)
+  ∀(y: A)
+  ∀(e: (E/Equal A x y))
+  (E/Equal B (f x) (f y))
+= λA λB λf λx λy λ{
+  #Refl: #Refl{}
+}

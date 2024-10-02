@@ -3,8 +3,8 @@ name: Check Agda Files
 on:
 
   schedule:
-    # Runs twice a day at 08:00 and 18:00 BRT
-    - cron: '0 11,21 * * *'
+    # Runs four times a day at 08:10, 14:10, 18:10 and 22:10 BRT
+    - cron: '10 11,17,21,1 * * *'
   workflow_dispatch: # Allows manual triggering
 
 jobs:
@@ -13,7 +13,12 @@ jobs:
       issues: write
       contents: read
 
-    runs-on: self-hosted
+    runs-on: 
+      - self-hosted
+      - macOS
+    env:
+      LC_ALL: en_US.UTF-8
+      LANG: en_US.UTF-8
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -30,7 +35,7 @@ jobs:
       - name: Run Agda checks
         id: check_agda
         run: | 
-          OK_OUTPUT=$'Checked.\nNo output'
+          OK_OUTPUT=$'Checked.'
 
           strip_ansi() {
             sed 's/\x1b\[[0-9;]*m//g'
@@ -47,6 +52,7 @@ jobs:
               {
                 echo "Checking: $file ERR"
                 echo "$output"
+                echo "END"
                 echo ""
               } >> error_output.log
               echo "errors_found=true" >> $GITHUB_ENV
@@ -59,7 +65,7 @@ jobs:
           > error_output.log
 
           find "./Base" -name "*.agda" -not -path "*.tmp*" -not -path "*/Test/*" -print0 | \
-            parallel -0 -j 12 check_file
+            parallel -0 -j+0 check_file
 
           if [ -s error_output.log ]; then
             echo "error_output<<EOF" >> $GITHUB_OUTPUT
@@ -96,7 +102,7 @@ jobs:
                   return `## ${line}`;
                 } else if (line.startsWith('Error:')) {
                   return `**${line}**\n\`\`\`hs`;
-                } else if (line.trim() === 'No output') {
+                } else if (line.trim() === 'END') {
                   return `${line}\n\`\`\``;
                 } else {
                   return line;

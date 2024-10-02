@@ -6,6 +6,7 @@ open import Base.BitMap.Trait.Show public
 open import Base.BitMap.contains public
 open import Base.BitMap.count public
 open import Base.BitMap.del public
+open import Base.BitMap.difference public
 open import Base.BitMap.empty public
 open import Base.BitMap.from-list public
 open import Base.BitMap.get public

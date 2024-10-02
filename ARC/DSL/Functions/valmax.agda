@@ -17,9 +17,9 @@ open import ARC.DSL.Types.Boolean.Functions
 -- = The maximum Integer value obtained after applying f to all elements,
 --   or 0 if the Container is empty.
 valmax : ∀ {A : Set} → Container A → (A → Integer) → Integer
-valmax (ListC xs) f with L.sort I._>=_ (L.map f xs)
+valmax (AsList xs) f with L.sort I._>=_ (L.map f xs)
 ... | []     = 0  -- If the list is empty, return 0
 ... | x :: _ = x  -- Otherwise, return the first (maximum) element
-valmax (SetC xs)  f with L.sort I._>=_ (L.map f (S.to-list xs))
+valmax (AsOSet xs)  f with L.sort I._>=_ (L.map f (S.to-list xs))
 ... | []     = 0  -- If the set is empty, return 0
 ... | x :: _ = x  -- Otherwise, return the first (maximum) element

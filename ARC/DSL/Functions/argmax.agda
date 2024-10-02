@@ -13,10 +13,13 @@ open import ARC.DSL.Functions.int-cmp
 
 open import Base.Maybe.Maybe
 
-argmax : ∀ {A : Set} → A → Container A → (A → Integer) → A
-argmax default (ListC xs) f with L.last (L.sort (int-cmp f) xs)
+argmax : ∀ {A} → A → Container A → (A → Integer) → A
+argmax default (AsList xs) f with L.last (L.sort (int-cmp f) xs)
 ... | None   = default
 ... | Some x = x
-argmax default (SetC xs)  f with L.last (L.sort (int-cmp f) (S.to-list xs))
+argmax default (AsOSet xs) f with L.last (L.sort (int-cmp f) (S.to-list xs))
+... | None   = default
+... | Some x = x
+argmax default (AsPair (x0 , x1)) f with L.last (L.sort (int-cmp f) (x0 :: x1 :: []))
 ... | None   = default
 ... | Some x = x

@@ -1,0 +1,146 @@
+name: Check Kind Files
+
+on:
+
+  schedule:
+    # Runs four times a day at 08:00, 14:00, 18:00 and 22:00 BRT
+    - cron: '0 11,17,21,1 * * *'
+  workflow_dispatch: # Allows manual triggering
+
+jobs:
+  check-all-kind: 
+    permissions:
+      issues: write
+      contents: read
+
+    runs-on: 
+      - self-hosted
+      - macOS
+    env:
+      LC_ALL: en_US.UTF-8
+      LANG: en_US.UTF-8
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up environment
+        run: |
+          echo "PATH=$PATH:/usr/local/bin:/home/runner/.local/bin" >> $GITHUB_ENV
+
+      - name: Check Kind Files
+        id: check_kind
+        run: | 
+          strip_ansi() {
+            sed 's/\x1b\[[0-9;]*m//g'
+          }
+
+          check_file() {
+            file="$1"	
+            output=$(kind check "$file" 2>&1 | strip_ansi)
+            if [[ $output = *"✓"* ]]; then
+              echo "Checked $file: OK"
+            elif [[ $output == *"ERROR:"* || $output == *"PARSER_ERROR:"* ]]; then
+              echo -e "Checking: $file ERR"
+              echo "$output"
+              {
+                echo "Checking: $file ERR"
+                echo "$output"
+                echo "END"
+                echo ""
+              } >> error_output.log
+              echo "errors_found=true" >> $GITHUB_ENV
+            else
+              echo "Unexpected output for: $file"
+              echo "$output"
+              echo "errors_found=true" >> $GITHUB_ENV
+            fi 
+          }
+          export -f check_file
+          export -f strip_ansi
+
+          > error_output.log
+
+          find "./Base" -name "*.kind" -not -path "*/Test/*" -print0 | \
+            parallel -0 -j+0 check_file
+
+          if [ -s error_output.log ]; then
+            echo "error_output<<EOF" >> $GITHUB_OUTPUT
+            cat error_output.log >> $GITHUB_OUTPUT
+            echo "EOF" >> $GITHUB_OUTPUT
+          fi
+        timeout-minutes: 10
+            
+      - name: Handle Kind check results
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            const fs = require('fs');
+            const errorsFound = process.env.errors_found === 'true';
+
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: 'errors,automated'
+            });
+            const existingIssue = issues.find(issue => 
+              issue.title === "Kind Check Errors (Auto-generated)" && 
+              issue.user.login === 'github-actions[bot]'
+            );
+
+            if (errorsFound) {
+              let issueContent = fs.readFileSync('error_output.log', 'utf8');
+
+              // Format content for better readability
+              issueContent = "# Kind Check Errors\n\n" + issueContent.split('\n').map(line => {
+                if (line.startsWith('Checking:')) {
+                  return `## ${line}`;
+                } else if (line.startsWith('ERROR:') || line.startsWith('PARSER_ERROR:')) {
+                  return `**${line}**\n\`\`\`hs`;
+                } else if (line.trim() === 'END') {
+                  return `${line}\n\`\`\``;
+                } else {
+                  return line;
+                }
+              }).join('\n');
+
+              if (existingIssue) {
+                await github.rest.issues.update({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: existingIssue.number,
+                  title: "Kind Check Errors (Auto-generated)",
+                  body: issueContent,
+                  labels: ['errors', 'automated']
+                });
+              } else {
+                await github.rest.issues.create({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  title: "Kind Check Errors (Auto-generated)",
+                  body: issueContent,
+                  labels: ['errors', 'automated']
+                });
+              }
+            } else if (existingIssue) {
+              // Close issue if it exists and no errors were found
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existingIssue.number,
+                state: 'closed',
+                state_reason: 'completed'
+              });
+            }
+
+      - name: Upload output as an artifact
+        if: env.errors_found == 'true'
+        uses: actions/upload-artifact@v3
+        with:
+          name: kind-check-output
+          path: error_output.log
+
+      - name: Clean up
+        run: rm -f error_output.log
+

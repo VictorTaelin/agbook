@@ -11,6 +11,6 @@ N/range
   ∀(end: N/Nat)
   (L/List N/Nat)
 = λstart λend
-  (B/if _ (N/lt start end)
-    (#Cons{start (N/range (#Succ{pred: start}) end)})
+  (B/if (L/List N/Nat) (N/lt start end)
+    (#Cons{start (N/range (#Succ{start}) end)})
     #Nil{})

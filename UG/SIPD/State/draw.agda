@@ -42,10 +42,7 @@ render renderer state = do
 
 {-# COMPILE GHC draw = \renderer state -> do
   {
-    SDL.rendererDrawColor renderer SDL.$= SDL.V4 255 255 255 255 ;
-    SDL.clear renderer ;
     render renderer state ;
-    SDL.present renderer 
   }
  #-}
 

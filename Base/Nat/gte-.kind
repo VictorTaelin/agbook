@@ -1,0 +1,50 @@
+use Base/Nat/ as N/
+use Base/Bool/ as B/
+use Base/Equal/ as E/
+
+// Test cases for the N/gte function
+
+// Test case 1: 5 >= 3 should be True
+N/gte/test/1
+: (E/Equal B/Bool (N/gte #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}} #Succ{#Succ{#Succ{#Zero{}}}}) #True{})
+= #Refl{}
+
+// Test case 2: 3 >= 5 should be False
+N/gte/test/2
+: (E/Equal B/Bool (N/gte #Succ{#Succ{#Succ{#Zero{}}}} #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}) #False{})
+= #Refl{}
+
+// Test case 3: 4 >= 4 should be True
+N/gte/test/3
+: (E/Equal B/Bool (N/gte #Succ{#Succ{#Succ{#Succ{#Zero{}}}}} #Succ{#Succ{#Succ{#Succ{#Zero{}}}}}) #True{})
+= #Refl{}
+
+// Test case 4: 0 >= 0 should be True
+N/gte/test/4
+: (E/Equal B/Bool (N/gte #Zero{} #Zero{}) #True{})
+= #Refl{}
+
+// Test case 5: 1 >= 0 should be True
+N/gte/test/5
+: (E/Equal B/Bool (N/gte #Succ{#Zero{}} #Zero{}) #True{})
+= #Refl{}
+
+// Test case 6: 0 >= 1 should be False
+N/gte/test/6
+: (E/Equal B/Bool (N/gte #Zero{} #Succ{#Zero{}}) #False{})
+= #Refl{}
+
+// Test case 7: 2 >= 1 should be True
+N/gte/test/7
+: (E/Equal B/Bool (N/gte #Succ{#Succ{#Zero{}}} #Succ{#Zero{}}) #True{})
+= #Refl{}
+
+// Test case 8: 1 >= 2 should be False
+N/gte/test/8
+: (E/Equal B/Bool (N/gte #Succ{#Zero{}} #Succ{#Succ{#Zero{}}}) #False{})
+= #Refl{}
+
+// Test case 9: 0 >= 0 should be True
+N/gte/test/9
+: (E/Equal B/Bool (N/gte #Zero{} #Zero{}) #True{})
+= #Refl{}

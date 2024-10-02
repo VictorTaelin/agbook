@@ -21,5 +21,5 @@ open import Base.Trait.Ord
 -- - container: The input container.
 -- = A new container with the specified value removed.
 remove : ∀ {A : Set} {{_ : Eq A}} {{_ : Ord A}} → A → Container A → Container A
-remove value (ListC xs) = ListC (L.filter (λ x → not (equality x value)) xs)
-remove value (SetC xs)  = SetC  (S.filter (λ x → not (equality x value)) xs)
+remove value (AsList xs) = AsList (L.filter (λ x → not (equality x value)) xs)
+remove value (AsOSet xs)  = AsOSet  (S.filter (λ x → not (equality x value)) xs)

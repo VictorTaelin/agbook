@@ -1,0 +1,11 @@
+use Base/Equal/ as E/
+
+// Constructs a proof of reflexivity for propositional equality.
+// 1st: The type of the value.
+// 2nd: The value for which to construct the reflexivity proof.
+// = A proof that 2nd is equal to itself.
+E/refl
+: ∀(A: *)
+  ∀(x: A)
+  (E/Equal A x x)
+= λA λx #Refl{}

@@ -5,29 +5,31 @@ open import Base.Nat.gte
 open import Base.Bool.Bool
 open import Base.Equal.Equal
 
-test-gte-1 : (5 >= 3) ≡ True
-test-gte-1 = refl
+T1 : (5 >= 3) ≡ True
+T1 = refl
 
-test-gte-2 : (3 >= 5) ≡ False
-test-gte-2 = refl
+T2 : (3 >= 5) ≡ False
+T2 = refl
 
-test-gte-3 : (4 >= 4) ≡ True
-test-gte-3 = refl
+T3 : (4 >= 4) ≡ True
+T3 = refl
 
-test-gte-4 : (0 >= 0) ≡ True
-test-gte-4 = refl
+T4 : (0 >= 0) ≡ True
+T4 = refl
 
-test-gte-5 : (1 >= 0) ≡ True
-test-gte-5 = refl
+T5 : (1 >= 0) ≡ True
+T5 = refl
 
-test-gte-6 : (0 >= 1) ≡ False
-test-gte-6 = refl
+T6 : (0 >= 1) ≡ False
+T6 = refl
 
-test-gte-7 : (Succ (Succ Zero) >= Succ Zero) ≡ True
-test-gte-7 = refl
+T7 : (Succ (Succ Zero) >= Succ Zero) ≡ True
+T7 = refl
 
-test-gte-8 : (Succ Zero >= Succ (Succ Zero)) ≡ False
-test-gte-8 = refl
+T8 : (Succ Zero >= Succ (Succ Zero)) ≡ False
+T8 = refl
 
-test-gte-9 : (Zero >= Zero) ≡ True
-test-gte-9 = refl
+T9 : (Zero >= Zero) ≡ True
+T9 = refl
+
+

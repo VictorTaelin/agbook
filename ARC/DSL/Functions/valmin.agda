@@ -17,9 +17,9 @@ open import ARC.DSL.Types.Boolean.Functions
 -- = The minimum Integer value obtained after applying f to all elements,
 --   or 0 if the Container is empty.
 valmin : ∀ {A : Set} → Container A → (A → Integer) → Integer
-valmin (ListC xs) f with L.sort I._<_ (L.map f xs)
+valmin (AsList xs) f with L.sort I._<_ (L.map f xs)
 ... | []     = 0  -- If the list is empty, return 0
 ... | x :: _ = x  -- Otherwise, return the first (minimum) element
-valmin (SetC xs)  f with L.sort I._<_ (L.map f (S.to-list xs))
+valmin (AsOSet xs)  f with L.sort I._<_ (L.map f (S.to-list xs))
 ... | []     = 0  -- If the set is empty, return 0
 ... | x :: _ = x  -- Otherwise, return the first (minimum) element

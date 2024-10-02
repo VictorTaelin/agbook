@@ -16,4 +16,4 @@ open import ARC.DSL.Functions.container-to-list
 -- - cb: The second input container.
 -- = A new container with the function applied to pairs of elements from ca and cb.
 papply : ∀ {A B C : Set} → (A → B → C) → Container A → Container B → Container C
-papply fn ca cb = ListC (zip-with fn (container-to-list ca) (container-to-list cb))
+papply fn ca cb = AsList (zip-with fn (container-to-list ca) (container-to-list cb))

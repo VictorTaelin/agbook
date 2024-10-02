@@ -11,5 +11,5 @@ import ARC.DSL.Types.OrdSet.Functions as S
 -- - container: The input Container.
 -- = The number of elements in the Container.
 size : ∀ {A : Set} → Container A → Integer
-size (ListC xs) = L.length xs
-size (SetC  xs) = S.size xs
+size (AsList xs) = L.length xs
+size (AsOSet  xs) = S.size xs

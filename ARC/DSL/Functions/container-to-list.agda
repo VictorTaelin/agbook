@@ -8,5 +8,6 @@ import ARC.DSL.Types.OrdSet.Functions as S
 open import Base.Trait.Ord
 
 container-to-list : ∀ {A : Set} → Container A → List A
-container-to-list (ListC l) = l
-container-to-list (SetC  s) = S.to-list s
+container-to-list (AsList l) = l
+container-to-list (AsOSet s) = S.to-list s
+container-to-list (AsPair s) = P.to-list s

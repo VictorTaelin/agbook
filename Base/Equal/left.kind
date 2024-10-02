@@ -1,0 +1,21 @@
+use Base/Equal/ as E/
+
+// Left equality property.
+// If a is equal to x and b is equal to x, then a is equal to b.
+// 1st: The type of the values being compared.
+// 2nd: The common value.
+// 3rd: The 1st value to compare.
+// 4th: The 2nd value to compare.
+// 5th: Proof that 3rd is equal to 2nd.
+// 6th: Proof that 4th is equal to 2nd.
+// = Proof that 3rd is equal to 4th.
+E/left
+: ∀(A: *)
+  ∀(x: A)
+  ∀(a: A)
+  ∀(b: A)
+  ∀(e1: (E/Equal A a x))
+  ∀(e2: (E/Equal A b x))
+  (E/Equal A a b)
+= λA λx λa λb λe1 λe2
+  (E/chain A a x b e1 (E/sym A x b e2))

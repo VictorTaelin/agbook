@@ -3,10 +3,10 @@ module Base.Equal.sym where
 open import Base.Equal.Equal
 
 -- Symmetry property of equality.
--- If x is equal to y, then y is equal to x.
--- - x: The 1st value.
--- - y: The 2nd value.
--- - p: Proof that x is equal to y.
--- = Proof that y is equal to x.
+-- If 1st is equal to 2nd, then 2nd is equal to 1st.
+-- 1st: The value.
+-- 2nd: The value.
+-- 3rd: Proof that 1st is equal to 2nd.
+-- = Proof that 2nd is equal to 1st.
 sym : ∀ {a} {A : Set a} {x y : A} → x ≡ y → y ≡ x
 sym refl = refl

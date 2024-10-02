@@ -3,11 +3,11 @@ use Base/Bool/ as B/
 use Base/Trait/ as T/
 
 // Checks if two Maybe values are equal.
-// - A: The type of the value inside Maybe.
-// - e: The Eq instance for type A.
-// - x: The first Maybe value.
-// - y: The second Maybe value.
-// = True if x and y are equal, False otherwise.
+// - 1st: The type of the value inside Maybe.
+// - 2nd: The Eq instance for type 1st.
+// - 3rd: The first Maybe value.
+// - 4th: The second Maybe value.
+// = True if 3rd and 4th are equal, False otherwise.
 M/eq
 : ∀(A: *)
   ∀(e: (T/Eq A))
@@ -23,6 +23,6 @@ M/eq
     #None: #False{}
     #Some: λy.value
       use x = T/Eq
-      (T/Eq/eq _ e x.value y.value)
+      (T/Eq/eq A e x.value y.value)
   }
 }

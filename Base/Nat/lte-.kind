@@ -1,0 +1,45 @@
+use Base/Nat/ as N/
+use Base/Bool/ as B/
+use Base/Equal/ as E/
+
+// Test cases for lte function
+
+// Test: 0 <= 0 is True
+N/lte/test/zero_zero
+: (E/Equal B/Bool (N/lte #Zero{} #Zero{}) #True{})
+= #Refl{}
+
+// Test: 0 <= 1 is True
+N/lte/test/zero_one
+: (E/Equal B/Bool (N/lte #Zero{} #Succ{#Zero{}}) #True{})
+= #Refl{}
+
+// Test: 1 <= 0 is False
+N/lte/test/one_zero
+: (E/Equal B/Bool (N/lte #Succ{#Zero{}} #Zero{}) #False{})
+= #Refl{}
+
+// Test: 1 <= 1 is True
+N/lte/test/one_one
+: (E/Equal B/Bool (N/lte #Succ{#Zero{}} #Succ{#Zero{}}) #True{})
+= #Refl{}
+
+// Test: 1 <= 2 is True
+N/lte/test/one_two
+: (E/Equal B/Bool (N/lte #Succ{#Zero{}} #Succ{#Succ{#Zero{}}}) #True{})
+= #Refl{}
+
+// Test: 2 <= 1 is False
+N/lte/test/two_one
+: (E/Equal B/Bool (N/lte #Succ{#Succ{#Zero{}}} #Succ{#Zero{}}) #False{})
+= #Refl{}
+
+// Test: 5 <= 10 is True
+N/lte/test/five_ten
+: (E/Equal B/Bool (N/lte #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}} #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}}) #True{})
+= #Refl{}
+
+// Test: 10 <= 5 is False
+N/lte/test/ten_five
+: (E/Equal B/Bool (N/lte #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}} #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}) #False{})
+= #Refl{}

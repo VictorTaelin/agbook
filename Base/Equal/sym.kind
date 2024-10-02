@@ -1,0 +1,18 @@
+use Base/Equal/ as E/
+
+// Symmetry property of equality.
+// If x is equal to y, then y is equal to x.
+// 1st: The type of the elements being compared.
+// 2nd: The 1st value.
+// 3rd: The 2nd value.
+// 4th: Proof that 2nd is equal to 3rd.
+// = Proof that 3rd is equal to 2nd.
+E/sym
+: ∀(A: *)
+  ∀(x: A)
+  ∀(y: A)
+  ∀(e: (E/Equal A x y))
+  (E/Equal A y x)
+= λA λx λy λ{
+  #Refl: #Refl{}
+}

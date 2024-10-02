@@ -24,6 +24,7 @@ open import Base.List.contains public
 open import Base.List.count public
 open import Base.List.dedup public
 open import Base.List.diagonal public
+open import Base.List.difference public
 open import Base.List.drop-while public
 open import Base.List.drop public
 open import Base.List.empty public
@@ -52,7 +53,9 @@ open import Base.List.lookup public
 open import Base.List.lt public
 open import Base.List.lte public
 open import Base.List.map public
+open import Base.List.match public
 open import Base.List.mfoldl public
+open import Base.List.mmap public
 open import Base.List.neq public
 open import Base.List.or public
 open import Base.List.product public

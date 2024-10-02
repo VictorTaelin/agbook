@@ -1,14 +1,14 @@
 use Base/Maybe/ as M/
 
 // Runs a Maybe monad, returning a default value if it is None.
-// - A: The type of the value inside the Maybe.
-// - d: The default value to return if ma is None.
-// - ma: The Maybe value to run.
+// - 1st: The type of the value inside the Maybe.
+// - 2nd: The default value to return if ma is None.
+// - 3rd: The Maybe value to run.
 // = The value inside ma if it's Some, otherwise the default value.
 M/run
 : ∀(A: *)
   ∀(d: A)
-  ∀(ma: (M/Maybe A))
+  ∀(m: (M/Maybe A))
   A
 = λA λd λ{
   #None: d

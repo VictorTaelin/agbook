@@ -6,11 +6,11 @@ open import Base.Equal.trans
 
 -- Left equality property.
 -- If a is equal to x and b is equal to x, then a is equal to b.
--- - x: The common value.
--- - a: The 1st value to compare.
--- - b: The 2nd value to compare.
--- - r: Proof that a is equal to x.
--- - s: Proof that b is equal to x.
--- = Proof that a is equal to b.
+-- 1st: The common value.
+-- 2nd: The value to compare.
+-- 3rd: The value to compare.
+-- 4th: Proof that 2nd is equal to 1st.
+-- 5th: Proof that 3rd is equal to 1st.
+-- = Proof that 3rd is equal to 4th.
 left : ∀ {a} {A : Set a} {x a b : A} → a ≡ x → b ≡ x → a ≡ b
 left r s = trans r (sym s)

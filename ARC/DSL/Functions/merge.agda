@@ -12,5 +12,5 @@ open import Base.Trait.Ord
 -- - containers: A container of containers to be merged.
 -- = A new container with all elements from the input containers.
 merge : ∀ {A : Set} → {{_ : Ord A}} → Container (Container A) → Container A
-merge (ListC l) = ListC (L.concat-map container-to-list l)
-merge (SetC  s) = SetC  (S.from-list (L.concat-map container-to-list (S.to-list s)))
+merge (AsList l) = AsList (L.concat-map container-to-list l)
+merge (AsOSet  s) = AsOSet  (S.from-list (L.concat-map container-to-list (S.to-list s)))

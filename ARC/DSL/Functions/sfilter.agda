@@ -15,5 +15,5 @@ open import Base.Trait.Ord
 -- - condition: The predicate function to test each element.
 -- = A new container of the same type with elements that satisfy the condition.
 sfilter : ∀ {A : Set} {{_ : Ord A}} → Container A → (A → Boolean) → Container A
-sfilter (ListC xs) condition = ListC (L.filter condition xs)
-sfilter (SetC  xs) condition = SetC  (S.filter condition xs)
+sfilter (AsList xs) condition = AsList (L.filter condition xs)
+sfilter (AsOSet  xs) condition = AsOSet  (S.filter condition xs)

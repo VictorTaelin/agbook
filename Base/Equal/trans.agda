@@ -3,12 +3,12 @@ module Base.Equal.trans where
 open import Base.Equal.Equal
 
 -- Transitivity property of equality.
--- If x is equal to y and y is equal to z, then x is equal to z.
--- - x: The 1st value.
--- - y: The 2nd value.
--- - z: The 3rd value.
--- - p: Proof that x is equal to y.
--- - q: Proof that y is equal to z.
--- = Proof that x is equal to z.
+-- If 1st is equal to 2nd and 2nd is equal to 3rd, then 1st is equal to 3rd.
+-- 1st: The value.
+-- 2nd: The value.
+-- 3rd: The value.
+-- 4th: Proof that 1st is equal to 2nd.
+-- 5th: Proof that 2nd is equal to 3rd.
+-- = Proof that 1st is equal to 3rd.
 trans : ∀ {a} {A : Set a} {x y z : A} → x ≡ y → y ≡ z → x ≡ z
 trans refl refl = refl

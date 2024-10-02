@@ -14,9 +14,9 @@ open import Base.Maybe.Maybe
 -- - container: The Container to extract the last element from.
 -- = The last element of the Container, or the default value if empty.
 last : ∀ {A : Set} → A → Container A → A
-last default (ListC l) with L.last l
+last default (AsList l) with L.last l
 ... | Some x = x  -- If the list has a last element, return it
 ... | None   = default  -- If the list is empty, return the default value
-last default (SetC s) with S.maximum s
+last default (AsOSet s) with S.maximum s
 ... | Some x = x  -- For a set, the last element is the maximum value
 ... | None   = default  -- If the set is empty, return the default value

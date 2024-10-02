@@ -12,5 +12,5 @@ open import ARC.DSL.Functions.int-cmp
 open import Base.Trait.Ord
 
 order : ∀ {A : Set} → Container A → (A → Integer) → Container A
-order (ListC xs) f = ListC (L.sort (int-cmp f) xs)
-order (SetC  xs) f = ListC (L.sort (int-cmp f) (S.to-list xs))
+order (AsList xs) f = AsList (L.sort (int-cmp f) xs)
+order (AsOSet  xs) f = AsList (L.sort (int-cmp f) (S.to-list xs))

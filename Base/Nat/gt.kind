@@ -9,10 +9,4 @@ N/gt
 : ∀(m: N/Nat)
   ∀(n: N/Nat)
   B/Bool
-= λ{
-  #Zero: λn #False{}
-  #Succ: λm.pred λ{
-    #Zero: #True{}
-    #Succ: λn.pred (N/gt m.pred n.pred)
-  }
-}
+= λm λn (N/lt n m)

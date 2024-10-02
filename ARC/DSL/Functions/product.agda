@@ -9,6 +9,6 @@ open import Base.List.cartesian-product
 -- Computes the cartesian product of two Containers.
 -- - a: The first Container.
 -- - b: The second Container.
--- = A new Container (as a ListC) containing all possible pairs of elements from a and b.
+-- = A new Container (as a AsList) containing all possible pairs of elements from a and b.
 product : ∀ {A B : Set} → Container A → Container B → Container (Pair A B)
-product a b = ListC (cartesian-product (container-to-list a) (container-to-list b))
+product a b = AsList (cartesian-product (container-to-list a) (container-to-list b))

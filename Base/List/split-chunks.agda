@@ -6,6 +6,7 @@ open import Base.Function.case
 
 -- Splits a list into chunks, separated by elements that satisfy a predicate function.
 -- Each chunk starts with an element that satisfies the predicate, except for the first chunk.
+-- E.g.: split-chunks is-even [1 2 3 4] ≡ [[1] [2 3] [4]]
 -- - pred: A predicate function that determines where to split the list.
 -- - xs: The input list.
 -- = A list of lists, where each list has one of the list chunks.

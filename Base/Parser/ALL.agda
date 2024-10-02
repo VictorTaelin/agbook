@@ -13,6 +13,7 @@ open import Base.Parser.consume public
 open import Base.Parser.fail public
 open import Base.Parser.get-index public
 open import Base.Parser.is-eof public
+open import Base.Parser.map public
 open import Base.Parser.parse-char public
 open import Base.Parser.parse-many public
 open import Base.Parser.parse-name public

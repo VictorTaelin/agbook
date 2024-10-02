@@ -1,0 +1,9 @@
+use Base/Maybe/ as M/
+
+// Constructs a None value, representing the absence of a value
+// - 1st: The type parameter for the Maybe type
+// = A Maybe value representing no value
+M/None
+: ∀(A: *)
+  (M/Maybe A)
+= λA #None{}

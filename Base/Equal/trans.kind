@@ -1,0 +1,24 @@
+use Base/Equal/ as E/
+
+// Transitivity property of equality.
+// If x is equal to y and y is equal to z, then x is equal to z.
+// 1st: The type of the values being compared.
+// 2nd: The first value.
+// 3rd: The second value.
+// 4th: The third value.
+// 5th: Proof that 2nd is equal to 3rd.
+// 6th: Proof that 3rd is equal to 4th.
+// = Proof that 2nd is equal to 4th.
+E/trans
+: ∀(A: *)
+  ∀(x: A)
+  ∀(y: A)
+  ∀(z: A)
+  ∀(xy: (E/Equal A x y))
+  ∀(yz: (E/Equal A y z))
+  (E/Equal A x z)
+= λA λx λy λz λ{
+  #Refl: λ{
+    #Refl: #Refl{}
+  }
+}
