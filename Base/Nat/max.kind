@@ -10,4 +10,4 @@ N/max
   ∀(n: N/Nat)
   N/Nat
 = λm λn
-  (B/if _ (N/gte m n) m n)
+  (B/if N/Nat (N/gte m n) m n)

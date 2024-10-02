@@ -1,0 +1,43 @@
+use Base/Nat/ as N/
+use Base/Bool/ as B/
+use Base/Equal/ as E/
+
+// Test: 0 - 0 = 0
+N/test-sub-zero-zero
+: (E/Equal N/Nat (N/sub #Zero{} #Zero{}) #Zero{})
+= #Refl{}
+
+// Test: 5 - 0 = 5
+N/test-sub-five-zero
+: (E/Equal N/Nat (N/sub #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}} #Zero{}) #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}})
+= #Refl{}
+
+// Test: 0 - 5 = 0 (subtraction doesn't go below zero)
+N/test-sub-zero-five
+: (E/Equal N/Nat (N/sub #Zero{} #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}) #Zero{})
+= #Refl{}
+
+// Test: 5 - 2 = 3
+N/test-sub-five-two
+: (E/Equal N/Nat (N/sub #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}} #Succ{#Succ{#Zero{}}}) #Succ{#Succ{#Succ{#Zero{}}}})
+= #Refl{}
+
+// Test: 10 - 7 = 3
+N/test-sub-ten-seven
+: (E/Equal N/Nat (N/sub #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}} #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}} ) #Succ{#Succ{#Succ{#Zero{}}}})
+= #Refl{}
+
+// Test: 8 - 8 = 0
+N/test-sub-eight-eight
+: (E/Equal N/Nat (N/sub #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}} #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}) #Zero{})
+= #Refl{}
+
+// Test: 3 - 5 = 0 (subtraction doesn't go below zero)
+N/test-sub-three-five
+: (E/Equal N/Nat (N/sub #Succ{#Succ{#Succ{#Zero{}}}} #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}) #Zero{})
+= #Refl{}
+
+// Test: (a - b) - c = a - (b + c)
+N/test-sub-associative
+: (E/Equal N/Nat (N/sub (N/sub #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}} #Succ{#Succ{#Succ{#Zero{}}}}) #Succ{#Succ{#Zero{}}}) (N/sub #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}} (N/add #Succ{#Succ{#Succ{#Zero{}}}} #Succ{#Succ{#Zero{}}})))
+= #Refl{}

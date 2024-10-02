@@ -1,0 +1,38 @@
+use Base/Nat/ as N/
+use Base/Bool/ as B/
+use Base/Equal/ as E/
+
+// Test: 0 < 0 = False
+N/lt/test/zero/zero : (E/Equal B/Bool (N/lt #Zero{} #Zero{}) #False{})
+  = #Refl{}
+
+// Test: 0 < 1 = True
+N/lt/test/zero/one : (E/Equal B/Bool (N/lt #Zero{} #Succ{#Zero{}}) #True{})
+  = #Refl{}
+
+// Test: 1 < 0 = False
+N/lt/test/one/zero : (E/Equal B/Bool (N/lt #Succ{#Zero{}} #Zero{}) #False{})
+  = #Refl{}
+
+// Test: 2 < 5 = True
+N/lt/test/two/five : (E/Equal B/Bool (N/lt #Succ{#Succ{#Zero{}}} #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}) #True{})
+  = #Refl{}
+
+// Test: 5 < 2 = False
+N/lt/test/five/two : (E/Equal B/Bool (N/lt #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}} #Succ{#Succ{#Zero{}}}) #False{})
+  = #Refl{}
+
+// Test: 7 < 7 = False
+N/lt/test/seven/seven : (E/Equal B/Bool (N/lt #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}} #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}) #False{})
+  = #Refl{}
+
+// Test: Transitivity: if a < b and b < c, then a < c
+N/lt/test/transitive
+: ∀(a_lt_b: (E/Equal B/Bool (N/lt #Succ{#Succ{#Succ{#Zero{}}}} #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}) #True{}))
+  ∀(b_lt_c: (E/Equal B/Bool (N/lt #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}} #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}) #True{}))
+  (E/Equal B/Bool (N/lt #Succ{#Succ{#Succ{#Zero{}}}} #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}) #True{})
+= λa_lt_b λb_lt_c #Refl{}
+
+// Test: Irreflexivity: a < a = False
+N/lt/test/irreflexive : (E/Equal B/Bool (N/lt #Succ{#Succ{#Succ{#Succ{#Zero{}}}}} #Succ{#Succ{#Succ{#Succ{#Zero{}}}}}) #False{})
+  = #Refl{}

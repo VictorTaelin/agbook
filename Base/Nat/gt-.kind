@@ -1,0 +1,82 @@
+use Base/Nat/ as N/
+use Base/Bool/ as B/
+use Base/Equal/ as E/
+
+// Test cases for gt function
+
+// Test: 3 > 2 = True
+N/gt/test/1
+: (E/Equal B/Bool (N/gt #Succ{#Succ{#Succ{#Zero{}}}} #Succ{#Succ{#Zero{}}}) #True{})
+= #Refl{}
+
+// Test: 2 > 3 = False
+N/gt/test/2
+: (E/Equal B/Bool (N/gt #Succ{#Succ{#Zero{}}} #Succ{#Succ{#Succ{#Zero{}}}}) #False{})
+= #Refl{}
+
+// Test: 5 > 5 = False
+N/gt/test/3
+: (E/Equal B/Bool (N/gt #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}} #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}) #False{})
+= #Refl{}
+
+// Test: 0 > 0 = False
+N/gt/test/4
+: (E/Equal B/Bool (N/gt #Zero{} #Zero{}) #False{})
+= #Refl{}
+
+// Test: 1 > 0 = True
+N/gt/test/5
+: (E/Equal B/Bool (N/gt #Succ{#Zero{}} #Zero{}) #True{})
+= #Refl{}
+
+// Test: 0 > 1 = False
+N/gt/test/6
+: (E/Equal B/Bool (N/gt #Zero{} #Succ{#Zero{}}) #False{})
+= #Refl{}
+
+// Test: 10 > 5 = True
+N/gt/test/7
+: (E/Equal B/Bool (N/gt #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}} #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}) #True{})
+= #Refl{}
+
+// Test: 100 > 99 = True
+N/gt/test/8
+: (E/Equal B/Bool (N/gt
+    #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{
+    #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{
+    #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{
+    #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{
+    #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{
+    #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{
+    #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{
+    #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{
+    #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{
+    #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+    #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{
+    #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{
+    #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{
+    #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{
+    #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{
+    #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{
+    #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{
+    #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{
+    #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{
+    #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+  ) #True{})
+= #Refl{}
+
+// Test: 42 > 42 = False
+N/gt/test/9
+: (E/Equal B/Bool (N/gt
+    #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{
+    #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{
+    #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{
+    #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{
+    #Succ{#Succ{#Zero{}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+    #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{
+    #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{
+    #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{
+    #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{
+    #Succ{#Succ{#Zero{}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+  ) #False{})
+= #Refl{}

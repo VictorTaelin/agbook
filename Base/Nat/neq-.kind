@@ -1,0 +1,44 @@
+use Base/Nat/ as N/
+use Base/Bool/ as B/
+use Base/Equal/ as E/
+
+// Test cases for neq function
+
+// Test case 1: Different numbers should return True
+N/neq/test/diff
+: (E/Equal B/Bool (N/neq #Succ{#Zero{}} #Zero{}) #True{})
+= #Refl{}
+
+// Test case 2: Same numbers should return False
+N/neq/test/same
+: (E/Equal B/Bool (N/neq #Succ{#Succ{#Zero{}}} #Succ{#Succ{#Zero{}}}) #False{})
+= #Refl{}
+
+// Test case 3: Zero and a non-zero number should return True
+N/neq/test/zero/nonzero
+: (E/Equal B/Bool (N/neq #Zero{} #Succ{#Succ{#Succ{#Zero{}}}}) #True{})
+= #Refl{}
+
+// Test case 4: Different non-zero numbers should return True
+N/neq/test/diff/nonzero
+: (E/Equal B/Bool (N/neq #Succ{#Succ{#Succ{#Succ{#Zero{}}}}} #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}) #True{})
+= #Refl{}
+
+// Test case 5: Zero and itself should return False
+N/neq/test/zero/zero
+: (E/Equal B/Bool (N/neq #Zero{} #Zero{}) #False{})
+= #Refl{}
+
+// Test case 6: Larger numbers should work correctly
+N/neq/test/larger
+: (E/Equal B/Bool (N/neq #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}}
+                        #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}}})
+                  #True{})
+= #Refl{}
+
+// Test case 7: Larger same numbers should return False
+N/neq/test/larger/same
+: (E/Equal B/Bool (N/neq #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}}
+                        #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}})
+                  #False{})
+= #Refl{}

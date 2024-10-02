@@ -1,0 +1,15 @@
+use Base/Nat/ as N/
+use Base/Bool/ as B/
+use Base/Equal/ as E/
+
+// Test: is-zero of Zero should be True
+N/test-is-zero-zero : (E/Equal B/Bool (N/is-zero #Zero{}) #True{})
+  = #Refl{}
+
+// Test: is-zero of 1 should be False
+N/test-is-zero-one : (E/Equal B/Bool (N/is-zero #Succ{#Zero{}}) #False{})
+  = #Refl{}
+
+// Test: is-zero of 2 should be False
+N/test-is-zero-two : (E/Equal B/Bool (N/is-zero #Succ{#Succ{#Zero{}}}) #False{})
+  = #Refl{}

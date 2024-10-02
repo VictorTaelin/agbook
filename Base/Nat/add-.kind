@@ -1,0 +1,30 @@
+use Base/Nat/ as N/
+use Base/Equal/ as E/
+
+// Test: 0 + 0 = 0
+N/test-add-zero-zero : (E/Equal N/Nat (N/add #Zero{} #Zero{}) #Zero{})
+= #Refl{}
+
+// Test: 0 + 5 = 5
+N/test-add-zero-five : (E/Equal N/Nat (N/add #Zero{} #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}) #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}})
+= #Refl{}
+
+// Test: 5 + 0 = 5
+N/test-add-five-zero : (E/Equal N/Nat (N/add #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}} #Zero{}) #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}})
+= #Refl{}
+
+// Test: 3 + 2 = 5
+N/test-add-three-two : (E/Equal N/Nat (N/add #Succ{#Succ{#Succ{#Zero{}}}} #Succ{#Succ{#Zero{}}}) #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}})
+= #Refl{}
+
+// Test: 7 + 8 = 15
+N/test-add-seven-eight : (E/Equal N/Nat (N/add #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}} #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}} ) #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}}}}}}})
+= #Refl{}
+
+// Test: Commutativity: a + b = b + a
+N/test-add-commutative : (E/Equal N/Nat (N/add #Succ{#Succ{#Succ{#Zero{}}}} #Succ{#Succ{#Succ{#Succ{#Zero{}}}}}) (N/add #Succ{#Succ{#Succ{#Succ{#Zero{}}}}} #Succ{#Succ{#Succ{#Zero{}}}}))
+= #Refl{}
+
+// Test: Associativity: (a + b) + c = a + (b + c)
+N/test-add-associative : (E/Equal N/Nat (N/add (N/add #Succ{#Succ{#Zero{}}} #Succ{#Succ{#Succ{#Zero{}}}}) #Succ{#Succ{#Succ{#Succ{#Zero{}}}}}) (N/add #Succ{#Succ{#Zero{}}} (N/add #Succ{#Succ{#Succ{#Zero{}}}} #Succ{#Succ{#Succ{#Succ{#Zero{}}}}})))
+= #Refl{}

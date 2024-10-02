@@ -1,0 +1,34 @@
+use Base/Nat/ as N/
+use Base/Equal/ as E/
+
+// Test cases for the half function
+
+// Test: half of 0 is 0
+N/half/test/zero
+: (E/Equal N/Nat (N/half #Zero{}) #Zero{})
+= #Refl{}
+
+// Test: half of 1 is 0
+N/half/test/one
+: (E/Equal N/Nat (N/half #Succ{#Zero{}}) #Zero{})
+= #Refl{}
+
+// Test: half of 2 is 1
+N/half/test/two
+: (E/Equal N/Nat (N/half #Succ{#Succ{#Zero{}}}) #Succ{#Zero{}})
+= #Refl{}
+
+// Test: half of 3 is 1
+N/half/test/three
+: (E/Equal N/Nat (N/half #Succ{#Succ{#Succ{#Zero{}}}}) #Succ{#Zero{}})
+= #Refl{}
+
+// Test: half of 4 is 2
+N/half/test/four
+: (E/Equal N/Nat (N/half #Succ{#Succ{#Succ{#Succ{#Zero{}}}}}) #Succ{#Succ{#Zero{}}})
+= #Refl{}
+
+// Test: half of 5 is 2
+N/half/test/five
+: (E/Equal N/Nat (N/half #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}) #Succ{#Succ{#Zero{}}})
+= #Refl{}
