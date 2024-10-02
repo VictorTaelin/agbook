@@ -3,21 +3,21 @@ use Base/Bool/ as B/
 use Base/Equal/ as E/
 
 // Test: equality of the same number
-N/test-eq-same
+T0
 : (E/Equal B/Bool (N/eq (#Succ{#Succ{ #Zero{}}}) (#Succ{#Succ{ #Zero{}}})) #True{})
 = #Refl{}
 
 // Test: equality of different numbers
-N/test-eq-different
+T1
 : (E/Equal B/Bool (N/eq (#Succ{#Succ{ #Zero{}}}) (#Succ{#Succ{#Succ{ #Zero{}}}})) #False{})
 = #Refl{}
 
 // Test: equality of zero
-N/test-eq-zero
+T2
 : (E/Equal B/Bool (N/eq #Zero{} #Zero{}) #True{})
 = #Refl{}
 
 // Test: inequality of the same number
-N/test-neq-same
+T3
 : (E/Equal B/Bool (N/neq (#Succ{#Succ{#Succ{#Succ{ #Zero{}}}}}) (#Succ{#Succ{#Succ{#Succ{ #Zero{}}}}})) #False{})
 = #Refl{}

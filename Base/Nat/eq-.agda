@@ -6,14 +6,18 @@ open import Base.Nat.neq
 open import Base.Bool.Bool
 open import Base.Equal.Equal
 
-test-eq-same : (42 == 42) ≡ True
-test-eq-same = refl
+-- Test: equality of the same number
+T0 : (42 == 42) ≡ True
+T0 = refl
 
-test-eq-different : (42 == 43) ≡ False
-test-eq-different = refl
+-- Test: equality of different numbers
+T1 : (42 == 43) ≡ False
+T1 = refl
 
-test-eq-zero : (0 == 0) ≡ True
-test-eq-zero = refl
+-- Test: equality of zero
+T2 : (0 == 0) ≡ True
+T2 = refl
 
-test-neq-same : (4 != 4) ≡ False
-test-neq-same = refl
+-- Test: inequality of the same number
+T3 : (4 != 4) ≡ False
+T3 = refl
