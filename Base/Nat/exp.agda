@@ -1,18 +1,17 @@
 module Base.Nat.exp where
 
 open import Base.Nat.Nat
-open import Base.Nat.add
 open import Base.Nat.mul
 
--- Exponentiation of nats.
--- - m: The 1st nat.
--- - n: The 2nd nat.
--- = m to the power of n.
--- FIXME: maybe use COMPILE pragmas for exp.
+-- Performs exponentiation of natural numbers.
+-- - 1st: The base number.
+-- - 2nd: The exponent.
+-- = The result of raising the base to the power of the exponent.
 exp : Nat → Nat → Nat
-exp m Zero     = 1
-exp m (Succ n) = m * exp m n
+exp m Zero     = Succ Zero
+exp m (Succ n) = mul m (exp m n)
 
+-- Infix operator for exponentiation.
 _**_ : Nat → Nat → Nat
 _**_ = exp
 

@@ -1,6 +1,8 @@
 use Base/Nat/ as N/
 use Base/Equal/ as E/
 
+// Tests the exponentiation function for natural numbers.
+
 // Test: 2⁰ = 1
 N/test-exp-two-zero : (E/Equal N/Nat (N/exp #Succ{#Succ{#Zero{}}} #Zero{}) #Succ{#Zero{}})
 = #Refl{}
