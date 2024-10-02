@@ -45,6 +45,7 @@ jobs:
               {
                 echo "Checking: $file ERR"
                 echo "$output"
+                echo "END"
                 echo ""
               } >> error_output.log
               echo "errors_found=true" >> $GITHUB_ENV
@@ -95,9 +96,9 @@ jobs:
               issueContent = "# Kind Check Errors\n\n" + issueContent.split('\n').map(line => {
                 if (line.startsWith('Checking:')) {
                   return `## ${line}`;
-                } else if (line.startsWith('Error:')) {
+                } else if (line.startsWith('ERROR:') || line.startsWith('PARSER_ERROR:')) {
                   return `**${line}**\n\`\`\`hs`;
-                } else if (line.trim() === 'No output') {
+                } else if (line.trim() === 'END') {
                   return `${line}\n\`\`\``;
                 } else {
                   return line;
