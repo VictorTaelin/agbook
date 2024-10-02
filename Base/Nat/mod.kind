@@ -1,11 +1,11 @@
 use Base/Nat/ as N/
 
-// Helper function for modulo operation
-// - k: Accumulator for the remainder
-// - m: The divisor
-// - n: The remaining dividend
-// - j: Counter for the divisor
-// = The remainder of the division
+// Performs an auxiliary calculation for the modulo operation.
+// 1st: Accumulator for the remainder.
+// 2nd: The divisor.
+// 3rd: The remaining dividend.
+// 4th: Counter for the divisor.
+// = The remainder of the division.
 N/mod/aux
 : ∀(k: N/Nat)
   ∀(m: N/Nat)
@@ -20,10 +20,10 @@ N/mod/aux
   }
 }
 
-// Performs natural number modulo operation
-// - n: The dividend
-// - m: The divisor
-// = The remainder of n divided by m
+// Performs the natural number modulo operation.
+// 1st: The dividend.
+// 2nd: The divisor.
+// = The remainder of dividend divided by divisor.
 N/mod
 : ∀(n: N/Nat)
   ∀(m: N/Nat)
