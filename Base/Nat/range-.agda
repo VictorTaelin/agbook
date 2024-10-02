@@ -10,22 +10,22 @@ open import Base.Bool.Bool
 -- Test cases for the range function
 
 -- Test 1: Empty range
-test-range-empty : range 5 5 ≡ []
-test-range-empty = refl
+T0 : range 5 5 ≡ []
+T0 = refl
 
 -- Test 2: Single element range
-test-range-single : range 3 4 ≡ (3 :: [])
-test-range-single = refl
+T1 : range 3 4 ≡ (3 :: [])
+T1 = refl
 
 -- Test 3: Multiple element range
-test-range-multiple : range 1 5 ≡ (1 :: 2 :: 3 :: 4 :: [])
-test-range-multiple = refl
+T2 : range 1 5 ≡ (1 :: 2 :: 3 :: 4 :: [])
+T2 = refl
 
 -- Test 4: Range starting from zero
-test-range-from-zero : range 0 3 ≡ (0 :: 1 :: 2 :: [])
-test-range-from-zero = refl
+T3 : range 0 3 ≡ (0 :: 1 :: 2 :: [])
+T3 = refl
 
 -- Test 5: Reversed range (should be empty)
-test-range-reversed : range 5 2 ≡ []
-test-range-reversed = refl
+T4 : range 5 2 ≡ []
+T4 = refl
 
