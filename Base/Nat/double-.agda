@@ -6,25 +6,25 @@ open import Base.Nat.add
 open import Base.Equal.Equal
 
 -- Test: double 0 = 0
-test-double-zero : double 0 ≡ 0
-test-double-zero = refl
+T0 : double 0 ≡ 0
+T0 = refl
 
 -- Test: double 1 = 2
-test-double-one : double 1 ≡ 2
-test-double-one = refl
+T2 : double 1 ≡ 2
+T2 = refl
 
 -- Test: double 2 = 4
-test-double-two : double 2 ≡ 4
-test-double-two = refl
+T3 : double 2 ≡ 4
+T3 = refl
 
 -- Test: double 5 = 10
-test-double-five : double 5 ≡ 10
-test-double-five = refl
+T4 : double 5 ≡ 10
+T4 = refl
 
 -- Test: double (double 2) = 8
-test-double-double-two : double (double 2) ≡ 8
-test-double-double-two = refl
+T5 : double (double 2) ≡ 8
+T5 = refl
 
 -- Test: double (3 + 2) = double 3 + double 2
-test-double-distributive : double (3 + 2) ≡ (double 3 + double 2)
-test-double-distributive = refl
+T6 : double (3 + 2) ≡ (double 3 + double 2)
+T6 = refl
