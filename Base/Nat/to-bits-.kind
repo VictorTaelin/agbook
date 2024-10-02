@@ -1,0 +1,45 @@
+use Base/Nat/ as N/
+use Base/Bits/ as BS/
+use Base/Equal/ as E/
+
+// Tests the to-bits function for natural numbers.
+
+// Test: to-bits 0 = O E.
+T0
+: (E/Equal BS/Bits (N/to-bits #Zero{}) (#O{#E{}}))
+= #Refl{}
+
+// Test: to-bits 1 = I E.
+T1
+: (E/Equal BS/Bits (N/to-bits #Succ{#Zero{}}) (#I{#E{}}))
+= #Refl{}
+
+// Test: to-bits 2 = O (I E).
+T2
+: (E/Equal BS/Bits (N/to-bits #Succ{#Succ{#Zero{}}}) (#O{#I{#E{}}}))
+= #Refl{}
+
+// Test: to-bits 3 = I (I E).
+T3
+: (E/Equal BS/Bits (N/to-bits #Succ{#Succ{#Succ{#Zero{}}}}) (#I{#I{#E{}}}))
+= #Refl{}
+
+// Test: to-bits 4 = O (O (I E)).
+T4
+: (E/Equal BS/Bits (N/to-bits #Succ{#Succ{#Succ{#Succ{#Zero{}}}}}) (#O{#O{#I{#E{}}}}))
+= #Refl{}
+
+// Test: to-bits 5 = I (O (I E)).
+T5
+: (E/Equal BS/Bits (N/to-bits #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}) (#I{#O{#I{#E{}}}}))
+= #Refl{}
+
+// Test: to-bits 8 = O (O (O (I E))).
+T6
+: (E/Equal BS/Bits (N/to-bits #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}) (#O{#O{#O{#I{#E{}}}}}))
+= #Refl{}
+
+// Test: to-bits 15 = I (I (I (I E))).
+T7
+: (E/Equal BS/Bits (N/to-bits #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}}}}}}}) (#I{#I{#I{#I{#E{}}}}}))
+= #Refl{}
