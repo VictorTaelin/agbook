@@ -2,7 +2,9 @@ module Base.Maybe.ALL where
 
 open import Base.Maybe.Maybe public
 open import Base.Maybe.Monad.bind public
+open import Base.Maybe.Monad.pure public
 open import Base.Maybe.Trait.Eq public
+open import Base.Maybe.Trait.Monad public
 open import Base.Maybe.Trait.Show public
 open import Base.Maybe.eq public
 open import Base.Maybe.fold public
