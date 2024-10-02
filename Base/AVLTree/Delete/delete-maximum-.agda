@@ -1,9 +1,9 @@
-module Base.AVLTree.delete-maximum- where
+module Base.AVLTree.Delete.delete-maximum- where
 
 open import Base.AVLTree.Balance.Balance
-open import Base.AVLTree.Test.is-balanced
+open import Base.AVLTree.is-balanced
 open import Base.AVLTree.AVLTree
-open import Base.AVLTree.delete-maximum
+open import Base.AVLTree.Delete.delete-maximum
 open import Base.AVLTree.empty
 open import Base.AVLTree.insert
 open import Base.AVLTree.to-list

@@ -58,7 +58,7 @@ test-fold-single-node = refl
 -- Test: Fold with a function that ignores the tree elements
 test-fold-constant : fold (λ _ _ → 42) 0 test-tree ≡ 42
 test-fold-constant = refl
-  
+
 -- Test: Fold to check if a specific key exists in the tree
 test-fold-exists : fold (λ p acc → acc || (fst p == 3)) False test-tree ≡ True
 test-fold-exists = refl
