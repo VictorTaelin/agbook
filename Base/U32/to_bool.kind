@@ -1,0 +1,12 @@
+use Base/Bool/ as B/
+use Base/U32/ as U32/
+
+// Converts a U32 to a Bool.
+// 1st: The U32 value to convert.
+// = True if x is non-zero, False otherwise.
+U32/to_bool
+: ∀(x: U32)
+  B/Bool
+= λ{0: #False{}
+  _: λx.pred #True{}
+	}

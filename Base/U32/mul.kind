@@ -1,0 +1,12 @@
+use Base/U32/ as U32/
+
+// Multiplies two 32-bit unsigned integers.
+// - a: The first U32 value.
+// - b: The second U32 value.
+// = The product of 'a' and 'b' as a U32 value.
+U32/mul
+: ∀(a: U32)
+  ∀(b: U32)
+  U32
+= λa λb
+  (* a b)

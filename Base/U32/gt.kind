@@ -1,0 +1,13 @@
+use Base/Bool/ as B/
+use Base/U32/ as U32/
+
+// Checks if one U32 is greater than another.
+// 1st: The U32 value.
+// 2nd: The U32 value.
+// = True if the 1st value is greater than the 2nd, False otherwise.
+U32/gt
+: ∀(a: U32)
+  ∀(b: U32)
+  B/Bool
+= λa λb
+  (U32/to_bool (> a b))

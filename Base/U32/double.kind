@@ -1,0 +1,10 @@
+use Base/U32/ as U32/
+
+// Doubles a given U32 value.
+// 1st: The U32 value to be doubled.
+// = The input value multiplied by 2.
+U32/double
+: ∀(x: U32)
+  U32
+= λx
+  (U32/mul x 2)

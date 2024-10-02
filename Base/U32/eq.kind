@@ -1,0 +1,13 @@
+use Base/Bool/ as B/
+use Base/U32/ as U32/
+
+// Checks if two U32 values are equal.
+// - 1st: The U32 value to compare.
+// - 2nd: The U32 value to compare.
+// = True if the values are equal, False otherwise.
+U32/eq
+: ∀(a: U32)
+  ∀(b: U32)
+  B/Bool
+= λa λb 
+	(U32/to_bool (U32/eql a b))

@@ -1,0 +1,12 @@
+use Base/U32/ as U32/
+
+// Performs bitwise AND operation on two U32 values.
+// 1st: The first U32 value.
+// 2nd: The second U32 value.
+// = The result of bitwise AND operation between the two input values.
+U32/and
+: ∀(a: U32)
+  ∀(b: U32)
+  U32
+= λa λb
+  (& a b)
