@@ -2,42 +2,44 @@ use Base/Nat/ as N/
 use Base/Bool/ as B/
 use Base/Equal/ as E/
 
-// Test: 0 - 0 = 0
-N/test-sub-zero-zero
+// Tests the subtraction operation for natural numbers.
+
+// Test: 0 - 0 = 0.
+T0
 : (E/Equal N/Nat (N/sub #Zero{} #Zero{}) #Zero{})
 = #Refl{}
 
-// Test: 5 - 0 = 5
-N/test-sub-five-zero
+// Test: 5 - 0 = 5.
+T1
 : (E/Equal N/Nat (N/sub #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}} #Zero{}) #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}})
 = #Refl{}
 
-// Test: 0 - 5 = 0 (subtraction doesn't go below zero)
-N/test-sub-zero-five
+// Test: 0 - 5 = 0 (subtraction doesn't go below zero).
+T2
 : (E/Equal N/Nat (N/sub #Zero{} #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}) #Zero{})
 = #Refl{}
 
-// Test: 5 - 2 = 3
-N/test-sub-five-two
+// Test: 5 - 2 = 3.
+T3
 : (E/Equal N/Nat (N/sub #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}} #Succ{#Succ{#Zero{}}}) #Succ{#Succ{#Succ{#Zero{}}}})
 = #Refl{}
 
-// Test: 10 - 7 = 3
-N/test-sub-ten-seven
+// Test: 10 - 7 = 3.
+T4
 : (E/Equal N/Nat (N/sub #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}} #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}} ) #Succ{#Succ{#Succ{#Zero{}}}})
 = #Refl{}
 
-// Test: 8 - 8 = 0
-N/test-sub-eight-eight
+// Test: 8 - 8 = 0.
+T5
 : (E/Equal N/Nat (N/sub #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}} #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}) #Zero{})
 = #Refl{}
 
-// Test: 3 - 5 = 0 (subtraction doesn't go below zero)
-N/test-sub-three-five
+// Test: 3 - 5 = 0 (subtraction doesn't go below zero).
+T6
 : (E/Equal N/Nat (N/sub #Succ{#Succ{#Succ{#Zero{}}}} #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}) #Zero{})
 = #Refl{}
 
-// Test: (a - b) - c = a - (b + c)
-N/test-sub-associative
+// Test: (a - b) - c = a - (b + c).
+T7
 : (E/Equal N/Nat (N/sub (N/sub #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}} #Succ{#Succ{#Succ{#Zero{}}}}) #Succ{#Succ{#Zero{}}}) (N/sub #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}} (N/add #Succ{#Succ{#Succ{#Zero{}}}} #Succ{#Succ{#Zero{}}})))
 = #Refl{}

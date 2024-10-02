@@ -1,9 +1,9 @@
 use Base/Nat/ as N/
 
-// Subtracts one nat from another.
-// - m: The number to subtract from.
-// - n: The number to subtract.
-// = The result of m - n, or zero if n > m.
+// Subtracts one natural number from another.
+// 1st: The number to subtract from.
+// 2nd: The number to subtract.
+// = The result of 1st - 2nd, or zero if 2nd > 1st.
 N/sub
 : ∀(m: N/Nat)
   ∀(n: N/Nat)
