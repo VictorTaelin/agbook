@@ -1,0 +1,16 @@
+use Base/Pair/ as P/
+use Base/List/ as L/
+
+// Converts a pair of elements into a list.
+// This function takes a pair and returns a list containing both elements.
+// 1st: The type of elements in the pair.
+// 2nd: The input pair to convert.
+// = A list containing the two elements of the pair.
+P/to-list
+: ∀(A: *)
+  ∀(pair: (P/Pair A A))
+  (L/List A)
+= λA λpair
+  let x = (P/Sigma/fst _ _ pair)
+  let y = (P/Sigma/snd _ _ pair)
+  #Cons{x #Cons{y #Nil{}}}

@@ -10,17 +10,17 @@ open import Base.Char.Char
 open import Base.Char.eq
 open import Base.Equal.Equal
 
-test-eq-same-pair : ((1 , True) == (1 , True)) ≡ True
-test-eq-same-pair = refl
+T0 : ((1 , True) == (1 , True)) ≡ True
+T0 = refl
 
-test-eq-different-first : ((1 , True) == (2 , True)) ≡ False
-test-eq-different-first = refl
+T1 : ((1 , True) == (2 , True)) ≡ False
+T1 = refl
 
-test-neq-different-second : ((1 , True) != (1 , False)) ≡ True
-test-neq-different-second = refl
+T2 : ((1 , True) != (1 , False)) ≡ True
+T2 = refl
 
-test-eq-char-pair-same : ((1 , 'a') == (1 , 'a')) ≡ True
-test-eq-char-pair-same = refl
+T3 : ((1 , 'a') == (1 , 'a')) ≡ True
+T3 = refl
 
-test-eq-char-pair-different : ((1 , 'a') == (2 , 'a')) ≡ False
-test-eq-char-pair-different = refl
+T4 : ((1 , 'a') == (2 , 'a')) ≡ False
+T4 = refl

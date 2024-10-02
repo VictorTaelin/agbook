@@ -1,0 +1,20 @@
+use Base/Pair/ as P/
+
+// Sets the second component of a pair to a new value.
+// This function creates a new pair with an updated second component.
+// 1st: The type of the first component.
+// 2nd: The original type of the second component.
+// 3rd: The new type of the second component.
+// 4th: The new value for the second component.
+// 5th: The original pair.
+// = A new pair with the original first component and the updated second component.
+P/set-snd
+: ∀(A: *)
+  ∀(B: *)
+  ∀(C: *)
+  ∀(z: C)
+  ∀(pair: (P/Pair A B))
+  (P/Pair A C)
+= λA λB λC λz λpair
+  let x = (P/Sigma/fst A (λx B) pair)
+  #Pair{ x z }
