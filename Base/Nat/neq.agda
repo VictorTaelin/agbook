@@ -5,10 +5,14 @@ open import Base.Bool.not
 open import Base.Nat.Nat
 open import Base.Nat.eq
 
--- FIXME: maybe use COMPILE pragmas for neq.
+-- Checks if two natural numbers are not equal.
+-- 1st: The natural number to compare.
+-- 2nd: The natural number to compare.
+-- = True if the numbers are not equal, False otherwise.
 neq : Nat → Nat → Bool
-neq m n = ! (m == n)
+neq m n = not (m == n)
 
+-- Infix operator for inequality comparison of natural numbers.
 _!=_ : Nat → Nat → Bool
 _!=_ = neq
 
