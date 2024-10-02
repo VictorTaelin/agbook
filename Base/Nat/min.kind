@@ -1,14 +1,13 @@
 use Base/Nat/ as N/
 use Base/Bool/ as B/
-use Base/Trait/ as T/
 
 // Returns the minimum of two natural numbers.
-// - m: The first natural number.
-// - n: The second natural number.
-// = The smaller of m and n.
+// 1st: The natural number to compare.
+// 2nd: The natural number to compare.
+// = The smaller of the two input numbers.
 N/min
 : ∀(m: N/Nat)
   ∀(n: N/Nat)
   N/Nat
 = λm λn
-  (B/if _ (T/Ord/lte _ N/Trait/Ord m n) m n)
+  (B/if N/Nat (N/lte m n) m n)
