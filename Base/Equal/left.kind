@@ -18,4 +18,4 @@ E/left
   ∀(e2: (E/Equal A b x))
   (E/Equal A a b)
 = λA λx λa λb λe1 λe2
-  (E/chain A a x b e1 (E/sym A x b e2))
+  (E/trans A a x b e1 (E/sym A x b e2))

@@ -14,5 +14,5 @@ M/map
   (M/Maybe B)
 = λA λB λf λ{
     #None: #None{}
-    #Some: λm.value #Some{f m.value}
+    #Some: λm.value #Some{(f m.value)}
   }
