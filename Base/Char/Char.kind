@@ -1,5 +1,6 @@
 use Base/Char/ as C/
 
+// Represents a character in the Unicode character set.
 C/Char
 : *
 = U32
