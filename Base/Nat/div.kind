@@ -1,10 +1,11 @@
 use Base/Nat/ as N/
 use Base/Bool/ as B/
 
-// Integer division of nats.
-// - m: The dividend.
-// - n: The divisor.
-// = The quotient of m divided by n.
+// Performs integer division of natural numbers.
+// This function divides the dividend by the divisor.
+// 1st: The dividend.
+// 2nd: The divisor.
+// = The quotient of the division.
 N/div
 : ∀(m: N/Nat)
   ∀(n: N/Nat)

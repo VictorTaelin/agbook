@@ -1,0 +1,44 @@
+use Base/Nat/ as N/
+use Base/Bool/ as B/
+use Base/Equal/ as E/
+
+// Test: Division of zero by one.
+// = 0
+T0 : (E/Equal N/Nat (N/div #Zero{} #Succ{#Zero{}}) #Zero{})
+ = #Refl{}
+
+// Test: Division of five by one.
+// = 5
+T1 : (E/Equal N/Nat (N/div #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}} #Succ{#Zero{}}) #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}})
+ = #Refl{}
+
+// Test: Division of five by two.
+// = 2
+T2 : (E/Equal N/Nat (N/div #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}} #Succ{#Succ{#Zero{}}}) #Succ{#Succ{#Zero{}}})
+ = #Refl{}
+
+// Test: Division of ten by three.
+// = 3
+T3 : (E/Equal N/Nat (N/div #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}} #Succ{#Succ{#Succ{#Zero{}}}}) #Succ{#Succ{#Succ{#Zero{}}}})
+ = #Refl{}
+
+// Test: Division of fifteen by five.
+// = 3
+T4 : (E/Equal N/Nat (N/div #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}}}}}}} #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}) #Succ{#Succ{#Succ{#Zero{}}}})
+ = #Refl{}
+
+// Test: Division of one hundred by ten.
+// = 10
+T5 : (E/Equal N/Nat (N/div (#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}) (#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}})) #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}})
+ = #Refl{}
+
+// Test: Division by zero returns zero.
+// = 0
+T6 : (E/Equal N/Nat (N/div #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}} #Zero{}) #Zero{})
+ = #Refl{}
+
+// Test: Division-multiplication-modulo identity.
+// This test verifies that (a / b) * b + (a % b) = a for non-zero b.
+// = 15
+T7 : (E/Equal N/Nat (N/add (N/mul (N/div #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}}}}}}} #Succ{#Succ{#Succ{#Succ{#Zero{}}}}}) #Succ{#Succ{#Succ{#Succ{#Zero{}}}}}) (N/mod #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}}}}}}} #Succ{#Succ{#Succ{#Succ{#Zero{}}}}})) #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}}}}}}})
+ = #Refl{}
