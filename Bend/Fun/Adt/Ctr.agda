@@ -9,6 +9,7 @@ open import Bend.Fun.Adt.CtrField
 record Ctr : Set where
   constructor MkCtr
   field
-    name   : String
-    type   : Type
+    nam    : String
+    adt    : String
+    typ    : Type
     fields : List CtrField

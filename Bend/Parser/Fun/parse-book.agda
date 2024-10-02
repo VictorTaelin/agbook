@@ -78,8 +78,8 @@ parse-book = go new-book
     pure record book { fun-defs = defs }
 
   add-top-level (TopLevel.TypeDef (adt , ctrs)) book = do
-    let adts = BitMap.set (ParseBook.adts book) (hash (Adt.name adt)) adt
-    let ctrs = foldr (λ ctr acc → BitMap.set acc (hash (Ctr.name ctr)) ctr)
+    let adts = BitMap.set (ParseBook.adts book) (hash (Adt.nam adt)) adt
+    let ctrs = foldr (λ ctr acc → BitMap.set acc (hash (Ctr.nam ctr)) ctr)
                     (ParseBook.ctrs book) ctrs
     pure record book { adts = adts ; ctrs = ctrs }
 

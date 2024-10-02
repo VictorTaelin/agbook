@@ -53,13 +53,13 @@ data AdtEncoding : Set where
 
 encode-adts : AdtEncoding -> Book -> Result Book String
 encode-adts encoding book = do
-  let adt-nams = map (λ adt -> Adt.name adt) (values (Book.adts book))
+  let adt-nams = map (λ adt -> Adt.nam adt) (values (Book.adts book))
   mfoldl (encode-adt encoding) book adt-nams
 
   where
 
   encode-ctr-scott : Adt -> Ctr -> List FnDef
-  encode-ctr-scott (MkAdt adt-nam _ ctrs src) (MkCtr nam typ fields) = do
+  encode-ctr-scott (MkAdt adt-nam _ ctrs src) (MkCtr nam _ typ fields) = do
     let args = map CtrField.nam fields
     let bod = Var nam
     let bod = foldl App bod (map Var args)
@@ -68,7 +68,7 @@ encode-adts encoding book = do
     (MkFnDef nam typ True (MkRule [] bod :: []) src) :: []
 
   encode-ctr-num-scott : Adt -> (Pair Nat Ctr) -> List FnDef
-  encode-ctr-num-scott (MkAdt adt-nam _ ctrs src) (tag , (MkCtr nam typ fields)) = do
+  encode-ctr-num-scott (MkAdt adt-nam _ ctrs src) (tag , (MkCtr nam _ typ fields)) = do
     let tag-nam = nam ++ "/tag"
     let tag-def = new-gen tag-nam (MkRule [] (Num' (U24 tag)) :: []) src True
     let x       = "%x"
@@ -82,7 +82,7 @@ encode-adts encoding book = do
   encode-adt : AdtEncoding -> Book -> String -> Result Book String
   encode-adt encoding book adt-name = do
     adt  <- to-result (get-adt book adt-name) "Adt not found"
-    ctrs <- to-result (mmap (get-ctr book) (Adt.ctrs adt)) "Ctr not found"
+    ctrs <- to-result (mmap (get-ctr book) (Adt.ctr adt)) "Ctr not found"
     let defs = case encoding of λ where
       Scott    -> map (encode-ctr-scott     adt) ctrs
       NumScott -> map (encode-ctr-num-scott adt) (zip (range 0 (length ctrs)) ctrs)

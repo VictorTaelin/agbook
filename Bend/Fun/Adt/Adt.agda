@@ -7,7 +7,7 @@ open import Bend.Source.Source
 record Adt : Set where
   constructor MkAdt
   field
-    name : String
-    vars : List String
-    ctrs : List String
-    src  : Source
+    nam : String
+    var : List String
+    ctr : List String
+    src : Source

@@ -37,7 +37,7 @@ parse-adt = do
   ctrs    <- parse-ctrs nam vars
   end-idx <- get-index
   let src  = from-file-span ini-idx end-idx
-  let adt  = MkAdt nam vars (List.map Ctr.name ctrs) src
+  let adt  = MkAdt nam vars (List.map Ctr.nam ctrs) src
   pure (adt , ctrs)
 
   where
@@ -92,12 +92,12 @@ parse-adt = do
           let type  = foldr Type.Arr
                             (Type.Ctr type-name (List.map Type.Var type-vars))
                             (List.map CtrField.typ fields)
-          pure (MkCtr name type fields))
+          pure (MkCtr name type-name type fields))
         else do
           name    <- parse-restricted-name "datatype constructor"
           let name = type-name ++ "/" ++ name
           let type = Type.Ctr type-name (List.map Type.Var type-vars)
-          pure (MkCtr name type [])
+          pure (MkCtr name type-name type [])
 
     -- Parses the constructors part of an ADT definition.
     -- - type-name: The name of the ADT being defined.

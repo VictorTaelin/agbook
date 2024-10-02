@@ -7,6 +7,7 @@ open import Base.Trait.Monad
 open import Bend.Fun.Book.Book
 open import Bend.Transform.FloatCombinators.float-combinators
 open import Bend.Transform.encode-adts
+open import Bend.Transform.fix-match-terms
 open import Bend.Transform.linearize-vars
 open import Bend.Transform.resolve-refs
 open import Bend.Transform.unbound-refs
@@ -16,8 +17,9 @@ open import Bend.Transform.unique-names
 -- Desugars and apply all the Term-level transformations to a Book.
 to-bend-core : Book → Result Book String
 to-bend-core book = do
-  book <- encode-adts NumScott book  -- TODO: get encoding from command line
+  book    <- encode-adts NumScott book  -- TODO: get encoding from command line
   let book = resolve-refs book
+  book    <- fix-match-terms book
   unbound-vars book
   let book = unique-names book
   let book = linearize-vars book
