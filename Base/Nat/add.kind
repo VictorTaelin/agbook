@@ -1,9 +1,9 @@
 use Base/Nat/ as N/
 
-// Addition of nats.
-// - m: The 1st nat.
-// - n: The 2nd nat.
-// = The sum of m and n.
+// Performs addition of natural numbers.
+// 1st: The first natural number.
+// 2nd: The second natural number.
+// = The sum of the two natural numbers.
 N/add
 : ∀(m: N/Nat)
   ∀(n: N/Nat)
