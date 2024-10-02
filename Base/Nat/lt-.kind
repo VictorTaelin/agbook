@@ -2,37 +2,39 @@ use Base/Nat/ as N/
 use Base/Bool/ as B/
 use Base/Equal/ as E/
 
-// Test: 0 < 0 = False
-N/lt/test/zero/zero : (E/Equal B/Bool (N/lt #Zero{} #Zero{}) #False{})
+// Tests the less than operation for natural numbers.
+
+// Teste: 0 < 0 = False.
+T0 : (E/Equal B/Bool (N/lt #Zero{} #Zero{}) #False{})
   = #Refl{}
 
-// Test: 0 < 1 = True
-N/lt/test/zero/one : (E/Equal B/Bool (N/lt #Zero{} #Succ{#Zero{}}) #True{})
+// Teste: 0 < 1 = True.
+T1 : (E/Equal B/Bool (N/lt #Zero{} #Succ{#Zero{}}) #True{})
   = #Refl{}
 
-// Test: 1 < 0 = False
-N/lt/test/one/zero : (E/Equal B/Bool (N/lt #Succ{#Zero{}} #Zero{}) #False{})
+// Teste: 1 < 0 = False.
+T2 : (E/Equal B/Bool (N/lt #Succ{#Zero{}} #Zero{}) #False{})
   = #Refl{}
 
-// Test: 2 < 5 = True
-N/lt/test/two/five : (E/Equal B/Bool (N/lt #Succ{#Succ{#Zero{}}} #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}) #True{})
+// Teste: 2 < 5 = True.
+T3 : (E/Equal B/Bool (N/lt #Succ{#Succ{#Zero{}}} #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}) #True{})
   = #Refl{}
 
-// Test: 5 < 2 = False
-N/lt/test/five/two : (E/Equal B/Bool (N/lt #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}} #Succ{#Succ{#Zero{}}}) #False{})
+// Teste: 5 < 2 = False.
+T4 : (E/Equal B/Bool (N/lt #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}} #Succ{#Succ{#Zero{}}}) #False{})
   = #Refl{}
 
-// Test: 7 < 7 = False
-N/lt/test/seven/seven : (E/Equal B/Bool (N/lt #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}} #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}) #False{})
+// Teste: 7 < 7 = False.
+T5 : (E/Equal B/Bool (N/lt #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}} #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}) #False{})
   = #Refl{}
 
-// Test: Transitivity: if a < b and b < c, then a < c
-N/lt/test/transitive
+// Teste: Transitividade: se a < b e b < c, então a < c.
+T6
 : ∀(a_lt_b: (E/Equal B/Bool (N/lt #Succ{#Succ{#Succ{#Zero{}}}} #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}) #True{}))
   ∀(b_lt_c: (E/Equal B/Bool (N/lt #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}} #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}) #True{}))
   (E/Equal B/Bool (N/lt #Succ{#Succ{#Succ{#Zero{}}}} #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}) #True{})
 = λa_lt_b λb_lt_c #Refl{}
 
-// Test: Irreflexivity: a < a = False
-N/lt/test/irreflexive : (E/Equal B/Bool (N/lt #Succ{#Succ{#Succ{#Succ{#Zero{}}}}} #Succ{#Succ{#Succ{#Succ{#Zero{}}}}}) #False{})
+// Teste: Irreflexividade: a < a = False.
+T7 : (E/Equal B/Bool (N/lt #Succ{#Succ{#Succ{#Succ{#Zero{}}}}} #Succ{#Succ{#Succ{#Succ{#Zero{}}}}}) #False{})
   = #Refl{}

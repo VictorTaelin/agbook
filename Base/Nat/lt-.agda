@@ -5,34 +5,36 @@ open import Base.Nat.lt
 open import Base.Bool.Bool
 open import Base.Equal.Equal
 
+-- Tests the less than operation for natural numbers.
+
 -- Test: 0 < 0 = False
-test-lt-zero-zero : (0 < 0) ≡ False
-test-lt-zero-zero = refl
+T0 : (0 < 0) ≡ False
+T0 = refl
 
 -- Test: 0 < 1 = True
-test-lt-zero-one : (0 < 1) ≡ True
-test-lt-zero-one = refl
+T1 : (0 < 1) ≡ True
+T1 = refl
 
 -- Test: 1 < 0 = False
-test-lt-one-zero : (1 < 0) ≡ False
-test-lt-one-zero = refl
+T2 : (1 < 0) ≡ False
+T2 = refl
 
 -- Test: 2 < 5 = True
-test-lt-two-five : (2 < 5) ≡ True
-test-lt-two-five = refl
+T3 : (2 < 5) ≡ True
+T3 = refl
 
 -- Test: 5 < 2 = False
-test-lt-five-two : (5 < 2) ≡ False
-test-lt-five-two = refl
+T4 : (5 < 2) ≡ False
+T4 = refl
 
 -- Test: 7 < 7 = False
-test-lt-seven-seven : (7 < 7) ≡ False
-test-lt-seven-seven = refl
+T5 : (7 < 7) ≡ False
+T5 = refl
 
 -- Test: Transitivity: if a < b and b < c, then a < c
-test-lt-transitive : (3 < 5) ≡ True → (5 < 8) ≡ True → (3 < 8) ≡ True
-test-lt-transitive refl refl = refl
+T6 : (3 < 5) ≡ True → (5 < 8) ≡ True → (3 < 8) ≡ True
+T6 refl refl = refl
 
 -- Test: Irreflexivity: a < a = False
-test-lt-irreflexive : (4 < 4) ≡ False
-test-lt-irreflexive = refl
+T7 : (4 < 4) ≡ False
+T7 = refl
