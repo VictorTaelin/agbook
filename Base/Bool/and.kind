@@ -1,9 +1,9 @@
 use Base/Bool/ as B/
 
 // Performs logical AND operation on two boolean values.
-// - a: The 1st boolean value.
-// - b: The 2nd boolean value.
-// = True if both 'a' and 'b' are true, False otherwise.
+// - 1st: The boolean value.
+// - 2nd: The boolean value.
+// = True if both 1st and 2nd are true, False otherwise.
 B/and
 : ∀(a: B/Bool)
   ∀(b: B/Bool)

@@ -1,10 +1,10 @@
 use Base/List/ as L/
 
 // Applies a function to each element of a list.
-// - A: The type of elements in the input list.
-// - B: The type of elements in the output list.
-// - fn: The function to be applied.
-// - xs: The elements to apply fn to.
+// - 1st: The type of elements in the input list.
+// - 2nd: The type of elements in the output list.
+// - 3rd: The function to be applied.
+// - 4th: The elements to apply fn to.
 // = A new list with fn applied to all elements.
 L/map
 : ∀(A: *)
@@ -14,5 +14,7 @@ L/map
   (L/List B)
 = λA λB λfn λ{
   #Nil: #Nil{}
-  #Cons: λxs.head λxs.tail #Cons{ (fn xs.head) (L/map _ _ fn xs.tail) }
+  #Cons: λxs.head λxs.tail 
+		let tail = (L/map A B fn xs.tail)
+		#Cons{ (fn xs.head) tail }
 }

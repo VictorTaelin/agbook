@@ -2,8 +2,8 @@ use Base/List/ as L/
 use Base/Maybe/ as M/
 
 // Safely retrieves the 1st element of a list.
-// - A: The type of elements in the list.
-// - xs: The input list.
+// - 1st: The type of elements in the list.
+// - 2nd: The input list.
 // = Some x if the list is non-empty (where x is the 1st element),
 //   None if the list is empty.
 L/head

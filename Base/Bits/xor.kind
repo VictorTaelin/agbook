@@ -1,9 +1,9 @@
 use Base/Bits/ as BS/
 
 // Performs bitwise XOR operation on two Bits values.
-// - a: The 1st Bits value.
-// - b: The 2nd Bits value.
-// = A new Bits value representing the bitwise XOR of a and b.
+// - 1st: The Bits value.
+// - 2nd: The Bits value.
+// = A new Bits value representing the bitwise XOR of 1st and 2nd.
 BS/xor
 : ∀(a: BS/Bits)
   ∀(b: BS/Bits)
