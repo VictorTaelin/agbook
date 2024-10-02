@@ -1,0 +1,36 @@
+use Base/Nat/ as N/
+use Base/Equal/ as E/
+
+// Tests the right shift function for natural numbers.
+
+// Test: 0 >> 1 = 0.
+T0 : (E/Equal N/Nat (N/rshift #Zero{} #Succ{#Zero{}}) #Zero{})
+  = #Refl{}
+
+// Test: 1 >> 1 = 0.
+T1 : (E/Equal N/Nat (N/rshift #Succ{#Zero{}} #Succ{#Zero{}}) #Zero{})
+  = #Refl{}
+
+// Test: 2 >> 1 = 1.
+T2 : (E/Equal N/Nat (N/rshift #Succ{#Succ{#Zero{}}} #Succ{#Zero{}}) #Succ{#Zero{}})
+  = #Refl{}
+
+// Test: 4 >> 1 = 2.
+T3 : (E/Equal N/Nat (N/rshift #Succ{#Succ{#Succ{#Succ{#Zero{}}}}} #Succ{#Zero{}}) #Succ{#Succ{#Zero{}}})
+  = #Refl{}
+
+// Test: 8 >> 2 = 2.
+T4 : (E/Equal N/Nat (N/rshift #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}} #Succ{#Succ{#Zero{}}}) #Succ{#Succ{#Zero{}}})
+  = #Refl{}
+
+// Test: 16 >> 3 = 2.
+T5 : (E/Equal N/Nat (N/rshift (N/exp #Succ{#Succ{#Zero{}}} #Succ{#Succ{#Succ{#Succ{#Zero{}}}}}) #Succ{#Succ{#Succ{#Zero{}}}}) #Succ{#Succ{#Zero{}}})
+  = #Refl{}
+
+// Test: 100 >> 2 = 25.
+T6 : (E/Equal N/Nat (N/rshift (N/exp (N/mul #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}} #Succ{#Succ{#Zero{}}}) #Succ{#Succ{#Zero{}}}) #Succ{#Succ{#Zero{}}}) (N/exp #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}} #Succ{#Succ{#Zero{}}}))
+  = #Refl{}
+
+// Test: 1000 >> 3 = 125.
+T7 : (E/Equal N/Nat (N/rshift (N/exp (N/mul #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}} #Succ{#Succ{#Zero{}}}) #Succ{#Succ{#Succ{#Zero{}}}}) #Succ{#Succ{#Succ{#Zero{}}}}) (N/exp #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}} #Succ{#Succ{#Succ{#Zero{}}}}))
+  = #Refl{}
