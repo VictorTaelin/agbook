@@ -1,30 +1,32 @@
 use Base/Nat/ as N/
 use Base/Equal/ as E/
 
-// Test: pred 0 = 0
-N/test-pred-zero : (E/Equal N/Nat (N/pred #Zero{}) #Zero{})
+// Tests the predecessor function for natural numbers.
+
+// Test: pred 0 = 0.
+T0 : (E/Equal N/Nat (N/pred #Zero{}) #Zero{})
 = #Refl{}
 
-// Test: pred 1 = 0
-N/test-pred-one : (E/Equal N/Nat (N/pred #Succ{#Zero{}}) #Zero{})
+// Test: pred 1 = 0.
+T1 : (E/Equal N/Nat (N/pred #Succ{#Zero{}}) #Zero{})
 = #Refl{}
 
-// Test: pred 2 = 1
-N/test-pred-two : (E/Equal N/Nat (N/pred #Succ{#Succ{#Zero{}}}) #Succ{#Zero{}})
+// Test: pred 2 = 1.
+T2 : (E/Equal N/Nat (N/pred #Succ{#Succ{#Zero{}}}) #Succ{#Zero{}})
 = #Refl{}
 
-// Test: pred 5 = 4
-N/test-pred-five : (E/Equal N/Nat (N/pred #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}) #Succ{#Succ{#Succ{#Succ{#Zero{}}}}})
+// Test: pred 5 = 4.
+T3 : (E/Equal N/Nat (N/pred #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}) #Succ{#Succ{#Succ{#Succ{#Zero{}}}}})
 = #Refl{}
 
-// Test: pred (pred 3) = 1
-N/test-pred-pred-three : (E/Equal N/Nat (N/pred (N/pred #Succ{#Succ{#Succ{#Zero{}}}})) #Succ{#Zero{}})
+// Test: pred (pred 3) = 1.
+T4 : (E/Equal N/Nat (N/pred (N/pred #Succ{#Succ{#Succ{#Zero{}}}})) #Succ{#Zero{}})
 = #Refl{}
 
-// Test: pred (pred 1) = 0
-N/test-pred-pred-one : (E/Equal N/Nat (N/pred (N/pred #Succ{#Zero{}})) #Zero{})
+// Test: pred (pred 1) = 0.
+T5 : (E/Equal N/Nat (N/pred (N/pred #Succ{#Zero{}})) #Zero{})
 = #Refl{}
 
-// Test: pred (pred 0) = 0
-N/test-pred-pred-zero : (E/Equal N/Nat (N/pred (N/pred #Zero{})) #Zero{})
+// Test: pred (pred 0) = 0.
+T6 : (E/Equal N/Nat (N/pred (N/pred #Zero{})) #Zero{})
 = #Refl{}
