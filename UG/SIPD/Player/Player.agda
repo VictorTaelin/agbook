@@ -10,17 +10,5 @@ record Player : Set where
   field
     id : Nat
     name : String
-    key : OrdMap String Bool
-
-{-# FOREIGN GHC
-import qualified Data.Map as Map
-
-data Player = MkPlayer
-  { id :: Integer
-  , name :: String
-  , key :: Map.Map String Bool
-  }
-#-}
-
-{-# COMPILE GHC Player = data Player (MkPlayer) #-}
+    keys : OrdMap String Bool
 
