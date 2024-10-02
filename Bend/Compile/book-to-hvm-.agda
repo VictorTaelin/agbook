@@ -1,4 +1,4 @@
-module Bend.Compile.Test.book-to-hvm where
+module Bend.Compile.book-to-hvm- where
 
 open import Base.Equal.Equal
 open import Base.Bool.Bool
@@ -14,9 +14,10 @@ open import Bend.Fun.Term.Term using () renaming (Term to BTerm)
 open import Bend.Fun.Type.Type using (Type)
 open import Bend.Source.Source
 open import Bend.Source.SourceKind
-open import HVM2.Net.Net
-open import HVM2.Redex.Redex  
-open import HVM2.Term.Term using () renaming (Term to H)
+open import HVM.Mode.Mode
+open import HVM.Net.Net
+open import HVM.Redex.Redex
+open import HVM.Term.Term using () renaming (Term to H)
 open import Bend.Compile.book-to-hvm
 open import Bend.nat-to-name renaming (nat-to-name to nam)
 open import Bend.Fun.dsl
@@ -27,14 +28,14 @@ private
   open module Def = Def' BTerm
   open module Rule = Rule' BTerm
 
-compile-term : BTerm → Result (List (Pair String Net)) String
+compile-term : BTerm → Result (List (Pair String (Net NAMED))) String
 compile-term term = do
   let main = MkFnDef "main" Type.Any False ((MkRule [] term) :: []) (MkSource None None Generated)
   let book = add-fn-def Book.new main
   book-to-hvm book
 
-make-result : List Redex → H → Result (List (Pair String Net)) String
-make-result rbag root = Done (("main" , MkNet rbag root) :: [])
+make-result : List (Redex NAMED) → (H NAMED) → Result (List (Pair String (Net NAMED))) String
+make-result rbag root = Done (("main" , MkNet root rbag) :: [])
 
 -- Test compilation of the id function
 -- @x x  =>  (0 0)

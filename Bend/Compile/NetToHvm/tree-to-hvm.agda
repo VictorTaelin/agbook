@@ -22,8 +22,9 @@ open import Bend.Net.NodeKind.NodeKind
 open import Bend.Net.Port.Port
 open import Bend.Net.Port.to-bits renaming (to-bits to port-to-bits)
 open import Bend.nat-to-name
-open import HVM2.Net.Net renaming (Net to HNet)
-open import HVM2.Term.Term renaming (Term to HTerm)
+open import HVM.Net.Net renaming (Net to HNet)
+open import HVM.Mode.Mode
+open import HVM.Term.Term renaming (Term to HTerm)
 open import Bend.Compile.NetToHvm.State.State
 
 mutual
@@ -34,7 +35,7 @@ mutual
   -- - state: Compilation state with found variables and remaining gas.
   -- = A pair of the compiled term and the new compilation state.
   {-# TERMINATING #-} -- FIXME!
-  tree-to-hvm : BNet → Nat → State → Result (Pair HTerm State) String
+  tree-to-hvm : BNet → Nat → State → Result (Pair (HTerm NAMED) State) String
   -- We know that we should visit each node only once,
   -- so we can set a max number of nodes to visit.
   -- Cycles will end up visiting too many nodes and fail here.
@@ -76,7 +77,7 @@ mutual
 
   -- If the port points to a var, create and return a var term.
   -- If it points to a node, compile the subtree.
-  var-or-subtree-to-hvm : BNet → Port → State → Result (Pair HTerm State) String
+  var-or-subtree-to-hvm : BNet → Port → State → Result (Pair (HTerm NAMED) State) String
   var-or-subtree-to-hvm net port state =
     if Port.slot-id port == 0 then
       tree-to-hvm net (Port.node-id port) state
@@ -87,7 +88,7 @@ mutual
   -- Returns a var term for a side link in the inet.
   -- If the other side of the var was already found, use the name in the map.
   -- Otherwise, create a new name and add it to the map.
-  make-var : Port → Port → State → Pair HTerm State
+  make-var : Port → Port → State → Pair (HTerm NAMED) State
   make-var a b (MkState vars n-vars n-nodes) = do
     let key-a = port-to-bits a
     case map-get vars key-a of λ where

@@ -8,7 +8,8 @@ open import Base.String.String
 open import Bend.Fun.Book.Book renaming (Book to BBook)
 open import Bend.Compile.BendToNet.book-to-nets
 open import Bend.Compile.NetToHvm.nets-to-hvm
-open import HVM2.Net.Net renaming (Net to HNet)
+open import HVM.Net.Net renaming (Net to HNet)
+open import HVM.Mode.Mode
 
 -- Converts a Bend Book to a list of HVM Nets.
 -- This function performs the following steps:
@@ -20,7 +21,7 @@ open import HVM2.Net.Net renaming (Net to HNet)
 --     - The name of the original Bend definition
 --     - The converted HVM Net
 --   - An error message if any step of the conversion fails
-book-to-hvm : BBook → Result (List (Pair String HNet)) String
+book-to-hvm : BBook → Result (List (Pair String (HNet NAMED))) String
 book-to-hvm book = do
   nets <- book-to-nets book
   nets-to-hvm nets
