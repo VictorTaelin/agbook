@@ -2,7 +2,6 @@ use Base/Nat/ as N/
 use Base/Bool/ as B/
 
 // Checks if one natural number is less than or equal to another.
-// This function compares two natural numbers.
 // 1st: The natural number.
 // 2nd: The natural number.
 // = True if the 1st number is less than or equal to the 2nd, False otherwise.
