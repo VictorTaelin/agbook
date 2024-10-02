@@ -1,0 +1,28 @@
+use Base/AVLTree/Balance/ as AVL/
+use Base/Bool/ as B/
+
+// Equality for Balance values.
+// - x: The 1st Balance value.
+// - y: The 2nd Balance value.
+// = True if x and y are the same Balance value, False otherwise.
+AVL/Balance/eq
+: ∀(x: AVL/Balance)
+  ∀(y: AVL/Balance)
+  B/Bool
+= λ{
+  #MinusOne: λ{
+    #MinusOne:  #True{}
+    #Zero:      #False{}
+    #PlusOne:   #False{}
+  }
+  #Zero: λ{
+    #MinusOne:  #False{}
+    #Zero:      #True{}
+    #PlusOne:   #False{}
+  }
+  #PlusOne: λ{
+    #MinusOne:  #False{}
+    #Zero:      #False{}
+    #PlusOne:   #True{}
+  }
+}
