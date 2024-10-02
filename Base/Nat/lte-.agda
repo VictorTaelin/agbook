@@ -6,26 +6,35 @@ open import Base.Bool.Bool
 open import Base.Equal.Equal
 
 -- Test cases for lte function
-test-lte-1 : (0 <= 0) ≡ True
-test-lte-1 = refl
 
-test-lte-2 : (0 <= 1) ≡ True
-test-lte-2 = refl
+-- Test: 0 <= 0 is True.
+T0 : (0 <= 0) ≡ True
+T0 = refl
 
-test-lte-3 : (1 <= 0) ≡ False
-test-lte-3 = refl
+-- Test: 0 <= 1 is True
+T1 : (0 <= 1) ≡ True
+T1 = refl
 
-test-lte-4 : (1 <= 1) ≡ True
-test-lte-4 = refl
+-- Test: 1 <= 0 is False.
+T2 : (1 <= 0) ≡ False
+T2 = refl
 
-test-lte-5 : (1 <= 2) ≡ True
-test-lte-5 = refl
+-- Test: 1 <= 1 is True.
+T3 : (1 <= 1) ≡ True
+T3 = refl
 
-test-lte-6 : (2 <= 1) ≡ False
-test-lte-6 = refl
+-- Test: 1 <= 2 is True.
+T4 : (1 <= 2) ≡ True
+T4 = refl
 
-test-lte-7 : (5 <= 10) ≡ True
-test-lte-7 = refl
+-- Test: 2 <= 1 is False.
+T5 : (2 <= 1) ≡ False
+T5 = refl
 
-test-lte-8 : (10 <= 5) ≡ False
-test-lte-8 = refl
+-- Test: 5 <= 10 is True.
+T6 : (5 <= 10) ≡ True
+T6 = refl
+
+-- Test: 10 <= 5 is False.
+T7 : (10 <= 5) ≡ False
+T7 = refl
