@@ -14,6 +14,7 @@ data Expr : Set where
   -- Grid indices
   Tid : Expr -- thread id
   Bid : Expr -- block id
+  Gid : Expr -- global id
 
   -- Numeric operations
   Num : U64 → Expr

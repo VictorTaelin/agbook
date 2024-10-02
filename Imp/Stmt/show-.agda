@@ -1,4 +1,4 @@
-module Imp.show- where
+module Imp.Stmt.show- where
 
 open import Imp.Expr.Expr
 open import Imp.Stmt.Stmt
@@ -22,13 +22,13 @@ fib n = do
   "b" := # 1
   "n" := n
 
-  while ↑"n" > # 0 go do
-    "t" := ↑"b"
-    "b" := ↑"a" + ↑"b"
-    "a" := ↑"t"
+  while $"n" > # 0 go do
+    "t" := $"b"
+    "b" := $"a" + $"b"
+    "a" := $"t"
     "n" -= # 1
 
-  return ↑"a"
+  return $"a"
 
 example : Stmt
 example = do
