@@ -6,42 +6,42 @@ open import Base.Nat.add
 open import Base.Bool.Bool
 open import Base.Equal.Equal
 
--- Test: 0 * 0 = 0
-test-mul-zero-zero : (0 * 0) ≡ 0
-test-mul-zero-zero = refl
+-- Test: 0 * 0 = 0.
+T0 : (0 * 0) ≡ 0
+T0 = refl
 
--- Test: 0 * 5 = 0
-test-mul-zero-five : (0 * 5) ≡ 0
-test-mul-zero-five = refl
+-- Test: 0 * 5 = 0.
+T1 : (0 * 5) ≡ 0
+T1 = refl
 
--- Test: 5 * 0 = 0
-test-mul-five-zero : (5 * 0) ≡ 0
-test-mul-five-zero = refl
+-- Test: 5 * 0 = 0.
+T2 : (5 * 0) ≡ 0
+T2 = refl
 
--- Test: 1 * 5 = 5
-test-mul-one-five : (1 * 5) ≡ 5
-test-mul-one-five = refl
+-- Test: 1 * 5 = 5.
+T3 : (1 * 5) ≡ 5
+T3 = refl
 
--- Test: 5 * 1 = 5
-test-mul-five-one : (5 * 1) ≡ 5
-test-mul-five-one = refl
+-- Test: 5 * 1 = 5.
+T4 : (5 * 1) ≡ 5
+T4 = refl
 
--- Test: 3 * 2 = 6
-test-mul-three-two : (3 * 2) ≡ 6
-test-mul-three-two = refl
+-- Test: 3 * 2 = 6.
+T5 : (3 * 2) ≡ 6
+T5 = refl
 
--- Test: 7 * 8 = 56
-test-mul-seven-eight : (7 * 8) ≡ 56
-test-mul-seven-eight = refl
+-- Test: 7 * 8 = 56.
+T6 : (7 * 8) ≡ 56
+T6 = refl
 
--- Test: Commutativity: a * b = b * a
-test-mul-commutative : (3 * 4) ≡ (4 * 3)
-test-mul-commutative = refl
+-- Test: Commutativity: a * b = b * a.
+T7 : (3 * 4) ≡ (4 * 3)
+T7 = refl
 
--- Test: Distributivity: a * (b + c) = (a * b) + (a * c)
-test-mul-distributive : (2 * (3 + 4)) ≡ ((2 * 3) + (2 * 4))
-test-mul-distributive = refl
+-- Test: Distributivity: a * (b + c) = (a * b) + (a * c).
+T8 : (2 * (3 + 4)) ≡ ((2 * 3) + (2 * 4))
+T8 = refl
 
--- Test: Associativity: (a * b) * c = a * (b * c)
-test-mul-associative : ((2 * 3) * 4) ≡ (2 * (3 * 4))
-test-mul-associative = refl
+-- Test: Associativity: (a * b) * c = a * (b * c).
+T9 : ((2 * 3) * 4) ≡ (2 * (3 * 4))
+T9 = refl
