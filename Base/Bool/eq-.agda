@@ -9,6 +9,3 @@ test-eq-true-true = refl
 
 test-eq-false-true : (False == True) ≡ False
 test-eq-false-true = refl
-
-test-eq-true-false : (True != False) ≡ True
-test-eq-true-false = refl

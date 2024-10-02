@@ -16,11 +16,11 @@ borrow (O bs)  = I (borrow bs)  -- Quando temos 0, emprestamos e ajustamos os bi
 
 -- Função de subtração binária
 sub : Bits → Bits → Bits
-sub E y = y                
-sub x E = x                  
-sub (O x) (O y) = O (sub x y) 
+sub E y = y
+sub x E = x
+sub (O x) (O y) = O (sub x y)
 sub (I x) (O y) = I (sub x y)
-sub (O x) (I y) = O (sub (borrow x) y) 
+sub (O x) (I y) = O (sub (borrow x) y)
 sub (I x) (I y) = O (sub x y)
 
 -- Infix operator for Bits subtraction

@@ -1,4 +1,4 @@
-module Base.AVLTree.is-balanced- where
+module Base.AVLTree.is-balanced where
 
 open import Base.AVLTree.Balance.Balance
 open import Base.AVLTree.AVLTree

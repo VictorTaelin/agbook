@@ -1,6 +1,6 @@
 module Base.AVLTree.delete- where
 
-open import Base.AVLTree.Test.is-balanced
+open import Base.AVLTree.is-balanced
 open import Base.AVLTree.AVLTree
 open import Base.AVLTree.delete
 open import Base.AVLTree.empty
