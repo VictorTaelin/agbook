@@ -4,31 +4,31 @@ use Base/Equal/ as E/
 // Test cases for the half function
 
 // Test: half of 0 is 0
-N/half/test/zero
+T0
 : (E/Equal N/Nat (N/half #Zero{}) #Zero{})
 = #Refl{}
 
 // Test: half of 1 is 0
-N/half/test/one
+T1
 : (E/Equal N/Nat (N/half #Succ{#Zero{}}) #Zero{})
 = #Refl{}
 
 // Test: half of 2 is 1
-N/half/test/two
+T2
 : (E/Equal N/Nat (N/half #Succ{#Succ{#Zero{}}}) #Succ{#Zero{}})
 = #Refl{}
 
 // Test: half of 3 is 1
-N/half/test/three
+T3
 : (E/Equal N/Nat (N/half #Succ{#Succ{#Succ{#Zero{}}}}) #Succ{#Zero{}})
 = #Refl{}
 
 // Test: half of 4 is 2
-N/half/test/four
+T4
 : (E/Equal N/Nat (N/half #Succ{#Succ{#Succ{#Succ{#Zero{}}}}}) #Succ{#Succ{#Zero{}}})
 = #Refl{}
 
 // Test: half of 5 is 2
-N/half/test/five
+T5
 : (E/Equal N/Nat (N/half #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}) #Succ{#Succ{#Zero{}}})
 = #Refl{}
