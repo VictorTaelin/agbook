@@ -48,7 +48,7 @@ test-fold-to-list : fold (λ p acc → fst p :: acc) [] test-tree ≡ (5 :: 4 ::
 test-fold-to-list = refl
 
 -- Test: Fold with a complex accumulator (pair of sum and count)
-test-fold-complex : fold (λ (p , _) (acc , _) → (p + acc , 1 + acc)) (0 , 0) test-tree ≡ (15 , 11)
+test-fold-complex : fold {K = Nat} {V = Unit} {A = Pair Nat Nat} (λ (p , _) (acc , _) → (p + acc , 1 + acc)) (0 , 0) test-tree ≡ (15 , 11)
 test-fold-complex = refl
 
 -- Test: Fold on a single-node tree
