@@ -11,6 +11,7 @@ open import Bend.Transform.desugar-use
 open import Bend.Transform.encode-adts
 open import Bend.Transform.encode-match-terms
 open import Bend.Transform.fix-match-terms
+open import Bend.Transform.linearize-match-with
 open import Bend.Transform.linearize-matches
 open import Bend.Transform.linearize-vars
 open import Bend.Transform.rebuild-match-ctrs
@@ -32,6 +33,7 @@ to-bend-core book = do
   let book = desugar-use book
 
   let book = linearize-matches book     -- TODO: other strategy for linearization
+  let bood = linearize-match-with book
 
   book    <- encode-match-terms NumScott book
   unbound-vars book                     -- Sanity check
