@@ -1,0 +1,15 @@
+use Base/DiffList/ as DL/
+use Base/List/ as L/
+
+// Adds an element to the front of a DiffList.
+// - A: The type of elements in the list.
+// - x: The element to add.
+// - xs: The DiffList to add the element to.
+// = A new DiffList with x added to the front.
+DL/cons
+: ∀(A: *)
+  ∀(x: A)
+  ∀(xs: (DL/DiffList A))
+  (DL/DiffList A)
+= λA λx λxs λtail
+  #Cons{x (xs tail)}
