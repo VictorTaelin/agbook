@@ -1,0 +1,10 @@
+use Base/String/ as S/
+use Base/List/ as L/
+
+// Converts a list of characters to a string.
+// - chars: The input list of characters.
+// = A string composed of the characters in the list.
+S/from-list
+: ∀(chars: (L/List U32))
+  S/String
+= λchars chars
