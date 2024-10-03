@@ -1,0 +1,17 @@
+use Base/String/ as S/
+use Base/List/ as L/
+
+// Performs a right fold over a string.
+// - A: The type of the result.
+// - f: The combining function.
+// - z: The initial value (for the empty string case).
+// - s: The string to fold over.
+// = The result of folding the string.
+S/foldr
+: ∀(A: *)
+  ∀(f: ∀(head: U32) ∀(tail: A) A)
+  ∀(z: A)
+  ∀(s: S/String)
+  A
+= λA λf λz λs
+  (L/foldr U32 A f z s)
