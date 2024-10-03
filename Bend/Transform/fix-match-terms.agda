@@ -15,6 +15,7 @@ open import Base.Maybe.Maybe
 open import Base.Maybe.to-result
 open import Base.List.List
 open import Base.List.foldr
+open import Base.List.is-nil
 open import Base.List.map
 open import Base.List.mmap
 open import Base.Pair.Pair
@@ -69,12 +70,16 @@ private
   -- Var case, use the body of this rule for all remaining constructors
   ... | None = do
     ctrs <- to-result (get-adt-ctrs book adt-nam) "No such ADT"
-    let bods = foldr (λ ctr bods → do
+    let cases = foldr (λ ctr acc → do
                         let key = hash (Ctr.nam ctr)
                         if (contains bods key)
-                          then bods
-                          else (set bods key (Use nam (Var bnd) bod)))
-                      bods ctrs
+                          then acc
+                          else (key , Use nam (Var bnd) bod) :: acc)
+                      [] ctrs
+    if is-nil cases
+      then Fail "Redundant variable case in match"
+      else Done unit
+    let bods = foldr (λ (key , bod) bods → set bods key bod) bods cases
     term-per-ctr bnd book adt-nam bods arms
 
   -- Makes the normalized version of one of a match's arms.
@@ -109,7 +114,7 @@ private
         Done (Mat bnd arg with-bnd with-arg arms)
       (Fold bnd arg with-bnd with-arg arms) → do
         arms <- fix-match book bnd arg with-bnd with-arg arms
-        Done (Mat bnd arg with-bnd with-arg arms)
+        Done (Fold bnd arg with-bnd with-arg arms)
       _ → do
         Done term
 

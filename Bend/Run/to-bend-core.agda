@@ -17,14 +17,14 @@ open import Bend.Transform.unique-names
 -- Desugars and apply all the Term-level transformations to a Book.
 to-bend-core : Book → Result Book String
 to-bend-core book = do
-  book    <- encode-adts NumScott book  -- TODO: get encoding from command line
+  book    <- encode-adts NumScott book  -- TODO: get encoding from options
   let book = resolve-refs book
   book    <- fix-match-terms book
   unbound-vars book
   let book = unique-names book
   let book = linearize-vars book
   unbound-vars book
-  let book = float-combinators book 64
+  let book = float-combinators book 64  -- TODO: get max net size from options
   unbound-refs book
   let book = unique-names book
   Done book

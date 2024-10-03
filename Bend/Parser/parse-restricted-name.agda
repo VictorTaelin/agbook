@@ -1,16 +1,17 @@
 module Bend.Parser.parse-restricted-name where
 
 open import Base.Char.Char
+open import Base.Char.is-digit
 open import Base.Bool.Bool
 open import Base.Bool.if
 open import Base.String.String
-open import Base.String.to-list
-open import Base.String.from-list
-open import Base.String.eq
-open import Base.String.starts-with
-open import Base.String.contains
 open import Base.String.append
+open import Base.String.contains
+open import Base.String.eq
+open import Base.String.head
+open import Base.String.starts-with
 open import Base.Maybe.Maybe
+open import Base.Maybe.fold
 open import Base.Unit.Unit
 open import Base.Parser.Parser
 open import Base.Parser.State
@@ -29,10 +30,12 @@ parse-restricted-name kind = do
   name <- take-while is-name-char
   let res = if name == "" then
               fail ("Expected " ++ kind ++ " name")
-            else if contains "__" name then
+            else if contains name "__" then
               fail ("Names are not allowed to contain \"__\".")
-            else if starts-with "//" name then
+            else if starts-with name "//" then
               fail ("Names are not allowed to start with \"//\".")
+            else if fold False is-digit (head name) then
+              fail ("Names are not allowed to start with a number.")
             else
               pure name
   res
