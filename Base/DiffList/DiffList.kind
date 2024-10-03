@@ -1,0 +1,9 @@
+use Base/DiffList/ as DL/
+use Base/List/ as L/
+
+// Represents a difference list, which is a function from lists to lists.
+// This allows for efficient concatenation of lists.
+DL/DiffList
+: ∀(A: *)
+  *
+= λA ∀(xs: (L/List A)) (L/List A)
