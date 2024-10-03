@@ -1,0 +1,16 @@
+use Base/Bool/ as B/
+use Base/Equal/ as E/
+use Base/Nat/ as N/
+
+T0 
+: (E/Equal B/Bool (B/if B/Bool #True{} #True{} #False{} ) (#True{}))
+= #Refl{}
+
+T1 
+: (E/Equal B/Bool (B/if B/Bool #False{} #True{} #False{} ) (#False{}))
+= #Refl{}
+
+T2
+: (E/Equal N/Nat (B/if N/Nat #False{} #Succ{#Zero{}} #Zero{} ) (#Zero{}))
+= #Refl{}
+
