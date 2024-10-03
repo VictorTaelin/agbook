@@ -1,0 +1,16 @@
+use Base/List/ as L/
+
+// Maps elements of a list to lists and concatenates the results.
+// - A: The type of elements in the input list.
+// - B: The type of elements in the output list.
+// - f: The function that maps elements to lists.
+// - xs: The input list.
+// = A new list containing all elements from the lists produced by f.
+L/concat-map
+: ∀(A: *)
+  ∀(B: *)
+  ∀(f: ∀(a: A) (L/List B))
+  ∀(xs: (L/List A))
+  (L/List B)
+= λA λB λf λxs
+  (L/concat _ (L/map _ _ f xs))

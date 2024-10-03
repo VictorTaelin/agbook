@@ -1,0 +1,21 @@
+use Base/List/ as L/
+use Base/Bool/ as B/
+use Base/Trait/ as T/
+
+// Checks if a list contains a specific element.
+// - A: The type of elements in the list.
+// - e: An equality function for type A.
+// - x: The element to search for.
+// - xs: The list to search in.
+// = True if the element is found, False otherwise.
+L/contains
+: ∀(A: *)
+  ∀(e: (T/Eq A))
+  ∀(x: A)
+  ∀(xs: (L/List A))
+  B/Bool
+= λA λe λx λ{
+  #Nil: #False{}
+  #Cons: λxs.head λxs.tail
+    (B/or (T/Eq/eq _ e x xs.head) (L/contains _ e x xs.tail))
+}

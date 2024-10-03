@@ -1,0 +1,34 @@
+use Base/List/ as L/
+
+// Returns all initial segments of a list, shortest first.
+// - A: The type of elements in the list.
+// - xs: The input list.
+// = A list of lists, containing all initial segments of xs.
+L/inits
+: ∀(A: *)
+  ∀(xs: (L/List A))
+  (L/List (L/List A))
+= λA λxs
+  #Cons{
+    #Nil{}
+    (L/inits/tail A xs)
+  }
+
+// Helper function to generate the tail of the inits list
+L/inits/tail
+: ∀(A: *)
+  ∀(xs: (L/List A))
+  (L/List (L/List A))
+= λA λ{
+  #Nil: #Nil{}
+  #Cons: λxs.head λxs.tail
+    #Cons{
+      #Cons{xs.head #Nil{}}
+      (L/map
+        (L/List A)
+        (L/List A)
+        (λy #Cons{xs.head y})
+        (L/inits/tail A xs.tail)
+      )
+    }
+}

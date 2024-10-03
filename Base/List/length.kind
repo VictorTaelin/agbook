@@ -1,0 +1,15 @@
+use Base/List/ as L/
+use Base/Nat/ as N/
+
+// Computes the length of a list.
+// - A: The type of elements in the list.
+// - xs: The input list.
+// = The number of elements in the list.
+L/length
+: ∀(A: *)
+  ∀(xs: (L/List A))
+  N/Nat
+= λA λ{
+  #Nil: #Zero{}
+  #Cons: λxs.head λxs.tail #Succ{(L/length _ xs.tail)}
+}

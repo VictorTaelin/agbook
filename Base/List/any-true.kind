@@ -1,0 +1,15 @@
+use Base/List/ as L/
+use Base/Bool/ as B/
+
+// Checks if any element of a list satisfies a given predicate.
+// - A: The type of elements in the list.
+// - p: The predicate function to apply to each element.
+// - xs: The input list.
+// = True if any element satisfies the predicate, False otherwise.
+L/any-true
+: ∀(A: *)
+  ∀(p: ∀(a: A) B/Bool)
+  ∀(xs: (L/List A))
+  B/Bool
+= λA λp λxs
+  (L/foldr _ _ (λx λacc (B/or (p x) acc)) #False{} xs)
