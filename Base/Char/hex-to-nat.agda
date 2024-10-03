@@ -1,6 +1,7 @@
 module Base.Char.hex-to-nat where
 
 open import Base.Char.Char
+open import Base.Function.case
 open import Base.Nat.Nat
 open import Base.Maybe.Maybe
 open import Base.Char.digit-to-nat
