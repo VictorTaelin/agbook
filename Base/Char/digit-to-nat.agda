@@ -4,7 +4,9 @@ open import Base.Char.Char
 open import Base.Nat.Nat
 open import Base.Maybe.Maybe
 
--- Converts a digit character to its corresponding natural number
+-- Converts a digit character to its corresponding natural number.
+-- 1st: The input character.
+-- = Some n if c is a digit, where n is the corresponding natural number, None if c is not a digit.
 digit-to-nat : Char → Maybe Nat
 digit-to-nat '0' = Some 0
 digit-to-nat '1' = Some 1

@@ -5,11 +5,14 @@ open import Base.Char.eq
 open import Base.Bool.Bool
 open import Base.Equal.Equal
 
-test-eq-a-a : ('a' == 'a') ≡ True
-test-eq-a-a = refl
+-- Tests if 'a' is equal to 'a'.
+T0 : ('a' == 'a') ≡ True
+T0 = refl
 
-test-eq-a-b : ('a' == 'b') ≡ False
-test-eq-a-b = refl
+-- Tests if 'a' is equal to 'b'.
+T1 : ('a' == 'b') ≡ False
+T1 = refl
 
-test-eq-0-0 : ('0' == '0') ≡ True
-test-eq-0-0 = refl
+-- Tests if '0' is equal to '0'.
+T2 : ('0' == '0') ≡ True
+T2 = refl

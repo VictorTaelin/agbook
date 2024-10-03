@@ -1,0 +1,10 @@
+use Base/Char/ as C/
+use Base/Bool/ as B/
+
+// Checks if a character is alphabetic.
+// - c: The character to check.
+// = True if the character is alphabetic, False otherwise.
+C/is-alpha
+: ∀(c: C/Char)
+  B/Bool
+= λc (is_alpha c)

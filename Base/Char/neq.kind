@@ -1,0 +1,13 @@
+use Base/Char/ as C/
+use Base/Bool/ as B/
+
+// Compares two characters for inequality.
+// This function determines if two given characters are different.
+// - a: The first character to compare.
+// - b: The second character to compare.
+// = True if the characters are not equal, False otherwise.
+C/neq
+: ∀(a: C/Char)
+  ∀(b: C/Char)
+  B/Bool
+= λa λb (B/not (C/eq a b))

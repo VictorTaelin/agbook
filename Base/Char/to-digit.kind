@@ -1,0 +1,26 @@
+use Base/Nat/ as N/
+use Base/Char/ as C/
+use Base/Maybe/ as M/
+use Base/Bool/ as B/
+
+// Converts a single character to its numeric value in the given base.
+// This function handles both decimal and hexadecimal digits.
+// - base: The base (e.g., 10 for decimal, 16 for hexadecimal).
+// - c: The character to convert.
+// = Some n if the character is a valid digit in the given base, where n is the corresponding numeric value, None if the character is not a valid digit in the given base.
+C/to-digit
+: ∀(base: N/Nat)
+  ∀(c: C/Char)
+  (M/Maybe N/Nat)
+= λbase λc
+  let is_digit = (C/is-digit c)
+  let is_hex = (& (N/eq base #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}}}}}}}}) (C/is-hex-digit c))
+  (B/if (M/Maybe N/Nat)
+    is_digit
+    (C/digit-to-nat c)
+    (B/if (M/Maybe N/Nat)
+      is_hex
+      (C/hex-to-nat c)
+      #None{}
+    )
+  )

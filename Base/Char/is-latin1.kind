@@ -1,0 +1,10 @@
+use Base/Char/ as C/
+use Base/Bool/ as B/
+
+// Checks if a character is within the Latin-1 character set.
+// - c: The character to check.
+// = True if the character is in the Latin-1 set, False otherwise.
+C/is-latin1
+: ∀(c: C/Char)
+  B/Bool
+= λc (U32/lte c 255)

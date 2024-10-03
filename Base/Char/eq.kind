@@ -1,0 +1,13 @@
+use Base/Char/ as C/
+use Base/Bool/ as B/
+
+// Compares two characters for equality.
+// This function determines if two given characters are the same.
+// - a: The first character to compare.
+// - b: The second character to compare.
+// = True if the characters are equal, False otherwise.
+C/eq
+: ∀(a: C/Char)
+  ∀(b: C/Char)
+  B/Bool
+= λx λy (N/eq (C/to-nat x) (C/to-nat y))

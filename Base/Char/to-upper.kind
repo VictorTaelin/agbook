@@ -1,0 +1,9 @@
+use Base/Char/ as C/
+
+// Converts a character to its uppercase equivalent.
+// - c: The character to convert.
+// = The uppercase version of the input character.
+C/to-upper
+: ∀(c: C/Char)
+  C/Char
+= λc (to_upper c)

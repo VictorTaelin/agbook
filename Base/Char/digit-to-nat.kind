@@ -1,0 +1,17 @@
+use Base/Char/ as C/
+use Base/Nat/ as N/
+use Base/Maybe/ as M/
+
+// Converts a digit character to its corresponding natural number.
+// - c: The input character.
+// = Some n if c is a digit, where n is the corresponding natural number, None if c is not a digit.
+C/digit-to-nat
+: ∀(c: C/Char)
+  (M/Maybe N/Nat)
+= λc
+  let n = (- c 48)
+  (B/if (M/Maybe N/Nat)
+    (& (>= n 0) (<= n 9))
+    (#Some{n})
+    #None{}
+  )

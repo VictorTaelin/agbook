@@ -1,0 +1,13 @@
+use Base/Char/ as C/
+use Base/Bool/ as B/
+use Base/Nat/ as N/
+
+// Compares two characters lexicographically.
+// - x: The first character to compare.
+// - y: The second character to compare.
+// = True if the first character is less than the second, False otherwise.
+C/lt
+: ∀(x: C/Char)
+  ∀(y: C/Char)
+  B/Bool
+= λx λy (N/lt (C/to-nat x) (C/to-nat y))

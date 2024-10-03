@@ -1,0 +1,11 @@
+use Base/Char/ as C/
+
+// Converts a character to its lowercase equivalent.
+// This function transforms an uppercase character to lowercase.
+// If the character is already lowercase or not a letter, it remains unchanged.
+// - c: The input character.
+// = The lowercase version of the input character.
+C/to-lower
+: ∀(c: C/Char)
+  C/Char
+= λc (to_lower c)

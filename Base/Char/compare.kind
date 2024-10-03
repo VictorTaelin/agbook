@@ -1,0 +1,14 @@
+use Base/Char/ as C/
+use Base/Nat/ as N/
+use Base/Ordering/ as O/
+
+// Compares two characters and returns their ordering.
+// This function determines the relative order of two given characters.
+// - x: The first character to compare.
+// - y: The second character to compare.
+// = LT if x < y, EQ if x = y, GT if x > y.
+C/compare
+: ∀(x: C/Char)
+  ∀(y: C/Char)
+  O/Ordering
+= λx λy (N/compare (C/to-nat x) (C/to-nat y))

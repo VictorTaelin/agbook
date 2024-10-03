@@ -1,0 +1,10 @@
+use Base/Char/ as C/
+use Base/Bool/ as B/
+
+// Checks if a character is printable.
+// - c: The character to check.
+// = True if the character is printable, False otherwise.
+C/is-print
+: ∀(c: C/Char)
+  B/Bool
+= λc (is_print c)

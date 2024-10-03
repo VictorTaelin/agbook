@@ -1,0 +1,33 @@
+use Base/Char/ as C/
+use Base/Nat/ as N/
+use Base/Maybe/ as M/
+use Base/Bool/ as B/
+
+// Converts a hexadecimal character to its corresponding natural number.
+// - c: The input hexadecimal character.
+// = Some n if c is a valid hexadecimal digit, where n is the corresponding natural number.
+// = None if c is not a valid hexadecimal digit.
+C/hex-to-nat
+: ∀(c: C/Char)
+  (M/Maybe N/Nat)
+= λc
+  let digit = (C/digit-to-nat c)
+  (M/Maybe/match N/Nat digit
+    (aux c)
+    λn #Some{n}
+  )
+
+// Auxiliary function to handle hexadecimal digits A-F (case-insensitive).
+// - c: The input character.
+// = Some n where n is the corresponding natural number for hexadecimal digits A-F, None for any other character.
+aux
+: ∀(c: C/Char)
+  (M/Maybe N/Nat)
+= λc
+  let n = (- c 65) // 'A' is 65 in ASCII
+  let m = (- c 97) // 'a' is 97 in ASCII
+  (B/if (M/Maybe N/Nat)
+    (| (& (>= n 0) (<= n 5)) (& (>= m 0) (<= m 5)))
+    (#Some{(+ 10 (B/if N/Nat (>= n 0) n m))})
+    #None{}
+  )

@@ -1,0 +1,10 @@
+use Base/Char/ as C/
+use Base/Nat/ as N/
+
+// Converts a character to its corresponding natural number representation.
+// - c: The input character.
+// = The natural number representation of the character.
+C/to-nat
+: ∀(c: C/Char)
+  N/Nat
+= λc (~ c)

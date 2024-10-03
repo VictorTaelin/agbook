@@ -1,0 +1,16 @@
+use Base/Char/ as C/
+use Base/Bool/ as B/
+
+// Determines if a character is a whitespace character.
+// - c: The character to check.
+// = True if the character is a whitespace character, False otherwise.
+C/is-space
+: ∀(c: C/Char)
+  B/Bool
+= λc
+  (|| (== c 32)  // space
+  (|| (== c 9)   // tab
+  (|| (== c 10)  // newline
+  (|| (== c 13)  // carriage return
+  (|| (== c 11)  // vertical tab
+  (== c 12))))))  // form feed
