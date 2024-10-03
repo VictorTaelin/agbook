@@ -1,25 +1,21 @@
 module Bend.Transform.encode-adts where
 
-open import Base.BitMap.set
 open import Base.BitMap.values
 open import Base.Bool.Bool
-open import Base.Bool.if
 open import Base.Char.Char
 open import Base.Function.case
+open import Base.Function.flip
 open import Base.List.List
 open import Base.List.concat
-open import Base.List.foldl
+open import Base.List.enumerate
 open import Base.List.foldr
-open import Base.List.length
 open import Base.List.map
 open import Base.List.mfoldl
 open import Base.List.mmap
-open import Base.List.zip
 open import Base.Maybe.Maybe
 open import Base.Maybe.Trait.Monad
 open import Base.Maybe.to-result
 open import Base.Nat.Nat
-open import Base.Nat.range
 open import Base.Pair.Pair
 open import Base.Result.Result
 open import Base.Result.Trait.Monad
@@ -36,9 +32,10 @@ open import Bend.Fun.Book.get-ctr
 open import Bend.Fun.FnDef.new-gen
 open import Bend.Fun.Num.Num
 open import Bend.Fun.Term.Term renaming (List to List' ; Num to Num')
+open import Bend.Fun.Term.foldl-app
+open import Bend.Fun.Term.foldr-lam
 open import Bend.Fun.Type.Type renaming (Ctr to Ctr')
-open import Bend.Source.Source
-open import Bend.Source.SourceKind
+open import Bend.Run.AdtEncoding
 import Bend.Fun.Pattern.Pattern as Pat
 import Bend.Fun.FnDef.FnDef as FnDef'
 import Bend.Fun.Rule.Rule as Rule'
@@ -46,10 +43,6 @@ import Bend.Fun.Rule.Rule as Rule'
 private
   open module FnDef = FnDef' Term
   open module Rule = Rule' Term
-
-data AdtEncoding : Set where
-  Scott : AdtEncoding
-  NumScott : AdtEncoding
 
 encode-adts : AdtEncoding -> Book -> Result Book String
 encode-adts encoding book = do
@@ -62,9 +55,9 @@ encode-adts encoding book = do
   encode-ctr-scott (MkAdt adt-nam _ ctrs src) (MkCtr nam _ typ fields) = do
     let args = map CtrField.nam fields
     let bod = Var nam
-    let bod = foldl App bod (map Var args)
-    let bod = foldr (λ nam bod -> Lam (Pat.Var (Some nam)) bod) bod ctrs
-    let bod = foldr (λ arg bod -> Lam (Pat.Var (Some arg)) bod) bod args
+    let bod = foldl-app bod (map Var args)
+    let bod = foldr-lam bod (map Some ctrs)
+    let bod = foldr-lam bod (map Some args)
     (MkFnDef nam typ True (MkRule [] bod :: []) src) :: []
 
   encode-ctr-num-scott : Adt -> (Pair Nat Ctr) -> List FnDef
@@ -73,9 +66,9 @@ encode-adts encoding book = do
     let tag-def = new-gen tag-nam (MkRule [] (Num' (U24 tag)) :: []) src True
     let x       = "%x"
     let bod     = (App (Var x) (Ref tag-nam))
-    let bod     = foldl App bod (map (λ a -> Var (CtrField.nam a)) fields)
+    let bod     = foldl-app bod (map (λ a -> Var (CtrField.nam a)) fields)
     let bod     = Lam (Pat.Var (Some x)) bod
-    let bod     = foldr (λ a t -> Lam (Pat.Var (Some a)) t) bod (map CtrField.nam fields)
+    let bod     = foldr-lam bod (map (λ f → Some (CtrField.nam f)) fields)
     let ctr-def = MkFnDef nam typ True (MkRule [] bod :: []) src
     tag-def :: ctr-def :: []
 
@@ -85,6 +78,6 @@ encode-adts encoding book = do
     ctrs <- to-result (mmap (get-ctr book) (Adt.ctr adt)) "Ctr not found"
     let defs = case encoding of λ where
       Scott    -> map (encode-ctr-scott     adt) ctrs
-      NumScott -> map (encode-ctr-num-scott adt) (zip (range 0 (length ctrs)) ctrs)
-    let book = foldl add-fn-def book (concat defs)
+      NumScott -> map (encode-ctr-num-scott adt) (enumerate ctrs)
+    let book = foldr (flip add-fn-def) book (concat defs)
     Done book

@@ -1,10 +1,7 @@
 module Base.List.enumerate where
 
 open import Base.List.List
-open import Base.List.length
-open import Base.List.zip
 open import Base.Nat.Nat
-open import Base.Nat.range
 open import Base.Pair.Pair
 
 enumerate : ∀ {A : Set} → List A → List (Pair Nat A)
