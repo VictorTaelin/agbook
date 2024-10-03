@@ -1,0 +1,11 @@
+use Base/String/ as S/
+use Base/List/ as L/
+use Base/Nat/ as N/
+
+// Computes the length of a string.
+// - str: The input string.
+// = The number of characters in the string.
+S/length
+: ∀(str: S/String)
+  N/Nat
+= λstr (L/length _ str)
