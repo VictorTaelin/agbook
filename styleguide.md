@@ -159,6 +159,17 @@ infixl 7 _*_
 - For natural numbers, use native syntax (e.g., `3`) instead of `Succ (Succ (Succ Zero))`.
 - Avoid apostrophes in names.
 - Helper functions should have the prefix of the filename followed by "-go".
+- Record field names should be written in kebab-case. 
+
+```agda
+record Rectangle : Set where
+  constructor mkRectangle
+  field
+    min-x : F64
+    min-y : F64
+    max-x : F64
+    max-y : F64
+```
 
 
 ### Types
