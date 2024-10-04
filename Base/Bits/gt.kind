@@ -1,0 +1,28 @@
+use Base/Bits/ as BS/
+use Base/Bool/ as B/
+
+// Checks if one Bits value is greater than another.
+// - a: The first Bits value.
+// - b: The second Bits value.
+// = True if a > b, False otherwise.
+BS/gt
+: ∀(a: BS/Bits)
+  ∀(b: BS/Bits)
+  B/Bool
+= λ{
+  #E: λ{
+    #E: #False{}
+    #O: λb.tail #False{}
+    #I: λb.tail #False{}
+  }
+  #O: λa.tail λ{
+    #E: #True{}
+    #O: λb.tail (BS/gt a.tail b.tail)
+    #I: λb.tail #False{}
+  }
+  #I: λa.tail λ{
+    #E: #True{}
+    #O: λb.tail #True{}
+    #I: λb.tail (BS/gt a.tail b.tail)
+  }
+}

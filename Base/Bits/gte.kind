@@ -1,0 +1,12 @@
+use Base/Bits/ as BS/
+use Base/Bool/ as B/
+
+// Checks if one Bits value is greater than or equal to another.
+// - a: The first Bits value.
+// - b: The second Bits value.
+// = True if 'a' is greater than or equal to 'b', False otherwise.
+BS/gte
+: ∀(a: BS/Bits)
+  ∀(b: BS/Bits)
+  B/Bool
+= λa λb (B/not (BS/gt b a))
