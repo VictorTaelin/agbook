@@ -9,5 +9,5 @@ U32/from-nat
   U32
 = λ{
   #Zero: 0
-  #Succ: λn.pred (U32/add 1 (U32/from_nat n.pred))
+  #Succ: λn.pred (+ 1 (U32/from-nat n.pred))
 }

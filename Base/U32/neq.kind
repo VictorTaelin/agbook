@@ -10,4 +10,4 @@ U32/neq
   ∀(b: U32)
   B/Bool
 = λa λb
-  (B/not (U32/eq a b))
+  (U32/to-bool (!= a b))

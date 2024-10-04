@@ -8,5 +8,5 @@ U32/to-nat
 : ∀(x: U32)
   N/Nat
 = λ{0: #Zero{}
-  _: λx.pred #Succ{(U32/to_nat x.pred)}
+  _: λx.pred #Succ{(U32/to-nat x.pred)}
 	}

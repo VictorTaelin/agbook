@@ -10,4 +10,4 @@ U32/lt
   ∀(b: U32)
   B/Bool
 = λa λb 
-	(U32/to_bool (< a b))
+	(U32/to-bool (< a b))

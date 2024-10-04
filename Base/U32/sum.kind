@@ -6,7 +6,6 @@ use Base/U32/ as U32/
 U32/sum
 : ∀(x: U32)
   U32
-= λ{
-  0: 0
-  _: λx.pred (+ x (U32/sum x.pred))
-}
+= λ{0: 0
+  	_: λx.pred (+ x.pred (U32/sum x.pred))
+	}

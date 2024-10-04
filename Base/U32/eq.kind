@@ -10,4 +10,4 @@ U32/eq
   ∀(b: U32)
   B/Bool
 = λa λb 
-	(U32/to_bool (U32/eql a b))
+	(U32/to-bool (U32/eql a b))
