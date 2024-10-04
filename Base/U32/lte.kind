@@ -8,6 +8,6 @@ use Base/U32/ as U32/
 U32/lte
 : ∀(a: U32)
   ∀(b: U32)
-   B/Bool
+  B/Bool
 = λa λb 
 	(U32/to-bool (<= a b))

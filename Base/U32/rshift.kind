@@ -1,0 +1,12 @@
+use Base/U32/ as U32/
+
+// Performs right shift operation on a U32 value.
+// 1st: The U32 value.
+// 2nd: The number of positions to shift right.
+// = The result of right shifting the input value by the specified positions.
+U32/rshift
+: ∀(a: U32)
+  ∀(n: U32)
+  U32
+= λa λn 
+	(>> a n)

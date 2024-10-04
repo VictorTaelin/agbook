@@ -1,0 +1,13 @@
+use Base/Bool/ as B/
+use Base/U32/ as U32/
+
+// Converts a Bool to a U32.
+// 1st: The Bool value to convert.
+// = 1 if the input is True, 0 if the input is False.
+U32/from-bool
+: ∀(x: B/Bool)
+  U32
+= λ{
+  #True: 1
+  #False: 0
+}
