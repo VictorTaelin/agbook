@@ -2,14 +2,15 @@ module Base.Bool.or where
 
 open import Base.Bool.Bool
 
--- Performs logical OR operation on two bools.
--- - a: The 1st bool.
--- - b: The 2nd bool.
--- = True if either a or b is true.
+-- Performs logical OR operation on two boolean values.
+-- - 1st: The 1st boolean value.
+-- - 2nd: The 2nd boolean value.
+-- = True if either 1st or 2nd (or both) are true.
 or : Bool → Bool → Bool
 or True  _ = True
 or False b = b
 
+-- Infix operator for or bitwise operator.
 _||_ : Bool → Bool → Bool
 _||_ = or
 
