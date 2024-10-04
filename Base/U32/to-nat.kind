@@ -4,7 +4,7 @@ use Base/U32/ as U32/
 // Converts a U32 to a Natural number.
 // 1st: The U32 value to convert.
 // = The Natural number equivalent of the input U32 value.
-U32/to_nat
+U32/to-nat
 : ∀(x: U32)
   N/Nat
 = λ{0: #Zero{}
