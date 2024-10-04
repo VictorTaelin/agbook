@@ -1,0 +1,12 @@
+use Base/Bits/ as BS/
+use Base/Bool/ as B/
+
+// Checks if two Bits values are not equal.
+// - a: The 1st Bits value.
+// - b: The 2nd Bits value.
+// = True if a and b are not equal, False otherwise.
+BS/neq
+: ∀(a: BS/Bits)
+  ∀(b: BS/Bits)
+  B/Bool
+= λa λb (B/not (BS/eq a b))
