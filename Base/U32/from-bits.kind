@@ -1,0 +1,25 @@
+use Base/U32/ as U32/
+use Base/Bits/ as BS/
+use Base/Nat/ as N/
+
+// Recursively converts a Bits representation to U32.
+// 1st: The Bits to convert.
+// 2nd: The weight or power of 2 to be applied for the current bit position.
+// = The U32 representation of the input Bits after recursive processing.
+U32/from-bits-go
+: ∀(bits: BS/Bits)
+  ∀(weight: U32)
+  U32
+= λ{
+  #E: λweight 0
+  #O: λb.tail λweight (U32/from-bits-go b.tail (* 2 weight))
+  #I: λb.tail λweight (+ weight (U32/from-bits-go b.tail (* 2 weight)))
+}
+
+// Converts a binary representation (Bits) to its U32 value.
+// 1st: The Bits to convert.
+// = The U32 representation of the input Bits.
+U32/from-bits
+: ∀(bits: BS/Bits)
+  U32
+= λbits (U32/from-bits-go bits 1)
