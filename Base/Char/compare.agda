@@ -6,9 +6,8 @@ open import Base.Ordering.Ordering
 import Base.Nat.compare as Nat
 
 -- Compares two characters and returns their ordering.
--- This function determines the relative order of two given characters.
 -- 1st: The first character to compare.
 -- 2nd: The second character to compare.
--- = LT if the first character is less than the second, EQ if they are equal, or GT if the first is greater than the second.
+-- = LT if 1st < 2nd, EQ if 1st = 2nd, GT if 1st > 2nd.
 compare : Char → Char → Ordering
 compare x y = Nat.compare (to-nat x) (to-nat y)
