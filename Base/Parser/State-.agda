@@ -9,5 +9,10 @@ open import Base.Equal.Equal
 test-new-parser-state : new-parser-state "hello" ≡ MkState "hello" 0
 test-new-parser-state = refl
 
-test-state-fields : let s = MkState "world" 5 in (State.input s , State.index s) ≡ ("world" , 5)
+test-state-fields : 
+  let s : State
+      s = MkState "world" 5
+      result : Pair String Nat
+      result = (State.input s , State.index s)
+  in result ≡ ("world" , 5)
 test-state-fields = refl
