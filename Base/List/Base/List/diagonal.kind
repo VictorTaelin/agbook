@@ -1,0 +1,31 @@
+use Base/List/ as L/
+
+// Helper function to create a striped version of the input list of lists.
+// - A: The type of elements in the lists.
+// - xss: The input list of lists.
+// = A new list of lists where each sublist contains elements from the diagonal.
+L/stripe
+: ∀(A: *)
+  ∀(xss: (L/List (L/List A)))
+  (L/List (L/List A))
+= λA λxss
+  (L/match _ xss #Nil{} λxss.head λxss.tail
+    (L/match _ xss.head #Nil{} λxs.head λxs.tail
+      #Cons{
+        #Cons{xs.head #Nil{}}
+        (L/zip-cons _ _ xs.tail (L/stripe A xss.tail))
+      }
+      (L/stripe A xss.tail)
+    )
+  )
+
+// Extracts the diagonal elements from a list of lists.
+// - A: The type of elements in the lists.
+// - xss: The input list of lists.
+// = A new list containing the diagonal elements.
+L/diagonal
+: ∀(A: *)
+  ∀(xss: (L/List (L/List A)))
+  (L/List A)
+= λA λxss
+  (L/foldr _ _ (L/append A) #Nil{} (L/stripe A xss))

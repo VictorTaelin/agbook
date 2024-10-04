@@ -1,0 +1,20 @@
+use Base/List/ as L/
+
+// Create a striped version of the input list of lists.
+// - A: The type of elements in the lists.
+// - xss: The input list of lists.
+// = A new list of lists where each sublist contains elements from the diagonal.
+L/stripe
+: ∀(A: *)
+  ∀(xss: (L/List (L/List A)))
+  (L/List (L/List A))
+= λA λ{
+  #Nil: #Nil{}
+  #Cons: λ{
+    #Nil:  λxss (L/stripe A xss)
+    #Cons: λx λxs λxss 
+      #Cons{ #Cons{x #Nil{}} (L/zip-cons A xs (L/stripe A xss))}
+  }
+}
+
+
