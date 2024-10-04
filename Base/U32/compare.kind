@@ -1,0 +1,21 @@
+use Base/U32/ as U32/
+use Base/Ordering/ as O/
+
+// Compares two U32 numbers using pattern matching.
+// This function determines the relative order of two given U32 numbers.
+// - 1st: The U32 number to compare.
+// - 2nd: The U32 number to compare.
+// = An Ordering value: LT if 1st < 2nd, EQ if 1st = 2nd, GT if 1st > 2nd.
+U32/compare
+: ∀(a: U32)
+  ∀(b: U32)
+  O/Ordering
+= λ{0: 
+		λ{0: #EQ{}
+    _: λb.pred #LT{}
+		}
+    _: λa.pred
+		λ{0: #GT{}
+    _: λb.pred (U32/compare a.pred b.pred)
+		}
+	}
