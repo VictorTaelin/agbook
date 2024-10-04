@@ -32,7 +32,7 @@ open import Bend.Parser.consume
 open import Bend.Parser.try-consume
 open import Bend.Parser.first-with-guard
 open import Bend.Parser.skip-trivia
-open import Bend.Parser.parse-restricted-name
+open import Bend.Parser.parse-name
 open import Bend.Parser.parse-var-name
 open import Bend.Parser.parse-number
 open import Bend.Parser.parse-keyword
@@ -167,7 +167,7 @@ parse-term = do
   -- An arg with non-optional name and optional value
   parse-named-arg : Parser (Pair (Maybe String) Term)
   parse-named-arg = do
-    nam <- parse-restricted-name "argument name"
+    nam <- parse-name "argument name"
     has-arg <- try-consume "="
     if has-arg then (do
         arg <- parse-term
@@ -272,7 +272,7 @@ parse-term = do
   parse-open = do
     parse-keyword "open"
     skip-trivia
-    typ <- parse-restricted-name "type"
+    typ <- parse-name "type"
     skip-trivia
     var <- parse-var-name
     try-consume ";"
@@ -282,7 +282,7 @@ parse-term = do
   parse-link : Parser Term
   parse-link = do
     consume "$"
-    nam <- parse-restricted-name "unscoped variable"
+    nam <- parse-name "unscoped variable"
     pure (Link nam)
 
   parse-era : Parser Term

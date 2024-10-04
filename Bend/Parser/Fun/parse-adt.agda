@@ -18,7 +18,7 @@ open import Bend.Fun.Adt.CtrField
 open import Bend.Parser.consume
 open import Bend.Parser.try-consume
 open import Bend.Parser.skip-trivia
-open import Bend.Parser.parse-restricted-name
+open import Bend.Parser.parse-name
 open import Bend.Parser.sep-by
 open import Bend.Parser.list-like
 open import Bend.Parser.Fun.parse-type-term
@@ -49,13 +49,13 @@ parse-adt = do
       if has-parens
         then (do
           skip-trivia
-          name <- parse-restricted-name "datatype"
-          vars <- list-like (parse-restricted-name "type variable") "" ")" "" False 0
+          name <- parse-name "datatype"
+          vars <- list-like (parse-name "type variable") "" ")" "" False 0
           consume "="
           pure (name , vars))
         else do
-          name <- parse-restricted-name "datatype"
-          vars <- list-like (parse-restricted-name "type variable") "" "=" "" False 0
+          name <- parse-name "datatype"
+          vars <- list-like (parse-name "type variable") "" "=" "" False 0
           pure (name , vars)
 
     -- Parses a single field in a constructor definition.
@@ -66,7 +66,7 @@ parse-adt = do
       has-parens <- try-consume "("
       if has-parens
         then (do
-          nam <- parse-restricted-name "datatype constructor field"
+          nam <- parse-name "datatype constructor field"
           has-type <- try-consume ":"
           typ <- if has-type
             then parse-type-term
@@ -74,7 +74,7 @@ parse-adt = do
           consume ")"
           pure (MkCtrField nam rec typ))
         else do
-          nam <- parse-restricted-name "datatype constructor field"
+          nam <- parse-name "datatype constructor field"
           pure (MkCtrField nam rec Type.Any)
 
     -- Parses a single constructor in an ADT definition.
@@ -86,7 +86,7 @@ parse-adt = do
       skip-trivia
       if has-parens
         then (do
-          name     <- parse-restricted-name "datatype constructor"
+          name     <- parse-name "datatype constructor"
           let name  = type-name ++ "/" ++ name
           fields   <- list-like parse-field "" ")" "" False 0
           let type  = foldr Type.Arr
@@ -94,7 +94,7 @@ parse-adt = do
                             (List.map CtrField.typ fields)
           pure (MkCtr name type-name type fields))
         else do
-          name    <- parse-restricted-name "datatype constructor"
+          name    <- parse-name "datatype constructor"
           let name = type-name ++ "/" ++ name
           let type = Type.Ctr type-name (List.map Type.Var type-vars)
           pure (MkCtr name type-name type [])

@@ -20,7 +20,7 @@ open import Bend.Parser.consume
 open import Bend.Parser.first-with-guard
 open import Bend.Parser.list-like
 open import Bend.Parser.parse-keyword
-open import Bend.Parser.parse-restricted-name
+open import Bend.Parser.parse-name
 open import Bend.Parser.sep-by
 open import Bend.Parser.skip-trivia
 open import Bend.Parser.starts-with-keyword
@@ -111,5 +111,5 @@ parse-type-term = do
 
   parse-var : Parser Type
   parse-var = do
-    nam <- parse-restricted-name "type variable"
+    nam <- parse-name "type variable"
     pure (Var nam)

@@ -1,4 +1,4 @@
-module Bend.Parser.parse-restricted-name where
+module Bend.Parser.parse-name where
 
 open import Base.Char.Char
 open import Base.Char.is-digit
@@ -25,8 +25,8 @@ open import Bend.Parser.is-name-char
 -- Parses a restricted name.
 -- - kind: The kind of name being parsed (e.g., "Datatype", "Variable").
 -- = A parser that returns the parsed name if successful.
-parse-restricted-name : String → Parser String
-parse-restricted-name kind = do
+parse-name : String → Parser String
+parse-name kind = do
   name <- take-while is-name-char
   let res = if name == "" then
               fail ("Expected " ++ kind ++ " name")
