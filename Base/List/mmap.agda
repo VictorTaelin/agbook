@@ -8,8 +8,8 @@ open import Base.Trait.Monad
 -- - f: The function to apply to each element.
 -- - xs: The elements to apply f to.
 -- = A new list with the mapped values from g applied to the results of f.
-mmap : ∀ {M : Set -> Set} {{monadM : Monad M}} {A B : Set}
-       -> (A -> M B) -> List A -> M (List B)
+mmap : ∀ {M : Set → Set} {{monadM : Monad M}} {A B : Set}
+       → (A → M B) → List A → M (List B)
 mmap f []        = pure []
 mmap f (x :: xs) = do
   y  <- f x
