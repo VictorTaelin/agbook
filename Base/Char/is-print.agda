@@ -3,8 +3,7 @@ module Base.Char.is-print where
 open import Base.Char.Char
 open import Base.Bool.Bool
 
-primitive
-  primIsPrint : Char → Bool
+primitive primIsPrint : Char → Bool
 
 -- Checks if a character is printable.
 -- 1st: The character to check.

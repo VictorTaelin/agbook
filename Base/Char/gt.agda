@@ -6,7 +6,6 @@ open import Base.Char.to-nat
 import Base.Nat.gt as Nat
 
 -- Checks if one character is greater than another.
--- This function compares two characters based on their Unicode values.
 -- 1st: The first character to compare.
 -- 2nd: The second character to compare.
 -- = True if the first character is greater than the second, False otherwise.

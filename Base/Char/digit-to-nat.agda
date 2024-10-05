@@ -6,7 +6,7 @@ open import Base.Maybe.Maybe
 
 -- Converts a digit character to its corresponding natural number.
 -- 1st: The input character.
--- = Some n if 1st is a digit, where n is the corresponding natural number, None if 1st is not a digit.
+-- = Some n if 1st is a digit, where n is the corresponding natural number, None otherwise.
 digit-to-nat : Char → Maybe Nat
 digit-to-nat '0' = Some 0
 digit-to-nat '1' = Some 1

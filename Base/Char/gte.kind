@@ -1,6 +1,6 @@
 use Base/Char/ as C/
 use Base/Bool/ as B/
-use Base/Nat/ as N/
+use Base/U32/ as U32/
 
 // Checks if the first character is greater than or equal to the second.
 // - x: The first character.
@@ -10,4 +10,4 @@ C/gte
 : ∀(x: C/Char)
   ∀(y: C/Char)
   B/Bool
-= λx λy (N/gte (C/to-nat x) (C/to-nat y))
+= λx λy (N/gte x y)

@@ -1,6 +1,6 @@
 use Base/Char/ as C/
 use Base/Bool/ as B/
-use Base/Nat/ as N/
+use Base/U32/ as U32/
 
 // Checks if one character is greater than another.
 // This function compares two characters based on their Unicode values.
@@ -11,4 +11,4 @@ C/gt
 : ∀(x: C/Char)
   ∀(y: C/Char)
   B/Bool
-= λx λy (N/gt (C/to-nat x) (C/to-nat y))
+= λx λy (U32/gt x y)

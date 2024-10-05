@@ -31,3 +31,15 @@ aux
     (#Some{(+ 10 (B/if N/Nat (>= n 0) n m))})
     #None{}
   )
+
+// -- Converts a hexadecimal character to its corresponding natural number.
+// -- 1st: The input hexadecimal character.
+// -- = Some n if 1st is a valid hexadecimal digit, where n is the corresponding natural number, None otherwise.
+// hex-to-nat : Char → Maybe Nat
+// hex-to-nat c = if is-hex-digit c
+//                then Some (if (to-nat c < 58)
+//                           then (to-nat c - 48)
+//                           else (if (to-nat c < 97)
+//                                 then (to-nat c - 55)
+//                                 else (to-nat c - 87)))
+//                else None

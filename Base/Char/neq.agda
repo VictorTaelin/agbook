@@ -6,7 +6,6 @@ open import Base.Bool.not
 import Base.Char.eq as Char
 
 -- Compares two characters for inequality.
--- This function determines if two given characters are different.
 -- 1st: The first character to compare.
 -- 2nd: The second character to compare.
 -- = True if the characters are not equal, False otherwise.
