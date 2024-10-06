@@ -25,16 +25,16 @@ C/to-digit
   
   (B/if (M/Maybe N/Nat)
     is_binary
-    (C/digit-to-nat c)
+    (C/digit-to-nat code)
     (B/if (M/Maybe N/Nat)
       is_octal
-      (C/digit-to-nat c)
+      (C/digit-to-nat code)
       (B/if (M/Maybe N/Nat)
         is_decimal
-        (C/digit-to-nat c)
+        (C/digit-to-nat code)
         (B/if (M/Maybe N/Nat)
           is_hex
-          (C/hex-to-nat c)
+          (C/hex-to-nat code)
           #None{}
         )
       )
