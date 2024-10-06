@@ -3,8 +3,8 @@ module Base.Bool.neq where
 open import Base.Bool.Bool
 
 -- Performs logical NOT EQUAL operation on two boolean values.
--- - 1st: The 1st boolean value.
--- - 2nd: The 2nd boolean value.
+-- - 1st: The boolean value.
+-- - 2nd: The boolean value.
 -- = True if 1st and 2nd are different, False otherwise.
 neq : Bool → Bool → Bool
 neq True  False = True

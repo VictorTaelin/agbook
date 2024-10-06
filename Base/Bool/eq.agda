@@ -3,8 +3,8 @@ module Base.Bool.eq where
 open import Base.Bool.Bool
 
 -- Checks if two boolean values are equal.
--- - 1st: The first boolean value.
--- - 2nd: The second boolean value.
+-- - 1st: The boolean value.
+-- - 2nd: The boolean value.
 -- = True if both values are the same, False otherwise.
 eq : Bool -> Bool -> Bool
 eq True  True  = True

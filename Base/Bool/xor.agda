@@ -4,8 +4,8 @@ module Base.Bool.xor where
 open import Base.Bool.Bool
 
 -- Performs logical XOR operation on two bools.
--- - 1st: The 1st bool.
--- - 2nd: The 2nd bool.
+-- - 1st: The boolean value.
+-- - 2nd: The boolean value.
 -- = True if 1st and 2nd are different.
 xor : Bool → Bool → Bool
 xor True  True  = False
