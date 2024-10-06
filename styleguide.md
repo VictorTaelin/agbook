@@ -25,9 +25,9 @@ open import Base.Float.Type
 primitive primFloatPlus : Float → Float → Float
 
 -- Addition of floats.
--- - x: The 1st float.
--- - y: The 2nd float.
--- = The sum of x and y.
+-- - 1st: The float number.
+-- - 2nd: The float number.
+-- = The sum of 1st and 2nd.
 add : Float → Float → Float
 add = primFloatPlus
 
