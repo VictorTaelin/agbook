@@ -6,7 +6,7 @@ open import Base.Bool.Bool
 -- Performs logical XOR operation on two bools.
 -- - 1st: The 1st bool.
 -- - 2nd: The 2nd bool.
--- = True if ast and 2nd are different.
+-- = True if 1st and 2nd are different.
 xor : Bool → Bool → Bool
 xor True  True  = False
 xor True  False = True
