@@ -44,7 +44,11 @@ infixl 6 _+_
 - The contents of a top-level module should have zero indentation.
 - Every subsequent nested scope should then be indented by an additional **two spaces**.
 
+### Empty Lines
 
+- All module headers should have a single empty line after them.
+- Ensure all files finish with a single empty line at the end.
+  
 ### Primitives and Postulates
 
 - For a single declaration, it should be written on one line:
