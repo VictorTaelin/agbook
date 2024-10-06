@@ -3,7 +3,7 @@ use Base/Bool/ as B/
 use Base/U32/ as U32/
 
 // Checks if a character is a hexadecimal digit (0-9, A-F, a-f).
-// - c: The character to check.
+// 1st: The character to check.
 // = True if the character is a hexadecimal digit, False otherwise.
 C/is-hex-digit
 : ∀(code: C/Char)

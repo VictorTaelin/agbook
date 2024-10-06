@@ -2,9 +2,7 @@ use Base/Char/ as C/
 use Base/Bool/ as B/
 
 // Converts a character to its lowercase equivalent.
-// This function transforms an uppercase character to lowercase.
-// If the character is already lowercase or not a letter, it remains unchanged.
-// - c: The input character.
+// - 1st: The input character.
 // = The lowercase version of the input character.
 C/to-lower
 : ∀(code: C/Char)

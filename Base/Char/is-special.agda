@@ -11,7 +11,7 @@ open import Base.Bool.not
 open import Base.Equal.Equal
 
 -- Checks if a character is a special character (printable but not alphanumeric).
--- - c: The character to check.
+-- - 1st: The character to check.
 -- = True if the character is a special character, False otherwise.
 is-special : Char → Bool
 is-special c = is-print c && (! (is-alpha c || is-digit c))

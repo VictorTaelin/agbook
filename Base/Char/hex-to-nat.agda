@@ -8,8 +8,7 @@ open import Base.Char.digit-to-nat
 
 -- Converts a hexadecimal character to its corresponding natural number.
 -- 1st: The input hexadecimal character.
--- = Some n if c is a valid hexadecimal digit, where n is the corresponding natural number.
--- = None if c is not a valid hexadecimal digit.
+-- = Some n if c is a valid hexadecimal digit, where n is the corresponding natural number, None otherwise.
 hex-to-nat : Char → Maybe Nat
 hex-to-nat c = do
   let digit = digit-to-nat c
@@ -19,7 +18,7 @@ hex-to-nat c = do
   where
   -- Auxiliary function to handle hexadecimal digits A-F (case-insensitive).
   -- 1st: The input character.
-  -- = Some n where n is the corresponding natural number for hexadecimal digits A-F, None for any other character.
+  -- = Some n where n is the corresponding natural number for hexadecimal digits A-F, None otherwise.
   aux : Char → Maybe Nat
   aux 'a' = Some 10
   aux 'b' = Some 11

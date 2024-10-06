@@ -3,8 +3,8 @@ use Base/Bool/ as B/
 use Base/U32/ as U32/
 
 // Compares two characters for equality.
-// 1st: The first character to compare.
-// 2nd: The second character to compare.
+// 1st: The character to compare.
+// 2nd: The character to compare.
 // = True if the characters are equal, False otherwise.
 C/eq
 : ∀(a: C/Char)

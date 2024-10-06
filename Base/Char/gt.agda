@@ -6,9 +6,9 @@ open import Base.Char.to-nat
 import Base.Nat.gt as Nat
 
 -- Checks if one character is greater than another.
--- 1st: The first character to compare.
--- 2nd: The second character to compare.
--- = True if the first character is greater than the second, False otherwise.
+-- 1st: The character to compare.
+-- 2nd: The character to compare.
+-- = True if the 1st character is greater than the 2nd, False otherwise.
 gt : Char → Char → Bool
 gt x y = Nat.gt (to-nat x) (to-nat y)
 

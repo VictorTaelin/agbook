@@ -3,7 +3,7 @@ use Base/Bool/ as B/
 use Base/U32/ as U32/
 
 // Determines if a character is a whitespace character.
-// - c: The character to check.
+// 1st: The character to check.
 // = True if the character is a whitespace character, False otherwise.
 C/is-space
 : ∀(code: C/Char)

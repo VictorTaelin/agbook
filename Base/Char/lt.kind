@@ -3,9 +3,9 @@ use Base/Bool/ as B/
 use Base/U32/ as U32/
 
 // Compares two characters lexicographically.
-// - x: The first character to compare.
-// - y: The second character to compare.
-// = True if the first character is less than the second, False otherwise.
+// 1st: The character to compare.
+// 2nd: The character to compare.
+// = True if the 1st character is less than the 2nd, False otherwise.
 C/lt
 : ∀(x: C/Char)
   ∀(y: C/Char)

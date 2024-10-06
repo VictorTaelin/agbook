@@ -9,7 +9,7 @@ open import Base.Nat.lte
 open import Base.Bool.and
 
 -- Checks if a character is an octal digit (0-7).
--- - c: The character to check.
+-- 1st: The character to check.
 -- = True if the character is an octal digit, False otherwise.
 is-octal-digit : Char → Bool
 is-octal-digit c = (to-nat c >= 48) && (to-nat c <= 55)

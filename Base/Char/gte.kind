@@ -3,9 +3,9 @@ use Base/Bool/ as B/
 use Base/U32/ as U32/
 
 // Checks if the first character is greater than or equal to the second.
-// 1st: The first character to compare.
-// 2nd: The second character to compare.
-// = True if the first character is greater than or equal to the second, False otherwise.
+// 1st: The character to compare.
+// 2nd: The character to compare.
+// = True if the 1st character is greater than or equal to the 2nd, False otherwise.
 C/gte
 : ∀(x: C/Char)
   ∀(y: C/Char)

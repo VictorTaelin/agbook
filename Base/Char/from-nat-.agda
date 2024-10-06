@@ -5,8 +5,6 @@ open import Base.Char.from-nat
 open import Base.Equal.Equal
 open import Base.Nat.Nat
 
--- This module contains tests for the conversion of natural numbers to their corresponding Unicode characters.
-
 -- Test: Converts 65 to character 'A'.
 T0 : from-nat 65 ≡ 'A'
 T0 = refl

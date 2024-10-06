@@ -3,9 +3,9 @@ use Base/Nat/ as N/
 use Base/U32/ as U32/
 
 // Converts a character to its corresponding natural number representation.
-// - c: The input character.
+// - 1st: The input character.
 // = The natural number representation of the character.
 C/to-nat
-: ∀(c: C/Char)
+: ∀(code: C/Char)
   N/Nat
-= λc (U32/to-nat c)
+= λcode (U32/to-nat code)

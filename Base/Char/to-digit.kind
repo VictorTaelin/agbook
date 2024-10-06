@@ -5,24 +5,23 @@ use Base/Bool/ as B/
 use Base/U32/ as U32/
 
 // Converts a single character to its numeric value in the given base.
-// This function handles both decimal and hexadecimal digits.
-// - base: The base (e.g., 10 for decimal, 16 for hexadecimal).
-// - c: The character to convert.
+// 1st: The base (e.g., 2 for binary, 8 for octal, 10 for decimal, 16 for hexadecimal).
+// 2nd: The character to convert.
 // = Some n if the character is a valid digit in the given base, where n is the corresponding numeric value, None if the character is not a valid digit in the given base.
 C/to-digit
 : ∀(base: N/Nat)
-  ∀(c: C/Char)
+  ∀(code: C/Char)
   (M/Maybe N/Nat)
-= λbase λc
+= λbase λcode
   let is_base_2 = (N/eq base (U32/to-nat 2))
   let is_base_8 = (N/eq base (U32/to-nat 8))
   let is_base_10 = (N/eq base (U32/to-nat 10))
   let is_base_16 = (N/eq base (U32/to-nat 16))
   
-  let is_binary = (B/and is_base_2 (C/is-binary-digit c))
-  let is_octal = (B/and is_base_8 (C/is-octal-digit c))
-  let is_decimal = (B/and is_base_10 (C/is-digit c))
-  let is_hex = (B/and is_base_16 (C/is-hex-digit c))
+  let is_binary = (B/and is_base_2 (C/is-binary-digit code))
+  let is_octal = (B/and is_base_8 (C/is-octal-digit code))
+  let is_decimal = (B/and is_base_10 (C/is-digit code))
+  let is_hex = (B/and is_base_16 (C/is-hex-digit code))
   
   (B/if (M/Maybe N/Nat)
     is_binary

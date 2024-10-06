@@ -3,9 +3,9 @@ use Base/Bool/ as B/
 use Base/Nat/ as N/
 
 // Checks if one character is less than or equal to another.
-// - x: The first character to compare.
-// - y: The second character to compare.
-// = True if x is less than or equal to y, False otherwise.
+// 1st: The character to compare.
+// 2nd: The character to compare.
+// = True if the 1st character is less than or equal to the 2nd, False otherwise..
 C/lte
 : ∀(x: C/Char)
   ∀(y: C/Char)

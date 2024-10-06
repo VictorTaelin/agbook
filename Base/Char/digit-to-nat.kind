@@ -5,7 +5,7 @@ use Base/Maybe/ as M/
 
 // Converts a digit character to its corresponding natural number.
 // 1st: The input character.
-// = Some n if c is a digit, where n is the corresponding natural number, None otherwise.
+// = Some n if 1st is a digit, where n is the corresponding natural number, None otherwise.
 C/digit-to-nat
 : ∀(c: C/Char)
   (M/Maybe N/Nat)

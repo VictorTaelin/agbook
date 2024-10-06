@@ -3,7 +3,7 @@ use Base/Bool/ as B/
 use Base/U32/ as U32/
 
 // Checks if a character is printable.
-// - c: The character to check.
+// 1st: The character to check.
 // = True if the character is printable, False otherwise.
 C/is-print
 : ∀(code: C/Char)

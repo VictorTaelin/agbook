@@ -3,8 +3,8 @@ use Base/Bool/ as B/
 use Base/U32/ as U32/
 
 // Compares two characters for inequality.
-// - a: The first character to compare.
-// - b: The second character to compare.
+// - 1st: The character to compare.
+// - 2nd: The character to compare.
 // = True if the characters are not equal, False otherwise.
 C/neq
 : ∀(a: C/Char)

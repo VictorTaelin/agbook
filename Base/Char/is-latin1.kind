@@ -3,8 +3,8 @@ use Base/Bool/ as B/
 use Base/U32/ as U32/
 
 // Checks if a character is within the Latin-1 character set.
-// - c: The character to check.
-// = True if the character is in the Latin-1 set, False otherwise.
+// 1st: The character to check.
+// = True if the character is in the Latin-1 set, False otherwis
 C/is-latin1
 : ∀(c: C/Char)
   B/Bool

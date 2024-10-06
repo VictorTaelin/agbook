@@ -3,7 +3,7 @@ use Base/U32/ as U32/
 use Base/Bool/ as B/
 
 // Checks if a character is uppercase based on Unicode ranges.
-// - c: The character to check.
+// - 1st: The character to check.
 // = True if the character is uppercase, False otherwise.
 C/is-upper
 : ∀(code: C/Char)

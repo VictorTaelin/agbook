@@ -2,7 +2,7 @@ use Base/Char/ as C/
 use Base/Bool/ as B/
 
 // Checks if a character is a special character (printable but not alphanumeric).
-// - code: The character to check.
+// - 1st: The character to check.
 // = True if the character is a special character, False otherwise.
 C/is-special
 : ∀(code: C/Char)

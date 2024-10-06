@@ -13,6 +13,7 @@ lte : Char → Char → Bool
 lte x y = Nat.lte (to-nat x) (to-nat y)
 
 -- Infix operator for less-than-or-equal-to comparison of characters.
-infix 4 _<=_
 _<=_ : Char → Char → Bool
 _<=_ = lte
+
+infix 4 _<=_

@@ -13,6 +13,7 @@ lt : Char → Char → Bool
 lt x y = Nat.lt (to-nat x) (to-nat y)
 
 -- Infix operator for lexicographic comparison of characters.
-infix 4 _<_
 _<_ : Char → Char → Bool
 _<_ = lt
+
+infix 4 _<_
