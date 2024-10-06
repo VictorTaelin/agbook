@@ -1,0 +1,17 @@
+use Base/Bool/ as B/
+
+// Performs logical And with complement 1st & ~2nd.
+// 1st: The 1st boolean value.
+// 2nd: The 2nd boolean value.
+// = True if '1st' is true and '2nd' is false, False otherwise.
+B/andc
+: ∀(a: B/Bool)
+  ∀(b: B/Bool)
+  B/Bool
+= λ{
+  #True: λ{
+    #False: #True{}
+    #True: #False{}
+  }
+  #False: λb #False{}
+}

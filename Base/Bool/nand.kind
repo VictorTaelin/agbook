@@ -1,0 +1,11 @@
+use Base/Bool/ as B/
+
+// Performs logical NAND operation on two boolean values.
+// 1st: The 1st boolean value.
+// 2nd: The 2nd boolean value.
+// = True if at least one of the inputs is False, False if both inputs are True.
+B/nand
+: ∀(a: B/Bool)
+  ∀(b: B/Bool)
+  B/Bool
+= λa λb (B/not (B/and a b))

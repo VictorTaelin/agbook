@@ -1,0 +1,20 @@
+use Base/Bool/ as B/
+
+// Performs logical XNOR operation on two bools.
+// 1st: The boolean value.
+// 2nd: The boolean value.
+// = True if 1st and 2nd are the same, False otherwise.
+B/xnor
+: ∀(a: B/Bool)
+  ∀(b: B/Bool)
+  B/Bool
+= λ{
+  #True: λ{
+    #True: #True{}
+    #False: #False{}
+  }
+  #False: λ{
+    #True: #False{}
+    #False: #True{}
+  }
+}

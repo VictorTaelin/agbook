@@ -1,0 +1,11 @@
+use Base/Bool/ as B/
+
+// Performs logical NOR operation on two boolean values.
+// 1st: The boolean value.
+// 2nd: The boolean value.
+// = True if both inputs are False, False otherwise.
+B/nor
+: ∀(a: B/Bool)
+  ∀(b: B/Bool)
+  B/Bool
+= λa λb (B/not (B/or a b))
