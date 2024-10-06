@@ -1,0 +1,8 @@
+use Base/Bool/ as B/
+use Base/Trait/ as T/
+
+// Instance of Show for Bool
+B/Trait/Show/Bool : (T/Show B/Bool) = 
+  #Show{
+    to_string: B/show
+  }
