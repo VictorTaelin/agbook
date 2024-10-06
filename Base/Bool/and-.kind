@@ -1,4 +1,4 @@
-use Base/Bool as B/
+use Base/Bool/ as B/
 use Base/Equal/ as E/
 
 B/T0
