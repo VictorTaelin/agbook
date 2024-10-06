@@ -8,3 +8,4 @@ open import Base.Trait.Eq
 instance
   EqBool : Eq Bool
   EqBool = MkEq Bool.eq Bool.neq
+

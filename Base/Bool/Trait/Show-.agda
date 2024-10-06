@@ -11,3 +11,4 @@ test-show-trait-true = refl
 
 test-show-trait-false : to-string False ≡ "false"
 test-show-trait-false = refl
+

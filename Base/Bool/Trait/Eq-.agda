@@ -16,3 +16,4 @@ test-eq-trait-true-false = refl
 
 test-eq-trait-false-true : (False == True) ≡ False
 test-eq-trait-false-true = refl
+

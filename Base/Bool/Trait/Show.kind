@@ -6,3 +6,4 @@ B/Trait/Show/Bool : (T/Show B/Bool) =
   #Show{
     to_string: B/show
   }
+
