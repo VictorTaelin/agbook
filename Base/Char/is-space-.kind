@@ -1,0 +1,33 @@
+use Base/Char/ as C/
+use Base/Bool/ as B/
+use Base/Equal/ as E/
+
+// Test: Space character is a whitespace
+T0 
+: (E/Equal B/Bool (C/is-space 32) #True{}) 
+= #Refl{}
+
+// Test: Newline character is a whitespace
+T1 
+: (E/Equal B/Bool (C/is-space 10) #True{}) 
+= #Refl{}
+
+// Test: Tab character is a whitespace
+T2 
+: (E/Equal B/Bool (C/is-space 9) #True{}) 
+= #Refl{}
+
+// Test: Regular letter 'A' is not a whitespace
+T3 
+: (E/Equal B/Bool (C/is-space 65) #False{}) 
+= #Refl{}
+
+// Test: Digit '5' is not a whitespace
+T4 
+: (E/Equal B/Bool (C/is-space 53) #False{}) 
+= #Refl{}
+
+// Test: Special character '!' is not a whitespace
+T5 
+: (E/Equal B/Bool (C/is-space 33) #False{}) 
+= #Refl{}

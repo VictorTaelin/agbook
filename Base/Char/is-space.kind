@@ -1,16 +1,17 @@
 use Base/Char/ as C/
 use Base/Bool/ as B/
+use Base/U32/ as U32/
 
 // Determines if a character is a whitespace character.
 // - c: The character to check.
 // = True if the character is a whitespace character, False otherwise.
 C/is-space
-: ∀(c: C/Char)
+: ∀(code: C/Char)
   B/Bool
-= λc
-  (|| (== c 32)  // space
-  (|| (== c 9)   // tab
-  (|| (== c 10)  // newline
-  (|| (== c 13)  // carriage return
-  (|| (== c 11)  // vertical tab
-  (== c 12))))))  // form feed
+= λcode (U32/to-bool 
+	(| (== code 32)  // space
+  (| (== code 9)   // tab
+  (| (== code 10)  // newline
+  (| (== code 13)  // carriage return
+  (| (== code 11)  // vertical tab // form feed
+  (== code 12)))))))  

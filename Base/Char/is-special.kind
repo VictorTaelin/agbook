@@ -1,0 +1,15 @@
+use Base/Char/ as C/
+use Base/Bool/ as B/
+
+// Checks if a character is a special character (printable but not alphanumeric).
+// - code: The character to check.
+// = True if the character is a special character, False otherwise.
+C/is-special
+: ∀(code: C/Char)
+  B/Bool
+= λcode
+  let is_print = (C/is-print code)
+  let is_alpha = (C/is-alpha code)
+  let is_digit = (C/is-digit code)
+  let is_alphanumeric = (B/or is_alpha is_digit)
+  (B/and is_print (B/not is_alphanumeric))

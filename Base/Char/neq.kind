@@ -1,8 +1,8 @@
 use Base/Char/ as C/
 use Base/Bool/ as B/
+use Base/U32/ as U32/
 
 // Compares two characters for inequality.
-// This function determines if two given characters are different.
 // - a: The first character to compare.
 // - b: The second character to compare.
 // = True if the characters are not equal, False otherwise.
@@ -10,4 +10,4 @@ C/neq
 : ∀(a: C/Char)
   ∀(b: C/Char)
   B/Bool
-= λa λb (B/not (C/eq a b))
+= λa λb (U32/to-bool (!= a b))

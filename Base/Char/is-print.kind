@@ -1,10 +1,11 @@
 use Base/Char/ as C/
 use Base/Bool/ as B/
+use Base/U32/ as U32/
 
 // Checks if a character is printable.
 // - c: The character to check.
 // = True if the character is printable, False otherwise.
 C/is-print
-: ∀(c: C/Char)
+: ∀(code: C/Char)
   B/Bool
-= λc (is_print c)
+= λcode (B/and (U32/gte code 32) (U32/lte code 126))

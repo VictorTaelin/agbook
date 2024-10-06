@@ -1,0 +1,33 @@
+use Base/Char/ as C/
+use Base/Bool/ as B/
+use Base/Equal/ as E/
+
+// Test: if 'a' is equal to 'a'.
+T0 
+: (E/Equal B/Bool (C/eq 'a' 'a') #True{}) 
+= #Refl{}
+
+// Test: if 'a' is equal to 'b'.
+T1
+: (E/Equal B/Bool (C/eq 'a' 'b') #False{}) 
+= #Refl{}
+
+// Test: if '0' is equal to '0'.
+T2
+: (E/Equal B/Bool (C/eq '0' '0') #True{}) 
+= #Refl{}
+
+// Test: if '0' is equal to '1'.
+T3
+: (E/Equal B/Bool (C/eq '0' '1') #False{}) 
+= #Refl{}
+
+// Test: if 'A' is equal to 'a'.
+T4
+: (E/Equal B/Bool (C/eq 'A' 'a') #False{}) 
+= #Refl{}
+
+// Test: if negation of equality works correctly.
+T5
+: (E/Equal B/Bool (B/not (C/eq 'a' 'b')) #True{}) 
+= #Refl{}

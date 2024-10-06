@@ -4,32 +4,42 @@ use Base/U32/ as U32/
 use Base/Maybe/ as M/
 use Base/Equal/ as E/
 
-// Test: '0' converts to Some 0
+// Test: '0' converts to Some 0.
 T0
-: (E/Equal (M/Maybe N/Nat) (C/digit-to-nat 48) (#Some{(U32/to-nat 0)}))
+: (E/Equal (M/Maybe N/Nat) (C/digit-to-nat 48) (#Some{#Zero{}}))
 = #Refl{}
 
-// Test: '5' converts to Some 5
+// Test: '5' converts to Some 5.
 T1
-: (E/Equal (M/Maybe N/Nat) (C/digit-to-nat 53) (#Some{(U32/to-nat 5)}))
+: (E/Equal (M/Maybe N/Nat) (C/digit-to-nat 53) (#Some{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}))
 = #Refl{}
 
-// Test: '9' converts to Some 9
+// Test: '9' converts to Some 9.
 T2
-: (E/Equal (M/Maybe N/Nat) (C/digit-to-nat 57) (#Some{(U32/to-nat 9)}))
+: (E/Equal (M/Maybe N/Nat) (C/digit-to-nat 57) (#Some{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}}))
 = #Refl{}
 
-// Test: 'a' converts to None
+// Test: 'a' converts to None.
 T3
 : (E/Equal (M/Maybe N/Nat) (C/digit-to-nat 97) #None{})
 = #Refl{}
 
-// Test: '!' converts to None
+// Test: '!' converts to None.
 T4
 : (E/Equal (M/Maybe N/Nat) (C/digit-to-nat 33) #None{})
 = #Refl{}
 
-// Test: ' ' (space) converts to None
+// Test: ' ' (space) converts to None.
 T5
 : (E/Equal (M/Maybe N/Nat) (C/digit-to-nat 32) #None{})
+= #Refl{}
+
+// Test: '\n' (newline) converts to None.
+T6
+: (E/Equal (M/Maybe N/Nat) (C/digit-to-nat 10) #None{})
+= #Refl{}
+
+// Test: '١' (Arabic-Indic digit one) converts to None.
+T7
+: (E/Equal (M/Maybe N/Nat) (C/digit-to-nat 1633) #None{})
 = #Refl{}

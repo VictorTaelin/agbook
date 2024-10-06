@@ -2,30 +2,37 @@ use Base/Char/ as C/
 use Base/Ordering/ as O/
 use Base/Equal/ as E/
 
-// Test: 'a' compared to 'a' is EQ
+// Test: Compares 'a' with 'a'.
+// = EQ
 T0 : (E/Equal O/Ordering (C/compare 97 97) #EQ{})
 = #Refl{}
 
-// Test: 'a' compared to 'b' is LT
+// Test: Compares 'a' with 'b'.
+// = LT
 T1 : (E/Equal O/Ordering (C/compare 97 98) #LT{})
 = #Refl{}
 
-// Test: 'b' compared to 'a' is GT
+// Test: Compares 'b' with 'a'.
+// = GT
 T2 : (E/Equal O/Ordering (C/compare 98 97) #GT{})
 = #Refl{}
 
-// Test: 'A' compared to 'a' is LT (uppercase comes before lowercase in ASCII)
+// Test: Compares 'A' with 'a'.
+// = LT
 T3 : (E/Equal O/Ordering (C/compare 65 97) #LT{})
 = #Refl{}
 
-// Test: '0' compared to '9' is LT
+// Test: Compares '0' with '9'.
+// = LT
 T4 : (E/Equal O/Ordering (C/compare 48 57) #LT{})
 = #Refl{}
 
-// Test: '!' compared to '~' is LT
+// Test: Compares '!' with '~'.
+// = LT
 T5 : (E/Equal O/Ordering (C/compare 33 126) #LT{})
 = #Refl{}
 
-// Test: 'z' compared to 'a' is GT
+// Test: Compares 'z' with 'a'.
+// = GT
 T6 : (E/Equal O/Ordering (C/compare 122 97) #GT{})
 = #Refl{}

@@ -13,6 +13,7 @@ gt : Char → Char → Bool
 gt x y = Nat.gt (to-nat x) (to-nat y)
 
 -- Infix operator for greater-than comparison of characters.
-infix 4 _>_
 _>_ : Char → Char → Bool
 _>_ = gt
+
+infix 4 _>_

@@ -1,0 +1,11 @@
+use Base/Char/ as C/
+use Base/U32/ as U32/
+use Base/Bool/ as B/
+
+// Checks if a character is uppercase based on Unicode ranges.
+// - c: The character to check.
+// = True if the character is uppercase, False otherwise.
+C/is-upper
+: ∀(code: C/Char)
+  B/Bool
+= λcode (B/and (U32/gte code 65) (U32/lte code 90))

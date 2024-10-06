@@ -1,0 +1,23 @@
+use Base/Char/ as C/
+use Base/Bool/ as B/
+use Base/Equal/ as E/
+
+// Test: Lowercase 'a' is alphabetic.
+T0 
+: (E/Equal B/Bool (C/is-alpha 97) #True{}) 
+= #Refl{}
+
+// Test: Uppercase 'Z' is alphabetic.
+T1 
+: (E/Equal B/Bool (C/is-alpha 90) #True{}) 
+= #Refl{}
+
+// Test: Digit '5' is not alphabetic.
+T2 
+: (E/Equal B/Bool (C/is-alpha 53) #False{}) 
+= #Refl{}
+
+// Test: Special character '@' is not alphabetic.
+T3 
+: (E/Equal B/Bool (C/is-alpha 64) #False{}) 
+= #Refl{}

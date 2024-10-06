@@ -1,0 +1,22 @@
+use Base/Char/ as C/
+use Base/Bool/ as B/
+use Base/Equal/ as E/
+
+// Tests for is-octal-digit function
+
+
+T0
+: (E/Equal B/Bool (C/is-octal-digit 48) #True{})
+= #Refl{}
+
+T1
+: (E/Equal B/Bool (C/is-octal-digit 55) #True{})
+= #Refl{}
+
+T2
+: (E/Equal B/Bool (C/is-octal-digit 56) #False{})
+= #Refl{}
+
+T3
+: (E/Equal B/Bool (C/is-octal-digit 97) #False{})
+= #Refl{}

@@ -1,19 +1,18 @@
 use Base/Char/ as C/
 use Base/Nat/ as N/
-use Base/Bool/ as B/
 use Base/U32/ as U32/
 use Base/Maybe/ as M/
 
 // Converts a digit character to its corresponding natural number.
-// - 1st: The input character.
-// = Some n if 1st is a digit, where n is the corresponding natural number, None if 1st is not a digit.
+// 1st: The input character.
+// = Some n if c is a digit, where n is the corresponding natural number, None otherwise.
 C/digit-to-nat
 : ∀(c: C/Char)
   (M/Maybe N/Nat)
 = λc
   let n = (- c 48)
-  (B/if (M/Maybe N/Nat)
-    (U32/to-bool (& (>= n 0) (<= n 9)))
+  (U32/if (M/Maybe N/Nat)
+    (& (<= 0 n) (<= n 9))
     #Some{(U32/to-nat n)}
     #None{}
   )

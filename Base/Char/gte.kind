@@ -3,11 +3,11 @@ use Base/Bool/ as B/
 use Base/U32/ as U32/
 
 // Checks if the first character is greater than or equal to the second.
-// - x: The first character.
-// - y: The second character.
+// 1st: The first character to compare.
+// 2nd: The second character to compare.
 // = True if the first character is greater than or equal to the second, False otherwise.
 C/gte
 : ∀(x: C/Char)
   ∀(y: C/Char)
   B/Bool
-= λx λy (N/gte x y)
+= λx λy (U32/gte x y)

@@ -1,0 +1,28 @@
+use Base/Char/ as C/
+use Base/Bool/ as B/
+use Base/Equal/ as E/
+
+// Test: ASCII character 'A' (code point 65).
+T0 
+: (E/Equal B/Bool (C/is-ascii 65) #True{}) 
+= #Refl{}
+
+// Test: Non-ASCII character '€' (code point 8364).
+T1 
+: (E/Equal B/Bool (C/is-ascii 8364) #False{}) 
+= #Refl{}
+
+// Test: ASCII character '~' (code point 126).
+T2 
+: (E/Equal B/Bool (C/is-ascii 126) #True{}) 
+= #Refl{}
+
+// Test: ASCII character DEL (code point 127).
+T3 
+: (E/Equal B/Bool (C/is-ascii 127) #True{}) 
+= #Refl{}
+
+// Test: Non-ASCII character 'ñ' (code point 241).
+T4 
+: (E/Equal B/Bool (C/is-ascii 241) #False{}) 
+= #Refl{}

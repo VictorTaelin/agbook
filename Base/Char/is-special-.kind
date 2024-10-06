@@ -1,0 +1,28 @@
+use Base/Char/ as C/
+use Base/Bool/ as B/
+use Base/Equal/ as E/
+
+// Test: Special character (e.g., '@') should return True
+T0 
+: (E/Equal B/Bool (C/is-special 64) #True{}) 
+= #Refl{}
+
+// Test: Alphabetic character should return False
+T1 
+: (E/Equal B/Bool (C/is-special 65) #False{}) 
+= #Refl{}
+
+// Test: Digit should return False
+T2 
+: (E/Equal B/Bool (C/is-special 53) #False{}) 
+= #Refl{}
+
+// Test: Non-printable character should return False
+T3 
+: (E/Equal B/Bool (C/is-special 0) #False{}) 
+= #Refl{}
+
+// Test: Another special character (e.g., '#') should return True
+T4 
+: (E/Equal B/Bool (C/is-special 35) #True{}) 
+= #Refl{}

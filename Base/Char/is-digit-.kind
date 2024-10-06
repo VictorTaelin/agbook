@@ -1,0 +1,48 @@
+use Base/Char/ as C/
+use Base/Bool/ as B/
+use Base/Equal/ as E/
+
+// Test: '0' is a digit
+T0 
+: (E/Equal B/Bool (C/is-digit '0') #True{}) 
+= #Refl{}
+
+// Test: '9' is a digit
+T1 
+: (E/Equal B/Bool (C/is-digit '9') #True{}) 
+= #Refl{}
+
+// Test: '5' is a digit
+T2 
+: (E/Equal B/Bool (C/is-digit '5') #True{}) 
+= #Refl{}
+
+// Test: 'a' is not a digit
+T3 
+: (E/Equal B/Bool (C/is-digit 'a') #False{}) 
+= #Refl{}
+
+// Test: 'A' is not a digit
+T4 
+: (E/Equal B/Bool (C/is-digit 'A') #False{}) 
+= #Refl{}
+
+// Test: ' ' (space) is not a digit
+// T5 
+// : (E/Equal B/Bool (C/is-digit ' ') #False{}) 
+// = #Refl{}
+
+// Test: '-' is not a digit
+T6 
+: (E/Equal B/Bool (C/is-digit '-') #False{}) 
+= #Refl{}
+
+// Test: '/' is not a digit (just before '0' in ASCII)
+T7 
+: (E/Equal B/Bool (C/is-digit '/') #False{}) 
+= #Refl{}
+
+// Test: ':' is not a digit (just after '9' in ASCII)
+T8 
+: (E/Equal B/Bool (C/is-digit ':') #False{}) 
+= #Refl{}

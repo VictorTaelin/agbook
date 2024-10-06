@@ -21,7 +21,7 @@ open import Base.Bool.and
 to-digit : Nat → Char → Maybe Nat
 to-digit base c = 
   if (base == 2) && is-binary-digit c then
-   digit-to-nat c
+    digit-to-nat c
   else if (base == 8) && is-octal-digit c then
     digit-to-nat c
   else if (base == 10) && is-digit c then

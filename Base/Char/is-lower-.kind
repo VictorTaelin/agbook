@@ -1,0 +1,23 @@
+use Base/Char/ as C/
+use Base/Bool/ as B/
+use Base/Equal/ as E/
+
+// Test: Lowercase 'a' is considered lowercase
+T0 
+: (E/Equal B/Bool (C/is-lower 'a') #True{}) 
+= #Refl{}
+
+// Test: Uppercase 'A' is not considered lowercase
+T1 
+: (E/Equal B/Bool (C/is-lower 'A') #False{}) 
+= #Refl{}
+
+// Test: Digit '5' is not considered lowercase
+T2 
+: (E/Equal B/Bool (C/is-lower '5') #False{}) 
+= #Refl{}
+
+// Test: Special character '@' is not considered lowercase
+T3 
+: (E/Equal B/Bool (C/is-lower '@') #False{}) 
+= #Refl{}

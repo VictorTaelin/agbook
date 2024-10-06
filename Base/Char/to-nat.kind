@@ -1,5 +1,6 @@
 use Base/Char/ as C/
 use Base/Nat/ as N/
+use Base/U32/ as U32/
 
 // Converts a character to its corresponding natural number representation.
 // - c: The input character.
@@ -7,4 +8,4 @@ use Base/Nat/ as N/
 C/to-nat
 : ∀(c: C/Char)
   N/Nat
-= λc (~ c)
+= λc (U32/to-nat c)

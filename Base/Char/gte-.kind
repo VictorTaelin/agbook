@@ -1,0 +1,53 @@
+use Base/Char/ as C/
+use Base/Bool/ as B/
+use Base/Equal/ as E/
+
+// Test: 'b' is greater than or equal to 'a'.
+T0 
+: (E/Equal B/Bool (C/gte 'b' 'a') #True{}) 
+= #Refl{}
+
+// Test: 'a' is not greater than or equal to 'b'.
+T1 
+: (E/Equal B/Bool (C/gte 'a' 'b') #False{}) 
+= #Refl{}
+
+// Test: 'A' is not greater than or equal to 'a' (uppercase comes before lowercase in ASCII).
+T2 
+: (E/Equal B/Bool (C/gte 'A' 'a') #False{}) 
+= #Refl{}
+
+// Test: 'z' is greater than or equal to 'a'.
+T3 
+: (E/Equal B/Bool (C/gte 'z' 'a') #True{}) 
+= #Refl{}
+
+// Test: '9' is greater than or equal to '0'.
+T4 
+: (E/Equal B/Bool (C/gte '9' '0') #True{}) 
+= #Refl{}
+
+// Test: '~' is greater than or equal to '!'.
+T5 
+: (E/Equal B/Bool (C/gte '~' '!') #True{}) 
+= #Refl{}
+
+// Test: 'a' is greater than or equal to 'a'.
+T6 
+: (E/Equal B/Bool (C/gte 'a' 'a') #True{}) 
+= #Refl{}
+
+// Test: 'Z' is greater than or equal to 'A'.
+T7 
+: (E/Equal B/Bool (C/gte 'Z' 'A') #True{}) 
+= #Refl{}
+
+// Test: '0' is greater than or equal to '0'.
+T8 
+: (E/Equal B/Bool (C/gte '0' '0') #True{}) 
+= #Refl{}
+
+// Test: 'a' is not greater than or equal to 'z'.
+T9 
+: (E/Equal B/Bool (C/gte 'a' 'z') #False{}) 
+= #Refl{}

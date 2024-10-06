@@ -2,6 +2,7 @@ use Base/Nat/ as N/
 use Base/Char/ as C/
 use Base/Maybe/ as M/
 use Base/Bool/ as B/
+use Base/U32/ as U32/
 
 // Converts a single character to its numeric value in the given base.
 // This function handles both decimal and hexadecimal digits.
@@ -13,14 +14,30 @@ C/to-digit
   ∀(c: C/Char)
   (M/Maybe N/Nat)
 = λbase λc
-  let is_digit = (C/is-digit c)
-  let is_hex = (& (N/eq base #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}}}}}}}}) (C/is-hex-digit c))
+  let is_base_2 = (N/eq base (U32/to-nat 2))
+  let is_base_8 = (N/eq base (U32/to-nat 8))
+  let is_base_10 = (N/eq base (U32/to-nat 10))
+  let is_base_16 = (N/eq base (U32/to-nat 16))
+  
+  let is_binary = (B/and is_base_2 (C/is-binary-digit c))
+  let is_octal = (B/and is_base_8 (C/is-octal-digit c))
+  let is_decimal = (B/and is_base_10 (C/is-digit c))
+  let is_hex = (B/and is_base_16 (C/is-hex-digit c))
+  
   (B/if (M/Maybe N/Nat)
-    is_digit
+    is_binary
     (C/digit-to-nat c)
     (B/if (M/Maybe N/Nat)
-      is_hex
-      (C/hex-to-nat c)
-      #None{}
+      is_octal
+      (C/digit-to-nat c)
+      (B/if (M/Maybe N/Nat)
+        is_decimal
+        (C/digit-to-nat c)
+        (B/if (M/Maybe N/Nat)
+          is_hex
+          (C/hex-to-nat c)
+          #None{}
+        )
+      )
     )
   )

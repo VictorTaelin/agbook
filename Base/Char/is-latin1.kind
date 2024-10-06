@@ -1,5 +1,6 @@
 use Base/Char/ as C/
 use Base/Bool/ as B/
+use Base/U32/ as U32/
 
 // Checks if a character is within the Latin-1 character set.
 // - c: The character to check.

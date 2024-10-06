@@ -1,0 +1,45 @@
+use Base/Char/ as C/
+use Base/Bool/ as B/
+use Base/Equal/ as E/
+
+// Test: 'a' is less than or equal to 'b'
+
+T0
+: (E/Equal B/Bool (C/lte 'a' 'b') #True{}) 
+= #Refl{}
+
+// Test: 'b' is not less than or equal to 'a'
+
+T1
+: (E/Equal B/Bool (C/lte 'b' 'a') #False{}) 
+= #Refl{}
+
+// Test: 'A' is less than or equal to 'A' (equality case)
+
+T2
+: (E/Equal B/Bool (C/lte 'A' 'A') #True{}) 
+= #Refl{}
+
+// Test: 'z' is less than or equal to 'z' (equality case)
+
+T3
+: (E/Equal B/Bool (C/lte 'z' 'z') #True{}) 
+= #Refl{}
+
+// Test: '0' is less than or equal to '9'
+
+T4
+: (E/Equal B/Bool (C/lte '0' '9') #True{}) 
+= #Refl{}
+
+// Test: 'Z' is less than or equal to 'a'
+
+T5
+: (E/Equal B/Bool (C/lte 'Z' 'a') #True{}) 
+= #Refl{}
+
+// Test: '~' is not less than or equal to '!'
+
+T6
+: (E/Equal B/Bool (C/lte '~' '!') #False{}) 
+= #Refl{}

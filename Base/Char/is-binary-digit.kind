@@ -1,0 +1,13 @@
+use Base/Char/ as C/
+use Base/Bool/ as B/
+
+// Checks if the character is a valid binary digit (0 or 1).
+// 1st: The character to check.
+// = True if the character is a binary digit, False otherwise.
+C/is-binary-digit
+: ∀(c: C/Char)
+  B/Bool
+= λc
+  let is_zero = (C/eq c '0')
+  let is_one = (C/eq c '1')
+  (B/or is_zero is_one)

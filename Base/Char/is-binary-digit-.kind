@@ -1,0 +1,25 @@
+use Base/Char/ as C/
+use Base/Bool/ as B/
+use Base/Equal/ as E/
+
+// Tests for is-binary-digit function
+
+// Test: '0' is a binary digit.
+T0
+: (E/Equal B/Bool (C/is-binary-digit '0') #True{}) 
+= #Refl{}
+
+// Test: '1' is a binary digit.
+T1
+: (E/Equal B/Bool (C/is-binary-digit '1') #True{}) 
+= #Refl{}
+
+// Test: '2' is not a binary digit.
+T2
+: (E/Equal B/Bool (C/is-binary-digit '2') #False{}) 
+= #Refl{}
+
+// Test: 'a' is not a binary digit.
+T3
+: (E/Equal B/Bool (C/is-binary-digit 'a') #False{}) 
+= #Refl{}

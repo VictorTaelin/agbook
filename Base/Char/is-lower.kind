@@ -1,10 +1,11 @@
 use Base/Char/ as C/
 use Base/Bool/ as B/
+use Base/U32/ as U32/
 
 // Checks if a character is a lowercase letter.
 // - c: The character to check.
 // = True if the character is lowercase, False otherwise.
 C/is-lower
-: ∀(c: C/Char)
+: ∀(code: C/Char)
   B/Bool
-= λc (U32/gte c 97) && (U32/lte c 122)
+= λcode (B/and (U32/gte code 97) (U32/lte code 122))
