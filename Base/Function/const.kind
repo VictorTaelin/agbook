@@ -1,0 +1,15 @@
+use Base/Function/ as F/
+
+// Constant function.
+// - A: The type of the value to be returned.
+// - B: The type of the ignored input.
+// - x: The value to be returned.
+// - _: The ignored input.
+// = Always returns x, regardless of the second argument.
+F/const
+: ∀(A: *)
+  ∀(B: *)
+  ∀(x: A)
+  ∀(y: B)
+  A
+= λA λB λx λy x

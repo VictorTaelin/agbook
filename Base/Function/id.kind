@@ -1,0 +1,11 @@
+use Base/Function/ as F/
+
+// Identity function.
+// - A: The type of the input and output.
+// - x: The input value.
+// = The same value x, unchanged.
+F/id
+: ∀(A: *)
+  ∀(x: A)
+  A
+= λA λx x
