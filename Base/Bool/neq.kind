@@ -1,9 +1,9 @@
 use Base/Bool/ as B/
 
 // Performs logical NOT EQUAL operation on two boolean values.
-// - a: The first boolean value.
-// - b: The second boolean value.
-// = True if a and b are different, False otherwise.
+// - 1st: The first boolean value.
+// - 2nd: The second boolean value.
+// = True if 1st and 2nd are different, False otherwise.
 B/neq
 : ∀(a: B/Bool)
   ∀(b: B/Bool)

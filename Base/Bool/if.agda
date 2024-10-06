@@ -11,5 +11,5 @@ if_then_else_ : ∀ {a} {A : Set a} → Bool → A → A → A
 if True  then t else _ = t
 if False then _ else f = f
 
--- Infix operator for if-then-else conditional.:w
+-- Infix operator for if-then-else conditional.
 infix 0 if_then_else_
