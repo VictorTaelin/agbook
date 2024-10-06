@@ -10,4 +10,3 @@ andc : Bool → Bool → Bool
 andc True False = True
 andc a    b     = False
 
-

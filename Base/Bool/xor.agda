@@ -18,3 +18,4 @@ _^_ : Bool → Bool → Bool
 _^_ = xor
 
 infixr 7 _^_
+

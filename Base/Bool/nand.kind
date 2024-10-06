@@ -9,3 +9,4 @@ B/nand
   ∀(b: B/Bool)
   B/Bool
 = λa λb (B/not (B/and a b))
+

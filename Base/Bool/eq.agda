@@ -18,3 +18,4 @@ _==_ = eq
 infix 4 _==_
 
 {-# COMPILE JS eq = function(x) { return function(y) { return x ≡ y; }; } #-}
+

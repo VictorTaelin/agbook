@@ -15,3 +15,4 @@ _||_ : Bool → Bool → Bool
 _||_ = or
 
 infixr 5 _||_
+

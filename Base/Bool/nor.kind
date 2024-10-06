@@ -9,3 +9,4 @@ B/nor
   ∀(b: B/Bool)
   B/Bool
 = λa λb (B/not (B/or a b))
+

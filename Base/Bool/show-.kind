@@ -8,3 +8,4 @@ B/T0
 B/T1
 : (E/Equal B/Bool (B/show #False{}) #False{})
 = #Refl{}
+

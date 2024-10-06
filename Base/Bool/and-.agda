@@ -5,7 +5,6 @@ open import Base.Bool.and
 open import Base.Bool.eq
 open import Base.Equal.Equal
 
-
 test-and-true-true : and True True ≡ True
 test-and-true-true = refl
 
@@ -30,3 +29,4 @@ test-&&-false-true = refl
 
 test-&&-false-false : (False && False) ≡ False
 test-&&-false-false = refl
+

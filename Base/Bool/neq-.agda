@@ -6,3 +6,4 @@ open import Base.Equal.Equal
 
 test-eq-true-false : (True != False) ≡ True
 test-eq-true-false = refl
+

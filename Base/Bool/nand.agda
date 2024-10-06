@@ -10,3 +10,4 @@ open import Base.Bool.not
 -- = True if at least one of the inputs is False, False if both inputs are True.
 nand : Bool → Bool → Bool
 nand a b = not (a && b)
+

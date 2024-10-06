@@ -10,3 +10,4 @@ data Bool : Set where
 {-# BUILTIN BOOL  Bool  #-}
 {-# BUILTIN TRUE  True  #-}
 {-# BUILTIN FALSE False #-}
+

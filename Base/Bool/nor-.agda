@@ -16,3 +16,4 @@ nor-test-3 = refl
 
 nor-test-4 : nor False False ≡ True
 nor-test-4 = refl
+

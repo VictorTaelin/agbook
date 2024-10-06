@@ -24,3 +24,4 @@ demo-orc = orc True False
 -- Expected result of demo
 demo-orc-result : demo-orc ≡ True
 demo-orc-result = refl
+

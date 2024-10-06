@@ -24,3 +24,4 @@ test-if-false-nat = refl
 -- Test with nested if-then-else
 test-if-nested : (if True then (if False then 1 else 2) else 3) ≡ 2
 test-if-nested = refl
+

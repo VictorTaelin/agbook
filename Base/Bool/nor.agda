@@ -10,3 +10,4 @@ open import Base.Bool.not
 -- = True if both inputs are False, False otherwise.
 nor : Bool → Bool → Bool
 nor a b = not (a || b)
+

@@ -17,4 +17,3 @@ B/T3
 : (E/Equal B/Bool (B/xor #False{} #True{}) #True{})
 = #Refl{}
 
-

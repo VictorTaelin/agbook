@@ -16,3 +16,4 @@ nand-test-3 = refl
 
 nand-test-4 : nand False False ≡ True
 nand-test-4 = refl
+

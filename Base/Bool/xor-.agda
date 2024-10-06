@@ -47,3 +47,4 @@ test-^-commutativity True True = refl
 test-^-commutativity True False = refl
 test-^-commutativity False True = refl
 test-^-commutativity False False = refl
+
