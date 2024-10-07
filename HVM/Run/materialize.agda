@@ -6,15 +6,10 @@ open import HVM.Run.Monad.bind
 open import HVM.Run.enter
 open import HVM.Run.Monad.pure
 open import HVM.Term.Term
-open import HVM.Mode.Mode
-open import HVM.Addr.Addr
 
 -- Recursively materializes a term by resolving variables
--- In WIRED mode, it returns the term as is
--- In NAMED mode, it resolves variables recursively
-materialize : ∀ {mode : Mode} → Term mode → Run mode (Term mode)
-materialize {WIRED} term = pure term
-materialize {NAMED} term = do
+materialize : Term → Run Term
+materialize term = do
   resolved ← enter term
   case resolved of λ where
     (Var x)     → pure (Var x)

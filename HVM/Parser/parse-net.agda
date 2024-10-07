@@ -10,10 +10,9 @@ open import HVM.Net.Net
 open import HVM.Parser.parse-redex
 open import HVM.Parser.parse-term
 open import HVM.Redex.Redex
-open import HVM.Mode.Mode
 open import HVM.Term.Term
 
-parse-net : Parser (Net NAMED)
+parse-net : Parser Net
 parse-net = do
   root ← parse-term
   rbag ← parse-many parse-redex

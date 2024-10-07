@@ -1,24 +1,16 @@
 module HVM.Rule.comm where
 
 open import Base.Unit.Unit
-open import HVM.Run.Run
 open import HVM.Run.Monad.bind
+open import HVM.Run.Monad.pure
+open import HVM.Run.Run
 open import HVM.Run.fresh
 open import HVM.Run.link
-open import HVM.Run.Monad.pure
 open import HVM.Term.Term
-open import HVM.Mode.Mode
 
 -- Commutation interaction
-comm : ∀ {mode : Mode} → Term mode → Term mode → Term mode → Term mode → Run mode Unit
-
--- TODO: to make comm work on WIRED mode, we need the WIRED 'link' function to
--- return the address where each term has been stored. this is needed to make
--- the inner wirings of the commutated nodes
-comm {WIRED} _ _ _ _ = do
-  pure unit
-
-comm {NAMED} a1 a2 b1 b2 = do
+comm : Term → Term → Term → Term → Run Unit
+comm a1 a2 b1 b2 = do
   v0 ← fresh
   v1 ← fresh
   v2 ← fresh

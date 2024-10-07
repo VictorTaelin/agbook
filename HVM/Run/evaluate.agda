@@ -11,12 +11,11 @@ open import HVM.Run.state-get
 open import HVM.Run.materialize
 open import HVM.Run.State.boot
 open import Base.Pair.Pair
-open import HVM.Mode.Mode
 
 -- Normalizes a Net into a Term
-evaluate : ∀ {mode : Mode} → Net mode → Term mode
-evaluate {mode} net = snd (result (boot net)) where
-  result : Run mode (Term mode)
+evaluate : Net → Term
+evaluate net = snd (result (boot net)) where
+  result : Run Term
   result = do
     normalize
     state ← state-get

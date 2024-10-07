@@ -4,7 +4,6 @@ open import Base.Bool.Bool
 open import Base.Function.case
 open import Base.Maybe.Maybe
 open import Base.Unit.Unit
-open import HVM.Mode.Mode
 open import HVM.Redex.Redex
 open import HVM.Rule.anni
 open import HVM.Rule.comm
@@ -17,7 +16,7 @@ open import HVM.Run.Run
 open import HVM.Run.redex-pop
 open import HVM.Term.Term
 
-interact : ∀ {mode : Mode} → Run mode Bool
+interact : Run Bool
 interact = do
   redex ← redex-pop
   case redex of λ where

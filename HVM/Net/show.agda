@@ -9,12 +9,11 @@ open import Base.String.append
 open import Base.String.join
 open import HVM.Net.Net
 open import HVM.Redex.Redex
-open import HVM.Mode.Mode
 
 -- Converts a Net to its string representation.
 -- - net: The Net to convert.
 -- = A string representation of the Net.
-show : Net NAMED → String
+show : Net → String
 show net = do
   let root = Term.show (Net.root net)
   let rbag = join "" (map (λ r → " & " ++ Redex.show r) (Net.rbag net))
