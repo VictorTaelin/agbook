@@ -1,0 +1,24 @@
+use Base/List/ as L/
+use Base/Bool/ as B/
+use Base/Nat/ as N/
+use Base/Trait/ as T/
+
+// Counts the occurrences of a given element in a list.
+// - A: The type of elements in the list.
+// - e: An equality function for type A.
+// - x: The element to count.
+// - xs: The list to search.
+// = The number of occurrences of the given element in the list.
+L/count
+: ∀(A: *)
+  ∀(e: (T/Eq A))
+  ∀(x: A)
+  ∀(xs: (L/List A))
+  N/Nat
+= λA λe λx λ{
+  #Nil: #Zero{}
+  #Cons: λxs.head λxs.tail
+    let head_count = (B/if N/Nat (T/Eq/eq _ e x xs.head) #Succ{#Zero{}} #Zero{})
+    let tail_count = (L/count _ e x xs.tail)
+    (N/add head_count tail_count)
+}

@@ -1,0 +1,23 @@
+use Base/Char/ as C/
+use Base/Bool/ as B/
+use Base/Equal/ as E/
+
+// Test: Compare lowercase 'a' with uppercase 'A'
+T0 
+: (E/Equal B/Bool (C/lt 'a' 'A') #False{}) 
+= #Refl{}
+
+// Test: Compare lowercase 'a' with lowercase 'b'
+T1 
+: (E/Equal B/Bool (C/lt 'a' 'b') #True{}) 
+= #Refl{}
+
+// Test: Compare uppercase 'Z' with lowercase 'a'
+T2 
+: (E/Equal B/Bool (C/lt 'Z' 'a') #True{}) 
+= #Refl{}
+
+// Test: Compare same character
+T3 
+: (E/Equal B/Bool (C/lt 'c' 'c') #False{}) 
+= #Refl{}

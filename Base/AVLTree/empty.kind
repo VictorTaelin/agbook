@@ -1,0 +1,9 @@
+use Base/AVLTree/ as AVL/
+
+// Creates an empty AVL tree.
+// = An empty AVL tree.
+AVL/empty
+: ∀(K: *)
+  ∀(V: *)
+  (AVL/AVLTree K V)
+= λK λV #Leaf{}

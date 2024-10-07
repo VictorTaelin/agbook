@@ -1,0 +1,28 @@
+use Base/Char/ as C/
+use Base/Equal/ as E/
+use Base/U32/ as U32/
+
+// Test: Convert 65 to character 'A'.
+T0 
+: (E/Equal C/Char (C/from-nat (U32/to-nat 65)) 'A')
+= #Refl{}
+
+// Test: Convert 97 to character 'a'.
+T1 
+: (E/Equal C/Char (C/from-nat (U32/to-nat 97)) 'a')
+= #Refl{}
+
+// Test: Convert 0 to null character.
+// T2 
+// : (E/Equal C/Char (C/from-nat (U32/to-nat 0)) '\0')
+// = #Refl{}
+
+// Test: Convert 32 to space character.
+// T3 
+// : (E/Equal C/Char (C/from-nat (U32/to-nat 32)) '')
+// = #Refl{}
+
+// Test: Convert 48 to character '0'.
+T4 
+: (E/Equal C/Char (C/from-nat (U32/to-nat 48)) '0')
+= #Refl{}

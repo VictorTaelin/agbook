@@ -1,0 +1,29 @@
+use Base/Char/ as C/
+use Base/Nat/ as N/
+use Base/U32/ as U32/
+use Base/Maybe/ as M/
+use Base/Bool/ as B/
+
+// Converts a hexadecimal character to its corresponding natural number.
+// 1st: The input hexadecimal character
+// = Some n if 1st is a valid hexadecimal digit, where n is the corresponding natural number, None otherwise.
+C/hex-to-nat
+: ∀(code: C/Char)
+  (M/Maybe N/Nat)
+= λcode
+  let is_hex = (C/is-hex-digit code)
+  let case_0_9 = (- code 48)
+  let case_A_F = (- code 55)
+  let case_a_f = (- code 87)
+  let value =
+    (U32/if U32
+      (< code 58)
+      case_0_9
+      (U32/if U32
+        (< code 97)
+        case_A_F
+        case_a_f))
+  (B/if (M/Maybe N/Nat)
+    is_hex
+    #Some{(U32/to-nat value)}
+    #None{})

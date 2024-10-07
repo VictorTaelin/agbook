@@ -1,7 +1,6 @@
 use Base/Equal/ as E/
 
 // Transitivity property of equality.
-// If x is equal to y and y is equal to z, then x is equal to z.
 // 1st: The type of the values being compared.
 // 2nd: The first value.
 // 3rd: The second value.

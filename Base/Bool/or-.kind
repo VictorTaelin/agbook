@@ -12,3 +12,4 @@ B/T1
 B/T2
 : (E/Equal B/Bool (B/or #False{} #False{}) #False{})
 = #Refl{}
+

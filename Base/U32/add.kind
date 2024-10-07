@@ -1,0 +1,11 @@
+use Base/U32/ as U32/
+
+// Adds two 32-bit unsigned integers.
+// 1st: The first U32 value.
+// 2nd: The second U32 value.
+// = The sum of the two U32 values.
+U32/add
+: ∀(a: U32)
+  ∀(b: U32)
+  U32
+= λa λb (+ a b)

@@ -1,0 +1,15 @@
+use Base/Nat/ as N/
+use Base/String/ as S/
+use Base/Equal/ as E/
+
+// Test: show 42 = "42".
+T0 : (E/Equal S/String (N/show #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}) #Cons{52 #Cons{50 #Nil{}}})
+= #Refl{}
+
+// Test: show 0 = "0".
+T1 : (E/Equal S/String (N/show #Zero{}) #Cons{48 #Nil{}})
+= #Refl{}
+
+// Test: show 1000 = "1000".
+T2 : (E/Equal S/String (N/show (N/exp (N/mul #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}} #Succ{#Succ{#Zero{}}}) #Succ{#Succ{#Succ{#Zero{}}}})) #Cons{49 #Cons{48 #Cons{48 #Cons{48 #Nil{}}}}})
+= #Refl{}

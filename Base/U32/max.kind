@@ -1,0 +1,14 @@
+use Base/U32/ as U32/
+
+// Returns the maximum of two U32 numbers.
+// - a: The first U32 number.
+// - b: The second U32 number.
+// = The larger of the two input numbers.
+U32/max
+: ∀(a: U32)
+  ∀(b: U32)
+  U32
+= λa λb 
+	(U32/if U32 (>= a b) a b)
+
+  

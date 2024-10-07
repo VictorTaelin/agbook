@@ -1,0 +1,12 @@
+use Base/Bits/ as BS/
+use Base/Nat/ as N/
+
+// Returns the length of a Bits structure, that is, how many bits it has.
+BS/length
+: ∀(bits: BS/Bits)
+  N/Nat
+= λ{
+  #E: #Zero{}
+  #O: λbits.tail #Succ{(BS/length bits.tail)}
+  #I: λbits.tail #Succ{(BS/length bits.tail)}
+}

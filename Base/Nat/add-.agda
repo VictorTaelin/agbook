@@ -6,29 +6,29 @@ open import Base.Bool.Bool
 open import Base.Equal.Equal
 
 -- Test: 0 + 0 = 0
-test-add-zero-zero : (0 + 0) ≡ 0
-test-add-zero-zero = refl
+T0 : (0 + 0) ≡ 0
+T0 = refl
 
 -- Test: 0 + 5 = 5
-test-add-zero-five : (0 + 5) ≡ 5
-test-add-zero-five = refl
+T1 : (0 + 5) ≡ 5
+T1 = refl
 
 -- Test: 5 + 0 = 5
-test-add-five-zero : (5 + 0) ≡ 5
-test-add-five-zero = refl
+T2 : (5 + 0) ≡ 5
+T2 = refl
 
 -- Test: 3 + 2 = 5
-test-add-three-two : (3 + 2) ≡ 5
-test-add-three-two = refl
+T3 : (3 + 2) ≡ 5
+T3 = refl
 
 -- Test: 7 + 8 = 15
-test-add-seven-eight : (7 + 8) ≡ 15
-test-add-seven-eight = refl
+T4 : (7 + 8) ≡ 15
+T4 = refl
 
 -- Test: Commutativity: a + b = b + a
-test-add-commutative : (3 + 4) ≡ (4 + 3)
-test-add-commutative = refl
+T5 : (3 + 4) ≡ (4 + 3)
+T5 = refl
 
 -- Test: Associativity: (a + b) + c = a + (b + c)
-test-add-associative : ((2 + 3) + 4) ≡ (2 + (3 + 4))
-test-add-associative = refl
+T6 : ((2 + 3) + 4) ≡ (2 + (3 + 4))
+T6 = refl

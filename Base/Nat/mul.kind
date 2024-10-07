@@ -1,9 +1,9 @@
 use Base/Nat/ as N/
 
-// Multiplication of nats.
-// - m: The 1st nat.
-// - n: The 2nd nat.
-// = The product of m and n.
+// Performs multiplication of natural numbers.
+// 1st: The natural number.
+// 2nd: The natural number.
+// = The product of the two natural numbers.
 N/mul
 : ∀(m: N/Nat)
   ∀(n: N/Nat)

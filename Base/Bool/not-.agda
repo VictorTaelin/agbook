@@ -6,3 +6,4 @@ open import Base.Equal.Equal
 
 T0 : True ≡ (not False)
 T0 = refl
+

@@ -1,5 +1,7 @@
 use Base/Char/ as C/
 
-C/Char
-: *
+// Represents a character in the Unicode character set.
+// In Kind, characters are represented as 32-bit unsigned integers (U32).
+C/Char 
+: * 
 = U32

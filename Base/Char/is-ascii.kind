@@ -1,0 +1,11 @@
+use Base/Char/ as C/
+use Base/Bool/ as B/
+use Base/U32/ as U32/
+
+// Determines if a character is an ASCII character.
+// 1st: The character to check.
+// = True if the character is an ASCII character, False otherwise.
+C/is-ascii
+: ∀(code: C/Char)
+  B/Bool
+= λcode (U32/lt code 128)

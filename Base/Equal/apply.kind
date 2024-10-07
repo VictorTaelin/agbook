@@ -1,7 +1,6 @@
 use Base/Equal/ as E/
 
 // Congruence property of equality.
-// If two values are equal, then applying a function to both yields equal results.
 // 1st: The type of the input values.
 // 2nd: The type of the output values after applying the function.
 // 3rd: The function to apply.

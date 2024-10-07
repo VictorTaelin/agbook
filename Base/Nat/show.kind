@@ -2,7 +2,9 @@ use Base/Nat/ as N/
 use Base/String/ as S/
 use Base/List/ as L/
 
-// Converts a digit (0-9) to its corresponding character code ()
+// Converts a digit (0-9) to its corresponding character code.
+// 1st: The digit to convert.
+// = The character code representing the digit.
 N/digit_to_char
 : ∀(n: N/Nat)
   U32
@@ -38,10 +40,10 @@ N/digit_to_char
   }
 }
 
-
-
-// TODO: create type Char
-// Recursively builds the reversed string representation of a natural number
+// Recursively builds the reversed string representation of a natural number.
+// 1st: The natural number to convert.
+// 2nd: The accumulator for the reversed string.
+// = The reversed string representation of the number.
 N/show_rev
 : ∀(n: N/Nat)
   ∀(acc: S/String)
@@ -50,14 +52,14 @@ N/show_rev
   #Zero: λacc acc
   #Succ: λn.pred λacc 
 	let n10 = (N/div (#Succ{n.pred}) #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}})
-  let rem = (N/mod n #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}})
+  let rem = (N/mod (#Succ{n.pred}) #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}})
   let digit = (N/digit_to_char rem)
-  let new_acc = #Cons{digit acc} 
-	(N/show_rev n10 new_acc)
+	(N/show_rev n10 #Cons{digit acc})
 	}
 
-
 // Converts a natural number to its string representation.
+// 1st: The natural number to convert.
+// = The string representation of the number.
 N/show
 : ∀(n: N/Nat)
   S/String

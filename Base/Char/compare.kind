@@ -1,0 +1,13 @@
+use Base/Char/ as C/
+use Base/U32/ as U32/
+use Base/Ordering/ as O/
+
+// Compares two characters and returns their ordering.
+// 1st: The first character to compare.
+// 2nd: The second character to compare.
+// = An Ordering value: LT if 1st < 2nd, EQ if 1st = 2nd, GT if 1st > 2nd.
+C/compare
+: ∀(x: C/Char)
+  ∀(y: C/Char)
+  O/Ordering
+= λx λy (U32/compare x y)

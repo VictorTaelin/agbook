@@ -1,9 +1,9 @@
 use Base/Nat/ as N/
 
-// Performs right shift operation on a natural number.
-// - n: The input natural number.
-// - shift: The number of positions to shift right.
-// = A new natural number representing the right-shifted result.
+// Performs right shift operation on a natural number. This function divides
+// 1st: The input natural number.
+// 2nd: The number of positions to shift right.
+// = The right-shifted result as a new natural number.
 N/rshift
 : ∀(n: N/Nat)
   ∀(shift: N/Nat)

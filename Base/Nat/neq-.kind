@@ -4,40 +4,40 @@ use Base/Equal/ as E/
 
 // Test cases for neq function
 
-// Test case 1: Different numbers should return True
-N/neq/test/diff
+// Test : Different numbers should return True.
+T0
 : (E/Equal B/Bool (N/neq #Succ{#Zero{}} #Zero{}) #True{})
 = #Refl{}
 
-// Test case 2: Same numbers should return False
-N/neq/test/same
+// Test : Same numbers should return False.
+T1
 : (E/Equal B/Bool (N/neq #Succ{#Succ{#Zero{}}} #Succ{#Succ{#Zero{}}}) #False{})
 = #Refl{}
 
-// Test case 3: Zero and a non-zero number should return True
-N/neq/test/zero/nonzero
+// Test : Zero and a non-zero number should return True.
+T2
 : (E/Equal B/Bool (N/neq #Zero{} #Succ{#Succ{#Succ{#Zero{}}}}) #True{})
 = #Refl{}
 
-// Test case 4: Different non-zero numbers should return True
-N/neq/test/diff/nonzero
+// Test : Different non-zero numbers should return True.
+T3
 : (E/Equal B/Bool (N/neq #Succ{#Succ{#Succ{#Succ{#Zero{}}}}} #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}) #True{})
 = #Refl{}
 
-// Test case 5: Zero and itself should return False
-N/neq/test/zero/zero
+// Test : Zero and itself should return False.
+T4
 : (E/Equal B/Bool (N/neq #Zero{} #Zero{}) #False{})
 = #Refl{}
 
-// Test case 6: Larger numbers should work correctly
-N/neq/test/larger
+// Test : Larger numbers should work correctly.
+T5
 : (E/Equal B/Bool (N/neq #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}}
                         #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}}})
                   #True{})
 = #Refl{}
 
-// Test case 7: Larger same numbers should return False
-N/neq/test/larger/same
+// Test : Larger same numbers should return False.
+T6
 : (E/Equal B/Bool (N/neq #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}}
                         #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}})
                   #False{})

@@ -1,0 +1,15 @@
+use Base/Char/ as C/
+use Base/Bool/ as B/
+use Base/U32/ as U32/
+
+// Checks if a character is a hexadecimal digit (0-9, A-F, a-f).
+// 1st: The character to check.
+// = True if the character is a hexadecimal digit, False otherwise.
+C/is-hex-digit
+: ∀(code: C/Char)
+  B/Bool
+= λcode
+  let is_0_9 = (& (>= code 48) (<= code 57))
+  let is_A_F = (& (>= code 65) (<= code 70))
+  let is_a_f = (& (>= code 97) (<= code 102))
+  (U32/to-bool (| is_0_9 (| is_A_F is_a_f)))

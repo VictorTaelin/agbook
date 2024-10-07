@@ -1,0 +1,17 @@
+use Base/Char/ as C/
+use Base/U32/ as U32/
+use Base/Maybe/ as M/
+
+// Converts a digit character to its corresponding U32 number.
+// 1st: The input character.
+// = Some n if 1st is a digit, where n is the corresponding U32 number, None otherwise.
+C/digit-to-u32
+: ∀(c: C/Char)
+  (M/Maybe U32)
+= λc
+  let n = (- c 48)
+  (U32/if (M/Maybe U32)
+    (& (>= n 0) (<= n 9))
+    (#Some{n})
+    #None{}
+  )

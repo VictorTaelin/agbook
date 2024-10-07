@@ -9,3 +9,4 @@ open import Base.AVLTree.Balance.Balance
 data AVLTree (K V : Set) : Set where
   Leaf : AVLTree K V
   Node : (key-value : Pair K V) → (balance : Balance) → (left : AVLTree K V) → (right : AVLTree K V) → AVLTree K V
+

@@ -3,7 +3,6 @@ module Base.Equal.trans where
 open import Base.Equal.Equal
 
 -- Transitivity property of equality.
--- If 1st is equal to 2nd and 2nd is equal to 3rd, then 1st is equal to 3rd.
 -- 1st: The value.
 -- 2nd: The value.
 -- 3rd: The value.

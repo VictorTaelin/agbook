@@ -1,0 +1,25 @@
+use Base/Char/ as C/
+use Base/Bool/ as B/
+use Base/Equal/ as E/
+
+// Tests for is-octal-digit function
+
+// Test: Checks if '0' is recognized as an octal digit.
+T0
+: (E/Equal B/Bool (C/is-octal-digit 48) #True{})
+= #Refl{}
+
+// Test: Checks if '7' is recognized as an octal digit.
+T1
+: (E/Equal B/Bool (C/is-octal-digit 55) #True{})
+= #Refl{}
+
+// Test: Checks if '8' is not recognized as an octal digit.
+T2
+: (E/Equal B/Bool (C/is-octal-digit 56) #False{})
+= #Refl{}
+
+// Test: Checks if 'a' is not recognized as an octal digit.
+T3
+: (E/Equal B/Bool (C/is-octal-digit 97) #False{})
+= #Refl{}

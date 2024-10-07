@@ -1,52 +1,52 @@
 use Base/Nat/ as N/
 use Base/Equal/ as E/
 
-// Test: 0 * 0 = 0
-N/test-mul-zero-zero
+// Test: 0 * 0 = 0.
+T0
 : (E/Equal N/Nat (N/mul #Zero{} #Zero{}) #Zero{})
 = #Refl{}
 
-// Test: 0 * 5 = 0
-N/test-mul-zero-five
+// Test: 0 * 5 = 0.
+T1
 : (E/Equal N/Nat (N/mul #Zero{} #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}) #Zero{})
 = #Refl{}
 
-// Test: 5 * 0 = 0
-N/test-mul-five-zero
+// Test: 5 * 0 = 0.
+T2
 : (E/Equal N/Nat (N/mul #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}} #Zero{}) #Zero{})
 = #Refl{}
 
-// Test: 1 * 5 = 5
-N/test-mul-one-five
+// Test: 1 * 5 = 5.
+T3
 : (E/Equal N/Nat (N/mul #Succ{#Zero{}} #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}) #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}})
 = #Refl{}
 
-// Test: 5 * 1 = 5
-N/test-mul-five-one
+// Test: 5 * 1 = 5.
+T4
 : (E/Equal N/Nat (N/mul #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}} #Succ{#Zero{}}) #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}})
 = #Refl{}
 
-// Test: 3 * 2 = 6
-N/test-mul-three-two
+// Test: 3 * 2 = 6.
+T5
 : (E/Equal N/Nat (N/mul #Succ{#Succ{#Succ{#Zero{}}}} #Succ{#Succ{#Zero{}}}) #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}})
 = #Refl{}
 
-// Test: 7 * 8 = 56
-N/test-mul-seven-eight
+// Test: 7 * 8 = 56.
+T6
 : (E/Equal N/Nat (N/mul #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}} #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}) (#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}))
 = #Refl{}
 
-// Test: Commutativity: a * b = b * a
-N/test-mul-commutative
+// Test: Commutativity: a * b = b * a.
+T7
 : (E/Equal N/Nat (N/mul #Succ{#Succ{#Succ{#Zero{}}}} #Succ{#Succ{#Succ{#Succ{#Zero{}}}}}) (N/mul #Succ{#Succ{#Succ{#Succ{#Zero{}}}}} #Succ{#Succ{#Succ{#Zero{}}}}))
 = #Refl{}
 
-// Test: Distributivity: a * (b + c) = (a * b) + (a * c)
-N/test-mul-distributive
+// Test: Distributivity: a * (b + c) = (a * b) + (a * c).
+T8
 : (E/Equal N/Nat (N/mul #Succ{#Succ{#Zero{}}} (N/add #Succ{#Succ{#Succ{#Zero{}}}} #Succ{#Succ{#Succ{#Succ{#Zero{}}}}})) (N/add (N/mul #Succ{#Succ{#Zero{}}} #Succ{#Succ{#Succ{#Zero{}}}}) (N/mul #Succ{#Succ{#Zero{}}} #Succ{#Succ{#Succ{#Succ{#Zero{}}}}})))
 = #Refl{}
 
-// Test: Associativity: (a * b) * c = a * (b * c)
-N/test-mul-associative
+// Test: Associativity: (a * b) * c = a * (b * c).
+T9
 : (E/Equal N/Nat (N/mul (N/mul #Succ{#Succ{#Zero{}}} #Succ{#Succ{#Succ{#Zero{}}}}) #Succ{#Succ{#Succ{#Succ{#Zero{}}}}}) (N/mul #Succ{#Succ{#Zero{}}} (N/mul #Succ{#Succ{#Succ{#Zero{}}}} #Succ{#Succ{#Succ{#Succ{#Zero{}}}}})))
 = #Refl{}

@@ -1,0 +1,15 @@
+use Base/Char/ as C/
+use Base/Bool/ as B/
+
+// Converts a character to its lowercase equivalent.
+// - 1st: The input character.
+// = The lowercase version of the input character.
+C/to-lower
+: ∀(code: C/Char)
+  C/Char
+= λcode
+  let is_upper = (C/is-upper code)
+  (B/if C/Char 
+		is_upper 
+		(+ code 32) 
+		(code))

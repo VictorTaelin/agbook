@@ -1,0 +1,28 @@
+use Base/Bits/ as BS/
+use Base/Bool/ as B/
+
+// Compares two Bits values for "less than" relationship.
+// - a: The first Bits value.
+// - b: The second Bits value.
+// = True if a is less than b, False otherwise.
+BS/lt
+: ∀(a: BS/Bits)
+  ∀(b: BS/Bits)
+  B/Bool
+= λ{
+  #E: λ{
+    #E: #False{}
+    #O: λb.tail #True{}
+    #I: λb.tail #True{}
+  }
+  #O: λa.tail λ{
+    #E: #False{}
+    #O: λb.tail (BS/lt a.tail b.tail)
+    #I: λb.tail #True{}
+  }
+  #I: λa.tail λ{
+    #E: #False{}
+    #O: λb.tail #False{}
+    #I: λb.tail (BS/lt a.tail b.tail)
+  }
+}

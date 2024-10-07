@@ -1,7 +1,7 @@
 use Base/Nat/ as N/
 
 // Returns the predecessor of a natural number.
-// - n: The input natural number.
+// 1st: The input natural number.
 // = The predecessor of n, or Zero if n is already Zero.
 N/pred
 : ∀(n: N/Nat)

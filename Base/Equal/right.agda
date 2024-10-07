@@ -5,7 +5,6 @@ open import Base.Equal.sym
 open import Base.Equal.trans
 
 -- Right equality property.
--- If x is equal to a and x is equal to b, then a is equal to b.
 -- 1st: The common value.
 -- 2nd: The value to compare.
 -- 3rd: The value to compare.

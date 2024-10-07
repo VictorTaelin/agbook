@@ -1,0 +1,12 @@
+use Base/U32/ as U32/
+
+// Compares two U32 values for equality.
+// 1st: The U32 value to compare.
+// 2nd: The U32 value to compare.
+// = Returns 1 if the values are equal, 0 otherwise.
+U32/eql
+: ∀(a: U32) 
+	∀(b: U32) 
+	U32
+= λa λb 
+	(== a b)

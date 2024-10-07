@@ -1,8 +1,9 @@
 use Base/Nat/ as N/
 use Base/Ordering/ as O/
 use Base/Equal/ as E/
+
 // // Test: Transitivity: if a < b and b < c, then a < c
-// N/compare/test/transitive
+// T6
 // : ∀(a: N/Nat)
 //   ∀(b: N/Nat)
 //   ∀(c: N/Nat)
@@ -12,40 +13,39 @@ use Base/Equal/ as E/
 // = λa λb λc λab_lt λbc_lt #Refl{}
 
 // // Test: Antisymmetry: if compare a b = EQ, then a = b
-// N/compare/test/antisymmetric
+// T7
 // : ∀(a: N/Nat)
 //   ∀(b: N/Nat)
 //   ∀(eq: (E/Equal O/Ordering (N/compare a b) #EQ{}))
 //   (E/Equal N/Nat a b)
 // = λa λb λeq #Refl{}
 
-
 // Test: compare 0 0 = EQ
-N/compare/test/zero-zero
+T0
 : (E/Equal O/Ordering (N/compare #Zero{} #Zero{}) #EQ{})
 = #Refl{}
 
 // Test: compare 0 5 = LT
-N/compare/test/zero-five
+T1
 : (E/Equal O/Ordering (N/compare #Zero{} #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}) #LT{})
 = #Refl{}
 
 // Test: compare 5 0 = GT
-N/compare/test/five-zero
+T2
 : (E/Equal O/Ordering (N/compare #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}} #Zero{}) #GT{})
 = #Refl{}
 
 // Test: compare 3 3 = EQ
-N/compare/test/three-three
+T3
 : (E/Equal O/Ordering (N/compare #Succ{#Succ{#Succ{#Zero{}}}} #Succ{#Succ{#Succ{#Zero{}}}}) #EQ{})
 = #Refl{}
 
 // Test: compare 2 7 = LT
-N/compare/test/two-seven
+T4
 : (E/Equal O/Ordering (N/compare #Succ{#Succ{#Zero{}}} #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}) #LT{})
 = #Refl{}
 
 // Test: compare 8 4 = GT
-N/compare/test/eight-four
+T5
 : (E/Equal O/Ordering (N/compare (#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}) (#Succ{#Succ{#Succ{#Succ{#Zero{}}}}})) #GT{})
 = #Refl{}

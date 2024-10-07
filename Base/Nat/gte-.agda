@@ -5,31 +5,36 @@ open import Base.Nat.gte
 open import Base.Bool.Bool
 open import Base.Equal.Equal
 
-T1 : (5 >= 3) ≡ True
+-- Tests for the greater than or equal to function on natural numbers.
+
+-- Test : 5 >= 3 should be True.
+T0 : (5 >= 3) ≡ True
+T0 = refl
+
+-- Test : 3 >= 5 should be False.
+T1 : (3 >= 5) ≡ False
 T1 = refl
 
-T2 : (3 >= 5) ≡ False
+-- Test : 4 >= 4 should be True.
+T2 : (4 >= 4) ≡ True
 T2 = refl
 
-T3 : (4 >= 4) ≡ True
+-- Test : 0 >= 0 should be True.
+T3 : (0 >= 0) ≡ True
 T3 = refl
 
-T4 : (0 >= 0) ≡ True
+-- Test : 1 >= 0 should be True.
+T4 : (1 >= 0) ≡ True
 T4 = refl
 
-T5 : (1 >= 0) ≡ True
+-- Test : 0 >= 1 should be False.
+T5 : (0 >= 1) ≡ False
 T5 = refl
 
-T6 : (0 >= 1) ≡ False
+-- Test : 2 >= 1 should be True.
+T6 : (Succ (Succ Zero) >= Succ Zero) ≡ True
 T6 = refl
 
-T7 : (Succ (Succ Zero) >= Succ Zero) ≡ True
+-- Test : 1 >= 2 should be False.
+T7 : (Succ Zero >= Succ (Succ Zero)) ≡ False
 T7 = refl
-
-T8 : (Succ Zero >= Succ (Succ Zero)) ≡ False
-T8 = refl
-
-T9 : (Zero >= Zero) ≡ True
-T9 = refl
-
-

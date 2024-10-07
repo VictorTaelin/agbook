@@ -6,8 +6,8 @@ open import Base.Nat.Trait.Ord
 open import Base.Trait.Ord
 
 -- Returns the maximum of two natural numbers.
--- - m: The first natural number.
--- - n: The second natural number.
--- = The larger of m and n.
+-- 1st: The first natural number to compare.
+-- 2nd: The second natural number to compare.
+-- = The larger of the two input numbers.
 max : Nat → Nat → Nat
 max m n = if m >= n then m else n

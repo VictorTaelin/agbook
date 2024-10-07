@@ -1,10 +1,11 @@
 use Base/Nat/ as N/
 use Base/Ordering/ as O/
 
-// Compares two natural numbers.
-// - m: The first natural number.
-// - n: The second natural number.
-// = LT if m < n, EQ if m = n, GT if m > n.
+// Compares two natural numbers. This function determines the relative order
+// of two given natural numbers.
+// - 1st: The first natural number to compare.
+// - 2nd: The second natural number to compare.
+// = An Ordering value: LT if 1st < 2nd, EQ if 1st = 2nd, GT if 1st > 2nd.
 N/compare
 : ∀(m: N/Nat)
   ∀(n: N/Nat)

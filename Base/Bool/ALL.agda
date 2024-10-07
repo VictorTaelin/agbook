@@ -11,3 +11,4 @@ open import Base.Bool.not public
 open import Base.Bool.or public
 open import Base.Bool.show public
 open import Base.Bool.xor public
+

@@ -1,0 +1,11 @@
+use Base/List/ as L/
+
+// Reverses the order of elements in a list.
+// - 1st: The type of elements in the list.
+// - 2nd: The input list to be reversed.
+// = A new list with the elements in reverse order.
+L/reverse
+: ∀(A: *)
+  ∀(xs: (L/List A))
+  (L/List A)
+= λA λxs (L/foldl _ _ (λxs λx #Cons{x xs}) #Nil{} xs)

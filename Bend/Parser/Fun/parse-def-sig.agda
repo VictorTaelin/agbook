@@ -17,7 +17,7 @@ open import Base.Parser.alternative
 open import Bend.Parser.Fun.parse-type-term
 open import Bend.Parser.consume
 open import Bend.Parser.list-like
-open import Bend.Parser.parse-restricted-name
+open import Bend.Parser.parse-name
 open import Bend.Parser.parse-top-level-name
 open import Bend.Parser.try-consume
 
@@ -49,10 +49,10 @@ parse-def-sig = do
   parse-def-sig-arg = do
     has-parens <- try-consume "("
     if has-parens then (do
-        name <- parse-restricted-name "function argument"
+        name <- parse-name "function argument"
         typ <- (consume ":" >> parse-type-term) <|> pure Any
         consume ")"
         pure (name , typ))
       else do
-        name <- parse-restricted-name "function argument"
+        name <- parse-name "function argument"
         pure (name , Any)

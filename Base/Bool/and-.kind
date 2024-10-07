@@ -1,0 +1,19 @@
+use Base/Bool/ as B/
+use Base/Equal/ as E/
+
+B/T0
+: (E/Equal B/Bool (B/and #True{}  #True{}) (#True{}))
+= #Refl{}
+
+B/T1
+: (E/Equal B/Bool (B/and  #True{} #False{}) #False{})
+= #Refl{}
+
+B/T2
+: (E/Equal B/Bool (B/and #False{}  #True{} ) #False{})
+= #Refl{}
+
+B/T3
+: (E/Equal B/Bool (B/and  #False{} #False{}) #False{})
+= #Refl{}
+

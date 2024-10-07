@@ -1,10 +1,10 @@
 use Base/Nat/ as N/
 use Base/Bool/ as B/
 
-// Checks if two nats are not equal.
-// - m: The 1st nat.
-// - n: The 2nd nat.
-// = True if m and n are not equal, False otherwise.
+// Checks if two natural numbers are not equal.
+// 1st: The natural number to compare.
+// 2nd: The natural number to compare.
+// = True if the numbers are not equal, False otherwise.
 N/neq
 : ∀(m: N/Nat)
   ∀(n: N/Nat)

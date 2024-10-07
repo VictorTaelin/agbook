@@ -1,0 +1,13 @@
+use Base/Bool/ as B/
+use Base/U32/ as U32/
+
+// Checks if two U32 values are not equal.
+// 1st: The U32 value.
+// 2nd: The U32 value.
+// = True if the 1st value is not equal to the 2nd, False otherwise.
+U32/neq
+: ∀(a: U32)
+  ∀(b: U32)
+  B/Bool
+= λa λb
+  (U32/to-bool (!= a b))

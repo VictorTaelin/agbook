@@ -1,0 +1,13 @@
+use Base/Nat/ as N/
+use Base/U32/ as U32/
+
+// Converts a natural number to a 32-bit unsigned integer.
+// 1st: The natural number to convert.
+// = The U32 representation of the input natural number.
+U32/from-nat
+: ∀(x: N/Nat)
+  U32
+= λ{
+  #Zero: 0
+  #Succ: λn.pred (+ 1 (U32/from-nat n.pred))
+}

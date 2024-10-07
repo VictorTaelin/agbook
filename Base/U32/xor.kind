@@ -1,0 +1,12 @@
+use Base/U32/ as U32/
+
+// Performs bitwise XOR operation on two U32 values.
+// 1st: The U32 value.
+// 2nd: The U32 value.
+// = The result of bitwise XOR operation between the two input values.
+U32/xor
+: ∀(a: U32)
+  ∀(b: U32)
+  U32
+= λa λb 
+	(^ a b)

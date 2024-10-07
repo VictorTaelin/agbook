@@ -59,7 +59,7 @@ test-str = refl
 test-list : show (List (Var "x" :: Var "y" :: [])) ≡ "[x, y]"
 test-list = refl
 
-test-oper : show (Oper Add (Var "x") (Var "y")) ≡ "(x + y)"
+test-oper : show (Oper Add (Var "x") (Var "y")) ≡ "(+ x y)"
 test-oper = refl
 
 test-mat : show (Mat (Some "x") (Var "expr") [] []

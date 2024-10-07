@@ -1,0 +1,35 @@
+use Base/Nat/ as N/
+use Base/Bool/ as B/
+use Base/Equal/ as E/
+
+// Test: 0 % 5 = 0
+T0 : (E/Equal N/Nat (N/mod #Zero{} #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}) #Zero{})
+= #Refl{}
+
+// Test: 5 % 1 = 0
+T1 : (E/Equal N/Nat (N/mod #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}} #Succ{#Zero{}}) #Zero{})
+= #Refl{}
+
+// Test: 7 % 3 = 1
+T2 : (E/Equal N/Nat (N/mod #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}} #Succ{#Succ{#Succ{#Zero{}}}}) #Succ{#Zero{}})
+= #Refl{}
+
+// Test: 10 % 4 = 2
+T3 : (E/Equal N/Nat (N/mod #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}} #Succ{#Succ{#Succ{#Succ{#Zero{}}}}}) #Succ{#Succ{#Zero{}}})
+= #Refl{}
+
+// Test: 15 % 5 = 0
+T4 : (E/Equal N/Nat (N/mod #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}}}}}}} #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}) #Zero{})
+= #Refl{}
+
+// Test: 17 % 6 = 5
+T5 : (E/Equal N/Nat (N/mod #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}}}}}}}}} #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}) #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}})
+= #Refl{}
+
+// Test: (a % b) % b = a % b
+T6 : (E/Equal N/Nat (N/mod (N/mod #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}}}}} #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}) #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}) (N/mod #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}}}}} #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}))
+= #Refl{}
+
+// Test: (a + b) % b = a % b
+T7 : (E/Equal N/Nat (N/mod (N/add #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}} #Succ{#Succ{#Succ{#Zero{}}}}) #Succ{#Succ{#Succ{#Zero{}}}}) (N/mod #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}} #Succ{#Succ{#Succ{#Zero{}}}}))
+= #Refl{}

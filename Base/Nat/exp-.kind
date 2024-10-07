@@ -1,42 +1,44 @@
 use Base/Nat/ as N/
 use Base/Equal/ as E/
 
+// Tests the exponentiation function for natural numbers.
+
 // Test: 2⁰ = 1
-N/test-exp-two-zero : (E/Equal N/Nat (N/exp #Succ{#Succ{#Zero{}}} #Zero{}) #Succ{#Zero{}})
+TO : (E/Equal N/Nat (N/exp #Succ{#Succ{#Zero{}}} #Zero{}) #Succ{#Zero{}})
 = #Refl{}
 
 // Test: 2¹ = 2
-N/test-exp-two-one : (E/Equal N/Nat (N/exp #Succ{#Succ{#Zero{}}} #Succ{#Zero{}}) #Succ{#Succ{#Zero{}}})
+T1 : (E/Equal N/Nat (N/exp #Succ{#Succ{#Zero{}}} #Succ{#Zero{}}) #Succ{#Succ{#Zero{}}})
 = #Refl{}
 
 // Test: 2² = 4
-N/test-exp-two-two : (E/Equal N/Nat (N/exp #Succ{#Succ{#Zero{}}} #Succ{#Succ{#Zero{}}}) #Succ{#Succ{#Succ{#Succ{#Zero{}}}}})
+T2 : (E/Equal N/Nat (N/exp #Succ{#Succ{#Zero{}}} #Succ{#Succ{#Zero{}}}) #Succ{#Succ{#Succ{#Succ{#Zero{}}}}})
 = #Refl{}
 
 // Test: 3² = 9
-N/test-exp-three-two : (E/Equal N/Nat (N/exp #Succ{#Succ{#Succ{#Zero{}}}} #Succ{#Succ{#Zero{}}}) #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}})
+T3 : (E/Equal N/Nat (N/exp #Succ{#Succ{#Succ{#Zero{}}}} #Succ{#Succ{#Zero{}}}) #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}})
 = #Refl{}
 
 // Test: 5¹ = 5
-N/test-exp-five-one : (E/Equal N/Nat (N/exp #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}} #Succ{#Zero{}}) #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}})
+T4 : (E/Equal N/Nat (N/exp #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}} #Succ{#Zero{}}) #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}})
 = #Refl{}
 
 // Test: 10⁰ = 1
-N/test-exp-ten-zero : (E/Equal N/Nat (N/exp #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}} #Zero{}) #Succ{#Zero{}})
+T5 : (E/Equal N/Nat (N/exp #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}} #Zero{}) #Succ{#Zero{}})
 = #Refl{}
 
 // Test: 3³ = 27
-N/test-exp-three-three : (E/Equal N/Nat (N/exp #Succ{#Succ{#Succ{#Zero{}}}} #Succ{#Succ{#Succ{#Zero{}}}}) #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}}}}}}}}}}}}}}}}}}})
+T6 : (E/Equal N/Nat (N/exp #Succ{#Succ{#Succ{#Zero{}}}} #Succ{#Succ{#Succ{#Zero{}}}}) #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}}}}}}}}}}}}}}}}}}})
 = #Refl{}
 
 // Test: 1⁵ = 1
-N/test-exp-one-five : (E/Equal N/Nat (N/exp #Succ{#Zero{}} #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}) #Succ{#Zero{}})
+T6 : (E/Equal N/Nat (N/exp #Succ{#Zero{}} #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}) #Succ{#Zero{}})
 = #Refl{}
 
 // Test: 0² = 0
-N/test-exp-zero-two : (E/Equal N/Nat (N/exp #Zero{} #Succ{#Succ{#Zero{}}}) #Zero{})
+T7 : (E/Equal N/Nat (N/exp #Zero{} #Succ{#Succ{#Zero{}}}) #Zero{})
 = #Refl{}
 
 // Test: Exponentiation property: (a^b)^c = a^(b*c)
-N/test-exp-property : (E/Equal N/Nat (N/exp (N/exp #Succ{#Succ{#Zero{}}} #Succ{#Succ{#Succ{#Zero{}}}}) #Succ{#Succ{#Zero{}}}) (N/exp #Succ{#Succ{#Zero{}}} (N/mul #Succ{#Succ{#Succ{#Zero{}}}} #Succ{#Succ{#Zero{}}})))
+T8 : (E/Equal N/Nat (N/exp (N/exp #Succ{#Succ{#Zero{}}} #Succ{#Succ{#Succ{#Zero{}}}}) #Succ{#Succ{#Zero{}}}) (N/exp #Succ{#Succ{#Zero{}}} (N/mul #Succ{#Succ{#Succ{#Zero{}}}} #Succ{#Succ{#Zero{}}})))
 = #Refl{}

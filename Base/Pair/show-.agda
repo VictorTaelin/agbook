@@ -3,9 +3,9 @@ module Base.Pair.show- where
 open import Base.Pair.Pair
 open import Base.Pair.show
 open import Base.Nat.Nat
-open import Base.Nat.show
+open import Base.Nat.Trait.Show
 open import Base.Bool.Bool
-open import Base.Bool.show
+open import Base.Bool.Trait.Show
 open import Base.String.String
 open import Base.Equal.Equal
 

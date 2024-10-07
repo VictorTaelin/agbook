@@ -8,5 +8,5 @@ open import Base.Parser.State
 record Reply (A : Set) : Set where
   constructor MkReply
   field
-    state : State 
-    value : A     
+    state : State
+    value : A

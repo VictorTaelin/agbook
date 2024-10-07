@@ -16,7 +16,7 @@ is-even (Succ Zero) = False
 is-even (Succ (Succ n)) = is-even n
 
 -- To help the type checker
-test : (Nat -> Bool) → List Nat → List (List Nat)
+test : (Nat → Bool) → List Nat → List (List Nat)
 test p l = split-chunks p l
 
 -- Test splitting an empty list

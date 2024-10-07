@@ -1,0 +1,27 @@
+use Base/List/ as L/
+
+// Zips two lists into a single list using a combining function.
+// - A: The type of elements in the first list.
+// - B: The type of elements in the second list.
+// - C: The type of elements in the resulting list.
+// - f: The function to combine elements from both lists.
+// - xs: The first input list.
+// - ys: The second input list.
+// = A new list where each element is the result of applying f to
+//   corresponding elements from xs and ys.
+L/zip-with
+: ∀(A: *)
+  ∀(B: *)
+  ∀(C: *)
+  ∀(f: ∀(a: A) ∀(b: B) C)
+  ∀(xs: (L/List A))
+  ∀(ys: (L/List B))
+  (L/List C)
+= λA λB λC λf λxs λys
+  use case_nil = #Nil{}
+  use case_cons = λxs.head λxs.tail λys.head λys.tail
+    #Cons{
+      head: (f xs.head ys.head)
+      tail: (L/zip-with _ _ _ f xs.tail ys.tail)
+    }
+  (L/match _ _ case_nil case_cons xs ys)

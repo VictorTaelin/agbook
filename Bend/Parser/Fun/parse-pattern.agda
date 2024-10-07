@@ -21,7 +21,7 @@ open import Bend.Parser.try-consume
 open import Bend.Parser.skip-trivia
 open import Bend.Parser.list-like
 open import Bend.Parser.parse-var-name
-open import Bend.Parser.parse-restricted-name
+open import Bend.Parser.parse-name
 open import Bend.Parser.parse-number
 
 {-# TERMINATING #-} -- FIXME!
@@ -99,7 +99,7 @@ parse-pattern = do
   parse-pat-chn : Parser Pattern
   parse-pat-chn = do
     consume "$"
-    name <- parse-restricted-name "unscoped variable"
+    name <- parse-name "unscoped variable"
     pure (Chn name)
 
   parse-pat-char : Parser Pattern

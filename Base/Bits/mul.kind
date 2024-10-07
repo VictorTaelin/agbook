@@ -1,0 +1,15 @@
+use Base/Bits/ as BS/
+
+// Performs multiplication of two Bits values.
+// - a: The 1st Bits value.
+// - b: The 2nd Bits value.
+// = A new Bits value representing the product of a and b.
+BS/mul
+: ∀(a: BS/Bits)
+  ∀(b: BS/Bits)
+  BS/Bits
+= λ{
+  #E: λb #E{}
+  #O: λa.tail λb #O{(BS/mul a.tail b)}
+  #I: λa.tail λb (BS/add b #O{(BS/mul a.tail b)})
+}

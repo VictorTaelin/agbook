@@ -1,9 +1,9 @@
 use Base/Nat/ as N/
 
-// Exponentiation of nats.
-// - m: The base nat.
-// - n: The exponent nat.
-// = m to the power of n.
+// Performs exponentiation of natural numbers.
+// 1st: The base number.
+// 2nd: The exponent.
+// = The result of raising the base to the power of the exponent.
 N/exp
 : ∀(m: N/Nat)
   ∀(n: N/Nat)

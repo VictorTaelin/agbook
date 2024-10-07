@@ -3,7 +3,6 @@ module Base.Equal.subst where
 open import Base.Equal.Equal
 
 -- Substitution property of equality.
--- If 2nd is equal to 3rd, then a predicate 1st holding for 2nd also holds for 3rd.
 -- 1st: The predicate.
 -- 2nd: The value.
 -- 3rd: The value.

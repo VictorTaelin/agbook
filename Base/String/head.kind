@@ -1,0 +1,12 @@
+use Base/String/ as S/
+use Base/Maybe/ as M/
+use Base/List/ as L/
+
+// Returns the first character of a string, if it exists.
+// - str: The input string.
+// = A Maybe Char, containing the first character if the string is non-empty, or None if it's empty.
+S/head
+: ∀(str: S/String)
+  (M/Maybe U32)
+= λstr
+  (L/head _ str)

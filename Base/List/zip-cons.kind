@@ -1,0 +1,20 @@
+use Base/List/ as L/
+
+// Helper function to implement zip-cons.
+// - A: The type of elements in the lists.
+// - xs: The list to be zipped with.
+// - yss: The list of lists to zip with xs.
+// = A new list of lists where each element of xs is prepended to the corresponding list in yss.
+L/zip-cons
+: ∀(A: *)
+  ∀(xs: (L/List A))
+  ∀(yss: (L/List (L/List A)))
+  (L/List (L/List A))
+= λA λ{
+  #Nil: λyss yss
+  #Cons: λxs.head λxs.tail λ{
+    #Nil: (L/map _ _ (λy #Cons{y #Nil{}}) #Cons{xs.head xs.tail})
+    #Cons: λyss.head λyss.tail
+      #Cons{#Cons{xs.head yss.head} (L/zip-cons _ xs.tail yss.tail)}
+  }
+}

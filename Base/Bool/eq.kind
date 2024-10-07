@@ -1,8 +1,8 @@
 use Base/Bool/ as B/
 
 // Checks if two boolean values are equal.
-// - a: The first boolean value.
-// - b: The second boolean value.
+// - 1st: The first boolean value.
+// - 2nd: The second boolean value.
 // = True if both values are equal, False otherwise.
 B/eq
 : ∀(a: B/Bool)
@@ -18,3 +18,4 @@ B/eq
     #False: #True{}
   }
 }
+

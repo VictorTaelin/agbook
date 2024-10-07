@@ -1,33 +1,35 @@
 use Base/Nat/ as N/
 use Base/Equal/ as E/
 
+// Tests for the double function.
+
 // Test: double 0 = 0
-N/double/test/zero
+T0
 : (E/Equal N/Nat (N/double #Zero{}) #Zero{})
 = #Refl{}
 
 // Test: double 1 = 2
-N/double/test/one
+T1
 : (E/Equal N/Nat (N/double #Succ{#Zero{}}) #Succ{#Succ{#Zero{}}})
 = #Refl{}
 
 // Test: double 2 = 4
-N/double/test/two
+T2
 : (E/Equal N/Nat (N/double #Succ{#Succ{#Zero{}}}) #Succ{#Succ{#Succ{#Succ{#Zero{}}}}})
 = #Refl{}
 
 // Test: double 5 = 10
-N/double/test/five
+T3
 : (E/Equal N/Nat (N/double #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}) #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}})
 = #Refl{}
 
 // Test: double (double 2) = 8
-N/double/test/double/two
+T4
 : (E/Equal N/Nat (N/double (N/double #Succ{#Succ{#Zero{}}})) #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}})
 = #Refl{}
 
 // Test: double (3 + 2) = double 3 + double 2
-N/double/test/distributive
+T5
 : (E/Equal
     N/Nat
     (N/double (N/add #Succ{#Succ{#Succ{#Zero{}}}} #Succ{#Succ{#Zero{}}}))

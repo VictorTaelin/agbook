@@ -3,14 +3,20 @@ module Imp.Notation where
 open import Imp.Expr.Expr
 open import Imp.Stmt.Stmt
 open import Base.Nat.Nat
+open import Base.U64.from-nat
 open import Base.String.String
 
 --------------------------------------------------
 -- Expressions
 
 -- Local variable access
-infix 100 ↑_
-↑_ = Var
+infix 100 $_
+$_ = Var
+
+-- Grid indices
+tid = Tid
+bid = Bid
+gid = Gid
 
 -- Numeric operations
 infix 50 _+_ _-_ _*_ _/_ _%_ _&&_ _||_ !_
@@ -48,11 +54,11 @@ cond_then_else_ = Cond
 local_ = Locals
 
 -- Assignments
-infix 20 _:=_ _s=_ _g=_
+infix 20 _:=_ shared[_]=_ global[_]=_
 
-_:=_ = LSet
-_s=_ = SSet
-_g=_ = GSet
+_:=_        = LSet
+shared[_]=_ = SSet
+global[_]=_ = GSet
 
 -- Convenience Local Assignments
 infix 20 _+=_ _-=_
@@ -75,8 +81,10 @@ _>>_ = Then
 --------------------------------------------------
 -- Exceptional control flow
 
-infix 15 return_
+infix 15 return_ break continue ignore_ noop
 
 return_  = Ret
 break    = Break
 continue = Cont
+ignore_  = Ignore
+noop     = Ignore (Num (from-nat 0))

@@ -116,6 +116,6 @@ _ = refl
 _ : parse "*" ≡ ok "" 1 (Era)
 _ = refl
 
--- Invalid input
+-- Errors
 _ : parse "(" ≡ Fail (MkError 1 "Expected term")
 _ = refl

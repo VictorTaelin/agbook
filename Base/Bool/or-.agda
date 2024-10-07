@@ -12,3 +12,4 @@ T1 = refl
 
 T2 : (False || False) ≡ False
 T2 = refl
+

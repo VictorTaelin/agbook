@@ -1,0 +1,18 @@
+use Base/Bool/ as B/
+
+// Performs logical OR with complement 1st | ~2nd.
+// 1st: The boolean value.
+// 2nd: The boolean value.
+// = True if either '1st' is true or '2nd' is false (or both).
+B/orc
+: ∀(a: B/Bool)
+  ∀(b: B/Bool)
+  B/Bool
+= λ{
+  #False: λ{
+    #True: #False{}
+    #False: #True{}
+  }
+  #True: λb #True{}
+}
+

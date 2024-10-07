@@ -3,7 +3,7 @@ module Base.List.show- where
 open import Base.List.List
 open import Base.List.show
 open import Base.Nat.Nat
-open import Base.Nat.show
+open import Base.Nat.Trait.Show
 open import Base.String.String
 open import Base.Equal.Equal
 

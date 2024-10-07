@@ -1,0 +1,19 @@
+use Base/AVLTree/ as AVL/
+use Base/Bool/ as B/
+use Base/Pair/ as P/
+
+// Performs a left rotation on an AVL tree to fix an imbalance of +2.
+// - K: The type of keys in the AVL tree.
+// - V: The type of values in the AVL tree.
+// - tree: The AVL tree to rotate.
+// = A pair containing the rotated AVL tree and a boolean indicating if the height of the root stayed the same.
+AVL/rotate_left
+: ∀(K: *)
+  ∀(V: *)
+  ∀(tree: (AVL/AVLTree K V))
+  (P/Pair (AVL/AVLTree K V) B/Bool)
+= λK λV λ{
+  #Node: 
+  #Lead: 
+
+  }

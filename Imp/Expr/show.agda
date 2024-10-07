@@ -14,6 +14,7 @@ show (Num n) = show-u64 n
 
 show Tid = "thread_id()"
 show Bid = "block_id()"
+show Gid = "global_id()"
 
 show (Add a b) = (show a) ++  " + " ++ (show b)
 show (Sub a b) = (show a) ++  " - " ++ (show b)

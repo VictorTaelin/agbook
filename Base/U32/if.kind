@@ -1,0 +1,17 @@
+use Base/U32/ as U32/
+
+// Conditional expression for U32 values.
+// 1st: The type of the result.
+// 2nd: The condition to evaluate.
+// 3rd: The value to return if the condition is true.
+// 4th: The value to return if the condition is false.
+// = The 3rd value if 2nd is non-zero, otherwise the 4th value.
+U32/if
+: ∀(A: *)
+  ∀(cond: U32)
+  ∀(then: A)
+  ∀(else: A)
+  A
+= λA λ{0: λthen λelse else
+  		_: λcond.pred λthen λelse then
+	}

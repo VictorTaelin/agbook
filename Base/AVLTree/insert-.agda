@@ -5,7 +5,7 @@ open import Base.AVLTree.insert
 open import Base.AVLTree.empty
 open import Base.AVLTree.from-list
 open import Base.AVLTree.Balance.Balance
-open import Base.AVLTree.Test.is-balanced
+open import Base.AVLTree.is-balanced
 open import Base.Equal.Equal
 open import Base.Nat.Nat
 open import Base.Nat.Trait.Eq

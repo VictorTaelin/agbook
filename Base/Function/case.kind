@@ -1,0 +1,30 @@
+use Base/Function/ as F/
+
+// Case expressions (to be used with pattern-matching lambdas).
+// - A: The type of the value to match against.
+// - B: The return type.
+// - x: The value to match against.
+// - f: The function to apply to x.
+// = The result of applying f to x.
+F/case
+: ∀(A: *)
+  ∀(B: *)
+  ∀(x: A)
+  ∀(f: ∀(x: A) B)
+  B
+= λA λB λx λf (f x)
+
+// Case expressions with explicit return type.
+// - A: The type of the value to match against.
+// - B: The return type, which may depend on x.
+// - x: The value to match against.
+// - f: The function to apply to x.
+// = The result of applying f to x.
+F/case_returning
+: ∀(A: *)
+  ∀(B: ∀(x: A) *)
+  ∀(x: A)
+  ∀(f: ∀(x: A) (B x))
+  (B x)
+= λA λB λx λf (f x)
+

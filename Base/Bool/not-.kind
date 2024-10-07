@@ -4,3 +4,4 @@ use Base/Equal/ as E/
 B/not-/T0
 : (E/Equal B/Bool #True{} (B/not #False{}))
 = #Refl{}
+

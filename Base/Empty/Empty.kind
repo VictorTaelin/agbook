@@ -1,0 +1,5 @@
+use Base/Empty/ as E/
+
+// Represents an empty type with no constructors.
+// This type is also known as the "bottom" type or "void" type.
+E/Empty : * = #[]{}

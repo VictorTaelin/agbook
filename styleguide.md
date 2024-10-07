@@ -25,9 +25,9 @@ open import Base.Float.Type
 primitive primFloatPlus : Float → Float → Float
 
 -- Addition of floats.
--- - x: The 1st float.
--- - y: The 2nd float.
--- = The sum of x and y.
+-- - 1st: The float number.
+-- - 2nd: The float number.
+-- = The sum of 1st and 2nd.
 add : Float → Float → Float
 add = primFloatPlus
 
@@ -44,7 +44,11 @@ infixl 6 _+_
 - The contents of a top-level module should have zero indentation.
 - Every subsequent nested scope should then be indented by an additional **two spaces**.
 
+### Empty Lines
 
+- All module headers should have a single empty line after them.
+- Ensure all files finish with a single empty line at the end.
+  
 ### Primitives and Postulates
 
 - For a single declaration, it should be written on one line:
@@ -159,6 +163,17 @@ infixl 7 _*_
 - For natural numbers, use native syntax (e.g., `3`) instead of `Succ (Succ (Succ Zero))`.
 - Avoid apostrophes in names.
 - Helper functions should have the prefix of the filename followed by "-go".
+- Record field names should be written in kebab-case. 
+
+```agda
+record Rectangle : Set where
+  constructor mkRectangle
+  field
+    min-x : F64
+    min-y : F64
+    max-x : F64
+    max-y : F64
+```
 
 
 ### Types

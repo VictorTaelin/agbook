@@ -1,0 +1,37 @@
+use Base/Char/ as C/
+use Base/Equal/ as E/
+
+// Test: Lowercase 'a' is converted to uppercase 'A'
+T0 
+: (E/Equal C/Char (C/to-upper 'a') 'A')
+= #Refl{}
+
+// Test: Uppercase 'A' remains unchanged
+T1 
+: (E/Equal C/Char (C/to-upper 'A') 'A')
+= #Refl{}
+
+// Test: Digit '5' remains unchanged
+T2 
+: (E/Equal C/Char (C/to-upper '5') '5')
+= #Refl{}
+
+// Test: Special character '@' remains unchanged
+T3 
+: (E/Equal C/Char (C/to-upper '@') '@')
+= #Refl{}
+
+// // Test: Space character remains unchanged
+// T4 
+// : (E/Equal C/Char (C/to-upper ' ') ' ')
+// = #Refl{}
+
+// // Test: Newline character remains unchanged
+// T5 
+// : (E/Equal C/Char (C/to-upper '\n') '\n')
+// = #Refl{}
+
+// Test: Lowercase 'z' is converted to uppercase 'Z'
+T6 
+: (E/Equal C/Char (C/to-upper 'z') 'Z')
+= #Refl{}

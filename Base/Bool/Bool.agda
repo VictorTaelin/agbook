@@ -6,6 +6,8 @@ module Base.Bool.Bool where
 data Bool : Set where
   True  : Bool
   False : Bool
+
 {-# BUILTIN BOOL  Bool  #-}
 {-# BUILTIN TRUE  True  #-}
 {-# BUILTIN FALSE False #-}
+

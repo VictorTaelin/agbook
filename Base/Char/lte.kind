@@ -1,0 +1,13 @@
+use Base/Char/ as C/
+use Base/Bool/ as B/
+use Base/Nat/ as N/
+
+// Checks if one character is less than or equal to another.
+// 1st: The character to compare.
+// 2nd: The character to compare.
+// = True if the 1st character is less than or equal to the 2nd, False otherwise..
+C/lte
+: ∀(x: C/Char)
+  ∀(y: C/Char)
+  B/Bool
+= λx λy (N/lte (C/to-nat x) (C/to-nat y))

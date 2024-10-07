@@ -5,14 +5,24 @@ open import Base.Char.show
 open import Base.String.String
 open import Base.Equal.Equal
 
-test-show-a : show 'a' ≡ "'a'"
-test-show-a = refl
+-- Tests for the show function on various characters.
 
-test-show-0 : show '0' ≡ "'0'"
-test-show-0 = refl
+-- Tests if show 'a' equals "'a'".
+T0 : show 'a' ≡ "'a'"
+T0 = refl
 
-test-show-new-line : show '\n' ≡ "'\n'"
-test-show-new-line = refl
+-- Tests if show '0' equals "'0'".
+T1 : show '0' ≡ "'0'"
+T1 = refl
 
-test-show-space : show ' ' ≡ "' '"
-test-show-space = refl
+-- Tests if show '\n' equals "'\n'".
+T2 : show '\n' ≡ "'\n'"
+T2 = refl
+
+-- Tests if show ' ' equals "' '".
+T3 : show ' ' ≡ "' '"
+T3 = refl
+
+-- Tests if show '!' equals "'!'".
+T4 : show '!' ≡ "'!'"
+T4 = refl

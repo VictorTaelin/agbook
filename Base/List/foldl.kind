@@ -1,11 +1,11 @@
 use Base/List/ as L/
 
 // Performs a left fold over a list.
-// - A: The type of the accumulator.
-// - B: The type of elements in the input list.
-// - f: The combining function.
-// - z: The initial value (for the empty list case).
-// - xs: The list to fold over.
+// - 1st: The type of the accumulator.
+// - 2nd: The type of elements in the input list.
+// - 3rd: The combining function.
+// - 4th: The initial value (for the empty list case).
+// - 5th: The list to fold over.
 // = The result of folding the list.
 L/foldl
 : ∀(A: *)
@@ -16,8 +16,7 @@ L/foldl
   A
 = λA λB λf λz λ{
   #Nil: z
-  #Cons: λxs.head λxs.tail (L/foldl _ _ f (f z xs.head) xs.tail)
-}
-
-// NOTE: in the JS version, use a loop instead,
-// to emulate strict tail calls with foldl.
+  #Cons: λxs.head λxs.tail 
+		let acc = (f z xs.head)
+		(L/foldl A B f acc xs.tail)
+	}

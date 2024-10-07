@@ -2,9 +2,9 @@ use Base/Nat/ as N/
 use Base/Bool/ as B/
 
 // Checks if one nat is less than another.
-// - m: The first nat.
-// - n: The second nat.
-// = True if m is less than n, False otherwise.
+// 1st: The natural number.
+// 2nd: The natural number.
+// = True if 1st is less than 2nd, False otherwise.
 N/lt
 : ∀(m: N/Nat)
   ∀(n: N/Nat)

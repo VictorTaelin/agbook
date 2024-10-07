@@ -1,0 +1,23 @@
+use Base/Char/ as C/
+use Base/Bool/ as B/
+use Base/Equal/ as E/
+
+// Test: Uppercase 'A' is considered uppercase
+T0
+: (E/Equal B/Bool (C/is-upper 'A') #True{})
+= #Refl{}
+
+// Test: Lowercase 'a' is not considered uppercase
+T1
+: (E/Equal B/Bool (C/is-upper 'a') #False{})
+= #Refl{}
+
+// Test: Digit '5' is not considered uppercase
+T2
+: (E/Equal B/Bool (C/is-upper '5') #False{})
+= #Refl{}
+
+// Test: Special character '@' is not considered uppercase
+T3
+: (E/Equal B/Bool (C/is-upper '@') #False{})
+= #Refl{}

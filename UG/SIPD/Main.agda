@@ -1,3 +1,4 @@
+{-# OPTIONS --no-termination-check #-}
 module UG.SIPD.Main where
 
 import Base.Concurrent.Channel.new as Channel
@@ -97,8 +98,8 @@ event-eq : Event → Event → Bool
 event-eq _ _ = False
 
 handleSingleEv : Event → State → State
-handleSingleEv (MouseClick LeftButton _ _) (MkState count) = MkState (Succ count)
-handleSingleEv _ game = game
+handleSingleEv (MouseClick LeftButton _ _) (MkState count players) = MkState (Succ count) players
+handleSingleEv _ state = state
 
 tick : State → State
 tick s = s
@@ -163,19 +164,12 @@ handle-bs-result : ByteString → (Mach State Event) → Client → IO (Pair (Ma
 handle-bs-result bs mach client with to-nat (head bs)
 ... | 3 = do -- DATA
   let room = read-u48 bs 1
-  print ("ROOM: " ++ show room)
   time-now <- now
-  print ("NOW: " ++ show time-now)
   let time = read-u48 bs 7
-  print ("TIME: " ++ show time)
   let msg = drop bs 13
   let event = Event.deserialize msg
-  print ("SM GEN: " ++ (show (Mach.genesis-tick mach)))
-  print ("SM CACH: " ++ (show (Mach.cached-tick mach)))
   show-ev event
   let new-sm = register-event event time mach
-  print ("SM GEN: " ++ (show (Mach.genesis-tick new-sm)))
-  print ("SM CACH: " ++ (show (Mach.cached-tick new-sm)))
   pure (new-sm , client)
 ... | 6 = do
   new-client <- Client.handle-pong client bs

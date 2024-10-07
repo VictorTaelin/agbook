@@ -1,0 +1,17 @@
+use Base/List/ as L/
+
+// Computes the diagonal of a list of lists.
+// - A: The type of elements in the lists.
+// - xss: The input list of lists.
+// = A list containing the diagonal elements of the input.
+L/diagonal
+: ∀(A: *)
+  ∀(xss: (L/List (L/List A)))
+  (L/List A)
+= λA λxss
+  (L/foldr
+    (L/List A)
+    (L/List A)
+    (L/append A)
+    #Nil{}
+    (L/stripe A xss))

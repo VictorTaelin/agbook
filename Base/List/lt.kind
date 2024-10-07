@@ -1,0 +1,31 @@
+use Base/List/ as L/
+use Base/Bool/ as B/
+use Base/Trait/ as T/
+
+// Checks if one list is lexicographically less than another.
+// - A: The type of elements in the lists.
+// - O: An Ord instance for type A.
+// - xs: The first list.
+// - ys: The second list.
+// = True if xs is lexicographically less than ys, False otherwise.
+L/lt
+: ∀(A: *)
+  ∀(O: (T/Ord A))
+  ∀(xs: (L/List A))
+  ∀(ys: (L/List A))
+  B/Bool
+= λA λO λ{
+  #Nil: λ{
+    #Nil: #False{}
+    #Cons: λys.head λys.tail #True{}
+  }
+  #Cons: λxs.head λxs.tail λ{
+    #Nil: #False{}
+    #Cons: λys.head λys.tail
+      let lt = (T/Ord/lt _ O xs.head ys.head)
+      let gt = (T/Ord/gt _ O xs.head ys.head)
+      (B/if B/Bool lt #True{}
+        (B/if B/Bool gt #False{}
+          (L/lt _ O xs.tail ys.tail)))
+  }
+}

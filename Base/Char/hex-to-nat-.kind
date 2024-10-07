@@ -1,0 +1,24 @@
+use Base/Char/ as C/
+use Base/Nat/ as N/
+use Base/Maybe/ as M/
+use Base/Equal/ as E/
+
+// Test: Convert '0' to 0.
+T0
+: (E/Equal (M/Maybe N/Nat) (C/hex-to-nat '0') #Some{#Zero{}})
+= #Refl{}
+
+// Test: Convert 'A' to 10.
+T1
+: (E/Equal (M/Maybe N/Nat) (C/hex-to-nat 'A') #Some{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}}})
+= #Refl{}
+
+// Test: Convert 'f' to 15.
+T2
+: (E/Equal (M/Maybe N/Nat) (C/hex-to-nat 'f') #Some{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}}}}}}}})
+= #Refl{}
+
+// Test: Invalid hexadecimal character.
+T3
+: (E/Equal (M/Maybe N/Nat) (C/hex-to-nat 'G') #None{})
+= #Refl{}

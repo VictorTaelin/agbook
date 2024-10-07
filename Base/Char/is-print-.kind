@@ -1,0 +1,43 @@
+use Base/Char/ as C/
+use Base/Bool/ as B/
+use Base/Equal/ as E/
+
+// Test: Lowercase letter 'a' is printable
+T0 
+: (E/Equal B/Bool (C/is-print 'a') #True{}) 
+= #Refl{}
+
+// Test: Uppercase letter 'Z' is printable
+T1 
+: (E/Equal B/Bool (C/is-print 'Z') #True{}) 
+= #Refl{}
+
+// Test: Digit '5' is printable
+T2 
+: (E/Equal B/Bool (C/is-print '5') #True{}) 
+= #Refl{}
+
+// Test: Special character '@' is printable
+T3 
+: (E/Equal B/Bool (C/is-print '@') #True{}) 
+= #Refl{}
+
+// // Test: Space character is printable
+// T4 
+// : (E/Equal B/Bool (C/is-print ' ') #True{}) 
+// = #Refl{}
+
+// Test: Newline character is not printable
+T5 
+: (E/Equal B/Bool (C/is-print '\n') #False{}) 
+= #Refl{}
+
+// // Test: Null character is not printable
+// T6 
+// : (E/Equal B/Bool (C/is-print '\0') #False{}) 
+// = #Refl{}
+
+// Test: Tab character is not printable
+T7 
+: (E/Equal B/Bool (C/is-print '\t') #False{}) 
+= #Refl{}

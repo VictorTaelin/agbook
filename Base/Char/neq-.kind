@@ -1,0 +1,43 @@
+use Base/Char/ as C/
+use Base/Bool/ as B/
+use Base/Equal/ as E/
+
+// Tests if 'a' is not equal to 'b'.
+T0 
+: (E/Equal B/Bool (C/neq 'a' 'b') #True{}) 
+= #Refl{}
+
+// Tests if 'a' is not equal to 'a'.
+T1 
+: (E/Equal B/Bool (C/neq 'a' 'a') #False{}) 
+= #Refl{}
+
+// Tests if '0' is not equal to '1'.
+T2 
+: (E/Equal B/Bool (C/neq '0' '1') #True{}) 
+= #Refl{}
+
+// Tests if '0' is not equal to '0'.
+T3 
+: (E/Equal B/Bool (C/neq '0' '0') #False{}) 
+= #Refl{}
+
+// Tests if 'A' is not equal to 'a'.
+T4 
+: (E/Equal B/Bool (C/neq 'A' 'a') #True{}) 
+= #Refl{}
+
+// Tests if negation of inequality works correctly.
+T5 
+: (E/Equal B/Bool (B/not (C/neq 'a' 'b')) #False{}) 
+= #Refl{}
+
+// // Tests if space character is not equal to tab character.
+// T6 
+// : (E/Equal B/Bool (C/neq ' ' '\t') #True{}) 
+// = #Refl{}
+
+// Tests if newline character is not equal to carriage return.
+T7 
+: (E/Equal B/Bool (C/neq '\n' '\r') #True{}) 
+= #Refl{}

@@ -1,0 +1,24 @@
+use Base/List/ as L/
+use Base/Maybe/ as M/
+
+// Helper function for concat-maybes
+concat-maybes-go
+: ∀(A: *)
+  ∀(ma: (M/Maybe A))
+  ∀(acc: (L/List A))
+  (L/List A)
+= λA λ{
+  #None: λacc acc
+  #Some: λmaValue λacc #Cons{maValue acc}
+}
+
+// FIXME:
+// Concatenates all of the `Some` values in a list of Maybe.
+// - A: The type of elements in the Maybe values.
+// - xs: The input list of Maybe values.
+// = A new list containing all the values from `Some` constructors.
+L/concat-maybes
+: ∀(A: *)
+  ∀(xs: (L/List (M/Maybe A)))
+  (L/List A)
+= λA λxs (L/foldr _ _ (concat-maybes-go  _) #Nil{} xs _)

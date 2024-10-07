@@ -11,8 +11,5 @@ test-eq-same-string = refl
 test-eq-different-strings : ("hello" == "world") ≡ False
 test-eq-different-strings = refl
 
-test-neq-different-strings : ("hello" != "world") ≡ True
-test-neq-different-strings = refl
-
 test-eq-empty-strings : ("" == "") ≡ True
 test-eq-empty-strings = refl

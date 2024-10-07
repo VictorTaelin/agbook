@@ -1,0 +1,17 @@
+use Base/Bits/ as BS/
+use Base/Nat/ as N/
+
+// Performs left shift operation on a Bits value.
+// - bits: The input Bits value.
+// - n: The number of positions to shift left (represented as Nat).
+// = A new Bits value representing the left-shifted result.
+BS/lshift
+: ∀(bits: BS/Bits)
+  ∀(n: N/Nat)
+  BS/Bits
+= λbits λ{
+  #Zero: bits
+  #Succ: λn.pred
+    use shifted = #O{bits}
+    (BS/lshift shifted n.pred)
+}

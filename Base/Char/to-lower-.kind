@@ -1,0 +1,27 @@
+use Base/Char/ as C/
+use Base/Equal/ as E/
+
+// Test: Uppercase 'A' is converted to lowercase 'a'
+T0 
+: (E/Equal C/Char (C/to-lower 'A') 'a')
+= #Refl{}
+
+// Test: Lowercase 'a' remains unchanged
+T1 
+: (E/Equal C/Char (C/to-lower 'a') 'a')
+= #Refl{}
+
+// Test: Digit '5' remains unchanged
+T2 
+: (E/Equal C/Char (C/to-lower '5') '5')
+= #Refl{}
+
+// Test: Special character '@' remains unchanged
+T3 
+: (E/Equal C/Char (C/to-lower '@') '@')
+= #Refl{}
+
+// Test: Uppercase 'Z' is converted to lowercase 'z'
+T4 
+: (E/Equal C/Char (C/to-lower 'Z') 'z')
+= #Refl{}

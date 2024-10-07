@@ -1,0 +1,21 @@
+use Base/List/ as L/
+use Base/Nat/ as N/
+use Base/Maybe/ as M/
+
+// Retrieves the element at the specified index in the list.
+// - A: The type of elements in the list.
+// - xs: The input list.
+// - i: The index to retrieve.
+// = Just the element at index i if i < length xs, otherwise None.
+L/lookup
+: ∀(A: *)
+  ∀(xs: (L/List A))
+  ∀(i: N/Nat)
+  (M/Maybe A)
+= λA λ{
+  #Nil: λi #None{}
+  #Cons: λxs.head λxs.tail λ{
+    #Zero: #Some{xs.head}
+    #Succ: λi.pred (L/lookup _ xs.tail i.pred)
+  }
+}

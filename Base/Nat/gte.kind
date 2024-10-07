@@ -1,10 +1,11 @@
 use Base/Nat/ as N/
 use Base/Bool/ as B/
 
-// Checks if one nat is greater than or equal to another.
-// - m: The first nat.
-// - n: The second nat.
-// = True if m is greater than or equal to n, False otherwise.
+// Checks if one natural number is greater than or equal to another.
+// This function compares two natural numbers.
+// 1st: The first natural number.
+// 2nd: The second natural number.
+// = True if the first number is greater than or equal to the second, False otherwise.
 N/gte
 : ∀(m: N/Nat)
   ∀(n: N/Nat)

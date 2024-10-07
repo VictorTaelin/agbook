@@ -1,0 +1,12 @@
+use Base/Char/ as C/
+use Base/Bool/ as B/
+use Base/U32/ as U32/
+
+// Checks if a character is a digit (0-9).
+// 1st: The character to check.
+// = True if the character is a digit, False otherwise.
+C/is-digit
+: ∀(c: C/Char)
+  B/Bool
+= λc
+  (B/and (U32/gte c 48) (U32/lte c 57))

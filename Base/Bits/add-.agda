@@ -13,16 +13,16 @@ test-add-one-zero = refl
 test-add-zero-one : (O E) + (I E) ≡ (I E)
 test-add-zero-one = refl
 
-test-add-one-one : (I E) + (I E) ≡ (O E)
+test-add-one-one : (I E) + (I E) ≡ (O (I E))
 test-add-one-one = refl
 
 test-add-two-one : (O (I E)) + (I (O E)) ≡ (I (I E))
 test-add-two-one = refl
 
-test-add-three-one : (I (I E)) + (I (O E)) ≡ (O (O E))
+test-add-three-one : (I (I E)) + (I (O E)) ≡ (O (O (I E)))
 test-add-three-one = refl
 
-test-add-five-three : (I (O (I E))) + (I (I (O E))) ≡ (O (O (O  E)))
+test-add-five-three : (I (O (I E))) + (I (I (O E))) ≡ (O (O (O (I E))))
 test-add-five-three = refl
 
 test-add-empty-empty : E + E ≡ E

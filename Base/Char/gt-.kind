@@ -1,0 +1,38 @@
+use Base/Char/ as C/
+use Base/Bool/ as B/
+use Base/Equal/ as E/
+
+// Test: 'b' is greater than 'a'.
+T0
+: (E/Equal B/Bool (C/gt 'b' 'a') #True{}) 
+= #Refl{}
+
+// Test: 'a' is not greater than 'b'.
+T1
+: (E/Equal B/Bool (C/gt 'a' 'b') #False{}) 
+= #Refl{}
+
+// Test: 'A' is not greater than 'a'.
+T2
+: (E/Equal B/Bool (C/gt 'A' 'a') #False{}) 
+= #Refl{}
+
+// Test: 'z' is greater than 'a'.
+T3
+: (E/Equal B/Bool (C/gt 'z' 'a') #True{}) 
+= #Refl{}
+
+// Test: '9' is greater than '0'.
+T4
+: (E/Equal B/Bool (C/gt '9' '0') #True{}) 
+= #Refl{}
+
+// Test: '~' is greater than '!'.
+T5
+: (E/Equal B/Bool (C/gt '~' '!') #True{}) 
+= #Refl{}
+
+// Test: 'a' is not greater than 'a'.
+T6
+: (E/Equal B/Bool (C/gt 'a' 'a') #False{}) 
+= #Refl{}

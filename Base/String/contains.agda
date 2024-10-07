@@ -11,6 +11,7 @@ open import Base.String.drop
 -- = True if the first string contains the second string, False otherwise.
 {-# TERMINATING #-} -- FIXME!
 contains : String → String → Bool
+contains str ""     = True
 contains str substr = contains-go str where
   contains-go : String → Bool
   contains-go "" = False

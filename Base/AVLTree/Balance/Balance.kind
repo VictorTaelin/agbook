@@ -1,0 +1,11 @@
+use Base/AVLTree/Balance/ as B/
+
+// Represents the balance factor of an AVL tree node.
+// - Neg: Left subtree is taller by 1.
+// - Zero: Left and right subtrees have the same height.
+// - Pos: Right subtree is taller by 1.
+B/Balance : * = #[]{
+  #MinusOne{} : B/Balance
+  #Zero{}     : B/Balance
+  #PlusOne{}  : B/Balance
+}

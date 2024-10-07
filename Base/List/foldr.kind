@@ -1,20 +1,22 @@
 use Base/List/ as L/
 
 // Performs a right fold over a list.
-// - A: The type of elements in the input list.
-// - B: The type of the result.
-// - co: The combining function.
-// - ni: The initial value (for the empty list case).
-// - xs: The list to fold over.
+// - 1st: The type of elements in the input list.
+// - 2nd: The type of the result.
+// - 3rd: The combining function.
+// - 4th: The initial value (for the empty list case).
+// - 5th: The list to fold over.
 // = The result of folding the list.
 L/foldr
 : ∀(A: *)
   ∀(B: *)
-  ∀(co: ∀(head: A) ∀(tail: B) B)
-  ∀(ni: B)
+  ∀(f: ∀(acc: A) ∀(elem: B) B)
+  ∀(z: B)
   ∀(xs: (L/List A))
   B
-= λA λB λco λni λ{
-  #Nil: ni
-  #Cons: λxs.head λxs.tail (co xs.head (L/foldr _ _ co ni xs.tail))
-}
+= λA λB λf λz λ{
+  #Nil: z
+  #Cons: λxs.head λxs.tail 
+		let acc = (L/foldr A B f z xs.tail)
+		(f xs.head acc)
+	}

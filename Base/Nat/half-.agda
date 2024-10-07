@@ -7,25 +7,25 @@ open import Base.Equal.Equal
 -- Test cases for the half function
 
 -- Test: half of 0 is 0
-test-half-zero : half 0 ≡ 0
-test-half-zero = refl
+T0 : half 0 ≡ 0
+T0 = refl
 
 -- Test: half of 1 is 0
-test-half-one : half 1 ≡ 0
-test-half-one = refl
+T1 : half 1 ≡ 0
+T1 = refl
 
 -- Test: half of 2 is 1
-test-half-two : half 2 ≡ 1
-test-half-two = refl
+T2 : half 2 ≡ 1
+T2 = refl
 
 -- Test: half of 3 is 1
-test-half-three : half 3 ≡ 1
-test-half-three = refl
+T3 : half 3 ≡ 1
+T3 = refl
 
 -- Test: half of 4 is 2
-test-half-four : half 4 ≡ 2
-test-half-four = refl
+T4 : half 4 ≡ 2
+T4 = refl
 
 -- Test: half of 5 is 2
-test-half-five : half 5 ≡ 2
-test-half-five = refl
+T5 : half 5 ≡ 2
+T5 = refl

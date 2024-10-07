@@ -5,42 +5,44 @@ open import Base.Nat.exp
 open import Base.Nat.mul
 open import Base.Equal.Equal
 
+-- Tests the exponentiation function with various inputs.
+
 -- Test: 2⁰ = 1
-test-exp-two-zero : (2 ** 0) ≡ 1
-test-exp-two-zero = refl
+T0 : (2 ** 0) ≡ 1
+T0 = refl
 
 -- Test: 2¹ = 2
-test-exp-two-one : (2 ** 1) ≡ 2
-test-exp-two-one = refl
+T1 : (2 ** 1) ≡ 2
+T1 = refl
 
 -- Test: 2² = 4
-test-exp-two-two : (2 ** 2) ≡ 4
-test-exp-two-two = refl
+T2 : (2 ** 2) ≡ 4
+T2 = refl
 
 -- Test: 3² = 9
-test-exp-three-two : (3 ** 2) ≡ 9
-test-exp-three-two = refl
+T3 : (3 ** 2) ≡ 9
+T3 = refl
 
 -- Test: 5¹ = 5
-test-exp-five-one : (5 ** 1) ≡ 5
-test-exp-five-one = refl
+T4 : (5 ** 1) ≡ 5
+T4 = refl
 
 -- Test: 10⁰ = 1
-test-exp-ten-zero : (10 ** 0) ≡ 1
-test-exp-ten-zero = refl
+T5 : (10 ** 0) ≡ 1
+T5 = refl
 
 -- Test: 3³ = 27
-test-exp-three-three : (3 ** 3) ≡ 27
-test-exp-three-three = refl
+T6 : (3 ** 3) ≡ 27
+T6 = refl
 
 -- Test: 1⁵ = 1
-test-exp-one-five : (1 ** 5) ≡ 1
-test-exp-one-five = refl
+T7 : (1 ** 5) ≡ 1
+T7 = refl
 
 -- Test: 0² = 0
-test-exp-zero-two : (0 ** 2) ≡ 0
-test-exp-zero-two = refl
+T8 : (0 ** 2) ≡ 0
+T8 = refl
 
 -- Test: Exponentiation property: (a^b)^c = a^(b*c)
-test-exp-property : ((2 ** 3) ** 2) ≡ (2 ** (3 * 2))
-test-exp-property = refl
+T9 : ((2 ** 3) ** 2) ≡ (2 ** (3 * 2))
+T9 = refl

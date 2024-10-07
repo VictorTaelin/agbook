@@ -7,30 +7,30 @@ open import Base.Equal.Equal
 
 -- Test cases for neq function
 
--- Test case 1: Different numbers should return True
-test-neq-diff : (0 != 1) ≡ True
-test-neq-diff = refl
+-- Test : Different numbers should return True.
+T0 : (0 != 1) ≡ True
+T0 = refl
 
--- Test case 2: Same numbers should return False
-test-neq-same : (2 != 2) ≡ False
-test-neq-same = refl
+-- Test : Same numbers should return False.
+T1 : (2 != 2) ≡ False
+T1 = refl
 
--- Test case 3: Zero and a non-zero number should return True
-test-neq-zero-nonzero : (0 != 3) ≡ True
-test-neq-zero-nonzero = refl
+-- Test : Zero and a non-zero number should return True.
+T2 : (0 != 3) ≡ True
+T2 = refl
 
--- Test case 4: Different non-zero numbers should return True
-test-neq-diff-nonzero : (4 != 5) ≡ True
-test-neq-diff-nonzero = refl
+-- Test : Different non-zero numbers should return True.
+T3 : (4 != 5) ≡ True
+T3 = refl
 
--- Test case 5: Zero and itself should return False
-test-neq-zero-zero : (0 != 0) ≡ False
-test-neq-zero-zero = refl
+-- Test : Zero and itself should return False.
+T4 : (0 != 0) ≡ False
+T4 = refl
 
--- Test case 6: Larger numbers should work correctly
-test-neq-larger : (10 != 11) ≡ True
-test-neq-larger = refl
+-- Test : Larger numbers should work correctly.
+T5 : (10 != 11) ≡ True
+T5 = refl
 
--- Test case 7: Larger same numbers should return False
-test-neq-larger-same : (100 != 100) ≡ False
-test-neq-larger-same = refl
+-- Test : Larger same numbers should return False.
+T6 : (100 != 100) ≡ False
+T6 = refl

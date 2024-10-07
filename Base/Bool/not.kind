@@ -1,7 +1,7 @@
 use Base/Bool/ as B/
 
 // Negates a Boolean value.
-// - b: The input Boolean value.
+// - 1st: The input Boolean value.
 // = The negation of the input.
 B/not
 : ∀(b: B/Bool)
@@ -10,3 +10,4 @@ B/not
   #True: #False{}
   #False: #True{}
 }
+

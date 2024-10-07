@@ -6,33 +6,33 @@ open import Base.Ordering.Ordering
 open import Base.Equal.Equal
 
 -- Test: compare 0 0 = EQ
-test-compare-zero-zero : compare 0 0 ≡ EQ
-test-compare-zero-zero = refl
+T0 : compare 0 0 ≡ EQ
+T0 = refl
 
 -- Test: compare 0 5 = LT
-test-compare-zero-five : compare 0 5 ≡ LT
-test-compare-zero-five = refl
+T1 : compare 0 5 ≡ LT
+T1 = refl
 
 -- Test: compare 5 0 = GT
-test-compare-five-zero : compare 5 0 ≡ GT
-test-compare-five-zero = refl
+T2 : compare 5 0 ≡ GT
+T2 = refl
 
 -- Test: compare 3 3 = EQ
-test-compare-three-three : compare 3 3 ≡ EQ
-test-compare-three-three = refl
+T3 : compare 3 3 ≡ EQ
+T3 = refl
 
 -- Test: compare 2 7 = LT
-test-compare-two-seven : compare 2 7 ≡ LT
-test-compare-two-seven = refl
+T4 : compare 2 7 ≡ LT
+T4 = refl
 
 -- Test: compare 8 4 = GT
-test-compare-eight-four : compare 8 4 ≡ GT
-test-compare-eight-four = refl
+T5 : compare 8 4 ≡ GT
+T5 = refl
 
 -- Test: Transitivity: if a < b and b < c, then a < c
-test-compare-transitive : (compare 2 5 ≡ LT) → (compare 5 8 ≡ LT) → (compare 2 8 ≡ LT)
-test-compare-transitive refl refl = refl
+T6 : (compare 2 5 ≡ LT) → (compare 5 8 ≡ LT) → (compare 2 8 ≡ LT)
+T6 refl refl = refl
 
 -- Test: Antisymmetry: if compare a b = EQ, then a = b
-test-compare-antisymmetric : (compare 6 6 ≡ EQ) → 6 ≡ 6
-test-compare-antisymmetric refl = refl
+T7 : (compare 6 6 ≡ EQ) → 6 ≡ 6
+T7 refl = refl

@@ -2,7 +2,7 @@ use Base/Bool/ as B/
 use Base/String/ as S/
 
 // Converts a Bool to its string representation.
-// - b: The Bool value to convert.
+// - 1st: The Bool value to convert.
 // = A string representation of the Bool value.
 B/show
 : ∀(b: B/Bool)
@@ -11,3 +11,4 @@ B/show
   #True: "true"
   #False: "false"
 }
+
