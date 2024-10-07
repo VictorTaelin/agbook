@@ -21,7 +21,7 @@ open import Base.String.String
 open import Base.String.Trait.Eq
 open import Base.String.hash
 open import Base.String.append
-open import Base.BitMap.BitMap
+open import Base.BinMap.BinMap
 open import Base.Pair.Pair
 open import Base.Result.Result
 open import Base.Result.Trait.Monad

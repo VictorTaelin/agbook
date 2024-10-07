@@ -1,9 +1,9 @@
 module Bend.Transform.linearize-vars where
 
-open import Base.BitMap.BitMap
-open import Base.BitMap.empty
-open import Base.BitMap.get
-open import Base.BitMap.set
+open import Base.BinMap.BinMap
+open import Base.BinMap.empty
+open import Base.BinMap.get
+open import Base.BinMap.set
 open import Base.Bool.if
 open import Base.Function.case
 open import Base.List.List renaming (List to List')
@@ -30,8 +30,8 @@ open import Bend.Fun.Pattern.Pattern
 open import Bend.Fun.Pattern.map-binds
 open import Bend.Transform.subst
 open import Bend.nat-to-name
-import Base.BitMap.to-list as BitMap
-import Base.BitMap.from-list as BitMap
+import Base.BinMap.to-list as BinMap
+import Base.BinMap.from-list as BinMap
 import Bend.Fun.Pattern.binds as Pat
 import Bend.Fun.Rule.Rule as Rule'
 import Bend.Fun.FnDef.FnDef as FnDef'
@@ -48,12 +48,12 @@ private
 dup-name : String → Nat → String
 dup-name name uses = if uses == 1 then name else name ++ "_" ++ show uses
 
--- Retrieves the number of uses for a given variable name from the BitMap.
+-- Retrieves the number of uses for a given variable name from the BinMap.
 -- Returns 0 if the variable is not found or if the name is None.
 -- - name: The name of the variable to look up.
--- - var-uses: The BitMap containing variable use counts.
+-- - var-uses: The BinMap containing variable use counts.
 -- = The number of uses for the given variable.
-get-var-uses : Maybe String → BitMap Nat → Nat
+get-var-uses : Maybe String → BinMap Nat → Nat
 get-var-uses None _ = 0
 get-var-uses (Some name) var-uses =
   case get var-uses (hash name) of λ where
@@ -72,9 +72,9 @@ duplicate-pat name uses =
 -- Main function to linearize variables in a term.
 -- It transforms the term to ensure each variable is used at most once.
 -- - term: The term to linearize.
--- - var-uses: A BitMap tracking variable use counts.
+-- - var-uses: A BinMap tracking variable use counts.
 -- = The linearized term.
-linearize-vars-term : BitMap Nat → Term → (Pair (BitMap Nat) Term)
+linearize-vars-term : BinMap Nat → Term → (Pair (BinMap Nat) Term)
 
 -- Let terms with just a variable get inlined
 linearize-vars-term var-uses (Let (Var (Some nam)) val nxt) = do
@@ -108,17 +108,17 @@ linearize-vars-term var-uses term = do
 
   -- Erases bindings that are not used (count is 0)
   -- - bind: The binding to check.
-  -- - var-uses: The BitMap containing variable use counts.
+  -- - var-uses: The BinMap containing variable use counts.
   -- = The binding if used, None otherwise.
-  erase-unused-bind : Maybe String → BitMap Nat → Maybe String
+  erase-unused-bind : Maybe String → BinMap Nat → Maybe String
   erase-unused-bind bind var-uses = if (get-var-uses bind var-uses) == 0 then None else bind
 
   -- Adds duplication bindings for variables used multiple times
   -- - bnd: List of bindings to check for duplication.
   -- - nxt: The term to wrap with Let expressions for duplicated variables.
-  -- - var-uses: The BitMap containing variable use counts.
+  -- - var-uses: The BinMap containing variable use counts.
   -- = The term with added duplications for multiply-used variables.
-  duplicate-binds : List' String → Term → BitMap Nat → Term
+  duplicate-binds : List' String → Term → BinMap Nat → Term
   duplicate-binds bnd nxt var-uses =
     foldr (λ bnd nxt → do
             let uses = get-var-uses (Some bnd) var-uses
@@ -129,9 +129,9 @@ linearize-vars-term var-uses term = do
 
   -- Applies duplication to specific term types (Lam and Let)
   -- - term: The term to potentially duplicate.
-  -- - var-uses: The BitMap containing variable use counts.
+  -- - var-uses: The BinMap containing variable use counts.
   -- = The term with duplications applied if necessary.
-  duplicate-term : Term → BitMap Nat → Term
+  duplicate-term : Term → BinMap Nat → Term
   duplicate-term (Lam pat bod) var-uses = do
     let bod = duplicate-binds (Pat.binds pat) bod var-uses
     Lam pat bod
@@ -149,6 +149,6 @@ linearize-vars (MkBook defs adts ctrs) = do
   let map-body body = snd (linearize-vars-term empty body)
   let map-rule rule = record rule { body = map-body (Rule.body rule) }
   let map-def def   = record def { rules = map map-rule (FnDef.rules def) }
-  let defs          = (BitMap.to-list defs)
+  let defs          = (BinMap.to-list defs)
   let defs          = map (λ (key , def) → (key , map-def def)) defs
-  (MkBook (BitMap.from-list defs) adts ctrs)
+ (MkBook (BinMap.from-list defs) adts ctrs)

@@ -8,7 +8,7 @@ open import Bend.Fun.Term.Term renaming (List to List')
 open import Bend.Fun.Term.foldl-app
 open import Bend.Fun.Term.foldr-lam
 open import Bend.Fun.Term.map-children
-import Base.BitMap.map as BitMap
+import Base.BinMap.map as BinMap
 import Bend.Fun.FnDef.FnDef as FnDef'
 import Bend.Fun.MatchRule.MatchRule as MatchRule'
 import Bend.Fun.Rule.Rule as Rule'
@@ -20,7 +20,7 @@ private
 
 -- Linearizes all variables specified in the `with` clauses of match terms.
 linearize-match-with : Book → Book
-linearize-match-with book = record book { defs = BitMap.map linearize-def (Book.defs book) }
+linearize-match-with book = record book { defs = BinMap.map linearize-def (Book.defs book) }
 
   where
 

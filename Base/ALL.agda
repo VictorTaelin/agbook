@@ -12,10 +12,10 @@ open BinTree public
   using (BinTree ; Node ; Leaf)
   hiding (module BinTree)
 
-import Base.BitMap.ALL
-module BitMap = Base.BitMap.ALL
-open BitMap public
-  using (BitMap)
+import Base.BinMap.ALL
+module BinMap = Base.BinMap.ALL
+open BinMap public
+  using (BinMap)
 
 import Base.Bits.ALL
 module Bits = Base.Bits.ALL

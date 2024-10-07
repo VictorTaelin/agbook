@@ -5,8 +5,8 @@ open import Bend.Net.Port.Port
 open import Bend.Net.Node.Node
 open import Bend.Net.NodeKind.NodeKind
 open import Base.Nat.to-bits renaming (to-bits to nat-to-bits)
-open import Base.BitMap.set renaming (set to map-set)
-open import Base.BitMap.new renaming (new to map-new)
+open import Base.BinMap.set renaming (set to map-set)
+open import Base.BinMap.new renaming (new to map-new)
 open import Base.String.String
 
 -- Creates a new flattened num-indexed net, with root represented by a deadlocked node.

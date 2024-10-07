@@ -15,8 +15,8 @@ open import Base.Parser.Parser
 open import Base.Parser.State
 open import Base.Parser.Reply
 open import Base.Parser.Error
-open import Base.BitMap.BitMap
-open import Base.BitMap.empty
+open import Base.BinMap.BitMap
+open import Base.BinMap.empty
 open import Base.Pair.Pair
 open import Base.Trait.Show
 open import Bend.Parser.Fun.parse-term

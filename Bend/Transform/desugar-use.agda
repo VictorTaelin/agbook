@@ -8,7 +8,7 @@ open import Bend.Fun.Book.Book
 open import Bend.Fun.Term.Term
 open import Bend.Fun.Term.map-children
 open import Bend.Transform.subst
-import Base.BitMap.map as BitMap
+import Base.BinMap.map as BinMap
 import Bend.Fun.FnDef.FnDef as FnDef'
 import Bend.Fun.Rule.Rule as Rule'
 
@@ -18,7 +18,7 @@ private
 
 -- Desugar use expressions in a Book
 desugar-use : Book → Book
-desugar-use book = record book { defs = BitMap.map desugar-def (Book.defs book) }
+desugar-use book = record book { defs = BinMap.map desugar-def (Book.defs book) }
 
   where
 

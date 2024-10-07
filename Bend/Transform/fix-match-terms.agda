@@ -1,12 +1,12 @@
 module Bend.Transform.fix-match-terms where
 
-open import Base.BitMap.BitMap
-open import Base.BitMap.contains
-open import Base.BitMap.empty
-open import Base.BitMap.set
-open import Base.BitMap.get
-open import Base.BitMap.to-list
-open import Base.BitMap.from-list
+open import Base.BinMap.BinMap
+open import Base.BinMap.contains
+open import Base.BinMap.empty
+open import Base.BinMap.set
+open import Base.BinMap.get
+open import Base.BinMap.to-list
+open import Base.BinMap.from-list
 open import Base.Bool.Bool
 open import Base.Bool.if
 open import Base.Function.case
@@ -49,7 +49,7 @@ private
   -- Given the rules of a match term, return the bodies that match each of the
   --  constructors of the matched ADT.
   -- If one of the constructors is not covered, it won't be present in the map.
-  term-per-ctr : String → Book → String → BitMap Term → List MatchRule → Result (BitMap Term) String
+  term-per-ctr : String → Book → String → BinMap Term → List MatchRule → Result (BinMap Term) String
 
   term-per-ctr bnd book adt-nam bods [] = Done bods
 
@@ -83,7 +83,7 @@ private
     term-per-ctr bnd book adt-nam bods arms
 
   -- Makes the normalized version of one of a match's arms.
-  fix-match-arm : String → BitMap Term → Ctr → Result MatchRule String
+  fix-match-arm : String → BinMap Term → Ctr → Result MatchRule String
   fix-match-arm bnd bods (MkCtr nam adt typ fields) = do
     let bnds = map CtrField.nam fields
     let bnds = map (λ b → Some (bnd ++ "." ++ b)) bnds

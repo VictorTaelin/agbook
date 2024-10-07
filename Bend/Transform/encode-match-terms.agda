@@ -1,7 +1,7 @@
 module Bend.Transform.encode-match-terms where
 
-open import Base.BitMap.from-list
-open import Base.BitMap.to-list
+open import Base.BinMap.from-list
+open import Base.BinMap.to-list
 open import Base.Bool.if
 open import Base.Function.case
 open import Base.List.List

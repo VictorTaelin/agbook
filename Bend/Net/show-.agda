@@ -3,9 +3,9 @@ module Bend.Net.show- where
 open import Base.String.String
 open import Base.String.eq
 open import Base.Equal.Equal
-open import Base.BitMap.BitMap
-open import Base.BitMap.empty
-open import Base.BitMap.set
+open import Base.BinMap.BinMap
+open import Base.BinMap.empty
+open import Base.BinMap.set
 open import Base.Nat.Nat
 open import Base.Bits.from-nat
 open import Base.Trait.Show

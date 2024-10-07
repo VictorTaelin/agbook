@@ -14,6 +14,7 @@ open import Base.List.all-true public
 open import Base.List.and public
 open import Base.List.any-true public
 open import Base.List.append public
+open import Base.List.at public
 open import Base.List.cartesian-product-with public
 open import Base.List.cartesian-product public
 open import Base.List.compare public
@@ -28,6 +29,7 @@ open import Base.List.difference public
 open import Base.List.drop-while public
 open import Base.List.drop public
 open import Base.List.empty public
+open import Base.List.enumerate public
 open import Base.List.eq public
 open import Base.List.filter public
 open import Base.List.find public

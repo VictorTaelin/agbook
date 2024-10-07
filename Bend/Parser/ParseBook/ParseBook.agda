@@ -1,6 +1,6 @@
 module Bend.Parser.ParseBook.ParseBook where
 
-open import Base.BitMap.BitMap
+open import Base.BinMap.BinMap
 open import Bend.Fun.Term.Term using (Term)
 open import Bend.Fun.Adt.Adt
 open import Bend.Fun.Adt.Ctr
@@ -12,6 +12,6 @@ private
 record ParseBook : Set where
   constructor MkParseBook
   field
-    fun-defs : BitMap Fun.FnDef
-    adts     : BitMap Adt
-    ctrs     : BitMap Ctr
+    fun-defs : BinMap Fun.FnDef
+    adts     : BinMap Adt
+    ctrs     : BinMap Ctr

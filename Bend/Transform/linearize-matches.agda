@@ -29,7 +29,7 @@ open import Bend.Fun.Term.free-vars
 open import Bend.Fun.Term.foldr-lam
 open import Bend.Fun.Term.map-children
 open import Bend.Transform.subst
-import Base.BitMap.map as BitMap
+import Base.BinMap.map as BinMap
 import Bend.Fun.FnDef.FnDef as FnDef'
 import Bend.Fun.MatchRule.MatchRule as MatchRule'
 import Bend.Fun.Rule.Rule as Rule'
@@ -41,7 +41,7 @@ private
 
 -- Linearizes all variables used in a matches' arms.
 linearize-matches : Book → Book
-linearize-matches book = record book { defs = BitMap.map linearize-def (Book.defs book) }
+linearize-matches book = record book { defs = BinMap.map linearize-def (Book.defs book) }
 
   where
 
