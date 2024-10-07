@@ -1,7 +1,6 @@
 use Base/Equal/ as E/
 
 // Left equality property.
-// If a is equal to x and b is equal to x, then a is equal to b.
 // 1st: The type of the values being compared.
 // 2nd: The common value.
 // 3rd: The 1st value to compare.
@@ -18,4 +17,4 @@ E/left
   ∀(e2: (E/Equal A b x))
   (E/Equal A a b)
 = λA λx λa λb λe1 λe2
-  (E/trans A a x b e1 (E/sym A x b e2))
+  (E/trans A a x b e1 (E/sym A b x e2))

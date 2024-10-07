@@ -3,7 +3,6 @@ module Base.Equal.apply where
 open import Base.Equal.Equal
 
 -- Congruence property of equality.
--- If two values are equal, then applying a function to both yields equal results.
 -- 1st: The function to apply.
 -- 2nd: The 1st value.
 -- 3rd: The 2nd value.

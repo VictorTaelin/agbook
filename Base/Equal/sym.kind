@@ -1,7 +1,6 @@
 use Base/Equal/ as E/
 
 // Symmetry property of equality.
-// If x is equal to y, then y is equal to x.
 // 1st: The type of the elements being compared.
 // 2nd: The 1st value.
 // 3rd: The 2nd value.

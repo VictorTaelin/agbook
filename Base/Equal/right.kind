@@ -1,7 +1,6 @@
 use Base/Equal/ as E/
 
 // Right equality property.
-// If x is equal to a and x is equal to b, then a is equal to b.
 // 1st: The type of the values being compared.
 // 2nd: The common value.
 // 3rd: The 1st value to compare.
