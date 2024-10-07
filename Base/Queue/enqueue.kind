@@ -1,0 +1,17 @@
+use Base/Queue/ as Q/
+use Base/List/ as L/
+
+// Adds an element to the end of a queue.
+// - 1st: The type of elements in the queue.
+// - 2nd: The queue to which the element will be added.
+// - 3rd: The element to be added to the queue.
+// = A new queue with the element added to the end.
+Q/enqueue
+: ∀(A: *)
+  ∀(q: (Q/Queue A))
+  ∀(a: A)
+  (Q/Queue A)
+= λA λq λa
+  let front = (Q/Queue/front A q)
+  let back = (Q/Queue/back A q)
+  #MkQueue{ front back: #Cons{a back} }
