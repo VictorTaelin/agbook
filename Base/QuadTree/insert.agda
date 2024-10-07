@@ -20,7 +20,7 @@ open import Base.Nat.Nat
 import Base.Nat.lte as Nat
 
 capacity : Nat
-capacity = 4
+capacity = 200
 
 {-# TERMINATING #-}
 mutual
