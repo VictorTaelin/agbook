@@ -1,3 +1,5 @@
+{-# OPTIONS --no-termination-check #-}
+
 module UG.SM.compute where
 
 import Base.Bool.show as Bool

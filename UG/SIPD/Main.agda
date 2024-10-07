@@ -1,3 +1,5 @@
+{-# OPTIONS --no-termination-check #-}
+
 module UG.SIPD.Main where
 
 import Base.Concurrent.Channel.new as Channel
