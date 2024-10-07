@@ -43,6 +43,7 @@ open import Base.String.append
 -- current-tick: The current tick.
 -- end-tick: The target tick.
 -- = The computed state at the end tick.
+{-# TERMINATING #-}
 compute-helper : ∀ {S A : Set} → Mach S A → Game S A → S → Tick → Tick → IO (Pair S (Mach S A))
 compute-helper mach game state current-tick end-tick with current-tick == end-tick
 ... | True = do
@@ -60,6 +61,7 @@ compute-helper mach game state current-tick end-tick with current-tick == end-ti
 -- game: The game rules.
 -- time: The target time.
 -- = The computed state at the given time.
+{-# TERMINATING #-}
 compute : ∀ {S A : Set} → Mach S A → Game S A → Time → IO (Pair S (Mach S A))
 compute mach game time = do
   let end-t = time-to-tick mach time
@@ -68,3 +70,4 @@ compute mach game time = do
   if diff > 1000000
     then pure (state , mach)
     else compute-helper mach game state start-tick end-t
+
