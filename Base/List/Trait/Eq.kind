@@ -1,0 +1,12 @@
+use Base/List/ as L/
+use Base/Trait/ as T/
+
+L/Trait/Eq
+: ∀(A: *)
+  ∀(e: (T/Eq A))
+  (T/Eq (L/List A))
+= λA λe
+  (T/Eq/derive
+    (L/List A)
+    (L/eq A e))
+

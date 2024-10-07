@@ -1,0 +1,42 @@
+use Base/List/ as L/
+use Base/Ordering/ as O/
+use Base/Trait/ as T/
+
+// Compares two lists lexicographically.
+// - A: The type of elements in the lists.
+// - ord: The Ord instance for type A.
+// - xs: The first list.
+// - ys: The second list.
+// = LT if xs < ys, EQ if xs = ys, GT if xs > ys.
+L/compare
+: ∀(A: *)
+  ∀(ord: (T/Ord A))
+  ∀(xs: (L/List A))
+  ∀(ys: (L/List A))
+  O/Ordering
+= λA λord λ{
+  #Nil: λ{
+    #Nil: #EQ{}
+    #Cons: λys.head λys.tail #LT{}
+  }
+  #Cons: λxs.head λxs.tail λ{
+    #Nil: #GT{}
+    #Cons: 
+      λ{
+        #LT: #LT{}
+        #EQ: λys.tail (L/compare A ord xs.tail ys.tail)
+        #GT: #GT{}
+      } (λys.head  (T/Ord/compare A ord xs.head ys.head))
+  }
+}
+
+
+// PARSE_ERROR
+// - expected: "#" | "}"
+// - detected:
+// 29 |       } (λys.head  (T/Ord/compare A ord xs.head ys.head))
+//
+// /Users/sergiobonatto/Work/HOC/monobook/Base/List/compare.kind 29:9
+//
+// kind check 'Base/List/compare.kind'  0,00s user 0,01s system 28% cpu 0,040 total
+

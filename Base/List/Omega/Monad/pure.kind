@@ -1,0 +1,13 @@
+use Base/List/ as L/
+use Base/List/Omega/ as LO/
+
+// Creates an Omega value containing a single element.
+// - A: The type of the element.
+// - x: The element to be wrapped in an Omega.
+// = An Omega containing a list with only the given element.
+LO/Monad/pure
+: ∀(A: *)
+  ∀(x: A)
+  (LO/Omega A)
+= λA λx
+  #MkOmega{ (L/Cons x (L/Nil _)) }

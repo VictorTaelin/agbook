@@ -1,0 +1,17 @@
+use Base/List/ as L/
+
+// The bind function for the List monad.
+// - A: The type of elements in the input list.
+// - B: The type of elements in the output list.
+// - xs: The input list.
+// - fn: The function to apply to each element.
+// = The result of applying fn to each element and concatenating.
+L/Monad/bind
+: ∀(A: *)
+  ∀(B: *)
+  ∀(xs: (L/List A))
+  ∀(fn: ∀(a: A) (L/List B))
+  (L/List B)
+= λA λB λxs λfn
+  (L/foldr A (L/List B) (λhead λtail (L/append B (fn head) tail)) (#Nil{}) xs)
+

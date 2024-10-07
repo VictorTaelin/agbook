@@ -17,11 +17,14 @@ L/zip-with
   ∀(xs: (L/List A))
   ∀(ys: (L/List B))
   (L/List C)
-= λA λB λC λf λxs λys
-  use case_nil = #Nil{}
-  use case_cons = λxs.head λxs.tail λys.head λys.tail
-    #Cons{
-      head: (f xs.head ys.head)
-      tail: (L/zip-with _ _ _ f xs.tail ys.tail)
-    }
-  (L/match _ _ case_nil case_cons xs ys)
+= λA λB λC λf λ{
+  #Nil: λys #Nil{}
+  #Cons: λxs.head λxs.tail λ{
+    #Nil: #Nil{}
+    #Cons: λys.head λys.tail
+      #Cons{
+        head: (f xs.head ys.head)
+        tail: (L/zip-with _ _ _ f xs.tail ys.tail)
+      }
+  }
+}
