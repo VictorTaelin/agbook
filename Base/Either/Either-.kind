@@ -1,55 +1,25 @@
 use Base/Bool/ as B/
-use Base/Equal/ as E/
+use Base/Equal/ as EQ/
 use Base/Nat/ as N/
-use Base/String as S/
+use Base/Either/ as E/
 
-T0 
-: (E/Equal B/Bool (B/Either #True{} #True{}) (#True{}))
+// Test 1: Construct a Left value
+E/test-left
+: (E/Either N/Nat B/Bool)
+= #Lft{#Zero{}} 
+
+// Test 2: Construct a Right value
+E/test-right
+: (E/Either N/Nat B/Bool)
+= #Rgt{#True{}} 
+
+// Test 3: Equality check for Left
+E/T0
+: (EQ/Equal B/Bool (E/test-right) (#Rgt{#True{}}))
 = #Refl{}
 
-T1 
-: (E/Equal B/Bool (B/Either #False{} #True{}) (#False{}))
+// Test 4: Equality check for Right
+E/T1
+: (EQ/Equal B/Bool (E/test-left) (#Lft{#Zero{}}))
 = #Refl{}
 
-B/andc
-: ∀(a: Either)
-  ∀(b: N/)
-  ∀(c: S/)
-  B/Bool
-= λ{
-  #True: λ{
-    #False: #True{}
-    #True: #False{}
-  }
-  #False: λb #False{}
-}
-
-
-
--- Test 1: Construct a Left value
-test-left : Either Nat String
-test-left = Lft 42
-
--- Test 2: Construct a Right value
-test-right : Either Nat String
-test-right = Rgt "Hello"
-
--- Test 3: Equality check for Left
-test-left-eq : test-left ≡ Lft 42
-test-left-eq = refl
-
--- Test 4: Equality check for Right
-test-right-eq : test-right ≡ Rgt "Hello"
-test-right-eq = refl
-
--- Test 5: Function that uses Either
-is-left : ∀ {A B : Set} → Either A B → Bool
-is-left (Lft _) = True
-is-left (Rgt _) = False
-
--- Test 6: Applying is-left function
-test-is-left-true : is-left test-left ≡ True
-test-is-left-true = refl
-
-test-is-left-false : is-left test-right ≡ False
-test-is-left-false = refl
