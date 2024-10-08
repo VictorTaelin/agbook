@@ -3,6 +3,7 @@ module UG.SIPD.Event.show where
 import Base.F64.show as F64
 import Base.Nat.show as Nat
 import UG.SIPD.Event.Click.show as Click
+import UG.SIPD.Action.show as Action
 open import Base.Bool.if
 open import Base.String.String
 open import Base.String.append
@@ -20,5 +21,4 @@ show (KeyMouse key pressed x y) =
   "KeyMouse" ++ key ++ " " ++ (if pressed then "True" else "False") ++ " " ++ F64.show x ++ " " ++ F64.show y
 show (MouseMove x y) = 
   "MouseMove " ++ F64.show x ++ " " ++ F64.show y
-show (SetNick nick) = 
-  "SetNick " ++  nick
+show (ActionEvent action) = Action.show action

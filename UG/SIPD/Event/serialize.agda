@@ -1,6 +1,5 @@
 module UG.SIPD.Event.serialize where
 
-import UG.SIPD.Event.Click.serialize as Click
 open import Base.Bool.Bool
 open import Base.ByteString.ByteString
 open import Base.ByteString.append
@@ -20,6 +19,9 @@ open import Base.String.to-list
 open import Base.Word8.Word8
 open import Base.Word8.from-nat
 open import UG.SIPD.Event.Event
+open import UG.SIPD.Action.Action
+import UG.SIPD.Action.serialize as Action
+import UG.SIPD.Event.Click.serialize as Click
 
 
 -- Serializes a Bool into a ByteString.
@@ -62,6 +64,5 @@ serialize (MouseMove x y) = do
   let xy-bytes = write-f64-as-nat x-bytes 9 y
   Some xy-bytes
 
-serialize (SetNick nick) = do
-  let packed-string = pack-string nick
-  Some (append (cons (from-nat SETNICK) packed-string) (pack-string ""))
+serialize (ActionEvent action) = do
+  Action.serialize action

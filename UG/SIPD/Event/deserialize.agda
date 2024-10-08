@@ -3,6 +3,7 @@ module UG.SIPD.Event.deserialize where
 import Base.ByteString.head as BS
 import Base.ByteString.tail as BS
 import UG.SIPD.Event.Click.deserialize as Click
+import UG.SIPD.Action.deserialize as Action
 open import Base.Bool.Bool
 open import Base.Bool.if
 open import Base.ByteString.ByteString
@@ -15,6 +16,7 @@ open import Base.List.List
 open import Base.Char.Char
 open import Base.Maybe.Maybe
 open import Base.Maybe.Monad.bind
+open import Base.Maybe.map
 open import Base.Pair.Pair
 open import Base.Nat.Nat
 open import Base.Nat.eq
@@ -74,10 +76,6 @@ deserialize-mouse-move bs = do
   let y = read-f64 bs 7
   Some (MouseMove x y)
 
-deserialize-set-nick : ByteString → Maybe Event
-deserialize-set-nick bs = do
-  Some (SetNick (BS.show bs))
-
 -- Deserializes a ByteString into an Event.
 -- - bs: The ByteString to deserialize.
 -- = Some Event if successful, None otherwise.
@@ -88,9 +86,8 @@ deserialize-helper bs = do
     (((code == KEYEVENT)   , deserialize-key-event bs) ::
      ((code == MOUSECLICK) , deserialize-mouse-click bs) ::
      ((code == KEYMOUSE)   , deserialize-key-mouse bs) ::
-     ((code == MOUSEMOVE)  , deserialize-mouse-move bs) ::
-     ((code == SETNICK)    , deserialize-set-nick bs) :: [])
-    None
+     ((code == MOUSEMOVE)  , deserialize-mouse-move bs) :: [])
+    (map ActionEvent (Action.deserialize bs))
 
 -- Deserializes a ByteString into an Event, checking for empty ByteString first.
 -- - bs: The ByteString to deserialize.
