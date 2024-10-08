@@ -2,13 +2,13 @@ module Bend.Fun.Book.recursive-defs where
 
 open import Base.Bool.if
 open import Base.Bool.not
-open import Base.BitMap.BitMap
-open import Base.BitMap.contains
-open import Base.BitMap.empty
-open import Base.BitMap.from-list
-open import Base.BitMap.get
-open import Base.BitMap.set
-open import Base.BitMap.values
+open import Base.BinMap.BinMap
+open import Base.BinMap.contains
+open import Base.BinMap.empty
+open import Base.BinMap.from-list
+open import Base.BinMap.get
+open import Base.BinMap.set
+open import Base.BinMap.values
 open import Base.Function.case
 open import Base.List.List
 open import Base.List.append
@@ -32,7 +32,7 @@ open import Bend.Fun.Term.Term renaming (List to List')
 open import Bend.Fun.Term.children
 import Bend.Fun.FnDef.FnDef as FnDef'
 import Bend.Fun.Rule.Rule as Rule'
-import Base.BitMap.map as BitMap
+import Base.BinMap.map as BinMap
 
 private
   open module FnDef = FnDef' Term
@@ -52,19 +52,19 @@ recursive-defs book = do
   term-deps (Ref nam) = nam :: []
   term-deps term = concat-map term-deps (children term)
 
-  def-deps : FnDef → BitMap String
+  def-deps : FnDef → BinMap String
   def-deps (MkFnDef _ _ _ rules _) = do
     let deps = concat-map (λ rule → term-deps (Rule.body rule)) rules
     from-list (map (λ dep → (hash dep , dep)) deps)
 
   -- Collect the direct function dependencies of a Book.
   -- That is, for each function, which functions appear as Ref in its body.
-  book-deps : Book → BitMap (BitMap String)
-  book-deps (MkBook defs _ _) = BitMap.map def-deps defs
+  book-deps : Book → BinMap (BinMap String)
+  book-deps (MkBook defs _ _) = BinMap.map def-deps defs
 
   -- Walks the dependency graph to find all cycles.
   -- TODO: Use a more efficient algorithm that doesn't need to check the entire path.
-  def-cycles : BitMap (BitMap String) → BitMap Unit → List (List String) → List (Pair String (List String))
+  def-cycles : BinMap (BinMap String) → BinMap Unit → List (List String) → List (Pair String (List String))
               → (List (List String))
   def-cycles deps visited cycles [] = do
     cycles
@@ -90,5 +90,5 @@ recursive-defs book = do
   -- - deps: The direct function dependencies of the Book.
   -- - defs: A list of names of all function definitions in the Book.
   -- = A list of lists of function names, where each list represents a cycle.
-  book-cycles : BitMap (BitMap String) → List String → List (List String)
+  book-cycles : BinMap (BinMap String) → List String → List (List String)
   book-cycles deps defs = def-cycles deps empty [] (map (λ def → (def , [])) defs)

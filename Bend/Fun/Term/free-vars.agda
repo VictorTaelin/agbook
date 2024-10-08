@@ -1,10 +1,10 @@
 module Bend.Fun.Term.free-vars where
 
-open import Base.BitMap.BitMap
-open import Base.BitMap.contains
-open import Base.BitMap.empty
-open import Base.BitMap.from-list
-open import Base.BitMap.union
+open import Base.BinMap.BinMap
+open import Base.BinMap.contains
+open import Base.BinMap.empty
+open import Base.BinMap.from-list
+open import Base.BinMap.union
 open import Base.Bool.Bool
 open import Base.List.List
 open import Base.List.concat
@@ -25,7 +25,7 @@ open import Bend.Fun.Term.children-with-binds
 free-vars : Term → List String
 free-vars term = dedup (go term empty)
   where
-    go : Term → BitMap Unit → List String
+    go : Term → BinMap Unit → List String
     go (Var nam) scope with (contains scope (hash nam))
     ... | True = []
     ... | False = nam :: []

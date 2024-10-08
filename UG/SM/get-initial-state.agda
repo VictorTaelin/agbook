@@ -2,7 +2,7 @@ module UG.SM.get-initial-state where
 
 open import Base.Bool.Bool
 open import Base.Pair.Pair
-open import Base.BitMap.get
+open import Base.BinMap.get
 open import Base.Maybe.Maybe
 open import Base.Nat.to-bits
 open import UG.SM.Game.Game

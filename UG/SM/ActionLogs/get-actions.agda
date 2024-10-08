@@ -1,6 +1,6 @@
 module UG.SM.ActionLogs.get-actions where
 
-open import Base.BitMap.get
+open import Base.BinMap.get
 open import Base.List.List
 open import Base.Maybe.Maybe
 open import Base.Nat.to-bits

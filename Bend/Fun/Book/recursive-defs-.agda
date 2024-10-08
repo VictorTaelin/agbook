@@ -1,6 +1,6 @@
 module Bend.Fun.Book.recursive-defs- where
 
-open import Base.BitMap.BitMap
+open import Base.BinMap.BinMap
 open import Base.Bool.Bool
 open import Base.Equal.Equal
 open import Base.Function.case

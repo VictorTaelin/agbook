@@ -1,6 +1,6 @@
 module Bend.Load.load-book where
 
-open import Base.BitMap.new renaming (new to map-new)
+open import Base.BinMap.new renaming (new to map-new)
 open import Base.Function.case
 open import Base.IO.IO
 open import Base.IO.Monad.bind

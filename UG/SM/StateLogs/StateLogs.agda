@@ -2,7 +2,7 @@ module UG.SM.StateLogs.StateLogs where
 
 open import UG.SM.Tick.Tick
 
-open import Base.BitMap.BitMap
+open import Base.BinMap.BinMap
 open import Base.Nat.Nat
 open import Base.Maybe.Maybe
 open import Base.Equal.Equal

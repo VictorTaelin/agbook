@@ -3,11 +3,11 @@ module Bend.Compile.NetToHvm.get-redexes where
 open import Base.Bool.if
 open import Base.List.List
 open import Base.Pair.Pair
-open import Base.BitMap.BitMap using (BitMap)
-open import Base.BitMap.new renaming (new to map-new)
-open import Base.BitMap.set renaming (set to map-set)
-open import Base.BitMap.values renaming (values to map-values)
-open import Base.BitMap.to-list
+open import Base.BinMap.BinMap using (BinMap)
+open import Base.BinMap.new renaming (new to map-new)
+open import Base.BinMap.set renaming (set to map-set)
+open import Base.BinMap.values renaming (values to map-values)
+open import Base.BinMap.to-list
 open import Base.Nat.Nat
 open import Base.Nat.eq
 open import Base.Nat.min
@@ -27,7 +27,7 @@ get-redexes net =
 
   -- Check each node in the net: if it's part of a redex, add it to
   -- the map, using the smaller node id as the key.
-  check-nodes : List (Pair Bits Node) → BitMap (Pair Nat Nat) → BitMap (Pair Nat Nat)
+  check-nodes : List (Pair Bits Node) → BinMap (Pair Nat Nat) → BinMap (Pair Nat Nat)
   check-nodes [] map = map
   check-nodes ((key-a , node-a) :: nodes) map =
     let port-b = Node.main node-a in

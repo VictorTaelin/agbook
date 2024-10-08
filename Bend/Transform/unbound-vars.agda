@@ -33,10 +33,10 @@ open import Bend.Fun.Term.Term renaming (List to List')
 open import Bend.Fun.Term.children-with-binds
 open import Bend.Fun.Pattern.Pattern
 import Base.Maybe.to-bool as Maybe
-import Base.BitMap.new as BitMap
-import Base.BitMap.values as BitMap
-import Base.BitMap.set as BitMap
-import Base.BitMap.get as BitMap
+import Base.BinMap.new as BinMap
+import Base.BinMap.values as BinMap
+import Base.BinMap.set as BinMap
+import Base.BinMap.get as BinMap
 import Base.List.append as List
 import Bend.Fun.Pattern.binds as Pat
 import Bend.Fun.Pattern.unscoped-binds as Pat
@@ -66,7 +66,7 @@ private
 
   -- Represents a map of global variables with their binding and usage information
   Globals : Set
-  Globals = BitMap (Pair String (Pair Nat Nat))
+  Globals = BinMap (Pair String (Pair Nat Nat))
 
   -- Updates the usage count of a global variable
   -- - global: The current global variable map
@@ -74,9 +74,9 @@ private
   -- = An updated global variable map with the usage count incremented
   use-global : Globals → String → Globals
   use-global global nam =
-    case (BitMap.get global (hash nam)) of λ where
-      (Some (_ , bnd , use)) → BitMap.set global (hash nam) (nam , bnd , use + 1)
-      None                   → BitMap.set global (hash nam) (nam , 0 , 1)
+    case (BinMap.get global (hash nam)) of λ where
+      (Some (_ , bnd , use)) → BinMap.set global (hash nam) (nam , bnd , use + 1)
+      None                   → BinMap.set global (hash nam) (nam , 0 , 1)
 
   -- Updates the binding count of global variables
   -- - global: The current global variable map
@@ -84,9 +84,9 @@ private
   -- = An updated global variable map with the binding counts incremented
   bnd-global : Globals → List String → Globals
   bnd-global global (nam :: nams) = do
-    let global = case (BitMap.get global (hash nam)) of λ where
-      (Some (_ , bnd , use)) → BitMap.set global (hash nam) (nam , bnd + 1 , use)
-      None                   → BitMap.set global (hash nam) (nam , 1 , 0)
+    let global = case (BinMap.get global (hash nam)) of λ where
+      (Some (_ , bnd , use)) → BinMap.set global (hash nam) (nam , bnd + 1 , use)
+      None                   → BinMap.set global (hash nam) (nam , 1 , 0)
     bnd-global global nams
   bnd-global global [] = global
 
@@ -123,14 +123,14 @@ unbound-vars-def def = do
                     let scope = concat (map Pat.binds (Rule.pats rule))
                     global ← unbound-vars-term (Rule.body rule) scope global
                     Done global)
-                  BitMap.new (FnDef.rules def)
+                  BinMap.new (FnDef.rules def)
   let errs = foldr (λ { (var , (declared , used)) acc →
                       case (declared , used) of λ where
                         (1 , 1) → acc
                         (0 , _) → ("Unbound unscoped variable '" ++ var ++ "'") :: acc
                         (_ , 0) → ("Unscoped variable '" ++ var ++ "' is never used") :: acc
                         (_ , _) → ("Unscoped variable '" ++ var ++ "' is declared or used more than once") :: acc })
-                    [] (BitMap.values global)
+                    [] (BinMap.values global)
   case errs of λ where
     [] → Done unit
     (err :: _) → Fail err
@@ -142,4 +142,4 @@ unbound-vars : Book → Result Unit String
 unbound-vars book =
   mfoldl (λ _ def → unbound-vars-def def)
           unit
-          (BitMap.values (Book.defs book))
+          (BinMap.values (Book.defs book))

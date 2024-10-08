@@ -4,7 +4,7 @@ open import Bend.Fun.Book.Book
 open import Base.String.String
 open import Base.String.hash
 open import Base.Bool.Bool
-open import Base.BitMap.contains as Map
+open import Base.BinMap.contains as Map
 
 -- Checks if a Book contains a function definition with the given name.
 -- - book: The Book to check.

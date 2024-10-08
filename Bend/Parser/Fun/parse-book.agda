@@ -1,6 +1,6 @@
 module Bend.Parser.Fun.parse-book where
 
-open import Base.BitMap.union
+open import Base.BinMap.union
 open import Base.Bool.Bool
 open import Base.Bool.if
 open import Base.Bool.or
@@ -14,7 +14,7 @@ open import Base.String.hash
 open import Bend.Fun.Adt.Adt
 open import Bend.Fun.Adt.Ctr
 open import Bend.Fun.Term.Term
-import Base.BitMap.set as BitMap
+import Base.BinMap.set as BinMap
 import Bend.Fun.FnDef.FnDef as FnDef'
 
 open import Base.Parser.Parser
@@ -74,12 +74,12 @@ parse-book = go new-book
 
   add-top-level (TopLevel.FunDef def) book = do
     -- TODO: Check for repeats
-    let defs = BitMap.set (ParseBook.fun-defs book) (hash (FnDef.name def)) def
+    let defs = BinMap.set (ParseBook.fun-defs book) (hash (FnDef.name def)) def
     pure record book { fun-defs = defs }
 
   add-top-level (TopLevel.TypeDef (adt , ctrs)) book = do
-    let adts = BitMap.set (ParseBook.adts book) (hash (Adt.nam adt)) adt
-    let ctrs = foldr (λ ctr acc → BitMap.set acc (hash (Ctr.nam ctr)) ctr)
+    let adts = BinMap.set (ParseBook.adts book) (hash (Adt.nam adt)) adt
+    let ctrs = foldr (λ ctr acc → BinMap.set acc (hash (Ctr.nam ctr)) ctr)
                     (ParseBook.ctrs book) ctrs
     pure record book { adts = adts ; ctrs = ctrs }
 

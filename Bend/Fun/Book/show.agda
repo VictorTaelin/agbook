@@ -12,7 +12,7 @@ open import Base.String.Trait.Ord
 open import Base.List.List
 open import Base.List.map
 open import Base.List.sort
-open import Base.BitMap.to-list
+open import Base.BinMap.to-list
 open import Base.Trait.Ord
 open import Base.Trait.Show
 import Bend.Fun.FnDef.FnDef as FnDef'

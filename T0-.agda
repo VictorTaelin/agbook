@@ -1,11 +1,11 @@
 module T0- where
 
 open import Base.Bits.Bits
-open import Base.BitMap.BitMap
-open import Base.BitMap.get
-open import Base.BitMap.new
-open import Base.BitMap.set
-open import Base.BitMap.show
+open import Base.BinMap.BinMap
+open import Base.BinMap.get
+open import Base.BinMap.new
+open import Base.BinMap.set
+open import Base.BinMap.show
 open import Base.Maybe.Maybe
 open import Base.Nat.Nat
 open import Base.Nat.add

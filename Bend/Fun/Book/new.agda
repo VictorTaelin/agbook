@@ -2,7 +2,7 @@ module Bend.Fun.Book.new where
 
 open import Bend.Fun.Book.Book
 open import Bend.Fun.Term.Term
-open import Base.BitMap.new renaming (new to map-new)
+open import Base.BinMap.new renaming (new to map-new)
 
 private
   import Bend.Fun.FnDef.FnDef as FnDef'

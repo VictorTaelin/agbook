@@ -1,6 +1,6 @@
 module Bend.Fun.Book.Book where
 
-open import Base.BitMap.BitMap
+open import Base.BinMap.BinMap
 open import Bend.Fun.Term.Term
 open import Bend.Fun.Adt.Adt
 open import Bend.Fun.Adt.Ctr
@@ -13,6 +13,6 @@ private
 record Book : Set where
   constructor MkBook
   field
-    defs : BitMap FnDef -- Map of function definitions
-    adts : BitMap Adt   -- Map of ADTs
-    ctrs : BitMap Ctr   -- Map of constructors
+    defs : BinMap FnDef -- Map of function definitions
+    adts : BinMap Adt   -- Map of ADTs
+    ctrs : BinMap Ctr   -- Map of constructors
