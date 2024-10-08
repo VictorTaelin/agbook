@@ -16,5 +16,9 @@ show (KeyEvent key pressed) =
   "KeyEvent " ++ key ++ " " ++ (if pressed then "True" else "False")
 show (MouseClick click x y) = 
   "MouseClick " ++ Click.show click ++ " " ++ F64.show x ++ " " ++ F64.show y
+show (KeyMouse key pressed x y) =
+  "KeyMouse" ++ key ++ " " ++ (if pressed then "True" else "False") ++ " " ++ F64.show x ++ " " ++ F64.show y
 show (MouseMove x y) = 
   "MouseMove " ++ F64.show x ++ " " ++ F64.show y
+show (SetNick nick) = 
+  "SetNick " ++  nick

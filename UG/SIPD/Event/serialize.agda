@@ -41,16 +41,27 @@ serialize : Event → Maybe ByteString
 serialize (KeyEvent s b) = do
   packed-string <- pack-string-fixed s 1
   let bool-byte = serialize-bool b
-  Some (append (cons (from-nat 0) packed-string) bool-byte) -- TAG 0
+  Some (append (cons (from-nat KEYEVENT) packed-string) bool-byte) -- TAG 0
 
 serialize (MouseClick click x y) = do
   let click-byte = Click.serialize click
   let x-bytes = write-f64-as-nat (pack-string "") 0 x
   let xy-bytes = write-f64-as-nat x-bytes 8 y
-  Some (append (cons (from-nat 1) click-byte) xy-bytes) -- TAG 1
+  Some (append (cons (from-nat MOUSECLICK) click-byte) xy-bytes) -- TAG 1
+
+serialize (KeyMouse key down x y) = do
+  packed-string <- pack-string-fixed key 1
+  let bool-byte = serialize-bool down
+  let x-bytes = write-f64-as-nat (pack-string "") 0 x
+  let xy-bytes = write-f64-as-nat x-bytes 8 y
+  Some (append (append (cons (from-nat KEYMOUSE) packed-string) bool-byte) xy-bytes)
 
 serialize (MouseMove x y) = do
-  let initial-bytes = cons (from-nat 2) (pack-string "") -- TAG 2
+  let initial-bytes = cons (from-nat MOUSEMOVE) (pack-string "") -- TAG 2
   let x-bytes = write-f64-as-nat initial-bytes 1 x
   let xy-bytes = write-f64-as-nat x-bytes 9 y
   Some xy-bytes
+
+serialize (SetNick nick) = do
+  let packed-string = pack-string nick
+  Some (append (cons (from-nat SETNICK) packed-string) (pack-string ""))
