@@ -20,3 +20,5 @@ node_modules/
 .msg.txt
 .sys.txt
 Bend/bend
+HVM/OLD/
+HVM/context
