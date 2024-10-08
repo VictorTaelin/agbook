@@ -1,0 +1,30 @@
+use Base/Queue/ as Q/
+use Base/List/ as L/
+use Base/Maybe/ as M/
+use Base/Pair/ as P/
+use Base/Equal/ as E/
+
+// Test: Dequeue from an empty queue
+T0
+: ∀(A: *) (E/Equal (M/Maybe (P/Pair A (Q/Queue A))) (Q/dequeue A (#MkQueue{#Nil{} #Nil{}})) (#None{}))
+= λA #Refl{}
+
+// Test: Dequeue from a queue with one element in front
+T1
+: (E/Equal (M/Maybe (P/Pair U32 (Q/Queue U32))) (Q/dequeue U32 (#MkQueue{#Cons{1 #Nil{}} #Nil{}})) (#Some{#Pair{1 #MkQueue{#Nil{} #Nil{}}}}))
+= #Refl{}
+
+// Test: Dequeue from a queue with multiple elements in front
+T2
+: (E/Equal (M/Maybe (P/Pair U32 (Q/Queue U32))) (Q/dequeue U32 (#MkQueue{#Cons{1 #Cons{2 #Cons{3 #Nil{}}}} #Nil{}})) (#Some{#Pair{1 #MkQueue{#Cons{2 #Cons{3 #Nil{}}} #Nil{}}}}))
+= #Refl{}
+
+// Test: Dequeue from a queue with elements only in back
+T3
+: (E/Equal (M/Maybe (P/Pair U32 (Q/Queue U32))) (Q/dequeue U32 (#MkQueue{#Nil{} #Cons{3 #Cons{2 #Cons{1 #Nil{}}}}})) (#Some{#Pair{1 #MkQueue{#Cons{2 #Cons{3 #Nil{}}} #Nil{}}}}))
+= #Refl{}
+
+// Test: Dequeue from a queue with elements in both front and back
+T4
+: (E/Equal (M/Maybe (P/Pair U32 (Q/Queue U32))) (Q/dequeue U32 (#MkQueue{#Cons{1 #Nil{}} #Cons{3 #Cons{2 #Nil{}}}})) (#Some{#Pair{1 #MkQueue{#Nil{} #Cons{3 #Cons{2 #Nil{}}}}}}))
+= #Refl{}
