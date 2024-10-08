@@ -1,0 +1,29 @@
+use Base/List/Omega/ as LO/
+use Base/List/ as L/
+
+// Binds an Omega value with a function that returns an Omega.
+// - A: The type of elements in the input Omega.
+// - B: The type of elements in the output Omega.
+// - omega: The input Omega value.
+// - f: The function to apply to each element in the Omega.
+// = A new Omega resulting from applying f to each element and flattening the result.
+LO/bind
+: ∀(A: *)
+  ∀(B: *)
+  ∀(omega: (LO/Omega A))
+  ∀(f: ∀(a: A) (LO/Omega B))
+  (LO/Omega B)
+= λA λB λ{
+  #MkOmega: λomega.runOmega
+    let mapped = (L/map _ _ (λx (LO/Omega/runOmega _ (f x))) omega.runOmega)
+    #MkOmega{(L/diagonal _ mapped)}
+}
+
+// Infix operator for bind
+LO/bind/op
+: ∀(A: *)
+  ∀(B: *)
+  ∀(omega: (LO/Omega A))
+  ∀(f: ∀(a: A) (LO/Omega B))
+  (LO/Omega B)
+= LO/bind

@@ -1,1 +1,25 @@
-// create a test here
+use Base/Bool/ as B/
+use Base/Equal/ as EQ/
+use Base/Nat/ as N/
+use Base/Either/ as E/
+
+// Test 1: Construct a Left value
+E/test-left
+: (E/Either N/Nat B/Bool)
+= #Lft{#Zero{}} 
+
+// Test 2: Construct a Right value
+E/test-right
+: (E/Either N/Nat B/Bool)
+= #Rgt{#True{}} 
+
+// Test 3: Equality check for Left
+E/T0
+: (EQ/Equal B/Bool (E/test-right) (#Rgt{#True{}}))
+= #Refl{}
+
+// Test 4: Equality check for Right
+E/T1
+: (EQ/Equal B/Bool (E/test-left) (#Lft{#Zero{}}))
+= #Refl{}
+

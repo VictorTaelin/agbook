@@ -1,0 +1,24 @@
+use Base/Queue/ as Q/
+use Base/List/ as L/
+use Base/Nat/ as N/
+use Base/Equal/ as E/
+
+// Test: Enqueue to an empty queue
+Q/enqueue/T0
+: (E/Equal (Q/Queue N/Nat) (Q/enqueue N/Nat #MkQueue{#Nil{} #Nil{}} #Succ{#Zero{}}) #MkQueue{#Nil{} #Cons{#Succ{#Zero{}} #Nil{}}})
+= #Refl{}
+
+// Test: Enqueue to a queue with elements in front
+Q/enqueue/T1
+: (E/Equal (Q/Queue N/Nat) (Q/enqueue N/Nat #MkQueue{#Cons{#Succ{#Zero{}} #Cons{#Succ{#Succ{#Zero{}}} #Nil{}}} #Nil{}} #Succ{#Succ{#Succ{#Zero{}}}}) #MkQueue{#Cons{#Succ{#Zero{}} #Cons{#Succ{#Succ{#Zero{}}} #Nil{}}} #Cons{#Succ{#Succ{#Succ{#Zero{}}}} #Nil{}}})
+= #Refl{}
+
+// Test: Enqueue to a queue with elements in back
+Q/enqueue/T2
+: (E/Equal (Q/Queue N/Nat) (Q/enqueue N/Nat #MkQueue{#Nil{} #Cons{#Succ{#Succ{#Zero{}}} #Cons{#Succ{#Zero{}} #Nil{}}}} #Succ{#Succ{#Succ{#Zero{}}}}) #MkQueue{#Nil{} #Cons{#Succ{#Succ{#Succ{#Zero{}}}} #Cons{#Succ{#Succ{#Zero{}}} #Cons{#Succ{#Zero{}} #Nil{}}}}})
+= #Refl{}
+
+// Test: Enqueue to a queue with elements in both front and back
+Q/enqueue/T3
+: (E/Equal (Q/Queue N/Nat) (Q/enqueue N/Nat #MkQueue{ #Cons{#Succ{#Zero{}} #Nil{}} #Cons{#Succ{#Succ{#Succ{#Zero{}}}} #Cons{#Succ{#Succ{#Zero{}}} #Nil{}}}} #Succ{#Succ{#Succ{#Succ{#Zero{}}}}}) #MkQueue{ #Cons{#Succ{#Zero{}} #Nil{}} #Cons{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}} #Cons{#Succ{#Succ{#Succ{#Zero{}}}} #Cons{#Succ{#Succ{#Zero{}}} #Nil{}}}}})
+= #Refl{}

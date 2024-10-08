@@ -1,12 +1,12 @@
 module Bend.Transform.FloatCombinators.float-combinators where
 
-open import Base.BitMap.BitMap
-open import Base.BitMap.difference
-open import Base.BitMap.empty
-open import Base.BitMap.set
-open import Base.BitMap.union
-open import Base.BitMap.from-list
-open import Base.BitMap.to-list
+open import Base.BinMap.BinMap
+open import Base.BinMap.difference
+open import Base.BinMap.empty
+open import Base.BinMap.set
+open import Base.BinMap.union
+open import Base.BinMap.from-list
+open import Base.BinMap.to-list
 open import Base.Bool.Bool
 open import Base.Bool.if
 open import Base.Bool.and
@@ -130,7 +130,7 @@ float-combinators book max-size = do
   record book { defs = from-list defs }
 
   where
-  float-combinators-defs : List FnDef -> Pair (List FnDef) (BitMap (Pair Bool FnDef))
+  float-combinators-defs : List FnDef -> Pair (List FnDef) (BinMap (Pair Bool FnDef))
     -> Pair (List FnDef) (List FnDef)
 
   float-combinators-defs [] (acc-defs , acc-combs) = do

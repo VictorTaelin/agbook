@@ -1,0 +1,27 @@
+use Base/List/ as L/
+use Base/List/Omega/ as LO/
+use Base/Nat/ as N/
+
+// Takes the first n elements from an Omega list.
+// - A: The type of elements in the list.
+// - n: The number of elements to take.
+// - omega: The Omega list to take elements from.
+// = A finite list containing the first n elements of omega, or all elements if n > length of omega's prefix.
+LO/take
+: ∀(A: *)
+  ∀(n: N/Nat)
+  ∀(omega: (LO/Omega A))
+  (L/List A)
+= λA λ{
+  #Zero: λomega
+    #Nil{}
+  #Succ: λn.pred λ{
+    #MkOmega: λomega.prefix λ{
+      #Nil:
+        #Nil{}
+      #Cons: λxs.head λxs.tail
+        #Cons{xs.head (LO/take A n.pred (#MkOmega{xs.tail}))}
+    }
+  }
+}
+

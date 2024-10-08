@@ -1,6 +1,6 @@
 module Bend.Transform.encode-adts where
 
-open import Base.BitMap.values
+open import Base.BinMap.values
 open import Base.Bool.Bool
 open import Base.Char.Char
 open import Base.Function.case

@@ -18,6 +18,7 @@ open import Base.Nat.half public
 open import Base.Nat.is-zero public
 open import Base.Nat.lt public
 open import Base.Nat.lte public
+open import Base.Nat.match public
 open import Base.Nat.max public
 open import Base.Nat.min public
 open import Base.Nat.mod public

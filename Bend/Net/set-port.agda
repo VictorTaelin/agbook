@@ -3,8 +3,8 @@ module Bend.Net.set-port where
 open import Base.Maybe.Maybe
 open import Base.Maybe.Monad.bind
 open import Base.Nat.to-bits renaming (to-bits to nat-to-bits)
-open import Base.BitMap.get renaming (get to map-get)
-open import Base.BitMap.set renaming (set to map-set)
+open import Base.BinMap.get renaming (get to map-get)
+open import Base.BinMap.set renaming (set to map-set)
 open import Bend.Net.Net
 open import Bend.Net.Port.Port
 open import Bend.Net.Node.set renaming (set to node-set)

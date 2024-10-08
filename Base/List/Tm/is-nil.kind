@@ -1,0 +1,17 @@
+use Base/List/ as L/
+use Base/Equal/ as E/
+
+// Proof that is-nil returns True for an empty list
+L/is-nil-empty
+: ∀(A: *)
+  (E/Equal B/Bool (L/is-nil A #Nil{}) #True{})
+= λA #Refl{}
+
+// Proof that is-nil returns False for a non-empty list
+L/is-nil-cons
+: ∀(A: *)
+  ∀(x: A)
+  ∀(xs: (L/List A))
+  (E/Equal B/Bool (L/is-nil A (#Cons{x xs})) #False{})
+= λA λx λxs #Refl{}
+

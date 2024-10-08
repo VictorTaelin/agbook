@@ -4,6 +4,7 @@ open import Base.Nat.Nat
 open import Base.String.String
 open import Base.OrdMap.OrdMap
 open import Base.Bool.Bool
+open import UG.SIPD.Hero.Hero
 
 record Player : Set where
   constructor MkPlayer
@@ -11,4 +12,5 @@ record Player : Set where
     id : Nat
     name : String
     keys : OrdMap String Bool
+    hero : Hero
 

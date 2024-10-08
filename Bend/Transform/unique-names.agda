@@ -1,8 +1,8 @@
 module Bend.Transform.unique-names where
 
-open import Base.BitMap.BitMap
-open import Base.BitMap.to-list
-open import Base.BitMap.from-list
+open import Base.BinMap.BinMap
+open import Base.BinMap.to-list
+open import Base.BinMap.from-list
 open import Base.Bool.Bool
 open import Base.Function.case
 open import Base.Function.id
@@ -20,9 +20,9 @@ open import Bend.Fun.Book.Book
 open import Bend.Fun.Term.Term renaming (List to List')
 open import Bend.Fun.Pattern.Pattern
 open import Bend.nat-to-name
-import Base.BitMap.empty as BitMap
-import Base.BitMap.get as BitMap
-import Base.BitMap.set as BitMap
+import Base.BinMap.empty as BinMap
+import Base.BinMap.get as BinMap
+import Base.BinMap.set as BinMap
 import Base.Maybe.fold as Maybe
 import Bend.Fun.Pattern.binds as Pattern
 import Bend.Fun.MatchRule.MatchRule as MatchRule'
@@ -35,7 +35,7 @@ private
   open module Rule = Rule' Term
 
   Scope : Set
-  Scope = BitMap (List String)
+  Scope = BinMap (List String)
 
   -- Generate a new unique name and increment the counter
   fresh : Nat → Pair String Nat
@@ -44,8 +44,8 @@ private
   push-scope : List (Maybe String) → Nat → Scope → (Pair Nat Scope)
   push-scope ((Some name) :: xs) count scope = do
     let (nam , count) = fresh count
-    let nams = Maybe.fold [] id (BitMap.get scope (hash name))
-    let scope = BitMap.set scope (hash name) (nam :: nams)
+    let nams = Maybe.fold [] id (BinMap.get scope (hash name))
+    let scope = BinMap.set scope (hash name) (nam :: nams)
     push-scope xs count scope
   push-scope (None :: xs) count scope = push-scope xs count scope
   push-scope []           count scope = (count , scope)
@@ -54,8 +54,8 @@ private
   push-pattern pat gen scope = push-scope (map Some (Pattern.binds pat)) gen scope
 
   pop-scope : Maybe String → Scope → Pair (Maybe String) Scope
-  pop-scope (Some nam) scope with (BitMap.get scope (hash nam))
-  ... | (Some (nam' :: nams)) = (Some nam' , BitMap.set scope (hash nam) nams)
+  pop-scope (Some nam) scope with (BinMap.get scope (hash nam))
+  ... | (Some (nam' :: nams)) = (Some nam' , BinMap.set scope (hash nam) nams)
   ... | _                     = (Some nam  , scope)  -- This case should be unreachable
   pop-scope None scope = (None , scope)
 
@@ -68,8 +68,8 @@ private
   pop-pattern : Pattern → Scope → Pair Pattern Scope
 
   pop-pattern (Var (Some name)) scope = do
-    case BitMap.get scope (hash name) of λ where
-      (Some (nam :: nams)) → (Var (Some nam) , BitMap.set scope (hash name) nams)
+    case BinMap.get scope (hash name) of λ where
+      (Some (nam :: nams)) → (Var (Some nam) , BinMap.set scope (hash name) nams)
       _                    → (Var (Some name) , scope)
 
   pop-pattern (Var None) scope = do
@@ -101,7 +101,7 @@ private
     (Str str , scope)
 
   use-var : String → Scope → String
-  use-var nam scope with (BitMap.get scope (hash nam))
+  use-var nam scope with (BinMap.get scope (hash nam))
   ... | (Some (nam :: ns)) = nam
   ... | _                  = nam  -- Unbound variable case.
                                   -- Don't change so that we can use it before checking for unbounds.
@@ -258,7 +258,7 @@ unique-names (MkBook defs adts ctrs) = do
   unique-names-rules : Nat → List Rule → List Rule
   unique-names-rules gen []                       = []
   unique-names-rules gen (MkRule pats bod :: rules) = do
-    let scope               = BitMap.empty
+    let scope               = BinMap.empty
     let (gen , scope)       = push-scope (map Some (concat (map Pattern.binds pats))) gen scope
     let (bod , gen , scope) = unique-names-term gen scope bod
     let (pats , scope)      = foldr (λ pat (pats , scope) → do

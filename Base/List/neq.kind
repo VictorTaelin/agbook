@@ -1,0 +1,19 @@
+use Base/List/ as L/
+use Base/Bool/ as B/
+use Base/Trait/ as T/
+
+// Checks if two lists are not equal.
+// - A: The type of elements in the lists.
+// - e: An equality function for type A.
+// - xs: The first list.
+// - ys: The second list.
+// = True if the lists are not equal, False otherwise.
+L/neq
+: ∀(A: *)
+  ∀(e: (T/Eq A))
+  ∀(xs: (L/List A))
+  ∀(ys: (L/List A))
+  B/Bool
+= λA λe λxs λys
+  (B/not (L/eq A e xs ys))
+

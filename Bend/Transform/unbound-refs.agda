@@ -13,7 +13,7 @@ open import Bend.Fun.Book.Book
 open import Bend.Fun.Book.contains-def
 open import Bend.Fun.Term.Term
 open import Bend.Fun.Term.children
-import Base.BitMap.values as BitMap
+import Base.BinMap.values as BinMap
 import Bend.Fun.FnDef.FnDef as FnDef'
 import Bend.Fun.Rule.Rule as Rule'
 
@@ -32,7 +32,7 @@ unbound-refs-term book term = do
 -- Main function to check unbound references in a book
 unbound-refs : Book → Result Unit String
 unbound-refs book = do
-  let defs = BitMap.values (Book.defs book)
+  let defs = BinMap.values (Book.defs book)
   mfoldl (λ _ def →
     mfoldl (λ _ rule → unbound-refs-term book (Rule.body rule)) unit (FnDef.rules def))
     unit defs

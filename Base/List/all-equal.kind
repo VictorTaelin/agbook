@@ -1,0 +1,34 @@
+use Base/List/ as L/
+use Base/Bool/ as B/
+use Base/Trait/ as T/
+
+// Checks if all elements in a list are equal.
+// - A: The type of elements in the list.
+// - e: An equality function for type A.
+// - xs: The input list.
+// = True if all elements are equal, False otherwise.
+L/all-equal
+: ∀(A: *)
+  ∀(e: (T/Eq A))
+  ∀(xs: (L/List A))
+  B/Bool
+= λA λe λ{
+  #Nil: #True{}
+  #Cons: λxs.head λxs.tail
+    (L/all-equal/aux A e xs.head xs.tail)
+}
+
+// Auxiliary function to handle the recursive case
+L/all-equal/aux
+: ∀(A: *)
+  ∀(e: (T/Eq A))
+  ∀(x: A)
+  ∀(xs: (L/List A))
+  B/Bool
+= λA λe λx λ{
+  #Nil: #True{}
+  #Cons: λxs.head λxs.tail
+    (B/and
+      (T/Eq/eq A e x xs.head)
+      (L/all-equal/aux A e xs.head xs.tail))
+}

@@ -4,7 +4,7 @@ open import Base.String.String
 open import Base.String.append
 open import Base.Nat.Nat
 open import Base.Nat.Trait.Show
-open import Base.BitMap.to-list
+open import Base.BinMap.to-list
 open import Base.Pair.Pair
 open import Base.Bits.Bits
 open import Base.Bits.to-nat

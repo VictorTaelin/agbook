@@ -11,9 +11,9 @@ open import Base.List.map
 open import Base.Maybe.Maybe
 open import Base.String.String
 open import Base.String.hash
-open import Base.BitMap.BitMap
-open import Base.BitMap.contains
-open import Base.BitMap.set
+open import Base.BinMap.BinMap
+open import Base.BinMap.contains
+open import Base.BinMap.set
 open import Base.Pair.Pair
 open import Bend.Fun.Book.Book
 open import Bend.Fun.Book.contains-def
@@ -21,7 +21,7 @@ open import Bend.Fun.Term.Term renaming (List to List')
 open import Bend.Fun.Term.map-children-with-binds
 open import Bend.Fun.Pattern.Pattern
 import Base.BinTree.fold as BinTree
-import Base.BitMap.new as BitMap
+import Base.BinMap.new as BinMap
 import Bend.Fun.FnDef.FnDef as FnDef'
 import Bend.Fun.Rule.Rule as Rule'
 
@@ -34,7 +34,7 @@ private
   -- - scope: The current scope
   -- - names: The list of names to add
   -- = A new scope with the added names
-  add-bnd : BitMap String → List String → BitMap String
+  add-bnd : BinMap String → List String → BinMap String
   add-bnd scope names = foldr (λ name acc → set acc (hash name) name) scope names
 
 -- Resolves references in a Term
@@ -42,7 +42,7 @@ private
 -- - scope: The current scope
 -- - term: The Term to resolve references in
 -- = A new Term with resolved references
-resolve-refs-term : Book → BitMap String → Term → Term
+resolve-refs-term : Book → BinMap String → Term → Term
 resolve-refs-term book scope (Var nam) = do
   if (not (contains scope (hash nam))) && (contains-def book nam)
     then Ref nam
@@ -59,7 +59,7 @@ resolve-refs book =
   let map-defs val lft rgt = (Node (case val of λ where
       (Some def) → Some (record def {
         rules = (map
-          (λ rule → record rule { body = resolve-refs-term book BitMap.new (Rule.body rule) })
+          (λ rule → record rule { body = resolve-refs-term book BinMap.new (Rule.body rule) })
           (FnDef.rules def)) })
       None → None) lft rgt) in
 

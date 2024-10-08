@@ -1,6 +1,6 @@
 module Bend.Transform.FloatCombinators.is-safe where
 
-open import Base.BitMap.get
+open import Base.BinMap.get
 open import Base.Bool.Bool
 open import Base.Bool.and
 open import Base.Bool.if

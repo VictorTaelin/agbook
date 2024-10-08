@@ -15,8 +15,8 @@ open import Base.Parser.Parser
 open import Base.Parser.State
 open import Base.Parser.Reply
 open import Base.Parser.Error
-open import Base.BitMap.BitMap
-open import Base.BitMap.set
+open import Base.BinMap.BinMap
+open import Base.BinMap.set
 open import Base.Pair.Pair
 open import Bend.Parser.Fun.parse-term
 open import Bend.Transform.resolve-refs
@@ -29,7 +29,7 @@ open import Bend.Fun.Book.add-fn-def
 open import Bend.Fun.dsl
 import Bend.Source.from-file-span as Source
 import Bend.Fun.Book.new as Book
-import Base.BitMap.new as Map
+import Base.BinMap.new as Map
 import Bend.Fun.Pattern.Pattern as Pat
 import Bend.Fun.FnDef.FnDef as FnDef'
 

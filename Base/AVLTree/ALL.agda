@@ -22,6 +22,7 @@ open import Base.AVLTree.height public
 open import Base.AVLTree.insert public
 open import Base.AVLTree.intersect public
 open import Base.AVLTree.invert public
+open import Base.AVLTree.is-balanced public
 open import Base.AVLTree.keys public
 open import Base.AVLTree.map-keys public
 open import Base.AVLTree.map-values public

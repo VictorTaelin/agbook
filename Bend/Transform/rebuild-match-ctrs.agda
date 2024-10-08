@@ -1,8 +1,8 @@
 module Bend.Transform.rebuild-match-ctrs where
 
-open import Base.BitMap.BitMap
-open import Base.BitMap.to-list
-open import Base.BitMap.from-list
+open import Base.BinMap.BinMap
+open import Base.BinMap.to-list
+open import Base.BinMap.from-list
 open import Base.Bool.Bool
 open import Base.Bool.if
 open import Base.Function.case

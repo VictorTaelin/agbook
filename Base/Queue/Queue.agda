@@ -1,7 +1,6 @@
 module Base.Queue.Queue where
 
 open import Base.List.List
-open import Base.List.reverse
 open import Base.Maybe.Maybe
 open import Base.Pair.Pair
 

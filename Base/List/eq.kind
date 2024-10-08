@@ -1,0 +1,30 @@
+use Base/List/ as L/
+use Base/Bool/ as B/
+use Base/Trait/ as T/
+
+// Checks if two lists are equal.
+// - A: The type of elements in the lists.
+// - e: An equality function for type A.
+// - xs: The first list.
+// - ys: The second list.
+// = True if the lists are equal, False otherwise.
+L/eq
+: ∀(A: *)
+  ∀(e: (T/Eq A))
+  ∀(xs: (L/List A))
+  ∀(ys: (L/List A))
+  B/Bool
+= λA λe λ{
+  #Nil: λ{
+    #Nil: #True{}
+    #Cons: λys.head λys.tail #False{}
+  }
+  #Cons: λxs.head λxs.tail λ{
+    #Nil: #False{}
+    #Cons: λys.head λys.tail
+      (B/and
+        (T/Eq/eq A e xs.head ys.head)
+        (L/eq A e xs.tail ys.tail))
+  }
+}
+
