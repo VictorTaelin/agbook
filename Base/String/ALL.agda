@@ -27,6 +27,7 @@ open import Base.String.replicate public
 open import Base.String.show public
 open import Base.String.split-at public
 open import Base.String.starts-with public
+open import Base.String.to-bits public
 open import Base.String.to-list public
 open import Base.String.to-nat-base public
 open import Base.String.uncons public
