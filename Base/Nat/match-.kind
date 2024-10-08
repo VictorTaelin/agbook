@@ -1,0 +1,43 @@
+use Base/Nat/ as N/
+use Base/Equal/ as E/
+use Base/Bool/ as B/
+
+// A simple function that returns a string description of a natural number
+N/describe
+: ∀(n: N/Nat)
+  B/Bool
+= (N/match
+    λx(B/Bool)
+    #False{}
+    λpred #True{}
+  )
+
+// Test: Describe of Zero{}
+T0
+: (E/Equal B/Bool (N/describe #Zero{}) #False{})
+= #Refl{}
+
+// Test: Describe of Succ{Zero}
+T1
+: (E/Equal B/Bool (N/describe #Succ{#Zero{}}) #True{})
+= #Refl{}
+
+// Test: Describe of Succ{Succ{Zero}}
+T2
+: (E/Equal B/Bool (N/describe #Succ{#Succ{#Zero{}}}) #True{})
+= #Refl{}
+
+// Test: Describe of Succ{Succ{Succ{Zero}}}
+T3
+: (E/Equal B/Bool (N/describe #Succ{#Succ{#Succ{#Zero{}}}}) #True{})
+= #Refl{}
+
+// Test: Equality of describe results for different non-zero numbers
+T4
+: (E/Equal B/Bool (B/eq (N/describe #Succ{#Zero{}}) (N/describe #Succ{#Succ{#Zero{}}})) #True{})
+= #Refl{}
+
+// Test: Inequality of describe results for zero and non-zero
+T5
+: (E/Equal B/Bool (B/eq (N/describe #Zero{}) (N/describe #Succ{#Zero{}})) #False{})
+= #Refl{}
