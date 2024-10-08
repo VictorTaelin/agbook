@@ -13,6 +13,10 @@ open import UG.SIPD.Skill.Skill
 open import Base.Pair.Pair
 open import Base.String.Trait.Ord
 open import Base.String.String
+open import Base.String.append
+open import Base.Nat.show
+open import UG.Shape.circle
+open import UG.SIPD.Body.Body
 
 make-skills : String → Nat → OrdMap String (Skill State)
 make-skills body-id speed = do
@@ -23,11 +27,16 @@ make-skills body-id speed = do
   let s = insert ("D" , (move body-id (MkV2 1.0 0.0) speed)) s
   s
 
+tick : State → State
+tick state = state
+
 li-ming : Nat → V2 → Hero State
 li-ming owner-id pos = do
-  let body-id = "something?"
+  let name = "li-ming"
+  let shape = circle (MkV2 0.0 0.0) 1.0
+  let body-id = name ++ "_" ++ (show owner-id)
   let speed = 5
   let skills = make-skills body-id speed
-  MkHero owner-id "li-ming" skills
-  
-  
+  let body = MkBody body-id shape tick
+  MkHero owner-id name skills body
+    
