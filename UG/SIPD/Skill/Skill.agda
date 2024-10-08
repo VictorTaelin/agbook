@@ -11,4 +11,3 @@ record Skill (S : Set) : Set  where
     name : String
     effects : List (EffectType S)
 
-

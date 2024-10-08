@@ -33,7 +33,7 @@ tick state = state
 li-ming : Nat → V2 → Hero State
 li-ming owner-id pos = do
   let name = "li-ming"
-  let shape = circle (MkV2 0.0 0.0) 1.0
+  let shape = circle (MkV2 300.0 300.0) 20.0
   let body-id = name ++ "_" ++ (show owner-id)
   let speed = 5
   let skills = make-skills body-id speed

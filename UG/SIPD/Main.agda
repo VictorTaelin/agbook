@@ -98,7 +98,6 @@ event-eq : Event → Event → Bool
 event-eq _ _ = False
 
 handleSingleEv : Event → State → State
-handleSingleEv (MouseClick LeftButton _ _) (MkState count players) = MkState (Succ count) players
 handleSingleEv _ state = state
 
 tick : State → State
