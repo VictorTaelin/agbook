@@ -11,5 +11,5 @@ open import UG.Shape.Shape
 
 show : Shape → String
 show (Circle c r) = "Circle: center = " ++ (V2.show c) ++ " radius = " ++ (F64.show r)
-show (Polygon v)  = "Polygon: vertices = " ++ List.show v
+show (Polygon c v)  = "Polygon: center = " ++ (V2.show c) ++ " vertices = " ++ List.show v
 

@@ -6,12 +6,12 @@ use Base/List/ as L/
 // - 2nd: The queue to which the element will be added.
 // - 3rd: The element to be added to the queue.
 // = A new queue with the element added to the end.
+  // #MkQueue{ front back: #Cons{a back} }
 Q/enqueue
 : ∀(A: *)
   ∀(q: (Q/Queue A))
   ∀(a: A)
   (Q/Queue A)
-= λA λq λa
-  let front = (Q/Queue/front A q)
-  let back = (Q/Queue/back A q)
-  #MkQueue{ front back: #Cons{a back} }
+= λA λ{
+  #MkQueue: λfront λback λa #MkQueue{front #Cons{a back}}
+}

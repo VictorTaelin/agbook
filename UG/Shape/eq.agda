@@ -10,10 +10,10 @@ open import Base.V2.V2
 open import UG.Shape.Shape
 
 eq : Shape → Shape → Bool
-eq (Circle _ _)   (Polygon _)    = False
-eq (Polygon _)    (Circle _ _)   = False
-eq (Polygon v1)   (Polygon v2)   = v1 List.== v2
-eq (Circle c1 r1) (Circle c2 r2) = (c1 V2.== c2) && (r1 F64.== r2)
+eq (Circle _ _)        (Polygon _ _)     = False
+eq (Polygon _ _)       (Circle _ _)      = False
+eq (Polygon c1 v1) (Polygon c2 v2) = (v1 List.== v2) && (c1 V2.== c2)
+eq (Circle c1 r1)      (Circle c2 r2)    = (c1 V2.== c2) && (r1 F64.== r2)
 
 infix 4 _==_
 _==_ : Shape → Shape → Bool

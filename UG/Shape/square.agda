@@ -1,9 +1,10 @@
 module UG.Shape.square where
 
-import Base.F64.ALL as F64
 open import Base.F64.F64
+open import Base.F64.add
+open import Base.F64.sub
+open import Base.F64.div
 open import Base.List.List
-open import Base.List.append
 open import Base.V2.V2
 open import UG.Shape.Shape
 
@@ -13,9 +14,10 @@ open import UG.Shape.Shape
 -- = A Shape representing the square.
 square : V2 → F64 → Shape
 square center side-length = 
-  let half-side = F64.div side-length 2.0
-      top-left     = MkV2 (F64.sub (V2.x center) half-side) (F64.add (V2.y center) half-side)
-      top-right    = MkV2 (F64.add (V2.x center) half-side) (F64.add (V2.y center) half-side)
-      bottom-right = MkV2 (F64.add (V2.x center) half-side) (F64.sub (V2.y center) half-side)
-      bottom-left  = MkV2 (F64.sub (V2.x center) half-side) (F64.sub (V2.y center) half-side)
-  in Polygon (top-left :: top-right :: bottom-right :: bottom-left :: [])
+  let half-side = side-length / 2.0
+      top-left     = MkV2 (0.0 - half-side) half-side
+      top-right    = MkV2 half-side half-side
+      bottom-right = MkV2 half-side (0.0 - half-side)
+      bottom-left  = MkV2 (0.0 - half-side) (0.0 - half-side)
+  in Polygon center (top-left :: top-right :: bottom-right :: bottom-left :: [])
+

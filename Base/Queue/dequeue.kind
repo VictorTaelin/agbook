@@ -1,0 +1,23 @@
+use Base/Queue/ as Q/
+use Base/List/ as L/
+use Base/Maybe/ as M/
+use Base/Pair/ as P/
+
+// Removes and returns the first element from a queue.
+// - 1st: The type of elements in the queue.
+// - 2nd: The queue to dequeue from.
+// = A Maybe containing a Pair of the dequeued element and the remaining queue, or None if the queue is empty.
+Q/dequeue
+: ∀(A: *)
+  ∀(q: (Q/Queue A))
+  (M/Maybe (P/Pair A (Q/Queue A)))
+= λA λ{
+  #MkQueue:  λ{
+		#Nil: λback
+			let revb = (L/reverse A back)
+			let none = (M/None (P/Pair A (Q/Queue A)))
+			use some = λhead λtail #Some{ #Pair{head #MkQueue{tail #Nil{}}}}
+			(L/match A (λx (M/Maybe (P/Pair A (Q/Queue A)))) none some revb)
+		#Cons: λhead λtail λback #Some{ #Pair{head #MkQueue{tail back}}}
+	} 
+}
