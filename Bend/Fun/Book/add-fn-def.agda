@@ -2,7 +2,7 @@ module Bend.Fun.Book.add-fn-def where
 
 open import Bend.Fun.Book.Book
 open import Bend.Fun.Term.Term
-open import Base.BitMap.set
+open import Base.BinMap.set
 open import Base.String.hash
 
 private

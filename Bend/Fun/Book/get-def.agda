@@ -5,7 +5,7 @@ open import Bend.Fun.Term.Term
 open import Base.String.String
 open import Base.String.hash
 open import Base.Maybe.Maybe
-open import Base.BitMap.get as Map
+open import Base.BinMap.get as Map
 
 private
   import Bend.Fun.FnDef.FnDef as FnDef'

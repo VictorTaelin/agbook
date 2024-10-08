@@ -1,6 +1,6 @@
 module UG.SM.new-mach where
 
-open import Base.BitMap.new
+open import Base.BinMap.new
 open import Base.Bool.Bool
 open import Base.Maybe.Maybe
 open import Base.Nat.Nat

@@ -5,10 +5,9 @@ open import Base.List.List
 open import UG.SIPD.Effect.EffectType
 open import Agda.Primitive
 
-record Skill (S : Set) : Set (lsuc lzero) where
+record Skill (S : Set) : Set  where
   constructor MkSkill
   field
     name : String
     effects : List (EffectType S)
-
 

@@ -6,11 +6,11 @@ open import Base.OrdMap.OrdMap
 open import Base.Bool.Bool
 open import UG.SIPD.Hero.Hero
 
-record Player : Set where
+record Player (S : Set) : Set where
   constructor MkPlayer
   field
     id : Nat
     name : String
     keys : OrdMap String Bool
-    hero : Hero
+    hero : Hero S
 

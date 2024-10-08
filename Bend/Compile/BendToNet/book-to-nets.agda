@@ -5,7 +5,7 @@ open import Base.List.List
 open import Base.List.head
 open import Base.List.unzip
 open import Base.List.mmap
-open import Base.BitMap.to-list renaming (to-list to map-to-list)
+open import Base.BinMap.to-list renaming (to-list to map-to-list)
 open import Base.Maybe.to-result
 open import Base.Pair.Pair
 open import Base.Result.Result

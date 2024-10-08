@@ -1,8 +1,8 @@
 module UG.SM.ActionLogs.add-action where
 
-open import Base.BitMap.BitMap
-open import Base.BitMap.get
-open import Base.BitMap.set
+open import Base.BinMap.BinMap
+open import Base.BinMap.get
+open import Base.BinMap.set
 open import Base.List.List
 open import Base.List.append
 open import Base.Maybe.Maybe

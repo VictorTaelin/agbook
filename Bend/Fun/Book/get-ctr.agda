@@ -5,7 +5,7 @@ open import Bend.Fun.Adt.Ctr
 open import Base.String.String
 open import Base.String.hash
 open import Base.Maybe.Maybe
-open import Base.BitMap.get as Map
+open import Base.BinMap.get as Map
 
 -- Retrieves a constructor definition from a Book by its name.
 -- - book: The Book to search in.

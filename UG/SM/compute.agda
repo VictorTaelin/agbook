@@ -4,8 +4,8 @@ module UG.SM.compute where
 
 import Base.Bool.show as Bool
 import Base.Nat.show as Nat
-open import Base.BitMap.get
-open import Base.BitMap.set
+open import Base.BinMap.get
+open import Base.BinMap.set
 open import Base.Bool.Bool
 open import Base.Bool.if
 open import Base.IO.ALL

@@ -2,9 +2,9 @@ module Bend.Compile.NetToHvm.tree-to-hvm where
 
 open import Base.Bool.if
 open import Base.Function.case
-open import Base.BitMap.BitMap
-open import Base.BitMap.get renaming (get to map-get)
-open import Base.BitMap.set renaming (set to map-set)
+open import Base.BinMap.BinMap
+open import Base.BinMap.get renaming (get to map-get)
+open import Base.BinMap.set renaming (set to map-set)
 open import Base.Maybe.Maybe
 open import Base.Maybe.to-result
 open import Base.Nat.Nat
