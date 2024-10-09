@@ -18,7 +18,7 @@ initial-keys : OrdMap String (Pair Bool V2)
 initial-keys = insert ("A" , (False , (MkV2 0.0 0.0))) empty
 
 p-hero : Hero State
-p-hero = li-ming 10 (MkV2 300.0 300.0)
+p-hero = li-ming 0 (MkV2 300.0 300.0)
 
 -- Creates a default player with initial values.
 -- = A Player record with default values and predefined keys.
