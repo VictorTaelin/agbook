@@ -19,7 +19,6 @@ open import Base.V2.V2
 open import Base.V2.add
 import UG.Shape.move as Shape
 
--- for now does nothing, just testing
 move : String → V2 → Effect Bool State
 move body-id movement state with get body-id (GameMap.bodies (State.game-map state))
 ... | None      = state , False

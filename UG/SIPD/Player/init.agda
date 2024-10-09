@@ -17,10 +17,10 @@ open import Base.V2.V2
 initial-keys : OrdMap String (Pair Bool V2)
 initial-keys = insert ("A" , (False , (MkV2 0.0 0.0))) empty
 
-hero : Hero State
-hero = li-ming 10 (MkV2 300.0 300.0)
+p-hero : Hero State
+p-hero = li-ming 10 (MkV2 300.0 300.0)
 
 -- Creates a default player with initial values.
 -- = A Player record with default values and predefined keys.
 init : Player State
-init = MkPlayer Zero "Default Player" initial-keys (MkV2 0.0 0.0) hero 
+init = MkPlayer Zero "Default Player" initial-keys (MkV2 0.0 0.0) p-hero 
