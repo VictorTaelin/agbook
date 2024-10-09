@@ -26,9 +26,10 @@ open import UG.SIPD.Action.Action
 
 deserialize-set-nick : ByteString → Maybe Action
 deserialize-set-nick bs = do
-  let pid = read-u48 bs 1
-  let nick = BS.drop 7 bs
-  Some (SetNick pid (BS.show nick))
+  let time = read-u48 bs 1
+  let pid = read-u48 bs 7
+  let nick = BS.drop 13 bs
+  Some (SetNick time pid (BS.show nick))
 
 -- Deserializes a ByteString into an Action.
 -- - bs: The ByteString to deserialize.

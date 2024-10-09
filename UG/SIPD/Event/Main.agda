@@ -18,13 +18,13 @@ open import UG.SIPD.Event.deserialize
 import UG.SIPD.Event.show as Event
 
 test-mouse-c : Event
-test-mouse-c = MouseClick LeftButton 3.14 2.718
+test-mouse-c = MouseClick 0 0 LeftButton 3.14 2.718
 
 test-key-ev : Event
-test-key-ev = KeyEvent "A" True
+test-key-ev = KeyEvent 0 0 "A" True
 
 test-mouse-mv : Event
-test-mouse-mv = MouseMove 5.1 209.3
+test-mouse-mv = MouseMove 0 0 5.1 209.3
 
 main : IO Unit
 main = do

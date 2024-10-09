@@ -100,6 +100,9 @@ initialState = init
 myPid : Nat
 myPid = 0
 
+time : Nat
+time = 0
+
 game : Game State Event
 game = record { init = initialState ; when = when ; tick = tick }
 
@@ -134,7 +137,7 @@ handle-ws recv-channel client-channel client join connection with join
   handle-ws recv-channel client-channel client False connection
 
 click-event : Event
-click-event = MouseClick 0 LeftButton 0.0 0.0
+click-event = MouseClick 0 0 LeftButton 0.0 0.0
 
 time-action : Nat → Event → TimedAction Event
 time-action time event = record { action = event ; time = time }
@@ -205,7 +208,7 @@ loop mach window renderer state process-message channel client-channel client = 
 
   print (State.show state)
 
-  events <- get-events myPid
+  events <- get-events time myPid
 
   reg-mach <- register-events mach events client-channel
 

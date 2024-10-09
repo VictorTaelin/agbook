@@ -13,7 +13,7 @@ open import UG.SIPD.Action.Action
 -- - a2: The snd Action.
 -- = True if the actions are equal, False otherwise.
 eq : Action → Action → Bool
-eq (SetNick p1 s1) (SetNick p2 s2) = (p1 Nat.== p2) && (s1 String.== s2)
+eq (SetNick t1 p1 s1) (SetNick t2 p2 s2) = (t1 Nat.== t2) && (p1 Nat.== p2) && (s1 String.== s2)
 
 _==_ : Action → Action → Bool
 _==_ = eq

@@ -34,28 +34,36 @@ serialize-bool False = cons (from-nat 0) (pack-string "")
 -- - event: The Event to serialize.
 -- = Some ByteString containing the serialized event if successful, None otherwise.
 serialize : Event → Maybe ByteString
-serialize (KeyEvent pid s b) = do
-  packed-string <- pack-string-fixed s 1
+serialize (KeyEvent time pid s b) = do
+  let pid-str = write-u48 (pack-string "") 0 pid
+  let time-str = write-u48 (pack-string "") 0 time
+  key-str <- pack-string-fixed s 1
   let bool-byte = serialize-bool b
-  Some ((from-nat KEYEVENT) :: (write-u48 (pack-string "") 0 pid) ++ packed-string ++ bool-byte)
+  Some ((from-nat KEYEVENT) :: time-str ++ pid-str ++ key-str ++ bool-byte)
 
-serialize (MouseClick pid click x y) = do
+serialize (MouseClick time pid click x y) = do
+  let pid-str = write-u48 (pack-string "") 0 pid
+  let time-str = write-u48 (pack-string "") 0 time
   let click-byte = Click.serialize click
   let x-bytes = write-f64-as-nat (pack-string "") 0 x
   let xy-bytes = write-f64-as-nat x-bytes 8 y
-  Some ((from-nat MOUSECLICK) :: (write-u48 (pack-string "") 0 pid) ++ click-byte ++ xy-bytes)
+  Some ((from-nat MOUSECLICK) :: time-str ++ pid-str ++ click-byte ++ xy-bytes)
 
-serialize (KeyMouse pid key down x y) = do
+serialize (KeyMouse time pid key down x y) = do
+  let pid-str = write-u48 (pack-string "") 0 pid
+  let time-str = write-u48 (pack-string "") 0 time
   packed-string <- pack-string-fixed key 1
   let bool-byte = serialize-bool down
   let x-bytes = write-f64-as-nat (pack-string "") 0 x
   let xy-bytes = write-f64-as-nat x-bytes 8 y
-  Some ((from-nat KEYMOUSE) :: (write-u48 (pack-string "") 0 pid) ++ packed-string ++ bool-byte ++ xy-bytes)
+  Some ((from-nat KEYMOUSE) :: time-str ++ pid-str ++ packed-string ++ bool-byte ++ xy-bytes)
 
-serialize (MouseMove pid x y) = do
+serialize (MouseMove time pid x y) = do
+  let pid-str = write-u48 (pack-string "") 0 pid
+  let time-str = write-u48 (pack-string "") 0 time
   let x-bytes = write-f64-as-nat (pack-string "")  0 x
   let xy-bytes = write-f64-as-nat x-bytes 8 y
-  Some ((from-nat MOUSEMOVE) :: (write-u48 (pack-string "") 0 pid) ++ xy-bytes)
+  Some ((from-nat MOUSEMOVE) :: time-str ++ pid-str ++ xy-bytes)
 
 serialize (ActionEvent action) = do
   Action.serialize action

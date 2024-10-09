@@ -22,6 +22,8 @@ open import Base.Word8.from-nat
 open import UG.SIPD.Action.Action
 
 serialize : Action → Maybe ByteString
-serialize (SetNick pid nick) = do
-  let packed-string = pack-string nick
-  Some ((from-nat SETNICK) :: (write-u48 (pack-string "") 0 pid) ++ packed-string)
+serialize (SetNick time pid nick) = do
+  let pid-str = write-u48 (pack-string "") 0 pid
+  let time-str = write-u48 (pack-string "") 0 time
+  let nick-str = pack-string nick
+  Some ((from-nat SETNICK) :: pid-str ++ time-str ++ nick-str)

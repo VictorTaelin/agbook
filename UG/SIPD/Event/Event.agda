@@ -10,10 +10,10 @@ open import UG.SIPD.Action.Action
 
 data Event : Set where
   -- PIDs are serialized as U48
-  KeyEvent    : (pid : Nat) → (key : String) → (pressed : Bool) → Event
-  MouseClick  : (pid : Nat) → Click → (x : F64) → (y : F64) → Event
-  KeyMouse    : (pid : Nat) → (key : String) → (pressed : Bool) → (x : F64) → (y : F64) → Event
-  MouseMove   : (pid : Nat) → (x : F64) → (y : F64) → Event 
+  KeyEvent    : (time : Nat) → (pid : Nat) → (key : String) → (pressed : Bool) → Event
+  MouseClick  : (time : Nat) → (pid : Nat) → Click → (x : F64) → (y : F64) → Event
+  KeyMouse    : (time : Nat) → (pid : Nat) → (key : String) → (pressed : Bool) → (x : F64) → (y : F64) → Event
+  MouseMove   : (time : Nat) → (pid : Nat) → (x : F64) → (y : F64) → Event 
   ActionEvent : Action → Event
 
 KEYEVENT   : Nat; KEYEVENT   = 0
@@ -28,10 +28,10 @@ import MAlonzo.Code.UG.SIPD.Event.Click.Click
 import MAlonzo.Code.UG.SIPD.Action.Action
 
 data AgdaEvent
-  = KeyEvent Integer T.Text Bool
-  | MouseClick Integer AgdaClick Double Double
-  | KeyMouse Integer T.Text Bool Double Double
-  | MouseMove Integer Double Double
+  = KeyEvent Integer Integer T.Text Bool
+  | MouseClick Integer Integer AgdaClick Double Double
+  | KeyMouse Integer Integer T.Text Bool Double Double
+  | MouseMove Integer Integer Double Double
   | ActionEvent AgdaAction
 #-}
 

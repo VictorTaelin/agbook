@@ -11,5 +11,5 @@ import Base.Nat.show as Nat
 -- - action: The Action to convert.
 -- = A string representation of the Action.
 show : Action → String
-show (SetNick pid nick) = 
-  "SetNick " ++ " " ++ (Nat.show pid) ++ " " ++ nick
+show (SetNick time pid nick) = 
+  "SetNick " ++ Nat.show time ++ " " ++ Nat.show pid ++ " " ++ nick

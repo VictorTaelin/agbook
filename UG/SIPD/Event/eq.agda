@@ -13,14 +13,14 @@ open import UG.SIPD.Event.Click.Click
 open import UG.SIPD.Event.Event
 
 eq : Event → Event → Bool
-eq (KeyEvent p1 key1 pressed1) (KeyEvent p2 key2 pressed2) =
-  (p1 Nat.== p2) && (key1 String.== key2) && (pressed1 Bool.== pressed2)
-eq (MouseClick p1 click1 x1 y1) (MouseClick p2 click2 x2 y2) =
-  (p1 Nat.== p2) && (click1 Click.== click2) && (x1 F64.== x2) && (y1 F64.== y2)
-eq (KeyMouse p1 key1 pressed1 x1 y1) (KeyMouse p2 key2 pressed2 x2 y2) =
-  (p1 Nat.== p2) && (key1 String.== key2) && (pressed1 Bool.== pressed2) && (x1 F64.== x2) && (y1 F64.== y2)
-eq (MouseMove p1 x1 y1) (MouseMove p2 x2 y2) =
-  (p1 Nat.== p2) && (x1 F64.== x2) && (y1 F64.== y2)
+eq (KeyEvent t1 p1 key1 pressed1) (KeyEvent t2 p2 key2 pressed2) =
+  (t1 Nat.== t2) && (p1 Nat.== p2) && (key1 String.== key2) && (pressed1 Bool.== pressed2)
+eq (MouseClick t1 p1 click1 x1 y1) (MouseClick t2 p2 click2 x2 y2) =
+  (t1 Nat.== t2) && (p1 Nat.== p2) && (click1 Click.== click2) && (x1 F64.== x2) && (y1 F64.== y2)
+eq (KeyMouse t1 p1 key1 pressed1 x1 y1) (KeyMouse t2 p2 key2 pressed2 x2 y2) =
+  (t1 Nat.== t2) && (p1 Nat.== p2) && (key1 String.== key2) && (pressed1 Bool.== pressed2) && (x1 F64.== x2) && (y1 F64.== y2)
+eq (MouseMove t1 p1 x1 y1) (MouseMove t2 p2 x2 y2) =
+  (t1 Nat.== t2) && (p1 Nat.== p2) && (x1 F64.== x2) && (y1 F64.== y2)
 eq (ActionEvent action1) (ActionEvent action2) =
   Action.eq action1 action2
 eq _ _ = False

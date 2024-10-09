@@ -15,12 +15,12 @@ import Base.Nat.show as Nat
 -- - event: The Event to convert.
 -- = A string representation of the Event.
 show : Event → String
-show (KeyEvent pid key pressed) = 
-  "KeyEvent " ++ (Nat.show pid) ++ " " ++ key ++ " " ++ (if pressed then "True" else "False")
-show (MouseClick pid click x y) = 
-  "MouseClick " ++ (Nat.show pid) ++ " " ++ Click.show click ++ " " ++ F64.show x ++ " " ++ F64.show y
-show (KeyMouse  pid key pressed x y) =
-  "KeyMouse " ++ (Nat.show pid) ++ " " ++ key ++ " " ++ (if pressed then "True" else "False") ++ " " ++ F64.show x ++ " " ++ F64.show y
-show (MouseMove pid x y) = 
-  "MouseMove " ++ (Nat.show pid) ++ " " ++ F64.show x ++ " " ++ F64.show y
+show (KeyEvent time pid key pressed) = 
+  "KeyEvent " ++ Nat.show time ++ Nat.show pid ++ " " ++ key ++ " " ++ (if pressed then "True" else "False")
+show (MouseClick time pid click x y) = 
+  "MouseClick " ++ Nat.show time ++ Nat.show pid ++ " " ++ Click.show click ++ " " ++ F64.show x ++ " " ++ F64.show y
+show (KeyMouse time pid key pressed x y) =
+  "KeyMouse " ++ Nat.show time ++ Nat.show pid ++ " " ++ key ++ " " ++ (if pressed then "True" else "False") ++ " " ++ F64.show x ++ " " ++ F64.show y
+show (MouseMove time pid x y) = 
+  "MouseMove " ++ Nat.show time ++ Nat.show pid ++ " " ++ F64.show x ++ " " ++ F64.show y
 show (ActionEvent action) = Action.show action

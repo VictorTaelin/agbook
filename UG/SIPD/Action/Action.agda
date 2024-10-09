@@ -10,7 +10,7 @@ open import UG.SIPD.Event.Click.Click
 -- Similar to an SIPD.Event.Event, but represents player actions regarding the game (or meta-game)
 -- instead of computer interaction
 data Action : Set where
-  SetNick : (pid : Nat) → String → Action
+  SetNick : (time : Nat) → (pid : Nat) → String → Action
 
 SETNICK : Nat; SETNICK = 101
 
@@ -18,7 +18,7 @@ SETNICK : Nat; SETNICK = 101
 import qualified Data.Text as T
 
 data AgdaAction
-  = SetNick Integer T.Text
+  = SetNick Integer Integer T.Text
 #-}
 
 {-# COMPILE GHC Action = data AgdaAction (SetNick) #-}

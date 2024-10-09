@@ -51,32 +51,32 @@ update-player-target maybe-player x y pid players with maybe-player
   insert (pid , new-player) players
 
 handle-event : Event → State → State
-handle-event (KeyEvent _ key pressed) state = do
+handle-event (KeyEvent _ _ key pressed) state = do
   let action-player = get pid (State.players state)
   let updated-players = update-player-key action-player key pressed pid (MkV2 0.0 0.0) (State.players state)
   record state { players = updated-players }
 
-handle-event (MouseClick _ LeftButton x y) state = do
+handle-event (MouseClick _ _ LeftButton x y) state = do
   let action-player = get pid (State.players state)
   let updated-players = update-player-target action-player x y pid (State.players state)
   record state { players = updated-players }
 
-handle-event (MouseClick _ RightButton x y) state = state
+handle-event (MouseClick _ _ RightButton x y) state = state
 
-handle-event (KeyMouse _ key pressed x y) state = do
+handle-event (KeyMouse _ _ key pressed x y) state = do
   let action-player = get pid (State.players state)
   let updated-players = update-player-key action-player key pressed pid (MkV2 x y) (State.players state)
   record state { players = updated-players }
 
-handle-event (MouseMove _ x y) state = state
+handle-event (MouseMove _ _ x y) state = state
 
-handle-event (ActionEvent (SetNick _ nick)) state = do
+handle-event (ActionEvent (SetNick _ _ nick)) state = do
   let action-player = get pid (State.players state)
   let updated-players = update-player-name action-player nick pid (State.players state)
   record state { players = updated-players }
 
 get-player-name : Event → String
-get-player-name (ActionEvent (SetNick _ nick)) = nick
+get-player-name (ActionEvent (SetNick _ _ nick)) = nick
 get-player-name _                              = "Anon"
 
 handle-new-player : Nat → Event → State → State
