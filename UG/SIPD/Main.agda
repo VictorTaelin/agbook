@@ -97,6 +97,9 @@ import UG.SIPD.Event.eq as Event
 initialState : State
 initialState = init
 
+myPid : Nat
+myPid = 0
+
 game : Game State Event
 game = record { init = initialState ; when = when ; tick = tick }
 
@@ -131,7 +134,7 @@ handle-ws recv-channel client-channel client join connection with join
   handle-ws recv-channel client-channel client False connection
 
 click-event : Event
-click-event = MouseClick LeftButton 0.0 0.0
+click-event = MouseClick 0 LeftButton 0.0 0.0
 
 time-action : Nat → Event → TimedAction Event
 time-action time event = record { action = event ; time = time }
@@ -155,7 +158,7 @@ handle-bs-result bs mach client with to-nat (head bs)
   let room = read-u48 bs 1
   time-now <- now
   let time = read-u48 bs 7
-  let msg = drop bs 13
+  let msg = drop 13 bs
   let event = Event.deserialize msg
   show-ev event
   let new-sm = register-event event time mach
@@ -202,7 +205,7 @@ loop mach window renderer state process-message channel client-channel client = 
 
   print (State.show state)
 
-  events <- get-events
+  events <- get-events myPid
 
   reg-mach <- register-events mach events client-channel
 
