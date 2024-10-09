@@ -10,4 +10,4 @@ open import Base.Nat.Nat
 postulate drop : Nat → ByteString → ByteString
 
 {-# FOREIGN GHC import qualified Data.ByteString as BS #-}
-{-# COMPILE GHC drop = BS.drop #-}
+{-# COMPILE GHC drop = \n bs -> BS.drop (fromIntegral n) bs #-}
