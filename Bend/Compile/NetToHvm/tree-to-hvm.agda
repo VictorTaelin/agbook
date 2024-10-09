@@ -43,7 +43,7 @@ mutual
   tree-to-hvm net node-id (MkState _ _ 0)                      = Fail "cycle in tree"
   tree-to-hvm net node-id (MkState vars n-vars (Succ n-nodes)) = do
     let state = MkState vars n-vars n-nodes
-    (node , net) <- to-result (get-node net node-id) "node not found"
+    node <- to-result (get-node net node-id) "node not found"
     let (MkNode main aux1 aux2 kind) = node
     case kind of λ where
       NodeKind.Con → do
@@ -79,8 +79,8 @@ mutual
   -- If it points to a node, compile the subtree.
   var-or-subtree-to-hvm : BNet → Port → State → Result (Pair (HTerm NAMED) State) String
   var-or-subtree-to-hvm net port state =
-    if Port.slot-id port == 0 then
-      tree-to-hvm net (Port.node-id port) state
+    if Port.slot port == 0 then
+      tree-to-hvm net (Port.node port) state
     else do
       port' <- to-result (get-port net port) "port not found"
       Done (make-var port port' state)

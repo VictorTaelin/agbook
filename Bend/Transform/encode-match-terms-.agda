@@ -49,7 +49,7 @@ test encoding input = do
       book <- rebuild-match-ctrs book
       let book = desugar-use book
       book <- encode-match-terms encoding book
-      def  <- to-result (get-def book "main") "no main"
+      def  <- get-def book "main"
       rule <- to-result (head (FnDef.rules def)) "no body"
       Done (show (Rule.body rule))
     (Fail (MkError _ err)) → Fail ("Parse failed: " ++ err)

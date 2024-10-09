@@ -1,17 +1,18 @@
 module Bend.Net.get-port where
 
-open import Base.Maybe.Maybe
-open import Base.Maybe.Monad.bind
-open import Base.Nat.to-bits renaming (to-bits to nat-to-bits)
-open import Base.BinMap.get renaming (get to map-get)
-open import Base.BinMap.set renaming (set to map-set)
+open import Base.Maybe.to-result
+open import Base.Result.Result
+open import Base.Result.Monad.bind
+open import Base.String.String
 open import Bend.Net.Net
 open import Bend.Net.Port.Port
-open import Bend.Net.Node.get renaming (get to node-get)
+import Base.BinMap.get as BinMap
+import Base.Nat.to-bits as Nat
+import Bend.Net.Node.get as Node
 
-get-port : Net → Port → Maybe Port
-get-port (MkNet nodes len name) (MkPort node-id slot-id) = do
-  let key = nat-to-bits node-id
-  a <- map-get nodes key
-  p <- node-get a slot-id
-  Some p
+get-port : Net → Port → Result Port String
+get-port (MkNet nodes len name) (MkPort node slot) = do
+  let key = Nat.to-bits node
+  a <- to-result (BinMap.get nodes key) "Port not found"
+  p <- to-result (Node.get a slot) "Invalid slot"
+  Done p

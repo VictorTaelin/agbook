@@ -5,5 +5,5 @@ open import Base.Nat.Nat
 record Port : Set where
   constructor MkPort
   field
-    node-id : Nat
-    slot-id : Nat
+    node : Nat
+    slot : Nat
