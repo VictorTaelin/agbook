@@ -1,0 +1,22 @@
+use Base/Int/ as I/
+use Base/Nat/ as N/
+use Base/Bool/ as B/
+
+// Checks if two integers are equal.
+// - x: The 1st integer.
+// - y: The 2nd integer.
+// = True if x and y are equal, False otherwise.
+I/eq
+: ∀(x: I/Int)
+  ∀(y: I/Int)
+  B/Bool
+= λ{
+  #Pos: λx.value λ{
+    #Pos: λy.value (N/eq x.value y.value)
+    #NegSuc: λy.value #False{}
+  }
+  #NegSuc: λx.value λ{
+    #Pos: λy.value #False{}
+    #NegSuc: λy.value (N/eq x.value y.value)
+  }
+}

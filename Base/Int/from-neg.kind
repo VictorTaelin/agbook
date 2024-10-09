@@ -1,0 +1,14 @@
+use Base/Int/ as I/
+use Base/Nat/ as N/
+
+// Converts a negative natural number to an integer.
+// - n: The natural number to convert.
+// = The corresponding negative integer representation.
+//   Note: Zero is treated as a positive number (Pos Zero).
+I/from-neg
+: ∀(n: N/Nat)
+  I/Int
+= λ{
+  #Zero: #Pos{#Zero{}}
+  #Succ: λn.pred #NegSuc{n.pred}
+}
