@@ -1,0 +1,36 @@
+use Base/List/ as L/
+use Base/Nat/ as N/
+use Base/Pair/ as P/
+use Base/Equal/ as E/
+
+// Examples and properties of the enumerate function
+
+// Example: enumerate ["0", "1", "2"] ≡ [(0, "0"), (1, "1"), (2, "2")]
+L/enumerate/example0
+: (E/Equal
+    (L/List (P/Pair N/Nat (L/List U32)))
+    (L/enumerate (L/List U32) (#Cons{"0" (#Cons{"1" (#Cons{"2" #Nil{}})})}))
+    (#Cons{(P/Pair #Zero{} "0") (#Cons{(P/Pair #Succ{#Zero{}} "1") (#Cons{(P/Pair #Succ{#Succ{#Zero{}}} "2") #Nil{}})})})
+)
+= #Refl{} 
+
+// ✓ Base/List/enumerate/empty
+// ERROR:
+// - expected: ?type_annotation
+// - detected: ?untyped_match
+// - bad_term: λ{ #Cons: ?a #Nil: ?b }
+// unknown_file
+// Could not read source file.
+// ✗ Base/List/enumerate/example0
+
+
+
+// Property: enumerate [] ≡ []
+L/enumerate/empty
+: ∀(A: *)
+  (E/Equal
+    (L/List (P/Pair N/Nat A))
+    (L/enumerate A #Nil{})
+    #Nil{}
+  )
+= λA #Refl{}

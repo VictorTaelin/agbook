@@ -1,0 +1,14 @@
+use Base/List/ as L/
+use Base/Bool/ as B/
+use Base/Equal/ as E/
+
+// Test case for neq function with boolean lists
+L/test-neq-bool-lists
+: (E/Equal
+    B/Bool
+    (L/neq
+      (B/Eq/derive B/eq)
+      (B/Cons #True{} (B/Cons #False{} B/Nil))
+      (B/Cons #True{} (B/Cons #True{} B/Nil)))
+    #True{})
+= #Refl{}

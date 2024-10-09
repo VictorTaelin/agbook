@@ -1,0 +1,14 @@
+use Base/Ordering/ as O/
+
+O/match
+: ∀(A: *)
+  ∀(lt: A)
+  ∀(eq: A)
+  ∀(gt: A)
+  ∀(ord: O/Ordering)
+  A
+= λA λlt λeq λgt λ{
+  #LT: lt
+  #EQ: eq
+  #GT: gt
+}

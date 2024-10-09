@@ -1,0 +1,21 @@
+use Base/List/ as L/
+
+// Intercalates a list between all lists in a list of lists.
+// - A: The type of elements in the lists.
+// - xs: The list to be inserted between other lists.
+// - yss: The list of lists to intercalate xs into.
+// = A new list with xs inserted between all lists in yss.
+L/intercalate
+: ∀(A: *)
+  ∀(xs: (L/List A))
+  ∀(yss: (L/List (L/List A)))
+  (L/List A)
+= λA λxs λ{
+  #Nil: #Nil{}
+  #Cons: λyshead λystail 
+    (L/match (L/List A) ystail
+      yshead
+      (λhead λtail (L/append A yshead
+                     (L/append A xs
+                       (L/intercalate A xs ystail)))))
+}

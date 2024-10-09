@@ -21,22 +21,13 @@ L/compare
   }
   #Cons: λxs.head λxs.tail λ{
     #Nil: #GT{}
-    #Cons: 
-      λ{
-        #LT: #LT{}
-        #EQ: λys.tail (L/compare A ord xs.tail ys.tail)
-        #GT: #GT{}
-      } (λys.head  (T/Ord/compare A ord xs.head ys.head))
+    #Cons: λys.head λys.tail
+      let head_cmp = (T/Ord/compare A ord xs.head ys.head)
+      (O/match
+        O/Ordering
+        #LT{}
+        (L/compare A ord xs.tail ys.tail)
+        #GT{}
+        head_cmp)
   }
 }
-
-
-// PARSE_ERROR
-// - expected: "#" | "}"
-// - detected:
-// 29 |       } (λys.head  (T/Ord/compare A ord xs.head ys.head))
-//
-// /Users/sergiobonatto/Work/HOC/monobook/Base/List/compare.kind 29:9
-//
-// kind check 'Base/List/compare.kind'  0,00s user 0,01s system 28% cpu 0,040 total
-
