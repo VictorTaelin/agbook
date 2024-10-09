@@ -20,10 +20,14 @@ open import Base.V2.V2
 open import Base.V2.add
 open import Base.V2.sub
 open import Base.V2.normalize
+open import Base.V2.length
+open import Base.V2.lerp
 import UG.Shape.move as Shape
 import UG.Shape.get-center as Shape
 open import Base.Nat.Nat
 open import Base.Nat.Trait.Ord
+open import Base.F64.lt
+open import Base.Bool.if
 
 move : Nat → String → Effect Bool State
 move pid body-id state with get pid (State.players state) | get body-id (GameMap.bodies (State.game-map state))
@@ -33,13 +37,22 @@ move pid body-id state with get pid (State.players state) | get body-id (GameMap
   let bodies = (GameMap.bodies (State.game-map state))
   let hitbox = (Body.hitbox body)
   let hitbox-center = Shape.get-center hitbox
-  let movement = normalize ((Player.target player) - hitbox-center)
-  let new-hitbox = Shape.move hitbox movement 
-  let updated-body = record body { hitbox = new-hitbox }
-  let updated-bodies = insert (body-id , updated-body) bodies
-  let updated-map = record (State.game-map state) { bodies = updated-bodies }
-  let updated-state = record state { game-map = updated-map }
-  updated-state , True
+  let target = (Player.target player)
+  let distance-to-target = target - hitbox-center
+  let ln = length distance-to-target
+  
+  if (ln < 0.1)
+    then state , False
+    else do
+      let interpolation-factor = 0.01
+      let new-center = lerp hitbox-center target interpolation-factor
+      let movement = new-center - hitbox-center 
+      let new-hitbox = Shape.move hitbox movement 
+      let updated-body = record body { hitbox = new-hitbox }
+      let updated-bodies = insert (body-id , updated-body) bodies
+      let updated-map = record (State.game-map state) { bodies = updated-bodies }
+      let updated-state = record state { game-map = updated-map }
+      updated-state , True
 
 move-type : Nat → String → EffectType State
 move-type pid body-id = (Boolean , (move pid body-id))
