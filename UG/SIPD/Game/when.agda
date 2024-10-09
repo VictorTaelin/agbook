@@ -25,7 +25,7 @@ open import Base.Pair.Pair
 
 -- FIXME: pid should be in the action type
 pid : Nat
-pid = 10
+pid = 0
 
 update-player-name : Maybe (Player State) → String → Nat → OrdMap Nat (Player State) → OrdMap Nat (Player State)
 update-player-name maybe-player nick player-id players with maybe-player
