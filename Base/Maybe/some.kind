@@ -7,5 +7,5 @@ use Base/Maybe/ as M/
 Maybe/Some
 : ∀(A: *)
   ∀(value: A)
-  (Maybe A)
+  (M/Maybe A)
 = λA λvalue #Some{value}
