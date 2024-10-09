@@ -1,5 +1,6 @@
 module Bend.Compile.NetToHvm.tree-to-hvm where
 
+open import Base.Bits.Bits
 open import Base.Bool.if
 open import Base.Function.case
 open import Base.BinMap.BinMap
@@ -23,8 +24,8 @@ open import Bend.Net.Port.Port
 open import Bend.Net.Port.to-bits renaming (to-bits to port-to-bits)
 open import Bend.nat-to-name
 open import HVM.Net.Net renaming (Net to HNet)
-open import HVM.Mode.Mode
 open import HVM.Term.Term renaming (Term to HTerm)
+open import HVM.Addr.Addr
 open import Bend.Compile.NetToHvm.State.State
 
 mutual
@@ -35,7 +36,7 @@ mutual
   -- - state: Compilation state with found variables and remaining gas.
   -- = A pair of the compiled term and the new compilation state.
   {-# TERMINATING #-} -- FIXME!
-  tree-to-hvm : BNet → Nat → State → Result (Pair (HTerm NAMED) State) String
+  tree-to-hvm : BNet → Nat → State → Result (Pair HTerm State) String
   -- We know that we should visit each node only once,
   -- so we can set a max number of nodes to visit.
   -- Cycles will end up visiting too many nodes and fail here.
@@ -43,16 +44,16 @@ mutual
   tree-to-hvm net node-id (MkState _ _ 0)                      = Fail "cycle in tree"
   tree-to-hvm net node-id (MkState vars n-vars (Succ n-nodes)) = do
     let state = MkState vars n-vars n-nodes
-    node <- to-result (get-node net node-id) "node not found"
+    node ← get-node net node-id
     let (MkNode main aux1 aux2 kind) = node
     case kind of λ where
       NodeKind.Con → do
-        (lft , state) <- var-or-subtree-to-hvm net aux1 state
-        (rgt , state) <- var-or-subtree-to-hvm net aux2 state
+        (lft , state) ← var-or-subtree-to-hvm net aux1 state
+        (rgt , state) ← var-or-subtree-to-hvm net aux2 state
         Done (HTerm.Con lft rgt , state)
       NodeKind.Dup → do
-        (lft , state) <- var-or-subtree-to-hvm net aux1 state
-        (rgt , state) <- var-or-subtree-to-hvm net aux2 state
+        (lft , state) ← var-or-subtree-to-hvm net aux1 state
+        (rgt , state) ← var-or-subtree-to-hvm net aux2 state
         Done (HTerm.Dup lft rgt , state)
       NodeKind.Era → do
         Done (HTerm.Era , state)
@@ -71,32 +72,32 @@ mutual
       NodeKind.Opr → do
         Done (HTerm.Era , state)
       NodeKind.Swi → do
-        (lft , state) <- var-or-subtree-to-hvm net aux1 state
-        (rgt , state) <- var-or-subtree-to-hvm net aux2 state
+        (lft , state) ← var-or-subtree-to-hvm net aux1 state
+        (rgt , state) ← var-or-subtree-to-hvm net aux2 state
         Done (HTerm.Con lft rgt , state)
 
   -- If the port points to a var, create and return a var term.
   -- If it points to a node, compile the subtree.
-  var-or-subtree-to-hvm : BNet → Port → State → Result (Pair (HTerm NAMED) State) String
+  var-or-subtree-to-hvm : BNet → Port → State → Result (Pair HTerm State) String
   var-or-subtree-to-hvm net port state =
     if Port.slot port == 0 then
       tree-to-hvm net (Port.node port) state
     else do
-      port' <- to-result (get-port net port) "port not found"
-      Done (make-var port port' state)
+      port ← get-port net port
+      Done (make-var port port state)
 
   -- Returns a var term for a side link in the inet.
   -- If the other side of the var was already found, use the name in the map.
   -- Otherwise, create a new name and add it to the map.
-  make-var : Port → Port → State → Pair (HTerm NAMED) State
+  make-var : Port → Port → State → Pair HTerm State
   make-var a b (MkState vars n-vars n-nodes) = do
     let key-a = port-to-bits a
     case map-get vars key-a of λ where
-      (Some var) → (HTerm.Var var , MkState vars n-vars n-nodes)
+      (Some var) → (HTerm.Var var (Root E) , MkState vars n-vars n-nodes)
       None → do
         let key-b  = port-to-bits b
         let name   = nat-to-name n-vars
         let n-vars = Succ n-vars
         let vars   = map-set vars key-a name
         let vars   = map-set vars key-b name
-        (HTerm.Var name , MkState vars n-vars n-nodes)
+        (HTerm.Var name (Root E) , MkState vars n-vars n-nodes)

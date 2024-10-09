@@ -24,12 +24,10 @@ open import Base.Trait.Eq
 open import Bend.Fun.Book.Book
 open import Bend.Fun.FanKind.FanKind
 open import Bend.Fun.Term.Term
-open import Bend.Fun.Term.map-children-with-state
+open import Bend.Fun.Term.map-children-with
 open import Bend.Fun.Term.map-child-binds
 open import Bend.Fun.Pattern.Pattern
-open import Bend.Fun.Pattern.map-binds
 open import Bend.Transform.subst
-open import Bend.nat-to-name
 import Base.BinMap.to-list as BinMap
 import Base.BinMap.from-list as BinMap
 import Bend.Fun.Pattern.binds as Pat
@@ -97,7 +95,7 @@ linearize-vars-term var-uses (Var nam) = do
 
 linearize-vars-term var-uses term = do
   -- linearize the children
-  let var-uses , term = map-children-with-state linearize-vars-term var-uses term
+  let var-uses , term = map-children-with linearize-vars-term var-uses term
   -- erase unused bindings
   let term = map-child-binds (λ bind _ → erase-unused-bind bind var-uses) term
   -- add duplications of bindings
@@ -151,4 +149,4 @@ linearize-vars (MkBook defs adts ctrs) = do
   let map-def def   = record def { rules = map map-rule (FnDef.rules def) }
   let defs          = (BinMap.to-list defs)
   let defs          = map (λ (key , def) → (key , map-def def)) defs
- (MkBook (BinMap.from-list defs) adts ctrs)
+  (MkBook (BinMap.from-list defs) adts ctrs)
