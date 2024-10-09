@@ -7,6 +7,7 @@ open import Base.ByteString.cons
 open import Base.ByteString.pack
 open import Base.ByteString.pack-string
 open import Base.ByteString.pack-string-fixed
+open import Base.ByteString.write-u48
 open import Base.ByteString.write-f64-as-nat
 open import Base.Maybe.Maybe
 open import Base.Maybe.Monad.bind
@@ -36,25 +37,25 @@ serialize : Event → Maybe ByteString
 serialize (KeyEvent pid s b) = do
   packed-string <- pack-string-fixed s 1
   let bool-byte = serialize-bool b
-  Some ((from-nat KEYEVENT) :: pid :: packed-string ++ bool-byte)
+  Some ((from-nat KEYEVENT) :: (write-u48 (pack-string "") 0 pid) ++ packed-string ++ bool-byte)
 
 serialize (MouseClick pid click x y) = do
   let click-byte = Click.serialize click
   let x-bytes = write-f64-as-nat (pack-string "") 0 x
   let xy-bytes = write-f64-as-nat x-bytes 8 y
-  Some ((from-nat MOUSECLICK) :: pid :: click-byte ++ xy-bytes)
+  Some ((from-nat MOUSECLICK) :: (write-u48 (pack-string "") 0 pid) ++ click-byte ++ xy-bytes)
 
 serialize (KeyMouse pid key down x y) = do
   packed-string <- pack-string-fixed key 1
   let bool-byte = serialize-bool down
   let x-bytes = write-f64-as-nat (pack-string "") 0 x
   let xy-bytes = write-f64-as-nat x-bytes 8 y
-  Some ((from-nat KEYMOUSE) :: pid :: packed-string ++ bool-byte ++ xy-bytes)
+  Some ((from-nat KEYMOUSE) :: (write-u48 (pack-string "") 0 pid) ++ packed-string ++ bool-byte ++ xy-bytes)
 
 serialize (MouseMove pid x y) = do
   let x-bytes = write-f64-as-nat (pack-string "")  0 x
   let xy-bytes = write-f64-as-nat x-bytes 8 y
-  Some ((from-nat MOUSEMOVE) :: pid :: xy-bytes)
+  Some ((from-nat MOUSEMOVE) :: (write-u48 (pack-string "") 0 pid) ++ xy-bytes)
 
 serialize (ActionEvent action) = do
   Action.serialize action

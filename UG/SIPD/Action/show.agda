@@ -12,4 +12,4 @@ import Base.Nat.show as Nat
 -- = A string representation of the Action.
 show : Action → String
 show (SetNick pid nick) = 
-  "SetNick " ++ " " ++ (Nat.show (to-nat pid)) ++ " " ++ nick
+  "SetNick " ++ " " ++ (Nat.show pid) ++ " " ++ nick

@@ -16,11 +16,11 @@ import Base.Nat.show as Nat
 -- = A string representation of the Event.
 show : Event → String
 show (KeyEvent pid key pressed) = 
-  "KeyEvent " ++ (Nat.show (to-nat pid)) ++ " " ++ key ++ " " ++ (if pressed then "True" else "False")
+  "KeyEvent " ++ (Nat.show pid) ++ " " ++ key ++ " " ++ (if pressed then "True" else "False")
 show (MouseClick pid click x y) = 
-  "MouseClick " ++ (Nat.show (to-nat pid)) ++ " " ++ Click.show click ++ " " ++ F64.show x ++ " " ++ F64.show y
+  "MouseClick " ++ (Nat.show pid) ++ " " ++ Click.show click ++ " " ++ F64.show x ++ " " ++ F64.show y
 show (KeyMouse  pid key pressed x y) =
-  "KeyMouse " ++ (Nat.show (to-nat pid)) ++ " " ++ key ++ " " ++ (if pressed then "True" else "False") ++ " " ++ F64.show x ++ " " ++ F64.show y
+  "KeyMouse " ++ (Nat.show pid) ++ " " ++ key ++ " " ++ (if pressed then "True" else "False") ++ " " ++ F64.show x ++ " " ++ F64.show y
 show (MouseMove pid x y) = 
-  "MouseMove " ++ (Nat.show (to-nat pid)) ++ " " ++ F64.show x ++ " " ++ F64.show y
+  "MouseMove " ++ (Nat.show pid) ++ " " ++ F64.show x ++ " " ++ F64.show y
 show (ActionEvent action) = Action.show action

@@ -9,6 +9,7 @@ open import Base.ByteString.ByteString
 open import Base.ByteString.is-empty
 open import Base.ByteString.read-char
 open import Base.ByteString.read-f64
+open import Base.ByteString.read-u48
 open import Base.ByteString.show as BS
 open import Base.Function.guards
 open import Base.List.List
@@ -25,8 +26,8 @@ open import UG.SIPD.Action.Action
 
 deserialize-set-nick : ByteString → Maybe Action
 deserialize-set-nick bs = do
-  let pid = BS.head (BS.drop 1 bs)
-  let nick = BS.drop 2 bs
+  let pid = read-u48 bs 1
+  let nick = BS.drop 7 bs
   Some (SetNick pid (BS.show nick))
 
 -- Deserializes a ByteString into an Action.

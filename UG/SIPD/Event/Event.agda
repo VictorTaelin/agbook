@@ -9,10 +9,11 @@ open import UG.SIPD.Event.Click.Click
 open import UG.SIPD.Action.Action
 
 data Event : Set where
-  KeyEvent    : (pid : Word8) → (key : String) → (pressed : Bool) → Event
-  MouseClick  : (pid : Word8) → Click → (x : F64) → (y : F64) → Event
-  KeyMouse    : (pid : Word8) → (key : String) → (pressed : Bool) → (x : F64) → (y : F64) → Event
-  MouseMove   : (pid : Word8) → (x : F64) → (y : F64) → Event 
+  -- PIDs are serialized as U48
+  KeyEvent    : (pid : Nat) → (key : String) → (pressed : Bool) → Event
+  MouseClick  : (pid : Nat) → Click → (x : F64) → (y : F64) → Event
+  KeyMouse    : (pid : Nat) → (key : String) → (pressed : Bool) → (x : F64) → (y : F64) → Event
+  MouseMove   : (pid : Nat) → (x : F64) → (y : F64) → Event 
   ActionEvent : Action → Event
 
 KEYEVENT   : Nat; KEYEVENT   = 0
@@ -27,10 +28,10 @@ import MAlonzo.Code.UG.SIPD.Event.Click.Click
 import MAlonzo.Code.UG.SIPD.Action.Action
 
 data AgdaEvent
-  = KeyEvent W.Word8 T.Text Bool
-  | MouseClick W.Word8 AgdaClick Double Double
-  | KeyMouse W.Word8 T.Text Bool Double Double
-  | MouseMove W.Word8 Double Double
+  = KeyEvent Integer T.Text Bool
+  | MouseClick Integer AgdaClick Double Double
+  | KeyMouse Integer T.Text Bool Double Double
+  | MouseMove Integer Double Double
   | ActionEvent AgdaAction
 #-}
 

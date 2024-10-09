@@ -8,6 +8,7 @@ open import Base.ByteString.pack
 open import Base.ByteString.pack-string
 open import Base.ByteString.pack-string-fixed
 open import Base.ByteString.write-f64-as-nat
+open import Base.ByteString.write-u48
 open import Base.List.head
 open import Base.List.take
 open import Base.Maybe.Maybe
@@ -23,4 +24,4 @@ open import UG.SIPD.Action.Action
 serialize : Action → Maybe ByteString
 serialize (SetNick pid nick) = do
   let packed-string = pack-string nick
-  Some ((from-nat SETNICK) :: pid :: packed-string)
+  Some ((from-nat SETNICK) :: (write-u48 (pack-string "") 0 pid) ++ packed-string)
