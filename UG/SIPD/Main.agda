@@ -75,6 +75,7 @@ open import UG.SIPD.Event.Event
 open import UG.SIPD.Event.get-events
 open import UG.SIPD.Renderer.Renderer
 open import UG.SIPD.State.State
+import UG.SIPD.State.show as State
 open import UG.SIPD.State.init
 open import UG.SIPD.Video.quit
 open import UG.SIPD.Window.Window
@@ -193,13 +194,14 @@ register-events mach events client-channel = do
   
   foldl (λ acc ev → acc >>= λ _ → Channel.write client-channel ev) (pure unit) valid-events
 
-  --let timed-actions = map (time-action time) events
-  --let final-mach = foldl (λ acc-mach action → register-action acc-mach action) mach timed-actions
-  --pure final-mach
-  pure mach
+  let timed-actions = map (time-action time) events
+  let final-mach = foldl (λ acc-mach action → register-action acc-mach action) mach timed-actions
+  pure final-mach
 
 loop : (Mach State Event) → Window → Renderer → State → (Mach State Event → Channel ByteString → Client → IO (Pair (Mach State Event) Client)) → Channel ByteString → Channel ByteString → Client → IO State
 loop mach window renderer state process-message channel client-channel client = do
+
+  print (State.show state)
 
   events <- get-events
 
