@@ -4,6 +4,8 @@ open import UG.SIPD.Event.Event
 open import UG.SIPD.Event.Click.Click
 open import UG.SIPD.State.State
 open import UG.SIPD.Player.Player
+open import UG.SIPD.Body.Body
+open import UG.SIPD.Hero.Hero
 import UG.SIPD.Player.init as Player
 open import Base.OrdMap.get
 open import Base.OrdMap.OrdMap
@@ -71,10 +73,27 @@ handle-event (ActionEvent (SetNick nick)) state = do
   let updated-players = update-player-name action-player nick pid (State.players state)
   record state { players = updated-players }
 
+get-player-name : Event → String
+get-player-name (ActionEvent (SetNick nick)) = nick
+get-player-name _                          = "Anon"
+
+handle-new-player : Nat → Event → State → State
+handle-new-player pid event state with (get pid (State.players state))
+... | Some player = state
+... | None = do
+  let initial-name = get-player-name event
+  let new-player = record Player.init { name = initial-name }
+  let updated-players = insert (pid , new-player) (State.players state)
+  let body-id = (Body.id (Hero.body (Player.hero new-player)))
+  let body = Hero.body (Player.hero new-player)
+  let bodies = (GameMap.bodies (State.game-map state))
+  let updated-bodies = insert (body-id , body) bodies
+  let updated-game-map = record (State.game-map state) { bodies = updated-bodies }
+  record state { players = updated-players ; game-map = updated-game-map }
+
 when : Event → State → State
 when event state = do
-  let players = (State.players state)
-  let bodies = (GameMap.bodies (State.game-map state))
-  -- TODO: implement when correctly when we have the action type complete 
+  let state = handle-new-player pid event state
+  let state = handle-event event state
   state
     

@@ -90,25 +90,15 @@ open import UG.SM.new-mach
 open import UG.SM.register-action
 open import UG.Shape.Shape
 open import UG.Shape.square
+open import UG.SIPD.Game.tick
+open import UG.SIPD.Game.when
+import UG.SIPD.Event.eq as Event
 
 initialState : State
 initialState = init
 
-event-eq : Event → Event → Bool
-event-eq _ _ = False
-
-handleSingleEv : Event → State → State
-handleSingleEv _ state = state
-
-tick : State → State
-tick s = s
-
 game : Game State Event
-game = record 
-  { init = initialState
-  ; when = handleSingleEv
-  ; tick = tick
-  }
+game = record { init = initialState ; when = when ; tick = tick }
 
 handle-client-ev : WSConnection → Maybe ByteString → IO Unit
 handle-client-ev conn maybe-bs with maybe-bs
@@ -187,7 +177,7 @@ process-messages mach channel client = do
       pure (mach , client)
 
 initial-mach : Mach State Event
-initial-mach = new-mach 60 event-eq
+initial-mach = new-mach 60 Event.eq 
 
 create-valid-events : List (Maybe ByteString) → List ByteString
 create-valid-events [] = []
