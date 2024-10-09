@@ -21,13 +21,14 @@ open import Base.V2.add
 open import Base.V2.sub
 open import Base.V2.normalize
 open import Base.V2.length
-open import Base.V2.lerp
+open import Base.V2.mul-scalar
 import UG.Shape.move as Shape
 import UG.Shape.get-center as Shape
 open import Base.Nat.Nat
 open import Base.Nat.Trait.Ord
 open import Base.F64.lt
 open import Base.Bool.if
+open import Base.F64.min
 
 move : Nat → String → Effect Bool State
 move pid body-id state with get pid (State.players state) | get body-id (GameMap.bodies (State.game-map state))
@@ -44,9 +45,10 @@ move pid body-id state with get pid (State.players state) | get body-id (GameMap
   if (ln < 0.1)
     then state , False
     else do
-      let interpolation-factor = 0.01
-      let new-center = lerp hitbox-center target interpolation-factor
-      let movement = new-center - hitbox-center 
+      let constant-speed = 1.0
+      let direction = normalize distance-to-target
+      let movement = mul-scalar direction (min constant-speed ln)
+      let new-center = hitbox-center + movement
       let new-hitbox = Shape.move hitbox movement 
       let updated-body = record body { hitbox = new-hitbox }
       let updated-bodies = insert (body-id , updated-body) bodies
