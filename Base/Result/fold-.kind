@@ -1,0 +1,42 @@
+use Base/Result/ as R/
+use Base/Equal/ as E/
+
+// Test: Apply 'done' function to the value inside Done constructor.
+T0
+: (E/Equal U32 (R/fold U32 U32 U32 (λx (+ x 1)) (λe (- e 1)) (#Done{5})) 6)
+= #Refl{}
+
+// Test: Apply 'fail' function to the error inside Fail constructor.
+T1
+: (E/Equal U32 (R/fold U32 U32 U32 (λx (+ x 1)) (λe (- e 1)) (#Fail{10})) 9)
+= #Refl{}
+
+// Test: 'done' function applied when Result is Done with a different operation.
+T2
+: (E/Equal U32 (R/fold U32 U32 U32 (λx (* x 2)) (λe (* e 3)) (#Done{4})) 8)
+= #Refl{}
+
+// Test: 'fail' function applied when Result is Fail with a different operation.
+T3
+: (E/Equal U32 (R/fold U32 U32 U32 (λx (* x 2)) (λe (* e 3)) (#Fail{6})) 18)
+= #Refl{}
+
+// Test: Check fold for Done with an identity function for 'done'.
+T4
+: (E/Equal U32 (R/fold U32 U32 U32 (λx x) (λe (+ e 2)) (#Done{100})) 100)
+= #Refl{}
+
+// Test: Check fold for Fail with an identity function for 'fail'.
+T5
+: (E/Equal U32 (R/fold U32 U32 U32 (λx (* x 10)) (λe e) (#Fail{42})) 42)
+= #Refl{}
+
+// Test: Check fold for Done where both functions are the same.
+T6
+: (E/Equal U32 (R/fold U32 U32 U32 (λx (+ x 5)) (λe (* e 5)) (#Done{7})) 12)
+= #Refl{}
+
+// Test: Check fold for Fail where both functions are the same.
+T7
+: (E/Equal U32 (R/fold U32 U32 U32 (λx (* x 5)) (λe (+ e 5)) (#Fail{3})) 8)
+= #Refl{}

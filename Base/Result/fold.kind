@@ -1,12 +1,12 @@
 use Base/Result/ as R/
 
 // Folds over a Result value.
-// - A: The type of the successful result.
-// - B: The type of the folded result.
-// - E: The type of the error.
-// - done: The function to apply to the value if the Result is Done.
-// - fail: The function to apply to the error if the Result is Fail.
-// - ra: The Result value to fold over.
+// - 1st: The type of the successful result.
+// - 2nd: The type of the folded result.
+// - 3rd: The type of the error.
+// - 4th: The function to apply to the value if the Result is Done.
+// - 5th: The function to apply to the error if the Result is Fail.
+// - 6th: The Result value to fold over.
 // = Either the result of applying 'done' to the value (if Done) or
 //   the result of applying 'fail' to the error (if Fail).
 R/fold
