@@ -1,0 +1,24 @@
+use Base/Result/ as R/
+use Base/Equal/ as E/
+use Base/Nat/ as N/
+// use Base/String/ as S/
+
+// // Test: Applying bind to a failed Result returns the same Fail.
+// T0
+// : (E/Equal (R/Result U32 S/String) (R/Monad/bind U32 U32 S/String (#Fail{"Error"}) (λx #Done{(+ x 5)})) (#Fail{"Error"}))
+// = #Refl{}
+
+// Test: Applying a function to a failure should return the same Fail value.
+T1
+: (E/Equal (R/Result U32 U32) (R/Monad/bind U32 U32 U32 (#Fail{10}) (λx #Done{(+ x 1)})) (#Fail{10}))
+= #Refl{}
+
+// Test: Chain binds where the first result is a Fail.
+T2
+: (E/Equal (R/Result U32 U32) (R/Monad/bind U32 U32 U32 (#Fail{7}) (λx (R/Monad/bind U32 U32 U32 (#Done{(+ x 2)}) (λy #Done{(* y 2)})))) (#Fail{7}))
+= #Refl{}
+
+// Test: Chain binds where the second result is a Fail.
+T3
+: (E/Equal (R/Result U32 U32) (R/Monad/bind U32 U32 U32 (#Done{3}) (λx (R/Monad/bind U32 U32 U32 (#Fail{8}) (λy #Done{(* y 2)})))) (#Fail{8}))
+= #Refl{}
