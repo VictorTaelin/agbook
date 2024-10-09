@@ -17,3 +17,4 @@ _==_ : Click → Click → Bool
 _==_ = eq
 
 infix 4 _==_
+

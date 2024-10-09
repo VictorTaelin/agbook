@@ -32,3 +32,4 @@ T5 = refl
 -- Test: 'a' is not greater than 'a'
 T6 : gt 'a' 'a' ≡ False
 T6 = refl
+

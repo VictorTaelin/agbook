@@ -18,3 +18,4 @@ enter (Var x addr) = do
     None        → pure (Var x addr)
     (Some term) → enter term
 enter term = pure term
+

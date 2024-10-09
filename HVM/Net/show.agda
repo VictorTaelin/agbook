@@ -18,3 +18,4 @@ show net = do
   let root = Term.show (Net.root net)
   let rbag = join "" (map (λ r → " & " ++ Redex.show r) (Net.rbag net))
   root ++ rbag
+

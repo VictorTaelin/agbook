@@ -8,3 +8,4 @@ record TextLocation : Set where
   field
     line : Nat  -- The line number
     char : Nat  -- The character position within the line
+

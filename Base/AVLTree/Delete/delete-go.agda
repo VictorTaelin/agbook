@@ -42,3 +42,4 @@ delete-go k (Node (curr-key , curr-val) balance left right) | GT with delete-go 
 ...   | True | +one = Node (curr-key , curr-val) zero left other , True
 ...   | True | zero = Node (curr-key , curr-val) -one left other , False
 ...   | True | -one = mut-snd not (rotate-right (Node (curr-key , curr-val) -one left other))
+

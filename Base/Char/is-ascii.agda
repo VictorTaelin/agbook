@@ -10,3 +10,4 @@ primitive primIsAscii : Char → Bool
 -- = True if the character is an ASCII character, False otherwise.
 is-ascii : Char → Bool
 is-ascii = primIsAscii
+

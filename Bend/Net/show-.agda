@@ -40,3 +40,4 @@ test-show-num-ref-nodes :
       expected-output = "@NumRefNet =\n0: [Num(42) (0, 0) (0, 1) (0, 2)]\n1: [Ref(\"example\") (1, 0) (1, 1) (1, 2)]\n"
   in show net ≡ expected-output
 test-show-num-ref-nodes = refl
+

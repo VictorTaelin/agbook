@@ -12,3 +12,4 @@ open import Base.Trait.Ord
 -- = A new container with the results of applying each function to x.
 rapply : ∀ {A B : Set} {{_ : Ord B}} → Container (A → B) → A → Container B
 rapply fs x = apply (λ f → f x) fs
+

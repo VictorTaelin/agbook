@@ -15,3 +15,4 @@ open import Base.Equal.Equal
 -- = True if the character is a special character, False otherwise.
 is-special : Char → Bool
 is-special c = is-print c && (! (is-alpha c || is-digit c))
+

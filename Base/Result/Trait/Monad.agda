@@ -11,3 +11,4 @@ instance
     { bind = λ {A B} → Result.bind {A} {B}
     ; pure = λ {A} x → Done x
     }
+

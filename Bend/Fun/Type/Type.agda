@@ -17,3 +17,4 @@ data Type : Set where
   None : Type
   Num  : (t : Type) → Type
   Int  : (t : Type) → Type
+

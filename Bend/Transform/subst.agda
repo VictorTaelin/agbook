@@ -24,3 +24,4 @@ subst from to term = do
   case t' of λ where
     (Var nam) → if (eq nam from) then to else Var nam
     _ → t'
+

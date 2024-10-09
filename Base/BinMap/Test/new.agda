@@ -7,3 +7,4 @@ open import Base.Nat.Nat
 
 test-new-map : new {Nat} ≡ Leaf
 test-new-map = refl
+

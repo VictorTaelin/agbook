@@ -39,3 +39,4 @@ T7 = refl
 -- Test: min with equal values.
 T8 : min 6 6 ≡ 6
 T8 = refl
+

@@ -21,3 +21,4 @@ test-some-string = refl
 -- Test case to ensure 'some' and 'Some' are equivalent
 test-some-is-Some : ∀ {a} {A : Set a} → (x : A) → some x ≡ Some x
 test-some-is-Some _ = refl
+

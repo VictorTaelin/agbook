@@ -12,3 +12,4 @@ open import Base.Trait.Eq
 all-equal : ∀ {A : Set} {{EqA : Eq A}} → BinTree A → Bool
 all-equal Leaf         = True
 all-equal (Node x l r) = fold (λ y le re → (x == y) && le && re) True (Node x l r)
+

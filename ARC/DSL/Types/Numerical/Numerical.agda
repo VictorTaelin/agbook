@@ -6,3 +6,4 @@ open import ARC.DSL.Types.IntegerPair.IntegerPair
 
 Numerical : Set
 Numerical = Union Integer IntegerPair
+

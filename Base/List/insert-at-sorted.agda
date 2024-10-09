@@ -13,3 +13,4 @@ insert-at-sorted leq x [] = x :: []
 insert-at-sorted leq x (y :: ys) with leq x y
 ... | True  = x :: y :: ys
 ... | False = y :: insert-at-sorted leq x ys
+

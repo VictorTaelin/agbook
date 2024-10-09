@@ -11,3 +11,4 @@ maximum : ∀ {K V : Set} → AVLTree K V → Maybe (Pair K V)
 maximum Leaf                     = None
 maximum (Node kv _ _    Leaf)    = Some kv
 maximum (Node _  _ left right)   = maximum right
+

@@ -9,3 +9,4 @@ open import ARC.DSL.Functions.greater
 -- = True if x is greater than 0, False otherwise.
 positive : Integer → Boolean
 positive x = greater x 0
+

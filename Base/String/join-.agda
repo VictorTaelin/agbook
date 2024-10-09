@@ -32,3 +32,4 @@ test-join-empty-sep = refl
 -- Test case 6: Joining with a multi-character separator
 test-join-multi-sep : join " and " ("apples" :: "oranges" :: "bananas" :: []) ≡ "apples and oranges and bananas"
 test-join-multi-sep = refl
+

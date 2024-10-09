@@ -7,3 +7,4 @@ record Redex : Set where
   field
     lft : Term
     rgt : Term
+

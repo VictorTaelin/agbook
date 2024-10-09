@@ -41,3 +41,4 @@ show (SAdd v i) = "atomic_add(shared[" ++ (show v) ++ "], " ++ (show i) ++ ")"
 show (GAdd v i) = "atomic_add(global[" ++ (show v) ++ "], " ++ (show i) ++ ")"
 show (SExc v e) = "atomic_exc(shared[" ++ (show v) ++ "], " ++ (show e) ++ ")"
 show (GExc v e) = "atomic_exc(shared[" ++ (show v) ++ "], " ++ (show e) ++ ")"
+

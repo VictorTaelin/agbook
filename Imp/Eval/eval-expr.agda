@@ -132,3 +132,4 @@ interleaved mutual
     global ← Maybe.to-result (Buffer.set (Memory.global memory) i e) "invalid access to global memory"
 
     Done (record memory {global = global}, old)
+

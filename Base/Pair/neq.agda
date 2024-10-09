@@ -17,3 +17,4 @@ neq {{EqA}} {{EqB}} p1 p2 = not (Pair.eq {{EqA}} {{EqB}} p1 p2)
 infix 4 _!=_
 _!=_ : ∀ {A B : Set} → {{EqA : Eq.Eq A}} → {{EqB : Eq.Eq B}} → Pair A B → Pair A B → Bool
 _!=_ = neq
+

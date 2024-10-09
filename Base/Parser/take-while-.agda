@@ -18,3 +18,4 @@ test-take-while-empty = refl
 
 test-take-while-no-match : (take-while is-alpha) (MkState "123abc" 0) ≡ Done (MkReply (MkState "123abc" 0) "")
 test-take-while-no-match = refl
+

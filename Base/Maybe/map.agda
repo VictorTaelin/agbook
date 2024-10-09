@@ -9,3 +9,4 @@ open import Base.Maybe.Maybe
 map : ∀ {A B : Set} → (A → B) → Maybe A → Maybe B
 map fn None     = None
 map fn (Some x) = Some (fn x)
+

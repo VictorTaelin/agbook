@@ -40,3 +40,4 @@ T7 = refl
 -- Test: ':' is not a digit (just after '9' in ASCII)
 T8 : is-digit ':' ≡ False
 T8 = refl
+

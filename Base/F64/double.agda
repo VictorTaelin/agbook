@@ -8,3 +8,4 @@ open import Base.F64.add
 -- = The double of x.
 double : F64 → F64
 double x = add x x
+

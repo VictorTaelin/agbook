@@ -15,3 +15,4 @@ open import Base.String.String
 try-consume-exactly : String → Parser Bool
 try-consume-exactly target = do
   (consume-exactly target >> (pure True)) <|> (pure False)
+

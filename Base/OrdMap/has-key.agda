@@ -13,3 +13,4 @@ open import Base.AVLTree.AVLTree
 -- = True if the key is found, False otherwise.
 has-key : ∀ {K V : Set} → {{_ : Ord K}} → K → OrdMap K V → Bool
 has-key = AVL.has-key
+

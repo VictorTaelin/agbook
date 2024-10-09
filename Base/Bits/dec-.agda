@@ -33,3 +33,4 @@ test-dec-all-ones = refl
 
 test-dec-all-zeros : dec (O (O (O (O E)))) ≡ (I (I (I (I E))))
 test-dec-all-zeros = refl
+

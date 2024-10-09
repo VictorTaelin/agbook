@@ -16,3 +16,4 @@ remove-future-states mach tick = do
   let rollback-amount = find-rollback-amount tick (Mach.state-logs mach)
   let new-logs = rollback rollback-amount (Mach.state-logs mach)
   record mach { state-logs = new-logs }
+

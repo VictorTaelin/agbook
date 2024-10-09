@@ -28,3 +28,4 @@ record StateNode (S : Set) : Set where
 -- It's either empty (None) or contains a StateNode
 StateLogs : Set → Set
 StateLogs S = Maybe (StateNode S)
+

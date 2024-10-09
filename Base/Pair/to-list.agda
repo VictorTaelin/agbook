@@ -8,3 +8,4 @@ open import Base.List.List
 -- = A list containing the two elements of the pair.
 to-list : ∀ {a} {A : Set a} → Pair A A → List A
 to-list (x , y) = x :: y :: []
+

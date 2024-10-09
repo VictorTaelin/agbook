@@ -11,3 +11,4 @@ open import Base.Function.id
 apply : ∀ {A : Set} → Nat → (A → A) → A → A
 apply Zero     f x = x
 apply (Succ n) f x = f (apply n f x)
+

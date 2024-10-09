@@ -15,3 +15,4 @@ normalize = do
   if changed
     then normalize
     else pure unit
+

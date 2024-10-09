@@ -16,3 +16,4 @@ show player =
   ++ "\nName: " ++ Player.name player
   ++ "\nTarget: " ++ V2.show (Player.target player)
   ++ "\n" ++ Hero.show (Player.hero player)
+

@@ -11,3 +11,4 @@ open import Base.String.String
 -- = A new Encoder with initialized components
 new : String → Encoder
 new name = MkEncoder (net-new name) map-new
+

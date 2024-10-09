@@ -13,3 +13,4 @@ test-error-fields :
       result = (Error.index e , Error.error e)
   in result ≡ (5 , "Test error")
 test-error-fields = refl
+

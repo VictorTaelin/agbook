@@ -17,3 +17,4 @@ gt (I a) (I b) = gt a b
 infix 4 _>_
 _>_ : Bits → Bits → Bool
 _>_ = gt
+

@@ -10,3 +10,4 @@ open import Base.AVLTree.AVLTree
 size : ∀ {K V : Set} → AVLTree K V → Nat
 size Leaf                  = Zero
 size (Node _ _ left right) = Succ (size left + size right)
+

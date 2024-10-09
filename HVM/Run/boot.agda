@@ -12,3 +12,4 @@ open import HVM.Run.State.State
 -- = A Run computation that produces Unit and sets up the initial state.
 boot : Net → Run Unit
 boot net state = (State.boot net , unit)
+

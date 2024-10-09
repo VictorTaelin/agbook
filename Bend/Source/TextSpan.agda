@@ -8,3 +8,4 @@ record TextSpan : Set where
   field
     start : TextLocation  -- Starting location of the span
     end   : TextLocation  -- Ending location of the span
+

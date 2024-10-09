@@ -19,3 +19,4 @@ stripe ((x :: xs) :: xss) = (x :: []) :: zip-cons xs (stripe xss)
 -- = A new list containing the diagonal elements.
 diagonal : ∀ {A : Set} → List (List A) → List A
 diagonal = λ xss → foldr append [] (stripe xss)
+

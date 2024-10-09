@@ -23,3 +23,4 @@ get-possible-collisions qt max-rect = do
   let all-objects = query qt max-rect
   get-possible-collisions-go qt all-objects []
   
+

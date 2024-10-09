@@ -14,3 +14,4 @@ open import Base.String.to-list
 -- = True if the first string starts with the second string, False otherwise.
 starts-with : String → String → Bool
 starts-with str prefix = Base.List.starts-with.starts-with {{EqChar}} (to-list prefix) (to-list str)
+

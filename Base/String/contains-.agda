@@ -32,3 +32,4 @@ _ = refl
 
 _ : contains "hello" "Hello" ≡ False  -- Case-sensitive
 _ = refl
+

@@ -15,3 +15,4 @@ open import Base.Pair.get-fst
 -- = A new BinMap containing key-value pairs from m1 whose keys are not present in m2.
 difference : ∀ {A : Set} -> BinMap A -> BinMap A -> BinMap A
 difference m1 m2 = foldr (λ pair acc -> del acc (fst pair)) m1 (to-list m2)
+

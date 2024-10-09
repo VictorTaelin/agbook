@@ -16,3 +16,4 @@ has-key key (Node (curr-key , _) _ left right) with compare key curr-key
 ... | LT = has-key key left
 ... | EQ = True
 ... | GT = has-key key right
+

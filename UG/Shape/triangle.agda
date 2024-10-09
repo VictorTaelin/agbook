@@ -28,3 +28,4 @@ triangle v1 v2 v3 =
       rv2 = v2 - c
       rv3 = v3 - c
   in Polygon c (rv1 :: rv2 :: rv3 :: [])
+

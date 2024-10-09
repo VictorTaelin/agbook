@@ -15,3 +15,4 @@ redex-push a b = state-mut (λ state → do
   let new-rbag = MkRedex a b :: Net.rbag (State.gnet state)
   let new-gnet = record (State.gnet state) { rbag = new-rbag }
   record state { gnet = new-gnet })
+

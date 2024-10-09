@@ -58,3 +58,4 @@ move pid body-id state with get pid (State.players state) | get body-id (GameMap
 
 move-type : Nat → String → EffectType State
 move-type pid body-id = (Boolean , (move pid body-id))
+

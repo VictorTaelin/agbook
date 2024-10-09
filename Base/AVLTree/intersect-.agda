@@ -78,3 +78,4 @@ test-intersect-balanced :
       tree2 = tree-from ((3 , unit) :: (4 , unit) :: (5 , unit) :: (6 , unit) :: (7 , unit) :: [])
   in is-balanced (tree1 ∩ tree2) ≡ True
 test-intersect-balanced = refl
+

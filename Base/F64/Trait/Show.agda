@@ -7,3 +7,4 @@ open import Base.Trait.Show
 instance
   ShowF64 : Show F64
   ShowF64 = record { to-string = F64.show }
+

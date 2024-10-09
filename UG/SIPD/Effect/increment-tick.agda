@@ -16,3 +16,4 @@ increment-tick state = do
 
 increment-tick-type : EffectType State
 increment-tick-type = (Natural , increment-tick)
+

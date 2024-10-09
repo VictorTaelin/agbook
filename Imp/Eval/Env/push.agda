@@ -7,3 +7,4 @@ open import Imp.Eval.Env.Env
 -- Pushes an empty map onto an environment.
 push : Env → Env
 push e = ordmap-empty :: e
+

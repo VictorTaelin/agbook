@@ -10,3 +10,4 @@ open import Base.BinTree.BinTree
 fold : ∀ {A B : Set} → (A → B → B → B) → B → BinTree A → B
 fold f z Leaf                = z
 fold f z (Node x left right) = f x (fold f z left) (fold f z right)
+

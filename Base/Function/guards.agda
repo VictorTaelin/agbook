@@ -16,3 +16,4 @@ guards : ∀ {A : Set} → List (Pair Bool A) → A → A
 guards []                  def = def
 guards ((True  , x) :: _)  def = x  
 guards ((False , _) :: xs) def = guards xs def
+

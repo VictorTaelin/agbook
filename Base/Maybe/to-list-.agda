@@ -30,3 +30,4 @@ to-list-preserves-some x = refl
 -- Property: to-list of None is always an empty list
 to-list-none-empty : ∀ {A : Set} → to-list {A} None ≡ []
 to-list-none-empty = refl
+

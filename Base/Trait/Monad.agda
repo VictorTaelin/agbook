@@ -17,3 +17,4 @@ seq ma mb = ma >>= λ _ → mb
 
 _>>_ : ∀ {M : Set → Set} {{monadM : Monad M}} {A B : Set} → M A → M B → M B
 _>>_ = seq
+

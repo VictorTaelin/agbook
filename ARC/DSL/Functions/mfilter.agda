@@ -15,3 +15,4 @@ open import Base.Trait.Ord
 -- = A new container with filtered and merged elements.
 mfilter : ∀ {A : Set} {{_ : Ord A}} → Container (Container A) → (Container A → Boolean) → Container A
 mfilter xs pred = merge (sfilter {{OrdContainer}} xs (λ x → pred x))
+

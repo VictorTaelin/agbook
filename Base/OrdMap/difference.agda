@@ -19,3 +19,4 @@ _∖_ : ∀ {K V : Set} → {{_ : Ord K}} → OrdMap K V → OrdMap K V → OrdM
 _∖_ = difference
 
 infixr 6 _∖_
+

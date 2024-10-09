@@ -11,3 +11,4 @@ open import Base.Trait.Ord
 -- = True if the element is found, False otherwise.
 contains : ∀ {V : Set} → {{_ : Ord V}} → V → OrdSet V → Bool
 contains = AVL.has-key
+

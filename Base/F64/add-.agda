@@ -40,3 +40,4 @@ run-tests = do
 -- Main function to run tests
 main : Unit
 main = run-tests
+

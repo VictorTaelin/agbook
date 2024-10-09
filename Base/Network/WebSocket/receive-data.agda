@@ -13,3 +13,4 @@ postulate receive-data : WSConnection → IO String
 {-# FOREIGN GHC import qualified Base.Text as T #-}
 
 {-# COMPILE GHC receive-data = \conn -> (WS.receiveBase conn) #-}
+

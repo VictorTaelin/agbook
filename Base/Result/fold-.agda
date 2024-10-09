@@ -39,3 +39,4 @@ T6 = refl
 -- Test: Check fold for Fail where both functions are the same.
 T7 : fold (λ x → x + 5) (λ e → e + 5) (Fail 3) ≡ 8
 T7 = refl
+

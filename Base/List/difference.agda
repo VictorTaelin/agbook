@@ -12,3 +12,4 @@ open import Base.Trait.Eq
 -- = A new list containing elements from xs that are not in ys.
 difference : ∀ {A : Set} {{EqA : Eq A}} → List A → List A → List A
 difference xs ys = filter (λ x → not (contains x ys)) xs
+

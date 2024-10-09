@@ -6,3 +6,4 @@ open import Base.Pair.Pair
 
 pure : {A : Set} → A → Run A
 pure x = λ state → (state , x)
+

@@ -20,3 +20,4 @@ open import Base.Trait.Eq
 contained : ∀ {A : Set} {{_ : Eq A}} {{_ : Ord A}} → A → Container A → Boolean
 contained x (AsList l) = L.contains x l
 contained x (AsOSet  s) = S.contains x s
+

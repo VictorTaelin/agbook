@@ -13,3 +13,4 @@ import Base.AVLTree.delete as AVL
 -- = A new OrdSet with the specified element removed (if it existed).
 delete : ∀ {V : Set} → {{_ : Ord V}} → V → OrdSet V → OrdSet V
 delete = AVL.delete
+

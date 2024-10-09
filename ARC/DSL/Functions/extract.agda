@@ -17,3 +17,4 @@ extract : ∀ {A : Set} → A → Container A → (A → Boolean) → A
 extract default cs pred with find pred (container-to-list cs)
 ... | Some x = x  -- If an element satisfying the predicate is found, return it
 ... | None   = default  -- If no element is found, return the default value
+

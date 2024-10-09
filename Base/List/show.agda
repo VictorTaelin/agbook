@@ -12,3 +12,4 @@ show (x :: xs) = "[" ++ Show.to-string x ++ show-rest xs
     show-rest : List _ → String
     show-rest [] = "]"
     show-rest (y :: ys) = ", " ++ Show.to-string y ++ show-rest ys
+

@@ -19,3 +19,4 @@ set (Node val l r) (I k) v = Node val l (set r k v)
 set Leaf           E     v = Node (Some v) Leaf Leaf
 set Leaf           (O k) v = Node None (set Leaf k v) Leaf
 set Leaf           (I k) v = Node None Leaf (set Leaf k v)
+

@@ -21,3 +21,4 @@ subst-swap x t = λ state → do
   let new-subs = OrdMap.insert (x , t) (State.subs state)
   let new-state = record state { subs = new-subs }
   (new-state , old-val)
+

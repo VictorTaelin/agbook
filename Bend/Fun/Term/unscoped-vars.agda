@@ -31,3 +31,4 @@ unscoped-vars (Let pat val nxt) = do
 unscoped-vars term = do
   let (decls , uses) = unzip (map unscoped-vars (children term))
   (concat decls , concat uses)
+

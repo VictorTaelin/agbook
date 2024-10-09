@@ -29,3 +29,4 @@ _%_ : Nat → Nat → Nat
 _%_ = mod
 
 infixl 7 _%_
+

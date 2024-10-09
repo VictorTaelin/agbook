@@ -16,3 +16,4 @@ merge a b ab Leaf            Leaf            = Leaf
 merge a b ab Leaf            (Node x2 l2 r2) = Node (b x2) (merge a b ab Leaf l2) (merge a b ab Leaf r2)
 merge a b ab (Node x1 l1 r1) Leaf            = Node (a x1) (merge a b ab l1 Leaf) (merge a b ab r1 Leaf)
 merge a b ab (Node x1 l1 r1) (Node x2 l2 r2) = Node (ab x1 x2) (merge a b ab l1 l2) (merge a b ab r1 r2)
+

@@ -14,3 +14,4 @@ open import HVM.Term.Term
 -- = A new State with the given net, empty substitutions (if in NAMED mode), and fresh variable counter (if in NAMED mode).
 boot : Net → State
 boot net = MkState net empty 0
+

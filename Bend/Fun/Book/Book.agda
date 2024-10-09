@@ -16,3 +16,4 @@ record Book : Set where
     defs : BinMap FnDef -- Map of function definitions
     adts : BinMap Adt   -- Map of ADTs
     ctrs : BinMap Ctr   -- Map of constructors
+

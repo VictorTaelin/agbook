@@ -9,3 +9,4 @@ open import Bend.Fun.Num.Num
 add-num : Term → Nat → Term
 add-num term 0 = term
 add-num term n = Oper Add term (Num' (U24 n))
+

@@ -10,3 +10,4 @@ instance
     { memp = ""
     ; mapp = append
     }
+

@@ -12,3 +12,4 @@ _::_ : Word8 → ByteString → ByteString
 _::_ = cons
 
 infixr 5 _::_
+

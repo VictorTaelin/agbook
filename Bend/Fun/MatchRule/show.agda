@@ -28,3 +28,4 @@ instance
         let binds-str = join " " (map show-bind binds)
         let name = fold "*" (λ n → n) name
         name ++ (if binds-str == "" then "" else " " ++ binds-str) ++ ": " ++ show {{TShow}} body
+

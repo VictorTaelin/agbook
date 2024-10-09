@@ -8,3 +8,4 @@ open import Base.F64.mul
 -- = The square of x (x^2).
 square : F64 → F64
 square x = mul x x
+

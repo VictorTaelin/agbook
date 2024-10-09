@@ -11,3 +11,4 @@ open import Base.Trait.Ord
 -- = The smaller of the two input numbers.
 min : Nat → Nat → Nat
 min m n = if m <= n then m else n
+

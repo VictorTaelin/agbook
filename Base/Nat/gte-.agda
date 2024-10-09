@@ -38,3 +38,4 @@ T6 = refl
 -- Test : 1 >= 2 should be False.
 T7 : (Succ Zero >= Succ (Succ Zero)) ≡ False
 T7 = refl
+

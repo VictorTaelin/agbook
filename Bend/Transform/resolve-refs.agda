@@ -66,3 +66,4 @@ resolve-refs book =
   record book {
     defs = BinTree.fold map-defs Leaf (Book.defs book)
   }
+

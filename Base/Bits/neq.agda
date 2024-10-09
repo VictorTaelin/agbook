@@ -11,3 +11,4 @@ neq x y = not (Bits.eq x y)
 infix 4 _!=_
 _!=_ : Bits → Bits → Bool
 _!=_ = neq
+

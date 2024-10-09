@@ -22,3 +22,4 @@ materialize term = do
       m1 ← materialize p1
       m2 ← materialize p2
       pure (Dup m1 m2)
+

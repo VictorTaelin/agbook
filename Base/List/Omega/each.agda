@@ -8,3 +8,4 @@ open import Base.List.Omega.Omega
 -- = An Omega containing all elements from the input list.
 each : ∀ {A : Set} → List A → Omega A
 each xs = MkOmega xs
+

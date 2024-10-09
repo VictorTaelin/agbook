@@ -28,3 +28,4 @@ show state = do
   let subst-strs = map show-subst subst-list
   let subst-str  = "Subs:\n" ++ join "\n" subst-strs
   net-str ++ "\n\n" ++ subst-str
+

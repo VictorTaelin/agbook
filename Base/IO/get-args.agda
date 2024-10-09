@@ -15,3 +15,4 @@ postulate get-args : IO (List String)
 {-# COMPILE GHC get-args = fmap (map Text.pack) getArgs #-}
 
 {-# COMPILE JS get-args = function() { return Promise.resolve(process.argv.slice(2)); } #-}
+

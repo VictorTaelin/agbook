@@ -52,3 +52,4 @@ read-con r (MkPort node 2) = do
 
 read-con r (MkPort node _) = do
   Fail "Invalid slot"
+

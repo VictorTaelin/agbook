@@ -20,3 +20,4 @@ infixl 6 _^_
 -- - Equivalent to the 'xor' function.
 _^_ : U64 → U64 → U64
 _^_ = xor
+

@@ -119,3 +119,4 @@ _ = refl
 -- Errors
 _ : parse "(" ≡ Fail (MkError 1 "Expected term")
 _ = refl
+

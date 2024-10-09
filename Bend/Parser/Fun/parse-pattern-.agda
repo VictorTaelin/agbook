@@ -119,3 +119,4 @@ _ = refl
 -- Empty tuple
 _ : parse "()" ≡ Fail (MkError 0 "Expected pattern")
 _ = refl
+

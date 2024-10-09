@@ -18,3 +18,4 @@ _!=_ : ∀ {A : Set} → {{EqA : Eq.Eq A}} → BinTree A → BinTree A → Bool
 _!=_ = neq
 
 infix 4 _!=_
+

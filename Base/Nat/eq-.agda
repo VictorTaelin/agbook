@@ -21,3 +21,4 @@ T2 = refl
 -- Test: inequality of the same number
 T3 : (4 != 4) ≡ False
 T3 = refl
+

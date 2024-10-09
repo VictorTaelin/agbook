@@ -18,3 +18,4 @@ _<=_ : Nat → Nat → Bool
 _<=_ = lte
 
 infix 4 _<=_
+

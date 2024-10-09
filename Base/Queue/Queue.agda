@@ -12,3 +12,4 @@ record Queue {a} (A : Set a) : Set a where
   constructor MkQueue
   field
     front back : List A
+

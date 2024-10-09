@@ -11,3 +11,4 @@ set node 0 port = Some (record node { main = port })
 set node 1 port = Some (record node { aux1 = port })
 set node 2 port = Some (record node { aux2 = port })
 set node _    _ = None
+

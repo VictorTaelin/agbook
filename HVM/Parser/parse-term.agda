@@ -49,3 +49,4 @@ parse-term = do
     p2 ← parse-term
     consume "}"
     pure (Dup p1 p2)
+

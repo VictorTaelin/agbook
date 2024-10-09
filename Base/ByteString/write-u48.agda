@@ -34,3 +34,4 @@ write-u48 bs pos value = do
   let after = drop (pos + 6) original
   let result = pack (before ++ bytes ++ after)
   result
+

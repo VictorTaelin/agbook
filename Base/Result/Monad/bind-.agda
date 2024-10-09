@@ -23,3 +23,4 @@ T2 = refl
 -- Test: Chain binds where the second result is a Fail.
 T3 : bind (Done 3) (λ x → bind (Fail 8) (λ y → Done (y * 2))) ≡ Fail 8
 T3 = refl
+

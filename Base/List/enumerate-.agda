@@ -14,3 +14,4 @@ _ = refl
 
 _ : ∀{A : Set} → enumerate {A} [] ≡ []
 _ = refl
+

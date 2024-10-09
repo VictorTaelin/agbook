@@ -28,3 +28,4 @@ instance
       show-pattern (Num val) = show val
       show-pattern (Lst els) = "[" ++ join ", " (map show els) ++ "]"
       show-pattern (Str val) = "\"" ++ val ++ "\""
+

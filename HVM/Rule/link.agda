@@ -10,3 +10,4 @@ open import HVM.Term.Term
 -- Link interaction
 link : String → Term → Run Unit
 link x b = RunLink.link (Var x) b
+

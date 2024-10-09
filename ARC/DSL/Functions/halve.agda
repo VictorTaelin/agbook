@@ -13,3 +13,4 @@ open import ARC.DSL.Types.IntegerPair.IntegerPair
 halve : Numerical → Numerical
 halve (Lft x)       = Lft (I.div x 2)
 halve (Rgt (x , y)) = Rgt (I.div x 2 , I.div y 2)
+

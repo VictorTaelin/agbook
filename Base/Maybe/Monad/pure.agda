@@ -7,3 +7,4 @@ open import Base.Maybe.Maybe
 -- = A Maybe value containing x.
 pure : ∀ {A : Set} → A → Maybe A
 pure x = Some x
+

@@ -25,3 +25,4 @@ push new-state states t with states
 ...   | Succ _ with (StateNode.life node)
 ...     | Zero = Some (MkStateNode t Zero (StateNode.life node) new-state (Some (record node { keep = Zero ; older = (StateNode.older node) })))
 ...     | Succ new-life = Some (MkStateNode t Zero Zero new-state (Some (record node { keep = Zero ; life = new-life ; older = (StateNode.older node) })))
+

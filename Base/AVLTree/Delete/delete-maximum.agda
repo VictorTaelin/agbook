@@ -31,3 +31,4 @@ delete-maximum (Node curr balance l r) with delete-maximum r
 ... | (True , -one) = do
   let (node , height) = rotate-right (Node curr -one l other)
   v , node , height
+

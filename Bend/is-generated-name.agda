@@ -10,3 +10,4 @@ open import Base.String.contains
 -- = True if the name is generated, False otherwise.
 is-generated-name : String → Bool
 is-generated-name name = (contains name "__") || (contains name "%")
+

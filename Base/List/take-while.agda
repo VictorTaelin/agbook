@@ -12,3 +12,4 @@ take-while fn [] = []
 take-while fn (x :: xs) with fn x
 ... | True  = x :: take-while fn xs
 ... | False = []
+

@@ -15,3 +15,4 @@ sqr-dist (MkV2 x1 y1) (MkV2 x2 y2) =  do
   let dx = x2 - x1
   let dy = y2 - y1
   (dx * dx) + (dy * dy)
+

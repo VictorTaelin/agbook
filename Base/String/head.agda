@@ -13,3 +13,4 @@ head : String → Maybe Char
 head s with to-list s
 ... | []       = None
 ... | (c :: _) = Some c
+

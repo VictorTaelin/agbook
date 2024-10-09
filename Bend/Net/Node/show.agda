@@ -21,3 +21,4 @@ instance
         show main ++ " " ++
         show aux1 ++ " " ++
         show aux2 ++ "]"
+

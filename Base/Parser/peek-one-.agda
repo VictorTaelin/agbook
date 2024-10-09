@@ -18,3 +18,4 @@ test-peek-one-empty = refl
 
 test-peek-one-special : peek-one (MkState "!@#" 0) ≡ Done (MkReply (MkState "!@#" 0) (Some '!'))
 test-peek-one-special = refl
+

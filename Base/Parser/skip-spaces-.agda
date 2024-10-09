@@ -17,3 +17,4 @@ test-skip-spaces-none = refl
 
 test-skip-spaces-all : skip-spaces (MkState "     " 0) ≡ Done (MkReply (MkState "" 5) 5)
 test-skip-spaces-all = refl
+

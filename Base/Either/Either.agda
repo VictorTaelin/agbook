@@ -13,3 +13,4 @@ data Either {a b} (A : Set a) (B : Set b) : Set (a ⊔ b) where
   -- Constructs a right value.
   -- - y: A value of type B.
   Rgt : B → Either A B
+

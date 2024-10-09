@@ -17,3 +17,4 @@ _<<_ : Bits → Nat → Bits
 _<<_ = lshift
 
 infixl 8 _<<_
+

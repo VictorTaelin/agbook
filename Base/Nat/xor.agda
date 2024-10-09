@@ -17,3 +17,4 @@ _^_ : Nat → Nat → Nat
 _^_ = xor
 
 infixr 5 _^_
+

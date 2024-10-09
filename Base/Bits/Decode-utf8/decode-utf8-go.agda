@@ -38,3 +38,4 @@ decode-utf8-go bits with bits
 
 -- Invalid sequence: replace with the replacement character
 ... | _ :: rest = utf8-replacement-character :: decode-utf8-go rest
+

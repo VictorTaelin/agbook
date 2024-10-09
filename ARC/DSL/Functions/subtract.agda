@@ -16,3 +16,4 @@ subtract (Lft x)         (Lft y)         = Lft (I.sub x y)
 subtract (Lft x)         (Rgt (y0 , y1)) = Rgt (I.sub x y0  , I.sub x y1)
 subtract (Rgt (x0 , x1)) (Lft y)         = Rgt (I.sub x0 y  , I.sub x1 y)
 subtract (Rgt (x0 , x1)) (Rgt (y0 , y1)) = Rgt (I.sub x0 y0 , I.sub x1 y1)
+

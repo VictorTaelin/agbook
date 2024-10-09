@@ -40,3 +40,4 @@ parse-rule-lhs expected = do
       pats <- list-like parse-pattern "" "=" "" False 0
       pure (name , pats)
   pure (name , pats)
+

@@ -15,3 +15,4 @@ open import Base.Nat.mul
 time-to-tick : ∀ {S A : Set} → Mach S A → Time → Tick
 time-to-tick mach time = 
   div (mul time (Mach.ticks-per-second mach)) 1000
+

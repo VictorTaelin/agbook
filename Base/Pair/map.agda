@@ -14,3 +14,4 @@ map : ∀ {a b c d} {A : Set a} {B : A → Set b} {C : Set c} {D : C → Set d}
       → Sigma A B
       → Sigma C D
 map f g (x , y) = f x , g x y
+

@@ -37,3 +37,4 @@ desugar-use book = record book { defs = BinMap.map desugar-def (Book.defs book) 
   -- Desugar use expressions in a function definition
   desugar-def : FnDef → FnDef
   desugar-def def = record def { rules = map desugar-rule (FnDef.rules def) }
+

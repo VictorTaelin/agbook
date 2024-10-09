@@ -6,3 +6,4 @@ record Unit : Set where
 {-# BUILTIN UNIT Unit #-}
 {-# COMPILE GHC Unit = data () (()) #-}
 {-# COMPILE JS Unit = "(() => {})" #-}
+

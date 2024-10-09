@@ -22,3 +22,4 @@ instance
       show-node-kind (Num b) = "Num(" ++ show (to-nat b) ++ ")"
       show-node-kind Opr = "Opr"
       show-node-kind Swi = "Swi"
+

@@ -20,3 +20,4 @@ T2 = refl
 -- Test: Special character '@' is not considered uppercase
 T3 : is-upper '@' ≡ False
 T3 = refl
+

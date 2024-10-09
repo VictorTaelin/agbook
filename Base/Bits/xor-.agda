@@ -36,3 +36,4 @@ test-xor-commutative = refl
 
 test-xor-self-zero : (I (O (I E))) ^ (I (O (I E))) ≡ O (O (O E))
 test-xor-self-zero = refl
+

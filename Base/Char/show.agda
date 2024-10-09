@@ -10,3 +10,4 @@ open import Base.String.from-char
 -- = A string containing the character enclosed in single quotes.
 show : Char → String
 show c = "'" ++ from-char c ++ "'"
+

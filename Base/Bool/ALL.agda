@@ -16,3 +16,4 @@ open import Base.Bool.orc public
 open import Base.Bool.show public
 open import Base.Bool.xnor public
 open import Base.Bool.xor public
+

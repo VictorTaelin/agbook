@@ -18,3 +18,4 @@ parse-redex = do
   consume "~"
   rgt <- parse-term
   pure (MkRedex lft rgt)
+

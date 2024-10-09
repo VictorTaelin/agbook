@@ -9,3 +9,4 @@ open import Base.Bool.Bool
 is-nil : ∀ {A : Set} → List A → Bool
 is-nil []       = True
 is-nil (_ :: _) = False
+

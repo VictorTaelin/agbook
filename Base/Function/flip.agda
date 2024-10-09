@@ -7,3 +7,4 @@ module Base.Function.flip where
 -- = The result of applying f with its first two arguments swapped.
 flip : ∀ {a b c} {A : Set a} {B : Set b} {C : Set c} → (A → B → C) → B → A → C
 flip f y x = f x y
+

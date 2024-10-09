@@ -9,3 +9,4 @@ open import Base.List.List
 
 move : Nat → String → Skill State
 move pid body-id = MkSkill "move" ((Effect.move-type pid body-id) :: [])
+

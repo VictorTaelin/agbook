@@ -31,3 +31,4 @@ T5 = refl
 -- Test: Newline character remains unchanged
 T6 : to-upper '\n' ≡ '\n'
 T6 = refl
+

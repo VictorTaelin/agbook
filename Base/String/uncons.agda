@@ -14,3 +14,4 @@ primitive
 --   Nothing if the string is empty.
 uncons : String → Maybe (Σ Char (λ _ → String))
 uncons = primStringUncons
+

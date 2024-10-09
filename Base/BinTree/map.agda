@@ -9,3 +9,4 @@ open import Base.BinTree.BinTree
 map : ∀ {A B : Set} → (A → B) → BinTree A → BinTree B
 map f Leaf         = Leaf
 map f (Node x l r) = Node (f x) (map f l) (map f r)
+

@@ -10,3 +10,4 @@ primitive primIsLower : Char → Bool
 -- = True if the character is lowercase, False otherwise.
 is-lower : Char → Bool
 is-lower = primIsLower
+

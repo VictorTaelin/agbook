@@ -21,3 +21,4 @@ T2 = refl
 -- Test: Enqueue to a queue with elements in both front and back
 T3 : enqueue (MkQueue (1 :: []) (3 :: 2 :: [])) 4 ≡ MkQueue (1 :: []) (4 :: 3 :: 2 :: [])
 T3 = refl
+

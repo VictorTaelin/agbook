@@ -22,3 +22,4 @@ T2 = refl
 -- Test: Checks if 'a' is not recognized as an octal digit.
 T3 : is-octal-digit 'a' ≡ False
 T3 = refl
+

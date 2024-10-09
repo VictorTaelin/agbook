@@ -16,3 +16,4 @@ divide (Lft x)         (Lft y)         = Lft (I.div x y)
 divide (Lft x)         (Rgt (y0 , y1)) = Rgt (I.div x y0  , I.div x y1)
 divide (Rgt (x0 , x1)) (Lft y)         = Rgt (I.div x0 y  , I.div x1 y)
 divide (Rgt (x0 , x1)) (Rgt (y0 , y1)) = Rgt (I.div x0 y0 , I.div x1 y1)
+

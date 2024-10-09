@@ -9,3 +9,4 @@ open import ARC.DSL.Types.Boolean.Functions
 -- = True if both a and b are true, False otherwise.
 both : Boolean → Boolean → Boolean
 both = and
+

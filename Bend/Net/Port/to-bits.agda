@@ -10,3 +10,4 @@ to-bits : Port → Bits
 -- We need to pad to make sure that the bit representation is unique.
 -- The padding should ensure at least the max hvm width.
 to-bits (MkPort node-id slot-id) = nat-to-bits node-id ++ pad-zeros 32 (nat-to-bits slot-id)
+

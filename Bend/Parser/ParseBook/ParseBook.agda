@@ -15,3 +15,4 @@ record ParseBook : Set where
     fun-defs : BinMap Fun.FnDef
     adts     : BinMap Adt
     ctrs     : BinMap Ctr
+

@@ -9,3 +9,4 @@ record Net : Set where
   field
     root : Term
     rbag : List Redex
+

@@ -6,3 +6,4 @@ open import HVM.Term.Term
 
 root-set : Term → Net → Net
 root-set new-root net = record net { root = new-root }
+

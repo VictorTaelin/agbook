@@ -10,3 +10,4 @@ primitive primIsPrint : Char → Bool
 -- = True if the character is printable, False otherwise.
 is-print : Char → Bool
 is-print = primIsPrint
+

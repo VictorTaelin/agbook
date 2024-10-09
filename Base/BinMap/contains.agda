@@ -16,3 +16,4 @@ contains (Node None     _ _) E     = False
 contains (Node _        l _) (O k) = contains l k
 contains (Node _        _ r) (I k) = contains r k
 contains Leaf                   _      = False
+

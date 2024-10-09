@@ -9,3 +9,4 @@ open import UG.SIPD.Event.Click.Click
 show : Click → String
 show LeftButton  = "LeftButton"
 show RightButton = "RightButton"
+

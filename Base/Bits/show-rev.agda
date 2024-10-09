@@ -14,3 +14,4 @@ show-rev bits = go (reverse bits) where
   go E        = ""
   go (O bits) = "0" ++ go bits
   go (I bits) = "1" ++ go bits
+

@@ -18,3 +18,4 @@ open import ARC.DSL.Functions.uppermost
 height : Piece → Integer
 height (Lft grid) = size (AsList grid)
 height (Rgt patch) = add (subtract (lowermost patch) (uppermost patch)) 1
+

@@ -81,3 +81,4 @@ test-delete-reinsert : do
   let result = insert (2 , unit) intermediate
   (to-list result == to-list tree) && is-balanced result ≡ True
 test-delete-reinsert = refl
+

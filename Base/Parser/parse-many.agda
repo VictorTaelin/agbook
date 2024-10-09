@@ -27,3 +27,4 @@ parse-many p = parse-many-go p []
     case p s of λ where
       (Done r) → parse-many-go p (Reply.value r :: acc) (Reply.state r)
       (Fail _) → Done (MkReply s (reverse acc))
+

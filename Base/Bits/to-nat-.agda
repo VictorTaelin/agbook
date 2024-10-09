@@ -31,3 +31,4 @@ test-ten = refl
 
 test-twenty-five : to-nat (I (O (O (I (I E))))) ≡ 25
 test-twenty-five = refl
+

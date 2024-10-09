@@ -10,3 +10,4 @@ intersperse : ∀ {A : Set} → A → List A → List A
 intersperse x []        = []
 intersperse x (y :: []) = y :: []
 intersperse x (y :: ys) = y :: x :: intersperse x ys
+

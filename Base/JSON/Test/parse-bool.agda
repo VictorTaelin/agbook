@@ -35,3 +35,4 @@ test-parse-bool-true-trailing = refl
 
 test-parse-bool-false-trailing : parse-bool (MkState "false456" 0) ≡ Done (MkReply (MkState "456" 5) (JBool False))
 test-parse-bool-false-trailing = refl
+

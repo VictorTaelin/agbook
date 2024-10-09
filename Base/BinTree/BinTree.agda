@@ -6,3 +6,4 @@ module Base.BinTree.BinTree where
 data BinTree (A : Set) : Set where
   Node : (val : A) → (lft : BinTree A) → (rgt : BinTree A) → BinTree A
   Leaf : BinTree A
+

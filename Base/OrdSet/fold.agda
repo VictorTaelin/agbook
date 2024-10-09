@@ -12,3 +12,4 @@ open import Base.Unit.Unit
 -- = The result of folding the set.
 fold : ∀ {V A : Set} → (V → A → A) → A → OrdSet V → A
 fold f z set = AVL.fold (λ p acc → f (fst p) acc) z set
+

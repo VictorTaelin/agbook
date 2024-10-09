@@ -17,3 +17,4 @@ _<>_ {{monoidA}} = mapp {{monoidA}}
 concat : ∀ {A : Set} {{monoidA : Monoid A}} → List A → A
 concat [] = memp
 concat (x :: xs) = x <> concat xs
+

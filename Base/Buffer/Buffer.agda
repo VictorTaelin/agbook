@@ -12,3 +12,4 @@ record Buffer : Set where
   field
     length : Nat
     buffer : OrdMap U64 U64
+

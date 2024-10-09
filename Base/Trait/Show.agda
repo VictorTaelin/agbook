@@ -11,3 +11,4 @@ record Show {a} (A : Set a) : Set (lsuc a) where
   show = to-string
 
 open Show {{...}} public
+

@@ -16,3 +16,4 @@ add (Lft x)         (Lft y)         = Lft (I.add x y)
 add (Lft x)         (Rgt (y0 , y1)) = Rgt (I.add x y0  , I.add x y1)
 add (Rgt (x0 , x1)) (Lft y)         = Rgt (I.add x0 y  , I.add x1 y)
 add (Rgt (x0 , x1)) (Rgt (y0 , y1)) = Rgt (I.add x0 y0 , I.add x1 y1)
+

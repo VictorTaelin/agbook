@@ -16,3 +16,4 @@ get-pair key (Node (curr-key , curr-val) _ left right) with compare key curr-key
 ... | LT = get-pair key left
 ... | EQ = Some (curr-key , curr-val)
 ... | GT = get-pair key right
+

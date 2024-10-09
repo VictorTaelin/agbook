@@ -113,3 +113,4 @@ parse-adt = do
         then sep-by (parse-ctr type-name type-vars) "|" 0
         else pure []
       pure (head :: tail)
+

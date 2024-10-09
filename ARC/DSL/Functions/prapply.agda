@@ -20,3 +20,4 @@ open import Base.Trait.Ord
 -- = A new container (OrdSet) with the function applied to all pairs of elements from ca and cb.
 prapply : ∀ {A B C : Set} {{_ : Ord C}} → (A → B → C) → Container A → Container B → Container C
 prapply fn ca cb = AsList (L.concat-map (λ a → L.map (fn a) (container-to-list cb)) (container-to-list ca))
+

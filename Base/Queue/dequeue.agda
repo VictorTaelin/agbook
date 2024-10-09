@@ -15,3 +15,4 @@ dequeue (MkQueue (x :: f) b) = Some (x , MkQueue f b)
 dequeue (MkQueue [] b) with reverse b
 ... | []       = None
 ... | (x :: f) = Some (x , MkQueue f [])
+

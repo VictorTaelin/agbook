@@ -32,3 +32,4 @@ T5 = refl
 -- Test: Associativity: (a + b) + c = a + (b + c)
 T6 : ((2 + 3) + 4) ≡ (2 + (3 + 4))
 T6 = refl
+

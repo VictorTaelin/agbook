@@ -17,3 +17,4 @@ _>>=_ : ∀ {A B : Set} → Omega A → (A → Omega B) → Omega B
 _>>=_ = bind
 
 infixl 1 _>>=_
+

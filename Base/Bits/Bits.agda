@@ -8,3 +8,4 @@ data Bits : Set where
   O : (tail : Bits) → Bits
   I : (tail : Bits) → Bits
   E : Bits
+

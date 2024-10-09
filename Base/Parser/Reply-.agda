@@ -14,3 +14,4 @@ test-reply-fields :
       result = (Reply.state r , Reply.value r)
   in result ≡ (MkState "abc" 0 , 42)
 test-reply-fields = refl
+

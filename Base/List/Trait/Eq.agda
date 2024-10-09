@@ -8,3 +8,4 @@ open import Base.Trait.Eq
 instance
   EqList : ∀ {A : Set} {{EqA : Eq A}} → Eq (List A)
   EqList = MkEq List.eq List.neq
+

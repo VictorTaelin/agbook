@@ -22,3 +22,4 @@ postulate run-concurrent-client : String → Int → String → (WSConnection �
 {-# COMPILE GHC run-concurrent-client = \host port path handler -> do
     void $ CC.forkIO $ WS.runClient (T.unpack host) (fromIntegral port) (T.unpack path) handler
 #-}
+

@@ -16,3 +16,4 @@ sub a b = from-nat ((to-nat a + 18446744073709551616) n- to-nat b)
 infixl 6 _-_
 _-_ : U64 → U64 → U64
 _-_ = sub
+

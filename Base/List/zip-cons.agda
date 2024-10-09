@@ -11,3 +11,4 @@ zip-cons : ∀ {A : Set} → List A → List (List A) → List (List A)
 zip-cons []        ys        = ys
 zip-cons xs        []        = map (λ y → y :: []) xs
 zip-cons (x :: xs) (y :: ys) = (x :: y) :: zip-cons xs ys
+

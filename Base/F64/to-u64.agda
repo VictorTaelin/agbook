@@ -11,3 +11,4 @@ primitive primFloatToWord64 : F64 → Maybe U64
 -- = The U64 representation of x, or nothing if conversion fails.
 to-u64 : F64 → Maybe U64
 to-u64 = primFloatToWord64
+

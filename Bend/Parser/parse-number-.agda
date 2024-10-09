@@ -97,3 +97,4 @@ _ = refl
 
 _ : parse-number (new-parser-state "-8388609") ≡ Fail (MkError 8 "Number literal outside of range for i24")
 _ = refl
+

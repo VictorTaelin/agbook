@@ -12,3 +12,4 @@ open import Base.AVLTree.AVLTree
 -- = An OrdMap containing all the key-value pairs from the input list.
 from-list : ∀ {K V : Set} → {{_ : Ord K}} → List (Pair K V) → OrdMap K V
 from-list = T.from-list
+

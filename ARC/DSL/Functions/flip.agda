@@ -8,3 +8,4 @@ open import ARC.DSL.Types.Boolean.Functions
 -- = The opposite Boolean value (True becomes False, False becomes True)
 flip : Boolean → Boolean
 flip x = not x
+

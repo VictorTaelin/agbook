@@ -11,3 +11,4 @@ pair : ∀ {A B : Set} → List A → List B → List (Pair A B)
 pair []        _         = []
 pair _         []        = []
 pair (x :: xs) (y :: ys) = (x , y) :: pair xs ys
+

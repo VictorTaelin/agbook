@@ -20,3 +20,4 @@ mpapply : ∀ {A B C : Set} {{_ : Ord C}}
     → Container (Container B)
     → Container C
 mpapply fn ca cb = merge (papply fn ca cb)
+

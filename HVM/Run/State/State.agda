@@ -12,3 +12,4 @@ record State : Set where
     gnet : Net
     subs : OrdMap String Term
     vars : Nat
+

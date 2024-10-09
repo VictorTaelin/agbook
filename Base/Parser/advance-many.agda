@@ -27,3 +27,4 @@ advance-many count = λ s →
       new-index = add (State.index s) count
       new-input = from-list (drop count chars)
   in Done (MkReply (MkState new-input new-index) (Some result))
+

@@ -15,3 +15,4 @@ postulate send-binary-data : WSConnection → ByteString → IO Unit
 {-# FOREIGN GHC import qualified Network.WebSockets as WS #-}
 
 {-# COMPILE GHC send-binary-data = \conn msg -> WS.sendBinaryData conn msg #-}
+

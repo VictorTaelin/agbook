@@ -12,3 +12,4 @@ eq _  _  = False
 infix 4 _==_
 _==_ : Ordering → Ordering → Bool
 _==_ = eq
+

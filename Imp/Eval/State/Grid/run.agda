@@ -19,3 +19,4 @@ run grid@(MkGrid global blocks) = do
   case new-grid of λ where
     (Some grid) → run grid
     None        → Done global
+

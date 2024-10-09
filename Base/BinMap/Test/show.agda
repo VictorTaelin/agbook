@@ -22,3 +22,4 @@ test-show-two-element-map = refl
 
 test-show-three-element-map : show showN (set (set (set empty E 1) (O E) 2) (I E) 3) ≡ "#1[#2[_ _] #3[_ _]]"
 test-show-three-element-map = refl
+

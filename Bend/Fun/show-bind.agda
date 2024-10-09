@@ -10,3 +10,4 @@ open import Bend.Fun.Term.Term
 show-bind : Maybe String → String
 show-bind None = "*"
 show-bind (Some nam) = nam
+

@@ -13,3 +13,4 @@ import Base.Nat.show as Nat
 show : Action → String
 show (SetNick time pid nick) = 
   "SetNick " ++ Nat.show time ++ " " ++ Nat.show pid ++ " " ++ nick
+

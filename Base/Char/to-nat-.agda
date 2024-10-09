@@ -24,3 +24,4 @@ T3 = refl
 -- Test: Convert newline character to its ASCII value
 T4 : to-nat '\n' ≡ 10
 T4 = refl
+

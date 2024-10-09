@@ -14,3 +14,4 @@ record Encoder : Set where
   field
     net  : Net         -- Current state of the Net being built
     vars : BinMap Port -- Map of variable names to their corresponding Ports
+

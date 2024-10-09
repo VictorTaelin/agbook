@@ -21,3 +21,4 @@ new-gen name rules source check = do
   let kind   = if is-builtin source then Builtin else Generated
   let source = record source { kind = kind }
   MkFnDef name Type.Hole check rules source
+

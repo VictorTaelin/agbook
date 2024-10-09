@@ -108,3 +108,4 @@ net-to-bend net book linear = do
     process-fans r term
   process-fans r@(MkReader _ _ _ _ _ _ [] _ _) term = do
     Done (r , term)
+

@@ -15,3 +15,4 @@ neq x y = not (x == y)
 infix 4 _!=_
 _!=_ : Int → Int → Bool
 _!=_ = neq
+

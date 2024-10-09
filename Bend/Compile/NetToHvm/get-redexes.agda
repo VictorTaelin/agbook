@@ -39,3 +39,4 @@ get-redexes net =
     ) else
       -- Not a redex, continue
       check-nodes nodes map
+

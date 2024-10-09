@@ -11,3 +11,4 @@ primitive primStringFromList : List Char → String
 -- = A string composed of the characters in the list.
 from-list : List Char → String
 from-list = primStringFromList
+

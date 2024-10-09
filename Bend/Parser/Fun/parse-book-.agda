@@ -44,3 +44,4 @@ _ = refl
 
 _ : parse-and-show "'foo = 1\nbar = 2\n" ≡ "Parse failed: Expected top-level definition"
 _ = refl
+

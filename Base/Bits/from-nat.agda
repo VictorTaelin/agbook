@@ -24,3 +24,4 @@ from-nat n    = normal (go n (λ x → x)) where
     let quo = div n 2
     let ctr = if rem == 0 then O else I
     go quo (λ x → acc (ctr x))
+

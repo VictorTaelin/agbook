@@ -47,3 +47,4 @@ test-parse-number-7 = refl
 
 test-parse-number-8 : run-parser parse-number "1e+3" ≡ Done (JNumber 1000.0)
 test-parse-number-8 = refl
+

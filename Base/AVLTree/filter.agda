@@ -16,3 +16,4 @@ open import Base.AVLTree.insert
 -- = A new AVL tree containing only elements that satisfy the predicate.
 filter : ∀ {K V : Set} → {{_ : Ord K}} → (K → Bool) → AVLTree K V → AVLTree K V
 filter pred = fold (λ (k , v) acc → if pred k then (k , v) ::> acc else acc) empty
+

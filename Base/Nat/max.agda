@@ -11,3 +11,4 @@ open import Base.Trait.Ord
 -- = The larger of the two input numbers.
 max : Nat → Nat → Nat
 max m n = if m >= n then m else n
+

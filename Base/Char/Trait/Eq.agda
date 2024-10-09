@@ -8,3 +8,4 @@ open import Base.Trait.Eq
 instance
   EqChar : Eq Char
   EqChar = MkEq Char.eq Char.neq
+

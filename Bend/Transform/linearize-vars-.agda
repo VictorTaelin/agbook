@@ -81,3 +81,4 @@ _ : test-linearize-vars "λx λy (let z = x; (x y z x))" ≡
     λ' (p' "x") (let' (p'dup (p' "x" :: p' "x_2" :: p' "x_3" :: [])) := (v' "x") in'
       (λ' (p' "y") ((v' "x") $ (v' "y") $ (v' "x_3") $ (v' "x_2"))))
 _ = refl
+

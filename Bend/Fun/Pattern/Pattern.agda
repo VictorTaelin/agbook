@@ -16,3 +16,4 @@ data Pattern : Set where
   Num : Nat → Pattern
   Lst : List Pattern → Pattern
   Str : String → Pattern
+

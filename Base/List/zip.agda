@@ -10,3 +10,4 @@ open import Base.Pair.Pair
 -- = A new list where each element is a pair of corresponding elements from xs and ys.
 zip : ∀ {A B : Set} → List A → List B → List (Pair A B)
 zip = zip-with _,_
+

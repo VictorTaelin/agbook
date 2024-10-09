@@ -22,3 +22,4 @@ gen-var r p = do
       let var = nat-to-name (Reader.fresh r)
       let r   = record r { fresh = (Succ (Reader.fresh r)) }
       (r , var)
+

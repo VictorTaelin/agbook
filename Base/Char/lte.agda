@@ -17,3 +17,4 @@ _<=_ : Char → Char → Bool
 _<=_ = lte
 
 infix 4 _<=_
+

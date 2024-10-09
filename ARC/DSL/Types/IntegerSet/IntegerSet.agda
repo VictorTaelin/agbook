@@ -5,3 +5,4 @@ open import ARC.DSL.Types.OrdSet.OrdSet
 
 IntegerSet : Set
 IntegerSet = OrdSet Integer
+

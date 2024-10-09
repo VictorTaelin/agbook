@@ -8,3 +8,4 @@ length : Bits → Nat
 length E        = Zero
 length (O bits) = Succ (length bits)
 length (I bits) = Succ (length bits)
+

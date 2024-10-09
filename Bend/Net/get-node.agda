@@ -11,3 +11,4 @@ open import Bend.Net.Node.Node
 
 get-node : Net → Nat → Result Node String
 get-node (MkNet nodes _ _) node = to-result (get nodes (to-bits node)) "Node not found"
+

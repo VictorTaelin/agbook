@@ -9,3 +9,4 @@ open import Base.Maybe.Maybe
 run : ∀ {A : Set} → A → Maybe A → A
 run d None     = d
 run _ (Some x) = x
+

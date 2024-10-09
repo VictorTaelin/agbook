@@ -11,3 +11,4 @@ open import Base.List.List
 zip-with : ∀ {A B C : Set} → (A → B → C) → List A → List B → List C
 zip-with f (x :: xs) (y :: ys) = f x y :: zip-with f xs ys
 zip-with f _         _         = []
+

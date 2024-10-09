@@ -11,3 +11,4 @@ open import Base.String.String
 -- = A Parser that always fails with the specified error message.
 fail : ∀ {A : Set} → String → Parser A
 fail msg = λ s → Fail (MkError (State.index s) msg)
+

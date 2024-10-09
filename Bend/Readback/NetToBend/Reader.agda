@@ -22,3 +22,4 @@ record Reader : Set where
     fans      : List Nat       -- List of fan nodes to be read.
     seen-fans : BitMap Unit    -- Set of fan nodes already read.
     seen      : BitMap Unit    -- Set of already read ports.
+

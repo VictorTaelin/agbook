@@ -21,3 +21,4 @@ T2 = refl
 -- Test: Handles an invalid hexadecimal character.
 T3 : hex-to-nat 'G' ≡ None
 T3 = refl
+

@@ -12,3 +12,4 @@ open import Base.Trait.Ord
 -- = The larger of x and y as a U64 number.
 max : U64 → U64 → U64
 max x y = if (from-bool (_>=_ {{OrdU64}} x y)) then x else y
+

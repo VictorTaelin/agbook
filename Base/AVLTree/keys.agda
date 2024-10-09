@@ -13,3 +13,4 @@ keys : ∀ {K V : Set} → AVLTree K V → List K
 keys Leaf = []
 keys (Node (k , v) _ left right) =
   keys left ++ (k :: keys right)
+

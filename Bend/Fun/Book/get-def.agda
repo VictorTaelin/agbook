@@ -19,3 +19,4 @@ private
 --   None if no such function exists.
 get-def : Book → String → Result FnDef String
 get-def (MkBook defs _ _) name = to-result (get defs (hash name)) "Def not found"
+

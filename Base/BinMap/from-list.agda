@@ -14,3 +14,4 @@ open import Base.Pair.Pair
 from-list : ∀ {A : Set} → List (Pair Bits A) → BinMap A
 from-list = foldr insert empty
     
+

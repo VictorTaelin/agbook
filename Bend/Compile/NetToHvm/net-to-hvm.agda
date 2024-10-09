@@ -44,3 +44,4 @@ net-to-hvm net = do
     let redex = MkRedex a b
     redexes <- go redexes state
     Done (redex :: redexes)
+

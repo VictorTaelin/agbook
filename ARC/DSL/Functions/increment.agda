@@ -11,3 +11,4 @@ open import ARC.DSL.Functions.add
 -- = The incremented Numerical value
 increment : Numerical → Numerical
 increment x = add x (Lft 1)
+

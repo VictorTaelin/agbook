@@ -19,3 +19,4 @@ is-digit-radix 16 c  = is-hex-digit c
 is-digit-radix 2  c  = (c == '0') || (c == '1')
 is-digit-radix 10 c  = is-digit c
 is-digit-radix _  _  = False
+

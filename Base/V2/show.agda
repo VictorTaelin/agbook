@@ -10,3 +10,4 @@ open import Base.V2.V2
 -- = A string representation of the V2 vector in the format "(x, y)".
 show : V2 → String
 show v = "(" ++ F64.show (V2.x v) ++ ", " ++ F64.show (V2.y v) ++ ")"
+

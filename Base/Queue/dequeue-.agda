@@ -33,3 +33,4 @@ T3 = refl
 -- Test: Dequeue from a queue with elements in both front and back
 T4 : dequeue (MkQueue (1 :: []) (3 :: 2 :: [])) ≡ Some (1 , MkQueue [] (3 :: 2 :: []))
 T4 = refl
+

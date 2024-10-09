@@ -8,3 +8,4 @@ open import Base.Nat.Nat
 -- = The corresponding integer representation.
 from-nat : Nat → Int
 from-nat n = Pos n
+

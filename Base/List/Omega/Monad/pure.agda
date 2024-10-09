@@ -8,3 +8,4 @@ open import Base.List.Omega.Omega
 -- = An Omega containing a list with only the given element.
 pure : ∀ {A : Set} → A → Omega A
 pure x = MkOmega (x :: [])
+

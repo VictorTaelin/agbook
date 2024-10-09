@@ -7,3 +7,4 @@ open import Base.Pair.Pair
 -- = The first component of the pair.
 get-fst : ∀ {a b} {A : Set a} {B : A → Set b} → Sigma A B → A
 get-fst (x , _) = x
+

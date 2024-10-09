@@ -48,3 +48,4 @@ mutual
       (Some term) → do
         subst-take x
         link term b
+

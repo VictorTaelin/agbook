@@ -7,3 +7,4 @@ open import Base.AVLTree.AVLTree
 -- = An empty AVL tree.
 empty : ∀ {K V : Set} → AVLTree K V
 empty = Leaf
+

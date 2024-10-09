@@ -11,3 +11,4 @@ import Base.Maybe.map as Maybe
 -- = A new BinMap with the function applied to all values.
 map : ∀ {A B : Set} → (A → B) → BinMap A → BinMap B
 map f = BinTree.map (Maybe.map f)
+

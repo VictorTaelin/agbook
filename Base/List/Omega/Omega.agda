@@ -9,3 +9,4 @@ record Omega (A : Set) : Set where
   constructor MkOmega
   field
     runOmega : List A
+

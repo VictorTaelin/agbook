@@ -9,3 +9,4 @@ open import Base.List.List
 -- = A new DiffList with x added to the front.
 cons : ∀ {A : Set} → A → DiffList A → DiffList A
 cons x xs = λ tail → x :: (xs tail)
+

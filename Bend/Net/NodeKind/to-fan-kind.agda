@@ -12,3 +12,4 @@ to-fan-kind : NodeKind → Result FanKind String
 to-fan-kind Con = Done Tup
 to-fan-kind Dup = Done Dup
 to-fan-kind _   = Fail "Not a fan node"
+

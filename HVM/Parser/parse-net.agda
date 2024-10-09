@@ -17,3 +17,4 @@ parse-net = do
   root ← parse-term
   rbag ← parse-many parse-redex
   pure (MkNet root rbag)
+

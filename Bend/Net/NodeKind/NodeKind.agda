@@ -13,3 +13,4 @@ data NodeKind : Set where
   Num : Bits → NodeKind
   Opr : NodeKind
   Swi : NodeKind
+

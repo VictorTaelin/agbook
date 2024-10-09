@@ -15,3 +15,4 @@ unsnoc []        = [] , None
 unsnoc (x :: []) = [] , Some x
 unsnoc (x :: xs) with unsnoc xs
 ... | init , last = x :: init , last
+

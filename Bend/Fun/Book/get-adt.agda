@@ -14,3 +14,4 @@ open import Base.BinMap.get as Map
 --   None if no such ADT exists.
 get-adt : Book -> String -> Maybe Adt
 get-adt (MkBook _ adts _) name = Map.get adts (hash name)
+

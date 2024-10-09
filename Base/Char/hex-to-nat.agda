@@ -33,3 +33,4 @@ hex-to-nat c = do
   aux 'E' = Some 14
   aux 'F' = Some 15
   aux _   = None
+

@@ -13,3 +13,4 @@ open import Base.String.eq
 -- = A single string with all input strings concatenated, separated by the given separator.
 join : String → List String → String
 join sep = foldr (λ s acc → if acc == "" then s else s ++ sep ++ acc) ""
+

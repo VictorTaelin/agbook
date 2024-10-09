@@ -7,3 +7,4 @@ postulate head : ByteString → Word8
 
 {-# FOREIGN GHC import qualified Data.ByteString as BS #-}
 {-# COMPILE GHC head = BS.head #-}
+

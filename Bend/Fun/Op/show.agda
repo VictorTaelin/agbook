@@ -26,3 +26,4 @@ instance
       show-op Shl = "<<"
       show-op Shr = ">>"
       show-op Pow = "**"
+

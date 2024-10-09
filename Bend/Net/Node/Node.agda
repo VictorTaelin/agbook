@@ -10,3 +10,4 @@ record Node : Set where
     aux1 : Port
     aux2 : Port
     kind : NodeKind
+

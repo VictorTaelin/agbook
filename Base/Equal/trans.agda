@@ -11,3 +11,4 @@ open import Base.Equal.Equal
 -- = Proof that 1st is equal to 3rd.
 trans : ∀ {a} {A : Set a} {x y z : A} → x ≡ y → y ≡ z → x ≡ z
 trans refl refl = refl
+

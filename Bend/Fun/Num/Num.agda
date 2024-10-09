@@ -9,3 +9,4 @@ data Num : Set where
   U24 : (val : Nat) → Num
   I24 : (val : Int) → Num
   F24 : (val : F64) → Num
+

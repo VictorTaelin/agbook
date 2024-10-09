@@ -30,3 +30,4 @@ to-result-none-fail y = refl
 to-result-some-independent-of-error : ∀ {A B : Set} → (x : A) → (y1 y2 : B) → 
                                       to-result (Some x) y1 ≡ to-result (Some x) y2
 to-result-some-independent-of-error x y1 y2 = refl
+

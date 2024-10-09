@@ -29,3 +29,4 @@ T4 = refl
 -- Test: Checks if negation of equality works correctly.
 T5 : (! ('a' == 'b')) ≡ True
 T5 = refl
+

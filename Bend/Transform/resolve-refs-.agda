@@ -117,3 +117,4 @@ _ = refl
 _ : test-resolve-refs "open T A; A" ≡
     open' "T" := "A" in' (ref' "A")
 _ = refl
+

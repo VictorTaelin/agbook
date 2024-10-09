@@ -18,3 +18,4 @@ _>>_ : Bits → Nat → Bits
 _>>_ = rshift
 
 infixl 8 _>>_
+

@@ -17,3 +17,4 @@ new length = MkBuffer length (fill (to-u64 0) length empty)
   fill : U64 → Nat → (OrdMap U64 U64) → (OrdMap U64 U64)
   fill _     Zero map = map
   fill v (Succ n) map = fill v n (insert (to-u64 n , v) map)
+

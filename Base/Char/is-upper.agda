@@ -12,3 +12,4 @@ open import Base.Bool.and
 -- = True if the character is uppercase, False otherwise.
 is-upper : Char → Bool
 is-upper c = (to-nat c >= 65) && (to-nat c <= 90) 
+

@@ -27,3 +27,4 @@ serialize (SetNick time pid nick) = do
   let time-str = write-u48 (pack-string "") 0 time
   let nick-str = pack-string nick
   Some ((from-nat SETNICK) :: pid-str ++ time-str ++ nick-str)
+

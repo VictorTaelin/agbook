@@ -8,3 +8,4 @@ open import Base.QuadTree.Rectangle.point-in public
 open import Base.QuadTree.Rectangle.subdivide public
 open import Base.QuadTree.insert public
 open import Base.QuadTree.query public
+

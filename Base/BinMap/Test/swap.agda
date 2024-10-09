@@ -32,3 +32,4 @@ test-swap-non-existent :
   let initial-map = Node (Some 70) Leaf Leaf
   in (swap initial-map (O E) 80) ≡ (Node (Some 70) (Node (Some 80) Leaf Leaf) Leaf , None)
 test-swap-non-existent = refl
+

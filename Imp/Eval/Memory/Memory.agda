@@ -8,3 +8,4 @@ record Memory : Set where
   field
     global : Buffer
     shared : Buffer
+

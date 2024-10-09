@@ -31,3 +31,4 @@ instance
         let def-list    = map snd (to-list defs)
         let sorted-defs = sort (λ x y → (FnDef.name x) <= (FnDef.name y)) def-list
         join "\n\n" (map show sorted-defs)
+

@@ -15,3 +15,4 @@ parse-null = do
   skip-spaces
   consume "null"
   pure JNull
+

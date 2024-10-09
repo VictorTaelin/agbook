@@ -22,3 +22,4 @@ get-adt-ctrs : Book → String → Maybe (List Ctr)
 get-adt-ctrs book name = do
   adt ← get-adt book name
   mmap (get-ctr book) (Adt.ctr adt)
+

@@ -35,3 +35,4 @@ test-skip-trivia-multiple-newlines = refl
 
 test-skip-trivia-comment-no-newline : skip-trivia (MkState "// Comment without newline" 0) ≡ Done (MkReply (MkState "" 27) 27)
 test-skip-trivia-comment-no-newline = refl
+

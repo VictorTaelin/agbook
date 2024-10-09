@@ -10,3 +10,4 @@ record CtrField : Set where
     nam : String
     rec : Bool
     typ : Type
+

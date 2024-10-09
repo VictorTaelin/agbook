@@ -32,3 +32,4 @@ consume target = λ str →
       Done (MkReply (MkState new-input new-index) unit)
     False →
       Fail (MkError (State.index str) ("Expected " ++ target))
+

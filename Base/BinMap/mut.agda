@@ -16,3 +16,4 @@ mut (Node val l r) E     f = Node (map f val) l r
 mut (Node val l r) (O k) f = Node val (mut l k f) r
 mut (Node val l r) (I k) f = Node val l (mut r k f)
 mut Leaf           _     _ = Leaf
+

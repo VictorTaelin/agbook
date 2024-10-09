@@ -17,3 +17,4 @@ test-parse-name-empty = refl
 
 test-parse-name-special : parse-name (MkState "abc-def.ghi" 0) ≡ Done (MkReply (MkState "" 11) "abc-def.ghi")
 test-parse-name-special = refl
+

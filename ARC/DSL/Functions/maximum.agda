@@ -13,3 +13,4 @@ maximum : IntegerSet → Integer
 maximum container with S.maximum container
 ... | Some x = x
 ... | None   = 0
+

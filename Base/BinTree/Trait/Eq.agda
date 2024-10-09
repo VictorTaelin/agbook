@@ -10,3 +10,4 @@ open import Base.Trait.Eq
 instance
   EqTree : ∀ {A : Set} {{EqA : Eq A}} → Eq (BinTree A)
   EqTree = MkEq BinTree.eq BinTree.neq
+

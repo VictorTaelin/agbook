@@ -10,3 +10,4 @@ open import Base.Nat.Nat
 -- = A new function with its leftmost argument fixed.
 lbind : ∀ {A B C : Set} → (A → B → C) → A → (B → C)
 lbind f a = λ b → f a b
+

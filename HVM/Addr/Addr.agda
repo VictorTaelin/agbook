@@ -7,3 +7,4 @@ open import Base.Bool.Bool
 data Addr : Set where
   Root : (path : Bits) → Addr
   RBag : (idx : Nat) → (side : Bool) → (path : Bits) → Addr
+

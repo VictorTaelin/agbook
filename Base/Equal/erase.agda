@@ -10,3 +10,4 @@ primitive primEraseEquality : ∀ {a} {A : Set a} {x y : A} → x ≡ y → x �
 -- = Erased equality proof.
 erase : ∀ {a} {A : Set a} {x y : A} → x ≡ y → x ≡ y
 erase = primEraseEquality
+

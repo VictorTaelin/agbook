@@ -32,3 +32,4 @@ test-map-composition : {A B C : Set} -> (f : B -> C) -> (g : A -> B) -> (ma : Ma
                        map (\x -> f (g x)) ma ≡ map f (map g ma)
 test-map-composition f g None = refl
 test-map-composition f g (Some x) = refl
+

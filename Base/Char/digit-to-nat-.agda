@@ -37,3 +37,4 @@ T6 = refl
 -- Test: '١' (Arabic-Indic digit one) converts to None.
 T7 : digit-to-nat '١' ≡ None
 T7 = refl
+

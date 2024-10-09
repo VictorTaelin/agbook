@@ -25,3 +25,4 @@ test-inc-four = refl
 
 test-inc-seven : inc (I (I (I E))) ≡ (O (O (O (I E))))
 test-inc-seven = refl
+

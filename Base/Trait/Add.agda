@@ -13,3 +13,4 @@ record Add {a} (A : Set a) : Set (lsuc a) where
   infixl 6 _+_
 
 open Add {{...}} public
+

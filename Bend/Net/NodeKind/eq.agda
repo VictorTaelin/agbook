@@ -25,3 +25,4 @@ eq _         _         = False
 infix 4 _==_
 _==_ : NodeKind → NodeKind → Bool
 _==_ = eq
+

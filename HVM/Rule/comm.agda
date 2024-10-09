@@ -23,3 +23,4 @@ comm a1 a2 b1 b2 = do
   link a2 n1
   link b1 n2
   link b2 n3
+

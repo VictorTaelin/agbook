@@ -10,3 +10,4 @@ open import Base.Nat.add
 sum : BinTree Nat → Nat
 sum Leaf         = Zero
 sum (Node x l r) = x + (sum l + sum r)
+

@@ -11,3 +11,4 @@ postulate drop : Nat → ByteString → ByteString
 
 {-# FOREIGN GHC import qualified Data.ByteString as BS #-}
 {-# COMPILE GHC drop = \n bs -> BS.drop (fromIntegral n) bs #-}
+

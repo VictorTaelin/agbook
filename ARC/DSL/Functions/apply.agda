@@ -15,3 +15,4 @@ apply : ∀ {A B} {{_ : Ord B}} → (A → B) → Container A → Container B
 apply f (AsList xs) = AsList (L.map f xs)
 apply f (AsOSet xs) = AsOSet (O.map f xs)
 apply f (AsPair (x0 , x1)) = AsPair (f x0 , f x1)
+

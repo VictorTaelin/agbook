@@ -66,3 +66,4 @@ read-dup r@(MkReader net _ _ _ True _ fans seen-fans _) port = do
           else (fans , set seen-fans (to-bits port) unit)
   let r , nam = gen-var r port
   Done (record r { fans = fans ; seen-fans = seen-fans } , Var nam)
+

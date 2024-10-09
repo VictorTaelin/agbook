@@ -10,3 +10,4 @@ open import Base.Nat.Nat
 replicate : ∀ {A : Set} → Nat → A → List A
 replicate Zero     x = []
 replicate (Succ n) x = x :: replicate n x
+

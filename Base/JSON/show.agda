@@ -25,3 +25,4 @@ show (JNumber n)   = F64.show n
 show (JString s)   = String.show s
 show (JArray arr)  = "[" ++ (foldr (λ elem acc → (if eq acc "" then "" else acc ++ ", ") ++ show elem) "" arr) ++ "]"
 show (JObject obj) = "{" ++ (foldr (λ pair acc → (if eq acc "" then "" else acc ++ ", ") ++ String.show (get-fst pair) ++ ": " ++ show (get-snd pair)) "" obj) ++ "}"
+

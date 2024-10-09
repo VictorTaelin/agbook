@@ -42,3 +42,4 @@ collect-unscoped (Swt _ _ _ _ _ _) scope = do
 collect-unscoped term scope = do
   concat-map (λ (binds , child) → collect-unscoped child (binds ++ scope))
               (children-with-binds term)
+

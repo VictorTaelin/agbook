@@ -16,3 +16,4 @@ argmin default (AsOSet xs) f with L.sort (int-cmp f) (O.to-list xs)
 argmin default (AsPair (x0 , x1)) f with L.sort (int-cmp f) (x0 :: x1 :: [])
 ... | []     = default
 ... | x :: _ = x
+

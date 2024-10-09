@@ -14,3 +14,4 @@ del (Node v l r) E     = Node None l r
 del (Node v l r) (O k) = Node v (del l k) r
 del (Node v l r) (I k) = Node v l (del r k)
 del Leaf               _     = Leaf
+

@@ -18,3 +18,4 @@ starts-with prefix xs = do
   let prefix-length = length prefix
   let xs-prefix     = take prefix-length xs
   (Base.List.eq._==_ xs-prefix prefix) && (Base.Nat.eq._==_ (length xs-prefix) (length prefix))
+

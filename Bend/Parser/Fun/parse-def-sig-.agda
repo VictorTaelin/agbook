@@ -75,3 +75,4 @@ _ = refl
 
 _ : parse "f x y" ≡ Fail (MkError 5 "Expected ':'")
 _ = refl
+

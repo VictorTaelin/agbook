@@ -74,3 +74,4 @@ _ = refl
 -- Multiple separators
 _ : parse sep-by-parser "foo,,bar,,,baz" ≡ Done (MkReply (MkState ",bar,,,baz" 4) ("foo" :: []))
 _ = refl
+

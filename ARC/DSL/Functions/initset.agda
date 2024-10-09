@@ -13,3 +13,4 @@ open import Base.Trait.Ord
 -- = An OrdSet with the single value.
 initset : ∀ {A : Set} {{_ : Ord A}} → A → OrdSet A
 initset value = S.singleton value
+

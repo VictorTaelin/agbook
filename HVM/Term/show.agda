@@ -13,3 +13,4 @@ show (Var nm _) = nm
 show Era         = "*"
 show (Con p1 p2) = "(" ++ show p1 ++ " " ++ show p2 ++ ")"
 show (Dup p1 p2) = "{" ++ show p1 ++ " " ++ show p2 ++ "}"
+

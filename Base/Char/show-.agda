@@ -26,3 +26,4 @@ T3 = refl
 -- Tests if show '!' equals "'!'".
 T4 : show '!' ≡ "'!'"
 T4 = refl
+

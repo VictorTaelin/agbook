@@ -10,3 +10,4 @@ primitive primIsLatin1 : Char → Bool
 -- = True if the character is in the Latin-1 set, False otherwise.
 is-latin1 : Char → Bool
 is-latin1 = primIsLatin1
+

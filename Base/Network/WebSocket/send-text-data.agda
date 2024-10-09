@@ -14,3 +14,4 @@ postulate send-text-data : WSConnection → String → IO Unit
 {-# FOREIGN GHC import qualified Network.WebSockets as WS #-}
 
 {-# COMPILE GHC send-text-data = \conn msg -> WS.sendTextData conn msg #-}
+

@@ -13,3 +13,4 @@ record Grid : Set where
     blocks  : Nat  -- number of blocks
     threads : Nat  -- number of threads per blocks
     code    : Stmt -- the code to execute on each thread
+

@@ -25,3 +25,4 @@ _>>_ = seq
 infixl 1 _>>=_ _>>_
 
 {-# COMPILE GHC bind = \_ _ -> (>>=) #-}
+

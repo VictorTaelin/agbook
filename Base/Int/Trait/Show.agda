@@ -7,3 +7,4 @@ open import Base.Trait.Show
 instance
   ShowInt : Show Int
   ShowInt = MkShow Int.show
+

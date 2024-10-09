@@ -7,3 +7,4 @@ open import Base.Trait.Show
 instance
   ShowChar : Show Char
   ShowChar = record { to-string = Char.show }
+

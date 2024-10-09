@@ -10,3 +10,4 @@ postulate is-empty : ByteString → Bool
 
 {-# FOREIGN GHC import qualified Data.ByteString as BS #-}
 {-# COMPILE GHC is-empty = BS.null #-}
+

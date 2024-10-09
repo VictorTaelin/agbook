@@ -24,3 +24,4 @@ postulate read-file : String → IO String
     TIO.hGetContents h
 #-}
 {-# COMPILE GHC read-file   = readFiniteFile            #-}
+

@@ -11,3 +11,4 @@ open import Base.U64.to-nat
 -- = The binary representation of the number as Bits.
 to-bits : U64 → Bits
 to-bits n = to-bits-nat (to-nat n)
+

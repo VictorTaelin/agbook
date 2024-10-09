@@ -82,3 +82,4 @@ _ = refl
 -- Switch with shadowing
 _ : test-unique-names "λx λy switch x { 0: y; _: x }" ≡ "λa λb switch c = a { 0: b; _ d: c }"
 _ = refl
+

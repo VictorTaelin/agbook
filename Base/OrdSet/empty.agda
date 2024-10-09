@@ -7,3 +7,4 @@ open import Base.OrdSet.OrdSet
 -- = An empty OrdSet.
 empty : ∀ {V : Set} → OrdSet V
 empty = AVL.empty
+

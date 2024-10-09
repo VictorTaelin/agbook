@@ -26,3 +26,4 @@ rbind4 : ∀ {a b c d e f} {A : Set a} {B : Set b} {C : Set c} {D : Set d} {E : 
        → D
        → (A → B → C → E)
 rbind4 fn fixed = λ x y z → fn x y z fixed
+

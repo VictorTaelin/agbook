@@ -67,3 +67,4 @@ serialize (MouseMove time pid x y) = do
 
 serialize (ActionEvent action) = do
   Action.serialize action
+

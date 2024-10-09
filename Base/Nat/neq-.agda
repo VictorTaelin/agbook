@@ -34,3 +34,4 @@ T5 = refl
 -- Test : Larger same numbers should return False.
 T6 : (100 != 100) ≡ False
 T6 = refl
+

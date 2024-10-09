@@ -28,3 +28,4 @@ T5 = refl
 -- Test: double (3 + 2) = double 3 + double 2
 T6 : double (3 + 2) ≡ (double 3 + double 2)
 T6 = refl
+

@@ -8,3 +8,4 @@ open import Base.U64.add
 -- Output: The result of x + x (U64)
 double : U64 → U64
 double x = x + x
+

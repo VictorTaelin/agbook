@@ -153,3 +153,4 @@ step memory bid (MkThread tid vars (Some stmt) frames) with stmt
     vars   = Env.push vars
     frames = Fun (λ res → LSet v (Num res)) :: frames
   Done (memory , Some (MkThread tid vars (Some b) frames))
+

@@ -10,3 +10,4 @@ dedupe : ∀ {A : Set} {{_ : Ord A}} → Container A → Container A
 dedupe (AsList l) = AsList (L.dedup l)
 dedupe (AsOSet s) = AsOSet s
 dedupe (AsPair p) = AsList (L.dedup (P.to-list p))
+

@@ -13,3 +13,4 @@ open import Base.String.from-char
 replicate : Nat → Char → String
 replicate Zero _ = ""
 replicate (Succ n) c = append (from-char c) (replicate n c)
+

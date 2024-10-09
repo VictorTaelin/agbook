@@ -15,3 +15,4 @@ new-node kind (MkNet nodes len name) =
   let map = (set nodes (to-bits len) node) in
   let net = MkNet map (Succ len) name in
   (len , net)
+

@@ -148,3 +148,4 @@ float-combinators book max-size = do
   float-combinators-defs (def :: defs) (acc-defs , acc-combs) = do
     let def = record def { rules = MkRule [] Era :: [] }
     float-combinators-defs defs (def :: acc-defs , acc-combs)
+

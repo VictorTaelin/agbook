@@ -25,3 +25,4 @@ to-nat-base base s with to-list s
     case to-digit base c of λ where
       (Some d) → to-nat-base-go cs (add (mul acc base) d)
       None     → None
+

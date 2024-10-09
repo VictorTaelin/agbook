@@ -9,3 +9,4 @@ primitive primFloatNegate : F64 → F64
 -- = The negated value of x
 negate : F64 → F64
 negate = primFloatNegate
+

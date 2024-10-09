@@ -10,3 +10,4 @@ primitive primIsDigit : Char → Bool
 -- = True if the character is a digit, False otherwise.
 is-digit : Char → Bool
 is-digit = primIsDigit
+

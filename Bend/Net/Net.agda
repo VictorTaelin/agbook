@@ -11,3 +11,4 @@ record Net : Set where
     nodes : BinMap Node
     len   : Nat
     name  : String
+

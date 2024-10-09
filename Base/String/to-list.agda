@@ -11,3 +11,4 @@ primitive primStringToList : String → List Char
 -- = A list of characters representing the string.
 to-list : String → List Char
 to-list = primStringToList
+

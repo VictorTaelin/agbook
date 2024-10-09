@@ -11,3 +11,4 @@ open import Base.Result.Result
 fold : ∀ {A B E : Set} → (A → B) → (E → B) → Result A E → B
 fold done fail (Done x) = done x
 fold done fail (Fail e) = fail e
+

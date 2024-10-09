@@ -24,3 +24,4 @@ T3 = refl
 -- Test: Converts 32 to space character.
 T4 : from-nat 32 ≡ ' '
 T4 = refl
+

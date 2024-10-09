@@ -10,3 +10,4 @@ open import Base.F64.lt
 -- = The larger of x and y.
 max : F64 → F64 → F64
 max x y = if lt x y then y else x
+

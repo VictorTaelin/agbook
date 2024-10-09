@@ -22,3 +22,4 @@ test-mod-5 = refl
 
 test-mod-6 : (from-nat 100 % from-nat 30) ≡ from-nat 10
 test-mod-6 = refl
+

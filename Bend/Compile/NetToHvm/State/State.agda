@@ -10,3 +10,4 @@ record State : Set where
     vars    : BinMap String
     n-vars  : Nat
     n-nodes : Nat
+

@@ -12,3 +12,4 @@ lookup : ∀ {A : Set} → List A → Nat → Maybe A
 lookup []        _        = None
 lookup (x :: _)  Zero     = Some x
 lookup (_ :: xs) (Succ i) = lookup xs i
+

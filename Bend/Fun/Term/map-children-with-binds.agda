@@ -66,3 +66,4 @@ map-children-with-binds f (Bend bnd arg cond step base) = do
     (f (concat-maybes bnd) cond)
     (f (concat-maybes bnd) step)
     (f (concat-maybes bnd) base)
+

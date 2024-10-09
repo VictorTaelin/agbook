@@ -11,3 +11,4 @@ children (Ctr _ pats) = pats
 children (Num _) = []
 children (Lst pats) = pats
 children (Str _) = []
+

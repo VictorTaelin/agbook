@@ -11,3 +11,4 @@ import Base.Nat.compare as Nat
 -- = An Ordering value: LT if 1st < 2nd, EQ if 1st = 2nd, GT if 1st > 2nd.
 compare : Char → Char → Ordering
 compare x y = Nat.compare (to-nat x) (to-nat y)
+

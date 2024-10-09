@@ -24,3 +24,4 @@ show state =
     game-map-str = "GameMap: " ++ GameMap.show (State.game-map state)
   in
   "State {\n  " ++ join "\n  " (tick-str :: players-str :: game-map-str :: []) ++ "\n}"
+

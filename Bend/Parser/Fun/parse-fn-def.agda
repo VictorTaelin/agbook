@@ -92,3 +92,4 @@ parse-fn-def = do
       tail <- parse-rules name
       pure (MkRule pats body :: tail)
     p-rule <|> pure []
+

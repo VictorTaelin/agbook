@@ -17,3 +17,4 @@ _!=_ : Char → Char → Bool
 _!=_ = neq
 
 infix 4 _!=_
+

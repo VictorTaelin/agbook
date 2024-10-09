@@ -11,3 +11,4 @@ open import Base.V2.V2
 -- = The length (magnitude) of the vector as an F64.
 length : V2 → F64
 length (MkV2 x y) = sqrt ((x * x) + (y * y))
+

@@ -27,3 +27,4 @@ instance
           show-node-entry : (Pair Bits Node) → String
           show-node-entry (id , node) =
             show (to-nat id) ++ ": " ++ show node ++ "\n"
+

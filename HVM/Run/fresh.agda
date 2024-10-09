@@ -16,3 +16,4 @@ fresh = λ state → do
   let new-vars  = (State.vars state) + 1
   let new-state = record state { vars = new-vars }
   new-state , ("_v" ++ Nat.show (State.vars state))
+

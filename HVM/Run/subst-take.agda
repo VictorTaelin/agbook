@@ -18,3 +18,4 @@ subst-take : String → Run (Maybe Term)
 subst-take key = λ state → 
   let maybe-term = OrdMap.get key (State.subs state)
   in (state , maybe-term)
+

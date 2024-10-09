@@ -37,3 +37,4 @@ main =
 
     (Fail error) →
       print ("Failed to parse net: " ++ Error.error error)
+

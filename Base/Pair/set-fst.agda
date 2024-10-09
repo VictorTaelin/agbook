@@ -8,3 +8,4 @@ open import Base.Pair.Pair
 -- = A new pair with the updated first component and the original second component.
 set-fst : ∀ {a b} {A B : Set a} {C : Set b} → C → Pair A B → Pair C B
 set-fst z (x , y) = z , y
+

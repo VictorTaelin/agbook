@@ -22,3 +22,4 @@ data AgdaAction
 #-}
 
 {-# COMPILE GHC Action = data AgdaAction (SetNick) #-}
+

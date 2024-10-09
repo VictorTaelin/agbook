@@ -9,3 +9,4 @@ primitive primFloatLog : F64 → F64
 -- = The natural logarithm of x.
 log : F64 → F64
 log = primFloatLog
+

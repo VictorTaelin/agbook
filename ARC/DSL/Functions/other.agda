@@ -14,3 +14,4 @@ open import Base.Trait.Ord
 -- = The first element in the container that is not equal to the given value.
 other : ∀ {A : Set} {{_ : Eq A}} {{_ : Ord A}} → Container A → A → A
 other container value = first value (remove value container)
+

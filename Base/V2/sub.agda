@@ -14,3 +14,4 @@ sub (MkV2 x1 y1) (MkV2 x2 y2) = MkV2 (x1 F64.- x2) (y1 F64.- y2)
 _-_ = sub
 
 infix 6 _-_
+

@@ -8,3 +8,4 @@ open import Base.Trait.Eq
 instance
   EqU64 : Eq U64
   EqU64 = MkEq U64.eq U64.neq
+

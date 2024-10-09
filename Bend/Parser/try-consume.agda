@@ -17,3 +17,4 @@ try-consume : String → Parser Bool
 try-consume target = do
   skip-trivia
   (consume-exactly target >> (pure True)) <|> (pure False)
+

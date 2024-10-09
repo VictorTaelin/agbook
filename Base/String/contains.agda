@@ -18,3 +18,4 @@ contains str substr = contains-go str where
   contains-go s with starts-with s substr
   ... | True  = True
   ... | False = contains-go (drop 1 s)
+

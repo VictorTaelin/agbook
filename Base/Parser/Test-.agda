@@ -23,3 +23,4 @@ failing-parser = λ s → Fail (MkError (State.index s) "Test error")
 
 test-parser-type-fail : failing-parser (MkState "abc" 0) ≡ Fail (MkError 0 "Test error")
 test-parser-type-fail = refl
+

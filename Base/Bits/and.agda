@@ -20,3 +20,4 @@ _&&_ : Bits → Bits → Bits
 _&&_ = and
 
 infixr 6 _&&_
+

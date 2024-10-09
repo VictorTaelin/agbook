@@ -16,3 +16,4 @@ _ = refl
 
 test : (n : Nat) → (from-neg (Succ n) ≡ NegSuc n)
 test p = refl
+

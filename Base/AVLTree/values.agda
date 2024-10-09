@@ -13,3 +13,4 @@ values : ∀ {K V : Set} → AVLTree K V → List V
 values Leaf = []
 values (Node (k , v) _ left right) =
   values left ++ (v :: values right)
+

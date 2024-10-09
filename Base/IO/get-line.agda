@@ -11,3 +11,4 @@ postulate get-line : IO String
 {-# FOREIGN GHC import qualified Control.Exception   #-}
 
 {-# COMPILE GHC get-line = Text.getLine #-}
+

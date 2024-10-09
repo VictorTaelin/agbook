@@ -13,3 +13,4 @@ map : ∀ {A B : Set} → (A → B) → Parser A → Parser B
 map fn p = λ s → case p s of λ where
   (Done r) → Done (MkReply (Reply.state r) (fn (Reply.value r)))
   (Fail e) → Fail e
+

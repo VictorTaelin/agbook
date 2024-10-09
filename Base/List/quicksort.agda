@@ -17,3 +17,4 @@ quicksort (x :: xs) = do
   let min = filter (λ y → y < x) xs
   let max = filter (λ y → y > x) xs
   quicksort min ++ (x :: quicksort max)
+

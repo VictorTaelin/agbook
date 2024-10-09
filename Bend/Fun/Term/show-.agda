@@ -103,3 +103,4 @@ test-tuple-elimination = refl
 test-lam-dup : show (Lam (Fan FanKind.Dup (Var (Some "a") :: Var (Some "b") :: [])) (Var "val"))
                ≡ "λ{a b} val"
 test-lam-dup = refl
+

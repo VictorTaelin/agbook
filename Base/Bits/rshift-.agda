@@ -26,3 +26,4 @@ test-rshift-by-zero bits = refl
 
 test-rshift-from-nat : (from-nat 42 >> 2) ≡ from-nat 10
 test-rshift-from-nat = refl
+

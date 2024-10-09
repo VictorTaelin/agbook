@@ -26,3 +26,4 @@ test-from-nat-lshift = refl
 
 test-lshift-infix : (from-nat 9 << 1) ≡ from-nat 18
 test-lshift-infix = refl
+

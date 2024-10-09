@@ -38,3 +38,4 @@ _ = refl
 -- Test splitting a list where the first element satisfies the predicate
 _ : test is-even (2 :: 1 :: 3 :: 4 :: 5 :: []) ≡ ([] :: (2 :: 1 :: 3 :: []) :: (4 :: 5 :: []) :: [])
 _ = refl
+

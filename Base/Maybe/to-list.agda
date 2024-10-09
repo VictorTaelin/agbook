@@ -9,3 +9,4 @@ open import Base.List.List
 to-list : ∀ {A : Set} → Maybe A → List A
 to-list None     = []
 to-list (Some x) = x :: []
+

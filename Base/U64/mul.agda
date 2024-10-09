@@ -15,3 +15,4 @@ mul a b = from-nat (to-nat a n* to-nat b)
 infixl 8 _*_
 _*_ : U64 → U64 → U64
 _*_ = mul
+

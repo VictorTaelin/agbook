@@ -10,3 +10,4 @@ open import Base.String.from-list
 -- = A string containing only the input character.
 from-char : Char → String
 from-char c = from-list (c :: [])
+

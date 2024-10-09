@@ -12,3 +12,4 @@ count : ∀ {A : Set} → BinMap A → Nat
 count (Node None     l r) = add (count l) (count r)
 count (Node (Some _) l r) = Succ (add (count l) (count r))
 count Leaf                = Zero
+

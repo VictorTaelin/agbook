@@ -18,3 +18,4 @@ apply-effect state (R , effect) = do
 apply : ∀ {S : Set} → Skill S → S → S
 apply skill state = 
   foldl apply-effect state (Skill.effects skill)
+

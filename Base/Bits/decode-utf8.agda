@@ -12,3 +12,4 @@ open import Base.String.from-list
 -- = The decoded String.
 decode-utf8 : Bits → String
 decode-utf8 bits = from-list (decode-utf8-go (split-chunks 8 (reverse bits)))
+

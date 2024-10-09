@@ -14,3 +14,4 @@ encode-num : Num → Bits
 encode-num (Num.U24 n) = nat-to-bits n
 encode-num (Num.I24 n) = int-to-bits n
 encode-num (Num.F24 n) = float-to-bits n
+

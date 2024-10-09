@@ -10,3 +10,4 @@ open import Base.Trait.Eq
 -- = True if x and y are equal, False otherwise.
 equality : ∀ {A : Set} → {{_ : Eq A}} → A → A → Boolean
 equality x y = x == y
+

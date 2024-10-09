@@ -19,3 +19,4 @@ _∩_ : ∀ {V : Set} → {{_ : Ord V}} → OrdSet V → OrdSet V → OrdSet V
 _∩_ = intersect
 
 infixr 6 _∩_
+

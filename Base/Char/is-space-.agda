@@ -28,3 +28,4 @@ T4 = refl
 -- Test: Special character '!' is not a whitespace
 T5 : is-space '!' ≡ False
 T5 = refl
+

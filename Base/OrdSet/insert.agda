@@ -25,3 +25,4 @@ _::>_ : ∀ {V : Set} → {{_ : Ord V}} → V → OrdSet V → OrdSet V
 _::>_ = insert
 
 infixr 5 _::>_
+

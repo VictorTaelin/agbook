@@ -12,3 +12,4 @@ open import Base.BinTree.merge public
 open import Base.BinTree.neq public
 open import Base.BinTree.show public
 open import Base.BinTree.sum public
+

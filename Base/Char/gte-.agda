@@ -44,3 +44,4 @@ T8 = refl
 -- Test: 'a' is not greater than or equal to 'z'.
 T9 : gte 'a' 'z' ≡ False
 T9 = refl
+

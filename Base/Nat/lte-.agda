@@ -38,3 +38,4 @@ T6 = refl
 -- Test: 10 <= 5 is False.
 T7 : (10 <= 5) ≡ False
 T7 = refl
+

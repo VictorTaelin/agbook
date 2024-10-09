@@ -35,3 +35,4 @@ interact = do
         (MkRedex (Dup a1 a2) (Con b1 b2)) → comm b1 b2 a1 a2
         (MkRedex (Dup a1 a2) (Dup b1 b2)) → anni a1 a2 b1 b2
       pure True
+

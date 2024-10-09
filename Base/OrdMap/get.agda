@@ -17,3 +17,4 @@ open import Base.Trait.Ord
 --   - None if the key is not found in the map
 get : ∀ {K V : Set} → {{_ : Ord K}} → K → OrdMap K V → Maybe V
 get = AVL.get
+

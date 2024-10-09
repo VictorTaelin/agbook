@@ -9,3 +9,4 @@ postulate present : Renderer → IO Unit
 {-# FOREIGN GHC import qualified SDL as SDL #-}
 
 {-# COMPILE GHC present = \renderer -> SDL.present renderer #-}
+

@@ -11,3 +11,4 @@ postulate concat : List ByteString → ByteString
 
 {-# FOREIGN GHC import qualified Data.ByteString as BS #-}
 {-# COMPILE GHC concat = BS.concat #-}
+

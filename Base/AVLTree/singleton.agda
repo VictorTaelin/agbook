@@ -9,3 +9,4 @@ open import Base.AVLTree.AVLTree
 -- = An AVL tree containing only the given value.
 singleton : ∀ {K V : Set} → Pair K V → AVLTree K V
 singleton p = Node p zero Leaf Leaf
+

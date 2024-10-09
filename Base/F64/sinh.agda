@@ -9,3 +9,4 @@ primitive primFloatSinh : F64 → F64
 -- = The hyperbolic sine of x.
 sinh : F64 → F64
 sinh = primFloatSinh
+

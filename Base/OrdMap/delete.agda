@@ -15,3 +15,4 @@ open import Base.AVLTree.AVLTree
 -- = A new OrdMap with the specified key-value pair removed (if it existed).
 delete : ∀ {K V : Set} → {{_ : Ord K}} → K → OrdMap K V → OrdMap K V
 delete = T.delete
+

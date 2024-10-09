@@ -14,3 +14,4 @@ open import Base.Word8.from-nat
 serialize : Click → ByteString
 serialize LeftButton  = cons (from-nat 0) (pack-string "")
 serialize RightButton = cons (from-nat 1) (pack-string "")
+

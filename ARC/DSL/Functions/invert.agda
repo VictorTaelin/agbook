@@ -12,3 +12,4 @@ open import ARC.DSL.Types.Pair.Pair
 invert : Numerical → Numerical
 invert (Lft x)         = Lft (neg x)
 invert (Rgt (x0 , x1)) = Rgt (neg x0 , neg x1)
+

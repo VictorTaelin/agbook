@@ -20,3 +20,4 @@ main =
       m = set m (O (I E)) 30
       x = get m (O (O E))
   in x
+

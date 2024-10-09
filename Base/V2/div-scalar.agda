@@ -10,3 +10,4 @@ open import Base.V2.V2
 -- = A new V2 vector with both components divided by the scalar.
 div-scalar : V2 → F64 → V2
 div-scalar (MkV2 x y) s = MkV2 (x / s) (y / s)
+

@@ -6,3 +6,4 @@ open import ARC.DSL.Types.Grid.Grid
 
 Element : Set
 Element = Union Object Grid
+

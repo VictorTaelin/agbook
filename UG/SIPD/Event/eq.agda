@@ -30,3 +30,4 @@ _==_ : Event → Event → Bool
 _==_ = eq
 
 infix 4 _==_
+

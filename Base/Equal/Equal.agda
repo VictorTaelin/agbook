@@ -9,3 +9,4 @@ data _≡_ {a} {A : Set a} (x : A) : A → Set a where
 infix 4 _≡_
 
 {-# BUILTIN EQUALITY _≡_  #-}
+

@@ -12,3 +12,4 @@ concat []             = E
 concat (E :: xs)      = concat xs
 concat (O bits :: xs) = O (concat (bits :: xs))
 concat (I bits :: xs) = I (concat (bits :: xs))
+

@@ -5,3 +5,4 @@ open import Base.Nat.Nat
 -- Represents a tick value
 Tick : Set
 Tick = Nat
+

@@ -14,3 +14,4 @@ swap : ∀ {A : Set} → Nat → A → List A → Pair (List A) (Maybe A)
 swap Zero     y (x :: xs) = (y :: xs) , Some x
 swap (Succ n) y (x :: xs) = let (xs , val) = swap n y xs in (x :: xs) , val
 swap _        _ []        = [] , None
+

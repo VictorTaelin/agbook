@@ -25,3 +25,4 @@ int-sign x with compare x 0
 sign : Numerical → Numerical
 sign (Lft x)         = Lft (int-sign x)
 sign (Rgt (x0 , x1)) = Rgt (int-sign x0 , int-sign x1)
+

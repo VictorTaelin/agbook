@@ -26,3 +26,4 @@ test-to-bool-some-always-true x = refl
 -- Property: to-bool always returns False for None, regardless of the type
 test-to-bool-none-always-false : ∀ {A : Set} → to-bool {A} None ≡ False
 test-to-bool-none-always-false = refl
+

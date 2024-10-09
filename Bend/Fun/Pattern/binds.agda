@@ -13,3 +13,4 @@ open import Bend.Fun.Pattern.children
 binds : Pattern → List String
 binds (Var (Some name)) = name :: []
 binds pat               = concat-map binds (children pat)
+

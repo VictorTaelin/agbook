@@ -22,3 +22,4 @@ combine (AsOSet s1) (AsPair p2) = AsOSet (s1 O.∪ (O.from-list (P.to-list p2)))
 combine (AsPair p1) (AsList l2) = AsList ((P.to-list p1) L.++ l2)
 combine (AsPair p1) (AsOSet s2) = AsList ((P.to-list p1) L.++ (O.to-list s2))
 combine (AsPair p1) (AsPair p2) = AsList ((P.to-list p1) L.++ (P.to-list p2))
+

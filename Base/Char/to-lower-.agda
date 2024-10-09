@@ -23,3 +23,4 @@ T3 = refl
 -- Test: Uppercase 'Z' is converted to lowercase 'z'
 T4 : to-lower 'Z' ≡ 'z'
 T4 = refl
+

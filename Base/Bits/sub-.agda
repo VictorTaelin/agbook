@@ -20,3 +20,4 @@ test-sub-ten-one = refl
 
 test-sub-fifteen-seven : ((I (I (I (I E)))) - (I (I (I E)))) ≡ (O (O (O (I E))))
 test-sub-fifteen-seven = refl
+

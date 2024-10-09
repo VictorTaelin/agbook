@@ -13,3 +13,4 @@ power : ∀ {A : Set} → (A → A) → Integer → (A → A)
 power f 0       = f
 power f 1       = f
 power f (Succ n) = compose f (power f n)
+

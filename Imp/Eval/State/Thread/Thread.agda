@@ -14,3 +14,4 @@ record Thread : Set where
     vars   : Env        -- local variables
     stmt   : Maybe Stmt -- the current statement
     frames : List Frame -- the stack of frames
+

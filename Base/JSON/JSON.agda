@@ -14,3 +14,4 @@ data JSON : Set where
   JString : String → JSON
   JArray  : List JSON → JSON
   JObject : List (Pair String JSON) → JSON
+

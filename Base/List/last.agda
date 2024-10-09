@@ -11,3 +11,4 @@ last : ∀ {A : Set} → List A → Maybe A
 last []        = None
 last (x :: []) = Some x
 last (_ :: xs) = last xs
+

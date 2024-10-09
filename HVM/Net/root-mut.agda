@@ -9,3 +9,4 @@ open import HVM.Term.Term
 
 root-mut : (Term → Term) → Net → IO Net
 root-mut f net = pure (record net { root = f (Net.root net) })
+

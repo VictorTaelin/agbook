@@ -11,3 +11,4 @@ normalize : V2 → V2
 normalize v = do
   let len = length v
   div-scalar v len
+

@@ -10,3 +10,4 @@ primitive primShowNat : Nat → String
 -- = A string representation of the given natural number.
 show : Nat → String
 show = primShowNat
+

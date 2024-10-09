@@ -10,3 +10,4 @@ primitive primNatToChar : Nat → Char
 -- = The Unicode character corresponding to the given natural number.
 from-nat : Nat → Char
 from-nat = primNatToChar
+

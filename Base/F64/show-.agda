@@ -26,3 +26,4 @@ test-show-negative-infinity = refl
 
 test-show-nan : show (0.0 / 0.0) ≡ "NaN"
 test-show-nan = refl
+

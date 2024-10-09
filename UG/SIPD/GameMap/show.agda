@@ -21,3 +21,4 @@ show gameMap =
                join ", " (map Body.show (values (GameMap.bodies gameMap))) ++
                "]"
   in "GameMap { " ++ join ", " (width :: height :: bodies :: []) ++ " }"
+

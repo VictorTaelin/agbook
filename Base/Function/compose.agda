@@ -12,3 +12,4 @@ _<>_ : ∀ {A B C : Set} → (B → C) → (A → B) → (A → C)
 _<>_ = compose
 
 infixr 9 _<>_
+

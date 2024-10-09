@@ -14,3 +14,4 @@ test-pure-nat = refl
 
 test-pure-string : (pure "hello") (MkState "abc" 0) ≡ Done (MkReply (MkState "abc" 0) "hello")
 test-pure-string = refl
+

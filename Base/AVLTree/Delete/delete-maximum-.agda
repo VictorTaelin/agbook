@@ -68,3 +68,4 @@ test-balanced-after-multiple-deletes : do
   let (_ , tree3 , _) = delete-maximum tree2
   True ≡ (is-balanced tree1 && is-balanced tree2 && is-balanced tree3)
 test-balanced-after-multiple-deletes = refl
+

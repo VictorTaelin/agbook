@@ -24,3 +24,4 @@ leastcommon default (AsList xs) with minimum (invert (L.frequency xs))
 ... | None            = default
 -- elements of a set can only appear once
 leastcommon default (AsOSet  xs) = default
+

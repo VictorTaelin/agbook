@@ -29,3 +29,4 @@ T4 = refl
 -- Test: half of 5 is 2
 T5 : half 5 ≡ 2
 T5 = refl
+

@@ -51,3 +51,4 @@ test-del-deep-middle :
   let m = set (set (set empty (O (I E)) 1) (I (O E)) 2) (O (O E)) 3
   in get (del m (O (O E))) (I (O E)) ≡ Some 2
 test-del-deep-middle = refl
+

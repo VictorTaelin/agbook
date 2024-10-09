@@ -46,3 +46,4 @@ data Expr : Set where
   GAdd : (var : Expr) → (inc : Expr) → Expr -- Adds `inc` to global `var` returning the old value.
   SExc : (var : Expr) → (new : Expr) → Expr -- Writes `new` to shared `var` returning the old value.
   GExc : (var : Expr) → (new : Expr) → Expr -- Writes `new` to global `var` returning the old value.
+

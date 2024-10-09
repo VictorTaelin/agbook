@@ -25,3 +25,4 @@ _>>_ : ∀ {A B : Set} → Maybe A → Maybe B → Maybe B
 _>>_ ma mb = ma >>= const mb
 
 infixl 1 _>>_
+

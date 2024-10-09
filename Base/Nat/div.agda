@@ -17,3 +17,4 @@ _/_ : Nat → Nat → Nat
 _/_ = div
 
 infixl 7 _/_
+

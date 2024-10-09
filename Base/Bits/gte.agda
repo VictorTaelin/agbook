@@ -11,3 +11,4 @@ gte a b = not (gt b a)
 infix 4 _>=_
 _>=_ : Bits → Bits → Bool
 _>=_ = gte
+

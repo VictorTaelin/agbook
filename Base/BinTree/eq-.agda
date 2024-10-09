@@ -19,3 +19,4 @@ test-eq-different-root = refl
 
 test-neq-leaf-node : (Leaf != (Node 1 Leaf Leaf)) ≡ True
 test-neq-leaf-node = refl
+

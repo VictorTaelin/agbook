@@ -7,3 +7,4 @@ open import HVM.Run.State.State
 -- Gets the current state
 state-get : Run State
 state-get = λ state → (state , state)
+

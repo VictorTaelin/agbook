@@ -24,3 +24,4 @@ split-last pred xs with unsnoc (split-chunks pred xs)
 ... | ([] , Some last)   = last , []
 -- Match
 ... | (init , Some last) = concat init , drop 1 last
+

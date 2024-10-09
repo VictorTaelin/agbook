@@ -41,3 +41,4 @@ data Term where
   Ref  : (nam : String) → Term
   Def  : (def : FnDef) → (nxt : Term) → Term
   Era  : Term
+

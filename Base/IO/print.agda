@@ -11,3 +11,4 @@ postulate print : String → IO Unit
 
 {-# FOREIGN GHC import qualified Data.Text.IO as Text #-}
 {-# COMPILE GHC print = Text.putStrLn #-}
+

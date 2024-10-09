@@ -11,3 +11,4 @@ open import Base.Nat.add
 to-nat : Int → Nat
 to-nat (Pos n)    = n
 to-nat (NegSuc _) = Zero
+

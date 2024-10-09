@@ -26,3 +26,4 @@ test-run-some-id x = refl
 -- Property: running None with any default should return that default
 test-run-none-id : {A : Set} -> (d : A) -> run d None ≡ d
 test-run-none-id d = refl
+

@@ -9,3 +9,4 @@ record Rule : Set where
   field
     pats : List Pattern  -- The patterns to match against
     body : Term          -- The body of the rule
+

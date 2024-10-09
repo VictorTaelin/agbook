@@ -12,3 +12,4 @@ take : ∀ {A : Set} → Nat → Omega A → List A
 take Zero _ = []
 take (Succ n) (MkOmega []) = []
 take (Succ n) (MkOmega (x :: xs)) = x :: take n (MkOmega xs)
+

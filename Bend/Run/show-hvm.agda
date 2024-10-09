@@ -19,3 +19,4 @@ show-hvm ((nam , net) :: nets) =
   show-redexes : List Redex → String
   show-redexes [] = ""
   show-redexes (r :: rs) = show-redex r ++ "\n" ++ show-redexes rs
+

@@ -17,3 +17,4 @@ set-port (MkNet nodes len name) port-a port-b = do
   a         <- node-set a (Port.slot port-a) port-b
   let nodes = map-set nodes key a
   Some (MkNet nodes len name)
+

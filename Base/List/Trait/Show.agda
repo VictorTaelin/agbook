@@ -7,3 +7,4 @@ import Base.Trait.Show as Show
 instance
   ShowList : ∀ {A : Set} {{ShowA : Show.Show A}} → Show.Show (List A)
   ShowList {{ShowA}} = record { to-string = List.show }
+

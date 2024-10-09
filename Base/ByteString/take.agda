@@ -7,3 +7,4 @@ postulate take : Nat → ByteString → ByteString
 
 {-# FOREIGN GHC import qualified Data.ByteString as BS #-}
 {-# COMPILE GHC take = BS.take #-}
+

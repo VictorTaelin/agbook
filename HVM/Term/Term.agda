@@ -8,3 +8,4 @@ data Term : Set where
   Era : Term
   Con : (p1 p2 : Term) → Term
   Dup : (p1 p2 : Term) → Term
+

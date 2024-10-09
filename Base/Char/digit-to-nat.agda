@@ -19,3 +19,4 @@ digit-to-nat '7' = Some 7
 digit-to-nat '8' = Some 8
 digit-to-nat '9' = Some 9
 digit-to-nat _   = None
+

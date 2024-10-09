@@ -17,3 +17,4 @@ _+_ : Nat → Nat → Nat
 _+_ = add
 
 infixl 6 _+_
+

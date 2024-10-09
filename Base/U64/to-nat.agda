@@ -8,3 +8,4 @@ primitive
 
 to-nat : U64 → Nat
 to-nat = primWord64ToNat
+

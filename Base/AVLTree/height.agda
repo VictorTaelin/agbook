@@ -10,3 +10,4 @@ open import Base.AVLTree.AVLTree
 height : ∀ {K V : Set} → AVLTree K V → Nat
 height Leaf = Zero
 height (Node _ _ left right) = Succ (max (height left) (height right))
+

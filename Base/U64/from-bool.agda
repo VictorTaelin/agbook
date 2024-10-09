@@ -10,3 +10,4 @@ open import Base.U64.from-nat
 from-bool : Bool → U64
 from-bool True  = from-nat 1
 from-bool False = from-nat 0
+

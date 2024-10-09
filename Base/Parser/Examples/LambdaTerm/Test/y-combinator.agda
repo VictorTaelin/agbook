@@ -18,3 +18,4 @@ _ : let parsed = parse (new "λf (λx (f (x x)) λx (f (x x)))")
                 (Lam "x" (App (Var "f") (App (Var "x") (Var "x"))))
                 (Lam "x" (App (Var "f") (App (Var "x") (Var "x"))))))))
 _ = refl
+

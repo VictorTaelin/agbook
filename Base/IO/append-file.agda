@@ -14,3 +14,4 @@ postulate append-file  : String → String → IO Unit
 {-# FOREIGN GHC import qualified Data.Text.IO as TIO #-}
 
 {-# COMPILE GHC append-file = TIO.appendFile . T.unpack #-}
+

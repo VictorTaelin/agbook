@@ -24,3 +24,4 @@ apply-unscoped (Lam (Pattern.Var (Some nam)) bod) unscoped with (contains nam un
 
 apply-unscoped term unscoped = do
   map-children (λ t → apply-unscoped t unscoped) term
+

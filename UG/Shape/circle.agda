@@ -10,3 +10,4 @@ open import UG.Shape.Shape
 -- = A Shape representing the circle.
 circle : V2 → F64 → Shape
 circle center radius = Circle center radius
+

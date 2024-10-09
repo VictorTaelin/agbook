@@ -18,3 +18,4 @@ redex-pop = λ state →
       let new-net   = record (State.gnet state) { rbag = rs }
       let new-state = record state { gnet = new-net }
       new-state , Some r
+

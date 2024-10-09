@@ -70,3 +70,4 @@ from-string s =
          (Some f) → 
             let abs-value = primIntToFloat (Pos i) F64.+ (primRatioToFloat (Pos f) (Pos frac-divisor))
             in Some (if is-neg then (negate abs-value) else abs-value)
+

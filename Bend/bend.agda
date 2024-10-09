@@ -59,3 +59,4 @@ main = do
         (None           , _          ) → print usage
         (_              , (Fail err) ) → print ("Compile error: " ++ err)
     _ → print usage
+

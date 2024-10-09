@@ -11,3 +11,4 @@ open import Base.List.insert-at-sorted
 insertion-sort : ∀ {A : Set} → (A → A → Bool) → List A → List A
 insertion-sort leq [] = []
 insertion-sort leq (x :: xs) = insert-at-sorted leq x (insertion-sort leq xs)
+

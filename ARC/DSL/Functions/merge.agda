@@ -14,3 +14,4 @@ open import Base.Trait.Ord
 merge : ∀ {A : Set} → {{_ : Ord A}} → Container (Container A) → Container A
 merge (AsList l) = AsList (L.concat-map container-to-list l)
 merge (AsOSet  s) = AsOSet  (S.from-list (L.concat-map container-to-list (S.to-list s)))
+

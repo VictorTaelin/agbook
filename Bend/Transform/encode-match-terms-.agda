@@ -110,3 +110,4 @@ _ = refl
 _ : test NumScott "switch x { 0: A; 1: B; _: C }"
   ≡ "switch * = x { 0: A; _ *: λ%x switch * = %x { 0: B; _ *: λx-2 C } }"
 _ = refl
+

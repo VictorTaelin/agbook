@@ -18,3 +18,4 @@ _*_ : Nat → Nat → Nat
 _*_ = mul
 
 infixl 7 _*_
+

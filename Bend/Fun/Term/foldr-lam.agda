@@ -9,3 +9,4 @@ open import Bend.Fun.Pattern.Pattern
 
 foldr-lam : Term → List (Maybe String) → Term
 foldr-lam bod bnd = foldr (λ bnd bod → Lam (Pattern.Var bnd) bod) bod bnd
+

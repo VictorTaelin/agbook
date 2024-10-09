@@ -11,3 +11,4 @@ open import Base.Trait.Ord
 -- = A new Container with the value inserted.
 insert : ∀ {A : Set} {{_ : Ord A}} → A → OrdSet A → OrdSet A
 insert = S.insert
+

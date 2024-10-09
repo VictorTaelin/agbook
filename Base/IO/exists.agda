@@ -17,3 +17,4 @@ exists path = is-file path >>= λ file-exists →
               if file-exists
               then pure True
               else is-directory path
+

@@ -102,3 +102,4 @@ _ = refl
 -- Missing match case
 _ : test-fix-term "match x { List/Cons: x.h }" ≡ "Non exhaustive match of type List, missing List/Nil case"
 _ = refl
+

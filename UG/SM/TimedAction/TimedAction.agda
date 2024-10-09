@@ -7,3 +7,4 @@ record TimedAction (A : Set) : Set where
   field
     action : A
     time : Time
+

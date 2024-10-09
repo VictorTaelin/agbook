@@ -20,3 +20,4 @@ _^_ : Bits → Bits → Bits
 _^_ = xor
 
 infixr 5 _^_
+

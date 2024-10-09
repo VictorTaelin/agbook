@@ -13,3 +13,4 @@ open import Base.Unit.Unit
 -- = An OrdSet containing all the unique elements from the input list.
 from-list : ∀ {V : Set} → {{_ : Ord V}} → List V → OrdSet V
 from-list l = T.from-list (map (λ v → (v , unit)) l)
+

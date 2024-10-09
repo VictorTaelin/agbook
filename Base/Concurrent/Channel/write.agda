@@ -12,3 +12,4 @@ postulate write : ∀ {A : Set} → Channel A → A → IO Unit
 
 {-# FOREIGN GHC import qualified Control.Concurrent as CC #-}
 {-# COMPILE GHC write = \_ -> CC.writeChan #-}
+

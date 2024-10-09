@@ -10,3 +10,4 @@ open import Base.Equal.Equal
 
 test-fail : (fail {String} "Test error") (MkState "abcdef" 0) ≡ Fail (MkError 0 "Test error")
 test-fail = refl
+

@@ -20,3 +20,4 @@ test-parse-string-empty = refl
 
 test-parse-string-invalid : parse-string (MkState "\"abc" 0) ≡ Fail (MkError 4 "Unexpected end of input")
 test-parse-string-invalid = refl
+

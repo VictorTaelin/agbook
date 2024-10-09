@@ -16,3 +16,4 @@ is-eof = λ s → do
   let input  = State.input s
   let result = is-empty input
   Done (MkReply s result)
+

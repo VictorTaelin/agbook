@@ -19,3 +19,4 @@ _>>_ : ∀ {A B : Set} → Run A → Run B → Run B
 _>>_ = seq
 
 infixl 1 _>>=_ _>>_
+

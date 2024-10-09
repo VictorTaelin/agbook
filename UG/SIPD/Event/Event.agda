@@ -38,3 +38,4 @@ data AgdaEvent
 {-# COMPILE GHC Event = data AgdaEvent
   (KeyEvent | MouseClick | KeyMouse | MouseMove | ActionEvent)
 #-}
+

@@ -19,3 +19,4 @@ encode-utf8 str = do
   let encoded-chars = map encode-char-utf8 char-list
   let reversed = reverse encoded-chars
   concat reversed
+

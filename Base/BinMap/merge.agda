@@ -11,3 +11,4 @@ open import Base.Maybe.Maybe
 --   with values from m2 taking precedence when keys conflict.
 merge : ∀ {A : Set} → BinMap A → BinMap A → BinMap A
 merge = BinTree.merge (λ x → x) (λ x → x) (λ _ y → y)
+

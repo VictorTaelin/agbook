@@ -5,3 +5,4 @@ open import ARC.DSL.Types.Indices.Indices
 
 IndicesSet : Set
 IndicesSet = OrdSet Indices
+

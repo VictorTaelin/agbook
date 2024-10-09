@@ -11,3 +11,4 @@ intercalate : ∀ {A : Set} → List A → List (List A) → List A
 intercalate xs []          = []
 intercalate xs (ys :: [])  = ys
 intercalate xs (ys :: yss) = ys ++ xs ++ intercalate xs yss
+

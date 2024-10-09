@@ -150,3 +150,4 @@ linearize-vars (MkBook defs adts ctrs) = do
   let defs          = (BinMap.to-list defs)
   let defs          = map (λ (key , def) → (key , map-def def)) defs
   (MkBook (BinMap.from-list defs) adts ctrs)
+

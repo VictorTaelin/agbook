@@ -25,3 +25,4 @@ T3 = refl
 -- Test: Non-ASCII character 'ñ' (code point 241).
 T4 : is-ascii 'ñ' ≡ False
 T4 = refl
+

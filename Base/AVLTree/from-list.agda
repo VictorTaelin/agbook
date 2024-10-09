@@ -13,3 +13,4 @@ open import Base.AVLTree.AVLTree
 -- = An AVL tree containing all elements from the input list.
 from-list : ∀ {K V : Set} → {{_ : Ord K}} → List (Pair K V) → AVLTree K V
 from-list = foldr insert empty
+

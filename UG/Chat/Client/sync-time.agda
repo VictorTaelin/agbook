@@ -31,3 +31,4 @@ sync-time client = do
   let buffer = cons message-type empty
   send-time <- now
   pure (record client { last-ping-time = send-time } , buffer)
+

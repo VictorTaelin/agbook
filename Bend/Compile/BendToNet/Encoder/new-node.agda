@@ -16,3 +16,4 @@ new-node kind enc =
   let (idx , net) = net-new-node kind net in
   let enc = record enc { net = net } in
   (idx , enc)
+

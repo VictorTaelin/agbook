@@ -22,3 +22,4 @@ _ = refl
 
 _ : parse-term (new-parser-state "(x0 x1)") ≡ Done (MkReply (MkState "" 7) (Con (Var "x0") (Var "x1")))
 _ = refl
+

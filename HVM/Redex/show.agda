@@ -10,3 +10,4 @@ open import HVM.Redex.Redex
 -- = A string representation of the Redex.
 show : Redex → String
 show redex = Term.show (Redex.lft redex) ++ " ~ " ++ Term.show (Redex.rgt redex)
+

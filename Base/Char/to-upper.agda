@@ -9,3 +9,4 @@ primitive primToUpper : Char → Char
 -- = The uppercase version of the input character.
 to-upper : Char → Char
 to-upper = primToUpper
+

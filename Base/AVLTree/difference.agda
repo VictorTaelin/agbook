@@ -28,3 +28,4 @@ _∖_ : ∀ {K V : Set} → {{_ : Ord K}} → AVLTree K V → AVLTree K V → AV
 _∖_ = difference
 
 infixr 6 _∖_
+

@@ -13,3 +13,4 @@ open import Base.Unit.Unit
 -- = A new OrdSet containing only the given element.
 singleton : ∀ {V : Set} → {{_ : Ord V}} → V → OrdSet V
 singleton value = AVL.singleton (value , unit)
+

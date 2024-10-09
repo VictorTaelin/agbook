@@ -9,3 +9,4 @@ open import ARC.DSL.Types.Boolean.Functions
 -- = True if either a or b are true, False otherwise.
 either : Boolean → Boolean → Boolean
 either = or
+
