@@ -2,6 +2,7 @@ module UG.SIPD.Action.deserialize where
 
 import Base.ByteString.head as BS
 import Base.ByteString.tail as BS
+import Base.ByteString.drop as BS
 open import Base.Bool.Bool
 open import Base.Bool.if
 open import Base.ByteString.ByteString
@@ -24,7 +25,9 @@ open import UG.SIPD.Action.Action
 
 deserialize-set-nick : ByteString → Maybe Action
 deserialize-set-nick bs = do
-  Some (SetNick (BS.show bs))
+  let pid = BS.head (BS.drop 1 bs)
+  let nick = BS.drop 2 bs
+  Some (SetNick pid (BS.show nick))
 
 -- Deserializes a ByteString into an Action.
 -- - bs: The ByteString to deserialize.

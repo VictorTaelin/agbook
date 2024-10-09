@@ -19,7 +19,6 @@ import UG.SIPD.Window.create as Window
 open import Base.Bool.Bool
 open import Base.Bool.if
 open import Base.ByteString.ByteString
-open import Base.ByteString.cons
 open import Base.ByteString.drop
 open import Base.ByteString.head
 open import Base.ByteString.pack

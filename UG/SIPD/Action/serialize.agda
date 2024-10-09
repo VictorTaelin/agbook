@@ -21,6 +21,6 @@ open import Base.Word8.from-nat
 open import UG.SIPD.Action.Action
 
 serialize : Action → Maybe ByteString
-serialize (SetNick nick) = do
+serialize (SetNick pid nick) = do
   let packed-string = pack-string nick
-  Some (append (cons (from-nat SETNICK) packed-string) (pack-string ""))
+  Some ((from-nat SETNICK) :: pid :: packed-string)

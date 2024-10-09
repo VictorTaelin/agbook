@@ -2,6 +2,7 @@ module UG.SIPD.Event.deserialize where
 
 import Base.ByteString.head as BS
 import Base.ByteString.tail as BS
+import Base.ByteString.drop as BS
 import UG.SIPD.Event.Click.deserialize as Click
 import UG.SIPD.Action.deserialize as Action
 open import Base.Bool.Bool
@@ -40,41 +41,45 @@ deserialize-bool w with (to-nat w)
 -- = Some KeyEvent if successful, None otherwise.
 deserialize-key-event : ByteString → Maybe Event
 deserialize-key-event bs = do
-  char <- read-char bs 1
+  let pid = BS.head (BS.drop 1 bs)
+  char <- read-char bs 2
   let key = from-char char
-  bool-byte <- Some (BS.head (BS.tail (BS.tail bs)))
+  bool-byte <- Some (BS.head (BS.drop 3 bs))
   deserialized-bool <- deserialize-bool bool-byte
-  Some (KeyEvent key deserialized-bool)
+  Some (KeyEvent pid key deserialized-bool)
 
 -- Deserializes a ByteString into a MouseClick event.
 -- - bs: The ByteString to deserialize.
 -- = Some MouseClick if successful, None otherwise.
 deserialize-mouse-click : ByteString → Maybe Event
 deserialize-mouse-click bs = do
-  let click-byte = BS.head (BS.tail bs)
-  let x = read-f64 bs 2
-  let y = read-f64 bs 8
+  let pid = BS.head (BS.drop 1 bs)
+  let click-byte = BS.head (BS.drop 2 bs)
+  let x = read-f64 bs 3
+  let y = read-f64 bs 9
   deserialized-click <- Click.deserialize click-byte
-  Some (MouseClick deserialized-click x y)
+  Some (MouseClick pid deserialized-click x y)
 
 deserialize-key-mouse : ByteString → Maybe Event
 deserialize-key-mouse bs = do
-  char <- read-char bs 1
+  let pid = BS.head (BS.drop 1 bs)
+  char <- read-char bs 2
   let key = from-char char
-  bool-byte <- Some (BS.head (BS.tail (BS.tail bs)))
+  bool-byte <- Some (BS.head (BS.drop 3 bs))
   deserialized-bool <- deserialize-bool bool-byte
-  let x = read-f64 bs 3
-  let y = read-f64 bs 9
-  Some (KeyMouse key deserialized-bool x y)
+  let x = read-f64 bs 4
+  let y = read-f64 bs 10
+  Some (KeyMouse pid key deserialized-bool x y)
 
 -- Deserializes a ByteString into a MouseMove event.
 -- - bs: The ByteString to deserialize.
 -- = Some MouseMove if successful, None otherwise.
 deserialize-mouse-move : ByteString → Maybe Event
 deserialize-mouse-move bs = do
-  let x = read-f64 bs 1
-  let y = read-f64 bs 7
-  Some (MouseMove x y)
+  let pid = BS.head (BS.drop 1 bs)
+  let x = read-f64 bs 2
+  let y = read-f64 bs 8
+  Some (MouseMove pid x y)
 
 -- Deserializes a ByteString into an Event.
 -- - bs: The ByteString to deserialize.
