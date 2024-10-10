@@ -1,0 +1,27 @@
+use Base/BinTree/ as BT/
+use Base/Bool/ as B/
+use Base/Nat/ as N/
+use Base/Trait/ as T/
+
+// Counts the occurrences of a given value in a binary tree.
+// - 1st: The type of elements in the tree.
+// - 2nd: An equality instance for type.
+// - 3rd: The value to count.
+// - 4th: The binary tree to search.
+// = The number of occurrences of the given value in the tree.
+BT/count
+: ∀(A: *)
+  ∀(e: (T/Eq A))
+  ∀(x: A)
+  ∀(t: (BT/BinTree A))
+  N/Nat
+= λA λe λx λ{
+  #Leaf:
+    #Zero{}
+  #Node: λt.val λt.lft λt.rgt
+    let is_equal = (T/Eq/eq A e x t.val)
+    let count_val = (B/if N/Nat is_equal #Succ{#Zero{}} #Zero{})
+    let count_lft = (BT/count A e x t.lft)
+    let count_rgt = (BT/count A e x t.rgt)
+    (N/add count_val (N/add count_lft count_rgt))
+}

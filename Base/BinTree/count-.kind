@@ -1,0 +1,184 @@
+use Base/BinTree/ as BT/
+use Base/Bool/ as B/
+use Base/Nat/ as N/
+use Base/Equal/ as E/
+use Base/Nat/Trait/ as NT/
+
+// Test: Count in an empty tree
+T0
+: (E/Equal 
+		N/Nat 
+		(BT/count 
+			N/Nat 
+			NT/Eq 
+			(#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}) 
+			#Leaf{}) 
+		#Zero{})
+= #Refl{}
+
+// Test: Count in a tree with one matching element
+T1
+: (E/Equal
+    N/Nat
+    (BT/count
+      N/Nat
+      NT/Eq
+      (#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}})
+      (#Node{
+        (#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}})
+        #Leaf{}
+        #Leaf{}
+      })
+    )
+    (#Succ{#Zero{}})
+  )
+= #Refl{}
+
+// Test: Count in a tree with multiple matching elements
+T2
+: (E/Equal
+    N/Nat
+    (BT/count
+      N/Nat
+      NT/Eq
+      (#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}})
+      (#Node{
+        (#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}})
+        (#Node{
+          (#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}})
+          #Leaf{}
+          #Leaf{}
+        })
+        (#Node{
+          (#Succ{#Succ{#Succ{#Zero{}}}})
+          #Leaf{}
+          (#Node{
+            (#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}})
+            #Leaf{}
+            #Leaf{}
+          })
+        })
+      })
+    )
+    (#Succ{#Succ{#Succ{#Zero{}}}})
+  )
+= #Refl{}
+
+// Test: Count in a tree with no matching elements
+T3
+: (E/Equal
+    N/Nat
+    (BT/count
+      N/Nat
+      NT/Eq
+      (#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}})
+      (#Node{
+        (#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}})
+        (#Node{
+          (#Succ{#Succ{#Succ{#Zero{}}}})
+          #Leaf{}
+          #Leaf{}
+        })
+        (#Node{
+          (#Succ{#Zero{}})
+          #Leaf{}
+          (#Node{
+            (#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}})
+            #Leaf{}
+            #Leaf{}
+          })
+        })
+      })
+    )
+    #Zero{}
+  )
+= #Refl{}
+
+// Test: Count in a balanced tree with mixed elements
+T4
+: (E/Equal
+    N/Nat
+    (BT/count
+      N/Nat
+      NT/Eq
+      (#Succ{#Succ{#Zero{}}})
+      (#Node{
+        (#Succ{#Zero{}})
+        (#Node{
+          (#Succ{#Succ{#Zero{}}})
+          #Leaf{}
+          #Leaf{}
+        })
+        (#Node{
+          (#Succ{#Succ{#Succ{#Zero{}}}})
+          (#Node{
+            (#Succ{#Succ{#Zero{}}})
+            #Leaf{}
+            #Leaf{}
+          })
+          (#Node{
+            (#Succ{#Succ{#Succ{#Succ{#Zero{}}}}})
+            #Leaf{}
+            #Leaf{}
+          })
+        })
+      })
+    )
+    (#Succ{#Succ{#Zero{}}})
+  )
+= #Refl{}
+
+// Test: Count in a left-heavy tree
+T5
+: (E/Equal
+    N/Nat
+    (BT/count
+      N/Nat
+      NT/Eq
+      (#Succ{#Zero{}})
+      (#Node{
+        (#Succ{#Zero{}})
+        (#Node{
+          (#Succ{#Zero{}})
+          (#Node{
+            (#Succ{#Zero{}})
+            #Leaf{}
+            #Leaf{}
+          })
+          #Leaf{}
+        })
+        #Leaf{}
+      })
+    )
+    (#Succ{#Succ{#Succ{#Zero{}}}}))
+= #Refl{}
+
+// Test: Count in a right-heavy tree
+T6
+: (E/Equal
+    N/Nat
+    (BT/count
+      N/Nat
+      NT/Eq
+      (#Succ{#Succ{#Succ{#Zero{}}}})
+      (#Node{
+        (#Succ{#Zero{}})
+        #Leaf{}
+        (#Node{
+          (#Succ{#Succ{#Zero{}}})
+          #Leaf{}
+          (#Node{
+            (#Succ{#Succ{#Succ{#Zero{}}}})
+            #Leaf{}
+            (#Node{
+              (#Succ{#Succ{#Succ{#Zero{}}}})
+              #Leaf{}
+              #Leaf{}
+            })
+          })
+        })
+      })
+    )
+    (#Succ{#Succ{#Zero{}}})
+  )
+= #Refl{}
