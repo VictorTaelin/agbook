@@ -1,0 +1,90 @@
+use Base/BinTree/ as BT/
+use Base/Nat/ as N/
+use Base/Equal/ as E/
+
+// Test: Empty tree
+T0 
+: (E/Equal N/Nat (BT/foldr _ _ N/add #Zero{} #Leaf{}) #Zero{})
+= #Refl{}
+
+// Test: Single node tree
+T1 
+: (E/Equal 
+		N/Nat 
+		(BT/foldr _ _ 
+			N/add 
+			#Zero{} 
+			(#Node{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}} #Leaf{} #Leaf{}})) 
+		#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}})
+= #Refl{}
+
+// Test: Tree with multiple nodes
+T2 
+: (E/Equal 
+		N/Nat 
+		(BT/foldr _ _ 
+			N/add 
+			#Zero{} 
+			(#Node{#Succ{#Zero{}} 
+				(#Node{#Succ{#Succ{#Zero{}}} #Leaf{} #Leaf{}}) 
+				(#Node{#Succ{#Succ{#Succ{#Zero{}}}} #Leaf{} #Leaf{}})})) 
+		#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}})
+= #Refl{}
+
+// Test: Using multiplication instead of addition
+T3 
+: (E/Equal
+	 	N/Nat 
+		(BT/foldr _ _ 
+			N/mul 
+			#Succ{#Zero{}} 
+			(#Node{#Succ{#Succ{#Zero{}}} 
+				(#Node{#Succ{#Succ{#Succ{#Zero{}}}} #Leaf{} #Leaf{}}) 
+				(#Node{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}} #Leaf{} #Leaf{}})})) 
+		#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}}}}}}}}}}}}}}}})
+= #Refl{}
+
+// Test: Using a more complex tree structure
+T4 
+: (E/Equal 
+		N/Nat 
+		(BT/foldr _ _ 
+			N/add 
+			#Zero{} 
+			(#Node{#Succ{#Zero{}} 
+				(#Node{#Succ{#Succ{#Zero{}}} 
+					(#Node{#Succ{#Succ{#Succ{#Zero{}}}} #Leaf{} #Leaf{}}) 
+					#Leaf{}}) 
+				(#Node{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}} 
+					#Leaf{} 
+					(#Node{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}} #Leaf{} #Leaf{}})})})) 
+		#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}}}}}}})
+= #Refl{}
+
+// Test: Right-associative nature of foldr
+T5 
+: (E/Equal 
+		N/Nat 
+		(BT/foldr _ _ 
+			N/sub 
+			#Zero{} 
+			(#Node{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}} 
+				(#Node{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}} #Leaf{} #Leaf{}}) 
+				(#Node{#Succ{#Succ{#Succ{#Zero{}}}} #Leaf{} #Leaf{}})})) 
+		#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}})
+= #Refl{}
+
+// Test: Using foldr to count nodes
+T6 
+: (E/Equal 
+		N/Nat 
+		(BT/foldr _ _ 
+			(λx λacc #Succ{acc}) 
+			#Zero{} 
+			(#Node{#Succ{#Zero{}} 
+				(#Node{#Succ{#Succ{#Zero{}}} #Leaf{} #Leaf{}}) 
+				(#Node{#Succ{#Succ{#Succ{#Zero{}}}} 
+					#Leaf{} 
+					(#Node{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}} #Leaf{} #Leaf{}})})})) 
+			#Succ{#Succ{#Succ{#Succ{#Zero{}}}}})
+= #Refl{}
