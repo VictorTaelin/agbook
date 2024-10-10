@@ -14,10 +14,6 @@ open import Agda.Primitive
 T0 : {a : Level} {A : Set a} → dequeue {a} {A} (MkQueue [] []) ≡ None
 T0 = refl
 
--- Test: Dequeue from an empty queue
-T02 : dequeue (MkQueue [] []) ≡ None
-T02 = refl
-
 -- Test: Dequeue from a queue with one element in front
 T1 : dequeue (MkQueue (1 :: []) []) ≡ Some (1 , MkQueue [] [])
 T1 = refl
@@ -33,4 +29,3 @@ T3 = refl
 -- Test: Dequeue from a queue with elements in both front and back
 T4 : dequeue (MkQueue (1 :: []) (3 :: 2 :: [])) ≡ Some (1 , MkQueue [] (3 :: 2 :: []))
 T4 = refl
-
