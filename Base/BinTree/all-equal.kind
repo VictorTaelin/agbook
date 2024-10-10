@@ -1,0 +1,27 @@
+use Base/BinTree/ as BT/
+use Base/Bool/ as B/
+use Base/Trait/ as T/
+
+// Checks if all values in a binary tree are equal.
+// - 1st: The type of elements in the tree.
+// - 2nd: An equality function for type.
+// - 3rd: The binary tree to check.
+// = True if all values in the tree are equal, False otherwise.
+BT/all-equal
+: ∀(A: *)
+  ∀(e: (T/Eq A))
+  ∀(t: (BT/BinTree A))
+  B/Bool
+= λA λe λ{
+  #Leaf: #True{}
+  #Node: λx λl λr
+    (BT/fold A B/Bool
+      (λy λle λre
+        (B/and
+          (B/and
+            (T/Eq/eq A e x y)
+            le)
+          re))
+      #True{}
+      (#Node{x l r}))
+}

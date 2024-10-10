@@ -2,6 +2,6 @@ use Base/Nat/ as N/
 use Base/Trait/ as T/
 
 // Instance of Eq for Nat
-N/Trait/Eq/EqNat : (T/Eq N/Nat) = 
+N/Trait/Eq: (T/Eq N/Nat) = 
   use x = T/Eq
   (T/Eq/derive N/Nat N/eq)
