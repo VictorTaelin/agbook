@@ -16,4 +16,3 @@ _>>=_ : ∀ {A B E : Set} → Result A E → (A → Result B E) → Result B E
 _>>=_ = bind
 
 infixl 1 _>>=_
-
