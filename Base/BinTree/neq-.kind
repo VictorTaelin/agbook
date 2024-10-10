@@ -1,0 +1,36 @@
+use Base/BinTree/ as BT/
+use Base/Bool/ as B/
+use Base/Equal/ as E/
+use Base/Nat/ as N/
+
+// Test: Inequality of two different simple trees
+T0 : (E/Equal B/Bool (BT/neq N/Nat N/Trait/Eq (#Node{#Succ{#Zero{}} #Leaf{} #Leaf{}}) (#Node{#Succ{#Succ{#Zero{}}} #Leaf{} #Leaf{}})) #True{})
+= #Refl{}
+
+// Test: Inequality of two identical complex trees
+T1 : (E/Equal B/Bool (BT/neq N/Nat N/Trait/Eq (#Node{#Succ{#Zero{}} (#Node{#Succ{#Succ{#Zero{}}} #Leaf{} #Leaf{}}) #Leaf{}}) (#Node{#Succ{#Zero{}} (#Node{#Succ{#Succ{#Zero{}}} #Leaf{} #Leaf{}}) #Leaf{}})) #False{})
+= #Refl{}
+
+// Test: Inequality of trees with same root but different structure
+T2 : (E/Equal B/Bool (BT/neq N/Nat N/Trait/Eq (#Node{#Succ{#Zero{}} (#Node{#Succ{#Succ{#Zero{}}} #Leaf{} #Leaf{}}) #Leaf{}}) (#Node{#Succ{#Zero{}} #Leaf{} (#Node{#Succ{#Succ{#Zero{}}} #Leaf{} #Leaf{}})})) #True{})
+= #Refl{}
+
+// Test: Inequality between a leaf and a non-leaf tree
+T3 : (E/Equal B/Bool (BT/neq N/Nat N/Trait/Eq #Leaf{} (#Node{#Succ{#Zero{}} #Leaf{} #Leaf{}})) #True{})
+= #Refl{}
+
+// Test: Inequality of two empty trees (leaves)
+T4 : (E/Equal B/Bool (BT/neq N/Nat N/Trait/Eq #Leaf{} #Leaf{}) #False{})
+= #Refl{}
+
+// Test: Inequality of trees with different values in subtrees
+T5 : (E/Equal B/Bool (BT/neq N/Nat N/Trait/Eq (#Node{#Succ{#Zero{}} (#Node{#Succ{#Succ{#Zero{}}} #Leaf{} #Leaf{}}) (#Node{#Succ{#Succ{#Succ{#Zero{}}}} #Leaf{} #Leaf{}})}) (#Node{#Succ{#Zero{}} (#Node{#Succ{#Succ{#Zero{}}} #Leaf{} #Leaf{}}) (#Node{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}} #Leaf{} #Leaf{}})})) #True{})
+= #Refl{}
+
+// Test: Inequality of trees with same structure but different root values
+T6 : (E/Equal B/Bool (BT/neq N/Nat N/Trait/Eq (#Node{#Succ{#Zero{}} (#Node{#Succ{#Succ{#Zero{}}} #Leaf{} #Leaf{}}) (#Node{#Succ{#Succ{#Succ{#Zero{}}}} #Leaf{} #Leaf{}})}) (#Node{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}} (#Node{#Succ{#Succ{#Zero{}}} #Leaf{} #Leaf{}}) (#Node{#Succ{#Succ{#Succ{#Zero{}}}} #Leaf{} #Leaf{}})})) #True{})
+= #Refl{}
+
+// Test: Inequality of a complex tree and a leaf
+T7 : (E/Equal B/Bool (BT/neq N/Nat N/Trait/Eq (#Node{#Succ{#Zero{}} (#Node{#Succ{#Succ{#Zero{}}} #Leaf{} #Leaf{}}) (#Node{#Succ{#Succ{#Succ{#Zero{}}}} #Leaf{} #Leaf{}})}) #Leaf{}) #True{})
+= #Refl{}
