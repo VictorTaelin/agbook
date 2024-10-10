@@ -12,3 +12,4 @@ record Source : Set where
     file : Maybe String    -- The file containing the source
     span : Maybe TextSpan  -- The text span of the source
     kind : SourceKind      -- The kind of source
+

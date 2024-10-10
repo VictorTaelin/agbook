@@ -7,3 +7,4 @@ open import Bend.Compile.NetToHvm.State.State
 
 new : Nat → State
 new n-nodes = MkState map-new 0 (Succ n-nodes)
+

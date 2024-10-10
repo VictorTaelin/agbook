@@ -18,3 +18,4 @@ _*_ : Bits → Bits → Bits
 _*_ = mul
 
 infixl 7 _*_
+

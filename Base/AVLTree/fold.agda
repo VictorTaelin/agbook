@@ -14,3 +14,4 @@ fold f z (Node value _ left right) = do
   let left-result = fold f z left
   let curr-result = f value left-result
   fold f curr-result right
+

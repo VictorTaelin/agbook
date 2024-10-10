@@ -12,3 +12,4 @@ minimum : ∀ {V : Set} → OrdSet V → Maybe V
 minimum set with AVL.minimum set
 ... | Some pair = Some (fst pair)
 ... | None = None
+

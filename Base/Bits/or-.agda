@@ -33,3 +33,4 @@ test-multi-bit-2 = refl
 
 test-multi-bit-3 : (O (O (I E))) || (I (I (O E))) ≡ I (I (I E))
 test-multi-bit-3 = refl
+

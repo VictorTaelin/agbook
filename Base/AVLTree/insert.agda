@@ -47,3 +47,4 @@ _::>_ : ∀ {K V : Set} → {{_ : Ord K}} → Pair K V → AVLTree K V → AVLTr
 _::>_ = insert
 
 infixr 5 _::>_
+

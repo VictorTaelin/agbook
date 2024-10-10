@@ -10,3 +10,4 @@ primitive primIsAlpha : Char → Bool
 -- = True if the character is alphabetic, False otherwise.
 is-alpha : Char → Bool
 is-alpha = primIsAlpha
+

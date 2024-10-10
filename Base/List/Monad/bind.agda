@@ -16,3 +16,4 @@ _>>=_ : ∀ {A B : Set} → List A → (A → List B) → List B
 _>>=_ = bind
 
 infixl 1 _>>=_
+

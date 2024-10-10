@@ -26,3 +26,4 @@ peek-many count = λ s → do
   let enough = length peeked == count
   let result = if enough then Some (from-list peeked) else None
   Done (MkReply s result)
+

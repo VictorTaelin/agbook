@@ -13,3 +13,4 @@ take Zero     _       = E
 take (Succ _) E       = E
 take (Succ n) (O bits) = O (take n bits)
 take (Succ n) (I bits) = I (take n bits)
+

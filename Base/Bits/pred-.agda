@@ -25,3 +25,4 @@ test-pred-four = refl
 
 test-pred-five : pred (I (O (I E))) ≡ O (O (I E))
 test-pred-five = refl
+

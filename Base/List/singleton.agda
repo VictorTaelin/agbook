@@ -10,3 +10,4 @@ singleton x = x :: []
 
 [_] : ∀ {A : Set} → A → List A
 [_] = singleton
+

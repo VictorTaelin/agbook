@@ -17,3 +17,4 @@ lt (I a) (I b) = lt a b
 infix 4 _<_
 _<_ : Bits → Bits → Bool
 _<_ = lt
+

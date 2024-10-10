@@ -1,0 +1,13 @@
+use Base/List/ as L/
+use Base/Bool/ as B/
+use Base/Equal/ as E/
+use Base/Trait/ as T/
+
+// Test: Different lists should not be equal
+L/test_eq_different_lists
+: (E/Equal
+    (L/eq (L/List B/Bool) #Cons{#True{} #Cons{#True{} #Cons{#True{} #Nil{}}}} 
+                          #Cons{#True{} #Cons{#True{} #Cons{#True{} #Nil{}}}})
+    #True{})
+= λa #Refl{}
+

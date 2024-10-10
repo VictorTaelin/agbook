@@ -160,3 +160,4 @@ fix-match-terms book = do
                   Done (key , def))
                 (to-list (Book.defs book))
   Done (record book { defs = from-list defs })
+

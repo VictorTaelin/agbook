@@ -10,3 +10,4 @@ test-neq-same = refl
 
 test-neq-different : (3.14 != 2.71) ≡ True
 test-neq-different = refl
+

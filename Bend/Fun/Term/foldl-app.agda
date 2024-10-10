@@ -6,3 +6,4 @@ open import Bend.Fun.Term.Term renaming (List to List')
 
 foldl-app : Term → List Term → Term
 foldl-app fun arg = foldl App fun arg
+

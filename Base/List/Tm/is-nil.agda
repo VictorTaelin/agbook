@@ -12,3 +12,4 @@ is-nil-empty = refl
 -- Proof that is-nil returns False for a non-empty list
 is-nil-cons : ∀ {A : Set} (x : A) (xs : List A) → is-nil (x :: xs) ≡ False
 is-nil-cons _ _ = refl
+

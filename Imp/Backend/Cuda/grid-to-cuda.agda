@@ -69,7 +69,7 @@ grid-to-cuda (MkGrid global shared blocks threads code) =
       grid<<<NUM_BLOCKS, NUM_THREADS, SHARED_SIZE>>>();
 
       // dumps global memory
-      u64 *global = (u64*) calloc(sizeof(u64), GLOBAL_SIZE);
+      u64 *global = (u64*) calloc(GLOBAL_SIZE, sizeof(u64));
       cudaMemcpyFromSymbol(global, GLOBAL, sizeof(u64) * GLOBAL_SIZE);
       cudaCheckError(cudaGetLastError());
 
@@ -146,3 +146,4 @@ grid-to-cuda (MkGrid global shared blocks threads code) =
       (to-kernel (i + 1) b) ++ "\n" ++
       (indent (i + 1)) ++ "RETURN: __ret__;\n" ++
     (indent i ) ++ "});"
+

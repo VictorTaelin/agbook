@@ -17,3 +17,4 @@ instance
     ; lte = F64.lte
     ; gte = F64.gte
     }
+

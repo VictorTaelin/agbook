@@ -18,3 +18,4 @@ frequency xs = foldr count-element empty xs where
   count-element x tree with get-pair x tree
   ... | Some (k , v) = (k , Succ v) ::> tree
   ... | None         = (x , Succ Zero) ::> tree
+

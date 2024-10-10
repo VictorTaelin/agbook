@@ -8,3 +8,4 @@ open import Imp.Eval.Env.Env
 pop : Env → Env
 pop []       = []
 pop (_ :: e) = e
+

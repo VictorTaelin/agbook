@@ -13,3 +13,4 @@ is-empty : String → Bool
 is-empty s with to-list s
 ... | []       = True
 ... | (_ :: _) = False
+

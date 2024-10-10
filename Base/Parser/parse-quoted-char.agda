@@ -18,3 +18,4 @@ parse-quoted-char = do
   c <- parse-char
   consume "'"
   pure c
+

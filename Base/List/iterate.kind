@@ -1,0 +1,19 @@
+use Base/List/ as L/
+use Base/Nat/ as N/
+
+// Generates a list by iterating a function over an initial value.
+// - A: The type of elements in the list.
+// - f: The function to be applied repeatedly.
+// - x: The initial value.
+// - n: The number of iterations.
+// = A list containing the results of applying f repeatedly, n times.
+L/iterate
+: ∀(A: *)
+  ∀(f: ∀(a: A) A)
+  ∀(x: A)
+  ∀(n: N/Nat)
+  (L/List A)
+= λA λf λx λ{
+  #Zero: #Nil{}
+  #Succ: λn.pred #Cons{x (L/iterate _ f (f x) n.pred)}
+}

@@ -23,3 +23,4 @@ pack-string-fixed str length = do
   let fixed-str = take length (to-list str)
   maybe-str <- head fixed-str
   Some (pack-string (from-char maybe-str))
+

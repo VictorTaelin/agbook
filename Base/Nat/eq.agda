@@ -19,3 +19,4 @@ _==_ : Nat → Nat → Bool
 _==_ = eq
 
 infix 4 _==_
+

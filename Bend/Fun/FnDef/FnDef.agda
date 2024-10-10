@@ -19,3 +19,4 @@ record FnDef : Set where
     check : Bool       -- Whether to type-check this function
     rules : List Rule  -- The list of rules defining the function
     src   : Source     -- Source information for the function definition
+

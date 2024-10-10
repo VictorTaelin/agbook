@@ -9,3 +9,4 @@ open import ARC.DSL.Types.Integer.Functions
 -- = True if n is even, False otherwise
 even : Integer → Boolean
 even x = eq (x % 2) 0
+

@@ -18,3 +18,4 @@ test-advance-one-empty = refl
 
 test-advance-one-special : advance-one (MkState "!@#" 0) ≡ Done (MkReply (MkState "@#" 1) (Some '!'))
 test-advance-one-special = refl
+

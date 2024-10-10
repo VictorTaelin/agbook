@@ -12,3 +12,4 @@ record Error : Set where
   field
     index : Nat
     error : String
+

@@ -16,3 +16,4 @@ deserialize w with (to-nat w)
 ... | 0 = Some LeftButton
 ... | 1 = Some RightButton
 ... | _ = None
+

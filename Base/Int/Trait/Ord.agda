@@ -17,3 +17,4 @@ instance
     ; lte = Int.lte
     ; gte = Int.gte
     }
+

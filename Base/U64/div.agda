@@ -27,3 +27,4 @@ div x y = from-nat (go (to-nat x) (to-nat y))
 -- Infix operator for division
 infix 8 _/_
 _/_ = div
+

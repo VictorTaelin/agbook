@@ -15,3 +15,4 @@ get-set (Node val lft rgt) (I k) v = get-set rgt k v
 get-set Leaf               E     v = refl
 get-set Leaf               (O k) v = get-set Leaf k v
 get-set Leaf               (I k) v = get-set Leaf k v
+

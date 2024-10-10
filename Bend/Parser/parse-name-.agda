@@ -66,3 +66,4 @@ _ = refl
 -- Name with leading space (should fail)
 _ : test-parse-name "Variable" " invalidLeadingSpace" ≡ "Expected Variable name"
 _ = refl
+

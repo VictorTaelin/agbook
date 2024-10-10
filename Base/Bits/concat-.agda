@@ -31,3 +31,4 @@ test-concat-all-empty = refl
 
 test-concat-complex : concat (I (O (I E)) :: O (I E) :: I E :: []) ≡ I (O (I (O (I (I E)))))
 test-concat-complex = refl
+

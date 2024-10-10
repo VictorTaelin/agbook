@@ -8,3 +8,4 @@ open import Base.Nat.Nat
 double : Nat → Nat
 double Zero     = Zero
 double (Succ n) = Succ (Succ (double n))
+

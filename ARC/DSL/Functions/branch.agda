@@ -10,3 +10,4 @@ open import ARC.DSL.Types.Boolean.Boolean
 branch : ∀ {A : Set} → Boolean → A → A → A
 branch True  a b = a
 branch False a b = b
+

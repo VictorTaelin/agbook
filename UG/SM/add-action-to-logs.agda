@@ -12,3 +12,4 @@ open import UG.SM.Tick.Tick
 add-action-to-logs : ∀ {S A : Set} → Mach S A → Tick → A → Mach S A
 add-action-to-logs mach tick action =
   record mach { action-logs = add-action (Mach.action-logs mach) tick action }
+

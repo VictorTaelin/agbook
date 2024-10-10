@@ -13,3 +13,4 @@ open import Base.Trait.Ord
 -- = A new AVL tree with the function applied to all values.
 map-values : ∀ {K V B : Set} → {{_ : Ord K}} → (V → B) → AVLTree K V → AVLTree K B
 map-values f tree = fold (λ (k , v) acc → insert (k , f v) acc) empty tree
+

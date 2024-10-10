@@ -17,3 +17,4 @@ not x = from-nat (to-nat (notB (to-bits x)))
 infix 9 ~_
 ~_ : U64 → U64
 ~_ = not
+

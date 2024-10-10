@@ -13,3 +13,4 @@ update-cached-tick : ∀ {S A : Set} → Mach S A → Tick → Mach S A
 update-cached-tick mach new-tick with new-tick < Mach.cached-tick mach
 ... | True = record mach { cached-tick = new-tick }
 ... | False = record mach { cached-tick = Mach.cached-tick mach }
+

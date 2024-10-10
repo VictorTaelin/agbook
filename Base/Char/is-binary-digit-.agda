@@ -22,3 +22,4 @@ T2 = refl
 -- Test: 'a' is not a binary digit.
 T3 : is-binary-digit 'a' ≡ False
 T3 = refl
+

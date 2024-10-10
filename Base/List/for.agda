@@ -12,3 +12,4 @@ open import Base.List.mmap
 -- = A monadic list containing the results of applying f to each element of xs.
 for : ∀ {M : Set → Set} {{monadM : Monad M}} {A B : Set} → List A → (A → M B) → M (List B)
 for = flip mmap
+

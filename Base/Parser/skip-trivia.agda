@@ -64,3 +64,4 @@ skip-trivia = λ s → do
   let new-index   = add (State.index s) skp
   let new-input   = from-list rem
   Done (MkReply (MkState new-input new-index) skp)
+

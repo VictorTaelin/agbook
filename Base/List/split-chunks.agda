@@ -17,3 +17,4 @@ split-chunks pred (x :: xs) with (split-chunks pred xs) | (pred x)
 ... | []                | True  = [] :: (x :: []) :: []
 ... | (chunk :: chunks) | False = (x :: chunk) :: chunks
 ... | (chunk :: chunks) | True  = [] :: (x :: chunk) :: chunks
+

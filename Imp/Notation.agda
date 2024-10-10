@@ -5,6 +5,7 @@ open import Imp.Stmt.Stmt
 open import Base.Nat.Nat
 open import Base.U64.from-nat
 open import Base.String.String
+open import Base.Function.compose
 
 --------------------------------------------------
 -- Expressions
@@ -12,6 +13,10 @@ open import Base.String.String
 -- Local variable access
 infix 100 $_
 $_ = Var
+
+-- Local variable access
+infix 100 #_
+#_ = Num <> from-nat
 
 -- Grid indices
 tid = Tid
@@ -88,3 +93,4 @@ break    = Break
 continue = Cont
 ignore_  = Ignore
 noop     = Ignore (Num (from-nat 0))
+

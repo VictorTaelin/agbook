@@ -31,3 +31,4 @@ parse-oper =
     ((consume "|")  >> (pure Or))  <|>
     ((consume "^")  >> (pure Xor)) <|>
     fail "Expected operator"
+

@@ -11,3 +11,4 @@ link net a b = do
   net <- set-port net a b
   net <- set-port net b a
   Some net
+

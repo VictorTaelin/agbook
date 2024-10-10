@@ -10,3 +10,4 @@ open import Base.Function.id
 -- = The result of applying f, then g, then h to x.
 chain : ∀ {A B C D : Set} → (C → D) → (B → C) → (A → B) → A → D
 chain h g f = λ x → h (g (f x))
+

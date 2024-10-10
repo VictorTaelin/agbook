@@ -38,3 +38,4 @@ children (Open _ _ bod) = bod :: []
 children (Ref _) = []
 children (Def _ nxt) = nxt :: []
 children Era = []
+

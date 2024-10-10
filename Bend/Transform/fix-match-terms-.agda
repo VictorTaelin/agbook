@@ -41,7 +41,7 @@ test-fix-term input = do
   let res = case (parse-book (new-parser-state file)) of λ where
     (Done (MkReply _ book)) → do
       book <- fix-match-terms (to-book book)
-      def <- to-result (get-def book "main") "no main"
+      def <- get-def book "main"
       rule <- to-result (head (FnDef.rules def)) "no body"
       Done (show (Rule.body rule))
     (Fail (MkError _ err)) → Fail ("Parse failed: " ++ err)
@@ -102,3 +102,4 @@ _ = refl
 -- Missing match case
 _ : test-fix-term "match x { List/Cons: x.h }" ≡ "Non exhaustive match of type List, missing List/Nil case"
 _ = refl
+

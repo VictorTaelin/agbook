@@ -15,3 +15,4 @@ open import Base.Pair.Pair
 --   with values from m1 taking precedence when keys conflict.
 union : ∀ {A : Set} → BinMap A → BinMap A → BinMap A
 union m1 m2 = foldr (λ (k , v) acc → set acc k v) m2 (to-list m1)
+

@@ -15,3 +15,4 @@ open import Base.Trait.Ord
 -- = A new container with the function applied to all inner containers and merged.
 mapply : ∀ {A B : Set} {{_ : Ord B}} → (Container A → Container B) → Container (Container A) → Container B
 mapply fn container = merge (apply {{OrdContainer}} fn container)
+

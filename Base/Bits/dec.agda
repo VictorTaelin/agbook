@@ -9,3 +9,4 @@ dec : Bits → Bits
 dec E      = E
 dec (O bs) = I (dec bs)
 dec (I bs) = O bs
+

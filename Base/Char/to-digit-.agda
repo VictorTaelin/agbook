@@ -29,3 +29,4 @@ T4 = refl
 -- Test: Convert 'F' to digit in base 10 (invalid decimal digit)
 T5 : to-digit 10 'F' ≡ None
 T5 = refl
+

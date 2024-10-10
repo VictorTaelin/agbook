@@ -46,3 +46,4 @@ T8 = refl
 -- Test: Exponentiation property: (a^b)^c = a^(b*c)
 T9 : ((2 ** 3) ** 2) ≡ (2 ** (3 * 2))
 T9 = refl
+

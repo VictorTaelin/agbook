@@ -11,3 +11,4 @@ open import Base.V2.V2
 -- = The dot product (scalar) of the two vectors.
 dot : V2 → V2 → F64
 dot (MkV2 x1 y1) (MkV2 x2 y2) = (x1 * x2) + (y1 * y2)
+

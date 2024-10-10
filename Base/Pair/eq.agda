@@ -17,3 +17,4 @@ _==_ : ∀ {A B : Set} → {{EqA : Eq.Eq A}} → {{EqB : Eq.Eq B}} → Pair A B 
 _==_ = eq
 
 infix 4 _==_
+

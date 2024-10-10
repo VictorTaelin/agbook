@@ -185,3 +185,4 @@ import Base.Word8.ALL
 module Word8 = Base.Word8.ALL
 open Word8 public
   using (Word8)
+

@@ -12,3 +12,4 @@ maximum : ∀ {V : Set} → OrdSet V → Maybe V
 maximum set with AVL.maximum set
 ... | Some pair = Some (fst pair)
 ... | None = None
+

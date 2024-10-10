@@ -12,3 +12,4 @@ instance
     { bind = List.bind
     ; pure = List.pure
     }
+

@@ -20,3 +20,4 @@ last default (AsList l) with L.last l
 last default (AsOSet s) with S.maximum s
 ... | Some x = x  -- For a set, the last element is the maximum value
 ... | None   = default  -- If the set is empty, return the default value
+

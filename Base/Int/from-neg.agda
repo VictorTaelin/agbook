@@ -12,3 +12,4 @@ from-neg Zero     = Pos Zero
 from-neg (Succ n) = NegSuc n
 
 {-# BUILTIN FROMNEG from-neg #-}
+

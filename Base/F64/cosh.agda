@@ -9,3 +9,4 @@ primitive primFloatCosh : F64 → F64
 -- = The hyperbolic cosine of x.
 cosh : F64 → F64
 cosh = primFloatCosh
+

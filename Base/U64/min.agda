@@ -12,3 +12,4 @@ open import Base.Trait.Ord
 -- = The smaller of x and y as a U64 number.
 min : U64 → U64 → U64 
 min x y = if (from-bool (_<=_ {{OrdU64}} x y)) then x else y
+

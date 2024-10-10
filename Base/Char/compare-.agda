@@ -32,3 +32,4 @@ T5 = refl
 -- Test: Comparing 'z' with 'a' results in GT.
 T6 : compare 'z' 'a' ≡ GT
 T6 = refl
+

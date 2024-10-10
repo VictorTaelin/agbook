@@ -20,3 +20,4 @@ _||_ : Bits → Bits → Bits
 _||_ = or
 
 infixr 5 _||_
+

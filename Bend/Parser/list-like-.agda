@@ -67,3 +67,4 @@ _ = refl
 -- Test failure on missing hard separator
 _ : parse hard-sep-parser "(foo bar,baz)" ≡ Fail _
 _ = refl
+

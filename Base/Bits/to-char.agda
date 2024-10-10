@@ -8,3 +8,4 @@ open import Base.Char.Char
 
 to-char : Bits → Char
 to-char bits = C.from-nat (B.to-nat bits)
+

@@ -1,0 +1,47 @@
+use Base/BinTree/ as BT/
+use Base/Equal/ as E/
+use Base/Nat/ as N/
+
+// Test: Create a simple node with two leaf children
+T0
+: (E/Equal
+    (BT/BinTree N/Nat)
+    (BT/node N/Nat #Succ{#Zero{}} (BT/leaf N/Nat) (BT/leaf N/Nat))
+    #Node{#Succ{#Zero{}} #Leaf{} #Leaf{}}
+  )
+= #Refl{}
+
+// Test: Create a node with a left child
+T1
+: (E/Equal
+    (BT/BinTree N/Nat)
+    (BT/node N/Nat #Succ{#Succ{#Zero{}}}
+      (BT/node N/Nat #Succ{#Zero{}} (BT/leaf N/Nat) (BT/leaf N/Nat))
+      (BT/leaf N/Nat))
+    #Node{#Succ{#Succ{#Zero{}}} #Node{#Succ{#Zero{}} #Leaf{} #Leaf{}} #Leaf{}}
+  )
+= #Refl{}
+
+// Test: Create a node with a right child
+T2
+: (E/Equal
+    (BT/BinTree N/Nat)
+    (BT/node N/Nat #Succ{#Succ{#Succ{#Zero{}}}}
+      (BT/leaf N/Nat)
+      (BT/node N/Nat #Succ{#Succ{#Succ{#Succ{#Zero{}}}}} (BT/leaf N/Nat) (BT/leaf N/Nat)))
+    #Node{#Succ{#Succ{#Succ{#Zero{}}}} #Leaf{} #Node{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}} #Leaf{} #Leaf{}}}
+  )
+= #Refl{}
+
+// Test: Create a balanced tree with three levels
+T3
+: (E/Equal
+    (BT/BinTree N/Nat)
+    (BT/node N/Nat #Succ{#Zero{}}
+      (BT/node N/Nat #Succ{#Succ{#Zero{}}} (BT/leaf N/Nat) (BT/leaf N/Nat))
+      (BT/node N/Nat #Succ{#Succ{#Succ{#Zero{}}}} (BT/leaf N/Nat) (BT/leaf N/Nat)))
+    #Node{#Succ{#Zero{}}
+      #Node{#Succ{#Succ{#Zero{}}} #Leaf{} #Leaf{}}
+      #Node{#Succ{#Succ{#Succ{#Zero{}}}} #Leaf{} #Leaf{}}}
+  )
+= #Refl{}

@@ -1,0 +1,21 @@
+use Base/BinTree/ as BT/
+
+// Performs a right-associative fold over a binary tree.
+// - 1st: The type of values in the tree.
+// - 2nd: The type of the accumulator and result.
+// - 3rd: The folding function.
+// - 4th: The initial value of the accumulator.
+// - 5th: The input binary tree.
+// = The result of folding the tree from right to left.
+BT/foldr
+: ∀(A: *)
+  ∀(B: *)
+  ∀(f: ∀(x: A) ∀(acc: B) B)
+  ∀(z: B)
+  ∀(t: (BT/BinTree A))
+  B
+= λA λB λf λz λ{
+  #Leaf: z
+  #Node: λt.val λt.lft λt.rgt
+    (f t.val (BT/foldr A B f (BT/foldr A B f z t.rgt) t.lft))
+}

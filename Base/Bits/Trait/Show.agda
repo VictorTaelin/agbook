@@ -7,3 +7,4 @@ open import Base.Trait.Show
 instance
   ShowBits : Show Bits
   ShowBits = record { to-string = Bits.show }
+

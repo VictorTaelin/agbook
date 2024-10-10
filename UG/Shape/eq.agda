@@ -18,3 +18,4 @@ eq (Circle c1 r1)      (Circle c2 r2)    = (c1 V2.== c2) && (r1 F64.== r2)
 infix 4 _==_
 _==_ : Shape → Shape → Bool
 _==_ = eq
+

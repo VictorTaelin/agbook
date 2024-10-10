@@ -5,3 +5,4 @@ data Command : Set where
   GenBend : Command
   GenCore : Command
   GenHvm  : Command
+

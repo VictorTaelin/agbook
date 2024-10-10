@@ -11,3 +11,4 @@ neg : Int → Int
 neg (Pos Zero)     = Pos Zero
 neg (Pos (Succ n)) = NegSuc n
 neg (NegSuc n)     = Pos (Succ n)
+

@@ -1,0 +1,16 @@
+use Base/Int/ as I/
+use Base/Nat/ as N/
+
+// Negates an integer.
+// - x: The integer to negate.
+// = The negation of x.
+I/neg
+: ∀(x: I/Int)
+  I/Int
+= λ{
+  #Pos: λ{
+    #Zero: #Pos{#Zero{}}
+    #Succ: λn #NegSuc{n}
+  }
+  #NegSuc: λn #Pos{#Succ{n}}
+}

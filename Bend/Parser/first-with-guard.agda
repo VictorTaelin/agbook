@@ -19,3 +19,4 @@ first-with-guard ((guard , p) :: ps) dflt = do
     then p
     else first-with-guard ps dflt
 first-with-guard [] dflt = dflt
+

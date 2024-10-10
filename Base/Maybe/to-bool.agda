@@ -9,3 +9,4 @@ open import Base.Bool.Bool
 to-bool : ∀ {A : Set} → Maybe A → Bool
 to-bool (Some _) = True
 to-bool None     = False
+

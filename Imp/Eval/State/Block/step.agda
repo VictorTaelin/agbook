@@ -31,3 +31,4 @@ step global (MkBlock bid shared threads) with (dequeue threads)
     ((MkMemory global shared) , Some thread) → Done (global , Some (MkBlock bid shared (enqueue threads thread)))
 
 ... | None                  = Done (global , None)
+

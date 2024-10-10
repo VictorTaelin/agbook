@@ -22,3 +22,4 @@ get-initial-state : ∀ {S A : Set} → Mach S A → Game S A → Pair S Tick
 get-initial-state mach game with (Mach.state-logs mach)
 ... | Some node = (StateNode.state node , StateNode.tick node)
 ... | None       = (Game.init game , Mach.genesis-tick mach)
+

@@ -34,3 +34,4 @@ test-from-nat-sixteen = refl
 
 test-from-nat-thirty-one : from-nat 31 ≡ I (I (I (I (I E))))
 test-from-nat-thirty-one = refl
+

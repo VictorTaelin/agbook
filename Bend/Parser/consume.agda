@@ -15,3 +15,4 @@ consume : String → Parser Unit
 consume target = do
   skip-trivia
   consume-exactly target
+

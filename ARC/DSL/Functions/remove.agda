@@ -23,3 +23,4 @@ open import Base.Trait.Ord
 remove : ∀ {A : Set} {{_ : Eq A}} {{_ : Ord A}} → A → Container A → Container A
 remove value (AsList xs) = AsList (L.filter (λ x → not (equality x value)) xs)
 remove value (AsOSet xs)  = AsOSet  (S.filter (λ x → not (equality x value)) xs)
+

@@ -9,3 +9,4 @@ open import Base.Nat.Nat
 -- = The number of elements in the set.
 size : ∀ {V : Set} → OrdSet V → Nat
 size = AVLTree.size
+

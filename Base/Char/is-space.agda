@@ -10,3 +10,4 @@ primitive primIsSpace : Char → Bool
 -- = True if the character is a whitespace character, False otherwise.
 is-space : Char → Bool
 is-space = primIsSpace
+

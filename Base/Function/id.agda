@@ -5,3 +5,4 @@ module Base.Function.id where
 -- = The same value x, unchanged.
 id : ∀ {A : Set} → A → A
 id x = x
+

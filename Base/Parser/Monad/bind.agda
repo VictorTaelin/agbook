@@ -33,3 +33,4 @@ _>>_ : ∀ {A B : Set} → Parser A → Parser B → Parser B
 _>>_ = seq
 
 infixl 1 _>>_
+

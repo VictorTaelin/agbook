@@ -7,3 +7,4 @@ module ARC.DSL.Functions.compose where
 -- = The result of applying f to x, then g to that result.
 compose : ∀ {A B C : Set} → (B → C) → (A → B) → A → C
 compose g f x = g (f x)
+

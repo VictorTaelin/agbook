@@ -12,3 +12,4 @@ open import Base.Trait.Eq
 contains : ∀ {A : Set} {{EqA : Eq A}} → A → List A → Bool
 contains x []        = False
 contains x (y :: ys) = (x == y) || contains x ys
+

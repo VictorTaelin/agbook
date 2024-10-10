@@ -35,3 +35,4 @@ free-vars term = dedup (go term empty)
         let bnd = map (λ b → (hash b) , unit) bnd
         union (from-list bnd) scope
       concat (map (λ (bnd , child) → go child (add-scope bnd scope)) cs)
+

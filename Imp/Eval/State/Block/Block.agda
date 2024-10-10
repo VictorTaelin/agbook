@@ -11,3 +11,4 @@ record Block : Set where
     bid     : U64          -- id of this block
     memory  : Buffer       -- shared memory
     threads : Queue Thread -- thread states
+

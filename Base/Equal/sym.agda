@@ -9,3 +9,4 @@ open import Base.Equal.Equal
 -- = Proof that 2nd is equal to 1st.
 sym : ∀ {a} {A : Set a} {x y : A} → x ≡ y → y ≡ x
 sym refl = refl
+

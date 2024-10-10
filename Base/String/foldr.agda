@@ -13,3 +13,4 @@ open import Base.String.to-list
 -- = The result of folding the string.
 foldr : ∀ {A : Set} → (Char → A → A) → A → String → A
 foldr f z s = List.foldr f z (to-list s)
+

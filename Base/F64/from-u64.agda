@@ -10,3 +10,4 @@ open import Base.U64.to-nat
 -- = The F64 representation of x.
 from-u64 : U64 → F64
 from-u64 x = from-nat (to-nat x)
+

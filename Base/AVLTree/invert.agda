@@ -14,3 +14,4 @@ invert : ∀ {K V : Set} {{_ : Ord V}} → AVLTree K V → AVLTree V K
 invert = fold go empty where
   go : ∀ {K V : Set} {{_ : Ord V}} → Pair K V → AVLTree V K → AVLTree V K
   go (k , v) acc = (v , k) ::> acc
+

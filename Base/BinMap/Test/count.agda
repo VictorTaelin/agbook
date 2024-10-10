@@ -34,3 +34,4 @@ test-set-multiple-4 = refl
 
 test-set-multiple-5 : count (set (set (set (set empty (O (I E)) 1) (I (O E)) 2) (O (O E)) 3) (O (I E)) 4) ≡ 3
 test-set-multiple-5 = refl
+

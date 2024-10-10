@@ -60,3 +60,4 @@ _ = refl
 -- Complex shadowing with multiple scopes
 _ : (test "λx let y = x; λx (x (let x = y; x))") ≡ []
 _ = refl
+

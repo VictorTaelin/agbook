@@ -8,3 +8,4 @@ open import Base.List.List
 -- = A List containing all elements from the DiffList.
 to-list : ∀ {A : Set} → DiffList A → List A
 to-list xs = xs []
+

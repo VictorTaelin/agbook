@@ -12,3 +12,4 @@ to-list : ∀ {K V : Set} → AVLTree K V → List (Pair K V)
 to-list Leaf = []
 to-list (Node value _ left right) =
   to-list left ++ (value :: to-list right)
+

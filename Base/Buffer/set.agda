@@ -18,3 +18,4 @@ set : Buffer → (idx : U64) → (val : U64) → Maybe Buffer
 set (MkBuffer length buffer) i v with ((to-nat i) < length)
 ... | True  = Some (MkBuffer length (ordmap-insert (i , v) buffer))
 ... | False = None
+

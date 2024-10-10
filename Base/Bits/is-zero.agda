@@ -11,3 +11,4 @@ is-zero : Bits → Bool
 is-zero E        = True
 is-zero (O bits) = True && is-zero bits
 is-zero (I bits) = False
+

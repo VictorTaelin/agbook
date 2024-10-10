@@ -14,3 +14,4 @@ open import Base.V2.sub
 -- = A new V2 vector representing the interpolated result.
 lerp : V2 → V2 → F64 → V2
 lerp v1 v2 t = v1 + (mul-scalar (v2 - v1) t)
+

@@ -9,3 +9,4 @@ record Grid : Set where
   field
     memory : Buffer      -- global memory
     blocks : Queue Block -- block states
+

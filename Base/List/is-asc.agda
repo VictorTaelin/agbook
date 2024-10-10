@@ -14,3 +14,4 @@ open import Base.Trait.Ord
 is-asc : List Nat → Bool
 is-asc []        = True
 is-asc (x :: xs) = foldr (λ x acc l → _<=_ {{OrdNat}} l x && acc x) (λ x → True) xs 0
+

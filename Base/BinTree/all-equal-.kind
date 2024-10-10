@@ -1,0 +1,84 @@
+use Base/BinTree/ as BT/
+use Base/Bool/ as B/
+use Base/Equal/ as E/
+use Base/Nat/ as N/
+use Base/Nat/Trait/ as NT/
+
+// Test: Empty tree is considered all equal
+T0
+: (E/Equal
+    B/Bool
+    (BT/all-equal N/Nat NT/Eq (#Leaf{}))
+    #True{})
+= #Refl{}
+
+// Test: Single node tree is all equal
+T1
+: (E/Equal
+    B/Bool
+    (BT/all-equal
+      N/Nat
+      NT/Eq
+      (#Node{ #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}} #Leaf{} #Leaf{}}))
+    #True{})
+= #Refl{}
+
+// Test: Tree with all equal values
+T2
+: (E/Equal
+    B/Bool
+    (BT/all-equal
+      N/Nat
+      NT/Eq
+      (#Node{#Succ{#Succ{#Succ{#Zero{}}}}
+        (#Node{#Succ{#Succ{#Succ{#Zero{}}}} #Leaf{} #Leaf{}})
+        (#Node{#Succ{#Succ{#Succ{#Zero{}}}} #Leaf{} #Leaf{}})}))
+    #True{})
+= #Refl{}
+
+// Test: Tree with different values
+T3
+: (E/Equal
+    B/Bool
+    (BT/all-equal
+      N/Nat
+      NT/Eq
+      (#Node{#Succ{#Succ{#Succ{#Zero{}}}}
+        (#Node{#Succ{#Succ{#Succ{#Zero{}}}} #Leaf{} #Leaf{}})
+        (#Node{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}} #Leaf{} #Leaf{}})}))
+    #False{})
+= #Refl{}
+
+// Test: Larger tree with all equal values
+T4
+: (E/Equal
+    B/Bool
+    (BT/all-equal
+      N/Nat
+      NT/Eq
+      (#Node{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}
+        (#Node{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}
+          (#Node{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}} #Leaf{} #Leaf{}})
+          (#Node{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}} #Leaf{} #Leaf{}})})
+        (#Node{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}
+          (#Node{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}} #Leaf{} #Leaf{}})
+          (#Node{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}} #Leaf{} #Leaf{}})})}))
+    #True{})
+= #Refl{}
+
+// Test: Larger tree with one different value
+T5
+: (E/Equal
+    B/Bool
+    (BT/all-equal
+      N/Nat
+      NT/Eq
+      (#Node{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}
+        (#Node{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}
+          (#Node{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}} #Leaf{} #Leaf{}})
+          (#Node{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}} #Leaf{} #Leaf{}})})
+        (#Node{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}
+          (#Node{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}} #Leaf{} #Leaf{}})
+          (#Node{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}} #Leaf{} #Leaf{}})})}))
+    #False{})
+= #Refl{}

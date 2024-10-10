@@ -13,3 +13,4 @@ foldl f z (x :: xs) = foldl f (f z x) xs
 
 -- NOTE: in the JS version, use a loop instead,
 -- to emulate strict tail calls with foldl.
+

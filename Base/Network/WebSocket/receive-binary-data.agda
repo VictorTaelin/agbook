@@ -16,3 +16,4 @@ postulate receive-binary-data : WSConnection → IO (Maybe ByteString)
 {-# FOREIGN GHC import qualified System.Timeout as ST #-}
 
 {-# COMPILE GHC receive-binary-data = \conn -> ST.timeout (fromIntegral 100) (WS.receiveData conn) #-}
+

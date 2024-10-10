@@ -33,3 +33,4 @@ T5 = refl
 -- Test: pred (pred 0) = 0.
 T6 : pred (pred 0) ≡ 0
 T6 = refl
+

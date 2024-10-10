@@ -30,3 +30,4 @@ test-sort-reverse = refl
 -- Test sorting a list with duplicate elements
 test-sort-duplicates : sort _<_ (3 :: 1 :: 3 :: 2 :: 1 :: []) ≡ (1 :: 1 :: 2 :: 3 :: 3 :: [])
 test-sort-duplicates = refl
+

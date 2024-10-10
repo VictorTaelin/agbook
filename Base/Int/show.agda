@@ -12,3 +12,4 @@ open import Base.String.append
 show : Int → String
 show (Pos n)    = Nat.show n
 show (NegSuc n) = "-" ++ Nat.show (Succ n)
+

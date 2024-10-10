@@ -93,3 +93,4 @@ test-infix-operator : do
   let result = t1 ∖ t2
   (to-list result == ((1 , unit) :: [])) && is-balanced result ≡ True
 test-infix-operator = refl
+

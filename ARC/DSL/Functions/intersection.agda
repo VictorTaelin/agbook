@@ -11,3 +11,4 @@ open import Base.Trait.Ord
 -- = A new OrdSet containing only the elements present in both input sets.
 intersection : ∀ {A : Set} {{_ : Ord A}} →  OrdSet A → OrdSet A → OrdSet A
 intersection = S._∩_
+

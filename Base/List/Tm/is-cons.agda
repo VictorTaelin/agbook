@@ -12,3 +12,4 @@ is-cons-empty = refl
 -- Proof that is-cons returns True for a non-empty list
 is-cons-cons : ∀ {A : Set} (x : A) (xs : List A) → is-cons (x :: xs) ≡ True
 is-cons-cons _ _ = refl
+

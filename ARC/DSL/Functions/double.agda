@@ -12,3 +12,4 @@ import ARC.DSL.Types.Integer.Functions as I
 double : Numerical → Numerical
 double (Lft n)       = Lft (I.mul 2 n)
 double (Rgt (n , m)) = Rgt (I.mul 2 n , I.mul 2 m)
+

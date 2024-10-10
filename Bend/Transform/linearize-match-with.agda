@@ -46,3 +46,4 @@ linearize-match-with book = record book { defs = BinMap.map linearize-def (Book.
 
   linearize-def : FnDef → FnDef
   linearize-def def = record def { rules = map linearize-rule (FnDef.rules def) }
+

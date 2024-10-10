@@ -11,3 +11,4 @@ open import Base.Nat.Nat
 iterate : ∀ {A : Set} → (A → A) → A → Nat → List A
 iterate f x Zero     = []
 iterate f x (Succ n) = x :: iterate f (f x) n
+

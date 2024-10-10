@@ -13,3 +13,4 @@ open import Base.Bool.and
 -- = True if the character is an octal digit, False otherwise.
 is-octal-digit : Char → Bool
 is-octal-digit c = (to-nat c >= 48) && (to-nat c <= 55)
+

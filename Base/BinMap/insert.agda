@@ -13,3 +13,4 @@ open import Base.Pair.get-snd
 -- = A new BinMap containing the key-value pair.
 insert : ∀ {A : Set} → Pair Bits A → BinMap A → BinMap A
 insert pair m = set m (fst pair) (snd pair)
+

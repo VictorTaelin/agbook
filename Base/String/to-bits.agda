@@ -18,3 +18,4 @@ open import Base.String.to-list
 --   represented by exactly 21 bits.
 to-bits : String → Bits
 to-bits s = concat (map (λ x → pad-zeros 21 (Nat.to-bits (Char.to-nat x))) (to-list s))
+

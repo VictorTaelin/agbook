@@ -19,3 +19,4 @@ data V2 = MkV2 { x :: Double , y :: Double }
 #-}
 
 {-# COMPILE GHC V2 = data V2 (MkV2) #-}
+

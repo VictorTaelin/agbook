@@ -1,0 +1,168 @@
+use Base/BinTree/ as BT/
+use Base/Bool/ as B/
+use Base/Equal/ as E/
+use Base/Nat/ as N/
+use Base/Nat/Trait/ as NT/
+
+// Test equality of two identical simple trees.
+T0
+: (E/Equal
+    B/Bool
+    (BT/eq N/Nat NT/Eq
+      (#Node{#Succ{#Zero{}} #Leaf{} #Leaf{}})
+      (#Node{#Succ{#Zero{}} #Leaf{} #Leaf{}}))
+    #True{})
+= #Refl{}
+
+// Test equality of two identical complex trees.
+T1
+: (E/Equal
+    B/Bool
+    (BT/eq N/Nat NT/Eq
+      (#Node{
+        #Succ{#Zero{}}
+        (#Node{#Succ{#Succ{#Zero{}}} #Leaf{} #Leaf{}})
+        #Leaf{}})
+      (#Node{
+        #Succ{#Zero{}}
+        (#Node{#Succ{#Succ{#Zero{}}} #Leaf{} #Leaf{}})
+        #Leaf{}}))
+    #True{})
+= #Refl{}
+
+// Test inequality of trees with different root values.
+T2
+: (E/Equal
+    B/Bool
+    (BT/eq N/Nat NT/Eq
+      (#Node{#Succ{#Zero{}} #Leaf{} #Leaf{}})
+      (#Node{#Succ{#Succ{#Zero{}}} #Leaf{} #Leaf{}}))
+    #False{})
+= #Refl{}
+
+// Test inequality between a leaf and a non-leaf tree.
+T3
+: (E/Equal
+    B/Bool
+    (BT/eq N/Nat NT/Eq
+      #Leaf{}
+      (#Node{#Succ{#Zero{}} #Leaf{} #Leaf{}}))
+    #False{})
+= #Refl{}
+
+// Test equality of two empty trees (leaves).
+T4
+: (E/Equal
+    B/Bool
+    (BT/eq N/Nat NT/Eq
+      #Leaf{}
+      #Leaf{})
+    #True{})
+= #Refl{}
+
+// Test inequality of trees with same root but different structure.
+T5
+: (E/Equal
+    B/Bool
+    (BT/eq N/Nat NT/Eq
+      (#Node{
+        #Succ{#Zero{}}
+        (#Node{#Succ{#Succ{#Zero{}}} #Leaf{} #Leaf{}})
+        #Leaf{}})
+      (#Node{
+        #Succ{#Zero{}}
+        #Leaf{}
+        (#Node{#Succ{#Succ{#Zero{}}} #Leaf{} #Leaf{}})}))
+    #False{})
+= #Refl{}
+
+// Test equality of trees with nested structures.
+T6
+: (E/Equal
+    B/Bool
+    (BT/eq N/Nat NT/Eq
+      (#Node{
+        #Succ{#Succ{#Succ{#Zero{}}}}
+        (#Node{
+          #Succ{#Succ{#Zero{}}}
+          (#Node{#Succ{#Zero{}} #Leaf{} #Leaf{}})
+          #Leaf{}})
+        (#Node{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}} #Leaf{} #Leaf{}})})
+      (#Node{
+        #Succ{#Succ{#Succ{#Zero{}}}}
+        (#Node{
+          #Succ{#Succ{#Zero{}}}
+          (#Node{#Succ{#Zero{}} #Leaf{} #Leaf{}})
+          #Leaf{}})
+        (#Node{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}} #Leaf{} #Leaf{}})}))
+    #True{})
+= #Refl{}
+
+// Test inequality of trees with different values in deep structures.
+T7
+: (E/Equal
+    B/Bool
+    (BT/eq N/Nat NT/Eq
+      (#Node{
+        #Succ{#Succ{#Succ{#Zero{}}}}
+        (#Node{
+          #Succ{#Succ{#Zero{}}}
+          (#Node{#Succ{#Zero{}} #Leaf{} #Leaf{}})
+          #Leaf{}})
+        (#Node{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}} #Leaf{} #Leaf{}})})
+      (#Node{
+        #Succ{#Succ{#Succ{#Zero{}}}}
+        (#Node{
+          #Succ{#Succ{#Zero{}}}
+          (#Node{#Succ{#Zero{}} #Leaf{} #Leaf{}})
+          #Leaf{}})
+        (#Node{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}} #Leaf{} #Leaf{}})}))
+    #False{})
+= #Refl{}
+
+// Test equality of trees with multiple levels and identical structure
+T8
+: (E/Equal
+    B/Bool
+    (BT/eq N/Nat NT/Eq
+      (#Node{
+        #Succ{#Zero{}}
+        (#Node{
+          #Succ{#Succ{#Zero{}}}
+          (#Node{#Succ{#Succ{#Succ{#Zero{}}}} #Leaf{} #Leaf{}})
+          (#Node{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}} #Leaf{} #Leaf{}})})
+        (#Node{
+          #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}
+          (#Node{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}} #Leaf{} #Leaf{}})
+          #Leaf{}})})
+      (#Node{
+        #Succ{#Zero{}}
+        (#Node{
+          #Succ{#Succ{#Zero{}}}
+          (#Node{#Succ{#Succ{#Succ{#Zero{}}}} #Leaf{} #Leaf{}})
+          (#Node{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}} #Leaf{} #Leaf{}})})
+        (#Node{
+          #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}
+          (#Node{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}} #Leaf{} #Leaf{}})
+          #Leaf{}})}))
+    #True{})
+= #Refl{}
+
+// Test inequality of trees with same structure but different leaf values
+T9
+: (E/Equal
+    B/Bool
+    (BT/eq N/Nat NT/Eq
+      (#Node{
+        #Succ{#Zero{}}
+        (#Node{#Succ{#Succ{#Zero{}}} #Leaf{} #Leaf{}})
+        (#Node{#Succ{#Succ{#Succ{#Zero{}}}} #Leaf{} #Leaf{}})})
+      (#Node{
+        #Succ{#Zero{}}
+        (#Node{#Succ{#Succ{#Zero{}}} #Leaf{} #Leaf{}})
+        (#Node{
+          #Succ{#Succ{#Succ{#Zero{}}}}
+          #Leaf{}
+          (#Node{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}} #Leaf{} #Leaf{}})})}))
+    #False{})
+= #Refl{}

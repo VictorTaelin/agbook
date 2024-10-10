@@ -10,3 +10,4 @@ BinMap A = BinTree (Maybe A)
 
 -- Export the tree constructors
 open BinTree public
+

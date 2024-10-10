@@ -6,3 +6,4 @@ open import Bend.Fun.Type.Type
 
 from-fn-sig : List Type → Type → Type
 from-fn-sig args ret = foldr Arr ret args
+

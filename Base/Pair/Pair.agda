@@ -26,3 +26,4 @@ infixr 4 _,_
 Pair : ∀ {a b} (A : Set a) (B : Set b) → Set (a ⊔ b)
 -- = A pair of elements where the second does not depend on the first.
 Pair A B = Sigma A (λ _ → B)
+

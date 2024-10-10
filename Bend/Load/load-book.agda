@@ -37,3 +37,4 @@ load-book path = do
     ; (Fail (MkError idx err)) →
         Fail ("Failed to parse book at index " ++ show idx ++ ":\n  " ++ err)
     })
+

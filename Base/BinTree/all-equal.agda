@@ -6,8 +6,8 @@ open import Base.Bool.Bool
 open import Base.Bool.and
 open import Base.Trait.Eq
 
--- Checks if all values in a tree are equal.
--- 1st: The tree to check.
+-- Checks if all values in a binary tree are equal.
+-- 1st: The binary tree to check.
 -- = True if all values in the tree are equal, False otherwise.
 all-equal : ∀ {A : Set} {{EqA : Eq A}} → BinTree A → Bool
 all-equal Leaf         = True

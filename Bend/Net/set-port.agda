@@ -12,8 +12,9 @@ open import Bend.Net.Node.set renaming (set to node-set)
 -- Sets the value of a port in a net
 set-port : Net → Port → Port → Maybe Net
 set-port (MkNet nodes len name) port-a port-b = do
-  let key = nat-to-bits (Port.node-id port-a)
-  a <- map-get nodes key
-  a <- node-set a (Port.slot-id port-a) port-b
+  let key   = nat-to-bits (Port.node port-a)
+  a         <- map-get nodes key
+  a         <- node-set a (Port.slot port-a) port-b
   let nodes = map-set nodes key a
   Some (MkNet nodes len name)
+

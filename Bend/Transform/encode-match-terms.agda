@@ -100,3 +100,4 @@ encode-match-terms encoding book = do
         if is-nil with-arg then Done unit else Fail "with-arg not empty"
         encode-switch arg pred arms
       _ → Done term
+

@@ -6,10 +6,10 @@ open import Base.Maybe.Monad.bind
 open import Base.Pair.Pair
 open import Base.String.String
 open import Base.String.hash
-open import Base.BinMap.take renaming (take to map-take)
-open import Base.BinMap.set renaming (set to map-set)
+open import Base.BinMap.take
+open import Base.BinMap.set
 open import Bend.Compile.BendToNet.Encoder.Encoder
-open import Bend.Net.link renaming (link to net-link)
+open import Bend.Net.link
 open import Bend.Net.Port.Port
 
 -- Adds one of the ports of a Bend variable to the Encoder.
@@ -21,11 +21,11 @@ open import Bend.Net.Port.Port
 -- = An updated Encoder or None on error
 link-var : Encoder → String → Port → Maybe Encoder
 link-var (MkEncoder net vars) name up =
-  let (vars , port) = map-take vars (hash name) in
-  case port of λ where
-    (Some port) → do
-      net <- net-link net port up
+  case take vars (hash name) of λ where
+    (Some (vars , port)) → do
+      net <- link net port up
       Some (MkEncoder net vars)
     None → do
-      let vars = map-set vars (hash name) up
+      let vars = set vars (hash name) up
       Some (MkEncoder net vars)
+

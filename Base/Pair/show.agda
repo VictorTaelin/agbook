@@ -12,3 +12,4 @@ import Base.Trait.Show as Show
 -- = A string in the format "(a, b)" where a and b are the string representations of the pair's elements.
 show : ∀ {A B : Set} → {{ShowA : Show.Show A}} → {{ShowB : Show.Show B}} → Pair A B → String
 show {{ShowA}} {{ShowB}} (a , b) = "(" ++ Show.to-string {{ShowA}} a ++ ", " ++ Show.to-string {{ShowB}} b ++ ")"
+

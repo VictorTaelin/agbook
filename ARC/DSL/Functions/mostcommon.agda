@@ -24,3 +24,4 @@ mostcommon default (AsList xs) with maximum (invert (L.frequency xs))
 ... | None            = default
 -- elements of a set can only appear once
 mostcommon default (AsOSet  xs) = default
+

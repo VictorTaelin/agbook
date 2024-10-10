@@ -10,3 +10,4 @@ primitive primIntToFloat : Int → F64
 -- = The F64 representation of x.
 from-int : Int → F64
 from-int = primIntToFloat
+

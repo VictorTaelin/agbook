@@ -23,3 +23,4 @@ valmin (AsList xs) f with L.sort I._<_ (L.map f xs)
 valmin (AsOSet xs)  f with L.sort I._<_ (L.map f (S.to-list xs))
 ... | []     = 0  -- If the set is empty, return 0
 ... | x :: _ = x  -- Otherwise, return the first (minimum) element
+

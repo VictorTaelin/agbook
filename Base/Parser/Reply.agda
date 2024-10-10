@@ -10,3 +10,4 @@ record Reply (A : Set) : Set where
   field
     state : State
     value : A
+

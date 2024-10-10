@@ -16,3 +16,4 @@ or x y = Bool.or (not (eq 0.0 x)) (not (eq 0.0 y))
 infixl 5 _||_
 _||_ : F64 → F64 → Bool
 _||_ = or
+

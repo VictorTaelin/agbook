@@ -16,3 +16,4 @@ test-state-fields :
       result = (State.input s , State.index s)
   in result ≡ ("world" , 5)
 test-state-fields = refl
+

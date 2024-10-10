@@ -15,3 +15,4 @@ postulate set-renderer-draw-color : Renderer → Nat → Nat → Nat → Nat →
 {-# COMPILE GHC set-renderer-draw-color = \ renderer r g b a -> liftIO $ do
   SDL.rendererDrawColor renderer SDL.$= SDL.V4 (fromIntegral r) (fromIntegral g) (fromIntegral b) (fromIntegral a)
 #-}
+

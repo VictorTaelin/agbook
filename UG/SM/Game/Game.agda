@@ -20,3 +20,4 @@ data Game s a = MkGame
 #-}
 
 {-# COMPILE GHC Game = data Game (MkGame) #-}
+

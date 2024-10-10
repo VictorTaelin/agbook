@@ -81,3 +81,4 @@ encode-adts encoding book = do
       NumScott -> map (encode-ctr-num-scott adt) (enumerate ctrs)
     let book = foldr (flip add-fn-def) book (concat defs)
     Done book
+

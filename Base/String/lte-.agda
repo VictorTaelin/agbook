@@ -40,3 +40,4 @@ test-lte-same-first = refl
 -- Test case 9: Unicode strings
 test-lte-unicode : (lte "αβγ" "αβδ") ≡ True
 test-lte-unicode = refl
+

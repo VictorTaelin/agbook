@@ -10,3 +10,4 @@ open import Base.Maybe.Maybe
 fold : ∀ {A B : Set} → B → (A → B) → Maybe A → B
 fold default fn None     = default
 fold default fn (Some x) = fn x
+

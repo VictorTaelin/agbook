@@ -30,3 +30,4 @@ derive-ord compare = MkOrd compare
   (λ x y → compare x y == GT)
   (λ x y → compare x y != GT)
   (λ x y → compare x y != LT)
+

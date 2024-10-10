@@ -25,3 +25,4 @@ test-pad-zeros-101-5 = refl
 
 test-pad-zeros-no-change : pad-zeros 2 (I (I (I E))) ≡ I (I (I E))
 test-pad-zeros-no-change = refl
+

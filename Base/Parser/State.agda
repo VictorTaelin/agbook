@@ -18,3 +18,4 @@ record State : Set where
 -- = A new State with the given input and index set to zero.
 new-parser-state : String → State
 new-parser-state input = MkState input Zero
+

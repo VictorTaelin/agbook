@@ -8,3 +8,4 @@ open import Base.IO.IO
 postulate pure : ∀ {A : Set} → A → IO A
 
 {-# COMPILE GHC pure = \_ -> return #-}
+

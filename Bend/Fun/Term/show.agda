@@ -89,3 +89,4 @@ instance
       show-term (Ref nam) = nam
       show-term (Def def nxt) = "def " ++ show def ++ "\n" ++ show nxt
       show-term Era = "*"
+

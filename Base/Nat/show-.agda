@@ -18,3 +18,4 @@ T1 = refl
 --  Test: show 1000 = "1000"
 T2 : show 1000 ≡ "1000"
 T2 = refl
+

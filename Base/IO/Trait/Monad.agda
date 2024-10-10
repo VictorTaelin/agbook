@@ -12,3 +12,4 @@ instance
     { bind = Base.IO.Monad.bind.bind
     ; pure = Base.IO.Monad.pure.pure
     }
+

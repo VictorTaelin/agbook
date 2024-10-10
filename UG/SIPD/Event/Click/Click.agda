@@ -7,3 +7,4 @@ data Click : Set where
 {-# FOREIGN GHC data AgdaClick = ALeftButton | ARightButton #-}
 
 {-# COMPILE GHC Click = data AgdaClick (ALeftButton | ARightButton) #-}
+

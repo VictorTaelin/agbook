@@ -15,3 +15,4 @@ div = primFloatDiv
 infixl 7 _/_
 _/_ : F64 → F64 → F64
 _/_ = div
+

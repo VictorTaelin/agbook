@@ -10,3 +10,4 @@ primitive primNatToFloat : Nat → F64
 -- = The float representation of the number.
 from-nat : Nat → F64
 from-nat = primNatToFloat
+

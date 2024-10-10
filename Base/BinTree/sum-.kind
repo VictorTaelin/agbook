@@ -1,0 +1,66 @@
+use Base/BinTree/ as BT/
+use Base/Nat/ as N/
+use Base/Equal/ as E/
+
+// Test: Sum of an empty tree
+T0
+: (E/Equal N/Nat (BT/sum #Leaf{}) #Zero{})
+= #Refl{}
+
+// Test: Sum of a tree with a single node
+T1
+: (E/Equal N/Nat (BT/sum (#Node{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}} #Leaf{} #Leaf{}})) #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}})
+= #Refl{}
+
+// Test: Sum of a balanced tree
+T2
+: (E/Equal N/Nat
+    (BT/sum (#Node{#Succ{#Zero{}}
+              (#Node{#Succ{#Succ{#Zero{}}} #Leaf{} #Leaf{}})
+              (#Node{#Succ{#Succ{#Succ{#Zero{}}}} #Leaf{} #Leaf{}})}))
+    #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}})
+= #Refl{}
+
+// Test: Sum of an unbalanced tree
+T3
+: (E/Equal N/Nat
+    (BT/sum (#Node{#Succ{#Zero{}}
+              (#Node{#Succ{#Succ{#Zero{}}}
+                (#Node{#Succ{#Succ{#Succ{#Zero{}}}} #Leaf{} #Leaf{}})
+                #Leaf{}})
+              #Leaf{}}))
+    #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}})
+= #Refl{}
+
+// Test: Sum of a larger tree
+T4
+: (E/Equal N/Nat
+    (BT/sum (#Node{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}}
+              (#Node{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}
+                (#Node{#Succ{#Succ{#Zero{}}} #Leaf{} #Leaf{}})
+                (#Node{#Succ{#Succ{#Succ{#Zero{}}}} #Leaf{} #Leaf{}})})
+              (#Node{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}}}}}}}
+                (#Node{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}}}} #Leaf{} #Leaf{}})
+                (#Node{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}}}}}}}}}} #Leaf{} #Leaf{}})})}))
+    #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}})
+= #Refl{}
+
+// Test: Sum of a tree with zero and small numbers
+T5
+: (E/Equal N/Nat
+    (BT/sum (#Node{#Zero{} (#Node{#Succ{#Zero{}} #Leaf{} #Leaf{}}) (#Node{#Succ{#Succ{#Zero{}}} #Leaf{} #Leaf{}})}))
+    #Succ{#Succ{#Succ{#Zero{}}}})
+= #Refl{}
+
+// Test: Sum of a tree with repeated values
+T6
+: (E/Equal N/Nat
+    (BT/sum (#Node{#Succ{#Zero{}}
+              (#Node{#Succ{#Zero{}}
+                (#Node{#Succ{#Zero{}} #Leaf{} #Leaf{}})
+                (#Node{#Succ{#Zero{}} #Leaf{} #Leaf{}})})
+              (#Node{#Succ{#Zero{}}
+                (#Node{#Succ{#Zero{}} #Leaf{} #Leaf{}})
+                (#Node{#Succ{#Zero{}} #Leaf{} #Leaf{}})})}))
+    #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}})
+= #Refl{}

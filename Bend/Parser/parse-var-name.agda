@@ -7,3 +7,4 @@ open import Bend.Parser.parse-name
 -- Parses a variable name.
 parse-var-name : Parser String
 parse-var-name = parse-name "variable"
+

@@ -1,0 +1,106 @@
+use Base/BinTree/ as BT/
+use Base/Equal/ as E/
+use Base/Nat/ as N/
+use Base/Bool/ as B/
+
+// Test: Folding a leaf tree
+T0
+: (E/Equal N/Nat (BT/fold N/Nat N/Nat (λx λl λr (N/add x (N/add l r))) #Zero{} #Leaf{}) #Zero{})
+= #Refl{}
+
+// Test: Folding a simple tree with addition
+T1
+: (E/Equal
+    N/Nat
+    (BT/fold
+      N/Nat
+      N/Nat
+      (λx λl λr (N/add x (N/add l r)))
+      #Zero{}
+      (#Node{
+        #Succ{#Zero{}}
+        (#Node{#Succ{#Succ{#Zero{}}} #Leaf{} #Leaf{}})
+        (#Node{#Succ{#Succ{#Succ{#Zero{}}}} #Leaf{} #Leaf{}})
+      }))
+    #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}})
+= #Refl{}
+
+// Test: Folding a tree with boolean OR operation
+T2
+: (E/Equal
+    B/Bool
+    (BT/fold
+      B/Bool
+      B/Bool
+      (λx λl λr (B/or x (B/or l r)))
+      #False{}
+      (#Node{
+        #True{}
+        (#Node{#False{} #Leaf{} #Leaf{}})
+        (#Node{#False{} #Leaf{} #Leaf{}})
+      }))
+    #True{})
+= #Refl{}
+
+// Test: Folding a more complex tree with addition
+T3
+: (E/Equal
+    N/Nat
+    (BT/fold
+      N/Nat
+      N/Nat
+      (λx λl λr (N/add x (N/add l r)))
+      #Zero{}
+      (#Node{
+        #Succ{#Zero{}}
+        (#Node{
+          #Succ{#Succ{#Zero{}}}
+          (#Node{#Succ{#Succ{#Succ{#Zero{}}}} #Leaf{} #Leaf{}})
+          (#Node{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}} #Leaf{} #Leaf{}})
+        })
+        (#Node{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}} #Leaf{} #Leaf{}})
+      }))
+    #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}}}}}}})
+= #Refl{}
+
+// Test: Folding a tree with multiplication
+T4
+: (E/Equal
+    N/Nat
+    (BT/fold
+      N/Nat
+      N/Nat
+      (λx λl λr (N/mul x (N/mul l r)))
+      #Succ{#Zero{}}
+      (#Node{
+        #Succ{#Succ{#Zero{}}}
+        (#Node{#Succ{#Succ{#Succ{#Zero{}}}} #Leaf{} #Leaf{}})
+        (#Node{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}} #Leaf{} #Leaf{}})
+      }))
+    #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}}}}}}}}}}}}}}}})
+= #Refl{}
+
+// Test: Folding a tree to find the maximum value
+T5
+: (E/Equal
+    N/Nat
+    (BT/fold
+      N/Nat
+      N/Nat
+      (λx λl λr (N/max x (N/max l r)))
+      #Zero{}
+      (#Node{
+        #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}
+        (#Node{
+          #Succ{#Succ{#Succ{#Zero{}}}}
+          (#Node{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}} #Leaf{} #Leaf{}})
+          #Leaf{}
+        })
+        (#Node{
+          #Succ{#Succ{#Zero{}}}
+          #Leaf{}
+          (#Node{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}} #Leaf{} #Leaf{}})
+        })
+      }))
+    #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}})
+= #Refl{}

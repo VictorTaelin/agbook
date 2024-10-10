@@ -42,3 +42,4 @@ starts-with-keyword keyword = do
         None → pure True)
     -- Keyword not found
     else pure False
+

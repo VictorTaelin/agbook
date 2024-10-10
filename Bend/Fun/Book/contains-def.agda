@@ -12,3 +12,4 @@ open import Base.BinMap.contains as Map
 -- = True if the Book contains a function definition with the given name, False otherwise.
 contains-def : Book → String → Bool
 contains-def (MkBook defs _ _) name = Map.contains defs (hash name)
+

@@ -1,0 +1,28 @@
+use Base/BinTree/ as BT/
+use Base/Maybe/ as M/
+use Base/Nat/ as N/
+use Base/Equal/ as E/
+
+// Test: Left of a leaf is None
+T0
+: (E/Equal
+    (M/Maybe (BT/BinTree N/Nat))
+    (BT/left N/Nat #Leaf{})
+    (#None{}))
+= #Refl{}
+
+// Test: Left of a node with left child returns Some of that child
+T1
+: (E/Equal
+    (M/Maybe (BT/BinTree N/Nat))
+    (BT/left N/Nat #Node{#Succ{#Zero{}} #Node{#Succ{#Succ{#Zero{}}} #Leaf{} #Leaf{}} #Leaf{}})
+    (#Some{#Node{#Succ{#Succ{#Zero{}}} #Leaf{} #Leaf{}}}))
+= #Refl{}
+
+// Test: Left of a node with only right child still returns Some Leaf for left
+T2
+: (E/Equal
+    (M/Maybe (BT/BinTree N/Nat))
+    (BT/left N/Nat #Node{#Succ{#Zero{}} #Leaf{} #Node{#Succ{#Succ{#Succ{#Zero{}}}} #Leaf{} #Leaf{}}})
+    (#Some{#Leaf{}}))
+= #Refl{}

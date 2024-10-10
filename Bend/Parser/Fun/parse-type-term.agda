@@ -113,3 +113,4 @@ parse-type-term = do
   parse-var = do
     nam <- parse-name "type variable"
     pure (Var nam)
+

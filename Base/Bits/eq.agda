@@ -16,3 +16,4 @@ eq _     _     = False
 infix 4 _==_
 _==_ : Bits → Bits → Bool
 _==_ = eq
+

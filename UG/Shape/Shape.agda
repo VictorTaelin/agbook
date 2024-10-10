@@ -20,3 +20,4 @@ data Shape = Circle V2 Double
 #-}
 
 {-# COMPILE GHC Shape = data Shape (Circle | Polygon) #-}
+

@@ -14,3 +14,4 @@ compare x y =
     LT
   else
     GT
+

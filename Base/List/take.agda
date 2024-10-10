@@ -12,3 +12,4 @@ take : ∀ {A : Set} → Nat → List A → List A
 take Zero     _         = []
 take (Succ _) []        = []
 take (Succ n) (x :: xs) = x :: take n xs
+

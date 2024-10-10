@@ -29,3 +29,4 @@ go k m Zero     j        = k
 go k m (Succ n) Zero     = go (Succ k) m n m
 go k m (Succ n) (Succ j) = go k m n j
 {-# BUILTIN NATDIVSUCAUX go #-}
+

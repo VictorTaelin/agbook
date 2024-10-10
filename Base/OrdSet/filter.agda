@@ -16,3 +16,4 @@ open import Base.Trait.Ord
 -- = A new OrdSet containing only elements that satisfy the predicate.
 filter : ∀ {V : Set} → {{_ : Ord V}} → (V → Bool) → OrdSet V → OrdSet V
 filter pred = fold (λ v acc → if pred v then v ::> acc else acc) empty
+

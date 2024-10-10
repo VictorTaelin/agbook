@@ -57,3 +57,4 @@ test-multiple-functions-book :
   ≡
   "func1 : Type\n(func1) = dummy\n\nfunc2 : Type\n(func2) = dummy"
 test-multiple-functions-book = refl
+

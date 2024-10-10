@@ -24,3 +24,4 @@ T3 = refl
 -- Test: Special character '@' is not a hexadecimal digit
 T4 : is-hex-digit '@' ≡ False
 T4 = refl
+

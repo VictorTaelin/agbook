@@ -14,3 +14,4 @@ lt a b with compare a b
 ... | LT = True
 ... | EQ = False
 ... | GT = False
+

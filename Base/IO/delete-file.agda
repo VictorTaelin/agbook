@@ -13,3 +13,4 @@ postulate delete-file : String → IO Unit
 {-# FOREIGN GHC import qualified Data.Text as T #-}
 
 {-# COMPILE GHC delete-file = System.Directory.removeFile . T.unpack #-}
+

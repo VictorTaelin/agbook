@@ -12,3 +12,4 @@ instance
     { bind = Maybe.bind
     ; pure = Maybe.pure
     }
+

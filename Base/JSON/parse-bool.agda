@@ -18,3 +18,4 @@ parse-bool = do
   skip-spaces
   b <- (consume "true" >> pure True) <|> (consume "false" >> pure False)
   pure (JBool b)
+

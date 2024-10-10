@@ -15,3 +15,4 @@ to-nat bits = go bits Zero 1 where
   go E      acc _      = acc
   go (O bs) acc weight = go bs acc (2 * weight)
   go (I bs) acc weight = go bs (acc + weight) (2 * weight)
+

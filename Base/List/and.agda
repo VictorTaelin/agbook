@@ -10,3 +10,4 @@ import Base.Bool.and as B
 -- = True if all elements are True, False otherwise.
 and : List Bool → Bool
 and = foldr B._&&_ True
+

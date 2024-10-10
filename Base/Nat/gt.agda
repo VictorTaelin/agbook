@@ -16,3 +16,4 @@ _>_ : Nat → Nat → Bool
 _>_ = gt
 
 infix 4 _>_
+

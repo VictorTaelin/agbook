@@ -1,0 +1,17 @@
+use Base/BinTree/ as BT/
+
+// Creates a binary tree node with a value and left and right subtrees.
+// - 1st: The type of values stored in the tree.
+// - 2nd: The value stored in this node.
+// - 3rd: The left subtree.
+// - 4th: The right subtree.
+// = A new binary tree node.
+BT/node
+: ∀(A: *)
+  ∀(value: A)
+  ∀(left: (BT/BinTree A))
+  ∀(right: (BT/BinTree A))
+  (BT/BinTree A)
+= λA λvalue λleft λright
+  #Node{value left right}
+	

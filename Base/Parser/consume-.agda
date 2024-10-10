@@ -18,3 +18,4 @@ test-consume-invalid = refl
 
 test-consume-empty : (consume "") (MkState "abcdef" 0) ≡ Done (MkReply (MkState "abcdef" 0) unit)
 test-consume-empty = refl
+

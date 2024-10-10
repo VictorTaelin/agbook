@@ -27,3 +27,4 @@ find-rollback-amount-helper target-tick (Some node) rollback-amount with (lt tar
 -- = The number of states to roll back to reach the target tick.
 find-rollback-amount : ∀ {S : Set} → Tick → StateLogs S → Nat
 find-rollback-amount target-tick states = find-rollback-amount-helper target-tick states Zero
+

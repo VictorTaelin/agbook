@@ -6,3 +6,4 @@ open import ARC.DSL.Types.Boolean.Boolean
 
 int-cmp : ∀ {A : Set} → (A → Integer) → A → A → Boolean
 int-cmp f x y = (f x) I.< (f y)
+

@@ -12,3 +12,4 @@ open import UG.SM.SM
 action-in-list : ∀ {S A : Set} → Mach S A → A → List A → Bool
 action-in-list _ _ []           = False
 action-in-list mach a (x :: xs) = (Mach.action-eq mach a x) || action-in-list mach a xs
+

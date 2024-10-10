@@ -12,3 +12,4 @@ sort : ∀ {A : Set} → (A → A → Bool) → List A → List A
 sort = insertion-sort
 
 -- TODO: Use a better sorting algorithm 
+

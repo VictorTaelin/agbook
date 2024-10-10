@@ -15,3 +15,4 @@ open import Base.Nat.sub
 -- = A new ByteString containing the specified slice.
 slice : ByteString → Nat → Nat → ByteString
 slice bs init end = pack (take (end - init) (drop init (unpack bs)))
+

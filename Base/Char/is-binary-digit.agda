@@ -11,3 +11,4 @@ open import Base.Bool.or
 -- = True if the character is a binary digit, False otherwise.
 is-binary-digit : Char → Bool
 is-binary-digit c = (c == '0') || (c == '1')
+

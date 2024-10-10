@@ -1,0 +1,19 @@
+use Base/Maybe/ as M/
+use Base/Result/ as R/
+
+// Converts a Maybe value to a Result value.
+// - A: The type of the value in Maybe and the success case of Result.
+// - B: The type of the error case in Result.
+// - ma: The Maybe value to convert.
+// - b: The error value to use if the Maybe is None.
+// = A Result value representing the Maybe input.
+M/to-result
+: ∀(A: *)
+  ∀(B: *)
+  ∀(ma: (M/Maybe A))
+  ∀(b: B)
+  (R/Result A B)
+= λA λB λ{
+  #None: λb (R/Result/Fail _ _ b)
+  #Some: λma.value λb (R/Result/Done _ _ ma.value)
+}

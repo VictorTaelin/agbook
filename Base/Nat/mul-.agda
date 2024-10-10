@@ -45,3 +45,4 @@ T8 = refl
 -- Test: Associativity: (a * b) * c = a * (b * c).
 T9 : ((2 * 3) * 4) ≡ (2 * (3 * 4))
 T9 = refl
+

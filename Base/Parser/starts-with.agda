@@ -17,3 +17,4 @@ starts-with prefix = λ s → do
   let input  = State.input s
   let result = String.starts-with input prefix
   Done (MkReply s result)
+

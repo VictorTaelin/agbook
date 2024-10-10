@@ -13,3 +13,4 @@ inits {A = A} = λ xs → [] :: tail xs
     tail : List A → List (List A)
     tail []       = []
     tail (x :: xs) = [ x ] :: map (x ::_) (tail xs)
+

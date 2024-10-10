@@ -17,3 +17,4 @@ open import Base.Trait.Ord
 sfilter : ∀ {A : Set} {{_ : Ord A}} → Container A → (A → Boolean) → Container A
 sfilter (AsList xs) condition = AsList (L.filter condition xs)
 sfilter (AsOSet  xs) condition = AsOSet  (S.filter condition xs)
+

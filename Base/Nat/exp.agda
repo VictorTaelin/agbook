@@ -16,3 +16,4 @@ _**_ : Nat → Nat → Nat
 _**_ = exp
 
 infixr 8 _**_
+

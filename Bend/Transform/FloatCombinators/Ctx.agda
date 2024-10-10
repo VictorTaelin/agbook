@@ -25,3 +25,4 @@ record Ctx : Set where
 
 init-ctx : Book -> FnDef -> Nat -> BinMap (Pair Bool FnDef) -> Ctx
 init-ctx book def max-size combs = MkCtx book combs def 0 max-size 0
+

@@ -56,3 +56,4 @@ hash str = do
   -- = The final hash value as a natural number.
   fxhash : List Nat → Nat
   fxhash ns = foldr fxhash-step 0 ns
+

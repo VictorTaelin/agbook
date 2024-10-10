@@ -32,3 +32,4 @@ T5 = refl
 -- Test: '~' is not less than or equal to '!'
 T6 : ('~' <= '!') ≡ False
 T6 = refl
+

@@ -9,3 +9,4 @@ half : Nat → Nat
 half Zero            = Zero
 half (Succ Zero)     = Zero
 half (Succ (Succ n)) = Succ (half n)
+

@@ -9,3 +9,4 @@ open import Base.List.List
 -- = A new DiffList with x added to the end.
 snoc : ∀ {A : Set} → A → DiffList A → DiffList A
 snoc x xs = λ tail → (xs (x :: tail))
+

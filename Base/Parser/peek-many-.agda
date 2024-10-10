@@ -21,3 +21,4 @@ test-peek-many-too-many = refl
 
 test-peek-many-empty : (peek-many 3) (MkState "" 0) ≡ Done (MkReply (MkState "" 0) None)
 test-peek-many-empty = refl
+

@@ -10,3 +10,4 @@ primitive primIsHexDigit : Char → Bool
 -- = True if the character is a hexadecimal digit, False otherwise.
 is-hex-digit : Char → Bool
 is-hex-digit = primIsHexDigit
+

@@ -39,3 +39,4 @@ grid = MkGrid 256 0 16 16 code
 main : IO Unit
 main = do
   print (grid-to-cuda grid)
+

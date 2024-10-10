@@ -1,0 +1,15 @@
+use Base/BinTree/ as BT/
+use Base/Maybe/ as M/
+
+// Gets the left subtree of a binary tree node.
+// - 1st: The type of values stored in the tree.
+// - 2nd: The input tree.
+// = The left subtree, or None if the tree is a leaf.
+BT/left
+: ∀(A: *)
+  ∀(tree: (BT/BinTree A))
+  (M/Maybe (BT/BinTree A))
+= λA λ{
+  #Leaf: (M/None _)
+  #Node: λtree.val λtree.lft λtree.rgt (M/Some _ tree.lft)
+}

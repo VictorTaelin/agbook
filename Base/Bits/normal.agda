@@ -11,3 +11,4 @@ normal (I bits) = I (normal bits)
 normal (O bits) with normal bits
 ... | E = E
 ... | s = O s
+

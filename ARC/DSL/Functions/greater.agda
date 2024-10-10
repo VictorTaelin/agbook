@@ -10,3 +10,4 @@ import ARC.DSL.Types.Integer.Functions as I
 -- = True if a is greater than b, False otherwise.
 greater : Integer → Integer → Boolean
 greater = I._>_
+

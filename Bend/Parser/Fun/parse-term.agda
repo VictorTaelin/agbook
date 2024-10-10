@@ -301,3 +301,4 @@ parse-term = do
                     var <- parse-var-name
                     pure (Var var)
       None → fail "Expected term"
+

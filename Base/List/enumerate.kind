@@ -1,0 +1,29 @@
+use Base/List/ as L/
+use Base/Nat/ as N/
+use Base/Pair/ as P/
+
+// Helper function for enumerate
+// Recursively builds the enumerated list starting from a given index
+L/enumerate-go
+: ∀(A: *)
+  ∀(n: N/Nat)
+  ∀(xs: (L/List A))
+  (L/List (P/Pair N/Nat A))
+= λA λn λ{
+  #Nil: #Nil{}
+  #Cons: λxs.head λxs.tail
+    #Cons{
+      #Pair{n xs.head}
+      (L/enumerate-go A (#Succ{n}) xs.tail)
+    }
+}
+
+// Enumerates a list, pairing each element with its index
+// - A: The type of elements in the input list
+// - xs: The input list
+// = A new list where each element is paired with its index
+L/enumerate
+: ∀(A: *)
+  ∀(xs: (L/List A))
+  (L/List (P/Pair N/Nat A))
+= λA λxs (L/enumerate-go A #Zero{} xs)

@@ -11,3 +11,4 @@ postulate now : IO Nat
 
 {-# FOREIGN GHC import qualified Data.Time.Clock.POSIX as Time #-}
 {-# COMPILE GHC now = fmap (\t -> round (t * 1000)) Time.getPOSIXTime #-}
+

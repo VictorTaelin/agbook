@@ -7,3 +7,4 @@ open import UG.SIPD.State.State
 
 init : Nat → Nat → GameMap State
 init width height = MkGameMap width height empty
+

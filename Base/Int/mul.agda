@@ -19,3 +19,4 @@ mul (NegSuc m)     (Pos (Succ n)) = NegSuc ((m + n) + (m n* n))
 
 _*_ : Int → Int → Int
 _*_ = mul
+

@@ -19,3 +19,4 @@ postulate run-secure-client : String → Int → String → (WSConnection → IO
 {-# FOREIGN GHC import qualified Wuss #-}
 
 {-# COMPILE GHC run-secure-client = \host port path app -> Wuss.runSecureClient (T.unpack host) (fromIntegral port) (T.unpack path) (\conn → app conn) #-}
+

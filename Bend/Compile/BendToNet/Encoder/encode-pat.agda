@@ -48,3 +48,4 @@ encode-pat enc (Pattern.Ctr _ _)         up = None
 encode-pat enc (Pattern.Num _)           up = None
 encode-pat enc (Pattern.Lst _)           up = None
 encode-pat enc (Pattern.Str _)           up = None
+

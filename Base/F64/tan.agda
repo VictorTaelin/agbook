@@ -9,3 +9,4 @@ primitive primFloatTan : F64 → F64
 -- = The tangent of x.
 tan : F64 → F64
 tan = primFloatTan
+

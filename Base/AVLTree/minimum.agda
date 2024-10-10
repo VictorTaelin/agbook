@@ -11,3 +11,4 @@ minimum : ∀ {K V : Set} → AVLTree K V → Maybe (Pair K V)
 minimum Leaf                   = None
 minimum (Node kv _ Leaf _    ) = Some kv
 minimum (Node _  _ left right) = minimum left
+

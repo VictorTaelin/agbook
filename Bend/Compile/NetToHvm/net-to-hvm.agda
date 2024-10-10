@@ -12,7 +12,6 @@ open import Bend.Net.Net renaming (Net to BNet)
 open import Bend.Net.get-port
 open import Bend.Net.net-root
 open import HVM.Net.Net renaming (Net to HNet)
-open import HVM.Mode.Mode
 open import HVM.Redex.Redex
 open import Bend.Compile.NetToHvm.get-redexes
 open import Bend.Compile.NetToHvm.tree-to-hvm
@@ -22,13 +21,13 @@ open import Bend.Compile.NetToHvm.State.new renaming (new to state-new)
 -- Converts a Bend Net to an HVM Net.
 -- - net: The Bend Net to convert.
 -- = The converted HVM Net or an error message.
-net-to-hvm : BNet → Result (HNet NAMED) String
+net-to-hvm : BNet → Result HNet String
 net-to-hvm net = do
-  let redexes = get-redexes net
-  let state = state-new (BNet.len net)
-  root <- to-result (get-port net net-root) "no root"
-  (root , state) <- var-or-subtree-to-hvm net root state
-  rbag <- go redexes state
+  let redexes  = get-redexes net
+  let state    = state-new (BNet.len net)
+  root         ← get-port net net-root
+  root , state ← var-or-subtree-to-hvm net root state
+  rbag         ← go redexes state
   Done (MkNet root rbag)
 
   where
@@ -37,7 +36,7 @@ net-to-hvm net = do
   -- - redexes: List of redex pairs to process.
   -- - state: Current compilation state.
   -- = The list of HVM Redexes or an error message.
-  go : List (Pair Nat Nat) → State → Result (List (Redex NAMED)) String
+  go : List (Pair Nat Nat) → State → Result (List Redex) String
   go [] state = Done []
   go ((a , b) :: redexes) state = do
     (a , state) <- tree-to-hvm net a state
@@ -45,3 +44,4 @@ net-to-hvm net = do
     let redex = MkRedex a b
     redexes <- go redexes state
     Done (redex :: redexes)
+

@@ -8,3 +8,4 @@ postulate pack-string : String → ByteString
 
 {-# FOREIGN GHC import qualified Data.Text.Encoding as TE #-}
 {-# COMPILE GHC pack-string = TE.encodeUtf8 #-}
+

@@ -13,3 +13,4 @@ open import Base.ALL
 
 main : Bits
 main = String.to-bits "fog of war"
+

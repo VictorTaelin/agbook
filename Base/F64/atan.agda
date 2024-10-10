@@ -9,3 +9,4 @@ primitive primFloatATan : F64 → F64
 -- = The arctangent of x in radians, in the range [-π/2, π/2].
 atan : F64 → F64
 atan = primFloatATan
+

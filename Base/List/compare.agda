@@ -17,3 +17,4 @@ compare (x :: xs) (y :: ys) with Ord.compare x y
 ... | LT = LT
 ... | GT = GT
 ... | EQ = compare xs ys
+

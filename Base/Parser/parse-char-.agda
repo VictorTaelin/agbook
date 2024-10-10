@@ -22,3 +22,4 @@ test-parse-char-unicode = refl
 
 test-parse-char-invalid-escape : parse-char (MkState "\\xabc" 0) ≡ Fail (MkError 2 "Invalid escape character: x")
 test-parse-char-invalid-escape = refl
+

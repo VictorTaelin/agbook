@@ -20,3 +20,4 @@ T2 = refl
 -- Test: Compare same character
 T3 : ('c' < 'c') ≡ False
 T3 = refl
+

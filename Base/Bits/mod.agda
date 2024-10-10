@@ -20,3 +20,4 @@ _%_ : Bits → Bits → Bits
 _%_ = mod
 
 infixl 7 _%_
+

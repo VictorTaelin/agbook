@@ -12,3 +12,4 @@ tails {A = A} = λ xs → xs :: tail xs
     tail : ∀ {A : Set} → List A → List (List A)
     tail []       = []
     tail (_ :: xs) = xs :: tail xs
+

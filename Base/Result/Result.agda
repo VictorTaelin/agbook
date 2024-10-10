@@ -7,3 +7,4 @@ module Base.Result.Result where
 data Result (A : Set) (E : Set) : Set where
   Done : A → Result A E
   Fail : E → Result A E
+

@@ -13,3 +13,4 @@ test-neq-different-strings = refl
 
 test-neq-empty-strings : ("" != "") ≡ False
 test-neq-empty-strings = refl
+

@@ -9,3 +9,4 @@ primitive primFloatCos : F64 → F64
 -- = The cosine of x.
 cos : F64 → F64
 cos = primFloatCos
+

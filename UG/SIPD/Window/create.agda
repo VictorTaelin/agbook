@@ -7,3 +7,4 @@ postulate create : IO Window
 
 {-# FOREIGN GHC import qualified SDL as SDL #-}
 {-# COMPILE GHC create = SDL.createWindow "Game" SDL.defaultWindow  #-}
+

@@ -36,3 +36,4 @@ T6 refl refl = refl
 -- Test: Antisymmetry: if compare a b = EQ, then a = b
 T7 : (compare 6 6 ≡ EQ) → 6 ≡ 6
 T7 refl = refl
+

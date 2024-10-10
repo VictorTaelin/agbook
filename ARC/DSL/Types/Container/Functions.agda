@@ -12,3 +12,4 @@ compare x y = L.compare (container-to-list x) (container-to-list y)
 
 OrdContainer : ∀ {A : Set} {{_ : Ord.Ord A}} → Ord.Ord (Container A)
 OrdContainer = Ord.make-ord compare
+

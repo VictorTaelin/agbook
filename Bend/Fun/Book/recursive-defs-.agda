@@ -71,3 +71,4 @@ _ : test-recursive-defs "
   b = a
   c = a" ≡ "a b c"
 _ = refl
+

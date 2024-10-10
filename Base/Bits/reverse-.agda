@@ -24,3 +24,4 @@ test-reverse-longer = refl
 
 test-double-reverse : reverse (reverse (I (O (I E)))) ≡ I (O (I E))
 test-double-reverse = refl
+

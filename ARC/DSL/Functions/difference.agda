@@ -11,3 +11,4 @@ open import Base.Trait.Ord
 difference : ∀ {A : Set} {{_ : Ord A}} → Container A → Container A → Container A
 difference (AsOSet s1) (AsOSet s2) = AsOSet (O.difference s1 s2)
 difference (AsList s1) (AsList s2) = AsList (L.difference s1 s2)
+

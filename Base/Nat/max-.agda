@@ -40,3 +40,4 @@ T7 = refl
 -- Test: Associativity: max a (max b c) = max (max a b) c
 T8 : max 2 (max 3 4) ≡ max (max 2 3) 4
 T8 = refl
+

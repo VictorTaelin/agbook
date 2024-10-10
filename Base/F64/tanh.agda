@@ -9,3 +9,4 @@ primitive primFloatTanh : F64 → F64
 -- = The hyperbolic tangent of x.
 tanh : F64 → F64
 tanh = primFloatTanh
+

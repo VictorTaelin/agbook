@@ -20,3 +20,4 @@ case x returning B of f = f x
 
 -- NOTE: Avoid using this. Prefer Agda's 'with' instead.
 -- NOTE: Do NOT use this on TypeScript. Instead, compile to a plain switch.
+

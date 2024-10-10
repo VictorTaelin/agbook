@@ -17,3 +17,4 @@ open import Base.AVLTree.AVLTree
 insert : ∀ {K V : Set} → {{_ : Ord K}} →
          Pair K V → OrdMap K V → OrdMap K V
 insert = AVL.insert
+

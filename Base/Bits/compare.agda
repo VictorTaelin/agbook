@@ -18,3 +18,4 @@ compare x y with Bits.eq x y | Bits.lt x y
 ... | True  | _     = EQ
 ... | False | True  = LT
 ... | False | False = GT
+

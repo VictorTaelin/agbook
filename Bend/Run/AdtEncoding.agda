@@ -10,3 +10,4 @@ data AdtEncoding : Set where
   -- Scott encoding, but using a number to indicate the variant 
   -- λa1 .. λan λx (x i a1 .. an)
   NumScott : AdtEncoding
+

@@ -15,3 +15,4 @@ test-show-string-with-spaces = refl
 
 test-show-string-with-special-chars : show "hello\nworld" ≡ "\"hello\\nworld\""
 test-show-string-with-special-chars = refl
+

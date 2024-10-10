@@ -26,3 +26,4 @@ rotate-right (Node v1 -one (Node v2 +one ll (Node v3 balance lll llr)) r)
 
 -- Invalid call to `rotate-right`
 rotate-right tree = tree , False
+

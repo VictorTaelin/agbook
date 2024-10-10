@@ -18,3 +18,4 @@ _!=_ = neq
 infix 4 _!=_
 
 {-# COMPILE JS neq = function(x) { return function(y) { return x !== y; }; } #-}
+

@@ -106,3 +106,4 @@ parse-pattern = do
   parse-pat-char = do
     char <- parse-quoted-char
     pure (Num (to-nat char))
+

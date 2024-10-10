@@ -7,3 +7,4 @@ open import Bend.Source.SourceKind
 is-builtin : Source -> Bool
 is-builtin (MkSource _ _ Builtin) = True
 is-builtin _                      = False
+

@@ -10,3 +10,4 @@ open import Base.Equal.Equal
 -- = Proof that (1st 2nd) is equal to (1st 3rd).
 apply : ∀ {a b} {A : Set a} {B : Set b} (f : A → B) {x y : A} → x ≡ y → f x ≡ f y
 apply f refl = refl
+

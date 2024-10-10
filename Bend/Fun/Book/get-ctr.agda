@@ -14,3 +14,4 @@ open import Base.BinMap.get as Map
 --   None if no such constructor exists.
 get-ctr : Book -> String -> Maybe Ctr
 get-ctr (MkBook _ _ ctrs) name = Map.get ctrs (hash name)
+

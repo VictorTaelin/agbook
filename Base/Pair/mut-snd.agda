@@ -8,3 +8,4 @@ open import Base.Pair.Pair
 -- = A new pair with the first element unchanged and the second element transformed.
 mut-snd : ∀ {a b} {A B : Set a} {C : Set b} → (B → C) → Pair A B → Pair A C
 mut-snd f (x , y) = x , f y
+

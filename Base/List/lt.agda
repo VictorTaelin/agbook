@@ -16,3 +16,4 @@ lt {{O}} (x :: xs) (y :: ys) with Ord._<_ {{O}} x y | Ord._>_ {{O}} x y
 infix 4 _<_
 _<_ : ∀ {A : Set} → {{O : Ord.Ord A}} → List A → List A → Bool
 _<_ = lt
+

@@ -18,3 +18,4 @@ T1 = refl
 -- Test: is-zero of 2 should be False
 T2 : is-zero 2 ≡ False
 T2 = refl
+

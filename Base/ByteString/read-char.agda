@@ -18,3 +18,4 @@ read-char : ByteString → Nat → Maybe Char
 read-char bs pos with head (unpack (slice bs pos (Succ pos)))
 ... | None    = None
 ... | Some n  = Some (from-nat (to-nat n))
+

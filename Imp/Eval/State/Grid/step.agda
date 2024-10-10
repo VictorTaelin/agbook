@@ -25,3 +25,4 @@ step (MkGrid global blocks) with (dequeue blocks)
     (global , Some block) → Done (Some (MkGrid global (enqueue blocks block)))
 
 ... | None                  = Done None
+

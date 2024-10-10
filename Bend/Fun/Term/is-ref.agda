@@ -6,3 +6,4 @@ open import Bend.Fun.Term.Term
 is-ref : Term -> Bool
 is-ref (Ref _) = True
 is-ref _       = False
+

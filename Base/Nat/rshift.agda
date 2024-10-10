@@ -16,3 +16,4 @@ _>>_ : Nat → Nat → Nat
 _>>_ = rshift
 
 infixl 5 _>>_
+

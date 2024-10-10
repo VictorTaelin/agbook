@@ -12,3 +12,4 @@ open import Base.Trait.Eq
 -- = A new function that takes an input of type A and returns a Boolean.
 matcher : ∀ {A B : Set} → {{_ : Eq B}} → (A → B) → B → A → Boolean
 matcher fn target x = equality (fn x) target
+

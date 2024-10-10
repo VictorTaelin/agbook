@@ -11,3 +11,4 @@ open import Base.Unit.Unit
 --   string is not found at the current position.
 consume-exactly : String → Parser Unit
 consume-exactly = consume
+

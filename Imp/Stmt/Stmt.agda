@@ -36,3 +36,4 @@ data Stmt : Set where
   -- Calls a function and assigns it to a local variable
   -- If the variable is "_", then the result value of the function is dropped
   Call : String → Stmt → Stmt
+

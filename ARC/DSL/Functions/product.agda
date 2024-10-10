@@ -12,3 +12,4 @@ open import Base.List.cartesian-product
 -- = A new Container (as a AsList) containing all possible pairs of elements from a and b.
 product : ∀ {A B : Set} → Container A → Container B → Container (Pair A B)
 product a b = AsList (cartesian-product (container-to-list a) (container-to-list b))
+

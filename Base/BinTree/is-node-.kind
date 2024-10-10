@@ -1,0 +1,30 @@
+use Base/BinTree/ as BT/
+use Base/Bool/ as B/
+use Base/Nat/ as N/
+use Base/Equal/ as E/
+
+// Test: is-node on a leaf
+T0
+: (E/Equal B/Bool (BT/is-node N/Nat #Leaf{}) #False{})
+= #Refl{}
+
+// Test: is-node on a simple node
+T1
+: (E/Equal
+    B/Bool
+    (BT/is-node N/Nat (#Node{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}} #Leaf{} #Leaf{}}))
+    #True{})
+= #Refl{}
+
+// Test: is-node on a more complex tree
+T2
+: (E/Equal
+    B/Bool
+    (BT/is-node N/Nat
+      (#Node{
+        #Succ{#Zero{}}
+        (#Node{#Succ{#Succ{#Zero{}}} #Leaf{} #Leaf{}})
+        (#Node{#Succ{#Succ{#Succ{#Zero{}}}} #Leaf{} #Leaf{}})
+      }))
+    #True{})
+= #Refl{}

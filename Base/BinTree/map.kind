@@ -1,0 +1,24 @@
+use Base/BinTree/ as BT/
+
+// Applies a function to each element of a binary tree.
+// - 1st: The type of elements in the input tree.
+// - 2nd: The type of elements in the output tree.
+// - 3rd: The function to be applied to each element.
+// - 4th: The binary tree to map over.
+// = A new binary tree with the function applied to all elements.
+BT/map
+: ∀(A: *)
+  ∀(B: *)
+  ∀(f: ∀(x: A) B)
+  ∀(t: (BT/BinTree A))
+  (BT/BinTree B)
+= λA λB λf λ{
+  #Leaf:
+    #Leaf{}
+  #Node: λt.val λt.lft λt.rgt
+    #Node{
+      (f t.val)
+      (BT/map A B f t.lft)
+      (BT/map A B f t.rgt)
+    }
+}

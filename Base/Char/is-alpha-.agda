@@ -20,3 +20,4 @@ T2 = refl
 -- Test: Special character '@' is not alphabetic
 T3 : is-alpha '@' ≡ False
 T3 = refl
+

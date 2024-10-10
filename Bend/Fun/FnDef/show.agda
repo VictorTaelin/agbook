@@ -31,3 +31,4 @@ instance
       show-fn-def (MkFnDef name type check rules src) =
         (if check then "" else "unchecked ") ++ name ++ " : " ++ show type ++ "\n" ++
         join "\n" (map (show-rule name) rules)
+

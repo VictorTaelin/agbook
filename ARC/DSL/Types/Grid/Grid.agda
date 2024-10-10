@@ -5,3 +5,4 @@ open import ARC.DSL.Types.List.List
 
 Grid : Set
 Grid = List (List Integer)
+

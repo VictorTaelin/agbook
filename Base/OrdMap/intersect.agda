@@ -25,3 +25,4 @@ _∩_ : ∀ {K V : Set} → {{_ : Ord K}} →
 _∩_ = intersect
 
 infixr 6 _∩_
+

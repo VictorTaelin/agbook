@@ -17,3 +17,4 @@ compare (NegSuc m) (NegSuc n) with compare-nat m n
 ... | GT = LT
 compare (Pos _) (NegSuc _) = GT
 compare (NegSuc _) (Pos _) = LT
+

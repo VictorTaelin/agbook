@@ -7,3 +7,4 @@ open import Base.BinTree.BinTree
 -- = An empty BinMap.
 new : ∀ {A : Set} → BinMap A
 new = Leaf
+

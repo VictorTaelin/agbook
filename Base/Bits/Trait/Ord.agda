@@ -17,3 +17,4 @@ instance
     ; lte = Bits.lte
     ; gte = Bits.gte
     }
+

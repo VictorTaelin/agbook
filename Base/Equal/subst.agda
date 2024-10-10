@@ -11,3 +11,4 @@ open import Base.Equal.Equal
 -- = Proof that 1st holds for 3rd.
 subst : ∀ {a b} {A : Set a} {x y : A} → (P : A → Set b) → x ≡ y → P x → P y
 subst P refl p = p
+

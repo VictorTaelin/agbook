@@ -9,3 +9,4 @@ open import Base.List.append
 -- = A new list containing all elements from all inner lists.
 concat : ∀ {A : Set} → List (List A) → List A
 concat = foldr _++_ []
+

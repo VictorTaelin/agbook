@@ -21,3 +21,4 @@ instance
           show-int (Pos n) = "+" ++ show n
           show-int (NegSuc n) = "-" ++ show (Succ n)
       show-num (F24 f) = show f
+

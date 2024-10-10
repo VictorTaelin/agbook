@@ -31,11 +31,12 @@ get-redexes net =
   check-nodes [] map = map
   check-nodes ((key-a , node-a) :: nodes) map =
     let port-b = Node.main node-a in
-    if (Port.slot-id port-b) == 0 then (
+    if (Port.slot port-b) == 0 then (
       -- A redex
-      let key = to-bits (min (Port.node-id port-b) (to-nat key-a)) in
-      let map = map-set map key (to-nat key-a , Port.node-id port-b) in
+      let key = to-bits (min (Port.node port-b) (to-nat key-a)) in
+      let map = map-set map key (to-nat key-a , Port.node port-b) in
       check-nodes nodes map
     ) else
       -- Not a redex, continue
       check-nodes nodes map
+

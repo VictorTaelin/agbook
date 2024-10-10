@@ -1,0 +1,15 @@
+use Base/BinTree/ as BT/
+use Base/Bool/ as B/
+
+// Checks if a binary tree is a leaf (empty).
+// - 1st: The type of elements in the tree.
+// - 2nd: The input binary tree.
+// = True if the tree is a leaf, False otherwise.
+BT/is-leaf
+: ∀(A: *)
+  ∀(t: (BT/BinTree A))
+  B/Bool
+= λA λ{
+  #Leaf: #True{}
+  #Node: λt.val λt.lft λt.rgt #False{}
+}

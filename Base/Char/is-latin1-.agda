@@ -32,3 +32,4 @@ T4 = refl
 -- Test: ASCII control character NUL (code point 0).
 T5 : is-latin1 '\x0000' ≡ True
 T5 = refl
+

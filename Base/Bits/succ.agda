@@ -15,3 +15,4 @@ succ (I bs) = O (succ bs)
 -- succ (O E)     = I E         (0 → 1)
 -- succ (I E)     = O (I E)     (1 → 10)
 -- succ (I (I E)) = O (O (I E)) (11 → 100)
+

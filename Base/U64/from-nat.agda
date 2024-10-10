@@ -6,3 +6,4 @@ open import Base.Nat.to-u64
 
 from-nat : Nat → U64
 from-nat = to-u64
+

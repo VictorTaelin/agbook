@@ -9,3 +9,4 @@ open import Base.V2.V2
 -- = A new V2 vector perpendicular to the input (rotated 90 degrees counterclockwise).
 perpendicular : V2 → V2
 perpendicular (MkV2 x y) = MkV2 (negate y) x
+

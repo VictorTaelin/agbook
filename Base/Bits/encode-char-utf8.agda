@@ -51,3 +51,4 @@ encode-char-utf8 c = do
           else (do
             -- Invalid char - shouldn't happen, we'll put a \0
             pad-zeros 8 E)
+

@@ -14,3 +14,4 @@ get (Node val _ _) E     = val
 get (Node _   l _) (O k) = get l k
 get (Node _   _ r) (I k) = get r k
 get Leaf           _     = None
+

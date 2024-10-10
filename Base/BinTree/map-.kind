@@ -1,0 +1,69 @@
+use Base/BinTree/ as BT/
+use Base/Function/ as F/
+use Base/Equal/ as E/
+use Base/Nat/ as N/
+use Base/Bool/ as B/
+
+// Test: Mapping identity function over a tree
+T0
+: (E/Equal
+    (BT/BinTree N/Nat)
+    (BT/map _ _ (F/id N/Nat) (#Node{#Succ{#Zero{}} (#Node{#Succ{#Succ{#Zero{}}} #Leaf{} #Leaf{}}) (#Node{#Succ{#Succ{#Succ{#Zero{}}}} #Leaf{} #Leaf{}})}))
+    (#Node{#Succ{#Zero{}} (#Node{#Succ{#Succ{#Zero{}}} #Leaf{} #Leaf{}}) (#Node{#Succ{#Succ{#Succ{#Zero{}}}} #Leaf{} #Leaf{}})}))
+= #Refl{}
+
+// Test: Mapping increment function over a tree
+T1
+: (E/Equal
+    (BT/BinTree N/Nat)
+    (BT/map _ _ (N/add #Succ{#Zero{}}) (#Node{#Succ{#Zero{}} (#Node{#Succ{#Succ{#Zero{}}} #Leaf{} #Leaf{}}) (#Node{#Succ{#Succ{#Succ{#Zero{}}}} #Leaf{} #Leaf{}})}))
+    (#Node{#Succ{#Succ{#Zero{}}} (#Node{#Succ{#Succ{#Succ{#Zero{}}}} #Leaf{} #Leaf{}}) (#Node{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}} #Leaf{} #Leaf{}})}))
+= #Refl{}
+
+// Test: Mapping over an empty tree
+T2
+: (E/Equal
+    (BT/BinTree N/Nat)
+    (BT/map _ _ (N/add #Succ{#Zero{}}) #Leaf{})
+    #Leaf{})
+= #Refl{}
+
+// Test: Composing two map operations
+T3
+: (E/Equal
+    (BT/BinTree N/Nat)
+    (BT/map _ _ (N/add #Succ{#Succ{#Zero{}}}) (BT/map _ _ (N/add #Succ{#Zero{}}) (#Node{#Succ{#Zero{}} (#Node{#Succ{#Succ{#Zero{}}} #Leaf{} #Leaf{}}) #Leaf{}})))
+    (#Node{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}} (#Node{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}} #Leaf{} #Leaf{}}) #Leaf{}}))
+= #Refl{}
+
+// Test: Mapping a constant function over a tree
+T4
+: (E/Equal
+    (BT/BinTree N/Nat)
+    (BT/map _ _ (λx #Zero{}) (#Node{#Succ{#Zero{}} (#Node{#Succ{#Succ{#Zero{}}} #Leaf{} #Leaf{}}) (#Node{#Succ{#Succ{#Succ{#Zero{}}}} #Leaf{} #Leaf{}})}))
+    (#Node{#Zero{} (#Node{#Zero{} #Leaf{} #Leaf{}}) (#Node{#Zero{} #Leaf{} #Leaf{}})}))
+= #Refl{}
+
+// Test: Mapping multiplication by 2 over a tree
+T5
+: (E/Equal
+    (BT/BinTree N/Nat)
+    (BT/map _ _ (N/mul #Succ{#Succ{#Zero{}}}) (#Node{#Succ{#Zero{}} (#Node{#Succ{#Succ{#Zero{}}} #Leaf{} #Leaf{}}) (#Node{#Succ{#Succ{#Succ{#Zero{}}}} #Leaf{} #Leaf{}})}))
+    (#Node{#Succ{#Succ{#Zero{}}} (#Node{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}} #Leaf{} #Leaf{}}) (#Node{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}} #Leaf{} #Leaf{}})}))
+= #Refl{}
+
+// Test: Mapping boolean negation over a tree of booleans
+T6
+: (E/Equal
+    (BT/BinTree B/Bool)
+    (BT/map _ _ B/not (#Node{#True{} (#Node{#False{} #Leaf{} #Leaf{}}) (#Node{#True{} #Leaf{} #Leaf{}})}))
+    (#Node{#False{} (#Node{#True{} #Leaf{} #Leaf{}}) (#Node{#False{} #Leaf{} #Leaf{}})}))
+= #Refl{}
+
+// Test: Mapping a complex function over a tree
+T7
+: (E/Equal
+    (BT/BinTree N/Nat)
+    (BT/map _ _ (λx (N/add #Succ{#Zero{}} (N/mul #Succ{#Succ{#Zero{}}} x))) (#Node{#Succ{#Zero{}} (#Node{#Succ{#Succ{#Zero{}}} #Leaf{} #Leaf{}}) (#Node{#Succ{#Succ{#Succ{#Zero{}}}} #Leaf{} #Leaf{}})}))
+    (#Node{#Succ{#Succ{#Succ{#Zero{}}}} (#Node{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}} #Leaf{} #Leaf{}}) (#Node{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}} #Leaf{} #Leaf{}})}))
+= #Refl{}

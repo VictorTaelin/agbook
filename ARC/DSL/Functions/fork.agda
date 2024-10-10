@@ -15,3 +15,4 @@ fork : ∀ {A B C D : Set}
      → (A → C)      -- b
      → A → D
 fork outer a b x = outer (a x) (b x)
+

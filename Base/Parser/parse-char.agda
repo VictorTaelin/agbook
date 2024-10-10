@@ -66,3 +66,4 @@ parse-char = do
   case mc of λ where
     (Some c) → if (_==_ c '\\') then parse-escape-sequence else pure c
     None     → fail "Unexpected end of input"
+

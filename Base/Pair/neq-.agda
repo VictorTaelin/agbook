@@ -10,3 +10,4 @@ open import Base.Equal.Equal
 
 T2 : ((1 , True) != (1 , False)) ≡ True
 T2 = refl
+

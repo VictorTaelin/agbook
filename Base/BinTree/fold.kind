@@ -1,0 +1,23 @@
+use Base/BinTree/ as BT/
+
+// Performs a fold operation on a binary tree.
+// - 1st: The type of elements in the tree.
+// - 2nd: The type of the result.
+// - 3rd: Function to apply to each node.
+// - 4th: Value to use for leaf nodes.
+// - 5th: The tree to fold over.
+// = The result of folding the tree.
+BT/fold
+: ∀(A: *)
+  ∀(B: *)
+  ∀(f: ∀(x: A) ∀(l: B) ∀(r: B) B)
+  ∀(z: B)
+  ∀(t: (BT/BinTree A))
+  B
+= λA λB λf λz λ{
+  #Leaf: z
+  #Node: λt.val λt.lft λt.rgt
+    (f t.val
+      (BT/fold A B f z t.lft)
+      (BT/fold A B f z t.rgt))
+}

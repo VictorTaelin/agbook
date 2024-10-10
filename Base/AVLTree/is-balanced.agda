@@ -30,3 +30,4 @@ is-balanced : ∀ {K V : Set} → AVLTree K V → Bool
 is-balanced tree with is-balanced-go tree
 ... | Some _ = True
 ... | None   = False
+

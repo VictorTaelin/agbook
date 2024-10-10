@@ -20,3 +20,4 @@ swap (Node val      l r) (I k) v = map (λ { (new-r , old-v) → (Node val l new
 swap Leaf                E     v = None
 swap Leaf                (O k) v = map (λ { (new-l , old-v) → (Node None new-l Leaf) , old-v }) (swap Leaf k v)
 swap Leaf                (I k) v = map (λ { (new-r , old-v) → (Node None Leaf new-r) , old-v }) (swap Leaf k v)
+

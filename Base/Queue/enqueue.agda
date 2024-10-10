@@ -9,3 +9,4 @@ open import Base.Queue.Queue
 -- = A new queue with the element added to the end.
 enqueue : ∀ {a} → {A : Set a} → Queue A → A → Queue A
 enqueue (MkQueue f b) a = MkQueue f (a :: b)
+

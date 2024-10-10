@@ -8,3 +8,4 @@ open import Base.Trait.Eq
 instance
   EqOrdering : Eq Ordering
   EqOrdering = MkEq Ordering.eq Ordering.neq
+

@@ -17,3 +17,4 @@ take (Node None     lft rgt) E     = None
 take (Node val      lft rgt) (O k) = map (λ { (new-lft , v) → (Node val new-lft rgt) , v }) (take lft k)
 take (Node val      lft rgt) (I k) = map (λ { (new-rgt , v) → (Node val lft new-rgt) , v }) (take rgt k)
 take Leaf                    _     = None
+

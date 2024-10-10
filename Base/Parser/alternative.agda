@@ -20,3 +20,4 @@ _<|>_ : ∀ {A : Set} → Parser A → Parser A → Parser A
 _<|>_ = alternative
 
 infixl 3 _<|>_
+

@@ -10,3 +10,4 @@ primitive primCharToNat : Char → Nat
 -- = The natural number representation of the character.
 to-nat : Char → Nat
 to-nat = primCharToNat
+

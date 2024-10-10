@@ -45,3 +45,4 @@ book-to-nets book = do
     rule <- to-result (head rules) ("No rules found for " ++ name)
     enc  <- encode-term (new-encoder name) (Rule.body rule) net-root
     Done (Encoder.net enc)
+

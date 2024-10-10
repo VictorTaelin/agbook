@@ -267,3 +267,4 @@ unique-names (MkBook defs adts ctrs) = do
                                     ([] , scope) pats
     let rules               = unique-names-rules gen rules
     (MkRule pats bod :: rules)
+

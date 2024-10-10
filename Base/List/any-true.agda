@@ -11,3 +11,4 @@ open import Base.Bool.or
 -- = True if any element satisfies the predicate, False otherwise.
 any-true : ∀ {A : Set} → (A → Bool) → List A → Bool
 any-true p = foldr (λ x acc → p x || acc) False
+

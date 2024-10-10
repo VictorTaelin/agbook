@@ -10,3 +10,4 @@ open import Base.Bool.Bool
 is-zero : Nat → Bool
 is-zero Zero     = True
 is-zero (Succ _) = False
+

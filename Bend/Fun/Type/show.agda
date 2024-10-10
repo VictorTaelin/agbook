@@ -36,3 +36,4 @@ instance
       show-type None = "None"
       show-type (Num t) = "(Number " ++ show t ++ ")"
       show-type (Int t) = "(Integer " ++ show t ++ ")"
+

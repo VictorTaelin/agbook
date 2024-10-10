@@ -17,3 +17,4 @@ mutation = do
   let map = set map (from-nat 1) "one"
   let map = set map (from-nat 2) "two"
   set map (from-nat 3) "three"
+

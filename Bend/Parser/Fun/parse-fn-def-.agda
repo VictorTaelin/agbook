@@ -82,3 +82,4 @@ _ = refl
 -- Invalid function definition (empty body)
 _ : parse "f x =" ≡ Fail (MkError 5 "Expected term")
 _ = refl
+

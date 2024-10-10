@@ -15,3 +15,4 @@ remove-at : ∀ {A : Set} → List A → Nat → List A
 remove-at []        _        = []
 remove-at (_ :: xs) Zero     = xs
 remove-at (x :: xs) (Succ n) = x :: remove-at xs n
+

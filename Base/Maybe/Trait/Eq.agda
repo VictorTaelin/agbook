@@ -8,3 +8,4 @@ open import Base.Trait.Eq
 instance
   EqMaybe : ∀ {A : Set} {{EqA : Eq A}} → Eq (Maybe A)
   EqMaybe = MkEq Maybe.eq Maybe.neq
+

@@ -5,3 +5,4 @@ module ARC.DSL.Functions.identity where
 -- = The same input x, unchanged.
 identity : ∀ {A : Set} → A → A
 identity x = x
+

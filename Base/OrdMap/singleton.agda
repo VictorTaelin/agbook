@@ -13,3 +13,4 @@ open import Base.Trait.Ord
 -- = A new OrdMap containing only the given key-value pair.
 singleton : ∀ {K V : Set} → {{_ : Ord K}} → Pair K V → OrdMap K V
 singleton = AVL.singleton
+

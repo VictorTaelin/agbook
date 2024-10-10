@@ -18,3 +18,4 @@ postulate run-client : String → Int → String → (WSConnection → IO Unit) 
 {-# FOREIGN GHC import qualified Base.Text as T #-}
 
 {-# COMPILE GHC run-client = \host port path app -> WS.runClient (T.unpack host) (fromIntegral port) (T.unpack path) (\conn → app conn) #-}
+

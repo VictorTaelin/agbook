@@ -24,3 +24,4 @@ T3 = refl
 -- Test: Another special character (e.g., '#') should return True
 T4 : is-special '#' ≡ True
 T4 = refl
+

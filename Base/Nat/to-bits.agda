@@ -27,3 +27,4 @@ to-bits-helper (Succ n) = do
 to-bits : Nat → Bits
 to-bits Zero = O E
 to-bits (Succ n) = to-bits-helper (Succ n)
+

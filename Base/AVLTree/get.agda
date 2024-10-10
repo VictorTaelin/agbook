@@ -16,3 +16,4 @@ get key (Node (curr-key , curr-val) _ left right) with compare key curr-key
 ... | LT = get key left
 ... | EQ = Some curr-val
 ... | GT = get key right
+

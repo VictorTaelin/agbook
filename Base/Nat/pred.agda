@@ -8,3 +8,4 @@ open import Base.Nat.Nat
 pred : Nat → Nat
 pred Zero     = Zero
 pred (Succ n) = n
+

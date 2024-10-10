@@ -1,0 +1,10 @@
+use Base/Int/ as I/
+use Base/Nat/ as N/
+
+// Represents integers.
+// - Pos: Represents non-negative integers.
+// - NegSuc: Represents negative integers.
+I/Int : * = #[]{
+  #Pos{ value: N/Nat } : I/Int
+  #NegSuc{ value: N/Nat } : I/Int
+}

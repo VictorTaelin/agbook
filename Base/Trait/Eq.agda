@@ -19,3 +19,4 @@ open Eq {{...}} public
 
 derive-eq : ∀ {a} {A : Set a} → (A → A → Bool) → Eq A
 derive-eq eq = MkEq eq (λ x y → ! (eq x y))
+

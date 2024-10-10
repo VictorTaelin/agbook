@@ -7,3 +7,4 @@ open import Base.Trait.Show
 instance
   ShowNat : Show Nat
   ShowNat = MkShow Nat.show
+

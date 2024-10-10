@@ -38,3 +38,4 @@ T6 refl refl = refl
 -- Test: Irreflexivity: a < a = False
 T7 : (4 < 4) ≡ False
 T7 = refl
+

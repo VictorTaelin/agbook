@@ -10,8 +10,5 @@ L/append
   ∀(xs: (L/List A))
   ∀(ys: (L/List A))
   (L/List A)
-= λA λ{
-  #Nil: λys ys
-  #Cons: λxs.head λxs.tail λys
-    #Cons{xs.head (L/append _ xs.tail ys)}
-}
+= λA λxs λys
+  (L/foldr _ _ (λhead λtail #Cons{head tail}) ys xs)

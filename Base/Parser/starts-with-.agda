@@ -17,3 +17,4 @@ test-starts-with-false = refl
 
 test-starts-with-empty : (starts-with "") (MkState "any string" 0) ≡ Done (MkReply (MkState "any string" 0) True)
 test-starts-with-empty = refl
+

@@ -9,3 +9,4 @@ inc : Bits → Bits
 inc E      = I E
 inc (O bs) = I bs
 inc (I bs) = O (inc bs)
+

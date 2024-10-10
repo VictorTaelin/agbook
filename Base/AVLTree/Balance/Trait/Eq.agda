@@ -8,3 +8,4 @@ open import Base.Trait.Eq
 instance
   EqBalance : Eq Balance
   EqBalance = MkEq Balance.eq Balance.neq
+

@@ -74,3 +74,4 @@ mutual
     let bnd = concat-map binds (Rule.pats rule)
     is-safe-lambda ctx seen bnd (Rule.body rule)
   is-safe-def ctx seen (MkFnDef _ _ _ (_ :: _)     _) = False  -- More than one rule == match, not safe
+

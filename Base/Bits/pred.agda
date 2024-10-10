@@ -17,3 +17,4 @@ pred (I bs) = O bs
 -- pred (O (I E))     = I E     (10 → 1)
 -- pred (I (I E))     = O (I E) (11 → 10)
 -- pred (O (O (I E))) = I (I E) (100 → 11)
+

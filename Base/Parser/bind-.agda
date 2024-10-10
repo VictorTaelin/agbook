@@ -29,3 +29,4 @@ test-seq = refl
 
 test-seq-operator : (parser1 >> pure "hello") (MkState "abc" 0) ≡ Done (MkReply (MkState "abc" 0) "hello")
 test-seq-operator = refl
+

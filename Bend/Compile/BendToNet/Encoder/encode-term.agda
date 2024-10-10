@@ -125,3 +125,4 @@ encode-term enc (Term.Bend _ _ _ _ _) up = Fail "bend in compile"
 encode-term enc (Term.Open _ _ _)     up = Fail "open in compile"
 encode-term enc (Term.Def _ _)        up = Fail "def in compile"
  
+

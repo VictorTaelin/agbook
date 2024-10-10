@@ -33,3 +33,4 @@ test-append-associative = refl
 
 test-append-mixed : (I (O (I E))) ++ (O (I (O E))) ≡ I (O (I (O (I (O E)))))
 test-append-mixed = refl
+

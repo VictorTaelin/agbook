@@ -12,3 +12,4 @@ open import Base.Trait.Ord
 -- = A new AVL tree with the value deleted and balance maintained.
 delete : ∀ {K V : Set} → {{_ : Ord K}} → K → AVLTree K V → AVLTree K V
 delete k t = get-fst (delete-go k t)
+

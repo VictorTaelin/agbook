@@ -6,3 +6,4 @@ open import ARC.DSL.Types.IntegerList.IntegerList
 
 Cell : Set
 Cell = Pair Integer IntegerList
+

@@ -6,3 +6,4 @@ open import ARC.DSL.Types.Indices.Indices
 
 Patch : Set
 Patch = Union Object Indices
+

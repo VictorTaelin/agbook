@@ -11,3 +11,4 @@ open import Base.Bool.and
 -- = True if all elements satisfy the predicate, False otherwise.
 all-true : ∀ {A : Set} → (A → Bool) → List A → Bool
 all-true p = foldr (λ x acc → p x && acc) True
+

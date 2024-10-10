@@ -12,3 +12,4 @@ open import Base.List.List
 foldr : ∀ {a b} {A : Set a} {B : Set b} → (A → B → B) → B → List A → B
 foldr co ni []        = ni
 foldr co ni (x :: xs) = co x (foldr co ni xs)
+

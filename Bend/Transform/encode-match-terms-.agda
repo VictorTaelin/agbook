@@ -49,7 +49,7 @@ test encoding input = do
       book <- rebuild-match-ctrs book
       let book = desugar-use book
       book <- encode-match-terms encoding book
-      def  <- to-result (get-def book "main") "no main"
+      def  <- get-def book "main"
       rule <- to-result (head (FnDef.rules def)) "no body"
       Done (show (Rule.body rule))
     (Fail (MkError _ err)) → Fail ("Parse failed: " ++ err)
@@ -110,3 +110,4 @@ _ = refl
 _ : test NumScott "switch x { 0: A; 1: B; _: C }"
   ≡ "switch * = x { 0: A; _ *: λ%x switch * = %x { 0: B; _ *: λx-2 C } }"
 _ = refl
+

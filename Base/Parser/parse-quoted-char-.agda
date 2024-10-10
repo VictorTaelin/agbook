@@ -21,3 +21,4 @@ test-parse-quoted-char-escape = refl
 
 test-parse-quoted-char-invalid : parse-quoted-char (MkState "'ab'" 0) ≡ Fail (MkError 2 "Expected '")
 test-parse-quoted-char-invalid = refl
+

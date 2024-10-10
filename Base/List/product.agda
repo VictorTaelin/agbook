@@ -10,3 +10,4 @@ open import Base.Nat.mul
 -- = The product of all numbers in the list.
 product : List Nat → Nat
 product = foldr _*_ 1
+

@@ -10,3 +10,4 @@ open import Base.Nat.add
 -- = The sum of all numbers in the list.
 sum : List Nat → Nat
 sum = foldr _+_ Zero
+

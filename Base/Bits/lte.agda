@@ -11,3 +11,4 @@ lte a b = not (lt b a)
 infix 4 _<=_
 _<=_ : Bits → Bits → Bool
 _<=_ = lte
+

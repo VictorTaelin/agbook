@@ -50,3 +50,4 @@ _ = refl
 -- Unscoped and scoped variables with the same name
 _ : test "λ$x (y (λx ($x $z)))" ≡ ("x" :: [] , "x" :: "z" :: [])
 _ = refl
+

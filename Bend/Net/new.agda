@@ -15,3 +15,4 @@ new name =
   let root = MkNode (MkPort 0 2) (MkPort 0 1) (MkPort 0 0) NodeKind.Rot in
   let map = map-set map-new (nat-to-bits 0) root in
   MkNet map 1 name
+

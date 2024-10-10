@@ -110,3 +110,4 @@ test-union-multiple :
       tree3 = tree-from ((5 , unit) :: (6 , unit) :: [])
   in to-list (tree1 ∪ tree2 ∪ tree3) ≡ ((1 , unit) :: (2 , unit) :: (3 , unit) :: (4 , unit) :: (5 , unit) :: (6 , unit) :: [])
 test-union-multiple = refl
+

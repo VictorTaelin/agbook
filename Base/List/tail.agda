@@ -10,3 +10,4 @@ open import Base.Maybe.Maybe
 tail : ∀ {A : Set} → List A → Maybe (List A)
 tail []        = None
 tail (_ :: xs) = Some xs
+

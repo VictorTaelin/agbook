@@ -13,3 +13,4 @@ pad-zeros Zero     bits     = bits
 pad-zeros (Succ n) E        = O (pad-zeros n E)
 pad-zeros (Succ n) (O bits) = O (pad-zeros n bits)
 pad-zeros (Succ n) (I bits) = I (pad-zeros n bits)
+

@@ -12,3 +12,4 @@ open import Base.Result.Result
 --   - Fail: an Error containing the index and message.
 Parser : Set → Set
 Parser A = State → Result (Reply A) Error
+

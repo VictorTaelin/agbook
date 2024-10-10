@@ -9,3 +9,4 @@ primitive primToLower : Char → Char
 -- = The lowercase version of the input character.
 to-lower : Char → Char
 to-lower = primToLower
+

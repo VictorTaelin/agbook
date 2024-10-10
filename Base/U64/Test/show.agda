@@ -10,3 +10,4 @@ test-show-positive = refl
 
 test-show-zero : show (primWord64FromNat 0) ≡ "0U"
 test-show-zero = refl
+

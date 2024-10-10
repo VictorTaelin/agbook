@@ -7,3 +7,4 @@ open import Bend.Fun.Term.Term
 var-or-era : Maybe String → Term
 var-or-era (Some nam) = Var nam
 var-or-era None       = Era
+

@@ -9,3 +9,4 @@ primitive primFloatSin : F64 → F64
 -- = The sine of x.
 sin : F64 → F64
 sin = primFloatSin
+

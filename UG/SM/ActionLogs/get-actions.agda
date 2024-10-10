@@ -16,3 +16,4 @@ get-actions : ∀ {A : Set} → ActionLogs A → Tick → List A
 get-actions logs t with get logs (to-bits t)
 ... | None         = []
 ... | Some actions = actions
+

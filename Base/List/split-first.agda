@@ -15,3 +15,4 @@ split-first pred (x :: xs) = case pred x of λ where
   True  → [] , xs
   False → case split-first pred xs of λ where
     (before , after) → (x :: before) , after
+

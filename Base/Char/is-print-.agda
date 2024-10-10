@@ -36,3 +36,4 @@ T6 = refl
 -- Test: Null character is not printable
 T7 : is-print '\0' ≡ False
 T7 = refl
+

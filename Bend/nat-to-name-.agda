@@ -27,3 +27,4 @@ _ = refl
 
 _ : (nat-to-name 42 == nat-to-name 24) ≡ False
 _ = refl
+

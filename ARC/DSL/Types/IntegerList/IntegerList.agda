@@ -5,3 +5,4 @@ open import ARC.DSL.Types.List.List
 
 IntegerList : Set
 IntegerList = List Integer
+

@@ -14,3 +14,4 @@ find pred []       = None
 find pred (x :: xs) with pred x
 ... | True  = Some x
 ... | False = find pred xs
+

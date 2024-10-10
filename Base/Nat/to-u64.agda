@@ -10,3 +10,4 @@ primitive primWord64FromNat : Nat → U64
 -- = The U64 representation of the input natural number.
 to-u64 : Nat → U64
 to-u64 = primWord64FromNat
+

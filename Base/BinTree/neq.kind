@@ -1,0 +1,17 @@
+use Base/BinTree/ as BT/
+use Base/Bool/ as B/
+use Base/Trait/ as T/
+
+// Checks if two binary trees are not equal.
+// - 1st: The type of elements in the tree.
+// - 2nd: An equality function for type A.
+// - 3rd: The first tree to compare.
+// - 4th: The second tree to compare.
+// = True if the trees are not equal, False otherwise.
+BT/neq
+: ∀(A: *)
+  ∀(e: (T/Eq A))
+  ∀(a: (BT/BinTree A))
+  ∀(b: (BT/BinTree A))
+  B/Bool
+= λA λe λa λb (B/not (BT/eq A e a b))

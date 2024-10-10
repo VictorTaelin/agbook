@@ -14,3 +14,4 @@ is-name-char : Char → Bool
 is-name-char c =
   (is-alpha c) || (is-digit c) ||
   (c == '_') || (c == '.') || (c == '-') || (c == '/')
+

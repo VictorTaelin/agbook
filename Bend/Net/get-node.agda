@@ -1,16 +1,14 @@
 module Bend.Net.get-node where
 
-open import Base.BinMap.get renaming (get to map-get)
-open import Base.Maybe.Maybe
-open import Base.Maybe.Monad.bind
+open import Base.BinMap.get
+open import Base.Maybe.to-result
 open import Base.Nat.Nat
-open import Base.Nat.to-bits renaming (to-bits to nat-to-bits)
-open import Base.Pair.Pair
+open import Base.Nat.to-bits
+open import Base.Result.Result
+open import Base.String.String
 open import Bend.Net.Net
 open import Bend.Net.Node.Node
 
-get-node : Net → Nat → Maybe (Pair Node Net)
-get-node (MkNet nodes len name) node-id = do
-  let key = nat-to-bits node-id
-  a <- map-get nodes key
-  Some (a , MkNet nodes len name)
+get-node : Net → Nat → Result Node String
+get-node (MkNet nodes _ _) node = to-result (get nodes (to-bits node)) "Node not found"
+

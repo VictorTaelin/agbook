@@ -62,3 +62,4 @@ test-fold-constant = refl
 -- Test: Fold to check if a specific key exists in the tree
 test-fold-exists : fold (λ p acc → acc || (fst p == 3)) False test-tree ≡ True
 test-fold-exists = refl
+

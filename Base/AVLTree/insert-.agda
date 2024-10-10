@@ -46,3 +46,4 @@ test-insert-duplicate = refl
 -- Test: Check if the tree remains balanced after insertions
 test-balanced-after-insertions : is-balanced (insert (6 , unit) (insert (5 , unit) (insert (4 , unit) (insert (0 , unit) balanced-tree)))) ≡ True
 test-balanced-after-insertions = refl
+

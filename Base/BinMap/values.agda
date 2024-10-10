@@ -13,3 +13,4 @@ values : ∀ {A : Set} → BinMap A → List A
 values (Node None     l r) = values l ++ values r
 values (Node (Some v) l r) = v :: (values l ++ values r)
 values Leaf                = []
+

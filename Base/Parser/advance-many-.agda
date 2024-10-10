@@ -33,3 +33,4 @@ test-advance-many-unicode = refl
 
 test-advance-many-beyond-length-non-zero-start : (advance-many 8) (MkState "abcdef" 2) ≡ Done (MkReply (MkState "" 10) (Some "abcdef"))
 test-advance-many-beyond-length-non-zero-start = refl
+

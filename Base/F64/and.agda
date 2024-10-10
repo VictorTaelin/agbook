@@ -17,3 +17,4 @@ and x y = Bool.and (not (eq 0.0 x)) (not (eq 0.0 y))
 infixl 6 _&&_
 _&&_ : F64 → F64 → Bool
 _&&_ = and
+

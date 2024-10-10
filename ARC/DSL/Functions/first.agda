@@ -18,3 +18,4 @@ first default (AsList (x :: _)) = x
 first default (AsOSet s) with S.minimum s
 ... | Some x = x
 ... | None   = default
+

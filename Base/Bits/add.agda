@@ -20,3 +20,4 @@ _+_ : Bits → Bits → Bits
 _+_ = add
 
 infixl 6 _+_
+

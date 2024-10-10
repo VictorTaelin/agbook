@@ -24,3 +24,4 @@ record Mach (S A : Set) : Set where
     state-logs : StateLogs S
     action-logs : ActionLogs A
     action-eq : A → A → Bool
+

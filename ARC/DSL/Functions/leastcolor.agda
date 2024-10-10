@@ -18,3 +18,4 @@ open import Base.Trait.Ord
 leastcolor : Element → Integer
 leastcolor (Lft cells) = leastcommon 0 (AsList (L.map (λ (x , y) → x) (S.to-list cells)))
 leastcolor (Rgt grid)  = leastcommon 0 (AsList (L.concat grid))
+

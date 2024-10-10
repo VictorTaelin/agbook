@@ -15,3 +15,4 @@ add = primFloatPlus
 infixl 6 _+_
 _+_ : F64 → F64 → F64
 _+_ = add
+

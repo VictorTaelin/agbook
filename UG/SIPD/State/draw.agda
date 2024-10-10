@@ -16,6 +16,7 @@ open import Base.List.mfoldl
 
 open import UG.SIPD.Player.Player
 open import UG.SIPD.Hero.Hero
+open import UG.SIPD.GameMap.GameMap
 
 import UG.SIPD.Body.draw as Body
 
@@ -23,9 +24,7 @@ postulate draw-clicks : Renderer → Nat → IO Unit
 
 draw-players : Renderer → State → IO Unit
 draw-players renderer state = do
-  let players = values (State.players state)
-  let heroes = map (λ p → (Player.hero p)) players
-  let bodies = map (λ h → (Hero.body h)) heroes
+  let bodies = values (GameMap.bodies (State.game-map state))
   mfoldl (λ _ body → Body.draw renderer body) unit bodies
 
 draw : Renderer → State → IO Unit

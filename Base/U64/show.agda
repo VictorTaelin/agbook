@@ -8,3 +8,4 @@ open import Base.U64.to-nat
 
 show : U64 → String
 show x = Nat.show (to-nat x) ++ "U"
+

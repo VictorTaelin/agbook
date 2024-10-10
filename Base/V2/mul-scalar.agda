@@ -16,3 +16,4 @@ _*_ : V2 → F64 → V2
 _*_ = mul-scalar
 
 infixl 7 _*_
+

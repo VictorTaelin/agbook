@@ -19,3 +19,4 @@ data Op : Set where
   Shl : Op  -- Shift left
   Shr : Op  -- Shift right
   Pow : Op  -- Exponentiation
+

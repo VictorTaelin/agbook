@@ -1,0 +1,48 @@
+use Base/BinTree/ as BT/
+
+// Merges two trees using combining functions.
+// - 1st: The type of elements in the first tree.
+// - 2nd: The type of elements in the second tree.
+// - 3th: The type of elements in the resulting tree.
+// - 4th: Function to handle cases where only the first tree has a value.
+// - 5th: Function to handle cases where only the second tree has a value.
+// - 6th: Function to combine values when both trees have a value.
+// - 7th: The first input tree.
+// - 8th: The second input tree.
+// = A new tree where each node is the result of applying the appropriate
+//   function based on the presence of values in both input trees.
+BT/merge
+: ∀(A: *)
+  ∀(B: *)
+  ∀(C: *)
+  ∀(a: ∀(x: A) C)
+  ∀(b: ∀(x: B) C)
+  ∀(ab: ∀(x: A) ∀(y: B) C)
+  ∀(t1: (BT/BinTree A))
+  ∀(t2: (BT/BinTree B))
+  (BT/BinTree C)
+= λA λB λC λa λb λab λ{
+  #Leaf: λ{
+    #Leaf: #Leaf{}
+    #Node: λt2.val λt2.lft λt2.rgt
+      #Node{
+        val: (b t2.val)
+        lft: (BT/merge A B C a b ab #Leaf{} t2.lft)
+        rgt: (BT/merge A B C a b ab #Leaf{} t2.rgt)
+      }
+  }
+  #Node: λt1.val λt1.lft λt1.rgt λ{
+    #Leaf:
+      #Node{
+        val: (a t1.val)
+        lft: (BT/merge A B C a b ab t1.lft #Leaf{})
+        rgt: (BT/merge A B C a b ab t1.rgt #Leaf{})
+      }
+    #Node: λt2.val λt2.lft λt2.rgt
+      #Node{
+        val: (ab t1.val t2.val)
+        lft: (BT/merge A B C a b ab t1.lft t2.lft)
+        rgt: (BT/merge A B C a b ab t1.rgt t2.rgt)
+      }
+  }
+}

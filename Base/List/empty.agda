@@ -9,3 +9,4 @@ open import Base.Bool.Bool
 empty : ∀ {A : Set} → List A → Bool
 empty [] = True
 empty  _ = False
+

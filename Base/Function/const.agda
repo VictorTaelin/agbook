@@ -6,3 +6,4 @@ module Base.Function.const where
 -- = Always returns x, regardless of the second argument.
 const : ∀ {a b} {A : Set a} {B : Set b} → A → B → A
 const x _ = x
+

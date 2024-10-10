@@ -18,3 +18,4 @@ if n then t else f = helper (to-nat n) t f
    helper : ∀ {a} {A : Set a} → Nat → A → A → A 
    helper Zero t f = f
    helper (Succ _) t f = t
+

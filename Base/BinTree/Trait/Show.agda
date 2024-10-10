@@ -9,3 +9,4 @@ open import Base.BinTree.BinTree
 instance
   ShowTree : ∀ {A : Set} {{ShowA : Show.Show A}} → Show.Show (BinTree A)
   ShowTree {{ShowA}} = record { to-string = BinTree.show }
+

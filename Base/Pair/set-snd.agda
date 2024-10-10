@@ -8,3 +8,4 @@ open import Base.Pair.Pair
 -- = A new pair with the original first component and the updated second component.
 set-snd : ∀ {a b} {A B : Set a} {C : Set b} → C → Pair A B → Pair A C
 set-snd z (x , _) = x , z
+

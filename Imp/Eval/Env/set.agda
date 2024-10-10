@@ -13,3 +13,4 @@ open import Imp.Eval.Env.Env
 set : Env → String → U64 → Env
 set []       _ _ = []
 set (m :: r) k v = ((ordmap-insert (k , v) m) :: r)
+

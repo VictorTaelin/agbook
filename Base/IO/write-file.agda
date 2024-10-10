@@ -15,3 +15,4 @@ postulate write-file : String → String → IO Unit
 {-# FOREIGN GHC import qualified System.IO              #-}
 
 {-# COMPILE GHC write-file  = TIO.writeFile . T.unpack  #-}
+

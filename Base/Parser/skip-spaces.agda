@@ -29,3 +29,4 @@ skip-spaces = λ s → do
   let new-index = add (State.index s) count
   let new-input = from-list (drop count chars)
   Done (MkReply (MkState new-input new-index) count)
+

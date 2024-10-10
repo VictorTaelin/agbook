@@ -4,3 +4,4 @@ module Bend.Fun.FanKind.FanKind where
 data FanKind : Set where
   Tup : FanKind
   Dup : FanKind
+

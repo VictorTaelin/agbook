@@ -38,3 +38,4 @@ T6 = refl
 -- Tests if newline character is not equal to carriage return.
 T7 : ('\n' != '\r') ≡ True
 T7 = refl
+

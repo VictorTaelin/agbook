@@ -15,3 +15,4 @@ mfoldl f z []        = pure z
 mfoldl f z (x :: xs) = do
   z' ← f z x
   mfoldl f z' xs
+

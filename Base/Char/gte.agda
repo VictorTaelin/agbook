@@ -17,3 +17,4 @@ _>=_ : Char → Char → Bool
 _>=_ = gte
 
 infix 4 _>=_
+

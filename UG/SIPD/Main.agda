@@ -19,7 +19,6 @@ import UG.SIPD.Window.create as Window
 open import Base.Bool.Bool
 open import Base.Bool.if
 open import Base.ByteString.ByteString
-open import Base.ByteString.cons
 open import Base.ByteString.drop
 open import Base.ByteString.head
 open import Base.ByteString.pack
@@ -75,6 +74,7 @@ open import UG.SIPD.Event.Event
 open import UG.SIPD.Event.get-events
 open import UG.SIPD.Renderer.Renderer
 open import UG.SIPD.State.State
+import UG.SIPD.State.show as State
 open import UG.SIPD.State.init
 open import UG.SIPD.Video.quit
 open import UG.SIPD.Window.Window
@@ -90,25 +90,21 @@ open import UG.SM.new-mach
 open import UG.SM.register-action
 open import UG.Shape.Shape
 open import UG.Shape.square
+open import UG.SIPD.Game.tick
+open import UG.SIPD.Game.when
+import UG.SIPD.Event.eq as Event
 
 initialState : State
 initialState = init
 
-event-eq : Event → Event → Bool
-event-eq _ _ = False
+myPid : Nat
+myPid = 0
 
-handleSingleEv : Event → State → State
-handleSingleEv _ state = state
-
-tick : State → State
-tick s = s
+time : Nat
+time = 0
 
 game : Game State Event
-game = record 
-  { init = initialState
-  ; when = handleSingleEv
-  ; tick = tick
-  }
+game = record { init = initialState ; when = when ; tick = tick }
 
 handle-client-ev : WSConnection → Maybe ByteString → IO Unit
 handle-client-ev conn maybe-bs with maybe-bs
@@ -141,7 +137,7 @@ handle-ws recv-channel client-channel client join connection with join
   handle-ws recv-channel client-channel client False connection
 
 click-event : Event
-click-event = MouseClick LeftButton 0.0 0.0
+click-event = MouseClick 0 0 LeftButton 0.0 0.0
 
 time-action : Nat → Event → TimedAction Event
 time-action time event = record { action = event ; time = time }
@@ -165,7 +161,7 @@ handle-bs-result bs mach client with to-nat (head bs)
   let room = read-u48 bs 1
   time-now <- now
   let time = read-u48 bs 7
-  let msg = drop bs 13
+  let msg = drop 13 bs
   let event = Event.deserialize msg
   show-ev event
   let new-sm = register-event event time mach
@@ -187,7 +183,7 @@ process-messages mach channel client = do
       pure (mach , client)
 
 initial-mach : Mach State Event
-initial-mach = new-mach 60 event-eq
+initial-mach = new-mach 60 Event.eq 
 
 create-valid-events : List (Maybe ByteString) → List ByteString
 create-valid-events [] = []
@@ -203,15 +199,16 @@ register-events mach events client-channel = do
   
   foldl (λ acc ev → acc >>= λ _ → Channel.write client-channel ev) (pure unit) valid-events
 
-  --let timed-actions = map (time-action time) events
-  --let final-mach = foldl (λ acc-mach action → register-action acc-mach action) mach timed-actions
-  --pure final-mach
-  pure mach
+  let timed-actions = map (time-action time) events
+  let final-mach = foldl (λ acc-mach action → register-action acc-mach action) mach timed-actions
+  pure final-mach
 
 loop : (Mach State Event) → Window → Renderer → State → (Mach State Event → Channel ByteString → Client → IO (Pair (Mach State Event) Client)) → Channel ByteString → Channel ByteString → Client → IO State
 loop mach window renderer state process-message channel client-channel client = do
 
-  events <- get-events
+  print (State.show state)
+
+  events <- get-events time myPid
 
   reg-mach <- register-events mach events client-channel
 

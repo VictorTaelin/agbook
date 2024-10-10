@@ -26,3 +26,4 @@ advance-one = λ str →
       let head = get-fst pair
       let tail = get-snd pair
       Done (MkReply (MkState tail (Succ (State.index str))) (Some head))
+

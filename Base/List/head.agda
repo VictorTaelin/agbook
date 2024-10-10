@@ -11,3 +11,4 @@ open import Base.Maybe.Maybe
 head : ∀ {A : Set} → List A → Maybe A
 head []       = None
 head (x :: _) = Some x
+

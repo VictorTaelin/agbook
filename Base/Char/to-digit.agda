@@ -30,3 +30,4 @@ to-digit base c =
     hex-to-nat c
   else
     None
+

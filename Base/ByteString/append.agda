@@ -19,3 +19,4 @@ _++_ : ByteString → ByteString → ByteString
 _++_ = append
 
 infixr 5 _++_
+

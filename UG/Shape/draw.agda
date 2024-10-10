@@ -32,3 +32,4 @@ drawShape renderer shape = case shape of
 #-}
 
 {-# COMPILE GHC draw = \renderer shape -> drawShape renderer shape #-}
+

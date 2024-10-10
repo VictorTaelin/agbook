@@ -9,3 +9,4 @@ open import Base.Bool.Bool
 is-cons : ∀ {A : Set} → List A → Bool
 is-cons []       = False
 is-cons (_ :: _) = True
+

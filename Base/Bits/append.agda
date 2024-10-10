@@ -16,3 +16,4 @@ _++_ : Bits → Bits → Bits
 _++_ = append
 
 infixr 5 _++_
+

@@ -16,3 +16,4 @@ test-neq-same-value = refl
 
 test-neq-different-values : ((primWord64FromNat 64) != (primWord64FromNat 65)) ≡ True
 test-neq-different-values = refl
+

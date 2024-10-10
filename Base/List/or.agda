@@ -10,3 +10,4 @@ import Base.Bool.or as B
 -- = True if any element is True, False otherwise.
 or : List Bool → Bool
 or = foldr B._||_ False
+

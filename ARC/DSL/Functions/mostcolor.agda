@@ -18,3 +18,4 @@ open import Base.Trait.Ord
 mostcolor : Element → Integer
 mostcolor (Lft cells) = mostcommon 0 (AsList (L.map (λ (x , y) → x) (S.to-list cells)))
 mostcolor (Rgt grid)  = mostcommon 0 (AsList (L.concat grid))
+

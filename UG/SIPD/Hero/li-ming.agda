@@ -6,6 +6,7 @@ open import Base.Nat.Nat
 open import Base.F64.F64
 open import UG.SIPD.State.State
 open import Base.OrdMap.insert
+open import Base.OrdMap.get
 open import Base.OrdMap.OrdMap
 open import Base.OrdMap.empty
 open import UG.SIPD.Skill.move
@@ -15,28 +16,38 @@ open import Base.String.Trait.Ord
 open import Base.String.String
 open import Base.String.append
 open import Base.Nat.show
+open import Base.Nat.Trait.Ord
 open import UG.Shape.circle
 open import UG.SIPD.Body.Body
+open import Base.Maybe.Maybe
+open import UG.SIPD.Player.Player
+open import Base.V2.sub
+open import Base.V2.normalize
+open import Base.Function.case
+open import UG.SIPD.Skill.apply
 
-make-skills : String → Nat → OrdMap String (Skill State)
-make-skills body-id speed = do
+make-skills : Nat → String → OrdMap String (Skill State)
+make-skills player-id body-id = do
   let s = empty
-  let s = insert ("W" , (move body-id (MkV2 0.0 -1.0) speed)) s
-  let s = insert ("A" , (move body-id (MkV2 -1.0 0.0) speed)) s
-  let s = insert ("S" , (move body-id (MkV2 0.0 1.0) speed)) s
-  let s = insert ("D" , (move body-id (MkV2 1.0 0.0) speed)) s
+  let s = insert ("RightClick" , (move player-id body-id)) s
   s
 
-tick : State → State
-tick state = state
+tick : Nat → State → State
+tick pid state with get pid (State.players state)
+... | None = state
+... | Some player = do
+  let hero = Player.hero player
+  let skills = Hero.skills hero
+  case get "RightClick" skills of λ where
+    None → state
+    (Some skill) → apply skill state
 
 li-ming : Nat → V2 → Hero State
 li-ming owner-id pos = do
   let name = "li-ming"
-  let shape = circle (MkV2 300.0 300.0) 20.0
+  let shape = circle pos 20.0
   let body-id = name ++ "_" ++ (show owner-id)
-  let speed = 5
-  let skills = make-skills body-id speed
-  let body = MkBody body-id shape tick
+  let skills = make-skills owner-id body-id
+  let body = MkBody body-id shape (tick owner-id)
   MkHero owner-id name skills body
-    
+

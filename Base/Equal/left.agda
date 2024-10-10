@@ -13,3 +13,4 @@ open import Base.Equal.trans
 -- = Proof that 3rd is equal to 4th.
 left : ∀ {a} {A : Set a} {x a b : A} → a ≡ x → b ≡ x → a ≡ b
 left r s = trans r (sym s)
+

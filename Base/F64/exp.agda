@@ -15,3 +15,4 @@ exp = primFloatPow
 infixr 8 _^_
 _^_ : F64 → F64 → F64
 _^_ = exp
+

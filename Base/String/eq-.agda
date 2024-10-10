@@ -13,3 +13,4 @@ test-eq-different-strings = refl
 
 test-eq-empty-strings : ("" == "") ≡ True
 test-eq-empty-strings = refl
+

@@ -18,3 +18,4 @@ _-_ : Nat → Nat → Nat
 _-_ = sub
 
 infixl 6 _-_
+

@@ -8,3 +8,4 @@ open import Base.List.foldl
 -- = A new list containing all elements from the input list in reverse order.
 reverse : ∀ {a} {A : Set a} → List A → List A
 reverse = foldl (λ xs x → x :: xs) []
+

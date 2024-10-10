@@ -22,3 +22,4 @@ test-parse-null-fail-incomplete = refl
 
 test-parse-null-success-trailing : parse-null (MkState "null123" 0) ≡ Done (MkReply (MkState "123" 4) JNull)
 test-parse-null-success-trailing = refl
+

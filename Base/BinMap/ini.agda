@@ -18,3 +18,4 @@ ini (Node val      l r) (I k) v = Node val l (ini r k v)
 ini Leaf                E     v = Node (Some v) Leaf Leaf
 ini Leaf                (O k) v = Node None (ini Leaf k v) Leaf
 ini Leaf                (I k) v = Node None Leaf (ini Leaf k v)
+
