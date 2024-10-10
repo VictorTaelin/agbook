@@ -59,15 +59,15 @@ collide (Circle c1 r1) (Circle c2 r2) = do
   let center-dist = dist c1 c2
   let rsum = r1 + r2
   center-dist <= rsum
-collide (Circle center radius) (Polygon vertices) =
-  if point-in-polygon center vertices
+collide (Circle center1 radius) (Polygon center2 vertices) =
+  if point-in-polygon center1 vertices
   then True
-  else check-edges center radius vertices vertices
-collide (Polygon vertices) (Circle center radius) =
-  if point-in-polygon center vertices
+  else check-edges center1 radius vertices vertices
+collide (Polygon center1 vertices) (Circle center2 radius) =
+  if point-in-polygon center2 vertices
   then True
-  else check-edges center radius vertices vertices
-collide (Polygon v1) (Polygon v2) = do
+  else check-edges center2 radius vertices vertices
+collide (Polygon center1 v1) (Polygon center2 v2) = do
   let v1-in-v2 = any-vertex-inside v1 v2 
   let v2-in-v1 = any-vertex-inside v2 v1
   let any-intersect = any-edges-intersect v1 v2
