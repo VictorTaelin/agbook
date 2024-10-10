@@ -5,33 +5,41 @@ use Base/Equal/ as E/
 use Base/Function/ as F/
 
 // Test: Merging two empty trees
-T0 : (E/Equal _ (BT/merge _ _ _ (F/id _) (F/id _) U32/add #Leaf{} #Leaf{}) #Leaf{})
+T0 
+: (E/Equal _ (BT/merge _ _ _ (F/id _) (F/id _) U32/add #Leaf{} #Leaf{}) #Leaf{})
 = #Refl{}
 
 // Test: Merging an empty tree with a non-empty tree
-T1 : (E/Equal _ (BT/merge _ _ _ (F/id _) (F/id _) U32/add #Leaf{} #Node{5 #Leaf{} #Leaf{}}) #Node{5 #Leaf{} #Leaf{}})
+T1 
+: (E/Equal _ (BT/merge _ _ _ (F/id _) (F/id _) U32/add #Leaf{} #Node{5 #Leaf{} #Leaf{}}) #Node{5 #Leaf{} #Leaf{}})
 = #Refl{}
 
 // Test: Merging a non-empty tree with an empty tree
-T2 : (E/Equal _ (BT/merge _ _ _ (F/id _) (F/id _) U32/add #Node{3 #Leaf{} #Leaf{}} #Leaf{}) #Node{3 #Leaf{} #Leaf{}})
+T2 
+: (E/Equal _ (BT/merge _ _ _ (F/id _) (F/id _) U32/add #Node{3 #Leaf{} #Leaf{}} #Leaf{}) #Node{3 #Leaf{} #Leaf{}})
 = #Refl{}
 
 // Test: Merge two non-empty trees
-T3 : (E/Equal _ (BT/merge _ _ _ (F/id _) (F/id _) U32/add #Node{2 #Leaf{} #Leaf{}} #Node{3 #Leaf{} #Leaf{}}) #Node{5 #Leaf{} #Leaf{}})
+T3 
+: (E/Equal _ (BT/merge _ _ _ (F/id _) (F/id _) U32/add #Node{2 #Leaf{} #Leaf{}} #Node{3 #Leaf{} #Leaf{}}) #Node{5 #Leaf{} #Leaf{}})
 = #Refl{}
 
 // Test: Merging two more complex trees
-T4 : (E/Equal _ (BT/merge _ _ _ (F/id _) (F/id _) U32/add #Node{1 #Node{2 #Leaf{} #Leaf{}} #Leaf{}} #Node{3 #Leaf{} #Node{4 #Leaf{} #Leaf{}}}) #Node{4 #Node{2 #Leaf{} #Leaf{}} #Node{4 #Leaf{} #Leaf{}}})
+T4 
+: (E/Equal _ (BT/merge _ _ _ (F/id _) (F/id _) U32/add #Node{1 #Node{2 #Leaf{} #Leaf{}} #Leaf{}} #Node{3 #Leaf{} #Node{4 #Leaf{} #Leaf{}}}) #Node{4 #Node{2 #Leaf{} #Leaf{}} #Node{4 #Leaf{} #Leaf{}}})
 = #Refl{}
 
 // Test: Merging trees with a different merge function (max)
-T5 : (E/Equal _ (BT/merge _ _ _ (F/id _) (F/id _) U32/max #Node{5 #Node{3 #Leaf{} #Leaf{}} #Node{7 #Leaf{} #Leaf{}}} #Node{4 #Node{6 #Leaf{} #Leaf{}} #Node{2 #Leaf{} #Leaf{}}}) #Node{5 #Node{6 #Leaf{} #Leaf{}} #Node{7 #Leaf{} #Leaf{}}})
+T5 
+: (E/Equal _ (BT/merge _ _ _ (F/id _) (F/id _) U32/max #Node{5 #Node{3 #Leaf{} #Leaf{}} #Node{7 #Leaf{} #Leaf{}}} #Node{4 #Node{6 #Leaf{} #Leaf{}} #Node{2 #Leaf{} #Leaf{}}}) #Node{5 #Node{6 #Leaf{} #Leaf{}} #Node{7 #Leaf{} #Leaf{}}})
 = #Refl{}
 
 // Test: Merging trees with custom functions for single-tree nodes
-T6 : (E/Equal _ (BT/merge _ _ _ (λx (U32/add x 1)) (λx (U32/mul x 2)) U32/add #Node{3 #Leaf{} #Node{2 #Leaf{} #Leaf{}}} #Node{1 #Node{4 #Leaf{} #Leaf{}} #Leaf{}}) #Node{4 #Node{8 #Leaf{} #Leaf{}} #Node{3 #Leaf{} #Leaf{}}})
+T6 
+: (E/Equal _ (BT/merge _ _ _ (λx (U32/add x 1)) (λx (U32/mul x 2)) U32/add #Node{3 #Leaf{} #Node{2 #Leaf{} #Leaf{}}} #Node{1 #Node{4 #Leaf{} #Leaf{}} #Leaf{}}) #Node{4 #Node{8 #Leaf{} #Leaf{}} #Node{3 #Leaf{} #Leaf{}}})
 = #Refl{}
 
 // Test: Merge trees with different types
-T7 : (E/Equal _ (BT/merge _ _ _ (λx (B/if N/Nat x 1 0)) (F/id _) (λx λy (B/if N/Nat x (U32/add y 1) y)) #Node{#True{} #Leaf{} #Leaf{}} #Node{5 #Leaf{} #Leaf{}}) #Node{6 #Leaf{} #Leaf{}})
+T7 
+: (E/Equal _ (BT/merge _ _ _ (λx (B/if N/Nat x 1 0)) (F/id _) (λx λy (B/if N/Nat x (U32/add y 1) y)) #Node{#True{} #Leaf{} #Leaf{}} #Node{5 #Leaf{} #Leaf{}}) #Node{6 #Leaf{} #Leaf{}})
 = #Refl{}
