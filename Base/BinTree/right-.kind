@@ -1,0 +1,55 @@
+use Base/BinTree/ as BT/
+use Base/Maybe/ as M/
+use Base/Equal/ as E/
+use Base/Nat/ as N/
+
+// Test: Right of a leaf is None.
+T0
+: (E/Equal
+    (M/Maybe (BT/BinTree N/Nat))
+    (BT/right N/Nat #Leaf{})
+    (#None{}))
+= #Refl{}
+
+// Test: Right of a node with right child returns Some of that child.
+T1
+: (E/Equal
+    (M/Maybe (BT/BinTree N/Nat))
+    (BT/right N/Nat #Node{#Succ{#Zero{}} #Leaf{} #Node{#Succ{#Succ{#Succ{#Zero{}}}} #Leaf{} #Leaf{}}})
+    (#Some{#Node{#Succ{#Succ{#Succ{#Zero{}}}} #Leaf{} #Leaf{}}}))
+= #Refl{}
+
+// Test: Right of a node with only left child still returns Some leaf for right.
+T2
+: (E/Equal
+    (M/Maybe (BT/BinTree N/Nat))
+    (BT/right N/Nat #Node{#Succ{#Zero{}} #Node{#Succ{#Succ{#Zero{}}} #Leaf{} #Leaf{}} #Leaf{}})
+    (#Some{#Leaf{}}))
+= #Refl{}
+
+// Test: Right of a complex tree returns the correct right subtree.
+T3
+: (E/Equal
+    (M/Maybe (BT/BinTree N/Nat))
+    (BT/right N/Nat #Node{#Succ{#Zero{}}
+      #Node{#Succ{#Succ{#Zero{}}} #Leaf{} #Leaf{}}
+      #Node{#Succ{#Succ{#Succ{#Zero{}}}}
+        #Node{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}} #Leaf{} #Leaf{}}
+        #Node{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}} #Leaf{} #Leaf{}}
+      }
+    })
+    (#Some{      
+			#Node{#Succ{#Succ{#Succ{#Zero{}}}}
+        #Node{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}} #Leaf{} #Leaf{}}
+        #Node{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}} #Leaf{} #Leaf{}}
+      }}
+    ))
+= #Refl{}
+
+// Test: Right of a single node tree with no children returns Some leaf.
+T4
+: (E/Equal
+    (M/Maybe (BT/BinTree N/Nat))
+    (BT/right N/Nat #Node{#Succ{#Zero{}} #Leaf{} #Leaf{}})
+    (#Some{#Leaf{}}))
+= #Refl{}
