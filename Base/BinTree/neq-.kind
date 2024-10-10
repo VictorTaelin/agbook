@@ -1,7 +1,7 @@
 use Base/BinTree/ as BT/
 use Base/Bool/ as B/
 use Base/Equal/ as E/
-use Base/Nat/Trait as NT/
+use Base/Nat/Trait/ as NT/
 
 // Test: Inequality of two different simple trees
 T0 : (E/Equal B/Bool (BT/neq N/Nat NT/Eq (#Node{#Succ{#Zero{}} #Leaf{} #Leaf{}}) (#Node{#Succ{#Succ{#Zero{}}} #Leaf{} #Leaf{}})) #True{})
