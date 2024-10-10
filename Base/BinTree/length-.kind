@@ -1,0 +1,51 @@
+use Base/BinTree/ as BT/
+use Base/Nat/ as N/
+use Base/Equal/ as E/
+
+// Test: Length of an empty tree is zero
+T0
+: (E/Equal N/Nat (BT/length _ #Leaf{}) #Zero{})
+= #Refl{}
+
+// Test: Length of a single node tree is one
+T1
+: (E/Equal N/Nat (BT/length _ (#Node{#Succ{#Zero{}} #Leaf{} #Leaf{}})) #Succ{#Zero{}})
+= #Refl{}
+
+// Test: Length of a tree with three nodes
+T2
+: (E/Equal
+    N/Nat
+    (BT/length _
+      (#Node{
+        #Succ{#Zero{}}
+        (#Node{#Succ{#Succ{#Zero{}}} #Leaf{} #Leaf{}})
+        #Leaf{}
+      })
+    )
+    #Succ{#Succ{#Zero{}}}
+  )
+= #Refl{}
+
+// Test: Length of a balanced tree with seven nodes
+T3
+: (E/Equal
+    N/Nat
+    (BT/length _
+      (#Node{
+        #Succ{#Zero{}}
+        (#Node{
+          #Succ{#Succ{#Zero{}}}
+          (#Node{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}} #Leaf{} #Leaf{}})
+          (#Node{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}} #Leaf{} #Leaf{}})
+        })
+        (#Node{
+          #Succ{#Succ{#Succ{#Zero{}}}}
+          (#Node{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}} #Leaf{} #Leaf{}})
+          (#Node{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}} #Leaf{} #Leaf{}})
+        })
+      })
+    )
+    #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}
+  )
+= #Refl{}

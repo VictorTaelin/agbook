@@ -1,0 +1,16 @@
+use Base/BinTree/ as BT/
+use Base/Nat/ as N/
+
+// Calculates the number of nodes in a binary tree.
+// - 1st: The type of elements stored in the tree.
+// - 2nd: The binary tree to count.
+// = The total number of nodes in the tree.
+BT/length
+: ∀(A: *)
+  ∀(t: (BT/BinTree A))
+  N/Nat
+= λA λ{
+  #Leaf: #Zero{}
+  #Node: λt.val λt.lft λt.rgt
+    #Succ{(N/add (BT/length A t.lft) (BT/length A t.rgt))}
+}
