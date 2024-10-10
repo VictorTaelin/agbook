@@ -7,15 +7,11 @@ open import Base.List.List
 open import Base.List.foldl
 open import Base.Pair.Pair
 open import Base.Maybe.Maybe
-
--- Applies a single effect to the state
-apply-effect : ∀ {S : Set} → S → EffectType S → S
-apply-effect state (R , effect) = do
-  let (new-state , _) = effect state
-  new-state
+import UG.SIPD.Effect.apply as Effect
+open import UG.SIPD.State.State
 
 -- Applies all effects of a skill to the state
-apply : ∀ {S : Set} → Skill S → S → S
+apply : Skill State → State → State
 apply skill state = 
-  foldl apply-effect state (Skill.effects skill)
+  foldl Effect.apply state (Skill.effects skill)
 
