@@ -1,0 +1,19 @@
+use Base/BinTree/ as BT/
+use Base/Equal/ as E/
+use Base/Nat/ as N/
+use Base/String/ as S/
+
+// Test: leaf creates an empty tree
+T0
+: (E/Equal (BT/BinTree N/Nat) (BT/leaf N/Nat) #Leaf{})
+= #Refl{}
+
+// Test: leaf is polymorphic
+T1
+: (E/Equal (BT/BinTree N/Nat) (BT/leaf N/Nat) #Leaf{})
+= #Refl{}
+
+// Test: leaf {String} is equivalent to Leaf
+T2
+: (E/Equal (BT/BinTree S/String) (BT/leaf S/String) #Leaf{})
+= #Refl{}

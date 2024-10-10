@@ -1,0 +1,9 @@
+use Base/BinTree/ as BT/
+
+// Creates a leaf node (empty tree).
+// - 1st: The type of values stored in the tree.
+// = An empty tree (leaf node).
+BT/leaf
+: ∀(A: *)
+  (BT/BinTree A)
+= λA #Leaf{}
