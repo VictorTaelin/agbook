@@ -1,0 +1,17 @@
+use Base/BinTree/ as BT/
+use Base/Nat/ as N/
+
+// Calculates the sum of all values in a tree of natural numbers.
+// - 1st: The tree to sum.
+// = The sum of all values in the tree.
+BT/sum
+: ∀(t: (BT/BinTree N/Nat))
+  N/Nat
+= λ{
+  #Leaf:
+    #Zero{}
+  #Node: λt.val λt.lft λt.rgt
+    let lft_sum = (BT/sum t.lft)
+    let rgt_sum = (BT/sum t.rgt)
+    (N/add t.val (N/add lft_sum rgt_sum))
+}
