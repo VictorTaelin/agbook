@@ -1,0 +1,95 @@
+use Base/BinTree/ as BT/
+use Base/Nat/ as N/
+use Base/Equal/ as E/
+
+// Test cases for BinTree match function
+
+// Counts the number of nodes in a binary tree
+count-nodes
+: ∀(A: *)
+  ∀(tree: (BT/BinTree A))
+  N/Nat
+= λA λtree
+  (BT/match A (λx N/Nat) #Zero{} (λval λlft λrgt λl λr #Succ{(N/add l r)}) tree)
+
+// Test: Counting nodes
+T0
+: (E/Equal
+    N/Nat
+    (count-nodes
+      N/Nat
+      (#Node{
+        #Zero{}
+        (#Node{#Zero{} #Leaf{} #Leaf{}})
+        (#Node{#Zero{} #Leaf{} (#Node{#Zero{} #Leaf{} #Leaf{}})})
+      }))
+    #Succ{#Succ{#Succ{#Succ{#Zero{}}}}}
+  )
+= #Refl{}
+
+// Calculates the depth of a binary tree
+tree-depth
+: ∀(A: *)
+  ∀(tree: (BT/BinTree A))
+  N/Nat
+= λA λtree
+  (BT/match A (λx N/Nat) #Zero{} (λval λlft λrgt λl λr #Succ{(N/max l r)}) tree)
+
+// Test: Tree depth
+T1
+: (E/Equal
+    N/Nat
+    (tree-depth
+      N/Nat
+      (#Node{
+        #Zero{}
+        (#Node{#Zero{} #Leaf{} #Leaf{}})
+        (#Node{#Zero{} #Leaf{} (#Node{#Zero{} #Leaf{} #Leaf{}})})
+      }))
+    #Succ{#Succ{#Succ{#Zero{}}}}
+  )
+= #Refl{}
+
+// Counts the number of leaves in a binary tree
+leaf-count
+: ∀(A: *)
+  ∀(tree: (BT/BinTree A))
+  N/Nat
+= λA λtree
+  (BT/match A (λx N/Nat) #Succ{#Zero{}} (λval λlft λrgt λl λr (N/add l r)) tree)
+
+// Test: Leaf count
+T2
+: (E/Equal
+    N/Nat
+    (leaf-count
+      N/Nat
+      (#Node{
+        #Zero{}
+        (#Node{#Zero{} #Leaf{} #Leaf{}})
+        (#Node{#Zero{} #Leaf{} (#Node{#Zero{} #Leaf{} #Leaf{}})})
+      }))
+    #Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}
+  )
+= #Refl{}
+
+// Sums all values in a binary tree of natural numbers
+sum-tree
+: ∀(tree: (BT/BinTree N/Nat))
+  N/Nat
+= λtree
+  (BT/match N/Nat (λx N/Nat) #Zero{} (λval λlft λrgt λl λr (N/add val (N/add l r))) tree)
+
+// Test: Sum of values (for Nat trees)
+T3
+: (E/Equal
+    N/Nat
+    (sum-tree
+      (#Node{
+        #Succ{#Succ{#Zero{}}}
+        (#Node{#Succ{#Zero{}} #Leaf{} #Leaf{}})
+        (#Node{#Succ{#Succ{#Succ{#Zero{}}}} #Leaf{} #Leaf{}})
+      }))
+    #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}
+  )
+= #Refl{}

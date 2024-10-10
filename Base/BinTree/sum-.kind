@@ -45,26 +45,15 @@ T4
     #Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Succ{#Zero{}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}})
 = #Refl{}
 
-// // Test: Equivalence of sum and sum
-// T5
-// : ∀(t: (BT/BinTree N/Nat))
-//   (E/Equal N/Nat (BT/sum t) (BT/sum t))
-// = λt
-//   (BT/match _ λx λl λr
-//     (E/Equal N/Nat (BT/sum t) (BT/sum t))
-//     #Refl{}
-//     λx λl λr λl.ind λr.ind #Refl{})
-//   t
-
 // Test: Sum of a tree with zero and small numbers
-T6
+T5
 : (E/Equal N/Nat
     (BT/sum (#Node{#Zero{} (#Node{#Succ{#Zero{}} #Leaf{} #Leaf{}}) (#Node{#Succ{#Succ{#Zero{}}} #Leaf{} #Leaf{}})}))
     #Succ{#Succ{#Succ{#Zero{}}}})
 = #Refl{}
 
 // Test: Sum of a tree with repeated values
-T7
+T6
 : (E/Equal N/Nat
     (BT/sum (#Node{#Succ{#Zero{}}
               (#Node{#Succ{#Zero{}}

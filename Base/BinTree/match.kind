@@ -1,0 +1,31 @@
+use Base/BinTree/ as BT/
+
+// Dependent eliminator for binary trees.
+// - A: The type of elements in the tree.
+// - P: The motive (type family) for the elimination.
+// - leaf: The result for the leaf case.
+// - node: The function to apply for the node case.
+// - tree: The tree to eliminate (scrutinee).
+// = The result of the elimination, whose type depends on the input tree.
+BT/match
+: ∀(A: *)
+  ∀(P: ∀(tree: (BT/BinTree A)) *)
+  ∀(leaf: (P #Leaf{}))
+  ∀(node: ∀(val: A)
+          ∀(lft: (BT/BinTree A))
+          ∀(rgt: (BT/BinTree A))
+          ∀(p_lft: (P lft))
+          ∀(p_rgt: (P rgt))
+          (P (#Node{val lft rgt})))
+  ∀(tree: (BT/BinTree A))
+  (P tree)
+= λA λP λleaf λnode λ{
+  #Leaf: leaf
+  #Node: λtree.val λtree.lft λtree.rgt
+    (node
+      tree.val
+      tree.lft
+      tree.rgt
+      (BT/match A P leaf node tree.lft)
+      (BT/match A P leaf node tree.rgt))
+}
